@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import plus from './assets/plus.png'
-import { useNavigate } from 'react-router-dom';
+
 import { useState, useEffect} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 

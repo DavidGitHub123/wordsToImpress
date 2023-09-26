@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import { useNavigate } from 'react-router-dom';
+
 
 
 export default function FlashCards() {
