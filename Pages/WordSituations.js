@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
-
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../components/HomeButton';
 
 
-export default function WordSituations() {
-  const navigate = useNavigate()
+export default function WordSituations({ navigation }) {
 
   const AppButton = ({ onPress, icon, title, backgroundColor }) => (
     <View style={style.appButtonContainer}>
@@ -21,99 +21,128 @@ export default function WordSituations() {
   );
 
   return (
-    <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
+    <LinearGradient
+        colors={["#0047ab", "#4169e1"]}
+        start={[0.1, 1]}
+        opacity={.95}
+        >
 
-    <View style={style.body}>
+      <View style={style.page}>
 
       <View>
         <Text style={style.header}>Word Situations</Text>
       </View>
       
-        <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Boss}"/>
-          </Pressable>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Business}"/>
-          </Pressable>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Dinner Party}"/>
-          </Pressable>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Getting A Raise}"/>
-          </Pressable>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{In Court}"/>
-          </Pressable>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Job Interview}"/>
-          </Pressable>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Meeting Inlaws}"/>
-          </Pressable>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Negotiations}"/>
-          </Pressable>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Politics}"/>
-          </Pressable>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{SpeedingTicket}"/>
-          </Pressable>
+        <View style={style.section}>
+
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Boss"
+          onPress={() => navigation.navigate('WS_Boss')}
+          />
+        </Pressable>
+
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Business"
+          onPress={() => navigation.navigate('WS_Business')}
+          />
+        </Pressable>
+
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Dinner Party"
+          onPress={() => navigation.navigate('WS_DinnerParty')}
+          />
+        </Pressable>
+
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Getting A Raise"
+          onPress={() => navigation.navigate('WS_GettingRaise')}
+          />
+        </Pressable>
+
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="In Court"
+          onPress={() => navigation.navigate('WS_InCourt')}
+          />
+        </Pressable>
+
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Job Interview"
+          onPress={() => navigation.navigate('WS_JobInterview')}
+          />
+        </Pressable>
+
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Meeting Inlaws"
+          onPress={() => navigation.navigate('WS_MeetingInLaws')}
+          />
+        </Pressable>
+
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Negotiations"
+          onPress={() => navigation.navigate('WS_Negotiations')}
+          />
+        </Pressable>
+
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Politics"
+          onPress={() => navigation.navigate('WS_Politics')}
+          />
+        </Pressable>
+
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="SpeedingTicket"
+          onPress={() => navigation.navigate('WS_SpeedingTicket')}
+          />
+        </Pressable>
         </View>
 
         <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
+          <HomeButton navigation={navigation}/>
         </View>
 
-   </View>
-  </ScrollView>
-  </SafeAreaView>
+        </View>
+        </LinearGradient>
+    </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
-  },
-
-  flex: {
-    display: 'flex',
-    fontSize: 10
+  page: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 50,
   },
 
   header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
+    fontSize: 30,
+    color: '#f0f8ff',
+    fontWeight: '800',
   },
 
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
+  section: {
+    paddingVertical: 30,
   },
+
   appButton: {
-    padding: 12,
+    paddingHorizontal: 70,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
+
   appButtonText: {
-    fontSize: 17,
+    fontSize: 20,
+    color: '#fff'
   },
+
   appButtonContainer: {
     paddingVertical: 10,
-    paddingHorizontal: 12,
+    paddingHorizontal: 0,
+    width: 300
   },
+
 })
-
-
 

@@ -1,12 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, FlatList, Text, View, Button } from 'react-native';
-
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { LinearGradient } from "expo-linear-gradient";
 
-
-export default function WS_JobInterview() {
-  const navigate = useNavigate()
+export default function WS_JobInterview({ navigation }) {
   
     const AppButton = ({ onPress, icon, title, backgroundColor }) => (
       <View style={style.appButtonContainer}>
@@ -24,105 +22,141 @@ export default function WS_JobInterview() {
   const [show, setShow] = useState(true);
 
   return (
-    <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
+    <LinearGradient
+        colors={["#0047ab", "#4169e1"]}
+        start={[0.1, 1]}
+        opacity={.95}
+        >
+
+      <View style={style.page}>
 
         <View>
           <Text style={style.header}>Word Situations: Boss</Text>
         <View>
 
         <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
+          <Pressable style={style.appButton} >
               { show == true ? <Baccalaureate /> : null }
-              <AppButton icon="sign-in" title="Baccalaureate" />
+              <AppButton icon="sign-in" title="Baccalaureate" 
+              onPress={()=>setShow(!show)} 
+              />
           </Pressable>
         </View>
 
         <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
+          <Pressable style={style.appButton} >
               { show == true ? <Cavalier /> : null }
-              <AppButton icon="sign-in" title="Cavalier" />
+              <AppButton icon="sign-in" title="Cavalier" 
+              onPress={()=>setShow(!show)} 
+              />
           </Pressable>
         </View>
 
         <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
+          <Pressable style={style.appButton} >
               { show == true ? <Deprecate /> : null }
-              <AppButton icon="sign-in" title="Deprecate" />
+              <AppButton icon="sign-in" title="Deprecate" 
+              onPress={()=>setShow(!show)} 
+              />
           </Pressable>
         </View>
 
         <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
+          <Pressable style={style.appButton} >
               { show == true ? <Ebullience /> : null }
-              <AppButton icon="sign-in" title="Ebullience" />
+              <AppButton icon="sign-in" title="Ebullience" 
+              onPress={()=>setShow(!show)} 
+              />
           </Pressable>
         </View>
 
         <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
+          <Pressable style={style.appButton} >
               { show == true ? <FaitAccompli /> : null }
-              <AppButton icon="sign-in" title="Fait accompli" />
+              <AppButton icon="sign-in" title="Fait accompli" 
+              onPress={()=>setShow(!show)} 
+              />
           </Pressable>
         </View> 
 
         <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
+          <Pressable style={style.appButton} >
               { show == true ? <Galvanize /> : null }
-              <AppButton icon="sign-in" title="Galvanize" />
+              <AppButton icon="sign-in" title="Galvanize" 
+              onPress={()=>setShow(!show)} 
+              />
           </Pressable>
         </View>
 
         <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
+          <Pressable style={style.appButton} >
               { show == true ? <Imbue /> : null }
-              <AppButton icon="sign-in" title="Imbue" />
+              <AppButton icon="sign-in" title="Imbue" 
+              onPress={()=>setShow(!show)} 
+              />
           </Pressable>
         </View>
          
         <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
+          <Pressable style={style.appButton} >
               { show == true ? <Jejune /> : null }
-              <AppButton icon="sign-in" title="Jejune" />
+              <AppButton icon="sign-in" title="Jejune" 
+              onPress={()=>setShow(!show)} 
+              />
           </Pressable>
         </View>
             
         <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
+          <Pressable style={style.appButton} >
               { show == true ? <Kudos /> : null }
-              <AppButton icon="sign-in" title="Kudos" />
+              <AppButton icon="sign-in" title="Kudos" 
+              onPress={()=>setShow(!show)} 
+              />
           </Pressable>
         </View> 
             
         <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
+          <Pressable style={style.appButton} >
               { show == true ? <Utilitarian /> : null }
-              <AppButton icon="sign-in" title="Utilitarian" />
+              <AppButton icon="sign-in" title="Utilitarian" 
+              onPress={()=>setShow(!show)} 
+              />
           </Pressable>
         </View>
            
         <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Home}"/>
+          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
+            <AppButton icon="sign-in" title="Home"/>
           </Pressable>
         </View>
 
         </View>
         </View>
+        </View>
+        </LinearGradient>
     </ScrollView>
     </SafeAreaView>
   );
 }
 
+// Add function add to my list
 
 const Baccalaureate = () => {
   return(
   <View>
-      <Text>Pron. bak-uh-LOR-ee-it</Text>
-      <Text>Def: Degree awarded upon completion of an undergraduate program.</Text>
-      <Text>I received my </Text><Text style={StyleSheet=bold}>baccalaureate</Text><Text> in 2020 from Brandeis University.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
+      <Text style={style.text}>Pron. bak-uh-LOR-ee-it</Text>
+      <Text style={style.text}>Def: Degree awarded upon completion of an undergraduate program.</Text>
+      <Text>
+        <Text style={style.text}>I received my </Text>
+        <Text style={style.bold}>baccalaureate</Text>
+        <Text style={style.text}> in 2020 from Brandeis University.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
       </Pressable>
   </View>
       )
@@ -131,11 +165,17 @@ const Baccalaureate = () => {
 const Cavalier = () => {
   return(
   <View>
-      <Text>Pron. 'KAV-uh-leer</Text>
-      <Text>Def: "Unconcerned with what is considered important.</Text>
-      <Text>I warned the CEO about his </Text><Text style={StyleSheet=bold}>cavalier</Text><Text> attitude towards financial management and it turned out to be the company's undoing.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
+      <Text style={style.text}>Pron. 'KAV-uh-leer</Text>
+      <Text style={style.text}>Def: "Unconcerned with what is considered important.</Text>
+      <Text>
+        <Text style={style.text}>I warned the CEO about his </Text>
+        <Text style={style.bold}>cavalier</Text>
+        <Text style={style.text}> attitude towards financial management and company suffered.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
       </Pressable>
   </View>
       )
@@ -144,11 +184,17 @@ const Cavalier = () => {
 const Deprecate = () => {
   return(
   <View>
-      <Text>Pron. DEP-ri-cate</Text>
-      <Text>Def: To belittle; disapproval of something.</Text>
-      <Text>Jean insisted her report contained not a single </Text><Text style={StyleSheet=bold}>deprecating</Text><Text> word, but it was easy enough to read between the lines.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
+      <Text style={style.text}>Pron. DEP-ri-cate</Text>
+      <Text style={style.text}>Def: To belittle; disapproval of something.</Text>
+      <Text>
+        <Text style={style.text}>Jean insisted her report contained not a single </Text>
+        <Text style={style.bold}>deprecating</Text>
+        <Text  style={style.text}> word, but I could read between the lines.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
       </Pressable>
   </View>
       )
@@ -157,11 +203,17 @@ const Deprecate = () => {
 const Ebullience = () => {
   return(
   <View>
-      <Text>Pron. ih-BOLL-yunce</Text>
-      <Text>Def: The quality of being optimistic in speech or writing.</Text>
-      <Text>Sharon's</Text><Text style={StyleSheet=bold}>ebullience</Text><Text> as she delivered the presentation really set her apart from the others.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
+      <Text style={style.text}>Pron. ih-BOLL-yunce</Text>
+      <Text style={style.text}>Def: The quality of being optimistic in speech or writing.</Text>
+      <Text>
+        <Text style={style.text}>Sharon's</Text>
+        <Text style={style.bold}>ebullience</Text>
+        <Text style={style.text}> as she delivered the presentation set her apart.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
       </Pressable>
   </View>
       )
@@ -170,11 +222,17 @@ const Ebullience = () => {
 const FaitAccompli= () => {
   return(
   <View>
-      <Text>Pron. FATE uh-com-PLEE</Text>
-      <Text>Def: 'Something undertaken and already concluded.</Text>
-      <Text>I did sign the contract without the CEO's consent and presented it to him as a </Text><Text style={StyleSheet=bold}>fait accompli</Text><Text>, and he promoted me to vice president.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
+      <Text style={style.text}>Pron. FATE uh-com-PLEE</Text>
+      <Text style={style.text}>Def: 'Something undertaken and already concluded.</Text>
+      <Text>
+        <Text style={style.text}>I did sign the contract without the CEO's consent as it was a </Text>
+        <Text style={style.bold}>fait accompli</Text>
+        <Text style={style.text}>, and he promoted me to vice president.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
       </Pressable>
   </View>
       )
@@ -183,11 +241,17 @@ const FaitAccompli= () => {
 const Galvanize = () => {
   return(
   <View>
-      <Text>Pron. GAL-vuh-nize</Text>
-      <Text>Def: 'To arouse or summon to action.</Text>
-      <Text>The letter had a </Text><Text style={StyleSheet=bold}>galvanizing</Text><Text> effect on Madge, and she started working harder.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
+      <Text style={style.text}>Pron. GAL-vuh-nize</Text>
+      <Text style={style.text}>Def: 'To arouse or summon to action.</Text>
+      <Text>
+        <Text style={style.text}>The letter had a </Text>
+        <Text style={style.bold}>galvanizing</Text>
+        <Text style={style.text}> effect on Madge, and she started working harder.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
       </Pressable>
   </View>
       )
@@ -196,11 +260,17 @@ const Galvanize = () => {
 const Imbue = () => {
   return(
   <View>
-      <Text>Pron. im-BYOO</Text>
-      <Text>Def: To saturate or flow throughout by absorption.</Text>
-      <Text>My philosophy on management is </Text><Text style={StyleSheet=bold}>imbued</Text><Text> with ideas from Wharton Business School.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
+      <Text style={style.text}>Pron. im-BYOO</Text>
+      <Text style={style.text}>Def: To saturate or flow throughout by absorption.</Text>
+      <Text>
+        <Text style={style.text}>My philosophy on management is </Text>
+        <Text style={style.bold}>imbued</Text>
+        <Text style={style.text}> with ideas from Wharton Business School.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
       </Pressable>
   </View>
       )
@@ -209,11 +279,17 @@ const Imbue = () => {
 const Jejune = () => {
   return(
   <View>
-      <Text>Pron. ji-JUNE</Text>
-      <Text>Def: Dull or lackluster.</Text>
-      <Text>I find your competition's advertising campaign </Text><Text style={StyleSheet=bold}>jejune</Text><Text>, slow, and off message.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
+      <Text style={style.text}>Pron. ji-JUNE</Text>
+      <Text style={style.text}>Def: Dull or lackluster.</Text>
+      <Text>
+        <Text style={style.text}>I find your advertising campaign </Text>
+        <Text style={style.bold}>jejune</Text>
+        <Text style={style.text}>, slow, and off message.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
       </Pressable>
   </View>
       )
@@ -222,11 +298,17 @@ const Jejune = () => {
 const Kudos = () => {
   return(
   <View>
-      <Text>Pron. KOO_dos</Text>
-      <Text>Def: Honor or accolades.</Text>
-      <Text style={StyleSheet=bold}>Kudos</Text><Text> to you and your company for such a profitable fourth quarter.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
+      <Text style={style.text}>Pron. KOO_dos</Text>
+      <Text style={style.text}>Def: Honor or accolades.</Text>
+      <Text>
+        <Text style={style.text}>Big</Text>
+        <Text style={style.bold}>Kudos</Text>
+        <Text style={style.text}> to you for such a profitable fourth quarter.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
       </Pressable>
   </View>
       )
@@ -235,11 +317,17 @@ const Kudos = () => {
 const Utilitarian = () => {
   return(
   <View>
-      <Text>Pron. yoo-til-ih-TARE-ee-un</Text>
-      <Text>Def: Concern for the practical or useful.</Text>
-      <Text>Take the </Text><Text style={StyleSheet=bold}>utilitarian</Text><Text> approach to the problem and scrap the old focus on efficiencies.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
+      <Text style={style.text}>Pron. yoo-til-ih-TARE-ee-un</Text>
+      <Text style={style.text}>Def: Concern for the practical or useful.</Text>
+      <Text>
+        <Text style={style.text}>Take the </Text>
+        <Text style={style.bold}>utilitarian</Text>
+        <Text style={style.text}> approach and scrap the old focus on efficiencies.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
       </Pressable>
   </View>
       )
@@ -247,45 +335,48 @@ const Utilitarian = () => {
 
 
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
-  },
-
-  flex: {
-    display: 'flex',
-    fontSize: 10
+  page: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 50,
   },
 
   header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
+    fontSize: 30,
+    color: '#f0f8ff',
+    fontWeight: '800',
   },
 
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
+  text: {
+    fontSize: 15,
+    color: '#f0f8ff',
+    paddingHorizontal: 20,
   },
-  appButton: {
-    padding: 12,
-  },
-  appButtonText: {
+
+  bold: {
     fontSize: 17,
+    color:  '#800080',
+    // fontWeight: 800,
   },
+
+  appButton: {
+    paddingHorizontal: 70,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  appButtonText: {
+    fontSize: 20,
+    color: '#fff'
+  },
+
   appButtonContainer: {
     paddingVertical: 10,
-    paddingHorizontal: 12,
+    paddingHorizontal: 0,
+    width: 300
   },
 
-  })
-
+})
 
 

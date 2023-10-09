@@ -1,15 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import data from './data.js';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
+// import data from './data.js';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { LinearGradient } from "expo-linear-gradient";
 
 
+export default function Word({ navigation }) {
 
-export default function Word() {
-  const navigate = useNavigate()
+  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+    <View style={style.appButtonContainer}>
+      <Icon.Button
+        name={icon}
+        backgroundColor={backgroundColor}
+        onPress={onPress}
+        style={style.appButton}
+      >
+        <Text style={style.appButtonText}>{title}</Text>
+      </Icon.Button>
+    </View>
+  );
+  
   return (
-    <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
-    <View style={style.body}>
+    <LinearGradient
+        colors={["#0047ab", "#4169e1"]}
+        start={[0.1, 1]}
+        opacity={.95}
+      >
 
       <View>
         <Text>{props.word}</Text>
@@ -21,69 +39,64 @@ export default function Word() {
       </View>
 
         <View>
-          <Pressable onPress={onPress=()=> {}}>
-              <AppButton icon="sign-in" title="{Add to My List}"/>
-          </Pressable>
+          <Pressable style={style.appButton} >
+            <AppButton icon="sign-in" title="Add to My List"
+              onPress={() => navigation.navigate('BuildMyList')}
+              />
+          </Pressable> 
+        </View>
+        
+        <View>
+          <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Schedule Quizzes"
+            onPress={() => navigation.navigate('ScheduleQuizzes')}
+            />
+          </Pressable> 
+
+          <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="{Challenge Friend}"
+            onPress={() => navigation.navigate('ChallengeFriend')}
+            />
+          </Pressable> 
         </View>
 
         <View>
-          <Pressable onPress={onPress=()=> {}}>
-              <AppButton icon="sign-in" title="{Schedule Quizzes}"/>
-          </Pressable>
-          <Pressable onPress={onPress=()=> {}}>
-              <AppButton icon="sign-in" title="{ChallengeFriend}"/>
-          </Pressable>
+          <Pressable style={style.appButton} >
+            <AppButton icon="sign-in" title="Home"
+            onPress={() => navigation.navigate('Home')}
+            />
+          </Pressable> 
         </View>
 
-        <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
-        </View>
 
-    </View>
+        </LinearGradient>
     </ScrollView>
     </SafeAreaView>
   );
 }
 
+
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
+  page: {
+    paddingVertical: 100,
+    paddingHorizontal: 0,
   },
 
-  flex: {
-    display: 'flex',
-    fontSize: 10
-  },
-
-  header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
-  },
-
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
-  },
   appButton: {
-    padding: 12,
+    paddingHorizontal: 70,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
+
   appButtonText: {
-    fontSize: 17,
+    fontSize: 20,
+    color: '#fff'
   },
+
   appButtonContainer: {
     paddingVertical: 10,
-    paddingHorizontal: 12,
-},
+    paddingHorizontal: 0,
+  },
 
 })
+

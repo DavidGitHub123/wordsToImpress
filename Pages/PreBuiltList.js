@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
-
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { LinearGradient } from "expo-linear-gradient";
 
-export default function PreBuiltList() {
-    const navigate = useNavigate()
+
+export default function PreBuiltList({ navigation }) {
 
     const AppButton = ({ onPress, icon, title, backgroundColor }) => (
         <View style={style.appButtonContainer}>
@@ -20,288 +20,399 @@ export default function PreBuiltList() {
         </View>
       );
 
-    const [show, setShow] = useState(true);
-
+      const [show, setShow] = useState(true);
 
   return (
-    <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
-    <View style={style.body}>
+    <LinearGradient
+        colors={["#0047ab", "#4169e1"]}
+        start={[0.1, 1]}
+        opacity={.95}
+        >
+
+        <View style={style.page}>
 
         <View>
             <Text style={style.header}>Pre-Built List of 50</Text>
-            <Text>Add these words to create a quick starter list</Text>
+            <Text style={style.text}>Add these words to create a quick starter list</Text>
         </View>
 
         <View>
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Abstemious /> : null }
-                <AppButton icon="sign-in" title="Abstemious" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Abstemious /> : null }
+                <AppButton icon="sign-in" title="Abstemious"
+                    onPress={()=>setShow(!show)}    
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Acrid /> : null }
-                <AppButton icon="sign-in" title="Acrid" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Acrid /> : null }
+                <AppButton icon="sign-in" title="Acrid" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Acrimonious /> : null }
-                <AppButton icon="sign-in" title="Acrimonious" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Acrimonious /> : null }
+                <AppButton icon="sign-in" title="Acrimonious" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Adamant /> : null }
-                <AppButton icon="sign-in" title="Adamant" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Adamant /> : null }
+                <AppButton icon="sign-in" title="Adamant" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Agnosticism /> : null }
-                <AppButton icon="sign-in" title="Agnosticism" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Agnosticism /> : null }
+                <AppButton icon="sign-in" title="Agnosticism"
+
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Animosity /> : null }
-                <AppButton icon="sign-in" title="Animosity" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Animosity /> : null }
+                <AppButton icon="sign-in" title="Animosity"
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Anomaly /> : null }
-                <AppButton icon="sign-in" title="Anomaly" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Anomaly /> : null }
+                <AppButton icon="sign-in" title="Anomaly" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Ardent /> : null }
-                <AppButton icon="sign-in" title="Ardent" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Ardent /> : null }
+                <AppButton icon="sign-in" title="Ardent" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Ascetic /> : null }
-                <AppButton icon="sign-in" title="Ascetic" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Ascetic /> : null }
+                <AppButton icon="sign-in" title="Ascetic" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Avarice /> : null }
-                <AppButton icon="sign-in" title="Avarice" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Avarice /> : null }
+                <AppButton icon="sign-in" title="Avarice" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Biogenesis /> : null }
-                <AppButton icon="sign-in" title="Biogenesis" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Biogenesis /> : null }
+                <AppButton icon="sign-in" title="Biogenesis" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Bovine /> : null }
-                <AppButton icon="sign-in" title="Bovine" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Bovine /> : null }
+                <AppButton icon="sign-in" title="Bovine" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Cohort /> : null }
-                <AppButton icon="sign-in" title="Cohort" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Cohort /> : null }
+                <AppButton icon="sign-in" title="Cohort" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Deplorable /> : null }
-                <AppButton icon="sign-in" title="Deplorable" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Deplorable /> : null }
+                <AppButton icon="sign-in" title="Deplorable" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Dexterous /> : null }
-                <AppButton icon="sign-in" title="Dexterous" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Dexterous /> : null }
+                <AppButton icon="sign-in" title="Dexterous" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Discomfit /> : null }
-                <AppButton icon="sign-in" title="Discomfit" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Discomfit /> : null }
+                <AppButton icon="sign-in" title="Discomfit" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
                     
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Disparate /> : null }
-                <AppButton icon="sign-in" title="Disparate" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Disparate /> : null }
+                <AppButton icon="sign-in" title="Disparate" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
                 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Emphatic /> : null }
-                <AppButton icon="sign-in" title="Emphatic" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Emphatic /> : null }
+                <AppButton icon="sign-in" title="Emphatic" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
                 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Emulate /> : null }
-                <AppButton icon="sign-in" title="Emulate" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Emulate /> : null }
+                <AppButton icon="sign-in" title="Emulate" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
                 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Enigmatic /> : null }
-                <AppButton icon="sign-in" title="Enigmatic" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Enigmatic /> : null }
+                <AppButton icon="sign-in" title="Enigmatic" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Erratic /> : null }
-                <AppButton icon="sign-in" title="Erratic" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Erratic /> : null }
+                <AppButton icon="sign-in" title="Erratic" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Eurdite /> : null }
-                <AppButton icon="sign-in" title="Eurdite" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Eurdite /> : null }
+                <AppButton icon="sign-in" title="Eurdite" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable> 
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Espouse /> : null }
-                <AppButton icon="sign-in" title="Espouse" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Espouse /> : null }
+                <AppButton icon="sign-in" title="Espouse" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>    
      
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Febrile /> : null }
-                <AppButton icon="sign-in" title="Febrile" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Febrile /> : null }
+                <AppButton icon="sign-in" title="Febrile" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable> 
                 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Foray /> : null }
-                <AppButton icon="sign-in" title="Foray" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Foray /> : null }
+                <AppButton icon="sign-in" title="Foray" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable> 
                 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Grimace /> : null }
-                <AppButton icon="sign-in" title="Grimace" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Grimace /> : null }
+                <AppButton icon="sign-in" title="Grimace" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable> 
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Hubris /> : null }
-                <AppButton icon="sign-in" title="Hubris" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Hubris /> : null }
+                <AppButton icon="sign-in" title="Hubris" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable> 
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Impugn /> : null }
-                <AppButton icon="sign-in" title="Impugn" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Impugn /> : null }
+                <AppButton icon="sign-in" title="Impugn" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable> 
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Inane /> : null }
-                <AppButton icon="sign-in" title="Inane" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Inane /> : null }
+                <AppButton icon="sign-in" title="Inane" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>     
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Indelible /> : null }
-                <AppButton icon="sign-in" title="Indelible" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Indelible /> : null }
+                <AppButton icon="sign-in" title="Indelible" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable> 
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Intercession /> : null }
-                <AppButton icon="sign-in" title="Intercession" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Intercession /> : null }
+                <AppButton icon="sign-in" title="Intercession" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Jurisprudence /> : null }
-                <AppButton icon="sign-in" title="Jurisprudence" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Jurisprudence /> : null }
+                <AppButton icon="sign-in" title="Jurisprudence" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Livid /> : null }
-                <AppButton icon="sign-in" title="Livid" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Livid /> : null }
+                <AppButton icon="sign-in" title="Livid" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Mundane /> : null }
-                <AppButton icon="sign-in" title="Mundane" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Mundane /> : null }
+                <AppButton icon="sign-in" title="Mundane" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Myriad /> : null }
-                <AppButton icon="sign-in" title="Myriad" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Myriad /> : null }
+                <AppButton icon="sign-in" title="Myriad" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>     
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Ostracized /> : null }
-                <AppButton icon="sign-in" title="Ostracized" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Ostracized /> : null }
+                <AppButton icon="sign-in" title="Ostracized" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Pander /> : null }
-                <AppButton icon="sign-in" title="Pander" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Pander /> : null }
+                <AppButton icon="sign-in" title="Pander" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Paradox /> : null }
-                <AppButton icon="sign-in" title="Paradox" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Paradox /> : null }
+                <AppButton icon="sign-in" title="Paradox" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Perjure /> : null }
-                <AppButton icon="sign-in" title="Perjure" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Perjure /> : null }
+                <AppButton icon="sign-in" title="Perjure" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
                 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Pinnacle /> : null }
-                <AppButton icon="sign-in" title="Pinnacle" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Pinnacle /> : null }
+                <AppButton icon="sign-in" title="Pinnacle" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
                 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Placate /> : null }
-                <AppButton icon="sign-in" title="Placate" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Placate /> : null }
+                <AppButton icon="sign-in" title="Placate" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
                 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Protégé /> : null }
-                <AppButton icon="sign-in" title="Protégé" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Protégé /> : null }
+                <AppButton icon="sign-in" title="Protégé" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
                
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Provocative /> : null }
-                <AppButton icon="sign-in" title="Provocative" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Provocative /> : null }
+                <AppButton icon="sign-in" title="Provocative" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
                 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Renege /> : null }
-                <AppButton icon="sign-in" title="Renege" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Renege /> : null }
+                <AppButton icon="sign-in" title="Renege" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
                 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Reprobate /> : null }
-                <AppButton icon="sign-in" title="Reprobate" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Reprobate /> : null }
+                <AppButton icon="sign-in" title="Reprobate" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
                 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Rhetoric /> : null }
-                <AppButton icon="sign-in" title="Rhetoric" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Rhetoric /> : null }
+                <AppButton icon="sign-in" title="Rhetoric" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
                 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Stalemate /> : null }
-                <AppButton icon="sign-in" title="Stalemate" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Stalemate /> : null }
+                <AppButton icon="sign-in" title="Stalemate" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
                 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Vanguard /> : null }
-                <AppButton icon="sign-in" title="Vanguard" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Vanguard /> : null }
+                <AppButton icon="sign-in" title="Vanguard" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>
                 
-            <Pressable onPress={onPress=()=>setShow(!show)}>
-                { show == true ? <Vehement /> : null }
-                <AppButton icon="sign-in" title="Vehement" />
+            <Pressable style={style.appButton} >
+                { show === true ? <Vehement /> : null }
+                <AppButton icon="sign-in" title="Vehement" 
+                    onPress={()=>setShow(!show)}
+                />
             </Pressable>   
 
         </View>
 
         <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
+            <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
+               <AppButton icon="sign-in" title="Home"/>
+            </Pressable>
         </View>
 
-    </View>
+        </View>
+        </LinearGradient>
     </ScrollView>
     </SafeAreaView>
   );
 }
 
+ {/* Function to add to My List */}
 
 const Abstemious = () => {
     return(
     <View>
-        <Text>Pron. ab-STEE-me-us</Text>               
-        <Text>Def: Consuming food and rink in moderation.</Text>
-        <Text>Despite the hardships of his </Text><Text style={StyleSheet=bold}>abstemious</Text><Text> way of life, the monk radiated confidence knowing he had chosen the correct path.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. ab-STEE-me-us</Text>               
+        <Text style={style.text}>Def: Consuming food and rink in moderation.</Text>
+        <Text>
+            <Text style={style.text}>Despite the hardships of his </Text>
+            <Text style={style.bold}>abstemious</Text>
+            <Text style={style.text}> way of life, the monk radiated confidence knowing he had chosen the correct path.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -310,11 +421,17 @@ const Abstemious = () => {
 const Acrid  = () => {
     return(
     <View>
-        <Text>Pron. AK-rid  </Text>
-        <Text>Def: Biting or harsh in odor or taste.</Text>
-        <Text>Florence's </Text><Text style={StyleSheet=bold}>acrid</Text> <Text>remarks did not sit well with the Board of Directors.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. AK-rid  </Text>
+        <Text style={style.text}>Def: Biting or harsh in odor or taste.</Text>
+        <Text>
+            <Text style={style.text}>Florence's </Text>
+            <Text style={style.bold}>acrid</Text> 
+            <Text style={style.text}>remarks did not sit well with the Board of Directors.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -323,11 +440,17 @@ const Acrid  = () => {
 const Acrimonious =  () => {
     return(
     <View>
-        <Text>Pron. ak-ri-MO-nee-us</Text>
-        <Text>Def: Mean-spirited, bitter or ill-natured.</Text> 
-        <Text>Divorce is, we must remember, an expensive, emotionally devastating and </Text><Text style={StyleSheet=bold}>acrimonious </Text><Text>affair.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. ak-ri-MO-nee-us</Text>
+        <Text style={style.text}>Def: Mean-spirited, bitter or ill-natured.</Text> 
+        <Text>
+            <Text style={style.text}>Divorce is, we must remember, an expensive, emotionally devastating and </Text>
+            <Text style={style.bold}>acrimonious </Text>
+            <Text style={style.text}>affair.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -336,37 +459,54 @@ const Acrimonious =  () => {
 const Adamant = () => {
     return(
     <View>
-        <Text>Pron. AD-uh-munt</Text>
-        <Text>Def: Unwilling to submit; stubborn and unyielding.</Text>
-        <Text>Despite the objections, Robin and Tim were </Text><Text style={StyleSheet=bold}>adamant </Text><Text>about moving away from the town in which they had been raised.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. AD-uh-munt</Text>
+        <Text style={style.text}>Def: Unwilling to submit; stubborn and unyielding.</Text>
+        <Text>
+            <Text style={style.text}>Despite the objections, Robin and Tim were </Text>
+            <Text style={style.bold}>adamant </Text>
+            <Text style={style.text}>about moving away from the town in which they had been raised.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
 }
 
-const  Agnosticism = () => {
+const Agnosticism = () => {
     return(
     <View>
-        <Text>Pron. ag-NOS-ti-sihz-um</Text>
-        <Text>Def: Belief that it is impossible to know whether or not God exists.</Text>
-        <Text>Frank, who had been raised in a religious home, knew that it would hurt his parents to speak of his </Text><Text style={StyleSheet=bold}>agnosticism.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. ag-NOS-ti-sihz-um</Text>
+        <Text style={style.text}>Def: Belief that it is impossible to know whether or not God exists.</Text>
+        <Text>
+            <Text style={style.text}>Frank, who had been raised in a religious home, knew that it would hurt his parents to speak of his </Text>
+            <Text style={style.bold}>agnosticism.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
 }
 
-const  Animosity = () => {
+const Animosity = () => {
     return(
     <View>
-         <Text>Pron. an-ih-MOSS-it-tee</Text>
-        <Text>Def: Intense hostility toward a person or thing.</Text>
-        <Text>Clyde's first months on the job were fine, but after transferred he came to harbor real </Text><Text style={StyleSheet=bold}>animosity</Text><Text> toward his supervisor.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. an-ih-MOSS-it-tee</Text>
+        <Text style={style.text}>Def: Intense hostility toward a person or thing.</Text>
+        <Text>
+            <Text style={style.text}>Clyde's first months on the job were fine, but after transferred he came to harbor real </Text>
+            <Text style={style.bold}>animosity</Text>
+            <Text style={style.text}> toward his supervisor.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -375,11 +515,17 @@ const  Animosity = () => {
 const Anomaly = () => {
     return(
     <View>
-        <Text>Pron. uh-NOM-a-lee</Text>
-        <Text>Def: A deviation from established form.</Text>
-        <Text>Bill, who was raised in a family of avid golfers, is something of an </Text><Text style={StyleSheet=bold}>anomaly</Text><Text>: he thinks the sport is boring.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. uh-NOM-a-lee</Text>
+        <Text style={style.text}>Def: A deviation from established form.</Text>
+        <Text>
+            <Text style={style.text}>Bill, who was raised in a family of avid golfers, is something of an </Text>
+            <Text style={style.bold}>anomaly</Text>
+            <Text style={style.text}>: he thinks the sport is boring.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -388,24 +534,35 @@ const Anomaly = () => {
 const Ardent = () => {
     return(
     <View>
-        <Text>Pron. AR-dent</Text>
-        <Text>Def: Intense, passionate, devote; characterized by high emotion.</Text>
-        <Text>Barbara, an </Text><Text style={StyleSheet=bold}>ardent</Text><Text> stamp collector, has the most impressive collection of French stamps in the school.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. AR-dent</Text>
+        <Text style={style.text}>Def: Intense, passionate, devote; characterized by high emotion.</Text>
+        <Text>
+            <Text style={style.text}>Barbara, an </Text>
+            <Text style={style.bold}>ardent</Text>
+            <Text style={style.text}> stamp collector, has the most impressive collection of French stamps in the school.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
 }
 
-const  Ascetic = () => {
+const Ascetic = () => {
     return(
     <View>
-        <Text>Pron. uh-SET-ik</Text>
-        <Text>Def: A person who chooses a life of constant and strict self-denial.</Text>   
-        <Text>Based on your beer gut alone, I would never call you </Text><Text style={StyleSheet=bold}>ascetic.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. uh-SET-ik</Text>
+        <Text style={style.text}>Def: A person who chooses a life of constant and strict self-denial.</Text> 
+        <Text>  
+            <Text style={style.text}>Based on your beer gut alone, I would never call you </Text>
+            <Text style={style.bold}>ascetic.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -414,11 +571,17 @@ const  Ascetic = () => {
 const Avarice = () => {
     return(
     <View>
-        <Text>Pron. AV-er-iss</Text>
-        <Text>Def: Great desire for riches.</Text>  
-        <Text>Although Matthew was an extremely successful businessman, </Text><Text style={StyleSheet=bold}> avarice</Text><Text>  was certainly not in his nature.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. AV-er-iss</Text>
+        <Text style={style.text}>Def: Great desire for riches.</Text> 
+        <Text>
+            <Text style={style.text}>Although Matthew was an extremely successful businessman, </Text>
+            <Text style={style.bold}> avarice</Text>
+            <Text style={style.text}>  was certainly not in his nature.</Text>
+        </Text> 
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -427,11 +590,17 @@ const Avarice = () => {
 const Biogenesis = () => {
     return(
     <View>
-        <Text>Pron. bye-oh-JEN-ih-siss</Text>
-        <Text>Def: The process of life arising from other living things.</Text> 
-        <Text style={StyleSheet=bold}>Biogenesis</Text><Text> involves an unending regenerative cycle of life and death.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. bye-oh-JEN-ih-siss</Text>
+        <Text style={style.text}>Def: The process of life arising from other living things.</Text>
+        <Text>
+            <Text style={style.text}> New advances in</Text>
+            <Text style={style.bold}>Biogenesis</Text>
+            <Text style={style.text}> involves an unending regenerative cycle of life and death.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -440,11 +609,17 @@ const Biogenesis = () => {
 const Bovine = () => {
     return(
     <View>
-        <Text>Pron. BO-vine</Text>
-        <Text>Def: Dull, unresponsive or slow.</Text>
-        <Text>Are we to expect breakthroughs from such a </Text><Text style={StyleSheet=bold}>bovine</Text><Text> group of scientific followers?</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. BO-vine</Text>
+        <Text style={style.text}>Def: Dull, unresponsive or slow.</Text>
+        <Text>
+            <Text style={style.text}>Are we to expect breakthroughs from such a </Text>
+            <Text style={style.bold}>bovine</Text>
+            <Text style={style.text}> group of scientific followers?</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -453,11 +628,17 @@ const Bovine = () => {
 const Cohort = () => {
     return(
     <View>
-        <Text>Pron. KO-hort</Text>
-        <Text>Def: A companion with whom one is united through common experience.</Text>    
-        <Text>Because Mark and his </Text><Text style={StyleSheet=bold}> cohorts</Text><Text> had grown up together in the town, leaving for different colleges was quite difficult.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. KO-hort</Text>
+        <Text style={style.text}>Def: A companion with whom one is united through common experience.</Text>
+        <Text> 
+            <Text style={style.text}>Because Mark and his </Text>
+            <Text style={style.bold}> cohorts</Text>
+            <Text style={style.text}> had grown up together in the town, leaving for different colleges was quite difficult.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -466,11 +647,17 @@ const Cohort = () => {
 const Deplorable = () => {
     return(
     <View>
-        <Text>Pron. de-PLOR-uh-bull</Text>
-        <Text>Def: Extremely reproachful; worthy of censure.</Text>
-        <Text>Bill's spelling was </Text><Text style={StyleSheet=bold}>deplorable</Text><Text>; all his friends told him it was hopeless to pursue a career as a proofreader.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. de-PLOR-uh-bull</Text>
+        <Text style={style.text}>Def: Extremely reproachful; worthy of censure.</Text>
+        <Text>
+            <Text style={style.text}>Bill's spelling was </Text>
+            <Text style={style.bold}>deplorable</Text>
+            <Text style={style.text}>; all his friends told him it was hopeless to pursue a career as a proofreader.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -479,11 +666,17 @@ const Deplorable = () => {
 const Dexterous = () => {
     return(
     <View>
-        <Text>Pron. DEK-ster-uss</Text>
-        <Text>Def: Skillful.</Text> 
-        <Text>Byron proceeded a </Text><Text style={StyleSheet=bold}>dexterous</Text><Text> carpenter, making few errors even in his earliest days as an apprentice.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. DEK-ster-uss</Text>
+        <Text style={style.text}>Def: Skillful.</Text> 
+        <Text>
+            <Text style={style.text}>Byron proceeded a </Text>
+            <Text style={style.bold}>dexterous</Text>
+            <Text style={style.text}> carpenter, making few errors even in his earliest days as an apprentice.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -492,11 +685,17 @@ const Dexterous = () => {
 const Discomfit = () => {
     return(
     <View>
-        <Text>Pron. diss-KUMM-fit</Text>
-        <Text>Def: To cause to come into disorder.</Text>   
-        <Text>Fern's household was </Text><Text style={StyleSheet=bold}>discomfited </Text><Text> by the sudden, unannounced arrival of her relatives.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. diss-KUMM-fit</Text>
+        <Text style={style.text}>Def: To cause to come into disorder.</Text>
+        <Text> 
+            <Text style={style.text}>Fern's household was </Text>
+            <Text style={style.bold}>discomfited </Text>
+            <Text style={style.text}> by the sudden, unannounced arrival of her relatives.</Text>
+        </Text> 
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -505,11 +704,17 @@ const Discomfit = () => {
 const Disparate = () => {
     return(
     <View>
-        <Text>Pron. DISS-puh-rut</Text> 
-        <Text>Def: Utterly dissimilar.</Text>
-        <Text>After inviting his mother to live with him, Clark wondered how they would reconcile their </Text><Text style={StyleSheet=bold}>disparate</Text><Text> lifestyles.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. DISS-puh-rut</Text> 
+        <Text style={style.text}>Def: Utterly dissimilar.</Text>
+        <Text>
+            <Text style={style.text}>After inviting his mother to live with him, Clark wondered how they would reconcile their </Text>
+            <Text style={style.bold}>disparate</Text>
+            <Text style={style.text}> lifestyles.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -518,11 +723,17 @@ const Disparate = () => {
 const Emphatic = () => {
     return(
     <View>
-        <Text>Pron. em-FA-tik</Text>
-        <Text>Def: Highlighted; extremely expressive.</Text>    
-        <Text>Beth was </Text><Text style={StyleSheet=bold}>emphatic</Text><Text> about collecting the overdue invoice.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. em-FA-tik</Text>
+        <Text style={style.text}>Def: Highlighted; extremely expressive.</Text> 
+        <Text>  
+            <Text style={style.text}>Beth was </Text>
+            <Text style={style.bold}>emphatic</Text>
+            <Text style={style.text}> about collecting the overdue invoice.</Text>
+        </Text> 
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -531,11 +742,17 @@ const Emphatic = () => {
 const Emulate = () => {
     return(
     <View>
-        <Text>Pron. EM-yoo-late</Text>
-        <Text>Def: To strive to match or better by means of imitation.</Text>
-        <Text>David always felt that the key to his success was his decision to </Text><Text style={StyleSheet=bold}>emulate</Text><Text> in his professional and home life.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. EM-yoo-late</Text>
+        <Text style={style.text}>Def: To strive to match or better by means of imitation.</Text>
+        <Text>
+            <Text style={style.text}>David always felt that the key to his success was his decision to </Text>
+            <Text style={style.bold}>emulate</Text>
+            <Text style={style.text}> in his professional and home life.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -544,11 +761,17 @@ const Emulate = () => {
 const Enigmatic = () => {
     return(
     <View>
-        <Text>Pron. en-ig-MA-tick</Text>
-        <Text>Def: Reminiscent of an enigma; puzzling or perplexing.</Text> 
-        <Text>An </Text><Text style={StyleSheet=bold}>enigmatic</Text><Text> scrawl across the title sheet was the only clue to the works's authorship.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. en-ig-MA-tick</Text>
+        <Text style={style.text}>Def: Reminiscent of an enigmling or perplexing.</Text>
+        <Text>
+            <Text style={style.text}>An </Text>
+            <Text style={style.bold}>enigmatic</Text>
+            <Text style={style.text}> scrawl across the title sheet was the only clue to the works's authorship.</Text>
+        </Text> 
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -557,11 +780,17 @@ const Enigmatic = () => {
 const  Erratic = () => {
     return(
     <View>
-        <Text>Pron. ih-RAT-ik</Text>
-        <Text>Def: Inconsistent; lacking a set course.</Text>   
-        <Text>Elaine's </Text><Text style={StyleSheet=bold}>erratic</Text><Text>  writing style irritated her superiors, who had no time to puzzle over an indecipherable and meandering memo.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. ih-RAT-ik</Text>
+        <Text style={style.text}>Def: Inconsistent; lacking a set course.</Text>
+        <Text>
+            <Text style={style.text}>Elaine's </Text>
+            <Text style={style.bold}>erratic</Text>
+            <Text style={style.text}>  writing style irritated her superiors, who had no time le over an indecipherable and meandering memo.</Text>
+        </Text> 
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -570,11 +799,17 @@ const  Erratic = () => {
 const Eurdite = () => {
     return(
     <View>
-        <Text>Pron. AIR-yoo-dite</Text>
-        <Text>Def: Possessing extensive knowledge on a given subject.</Text>    
-        <Text>Borges is nothing if not </Text><Text style={StyleSheet=bold}>erudite</Text><Text>; it is clear from his short stories that he is a man on immense learning.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. AIR-yoo-dite</Text>
+        <Text style={style.text}>Def: Possessing extensive knowledge on a given subject.</Text>
+        <Text> 
+            <Text style={style.text}>Borges is nothing if not </Text>
+            <Text style={style.bold}>erudite</Text>
+            <Text style={style.text}>; it is clear from his short stories that he is a man on immense learning.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -583,11 +818,16 @@ const Eurdite = () => {
 const Espouse = () => {
     return(
     <View>
-        <Text>Pron. ih-SPOWZ</Text>
-        <Text>Def: To advocate as though one's own.</Text>  
-        <Text>Do you have any idea how complicated it would be to implement the plans you are </Text><Text style={StyleSheet=bold}>espousing?</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. ih-SPOWZ</Text>
+        <Text style={style.text}>Def: To advocate as though one's own.</Text>
+        <Text>
+            <Text style={style.text}>Do you have any idea how complicated it would be to implement the plans you are </Text>
+            <Text style={style.bold}>espousing?</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -596,11 +836,17 @@ const Espouse = () => {
 const Febrile = () => {
     return(
     <View>
-        <Text>Pron. FEE-brul</Text>
-        <Text>Def: Feverish.</Text>
-        <Text>Due to Mother's current </Text><Text style={StyleSheet=bold}>febrile</Text><Text> condition, we are uneasy about her accompanying us on the trip.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. FEE-brul</Text>
+        <Text style={style.text}>Def: Feverish.</Text>
+        <Text>
+            <Text style={style.text}>Due to Mother's current </Text>
+            <Text style={style.bold}>febrile</Text>
+            <Text style={style.text}> condition, we are uneasy about her accompanying us on the trip.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -609,11 +855,17 @@ const Febrile = () => {
 const Foray = () => {
     return(
     <View>
-        <Text>Pron. FORE-ay</Text>
-        <Text>Def: An initial try.</Text>
-        <Text>Elizabeth's </Text><Text style={StyleSheet=bold}>foray</Text><Text> into the world of publishing was not without disheartening moments.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. FORE-ay</Text>
+        <Text style={style.text}>Def: An initial try.</Text>
+        <Text>
+            <Text style={style.text}>Elizabeth's </Text>
+            <Text style={style.bold}>foray</Text>
+            <Text style={style.text}> into the world of publishing was not without disheartening moments.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -622,11 +874,17 @@ const Foray = () => {
 const  Grimace = () => {
     return(
     <View>
-        <Text>Pron. GRIM-ace</Text>
-        <Text>Def: A facial expression showing disgust or discomfort.</Text>    
-        <Text>Billy </Text><Text style={StyleSheet=bold}>grimaced</Text><Text> at the thought of eating his vegetables.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. GRIM-ace</Text>
+        <Text style={style.text}>Def: A facial expression showing disgust or discomfort.</Text>
+        <Text>   
+            <Text style={style.text}>Billy </Text>
+            <Text style={style.bold}>grimaced</Text>
+            <Text> at the thought of eating his vegetables.</Text>
+        </Text> 
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -635,11 +893,17 @@ const  Grimace = () => {
 const Hubris = () => {
     return(
     <View>
-        <Text>Pron. HYOO-briss</Text>
-        <Text>Def: Excessive pride.</Text>
-        <Text>Colin may have begun as a pleasant clerk, but by the time he took over the company he showed signs of </Text><Text style={StyleSheet=bold}>hubris</Text><Text> that would accompany his downfall.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. HYOO-briss</Text>
+        <Text style={style.text}>Def: Excessive pride.</Text>
+        <Text>
+            <Text style={style.text}>Colin may have begun as a pleasant clerk, but later he showed signs of </Text>
+            <Text style={style.bold}>hubris</Text>
+            <Text style={style.text}> that would accompany his downfall.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -648,11 +912,17 @@ const Hubris = () => {
 const Impugn = () => {
     return(
     <View>
-        <Text>Pron. im-PYOON</Text>
-        <Text>Def: To brand as false in argument or discourse.</Text>
-        <Text>Are you attempting to </Text><Text style={StyleSheet=bold}>impugn</Text><Text> my husband's version of the attack?</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. im-PYOON</Text>
+        <Text style={style.text}>Def: To brand as false in argument or discourse.</Text>
+        <Text>
+            <Text style={style.text}>Are you attempting to </Text>
+            <Text style={style.bold}>impugn</Text>
+            <Text style={style.text}> my husband's version of the attack?</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -661,11 +931,17 @@ const Impugn = () => {
 const Inane = () => {
     return(
     <View>
-        <Text>Pron. in-ANE</Text>
-        <Text>Def: Pointless or lacking in substance.</Text>
-        <Text>Among other </Text><Text style={StyleSheet=bold}>inane</Text><Text> suggestions, Jeff proposed painting the lunchroom in a polka-dot pattern.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. in-ANE</Text>
+        <Text style={style.text}>Def: Pointless or lacking in substance.</Text>
+        <Text>
+            <Text style={style.text}>Among other </Text>
+            <Text style={style.bold}>inane</Text>
+            <Text> suggestions, Jeff proposed painting the lunchroom in a polka-dot pattern.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -674,11 +950,17 @@ const Inane = () => {
 const Indelible = () => {
     return(
     <View>
-        <Text>Pron. in-DELL-ih-bul</Text>
-        <Text>Def: Unremovable.</Text>  
-        <Text>Carl leaves an </Text><Text style={StyleSheet=bold}>indelible</Text><Text> and lasting impression on those he meets.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. in-DELL-ih-bul</Text>
+        <Text style={style.text}>Def: Unremovable.</Text>
+        <Text> 
+            <Text style={style.text}>Carl leaves an </Text>
+            <Text style={style.bold}>indelible</Text>
+            <Text style={style.text}> and lasting impression on those he meets.</Text>
+        </Text> 
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -687,11 +969,17 @@ const Indelible = () => {
 const Intercession = () => {
     return(
     <View>
-        <Text>Pron. in-ter-SESH-un</Text>
-        <Text>Def: An instance of pleading in favor of another person or party.</Text>  
-        <Text>France's </Text><Text style={StyleSheet=bold}>intercession</Text><Text> is credited by many with bringing the crisis to a peaceful conclusion.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. in-ter-SESH-un</Text>
+        <Text style={style.text}>Def: An instance of pleading in favor of another person or party.</Text>
+        <Text>  
+            <Text style={style.text}>France's </Text>
+            <Text style={style.bold}>intercession</Text>
+            <Text style={style.text}> is credited by many with bringing the crisis to a peaceful conclusion.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -700,11 +988,17 @@ const Intercession = () => {
 const Jurisprudence = () => {
     return(
     <View>
-        <Text>Pron. joor-iss-PROO-dnce</Text>
-        <Text>Def: The science of law.</Text>
-        <Text>Casey's study of </Text><Text style={StyleSheet=bold}>jurisprudence</Text><Text> lasted for three long years.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. joor-iss-PROO-dnce</Text>
+        <Text style={style.text}>Def: The science of law.</Text>
+        <Text>
+            <Text style={style.text}>Casey's study of </Text>
+            <Text style={style.bold}>jurisprudence</Text>
+            <Text style={style.text}> lasted for three long years.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -713,11 +1007,17 @@ const Jurisprudence = () => {
 const Livid = () => {
     return(
     <View>
-        <Text>Pron. LIH-vid</Text>  
-        <Text>Def: Extremely angry; infuriated.</Text>
-        <Text>Caroline was </Text><Text style={StyleSheet=bold}>livid</Text><Text> after she realized she had been swindled.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. LIH-vid</Text>  
+        <Text style={style.text}>Def: Extremely angry; infuriated.</Text>
+        <Text>
+            <Text style={style.text}>Caroline was </Text>
+            <Text style={style.bold}>livid</Text>
+            <Text style={style.text}> after she realized she had been swindled.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -726,11 +1026,17 @@ const Livid = () => {
 const Mundane = () => {
     return(
     <View>
-        <Text>Pron. mun-DANE</Text>
-        <Text>Def: Ordinary or everyday.</Text> 
-        <Text>Everett's concerns were </Text><Text style={StyleSheet=bold}>mundane</Text><Text> enough: keep a roof over his head, track down the occasional meal.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. mun-DANE</Text>
+        <Text style={style.text}>Def: Ordinary or everyday.</Text>
+        <Text>
+            <Text style={style.text}>Everett's concerns were </Text>
+            <Text style={style.bold}>mundane</Text>
+            <Text style={style.text}> enough: keep a roof over his head, track down the occasional meal.</Text>
+        </Text> 
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -739,11 +1045,17 @@ const Mundane = () => {
 const Myriad = () => {
     return(
     <View>
-        <Text>Pron. MEER-ee-ud</Text>
-        <Text>Def: Innumerable, many of something.</Text>
-        <Text>Edward's responsibilities were </Text><Text style={StyleSheet=bold}>myriad</Text><Text>, but his authority was almost nonexistent.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. MEER-ee-ud</Text>
+        <Text style={style.text}>Def: Innumerable, many of something.</Text>
+        <Text>
+            <Text style={style.text}>Edward's responsibilities were </Text>
+            <Text style={style.bold}>myriad</Text>
+            <Text style={style.text}>, but his authority was almost nonexistent.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -752,11 +1064,17 @@ const Myriad = () => {
 const Ostracized = () => {
     return(
     <View>
-        <Text>Pron. OSS-truh-sized</Text>   
-        <Text>Def: To exclude or banish.</Text> 
-        <Text>Desmond was </Text><Text style={StyleSheet=bold}>ostracized</Text><Text> from the group after the negative publicity his mother received.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. OSS-truh-sized</Text>   
+        <Text style={style.text}>Def: To exclude or banish.</Text>
+        <Text>
+            <Text style={style.text}>Desmond was </Text>
+            <Text style={style.bold}>ostracized</Text>
+            <Text style={style.text}> from the group after the negative publicity his mother received.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -765,11 +1083,17 @@ const Ostracized = () => {
 const Pander = () => {
     return(
     <View>
-        <Text>Pron. PAN-der</Text>  
-        <Text>Def: To appeal to the worst in someone.</Text>    
-        <Text>Despite accusations of </Text><Text style={StyleSheet=bold}>pandering</Text><Text> to the voters, the candidate insisted on repeatedly reusing the issue of his opponent's extramarital affair.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. PAN-der</Text>  
+        <Text style={style.text}>Def: To appeal to the worst in someone.</Text>
+        <Text>  
+            <Text style={style.text}>Despite accusations of </Text>
+            <Text style={style.bold}>pandering</Text>
+            <Text style={style.text}> , the candidate repeatedly discussed his opponent's extramarital affair.</Text>
+        </Text>  
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -778,11 +1102,17 @@ const Pander = () => {
 const Paradox = () => {
     return(
     <View>
-        <Text>Pron. PAIR-uh-doks</Text>
-        <Text>Def: A seemingly self-contradictory statement that expresses a valid idea.</Text> 
-        <Text>Before announcing the grades, Mrs. Miller reminded her students of the </Text><Text style={StyleSheet=bold}>paradox</Text><Text> that a teacher often must be cruel in order to be kind.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. PAIR-uh-doks</Text>
+        <Text style={style.text}>Def: A seemingly self-contradictory statement that expresses a valid idea.</Text> 
+        <Text>
+            <Text style={style.text}>Before announcing grades, Mrs. Miller reminded her students of the </Text>
+            <Text style={style.bold}>paradox</Text>
+            <Text style={style.text}> that a teacher must be cruel to be kind.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -791,11 +1121,17 @@ const Paradox = () => {
 const Perjure = () => {
     return(
     <View>
-        <Text>Pron. PURR-jer</Text>
-        <Text>Def: To lie or give false and misleading testimony.</Text>
-        <Text>Although Mr. Fritter was not convicted, he may serve time in prison for having </Text><Text style={StyleSheet=bold}>perjured</Text><Text> himself during the trial.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. PURR-jer</Text>
+        <Text style={style.text}>Def: To lie or give false and misleading testimony.</Text>
+        <Text>
+            <Text style={style.text}>Although not convicted, Bill may serve time in prison for having </Text>
+            <Text style={style.bold}>perjured</Text>
+            <Text style={style.text}> himself during the trial.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -804,11 +1140,17 @@ const Perjure = () => {
 const Pinnacle = () => {
     return(
     <View>
-        <Text>Pron. PIN-uh-kul</Text>
-        <Text>Def: The topmost point.</Text>
-        <Text>Fred reached the </Text><Text style={StyleSheet=bold}>pinnacle</Text><Text> of his profession when he was named chairman of the history department.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. PIN-uh-kul</Text>
+        <Text style={style.text}>Def: The topmost point.</Text>
+        <Text>
+            <Text style={style.text}>Fred reached the </Text>
+            <Text style={style.bold}>pinnacle</Text>
+            <Text style={style.text}> of his profession when he was named chairman of the department.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -817,11 +1159,17 @@ const Pinnacle = () => {
 const Placate = () => {
     return(
     <View>
-         <Text>Pron. PLAY-kate</Text>
-        <Text>Def: To appease.</Text>   
-        <Text>Although the company did not raise wages, it did make an effort to </Text><Text style={StyleSheet=bold}>placate</Text><Text> the union by extending afternoon coffee break.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. PLAY-kate</Text>
+        <Text style={style.text}>Def: To appease.</Text>
+        <Text>
+            <Text style={style.text}>Although the company did not raise wages, it </Text>
+            <Text style={style.bold}>placated</Text>
+            <Text style={style.text}> the union by extending afternoon coffee break.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -830,11 +1178,17 @@ const Placate = () => {
 const Protégé = () => {
     return(
     <View>
-        <Text>Pron. PRO-tuh-zhay</Text>
-        <Text>Def: Someone aided by another influential person.</Text>
-        <Text>Everyone expected Dean to name Bill (his </Text><Text style={StyleSheet=bold}>protégé</Text><Text>) to the new post.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. PRO-tuh-zhay</Text>
+        <Text style={style.text}>Def: Someone aided by another influential person.</Text>
+        <Text>
+            <Text style={style.text}>Everyone expected Dean to name Bill (his </Text>
+            <Text style={style.bold}>protégé</Text>
+            <Text style={style.text}>) to the new post.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -843,11 +1197,17 @@ const Protégé = () => {
 const Provocative = () => {
     return(
     <View>
-        <Text>Pron. pruh-VOK-uh-tive</Text> 
-        <Text>Def: Stimulating or combative.</Text>
-        <Text>Despite Ed's </Text><Text style={StyleSheet=bold}>provocative</Text><Text> attitude, or perhaps because of it, he won the respect of his supervisor on the creative team.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. pruh-VOK-uh-tive</Text> 
+        <Text style={style.text}>Def: Stimulating or combative.</Text>
+        <Text>
+            <Text style={style.text}>Despite Ed's </Text>
+            <Text style={style.bold}>provocative</Text>
+            <Text> attitude, he won the respect of the creative team.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -856,11 +1216,17 @@ const Provocative = () => {
 const Rectify = () => {
     return(
     <View>
-        <Text>Pron. REK-tih-fie</Text>  
-        <Text>Def: To put right.</Text> 
-        <Text>Ellen </Text><Text style={StyleSheet=bold}>rectified</Text><Text> her previous mistakes and filed the report.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. REK-tih-fie</Text>  
+        <Text style={style.text}>Def: To put right.</Text>
+        <Text>
+            <Text style={style.text}>Ellen </Text>
+            <Text style={style.bold}>rectified</Text>
+            <Text style={style.text}> her previous mistakes and filed the report.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -869,11 +1235,17 @@ const Rectify = () => {
 const Renege = () => {
     return(
     <View>
-        <Text>Pron. ri-NEG</Text>
-        <Text>Def: To go back on one's word.</Text> 
-        <Text>Dalton was supposed to have been named vice president, but Peterson </Text><Text style={StyleSheet=bold}>reneged</Text><Text> on the deal after assuming control.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. ri-NEG</Text>
+        <Text style={style.text}>Def: To go back on one's word.</Text>
+        <Text>
+            <Text style={style.text}>Dalton was to be named vice president, but Peterson </Text>
+            <Text style={style.bold}>reneged</Text>
+            <Text style={style.text}> on the deal after assuming control.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -882,11 +1254,17 @@ const Renege = () => {
 const Reprobate = () => {
     return(
     <View>
-        <Text>Pron. REP-ruh-bate</Text>
-        <Text>Def: An unprincipled person.</Text>
-        <Text>From that day on Johnson was considered a </Text><Text style={StyleSheet=bold}>reprobate</Text><Text>, and was shunned in the town.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. REP-ruh-bate</Text>
+        <Text style={style.text}>Def: An unprincipled person.</Text>
+        <Text>
+            <Text style={style.text}>From that day Johnson was considered a </Text>
+            <Text style={style.bold}>reprobate</Text>
+            <Text style={style.text}>, and shunned in the town.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -895,11 +1273,17 @@ const Reprobate = () => {
 const Rhetoric = () => {
     return(
     <View>
-        <Text>Pron. RET-ur-ik</Text>
-        <Text>Def: The art of the effective use of language.</Text>
-        <Text>Are we ever going to move from empty </Text><Text style={StyleSheet=bold}>rhetoric</Text><Text> to a sound plan of action on this issue.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. RET-ur-ik</Text>
+        <Text style={style.text}>Def: The art of the effective use of language.</Text>
+        <Text>
+            <Text style={style.text}>Are we ever going to move from empty </Text>
+            <Text style={style.bold}>rhetoric</Text>
+            <Text style={style.text}> to a sound plan of action on this issue.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -908,11 +1292,16 @@ const Rhetoric = () => {
 const Stalemate = () => {
     return(
     <View>
-        <Text>Pron. STALE-mate</Text>
-        <Text>Def: In chess in which there is no winner; neither side can make a legal move.</Text> 
-        <Text>Although the war had been waged for over three years, all the generals had to show for it was a bloody </Text><Text style={StyleSheet=bold}>stalemate.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. STALE-mate</Text>
+        <Text style={style.text}>Def: In chess, in which there is no winner.</Text>
+        <Text> 
+            <Text style={style.text}>The war was long, all the generals had to show for it was a bloody </Text>
+            <Text style={style.bold}>stalemate.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -920,11 +1309,17 @@ const Stalemate = () => {
 const Vanguard = () => {
     return(
     <View>
-        <Text>Pron. VAN-gard</Text>
-        <Text>Def: The most advanced groups (of a military force of social movement).</Text>
-        <Text>Dali was the first to admit that he took financial advantages of his position at the </Text><Text style={StyleSheet=bold}>vanguard</Text><Text> of the Surrealist movement.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. VAN-gard</Text>
+        <Text style={style.text}>Def: The most advanced groups (of a military force of social movement).</Text>
+        <Text>
+            <Text style={style.text}>Dali admitted he took financial advantage of his position at the </Text>
+            <Text style={style.bold}>vanguard</Text>
+            <Text style={style.text}> of the Surrealist movement.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
@@ -933,54 +1328,64 @@ const Vanguard = () => {
 const Vehement = () => {
     return(
     <View>
-        <Text>Pron. VEE-uh-ment</Text>
-        <Text>Def: Strongly felt or marked by high emotion.</Text>
-        <Text>Congress overrode the President's veto after members  openly expressed their </Text><Text style={StyleSheet=bold}>vehement</Text><Text> dissatisfaction with Administration policy.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
+        <Text style={style.text}>Pron. VEE-uh-ment</Text>
+        <Text style={style.text}>Def: Strongly felt or marked by high emotion.</Text>
+        <Text>
+            <Text style={style.text}>Congress expressed their </Text>
+            <Text style={style.bold}>vehement</Text>
+            <Text style={style.text}> dissatisfaction with Administration policy.</Text>
+        </Text>
+        <Pressable style={style.appButton} >
+          <AppButton icon="sign-in" title="Add to My List"
+          onPress={() => navigation.navigate('')}
+          />
         </Pressable>
     </View>
         )
 }
 
-
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
-  },
+    page: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 50,
+    },
 
-  flex: {
-    display: 'flex',
-    fontSize: 10
-  },
+    header: {
+        fontSize: 30,
+        color: '#f0f8ff',
+        fontWeight: '800',
+    },
 
-  header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
-  },
+    text: {
+        fontSize: 15,
+        color: '#f0f8ff',
+        paddingHorizontal: 20,
+    },
 
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
-  },
-  appButton: {
-    padding: 12,
-  },
-  appButtonText: {
-    fontSize: 17,
-  },
-  appButtonContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-  },
-
-})
+    bold: {
+        fontSize: 17,
+        color:  '#800080',
+        // fontWeight: 800,
+      },
+  
+    appButton: {
+      paddingHorizontal: 70,
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+  
+    appButtonText: {
+      fontSize: 20,
+      color: '#fff'
+    },
+  
+    appButtonContainer: {
+      paddingVertical: 10,
+      paddingHorizontal: 0,
+      width: 300
+    },
+  
+  })
+  

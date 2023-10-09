@@ -1,12 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, FlatList, Text, View, Button } from 'react-native';
-
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, Button, FlatList } from 'react-native';
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
 
-
-export default function WS_Boss() {
-    const navigate = useNavigate()
+export default function WS_Boss({ navigation }) {
 
     const AppButton = ({ onPress, icon, title, backgroundColor }) => (
         <View style={style.appButtonContainer}>
@@ -21,267 +20,443 @@ export default function WS_Boss() {
         </View>
       );
 
-    const [show, setShow] = useState(true);
+      const [elementVisible, setElementVisible] = useState(null);
 
   return (
-    <SafeAreaView style={style.body}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <View style={style.body}>
+    <SafeAreaView style={style.container}>
+    <ScrollView alwaysBounceHorizontal={true}>
+    <LinearGradient
+        colors={["#0047ab", "#4169e1"]}
+        start={[0.1, 1]}
+        opacity={.95}
+        >
+
+        <View style={style.page}>
 
         <View>
             <Text style={style.header}>Word Situations: Boss</Text>
-        </View>  
+        </View> 
 
+        <View style={style.container}>
             <View>
-                <Pressable onPress={onPress=()=>setShow(!show)}>
-                    { show == true ? <Abberation /> : null }
-                    <AppButton icon="sign-in" title="Aberration" />
-                </Pressable>
+                <Button 
+                    style={style.word}
+                    title={elementVisible ? 'Abberation' : 'Abberation'}
+                    onPress={() => setElementVisible((<View
+                        style={style.textTopMargin}
+                        title={''}
+                        onPress={() => setElementVisible(null)}
+                        >
+                            <View style={style.textBottomMargin}>
+                                <Text style={style.text}>Pron. ab-uh-RAY-shun</Text>
+                                <Text style={style.text}>Def: Diverging from an expected course.</Text>
+                            </View>  
+                            <Text>
+                                <Text style={style.text}>Sally's poor work was hardly grounds for dismissal; it was an </Text>
+                                <Text style={style.bold}>aberration </Text>
+                                <Text style={style.text}>caused by problems at home.</Text>
+                            </Text>
+                            <Pressable style={style.appButton} >
+                            <AppButton  icon="sign-in" title="Add to My List"
+                            onPress={() => navigation.navigate('')}
+                            />
+                            </Pressable>
+                        </View>  ))}
+                />
             </View>
-
             <View>
-                <Pressable onPress={onPress=()=>setShow(!show)}>
-                    { show == true ? <Beleaguered /> : null }
-                    <AppButton icon="sign-in" title="Beleaguered"/>
-                </Pressable>
+                {elementVisible}
             </View>
+        </View>
 
+        <View style={style.container}>
             <View>
-                <Pressable onPress={onPress=()=>setShow(!show)}>
-                    { show == true ? <Debacle /> : null }
-                    <AppButton icon="sign-in" title="Debacle"/>
-                </Pressable>
+                <Button 
+                    style={style.word}
+                    title={elementVisible ? 'Beleaguered' : 'Beleaguered'}
+                    onPress={() => setElementVisible((
+                        <View
+                        style={style.textTopMargin}
+                        title={elementVisible ? '' : ''}
+                        onPress={() => setElementVisible(null)}
+                        >
+                        <View style={style.textBottomMargin}>
+                            <Text style={style.text}>Pron. 'bee-LEEG-erd'</Text>
+                            <Text style={style.text}>Def. Embattled; constantly confronted with obstacles.</Text>
+                        </View>
+                            <Text>
+                                <Text style={style.text}>The</Text>
+                                <Text style={style.bold}> beleaguered</Text>
+                                <Text style={style.text}> marketing team even considered direct mail, but vowed to fight on. </Text>
+                            </Text>
+                            <Pressable style={style.appButton} >
+                            <AppButton icon="sign-in" title="Add to My List"
+                            onPress={() => navigation.navigate('')}
+                            />
+                            </Pressable>
+                        </View>         
+                    ))}
+                />
             </View>
-
             <View>
-                <Pressable onPress={onPress=()=>setShow(!show)}>
-                    { show == true ? <Echelon /> : null }
-                    <AppButton icon="sign-in" title="Echelon"/>
-                </Pressable>
+                
             </View>
+        </View>
 
+        <View style={style.container}>
             <View>
-                <Pressable onPress={onPress=()=>setShow(!show)}>
-                    { show == true ? <Garner /> : null }
-                    <AppButton icon="sign-in" title="Garner"/>
-                </Pressable>
-            </View> 
+                <Button 
+                    style={style.word}
+                    title={elementVisible ? 'Debacle' : 'Debacle'}
+                    onPress={() => setElementVisible(!elementVisible)}
+                />
+            </View>
+            <View>
+                {elementVisible ? (
+                    <View
+                    style={style.textTopMargin}
+                    title={elementVisible ? '' : ''}
+                    onPress={() => setElementVisible(!elementVisible)}
+                    >
+                    <View style={style.textBottomMargin}>
+                        <Text style={style.text}>Pron. dih-BA-kull</Text>
+                        <Text style={style.text}>Def: Utter collapse or rout.</Text>
+                    </View>     
+                    <Text>
+                        <Text style={style.text}>The initiative seemed promising, but turned out to be George's </Text>
+                        <Text style={style.bold}>debacle.</Text>
+                    </Text>
+                    <Pressable style={style.appButton} >
+                    <AppButton icon="sign-in" title="Add to My List"
+                    onPress={() => navigation.navigate('')}
+                    />
+                    </Pressable>
+                    </View>         
+                ) : null}
+            </View>
+            </View>
+            
+        <View style={style.container}>
+            <View>
+                <Button 
+                    style={style.word}
+                    title={elementVisible ? 'Echelon' : 'Echelon'}
+                    onPress={() => setElementVisible(!elementVisible)}
+                />
+            </View>
+            <View>
+                {elementVisible ? (
+                    <View
+                    style={style.textTopMargin}
+                    title={elementVisible ? '' : ''}
+                    onPress={() => setElementVisible(!elementVisible)}
+                    >
+                    <View style={style.textBottomMargin}>
+                        <Text style={style.text}>Pron. ESH-uh-lom</Text>
+                        <Text style={style.text}>Def: A level of command.</Text>
+                    </View>
+                    <Text>
+                        <Text style={style.text}>Tom's proposal eventually won the approval of the company's upper </Text> 
+                        <Text style={style.bold}>echelon</Text>
+                        <Text style={style.text}> of leaders.</Text>
+                    </Text>
+                        <Pressable style={style.appButton} >
+                        <AppButton icon="sign-in" title="Add to My List"
+                        onPress={() => navigation.navigate('')}
+                        />
+                        </Pressable>
+                    </View>   
+                ) : null}
+            </View>
+        </View>
 
+        <View style={style.container}>
             <View>
-                <Pressable onPress={onPress=()=>setShow(!show)}>
-                    { show == true ? <Ignoble /> : null }
-                    <AppButton icon="sign-in" title="Ignoble"/>
-                </Pressable>
-            </View> 
+                <Button 
+                    style={style.word}
+                    title={elementVisible ? 'Garner' : 'Garner'}
+                    onPress={() => setElementVisible(!elementVisible)}
+                />
+            </View>
+            <View>
+                {elementVisible ? (
+                    <View
+                    style={style.textTopMargin}
+                    title={elementVisible ? '' : ''}
+                    onPress={() => setElementVisible(!elementVisible)}
+                    >
+                    <View style={style.textBottomMargin}>
+                        <Text style={style.text}>Pron. GAR-ner</Text>
+                        <Text style={style.text}>Def: To gather or accumulate.</Text>
+                    </View>
+                        <Text>
+                            <Text style={style.text}>William </Text>
+                            <Text style={style.bold}>garnered</Text>
+                            <Text style={style.text}> much praise for his management skills.</Text>
+                        </Text>
+                        <Pressable style={style.appButton} >
+                        <AppButton icon="sign-in" title="Add to My List"
+                        onPress={() => navigation.navigate('')}
+                        />
+                        </Pressable>
+                    </View>         
+                ) : null}
+            </View>
+        </View>
 
+        <View style={style.container}>
             <View>
-                <Pressable onPress={onPress=()=>setShow(!show)}>
-                    { show == true ? <Jettison /> : null }
-                    <AppButton icon="sign-in" title="Jettison"/>
-                </Pressable>
-            </View> 
+                <Button 
+                    style={style.word}
+                    title={elementVisible ? 'Ignoble' : 'Ignoble'}
+                    onPress={() => setElementVisible(!elementVisible)}
+                />
+            </View>
+            <View>
+                {elementVisible ? (
+                    <View
+                    style={style.textTopMargin}
+                    title={elementVisible ? '' : ''}
+                    onPress={() => setElementVisible(!elementVisible)}
+                    >
+                    <View style={style.textBottomMargin}>
+                        <Text style={style.text}>Pron. ig-NO-bull</Text>
+                        <Text style={style.text}>Def: Dishonorable in nature.</Text>
+                    </View> 
+                        <Text>
+                            <Text style={style.text}>Peter's </Text>
+                            <Text style={style.bold}>ignoble </Text>
+                            <Text style={style.text}>aims were well known to the human resources department, which led to his firing.</Text>
+                        </Text>
+                        <Pressable style={style.appButton} >
+                        <AppButton icon="sign-in" title="Add to My List"
+                        onPress={() => navigation.navigate('')}
+                        />
+                        </Pressable>
+                    </View>         
+                ) : null}
+            </View>
+        </View>
 
+        <View style={style.container}>
             <View>
-                <Pressable onPress={onPress=()=>setShow(!show)}>
-                    { show == true ? <Keynote /> : null }
-                    <AppButton icon="sign-in" title="Keynote"/>
-                </Pressable>
-            </View> 
+                <Button 
+                    style={style.word}
+                    title={elementVisible ? 'Jettison' : 'Jettison'}
+                    onPress={() => setElementVisible(!elementVisible)}
+                />
+            </View>
+            <View>
+                {elementVisible ? (
+                    <View
+                    style={style.textTopMargin}
+                    title={elementVisible ? '' : ''}
+                    onPress={() => setElementVisible(!elementVisible)}
+                    >
+                    <View style={style.textBottomMargin}>
+                        <Text style={style.text}>Pron. JET-ih-son</Text>
+                        <Text style={style.text}>Def: To cast off or overboard.</Text>
+                    </View> 
+                        <Text>
+                            <Text style={style.text}>The project seemed promising, but after research we </Text> 
+                            <Text style={style.bold}>jettisoned</Text> 
+                            <Text style={style.text}>the project.</Text>
+                        </Text>
+                        <Pressable style={style.appButton} >
+                        <AppButton icon="sign-in" title="Add to My List"
+                        onPress={() => navigation.navigate('')}
+                        />
+                        </Pressable>
+                        </View>
+                ) : null}
+            </View>
+        </View>
 
+        <View style={style.container}>
             <View>
-                <Pressable onPress={onPress=()=>setShow(!show)}>
-                    { show == true ? <Laggard /> : null }
-                    <AppButton icon="sign-in" title="Laggard"/>
-                </Pressable>
-            </View> 
+                <Button 
+                    style={style.word}
+                    title={elementVisible ? 'Keynote' : 'Keynote'}
+                    onPress={() => setElementVisible(!elementVisible)}
+                />
+            </View>
+            <View>
+                {elementVisible ? (
+                    <View
+                    style={style.textTopMargin}
+                    title={elementVisible ? '' : ''}
+                    onPress={() => setElementVisible(!elementVisible)}
+                    >
+                    <View style={style.textBottomMargin}>
+                        <Text style={style.text}>Pron. KEE-note</Text>
+                        <Text style={style.text}>Shortdef: "A prime theme; underlying element.</Text>
+                    </View>
+                        <Text>
+                            <Text style={style.text}>The </Text>
+                            <Text style={style.bold}>keynote </Text>
+                            <Text style={style.text}>speaker addressed many problems related to productivity that faces our organization.</Text>
+                        </Text>
+                        <Pressable style={style.appButton} >
+                        <AppButton icon="sign-in" title="Add to My List"
+                        onPress={() => navigation.navigate('')}
+                        />
+                        </Pressable>
+                    </View>         
+                ) : null}
+            </View>
+        </View>
 
+        <View style={style.container}>
             <View>
-                <Pressable onPress={onPress=()=>setShow(!show)}>
-                    { show == true ? <Narcissistic /> : null }
-                    <AppButton icon="sign-in" title="Narcissistic"/>
-                </Pressable>
-            </View>     
+                <Button 
+                    style={style.word}
+                    title={elementVisible ? 'Laggard' : 'Laggard'}
+                    onPress={() => setElementVisible(!elementVisible)}
+                />
+            </View>
+            <View>
+                {elementVisible ? (
+                    <View
+                    style={style.textTopMargin}
+                    title={elementVisible ? '' : ''}
+                    onPress={() => setElementVisible(!elementVisible)}
+                    >
+                    <View style={style.textBottomMargin}>
+                        <Text style={style.text}>Pron. LAG-urd</Text>
+                        <Text style={style.text}>Def: One who lags behind or loiters.</Text>
+                    </View> 
+                        <Text>
+                            <Text style={style.text}>We completed the project; it is the </Text>
+                            <Text style={style.bold}>laggards </Text>
+                            <Text style={style.text}>in accounting you should take to task.</Text>
+                        </Text>
+                        <Pressable style={style.appButton} >
+                        <AppButton icon="sign-in" title="Add to My List"
+                        onPress={() => navigation.navigate('')}
+                        />
+                        </Pressable>
+                        </View> 
+                ) : null}
+            </View>
+        </View>
+
+        <View style={style.container}>
+            <View>
+                <Button 
+                    style={style.word}
+                    title={elementVisible ? 'Narcissistic' : 'Narcissistic'}
+                    onPress={() => setElementVisible(!elementVisible)}
+                />
+            </View>
+            <View>
+                {elementVisible ? (
+                    <View
+                    style={style.textTopMargin}
+                    title={elementVisible ? '' : ''}
+                    onPress={() => setElementVisible(!elementVisible)}
+                    >
+                    <View style={style.textBottomMargin}>
+                        <Text style={style.text}>Pronunciation: nar-sis-SIS-tik</Text>
+                        <Text style={style.text}>Def: Possessed by self-love.</Text>
+                    </View> 
+                        <Text>
+                            <Text style={style.text}>Self-promotion is one thing; the </Text>
+                            <Text style={style.bold}>narcissistic </Text>
+                            <Text style={style.text}>zeal with which Gerald asserts himself is another.</Text>
+                        </Text>
+                        <Pressable style={style.appButton} >
+                        <AppButton icon="sign-in" title="Add to My List"
+                        onPress={() => navigation.navigate('')}
+                        />
+                        </Pressable>
+                    </View>         
+                ) : null}
+            </View>
+        </View>
+
 
         <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
+            <HomeButton navigation={navigation}/>
         </View>
 
         </View>
+
+    </LinearGradient>
     </ScrollView>
     </SafeAreaView>
   );
 }
 
-const Abberation = () => {
-    return(
-    <View>
-        <Text>Pron. ab-uh-RAY-shun</Text>
-        <Text>Def. Viewerging from expected course.</Text>
-        <Text>E.g. Sally's poor work was hardly grounds for dismissal; it was an </Text><Text style={StyleSheet=bold}>aberration</Text> <Text>caused by problems at home.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Beleaguered = () => {
-    return(
-    <View>
-        <Text>Pron. ab-uh-RAY-shun</Text>
-        <Text>Def. Viewerging from expected course.</Text>
-        <Text>E.g. Sally's poor work was hardly grounds for dismissal; it was an </Text><Text style={StyleSheet=bold}>aberration</Text><Text> caused by problems at home.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Debacle = () => {
-    return(
-    <View>
-        <Text>Pron. dih-BA-kull</Text>
-        <Text>Def: Utter collapse or rout.</Text>
-        <Text>The initiative seemed promising, but turned out to be George's</Text> <Text style={StyleSheet=bold}>debacle</Text>.
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Echelon = () => {
-    return(
-    <View>
-        <Text>Pron. ESH-uh-lom</Text>
-        <Text>Def: A level of command.</Text>
-        <Text>Tom's proposal eventually won the approval of the company's upper </Text><Text style={StyleSheet=bold}>echelon</Text> <Text>of leaders.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Garner = () => {
-    return(
-    <View>
-        <Text>Pron. GAR-ner</Text>
-        <Text>Def: To gather or accumulate.</Text>
-        <Text>William </Text><Text style={StyleSheet=bold}>garnered</Text> <Text>much praise for his management skills.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Ignoble = () => {
-    return(
-    <View>
-        <Text>Pron. ig-NO-bull</Text>
-        <Text>Def: Dishonorable in nature.</Text>
-        <Text>Peter's </Text><Text style={StyleSheet=bold}>ignoble</Text> <Text>aims were well known to the human resources department, which led to his firing.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Jettison = () => {
-    return(
-    <View>
-        <Text>Pron. JET-ih-son</Text>
-        <Text>Def: To cast off or overboard.</Text>
-        <Text>The project seemed promising, but after research we </Text><Text style={StyleSheet=bold}>jettisoned</Text> <Text>the project.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Keynote = () => {
-    return(
-    <View>
-        <Text>Pron. KEE-note</Text>
-        <Text>Shortdef: "A prime theme; underlying element.</Text>
-        <Text>The </Text><Text style={StyleSheet=bold}>keynote</Text> <Text>speaker addressed many problems related to productivity that faces our organization.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Laggard = () => {
-    return(
-    <View>
-        <Text>Pron. LAG-urd</Text>
-        <Text>Def: One who lags behind or loiters.</Text>
-        <Text>We completed the project; it is the </Text><Text style={StyleSheet=bold}>laggards</Text> <Text>in accounting you should take to task.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Narcissistic = () => {
-    return(
-    <View>
-        <Text>Pronunciation: nar-sis-SIS-tik</Text>
-        <Text>Def: Possessed by self-love.</Text>
-        <Text>Self-promotion is one thing; the </Text><Text style={StyleSheet=bold}>narcissistic</Text> <Text>zeal with which Gerald asserts himself is another.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
 
 
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
-  },
+    page: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 0,
+      paddingHorizontal: 30,
+    },
 
-  flex: {
-    display: 'flex',
-    fontSize: 10
-  },
+    header: {
+      fontSize: 30,
+      color: '#f0f8ff',
+      fontWeight: '700',
+      marginBottom: 20,
+    },
 
-  header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
-  },
+    container: {
+      marginBottom: 20,
+    },
 
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
-  },
-  appButton: {
-    padding: 12,
-  },
-  appButtonText: {
-    fontSize: 17,
-  },
-  appButtonContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-  },
+    textTopMargin: {
+        marginTop: 10,
+    },
 
-})
+    textBottomMargin: {
+        marginBottom: 10,
+    },
+
+    // no effect on button android
+    word: {
+        marginTop: 0,
+    },
+
+    text: {
+      fontSize: 15,
+      color: '#f0f8ff',
+      paddingHorizontal: 20,
+    },
+
+    bold: {
+        fontSize: 17,
+        color:  '#800080',
+        // fontWeight: 800,
+      },
+
+    marginButton: {
+        paddingHorizontal: 20,
+        paddingBottom: 30,
+      },
+  
+    appButton: {
+      paddingHorizontal: 0,
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+  
+    appButtonText: {
+      fontSize: 12,
+      color: '#fff'
+    },
+  
+    appButtonContainer: {
+      paddingVertical: 10,
+      paddingHorizontal: 0,
+      width: 150
+    },
+  
+  })
+  
+
+  

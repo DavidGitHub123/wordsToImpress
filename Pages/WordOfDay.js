@@ -1,12 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
 // import data from './data.js';
-
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { LinearGradient } from "expo-linear-gradient";
 
 
-export default function WordOfDay(props) {
-  const navigate = useNavigate()
+export default function WordOfDay({ navigation }) {
 
   const AppButton = ({ onPress, icon, title, backgroundColor }) => (
     <View style={style.appButtonContainer}>
@@ -22,34 +21,46 @@ export default function WordOfDay(props) {
   );
 
   return (
-    <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
-      <View style={style.body}>
+    <LinearGradient
+        colors={["#0047ab", "#4169e1"]}
+        start={[0.1, 1]}
+        opacity={.95}
+      >
+
+      <View style={style.page}>
 
         <View>
           <Text style={style.header}>Word of the Day</Text>
-          <Text>{props.word}</Text>
-          <Text>{props.Pronunciation}</Text>
-          <Text style={style.headerSmall}>Definition</Text>
-          <Text>{props.Shortdef}</Text>
-          <Text style={style.headerSmall}>Sentence</Text>
-          <Text>{props.Longdef}</Text>
-        </View>
-
-        <View>
-          <Pressable onPress={onPress=()=> {}}>
-              <AppButton icon="sign-in" title="{Add to My List}"/>
-          </Pressable>
-        </View>
-
-        <View>
-          <Pressable onPress={onPress=()=> {}}>
-              <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
+          {/* <Text>{props.word}</Text>
+          <Text>{props.Pronunciation}</Text> */}
+          <Text style={style.text}>Definition</Text>
+          {/* <Text>{props.Shortdef}</Text> */}
+          <Text style={style.text}>Sentence</Text>
+          {/* <Text>{props.Longdef}</Text> */}
         </View>
 
 
-    </View>
+          {/* Function to add to My List */}
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Add to My List"
+                onPress={() => navigation.navigate('BuildMyList')}
+                />
+            </Pressable> 
+          </View>
+
+          <View>
+          <Pressable style={style.appButton} >
+            <AppButton icon="sign-in" title="Home"
+            onPress={() => navigation.navigate('Home')}
+            />
+          </Pressable> 
+        </View>
+        </View>
+
+        </LinearGradient>
     </ScrollView>
     </SafeAreaView>
   );
@@ -57,42 +68,45 @@ export default function WordOfDay(props) {
 
 
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
-  },
-
-  flex: {
-    display: 'flex',
-    fontSize: 10
+  page: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 50,
   },
 
   header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
+    fontSize: 30,
+    color: '#f0f8ff',
+    fontWeight: '800',
   },
 
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
+  section: {
+    paddingVertical: 30,
   },
-  appButton: {
-    padding: 12,
-  },
-  appButtonText: {
-    fontSize: 17,
-  },
-  appButtonContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 12,
+
+  text: {
+    fontSize: 15,
+    color: '#f0f8ff',
+    paddingHorizontal: 20,
 },
 
+  appButton: {
+    paddingHorizontal: 70,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  appButtonText: {
+    fontSize: 20,
+    color: '#fff'
+  },
+
+  appButtonContainer: {
+    paddingVertical: 10,
+    paddingHorizontal: 0,
+    width: 300
+  },
+
 })
+
