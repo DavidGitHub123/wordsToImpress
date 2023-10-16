@@ -3,6 +3,8 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import NavButtonWord from '../../components/NavButtonWord';
 
 export default function HWords({ navigation }) {
 
@@ -34,68 +36,30 @@ export default function HWords({ navigation }) {
           <Text style={style.header}>H Words</Text>
         </View>
         
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Hackneyed"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Halcyon"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Hallow"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Haphazard"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Hapless"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Harangue"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Haute Couture"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Haute Cuisine"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Hegemony"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Heinous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Herculean"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Heretic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Heterogeneous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Hiatus"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Hierarchy"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Holistic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Homage"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Hubris"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Hyperbole "/>
-        </Pressable>
+        <View>
+          <NavButtonWord navigation={navigation} title="Hackneyed" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Halcyon" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Hallow" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Haphazard" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Hapless" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Harangue" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Haute Couture" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Haute Cuisine" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Hegemony" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Heinous" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Herculean" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Heretic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Heterogeneous" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Hiatus" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Hierarchy" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Holistic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Homage" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Hubris" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Hyperbole " destination="Word"/>
+        </View>
 
         <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+          <HomeButton navigation={navigation}/>
         </View>
 
         </View>

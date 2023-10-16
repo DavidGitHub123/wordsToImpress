@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';import { LinearGradient } from "expo-linear-gradient";
 import Icon from 'react-native-vector-icons/FontAwesome';
 // import { LinearGradient } from "expo-linear-gradient";
-
+import HomeButton from '../components/HomeButton';
+import NavButton from '../components/NavButton';
 
 export default function ChallengeFriend({ navigation }) {
 
@@ -45,18 +46,16 @@ export default function ChallengeFriend({ navigation }) {
       {/* User is sent their score */}
 
       <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('')}>
-            <AppButton icon="sign-in" title="Select Words"/>
-          </Pressable>
+        <NavButton navigation={navigation} title="Select Words" destination="MyList"/>
+        
           <Pressable style={style.appButton} onPress={() => navigation.navigate('')}>
             <AppButton icon="sign-in" title="Send Challenge"/>
           </Pressable>
+          
       </View>
       
       <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+        <HomeButton navigation={ navigation } />
       </View>
 
       </View>

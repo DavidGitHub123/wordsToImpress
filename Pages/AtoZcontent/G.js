@@ -3,6 +3,8 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import NavButtonWord from '../../components/NavButtonWord';
 
 export default function GWords({ navigation }) {
 
@@ -34,92 +36,38 @@ export default function GWords({ navigation }) {
           <Text style={style.header}>G Words</Text>
         </View>
         
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Gainsay"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Gallantry"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Galvanize"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Gamut"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Gargantuan"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Garner"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Garrulity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Gauche"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Gaudy"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Gauntlet"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Genial"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Genteel"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Gestation"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Globular"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Goad"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Gormandize"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Gradation"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Graft"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Grandeur"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Grandiloquence"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Grandiose"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Gratuitous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Gregarious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Grimace"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Grope"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Grovel"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Guile   "/>
-        </Pressable>
+        <View>
+          <NavButtonWord navigation={navigation} title="Gainsay" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Gallantry" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Galvanize" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Gamut" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Gargantuan" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Garner" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Garrulity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Gauche" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Gaudy" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Gauntlet" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Genial" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Genteel" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Gestation" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Globular" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Goad" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Gormandize" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Gradation" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Graft" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Grandeur" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Grandiloquence" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Grandiose" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Gratuitous" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Gregarious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Grimace" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Grope" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Grovel" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Guile" destination="Word"/> 
+        </View>
 
         <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+          <HomeButton navigation={navigation}/>
         </View>
 
         </View>

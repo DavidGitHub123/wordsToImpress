@@ -3,6 +3,8 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import NavButtonWord from '../../components/NavButtonWord';
 
 export default function MWords({ navigation }) {
 
@@ -34,134 +36,52 @@ export default function MWords({ navigation }) {
           <Text style={style.header}>M Words</Text>
         </View>
         
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Macabre"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Machination"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Macrocosm"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Magnate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Malady"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Maleficence"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Malevolent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Malice"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Malignant"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Malinger"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Malleable"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Mandate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Maniacal"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Maraud"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Maverick"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Mawkish"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Meander"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Megalomania"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Melancholy"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Mellifluous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Melodious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Mendacious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Mesmerize"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Metamorphosis"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Microcosm"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Misconstrue"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Misogyny"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Mitigate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Mollify"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Monolithic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Moribund"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Morose"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Mortify"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Motley"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Multifaceted"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Multifarious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Mundane"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Munificent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Muse"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Myopia"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Myriad"/>
-        </Pressable>
+        <View>
+          <NavButtonWord navigation={navigation} title="Macabre" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Machination" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Macrocosm" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Magnate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Malady" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Maleficence" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Malevolent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Malice" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Malignant" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Malinger" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Malleable" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Mandate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Maniacal" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Maraud" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Maverick" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Mawkish" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Meander" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Megalomania" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Melancholy" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Mellifluous" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Melodious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Mendacious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Mesmerize" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Metamorphosis" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Microcosm" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Misconstrue" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Misogyny" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Mitigate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Mollify" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Monolithic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Moribund" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Morose" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Mortify" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Motley" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Multifaceted" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Multifarious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Mundane" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Munificent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Muse" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Myopia" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Myriad" destination="Word"/>
+        </View>
 
         <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+          <HomeButton navigation={navigation}/>
         </View>
 
         </View>

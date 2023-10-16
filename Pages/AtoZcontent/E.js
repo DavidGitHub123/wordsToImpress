@@ -3,6 +3,8 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import NavButtonWord from '../../components/NavButtonWord';
 
 export default function EWords({ navigation }) {
 
@@ -35,212 +37,75 @@ export default function EWords({ navigation }) {
           <Text style={style.header}>E Words</Text>
         </View>
         
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ebullience"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Eccentric"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Echelon"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Eclectic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Edification"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Educe"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Effeminate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Effete"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Efflorescent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Effrontery"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Effulgent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Egalitarian"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Egocentric"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Egregious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Eke"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Elicit"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Elocution"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Eloquent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Elucidate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Elusive"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Emanate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Emancipate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Embellish"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Embodiment"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Eminence"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Emissary"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Empathize"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Emphatic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Emulate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Encomium"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Endemic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Enervate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Enigmatic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="En Masse"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Enmity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ennui"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Enshrine"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Enthrall"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Entity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Enunciate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Envisage"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Epicure"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Equanimity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Equivocal"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Eradicate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Erratic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ersatz"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Erudite"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Esoteric"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Espouse"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Estrange"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Etymology"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Euphemism"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Euphony"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Evasive"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Evince"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Eviscerate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Evoke"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Exacerbate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Excoriate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Exculpate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Exigency"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Expeditious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Expletive"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Extenuate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Extrapolate"/>
-        </Pressable>
+        <View>
+          <NavButtonWord navigation={navigation} title="Ebullience" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Eccentric" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Echelon" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Eclectic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Educe" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Effete" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Efflorescent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Effrontery" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Effulgent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Egalitarian" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Egocentric" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Egregious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Eke" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Elicit" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Elocution" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Eloquent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Elucidate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Elusive" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Emanate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Emancipate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Embellish" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Embodiment" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Eminence" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Emissary" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Empathize" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Emphatic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Emulate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Encomium" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Endemic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Enervate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Enigmatic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="En Masse" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Enmity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Ennui" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Enshrine" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Enthrall" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Entity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Enunciate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Envisage" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Epicure" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Equanimity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Equivocal" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Eradicate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Erratic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Ersatz" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Erudite" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Esoteric" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Espouse" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Estrange" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Etymology" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Euphemism" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Euphony" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Evasive" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Evince" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Eviscerate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Evoke" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Exacerbate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Excoriate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Exculpate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Exigency" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Expeditious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Expletive" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Extenuate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Extrapolate" destination="Word"/>
+        </View>
 
         <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
-          <Pressable style={style.appButton} onPress={() => navigation.goBack()}>
-            <AppButton icon="sign-in" title="Previous"/>
-          </Pressable>
+          <HomeButton navigation={navigation}/>
         </View>
 
         </View>

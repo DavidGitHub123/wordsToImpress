@@ -3,7 +3,7 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 // import data from './data.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
-
+import HomeButton from '../components/HomeButton';
 
 export default function WordOfDay({ navigation }) {
 
@@ -52,14 +52,10 @@ export default function WordOfDay({ navigation }) {
           </View>
 
           <View>
-          <Pressable style={style.appButton} >
-            <AppButton icon="sign-in" title="Home"
-            onPress={() => navigation.navigate('Home')}
-            />
-          </Pressable> 
-        </View>
+            <HomeButton navigation={ navigation } />
         </View>
 
+        </View>
         </LinearGradient>
     </ScrollView>
     </SafeAreaView>

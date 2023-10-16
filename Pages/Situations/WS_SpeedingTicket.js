@@ -1,25 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, AppButton, FlatList } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+
+const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  <View style={style.appButtonContainer}>
+    <Icon.Button
+      name={icon}
+      backgroundColor={backgroundColor}
+      onPress={onPress}
+      style={style.appButton}
+    >
+      <Text style={style.appButtonText}>{title}</Text>
+    </Icon.Button>
+  </View>
+);
 
 export default function WS_SpeedingTicket({ navigation }) {
-
-    const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-        <View style={style.appButtonContainer}>
-          <Icon.Button
-            name={icon}
-            backgroundColor={backgroundColor}
-            onPress={onPress}
-            style={style.appButton}
-          >
-            <Text style={style.appButtonText}>{title}</Text>
-          </Icon.Button>
-        </View>
-      );
-    
-    const [show, setShow] = useState(true);
+  const [selectedWord, setSelectedWord] = useState(null);
 
   return (
     <SafeAreaView style={style.container}>
@@ -34,118 +34,110 @@ export default function WS_SpeedingTicket({ navigation }) {
 
             <View>
                 <Text style={style.header}>Word Situations: Boss</Text>
-            <View>
-            
-            <View>
-                <Pressable style={style.appButton} >
-                    { show == true ? <Adroit /> : null }
-                    <AppButton icon="sign-in" title="Adroit" 
-                    onPress={()=>setShow(!show)} 
-                    />
-                </Pressable>
             </View>
+            
+            {selectedWord ? 
+            selectedWord : 
+            (<View>
 
-            <View>
-                <Pressable style={style.appButton} >
-                    { show == true ? <Befuddle /> : null }
-                    <AppButton icon="sign-in" title="Befuddle" 
-                    onPress={()=>setShow(!show)} 
-                    />
-                </Pressable>
-            </View>
-            
-            <View>
-                <Pressable style={style.appButton} >
-                    { show == true ? <Canard /> : null }
-                    <AppButton icon="sign-in" title="Canard" 
-                    onPress={()=>setShow(!show)} 
-                    />
-                </Pressable>
-            </View>
-            
-            <View>
-                <Pressable style={style.appButton} >
-                    { show == true ? <Disconcerting /> : null }
-                    <AppButton icon="sign-in" title="Disconcerting" 
-                    onPress={()=>setShow(!show)} 
-                    />
-                </Pressable>
-            </View>  
-            
-            <View>
-                <Pressable style={style.appButton} >
-                    { show == true ? <Embodiment /> : null }
-                    <AppButton icon="sign-in" title="Embodiment" 
-                    onPress={()=>setShow(!show)} 
-                    />
-                </Pressable>
-            </View> 
-            
-            <View>
-                <Pressable style={style.appButton} >
-                    { show == true ? <Fulminate /> : null }
-                    <AppButton icon="sign-in" title="Fulminate" 
-                    onPress={()=>setShow(!show)} 
-                    />
-                </Pressable>
-            </View>    
-            
-            <View>
-                <Pressable style={style.appButton} >
-                    { show == true ? <Imperative /> : null }
-                    <AppButton icon="sign-in" title="Imperative" 
-                    onPress={()=>setShow(!show)} 
-                    />
-                </Pressable>
-            </View>  
-            
-            <View>
-                <Pressable style={style.appButton} >
-                    { show == true ? <Lucid /> : null }
-                    <AppButton icon="sign-in" title="Lucid" 
-                    onPress={()=>setShow(!show)} 
-                    />
-                </Pressable>
-            </View>    
-            
-            <View>
-                <Pressable style={style.appButton} >
-                    { show == true ? <Misconstrue /> : null }
-                    <AppButton icon="sign-in" title="Misconstrue" 
-                    onPress={()=>setShow(!show)} 
-                    />
-                </Pressable>
-            </View>  
-            
-            <View>
-                <Pressable style={style.appButton} >
-                    { show == true ? <Upbraid /> : null }
-                    <AppButton icon="sign-in" title="Upbraid" 
-                    onPress={()=>setShow(!show)} 
-                    />
-                </Pressable>
-            </View>  
-            
-            <View>
-                <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-                    <AppButton icon="sign-in" title="Home"/>
-                </Pressable>
-            </View>
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Adroit" 
+              onPress={()=>setSelectedWord(<Adroit />)} 
+              />
+            </Pressable>
+          </View>
 
-            </View>
-            </View>
-            </View>
-            </LinearGradient>
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Befuddle" 
+              onPress={()=>setSelectedWord(<Befuddle />)} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Canard" 
+              onPress={()=>setSelectedWord(<Canard /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Disconcerting" 
+              onPress={()=>setSelectedWord(<Disconcerting /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Embodiment" 
+              onPress={()=>setSelectedWord(<Embodiment /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Fulminate" 
+              onPress={()=>setSelectedWord(<Fulminate /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Imperative" 
+              onPress={()=>setSelectedWord(<Imperative /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Lucid" 
+              onPress={()=>setSelectedWord(<Lucid /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Misconstrue" 
+              onPress={()=>setSelectedWord(<Misconstrue />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Upbraid" 
+              onPress={()=>setSelectedWord(<Upbraid />)} 
+              />
+            </Pressable>
+          </View>
+
+
+          <View>
+            <HomeButton navigation={navigation}/>
+          </View>
+          </View>)}
+
+        </View>
+        </LinearGradient>
     </ScrollView>
     </SafeAreaView>
   );
 }
 
-// Add function add to my list
 
 const Adroit = () => {
     return(
     <View>
+        <Text style={style.subHead}>Adroit</Text>
         <Text style={style.text}>Pron. uh-DROIT</Text>
         <Text style={style.text}>Def: Skillful use of one's hands or body.</Text>
         <Text>
@@ -165,6 +157,7 @@ const Adroit = () => {
 const Befuddle = () => {
     return(
     <View>
+        <Text style={style.subHead}>Befuddle</Text>
         <Text style={style.text}>Pron. bee-FUD-il</Text>
         <Text style={style.text}>Def: To confuse or perplex.</Text>
         <Text>
@@ -184,6 +177,7 @@ const Befuddle = () => {
 const Canard = () => {
     return(
     <View>
+        <Text style={style.subHead}>Canard</Text>
         <Text style={style.text}>Pron. kuh-NARD</Text>
         <Text style={style.text}>Def: A fabrication or unfounded story.</Text>
         <Text>
@@ -200,9 +194,10 @@ const Canard = () => {
         )
 }
 
-const Disconcerting= () => {
+const Disconcerting = () => {
     return(
     <View>
+        <Text style={style.subHead}>Disconcerting</Text>
         <Text style={style.text}>Pronunciation: diss-kun-SERT-ing</Text>
         <Text style={style.text}>Shortdef: Shortdef: Ruffled; upset.</Text>
         <Text>
@@ -222,6 +217,7 @@ const Disconcerting= () => {
 const Embodiment = () => {
     return(
     <View>
+        <Text style={style.subHead}>Embodiment</Text>
         <Text style={style.text}>Pron. em-BOD-ee-ment</Text>
         <Text style={style.text}>Def: To possess a given thing or idea.</Text>
         <Text>
@@ -241,6 +237,7 @@ const Embodiment = () => {
 const Fulminate = () => {
     return(
     <View>
+        <Text style={style.subHead}>Fulminate</Text>
         <Text style={style.text}>Pron. FUL-mih-nate</Text>
         <Text style={style.text}>Def: To explode. Launch verbal attack.</Text>
         <Text>
@@ -260,6 +257,7 @@ const Fulminate = () => {
 const Imperative = () => {
     return(
     <View>
+        <Text style={style.subHead}>Imperative</Text>
         <Text style={style.text}>Pron. im-PAIR-uh-tive</Text>
         <Text style={style.text}>Def: Essential, obligatory, or mandatory.</Text>
         <Text>
@@ -279,6 +277,7 @@ const Imperative = () => {
 const Lucid = () => {
     return(
     <View>
+        <Text style={style.subHead}>Lucid</Text>
         <Text style={style.text}>Pron. LOO-sid</Text>
         <Text style={style.text}>Def: Intelligible; clear mental state.</Text>
         <Text>
@@ -298,6 +297,7 @@ const Lucid = () => {
 const Misconstrue = () => {
     return(
     <View>
+        <Text style={style.subHead}>Misconstrue</Text>
         <Text style={style.text}>Pron. miss-kun-STROO</Text>
         <Text style={style.text}>Def: To misinterpret; make an error in analyzing.</Text>
         <Text>
@@ -317,6 +317,7 @@ const Misconstrue = () => {
 const Upbraid = () => {
     return(
     <View>
+        <Text style={style.subHead}>Upbraid </Text>
         <Text style={style.text}>Pron. up-BRAID</Text>
         <Text style={style.text}>Def: To criticize a person.</Text>
         <Text>
@@ -345,6 +346,14 @@ const style = StyleSheet.create({
     fontSize: 30,
     color: '#f0f8ff',
     fontWeight: '800',
+  },
+
+  subHead: {
+    fontSize: 25,
+    color: '#f0f8ff',
+    fontWeight: '600',
+    paddingVertical: 15,
+    paddingHorizontal: 15,
   },
 
   text: {

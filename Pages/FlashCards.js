@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
-
+import HomeButton from '../components/HomeButton';
+import NavButton from '../components/NavButton';
 
 export default function FlashCards({ navigation }) {
 
@@ -32,36 +33,17 @@ export default function FlashCards({ navigation }) {
 
       <View>
           <Text style={style.header}>Flash Cards</Text>
-          {/* // Flash Cards/Show Word/Click Button to Reveal answer
-          // Words at random from MyList */}
       </View>
 
       <View>
-          <Pressable style={style.appButton} >
-            <AppButton icon="sign-in" title="Select Words"/>
-            {/* onPress={() => navigation.navigate('')} */}
-          </Pressable>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('')}>
-            <AppButton icon="sign-in" title="Take A Quiz"/>
-          </Pressable>
-          <View>
-          <Pressable style={style.appButton} >
-              <AppButton icon="sign-in" title="Schedule Quizzes"
-              onPress={() => navigation.navigate('ScheduleQuizzes')}
-              />
-          </Pressable>
-          <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Challenge Friend"
-            onPress={() => navigation.navigate('ChallengeFriend')}
-            />
-          </Pressable> 
-      </View>
+        <NavButton navigation={navigation} title="Select Words" destination="MyList"/>
+        <NavButton navigation={navigation} title="Take A Quiz" destination="Quiz"/>
+        <NavButton navigation={navigation} title="Schedule Quizzes" destination="ScheduleQuizzes"/>
+        <NavButton navigation={navigation} title="Challenge A Friend" destination="ChallengeFriend"/>
       </View>
 
       <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+        <HomeButton navigation={ navigation } />
       </View>
 
       </View>

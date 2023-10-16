@@ -3,6 +3,8 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import NavButtonWord from '../../components/NavButtonWord';
 
 export default function OWords({ navigation }) {
 
@@ -34,95 +36,39 @@ export default function OWords({ navigation }) {
           <Text style={style.header}>O Words</Text>
         </View>
         
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Obfuscate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Obligatory"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Oblique"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Oblivion"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Oblivious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Obsequious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Obstinate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Obtuse"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Obviate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Occlude"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Odious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Odyssey"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Officious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Omnious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Omniscient"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Onerus"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Onus"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Opaque"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Opine"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Opprobrium"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Optimal"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Opulent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ornate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Oscillate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Osmosis"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ostensibly"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ostentatious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ostracize"/>
-        </Pressable>
+        <View>
+          <NavButtonWord navigation={navigation} title="Obfuscate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Obligatory" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Oblique" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Oblivion" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Oblivious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Obsequious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Obstinate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Obtuse" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Obviate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Occlude" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Odious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Odyssey" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Officious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Omnious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Omniscient" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Onerus" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Onus" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Opaque" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Opine" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Opprobrium" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Optimal" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Opulent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Ornate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Oscillate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Osmosis" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Ostensibly" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Ostentatious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Ostracize" destination="Word"/>
+        </View>
 
         <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+          <HomeButton navigation={navigation}/>
         </View>
 
         </View>

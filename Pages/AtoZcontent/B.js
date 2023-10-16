@@ -3,6 +3,8 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import NavButtonWord from '../../components/NavButtonWord';
 
 export default function BWords({ navigation }) {
 
@@ -34,152 +36,58 @@ export default function BWords({ navigation }) {
           <Text style={style.header}>B Words</Text>
         </View>
         
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Babbitt"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Baccalaureate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Balderdash"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bandy"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Baneful"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Barbarous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Barrage"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bedraggled"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Befuddle"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Belated"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Beleaguered"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Belie"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Belligerent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bemused"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Benevolent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Benighted"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bequeath"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bereaved"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Beseech"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bestial"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bestow"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bête noire"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bilateral"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bilk"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Binary"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Biogenesis"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bipolar"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Blasé"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Blather"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Blithe"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bludgeon"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bluster"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bohemian"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bombast"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bona Fide"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Boorish"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bovine"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Braggadocio"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Brandish"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Brash"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bravado"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Brevity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Brunt"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Brusk"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bugaboo"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bumptious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Bygone"/>
-        </Pressable>
+        <View>
+          <NavButtonWord navigation={navigation} title="Babbitt" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Baccalaureate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Balderdash" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bandy" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Baneful" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Barbarous" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Barrage" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bedraggled" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Befuddle" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Belated" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Beleaguered" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Belie" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Belligerent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bemused" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Benevolent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Benighted" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bequeath" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bereaved" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Beseech" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bestial" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bestow" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bête Noire" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bilateral" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bilk" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Binary" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Biogenesis" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bipolar" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Blasé" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Blather" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Blithe" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bludgeon" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bluster" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bohemian" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bombast" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bona Fide" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Boorish" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bovine" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Braggadocio" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Brandish" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Brash" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bravado" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Brevity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Brunt" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Brusk" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bugaboo" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bumptious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Bygone" destination="Word"/>
+        </View>
 
         <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+          <HomeButton navigation={navigation}/>
         </View>
 
 

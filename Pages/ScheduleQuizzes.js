@@ -2,6 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../components/HomeButton';
+import NavButton from '../components/NavButton';
+
 
 export default function ScheduleQuizzes({ navigation }) {
 
@@ -44,17 +47,14 @@ export default function ScheduleQuizzes({ navigation }) {
         <Pressable style={style.appButton} onPress={() => navigation.navigate('')}>
             <AppButton icon="sign-in" title="Schedule Flashcards Quizes"/>
         </Pressable>
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Challenge Friend"
-            onPress={() => navigation.navigate('ChallengeFriend')}
-            />
-          </Pressable> 
+
       </View>
 
       <View>
-        <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
+        <HomeButton navigation={ navigation } />
+        {/* <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
           <AppButton icon="sign-in" title="Home"/>
-        </Pressable>
+        </Pressable> */}
       </View>
 
       </View>

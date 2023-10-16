@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../components/HomeButton';
+import NavButton from '../components/NavButton';
 // Paywall
 
 export default function BuildMyList( { navigation } ) {
@@ -38,33 +40,24 @@ export default function BuildMyList( { navigation } ) {
               <Text style={style.subHead}>Search your Writing</Text>
               <Text style={style.text}>asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf</Text>
               <View style={style.buttonSpace}>
-                <Pressable style={style.appButton} >
-                  <AppButton icon="sign-in" title="Text Search"
-                  onPress={() => navigation.navigate('TextSearch')}
-                  />
-                </Pressable> 
+                <NavButton navigation={navigation} title="Text Search" destination="TextSearch"/>
               </View>
           </View>
 
           <View style={style.section}>
             <Text style={style.subHead}>Search your Speech</Text>
             <Text style={style.text}>asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf</Text>
-            <View style={style.buttonSpace}></View>
-              <Pressable style={style.appButton} >
-                <AppButton icon="sign-in" title="Conversation Search"
-                onPress={() => navigation.navigate('ConversationSearch')}
-                />
-              </Pressable> 
+            <View style={style.buttonSpace}>
+              <NavButton navigation={navigation} title="Conversation Search" destination="ConversationSearch"/>
             </View>
           </View>
 
 
         <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+          <HomeButton navigation={ navigation } />
         </View>
 
+        </View>
         </LinearGradient>
     </ScrollView>
     </SafeAreaView>
@@ -106,9 +99,9 @@ const style = StyleSheet.create({
     paddingHorizontal: 30,
   },
 
-  buttonSpace: {
-    paddingVertical: 10,
-  },
+  // buttonSpace: {
+  //   paddingVertical: 10,
+  // },
 
   appButton: {
     alignItems: 'center',

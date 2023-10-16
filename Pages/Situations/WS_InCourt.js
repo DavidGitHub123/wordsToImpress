@@ -3,23 +3,23 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+
+const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  <View style={style.appButtonContainer}>
+    <Icon.Button
+      name={icon}
+      backgroundColor={backgroundColor}
+      onPress={onPress}
+      style={style.appButton}
+    >
+      <Text style={style.appButtonText}>{title}</Text>
+    </Icon.Button>
+  </View>
+);
 
 export default function WS_InCourt({ navigation }) {
-
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor={backgroundColor}
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-
-const [show, setShow] = useState(true);
+  const [selectedWord, setSelectedWord] = useState(null);
 
   return (
     <SafeAreaView style={style.container}>
@@ -33,107 +33,99 @@ const [show, setShow] = useState(true);
       <View style={style.page}>
     
         <View>
-          <Text style={style.header}>Word Situations: Boss</Text>
-        <View>
+          <Text style={style.header}>Word Situations: In Court</Text>
+        </View>
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Adjudicate /> : null }
+        {selectedWord ? 
+            selectedWord : 
+            (<View>
+              
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Adjudicate" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Adjudicate />)} 
               />
-          </Pressable>
-        </View>
+            </Pressable>
+          </View>
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Barrage /> : null }
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Barrage" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Barrage />)} 
               />
-          </Pressable>
-        </View>
+            </Pressable>
+          </View>
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Catch22 /> : null }
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Catch-22" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Catch22 />)} 
               />
-          </Pressable>
-        </View>   
-
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Defamation /> : null }
+            </Pressable>
+          </View>
+          
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Defamation" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Defamation />)} 
               />
-          </Pressable>
-        </View> 
+            </Pressable>
+          </View>
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Elucidate /> : null }
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Elucidate" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Elucidate />)} 
               />
-          </Pressable>
-        </View> 
+            </Pressable>
+          </View>
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Fabulist /> : null }
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Fabulist" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Fabulist />)} 
               />
-          </Pressable>
-        </View> 
-            
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Grandiloquence /> : null }
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Grandiloquence" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Grandiloquence /> )} 
               />
-          </Pressable>
-        </View>
-            
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Heinous /> : null }
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Heinous" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Heinous /> )} 
               />
-          </Pressable>
-        </View>
-           
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Ignominious /> : null }
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Ignominious" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Ignominious /> )} 
               />
-          </Pressable>
-        </View>
-            
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Judicature /> : null }
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Judicature" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Judicature />  )} 
               />
-          </Pressable>
-        </View>
+            </Pressable>
+          </View>
 
-        <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
-        </View>
 
-        </View>
-        </View>    
+          <View>
+            <HomeButton navigation={navigation}/>
+          </View>
+        </View>)}
+   
         </View>
         </LinearGradient>
     </ScrollView>
@@ -141,11 +133,11 @@ const [show, setShow] = useState(true);
   );
 }
 
-// Add function add to my list
 
 const Adjudicate= () => {
   return(
   <View>
+      <Text style={style.subHead}>Adjudicate</Text>
       <Text style={style.text}>Pron. ad-JOO-di-cate</Text>
       <Text style={style.text}>Def: Judicial procedure to settle a case.</Text>
       <Text>
@@ -164,6 +156,7 @@ const Adjudicate= () => {
 const Barrage = () => {
   return(
   <View>
+      <Text style={style.subHead}>Barrage</Text>
       <Text style={style.text}>Pron. buh-ROZH</Text>
       <Text style={style.text}>Def: Concentrated outpouring or volley.</Text>
       <Text>
@@ -183,6 +176,7 @@ const Barrage = () => {
 const Catch22 = () => {
   return(
   <View>
+      <Text style={style.subHead}>Catch-22</Text>
       <Text style={style.text}> Pron. KATCH-twen-tee-too</Text>
       <Text style={style.text}>Def: Impossible situation with contradictory options.</Text>
       <Text>
@@ -202,6 +196,7 @@ const Catch22 = () => {
 const Defamation = () => {
   return(
   <View>
+      <Text style={style.subHead}>Defamation</Text>
       <Text style={style.text}>Pron. def-uh-MAY-shun</Text>
       <Text style={style.text}>Def: False, baseless attacks on person's reputation.</Text>
       <Text>
@@ -221,6 +216,7 @@ const Defamation = () => {
 const Elucidate = () => {
   return(
   <View>
+      <Text style={style.subHead}>Elucidate</Text>
       <Text style={style.text}>Pron. ee-LOO-si-date</Text>
       <Text style={style.text}>Def: To make clear; to explain.</Text>
       <Text>
@@ -239,6 +235,7 @@ const Elucidate = () => {
 const Fabulist = () => {
   return(
   <View>
+      <Text style={style.subHead}>Fabulist</Text>
       <Text style={style.text}>Pron. FAB-yuh-list</Text>
       <Text style={style.text}>Def: Liar; someone who tells outrageously untrue stories.</Text>
       <Text>
@@ -258,6 +255,7 @@ const Fabulist = () => {
 const Grandiloquence = () => {
   return(
   <View>
+      <Text style={style.subHead}>Grandiloquence</Text>
       <Text style={style.text}>Pron. gran-DIL-uh-kwence</Text>
       <Text style={style.text}>Def: Pompous speech or expression.</Text>
       <Text>
@@ -277,6 +275,7 @@ const Grandiloquence = () => {
 const Heinous = () => {
   return(
   <View>
+      <Text style={style.subHead}>Heinous</Text>
       <Text style={style.text}>Pron. HAY-nuss</Text>
       <Text style={style.text}>Def: Evil; reprehensible.</Text>
       <Text>
@@ -296,6 +295,7 @@ const Heinous = () => {
 const Ignominious = () => {
   return(
   <View>
+      <Text style={style.subHead}>Ignominious</Text>
       <Text style={style.text}>Pron. ig-no-MIN-ee-uss</Text>
       <Text style={style.text}>Def: Shameful or disgraceful.</Text>
       <Text>
@@ -315,6 +315,7 @@ const Ignominious = () => {
 const Judicature = () => {
   return(
   <View>
+      <Text style={style.subHead}>Judicature</Text>
       <Text style={style.text}>Pron. JOO-di-kuh-choor</Text>
       <Text style={style.text}>Def: Authority of a court of law.</Text>
       <Text>
@@ -344,6 +345,14 @@ const style = StyleSheet.create({
     fontSize: 30,
     color: '#f0f8ff',
     fontWeight: '800',
+  },
+
+  subHead: {
+    fontSize: 25,
+    color: '#f0f8ff',
+    fontWeight: '600',
+    paddingVertical: 15,
+    paddingHorizontal: 15,
   },
 
   text: {

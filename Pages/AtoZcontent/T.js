@@ -3,6 +3,8 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import NavButtonWord from '../../components/NavButtonWord';
 
 export default function TWords({ navigation }) {
 
@@ -33,81 +35,35 @@ export default function TWords({ navigation }) {
         <View>
           <Text style={style.header}>T Words</Text>
         </View>
-        
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Taciturn"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Tandem"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Tantamount"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Tautology"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Technocracy"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Teetotaler"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Temerity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Tenable"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Tenacious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Tenuous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Tirade"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Titillate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Toothsome"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Trajectory"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Transcendental"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Translucent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Transpire"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Travail"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Travesty"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Trenchant"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Trepidation"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Trifling"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Tumultuous   "/>
-        </Pressable>
 
         <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+          <NavButtonWord navigation={navigation} title="Taciturn" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Tandem" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Tantamount" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Tautology" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Technocracy" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Teetotaler" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Temerity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Tenable" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Tenacious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Tenuous" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Tirade" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Titillate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Toothsome" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Trajectory" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Transcendental" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Translucent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Transpire" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Travail" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Travesty" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Trenchant" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Trepidation" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Trifling" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Tumultuous " destination="Word"/>
+        </View>
+
+        <View>
+          <HomeButton navigation={navigation}/>
         </View>
         
         </View>

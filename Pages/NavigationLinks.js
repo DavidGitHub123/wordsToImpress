@@ -14,6 +14,7 @@ import ConversationSearch from '../Pages/ConversationSearch';
 import FlashCards from '../Pages/FlashCards';
 import MultipleChoice from '../Pages/MultipleChoice';
 import ScheduleQuizzes from '../Pages/ScheduleQuizzes';
+import Quiz from '../Pages/Quiz';
 import TextSearch from '../Pages/TextSearch';
 import WS_Boss from '../Pages/Situations/WS_Boss';
 import WS_Business from '../Pages/Situations/WS_Business';
@@ -73,6 +74,7 @@ export default function NavigationLinks() {
             <Stack.Screen name="FlashCards" component={FlashCards} options={{ title: 'Flash Cards'}}/>
             <Stack.Screen name="MultipleChoice" component={MultipleChoice} options={{ title: 'Multiple Choice Quizes'}}/>
             <Stack.Screen name="ScheduleQuizzes" component={ScheduleQuizzes} options={{ title: 'Schedule Quizzes'}}/>
+            <Stack.Screen name="Quiz" component={Quiz} options={{ title: 'Quizzes'}}/>
             <Stack.Screen name="TextSearch" component={TextSearch} options={{ title: 'Text Search'}}/>
             <Stack.Screen name="WS_Boss" component={WS_Boss} options={{ title: 'WS: Boss'}}/>
             <Stack.Screen name="WS_Business" component={WS_Business} options={{ title: 'WS: Business'}}/>

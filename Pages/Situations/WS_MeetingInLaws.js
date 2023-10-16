@@ -3,23 +3,23 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+
+const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  <View style={style.appButtonContainer}>
+    <Icon.Button
+      name={icon}
+      backgroundColor={backgroundColor}
+      onPress={onPress}
+      style={style.appButton}
+    >
+      <Text style={style.appButtonText}>{title}</Text>
+    </Icon.Button>
+  </View>
+);
 
 export default function WS_MeetingInLaws({ navigation }) {
-
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor={backgroundColor}
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-
-const [show, setShow] = useState(true);
+  const [selectedWord, setSelectedWord] = useState(null);
 
   return (
     <SafeAreaView style={style.container}>
@@ -34,106 +34,97 @@ const [show, setShow] = useState(true);
   
         <View>
           <Text style={style.header}>Word Situations: Boss</Text>
-        <View>
+        </View>
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Acquiescence /> : null }
+        {selectedWord ? 
+            selectedWord : 
+            (<View>
+              
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Acquiescence" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Acquiescence />)} 
               />
-          </Pressable>
-        </View>
+            </Pressable>
+          </View>
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Belated /> : null }
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Belated" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Belated />)} 
               />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Dilapidated /> : null }
-              <AppButton icon="sign-in" title="Dilapidated" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Eccentric /> : null }
-              <AppButton icon="sign-in" title="Eccentric" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>
-        
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Fallacious /> : null }
-              <AppButton icon="sign-in" title="Fallacious" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>
-           
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Heretic /> : null }
-              <AppButton icon="sign-in" title="Heretic" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>
-           
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Impeccable /> : null }
-              <AppButton icon="sign-in" title="Impeccable" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>
-           
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Malady /> : null }
-              <AppButton icon="sign-in" title="Malady" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Ursine /> : null }
-              <AppButton icon="sign-in" title="Ursine" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Wayfaring /> : null }
-              <AppButton icon="sign-in" title="Wayfaring" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View> 
-        
-        <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
-        </View>
+            </Pressable>
+          </View>
 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Dilapidated" 
+              onPress={()=>setSelectedWord(<Dilapidated />)} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Eccentric" 
+              onPress={()=>setSelectedWord(<Eccentric />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Fallacious" 
+              onPress={()=>setSelectedWord(<Fallacious />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Heretic" 
+              onPress={()=>setSelectedWord(<Heretic />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Impeccable" 
+              onPress={()=>setSelectedWord(<Impeccable />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Malady" 
+              onPress={()=>setSelectedWord(<Malady />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Ursine" 
+              onPress={()=>setSelectedWord(<Ursine />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Wayfaring" 
+              onPress={()=>setSelectedWord(<Wayfaring />)} 
+              />
+            </Pressable>
+          </View>
+        
+        <View>
+          <HomeButton navigation={navigation}/>
         </View>
-        </View>
+        </View>)}
+
         </View>
         </LinearGradient>
     </ScrollView>
@@ -146,6 +137,7 @@ const [show, setShow] = useState(true);
 const Acquiescence = () => {
     return(
     <View>
+        <Text style={style.subHead}>Acquiescence</Text>
         <Text style={style.text}>Pron. ak-wee-ESS-unce</Text>
         <Text style={style.text}>Def: Act of passive agreement.</Text>
         <Text>
@@ -165,6 +157,7 @@ const Acquiescence = () => {
 const Belated = () => {
     return(
     <View>
+        <Text style={style.subHead}>Belated</Text>
         <Text style={style.text}>Pron. bee-LAY-ted</Text>
         <Text style={style.text}>Def: Late or tardy; delayed.</Text>
         <Text>
@@ -184,6 +177,7 @@ const Belated = () => {
 const Dilapidated = () => {
     return(
     <View>
+        <Text style={style.subHead}>Dilapidated</Text>
         <Text style={style.text}>Pron. di-LAP-ih-dated</Text>
         <Text style={style.text}>Def: To fall into disrepair.</Text>
         <Text>
@@ -203,6 +197,7 @@ const Dilapidated = () => {
 const Eccentric = () => {
     return(
     <View>
+        <Text style={style.subHead}>Eccentric</Text>
         <Text style={style.text}>Pron. ek-SEN-trik</Text>
         <Text style={style.text}>Def: Marked by unconventional behavior.</Text>
         <Text>
@@ -222,6 +217,7 @@ const Eccentric = () => {
 const Fallacious = () => {
     return(
     <View>
+        <Text style={style.subHead}>Fallacious</Text>
         <Text style={style.text}>Pron. fuh-LAY-shuss</Text>
         <Text style={style.text}>Def: False; containing logical errors.</Text>
         <Text>
@@ -240,6 +236,7 @@ const Fallacious = () => {
 const Heretic = () => {
     return(
     <View>
+        <Text style={style.subHead}>Heretic</Text>
         <Text style={style.text}>Pron. HARE-uh-tic</Text>
         <Text style={style.text}>Def: Professing belief, but differing with parts of the belief system.</Text>
         <Text>
@@ -258,6 +255,7 @@ const Heretic = () => {
 const Impeccable = () => {
     return(
     <View>
+        <Text style={style.subHead}>Impeccable</Text>
         <Text style={style.text}>Pron. im-PECK-uh-bull</Text>
         <Text style={style.text}>Def: Flawless; virtually perfect.</Text>
         <Text>
@@ -277,6 +275,7 @@ const Impeccable = () => {
 const Malady = () => {
     return(
     <View>
+        <Text style={style.subHead}>Malady</Text>
         <Text style={style.text}>Pron. MAL-uh-dee</Text>
         <Text style={style.text}>Def: An illness or unwholesome condition.</Text>
         <Text>
@@ -296,6 +295,7 @@ const Malady = () => {
 const Ursine = () => {
     return(
     <View>
+        <Text style={style.subHead}>Ursine</Text>
         <Text style={style.text}>Pron. UR-sin</Text>
         <Text style={style.text}>Def: Bearlike; Latin word for bear.</Text>
         <Text>
@@ -315,6 +315,7 @@ const Ursine = () => {
 const Wayfaring = () => {
     return(
     <View>
+        <Text style={style.subHead}>Wayfaring</Text>
         <Text style={style.text}>Pron. WAY-fare-ing</Text>
         <Text style={style.text}>Def: Tending to travel by foot.</Text>
           <Text style={style.text}>My grandfather, like many men of his generation, spent some time as a </Text>
@@ -344,6 +345,14 @@ const style = StyleSheet.create({
     fontSize: 30,
     color: '#f0f8ff',
     fontWeight: '800',
+  },
+
+  subHead: {
+    fontSize: 25,
+    color: '#f0f8ff',
+    fontWeight: '600',
+    paddingVertical: 15,
+    paddingHorizontal: 15,
   },
 
   text: {

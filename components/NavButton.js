@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { View, Image, Text, StyleSheet, Pressable, Button, ScrollView, SafeAreaView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { LinearGradient } from "expo-linear-gradient";
 
 export default function NavButton({ navigation, title, destination, icon="sign-in" }){
 
@@ -22,8 +20,9 @@ export default function NavButton({ navigation, title, destination, icon="sign-i
         <AppButton icon={icon} title={title}
         onPress={() => navigation.navigate(destination)}
         />
-      </Pressable>)
+      </Pressable> )
 }
+
 
 const style = StyleSheet.create({
 

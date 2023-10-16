@@ -3,23 +3,23 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+
+const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  <View style={style.appButtonContainer}>
+    <Icon.Button
+      name={icon}
+      backgroundColor={backgroundColor}
+      onPress={onPress}
+      style={style.appButton}
+    >
+      <Text style={style.appButtonText}>{title}</Text>
+    </Icon.Button>
+  </View>
+);
 
 export default function WS_JobInterview({ navigation }) {
-  
-    const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-      <View style={style.appButtonContainer}>
-        <Icon.Button
-          name={icon}
-          backgroundColor={backgroundColor}
-          onPress={onPress}
-          style={style.appButton}
-        >
-          <Text style={style.appButtonText}>{title}</Text>
-        </Icon.Button>
-      </View>
-    );
-  
-  const [show, setShow] = useState(true);
+  const [selectedWord, setSelectedWord] = useState(null);
 
   return (
     <SafeAreaView style={style.container}>
@@ -34,106 +34,97 @@ export default function WS_JobInterview({ navigation }) {
 
         <View>
           <Text style={style.header}>Word Situations: Boss</Text>
-        <View>
+        </View>
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Baccalaureate /> : null }
+        {selectedWord ? 
+            selectedWord : 
+            (<View>
+
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Baccalaureate" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Baccalaureate />)} 
               />
-          </Pressable>
-        </View>
+            </Pressable>
+          </View>  
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Cavalier /> : null }
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Cavalier" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Cavalier />)} 
               />
-          </Pressable>
-        </View>
+            </Pressable>
+          </View>  
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Deprecate /> : null }
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Deprecate" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Deprecate />)} 
               />
-          </Pressable>
-        </View>
-
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Ebullience /> : null }
+            </Pressable>
+          </View> 
+ 
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Ebullience" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Ebullience /> )} 
               />
-          </Pressable>
-        </View>
+            </Pressable>
+          </View> 
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <FaitAccompli /> : null }
-              <AppButton icon="sign-in" title="Fait accompli" 
-              onPress={()=>setShow(!show)} 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Fait Accompli" 
+              onPress={()=>setSelectedWord(<FaitAccompli /> )} 
               />
-          </Pressable>
-        </View> 
+            </Pressable>
+          </View> 
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Galvanize /> : null }
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Galvanize" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Galvanize /> )} 
               />
-          </Pressable>
-        </View>
+            </Pressable>
+          </View> 
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Imbue /> : null }
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Imbue" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Imbue /> )} 
               />
-          </Pressable>
-        </View>
-         
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Jejune /> : null }
-              <AppButton icon="sign-in" title="Jejune" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>
-            
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Kudos /> : null }
-              <AppButton icon="sign-in" title="Kudos" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View> 
-            
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Utilitarian /> : null }
-              <AppButton icon="sign-in" title="Utilitarian" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>
-           
-        <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
-        </View>
+            </Pressable>
+          </View> 
 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Jejune" 
+              onPress={()=>setSelectedWord(<Jejune /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Kudos" 
+              onPress={()=>setSelectedWord(<Kudos /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Utilitarian" 
+              onPress={()=>setSelectedWord(<Utilitarian /> )} 
+              />
+            </Pressable>
+          </View>
+
+        <View>
+          <HomeButton navigation={navigation}/>
         </View>
-        </View>
+        </View>)}
+
         </View>
         </LinearGradient>
     </ScrollView>
@@ -141,11 +132,12 @@ export default function WS_JobInterview({ navigation }) {
   );
 }
 
-// Add function add to my list
+
 
 const Baccalaureate = () => {
   return(
   <View>
+      <Text style={style.subHead}>Baccalaureate</Text>
       <Text style={style.text}>Pron. bak-uh-LOR-ee-it</Text>
       <Text style={style.text}>Def: Degree awarded upon completion of an undergraduate program.</Text>
       <Text>
@@ -165,6 +157,7 @@ const Baccalaureate = () => {
 const Cavalier = () => {
   return(
   <View>
+      <Text style={style.subHead}>Cavalier</Text>
       <Text style={style.text}>Pron. 'KAV-uh-leer</Text>
       <Text style={style.text}>Def: "Unconcerned with what is considered important.</Text>
       <Text>
@@ -184,6 +177,7 @@ const Cavalier = () => {
 const Deprecate = () => {
   return(
   <View>
+      <Text style={style.subHead}>Deprecate</Text>
       <Text style={style.text}>Pron. DEP-ri-cate</Text>
       <Text style={style.text}>Def: To belittle; disapproval of something.</Text>
       <Text>
@@ -203,6 +197,7 @@ const Deprecate = () => {
 const Ebullience = () => {
   return(
   <View>
+      <Text style={style.subHead}>Ebullience</Text>
       <Text style={style.text}>Pron. ih-BOLL-yunce</Text>
       <Text style={style.text}>Def: The quality of being optimistic in speech or writing.</Text>
       <Text>
@@ -219,9 +214,10 @@ const Ebullience = () => {
       )
 }
 
-const FaitAccompli= () => {
+const FaitAccompli = () => {
   return(
   <View>
+      <Text style={style.subHead}>Fait Accompli</Text>
       <Text style={style.text}>Pron. FATE uh-com-PLEE</Text>
       <Text style={style.text}>Def: 'Something undertaken and already concluded.</Text>
       <Text>
@@ -241,6 +237,7 @@ const FaitAccompli= () => {
 const Galvanize = () => {
   return(
   <View>
+      <Text style={style.subHead}>Galvanize</Text>
       <Text style={style.text}>Pron. GAL-vuh-nize</Text>
       <Text style={style.text}>Def: 'To arouse or summon to action.</Text>
       <Text>
@@ -260,6 +257,7 @@ const Galvanize = () => {
 const Imbue = () => {
   return(
   <View>
+      <Text style={style.subHead}>Imbue</Text>
       <Text style={style.text}>Pron. im-BYOO</Text>
       <Text style={style.text}>Def: To saturate or flow throughout by absorption.</Text>
       <Text>
@@ -279,6 +277,7 @@ const Imbue = () => {
 const Jejune = () => {
   return(
   <View>
+      <Text style={style.subHead}>Jejune</Text>
       <Text style={style.text}>Pron. ji-JUNE</Text>
       <Text style={style.text}>Def: Dull or lackluster.</Text>
       <Text>
@@ -298,6 +297,7 @@ const Jejune = () => {
 const Kudos = () => {
   return(
   <View>
+      <Text style={style.subHead}>Kudos</Text>
       <Text style={style.text}>Pron. KOO_dos</Text>
       <Text style={style.text}>Def: Honor or accolades.</Text>
       <Text>
@@ -317,6 +317,7 @@ const Kudos = () => {
 const Utilitarian = () => {
   return(
   <View>
+      <Text style={style.subHead}>Utilitarian</Text>
       <Text style={style.text}>Pron. yoo-til-ih-TARE-ee-un</Text>
       <Text style={style.text}>Def: Concern for the practical or useful.</Text>
       <Text>
@@ -346,6 +347,14 @@ const style = StyleSheet.create({
     fontSize: 30,
     color: '#f0f8ff',
     fontWeight: '800',
+  },
+
+  subHead: {
+    fontSize: 25,
+    color: '#f0f8ff',
+    fontWeight: '600',
+    paddingVertical: 15,
+    paddingHorizontal: 15,
   },
 
   text: {

@@ -35,48 +35,13 @@ export default function HomeScreen({ navigation }) {
 
       <View style={style.section}>
         <NavButton navigation={navigation} title="My Vocab List" destination="MyList"/>
-        
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="A-Z Words"
-          onPress={() => navigation.navigate('AtoZButtons')}
-          />
-        </Pressable>
-
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Vocab Mastery"
-          onPress={() => navigation.navigate('VocabMastery')}
-          />
-        </Pressable>
-
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Word of Day"
-          onPress={() => navigation.navigate('WordOfDay')}
-          />
-        </Pressable>
-
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Word Situations"
-          onPress={() => navigation.navigate('WordSituations')}
-          />
-        </Pressable>
-
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Pre-Built List"
-          onPress={() => navigation.navigate('PreBuiltList')}
-          />
-        </Pressable>
-
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Build My List"
-          onPress={() => navigation.navigate('BuildMyList')}
-          />
-        </Pressable>
-       
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Learning System"
-          onPress={() => navigation.navigate('System')}
-          />
-        </Pressable>
+        <NavButton navigation={navigation} title="A-Z Words" destination="AtoZButtons"/>
+        <NavButton navigation={navigation} title="Vocab Mastery" destination="VocabMastery"/>
+        <NavButton navigation={navigation} title="Word of Day" destination="WordOfDay"/>   
+        <NavButton navigation={navigation} title="Word Situations" destination="WordSituations"/>   
+        <NavButton navigation={navigation} title="Pre-Built List" destination="PreBuiltList"/>   
+        <NavButton navigation={navigation} title="Build My List" destination="BuildMyList"/> 
+        <NavButton navigation={navigation} title="Learning System" destination="System"/> 
     </View>
     </View>
 

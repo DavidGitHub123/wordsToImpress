@@ -3,6 +3,8 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import NavButtonWord from '../../components/NavButtonWord';
 
 export default function UWords({ navigation }) {
 
@@ -33,42 +35,22 @@ export default function UWords({ navigation }) {
         <View>
           <Text style={style.header}>U Words</Text>
         </View>
-        
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ubiquitous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ulterior"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ultimatum"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Umbrage"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Undulate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Unilateral"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Upbraid"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ursine"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Usurp"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Utilitarian"/>
-        </Pressable>
 
         <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+          <NavButtonWord navigation={navigation} title="Ubiquitous" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Ulterior" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Ultimatum" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Umbrage" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Undulate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Unilateral" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Upbraid" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Ursine" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Usurp" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Utilitarian" destination="Word"/>
+        </View>
+
+        <View>
+          <HomeButton navigation={navigation}/>
         </View>
 
         </View>

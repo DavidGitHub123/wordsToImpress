@@ -1,11 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
-// import data from './data.js';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable } from 'react-native';
+import data from '../data.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
-
+import HomeButton from '../components/HomeButton';
+import { useRoute } from '@react-navigation/native';
 
 export default function Word({ navigation }) {
+  const route = useRoute();
+  const { selectedWord } = route.params;
 
   const AppButton = ({ onPress, icon, title, backgroundColor }) => (
     <View style={style.appButtonContainer}>
@@ -19,8 +22,30 @@ export default function Word({ navigation }) {
       </Icon.Button>
     </View>
   );
+
+
+
+
+    function populate(selectedWord){
+      const wordData = data.find(el => el.Word === selectedWord)
+      return(<View>
+          <Text>{wordData.Word}</Text>
+          <Text>{wordData.Pronunciation}</Text>
+          <Text>Definition</Text>
+          <Text>{wordData.Shortdef}</Text>
+          <Text>Sentence</Text>
+          <Text>{wordData.Longdef}</Text>
+          <Pressable><AppButton title="Audio"></AppButton></Pressable>
+      </View>)
+    }
+
+
+
   
-  return (
+   
+
+
+    return (
     <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
     <LinearGradient
@@ -28,51 +53,54 @@ export default function Word({ navigation }) {
         start={[0.1, 1]}
         opacity={.95}
       >
-
-      <View>
-        <Text>{props.word}</Text>
-        <Text>{props.Pronunciation}</Text>
-        <Text>Definition</Text>
-        <Text>{props.Shortdef}</Text>
-        <Text>Sentence</Text>
-        <Text>{props.Longdef}</Text>
-      </View>
-
         <View>
-          <Pressable style={style.appButton} >
-            <AppButton icon="sign-in" title="Add to My List"
-              onPress={() => navigation.navigate('BuildMyList')}
-              />
-          </Pressable> 
+          {populate(selectedWord)}
+          <Pressable><AppButton title="Go Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
+          <HomeButton navigation={ navigation } />
         </View>
-        
-        <View>
-          <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Schedule Quizzes"
-            onPress={() => navigation.navigate('ScheduleQuizzes')}
-            />
-          </Pressable> 
-
-          <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="{Challenge Friend}"
-            onPress={() => navigation.navigate('ChallengeFriend')}
-            />
-          </Pressable> 
-        </View>
-
-        <View>
-          <Pressable style={style.appButton} >
-            <AppButton icon="sign-in" title="Home"
-            onPress={() => navigation.navigate('Home')}
-            />
-          </Pressable> 
-        </View>
-
-
         </LinearGradient>
     </ScrollView>
     </SafeAreaView>
-  );
+    )
+
+  
+  // return (
+  //   // <SafeAreaView style={style.container}>
+  //   // <ScrollView alwaysBounceHorizontal={true}>
+  //   // <LinearGradient
+  //   //     colors={["#0047ab", "#4169e1"]}
+  //   //     start={[0.1, 1]}
+  //   //     opacity={.95}
+  //   //   >
+
+  //   //   <Word />
+
+  //   //   {/* <View>
+  //   //     <Text>{props.word}</Text>
+  //   //     <Text>{props.Pronunciation}</Text>
+  //   //     <Text>Definition</Text>
+  //   //     <Text>{props.Shortdef}</Text>
+  //   //     <Text>Sentence</Text>
+  //   //     <Text>{props.Longdef}</Text>
+  //   //   </View> */}
+
+  //   //     <View>
+  //   //       <Pressable style={style.appButton} >
+  //   //         <AppButton icon="sign-in" title="Add to My List"
+  //   //           onPress={() => navigation.navigate('MyList')}
+  //   //           />
+  //   //       </Pressable> 
+  //   //     </View>
+
+  //   //     <View>
+  //   //       <HomeButton navigation={ navigation } />
+  //   //     </View>
+
+
+  //   //     </LinearGradient>
+  //   // </ScrollView>
+  //   // </SafeAreaView>
+  // );
 }
 
 

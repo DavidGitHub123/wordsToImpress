@@ -9,7 +9,8 @@ export default [
     PartofSpeech:'v',
     Shortdef: "To disconcert, humiliate or shame.",
     Longdef: "The older boys had no qualms about abashing the new arrivals; it was an old tradition at the school.",
-    syn: ['Embarrass', 'Humiliate', 'Shame', 'Disconcert', 'Fluster', 'Mortify', 'Chagrin', 'Confound', 'Disturb', 'Rattle']
+    syn: ['Embarrass', 'Humiliate', 'Shame', 'Disconcert', 'Fluster', 'Mortify', 'Chagrin', 'Confound', 
+    'Disturb', 'Rattle'],
 },
 
 {   id: '002',
@@ -219,7 +220,7 @@ export default [
     Pronunciation: 'ab-uh-RIDGE-ih-nul',
     PartofSpeech: 'a',
     Shortdef: "Indigenous or native to an area.",
-    Longdef: "The General Assembly was presented with a petition on environmental matters signed by representatives of the world's various aboriginal peoples.",
+    Longdef: "The Assembly was presented with a petition signed by the world's various aboriginal peoples.",
     syn: ["indigenous", "native", "first nations", "original inhabitants", "indigenes", "autochthonous", "pre-colonial people"]
 },
 
@@ -231,7 +232,7 @@ export default [
     Pronunciation: 'un-BOR-tive',
     PartofSpeech: 'a',
     Shortdef: 'Unsuccessful or fruitless.',
-    Longdef: "Although it was the astronauts' failure to dock at the station that drew media attention, the abortive mission had many potentially more serious problems as well.",
+    Longdef: "Although it was the astronauts' failure to dock that drew media attention, the abortive mission had other problems.",
     syn: ["unsuccessful", "ineffective", "fruitless", "failed", "unproductive", "futile", "vain", "inoperative", "unsuccessful", "unavailing"]
 },
 
@@ -255,7 +256,7 @@ export default [
     Pronunciation: 'AB-ro-gate',
     PartofSpeech: 'v',
     Shortdef: 'To nullify or cancel.',
-    Longdef: "The country abrogated the treaty after evidence appeared other nations had vailed to honor the agreement.",
+    Longdef: "The country abrogated the treaty after other nations had failed to honor the agreement.",
     syn: [
         "revoke", 
         "repeal", 
@@ -301,7 +302,7 @@ export default [
     Pronunciation: 'ab-STEE-me-us',
     PartofSpeech: 'a',
     Shortdef: 'Consuming food and drink in moderation.',
-    Longdef: "Despite the hardships of his abstemious way of life, the monk radiated the confidence that comes with knowing one has chosen the correct path.",
+    Longdef: "Despite the hardships of his abstemious way of life, the monk radiated the confidence he had chosen the correct path.",
     syn: ["temperate", "moderate", "self-restrained", "disciplined", "controlled", "modest", "sober", "austere", "frugal", "restrained"]
 },
 
@@ -313,7 +314,7 @@ export default [
     Pronunciation:'AB-ste-nence',
     PartofSpeech: 'n',
     Shortdef: 'Voluntarily foregoing indulgence of an appetite.',
-    Longdef: "After years of indulgence, it was difficult for Evelyn to follow her doctor's order of complete abstinence from liquor.",
+    Longdef: "After years of indulgence, it was difficult for Evelyn to follow complete abstinence from liquor.",
     syn: [
         "restraint",
         "self-denial",
@@ -336,7 +337,7 @@ export default [
     Pronunciation: 'ab-STROOCE',
     PartofSpeech: 'a',
     Shortdef: 'Complex and difficult to comprehend.',
-    Longdef: "Scientists may understand Einstein's theory of relativity, but for most people it remains an abstruse collection of surrealistic ideas.",
+    Longdef: "Scientists may understand Einstein's theories, but for most they remains abstruse ideas.",
     syn: [
         "Esoteric",
         "Arcane",
@@ -420,7 +421,7 @@ export default [
     Pronunciation: 'uh-CORD',
     PartofSpeech: 'n',
     Shortdef: "Formal reaching of agreement.",
-    Longdef: "After a prolonged strike, with the issue of healthcare benefits resolved, the representatives finally reached an accord acceptable to both labor and management.",
+    Longdef: "After a prolonged strike, the representatives finally reached an accord acceptable to both labor and management.",
     syn: ["agreement", "concurrence", "harmony", "consensus", "unity", "concordance", "correspondence", "conformity", "accordance", "mutual understanding"]
 },
 
@@ -444,7 +445,7 @@ export default [
     Pronunciation: 'ak-wee-ESS-unce',
     PartofSpeech: 'n',
     Shortdef: 'Act of passive agreement.',
-    Longdef: "Hank, enchanted by first-time grand-fatherhood, gave over to complete acquiescence on his first day with little Laura.",
+    Longdef: "Enchanted by grand-fatherhood, Hank gave over to complete acquiescence on his first day with little Laura.",
     syn: [
         "agreement",
         "consent",
@@ -477,7 +478,7 @@ export default [
     Pronunciation: 'ak-ri-MO-nee-us',
     PartofSpeech: 'a',
     Shortdef: "Mean-spirited, ill-natured.",
-    Longdef: "Vieworce is, we must remember, an expensive, emotionally devastating and acrimonious affair.",
+    Longdef: "Divorce is an expensive, emotionally devastating and acrimonious affair.",
     syn: ["angry", "bitter", "contentious", "hostile", "resentful", "vindictive"]
 },
 
@@ -556,7 +557,7 @@ export default [
     Pronunciation: 'AD-uh-munt',
     PartofSpeech: 'a',
     Shortdef: "Unwilling to submit.",
-    Longdef: "Despite objections, Robin and Tim were adamant about moving away from the town and their families.",
+    Longdef: "Despite objections, Robin was adamant about moving away from their families.",
     syn: [
         "uncompromising",
         "inflexible",
@@ -638,7 +639,7 @@ export default [
     Pronunciation: 'ad in-fi-NEYE-tum',
     PartofSpeech: 'a',
     Shortdef: "Without end.",
-    Longdef: "Wilbur remarked wryly that he could probably discuss the treatment facility's weaknesses ad infinitum.",
+    Longdef: "Wilbur remarked that he could probably discuss the facility's weaknesses ad infinitum.",
     syn: ["endlessly", "infinitely", "ceaselessly", "eternally", "unendingly", "perpetually", "incessantly", "unceasingly", "continuously", "forevermore"]
 },
 
@@ -739,7 +740,7 @@ export default [
     Pronunciation: 'a-DUL-ter-ate',
     PartofSpeech: 'v',
     Shortdef: "To make impure or tainted.",
-    Longdef: "At the turn of the century, the sale of adulterated dairy products in the U.S. caused a major scandal.",
+    Longdef: "The sale of adulterated dairy products in the U.S. caused a major scandal.",
     syn: ["contaminate", "taint", "pollute", "spoil", "corrupt", "debase", "defile", "dilute", "weaken", "water down"]
 },
 
@@ -751,7 +752,7 @@ export default [
     Pronunciation: 'us-THET-ik',
     PartofSpeech: 'a',
     Shortdef: "Related to a sense of beauty.",
-    Longdef: "It is not my place to comment on the aesthetics of the painting; I am just not that familiar with post-modernistic art.",
+    Longdef: "It is not my place to comment on the aesthetics of the painting; I am not familiar with post-modernistic art.",
     syn: [
         "Beauty", 
         "Artistic", 
@@ -829,8 +830,8 @@ export default [
     Word: 'Agape',
     Pronunciation: 'ah-GAH-pay',
     PartofSpeech: 'n',
-    Shortdef: "Viewine love for humanity.",
-    Longdef: "The nurse's work among the poor and dispossessed seemed rooted, not in a well-meaning instinct, but in a deeper agape.",
+    Shortdef: "Divine love for humanity.",
+    Longdef: "The nurse's work among the poor seemed rooted, not just in a well-meaning instinct, but in a deeper agape.",
     syn: ["open-mouthed", "wide-eyed", "astonished", "amazed", "dumbfounded", "flabbergasted", "shocked", "gape-mouthed", "awe-struck", "reverent", "stunned", "startled", "slack-jawed", "speechless"]
 },
 
@@ -880,7 +881,7 @@ export default [
     Pronunciation: 'uh-KIN',
     PartofSpeech: 'a',
     Shortdef: "Showing similar feature or quality.",
-    Longdef: "I feel Harry's repeated falsification of his records is much more than a breach of policy: it is akin to outright perjury.",
+    Longdef: "Harry's repeated falsification of his records is more than a breach of policy: it is akin to perjury.",
     syn: ["similar", "related", "comparable", "analogous", "parallel", "associated", "equivalent", "corresponding", "like", "kindred"]
 },
 
@@ -904,7 +905,7 @@ export default [
     Pronunciation: 'AL-bub-tross',
     PartofSpeech: 'n',
     Shortdef: "Significant impediment or burden.",
-    Longdef: "In Coleridge's poem 'Rime of the Ancient Mariner' a sailor shoots a friendly albatross and is made to wear the bird's carcass around his neck.",
+    Longdef: "In the poem a sailor shoots a friendly albatross and is made to wear the bird's carcass around his neck.",
     syn: ["burden", "load", "encumbrance", "hindrance", "obstacle"]
 },
 
@@ -916,7 +917,7 @@ export default [
     Pronunciation: 'uh-LAY',
     PartofSpeech: 'v',
     Shortdef: "To put something (doubt or concern) to rest.",
-    Longdef: "I know there have been rumors that the project will be quite expensive, but I think you will agree that these figures allay that fear.",
+    Longdef: "There are rumorsthe project will be expensive, but you will agree these figures allay that fear.",
     syn: ["ease", "soothe", "mitigate", "relieve", "quell", "appease", "pacify", "assuage", "calm", "tranquilize"]
 },
 
@@ -928,7 +929,7 @@ export default [
     Pronunciation: 'uh-LOOD',
     PartofSpeech: 'v',
     Shortdef: "To make passing reference to something.",
-    Longdef: "I am aware of the incident you are alluding to, but I'm afraid you have been misinformed about the events of that night.",
+    Longdef: "I am aware of the incident you are alluding to, but you have been misinformed about the events of that night.",
     syn: [
         "Refer to",
         "Imply",
@@ -951,7 +952,7 @@ export default [
     Pronunciation: 'AL-troo-ihz-um',
     PartofSpeech: 'n',
     Shortdef: "Selflessness; good-natured actions.",
-    Longdef: "I appreciate your altruism in keeping me company, but please use the urinal that's not directly next to me.",
+    Longdef: "I appreciate your altruism in keeping me company in these dark times.",
     syn: ["selflessness", "benevolence", "generosity", "charity", "philanthropy", "humanity", "compassion", "kindness", "public spirit", "magnanimity"]
 },
 
@@ -999,7 +1000,7 @@ export default [
     Pronunciation: 'am-BIV-uh-lent',
     PartofSpeech: 'a',
     Shortdef: "Of two minds; uncertain of course of action.",
-    Longdef: "Frank had been ambivalent about marriage in his early years; older now he was eager to settle down.",
+    Longdef: "Frank had been ambivalent about marriage; older now he was eager to settle down.",
     syn: [
         "uncertain", 
         "hesitant", 
@@ -1046,7 +1047,7 @@ export default [
     Pronunciation: 'uh-MEEL-yuh-rate',
     PartofSpeech: 'v',
     Shortdef: "To improve or upgrade.",
-    Longdef: "The ambassador's midnight visit was the first step towards ameliorating the poor relations between the two countries.",
+    Longdef: "The ambassador's visit was the first step to ameliorating the poor relations between the two countries.",
     syn: ["improve", "enhance", "better", "uplift", "upgrade", "advance", "revamp", "refine", "fine-tune", "perfect"]
 },
 
@@ -1082,7 +1083,7 @@ export default [
     Pronunciation: 'un-MEN-ih-tee',
     PartofSpeech: 'n',
     Shortdef: "A pleasant manner or custom.",
-    Longdef: "Chris' home, which was once parse, now featured all the amenities: a sauna, entertainment center, and swimming pool.",
+    Longdef: "Chris' home now featured all the amenities: a sauna, entertainment center, and swimming pool.",
     syn: [
         "comfort",
         "convenience",
@@ -1116,7 +1117,7 @@ export default [
     Word: 'Amoral',
     Pronunciation: 'ay-MOR-uhl',
     PartofSpeech: 'a',
-    Shortdef: "Without moral discreation or standards.",
+    Shortdef: "Without moral discretion or standards.",
     Longdef: "In the end, we find that war is not always for the right, or even evil, but far too often an amoral exercise.",
     syn: ["unprincipled", "unethical", "unscrupulous", "immoral", "unconscionable", "depraved", "corrupt", "sinful", "wicked", "dishonest"]
 },
@@ -1130,7 +1131,7 @@ export default [
     PartofSpeech: 'a',
     Shortdef: "Strongly disposed toward love.",
     Longdef: "Of course I have amorous feelings for you, just not when the TV's on.",
-    syn: [romantic, affectionate, loving, passionate, enamored, devoted, smitten, infatuated, ardent, adoring]
+    syn: ["romantic", "affectionate", "loving", "passionate", "enamored", "devoted", "smitten", "infatuated", "ardent", "adoring"]
 },
 
 {   id: '068',
@@ -1225,7 +1226,7 @@ export default [
     Pronunciation: 'uh-NATH-eh-muh',
     PartofSpeech: 'n',
     Shortdef: "Wrong in the highest degree.",
-    Longdef: "The ambassador warned us ahead of time not to attempt to discuss the issue of dropping sanctions against the dictator, that subject was anathema to his government.",
+    Longdef: "The ambassador warned us not to discuss the issue of sanctions, that subject was anathema to his government",
     syn: [
         "Curse",
         "Abomination",
@@ -1248,7 +1249,7 @@ export default [
     Pronunciation: 'AN-se-lare-ree',
     PartofSpeech: 'a',
     Shortdef: "Secondary or subordinate.",
-    Longdef: "He took a great deal of pride in his work, even though the pay was poor and most of his duties were ancillary to those of the regional director.",
+    Longdef: "He took pride in his work, even though the pay was poor and most of his duties were ancillary to those of the regional director.",
     syn: ["supplementary", "subsidiary", "secondary", "auxiliary", "accessory", "complementary", "supporting", "additional", "extra", "incidental"]
 },
 
@@ -1260,7 +1261,7 @@ export default [
     Pronunciation: 'an-DROJ-uh-ness',
     PartofSpeech: 'a',
     Shortdef: "Showing biological characteristics of male and female.",
-    Longdef: "The androgynous appearance of some young boys explains how Shakespeare could write a 'woman's part like Juliet and yet never see it performed by a woman.",
+    Longdef: "The androgynous appearance of some boys explains how Shakespeare could write a woman's part and see it performed by a man.",
     syn: ["ambisexual", "epicene", "intersexual", "unisex", "neuter", "genderless", "hermaphroditic", "non-binary", "genderqueer", "pansexual"]
 },
 
@@ -1295,7 +1296,7 @@ export default [
     Pronunciation: 'an-ih-MOSS-it-tee',
     PartofSpeech: 'n',
     Shortdef: "Hostility toward a person or thing.",
-    Longdef: "Clyde's first few months on the job were fine, but after being critized by his manager he came to harbor real animosity toward his supervisor.",
+    Longdef: "Clyde's first month on the job was fine, but after being critized he came to harbor animosity toward his supervisor.",
     syn: [
         "hostility",
         "hatred",
@@ -2098,7 +2099,7 @@ export default [
     Pronunciation: 'buh-LIJ-er-ent',
     PartofSpeech: 'a',
     Shortdef: "Aggressive; eager to instigate a fight.",
-    Longdef: "Don became overbearing and belligerent with his employees after his Vieworce, causing many of them to resign.",
+    Longdef: "Don became overbearing and belligerent with his employees after his divorce, causing many of them to resign.",
     syn: ["hostile", "aggressive", "combative", "quarrelsome", "bellicose", "antagonistic", "pugnacious", "militant", "warlike", "violent", "contentious", "argumentative", "confrontational", "uncooperative", "contrary", "adversarial"]
 },
 
@@ -2274,7 +2275,7 @@ export default [
     Pronunciation: 'bilk',
     PartofSpeech: 'v',
     Shortdef: "To swindle or cheat.",
-    Longdef: "I heard from Harold's accountant that Harold bilked his company out of a quarter of a million dollars and that is why he doesn't live here anymore.",
+    Longdef: "Harold bilked his company out of a quarter of a million dollars and that is why he doesn't live here anymore.",
     syn: ["cheat", "defraud", "swindle", "dupe", "con", "trick", "shaft", "rip off"]
 },
 
@@ -2309,7 +2310,7 @@ export default [
     Word: 'Bipolar',
     Pronunciation: 'bye-POE-luhr',
     PartofSpeech: 'a',
-    Shortdef: 'Possessing two sies or poles.',
+    Shortdef: 'Possessing two sides or poles.',
     Longdef: "Frank's behavior was generally unremarkable, but we later learned his mood swings were symptoms of a bipolar disorder.",
     syn: ["two-sided"]
 },
@@ -2502,7 +2503,7 @@ export default [
     Pronunciation: 'BREV-ih-tee',
     PartofSpeech: 'n',
     Shortdef: 'Shortness of writing or speech.',
-    Longdef: "Paine's argument was stated with such brevity and passion that within one short month of its publication it seemed every colonist was in favor of independence from Britain.",
+    Longdef: "Paine's argument was stated with such brevity and passion that within one month every colonist was in favor of independence.",
     syn: ["conciseness", "succinctness", "terse-ness", "pithiness", "clarity", "abridgment", "compression", "shortness", "economy", "simplicity"]
 },
 
@@ -2561,7 +2562,7 @@ export default [
     Word: 'Bygone',
     Pronunciation: 'BYE-gone',
     PartofSpeech: 'n',
-    Shortdef: 'Something gone by.',
+    Shortdef: 'In the past.',
     Longdef: "The inn calls to mind a bygone era of Southern hospitality.",
     syn: ['Past', 'Former', 'Old-time', 'Ancient', 'Antique', 'Outmoded', 'Obsolete', 'Vintage', 'Defunct', 'Extinct', 'Historic', 'Glory days', 'Yesterday', 'Forgotten', 'Long-gone', 'Departed']
 },
@@ -2677,7 +2678,7 @@ export default [
     alpha: 'c',
     Prebuilt: '',
     SocialSituation: '',
-    Word: 'Carpe diem',
+    Word: 'Carpe Diem',
     Pronunciation: 'KAR-pay DEE-uhm',
     PartofSpeech: 'n',
     Shortdef: "Seize the day; Relish the present.",
@@ -2752,7 +2753,7 @@ export default [
     Pronunciation: 'KATCH-twen-tee-too',
     PartofSpeech: 'n',
     Shortdef: 'Impossible situation with contradictory options.',
-    Longdef: "Judge Brown's lighthearted memo issued a playful catch-22: he was only to be scheduled for meetings taking place during those days he planned to 'be out of town.",
+    Longdef: "Judge Brown's memo issued a playful catch-22: he was only to be scheduled for meetings on days he was to be out of town.",
     syn: ["dilemma", "paradox", "contradiction", "trap", "no-win situation", "double bind", "vicious cycle", "deadlock", "impasse", "quandary"]
 },
 
@@ -2842,7 +2843,7 @@ export default [
     Pronunciation: 'KAV-ihl',
     PartofSpeech: 'v',
     Shortdef: "To find fault in trivial matters.",
-    Longdef: "Susan caviled for some time about the lateness of the milk delivery, but it was only a matter of minutes, she eventually gave in and paid the bill.",
+    Longdef: "Susan caviled about the late milk delivery, but it was only a matter of minutes, and she gave in and paid the bill.",
     syn: ["quibble", "nitpick", "fault-find", "hypercriticize", "criticize", "complain", "protest", "object", "scruple", "carp"]
 },
 
@@ -3843,7 +3844,7 @@ export default [
     Pronunciation: 'di-DOOSE',
     PartofSpeech: 'v',
     Shortdef: 'To infer; to derive from evidence.',
-    Longdef: "Holmes looked around the garden and somehow deduced that the killer was a man of middle age with thinning brown hair, approximately six feet tall.",
+    Longdef: "Holmes looked at the garden and deduced the killer was middle age with thinning brown hair, approximately six feet tall.",
     syn: ["infer", "conclude", "derive", "gather", "reason", "draw a conclusion", "assume", "presume", "reckon"]
 },
 
@@ -3867,7 +3868,7 @@ export default [
     Pronunciation: 'def-uh-MAY-shun',
     PartofSpeech: 'n',
     Shortdef: "False, baseless attacks on a person's reputation.",
-    Longdef: "After the last of the Journal's articles on her your honor, Ms. Smith decided she had put up with enough defamation of her character.",
+    Longdef: "After the last article on her your honor, Ms. Smith decided she had put up with enough defamation of her character.",
     syn: ["Libel", "Slander", "Discrimination", "Calumny", "Traducement", "False accusation", "Smear campaign", "Character assassination"]
 },
 
@@ -3902,7 +3903,7 @@ export default [
     Word: 'Deify',
     Pronunciation: 'DAY-ih-fy',
     PartofSpeech: 'v',
-    Shortdef: 'To elevate to level of Viewinity.',
+    Shortdef: 'To elevate to level of divinity.',
     Longdef: "To promote a celebrity is one thing, to deify him is quite another.",
     syn: ["worship", "venerate", "glorify", "exalt", "idolize", "revere", "adulate", "elevate"]
 },
@@ -3927,7 +3928,7 @@ export default [
     Pronunciation: 'de-LEK-tu-bull',
     PartofSpeech: 'a',
     Shortdef: 'Highly pleasing; enjoyable (especially food).',
-    Longdef: "The Thanksgiving table was crammed with delectable dishes, but they would not be eaten that night; the news from abroad had diminished everyone's appetite.",
+    Longdef: "The Thanksgiving table was crammed with delectable dishes, but the news from abroad had diminished everyone's appetite.",
     syn: ["delicious", "scrumptious", "mouth-watering", "tasty", "yummy", "appetizing", "savory", "flavorful", "palatable", "tempting"]
 },
 
@@ -3939,7 +3940,7 @@ export default [
     Pronunciation: 'del-i-TERR-ee-us',
     PartofSpeech: 'a',
     Shortdef: 'Harmful or injurious.',
-    Longdef: "My client was regularly subjected to high radiation levels, hazardous compounds and many other deleterious environmental conditions.",
+    Longdef: "My client was regularly subjected to high radiation levels and other deleterious environmental conditions.",
     syn: [
         "harmful",
         "toxic",
@@ -4012,7 +4013,7 @@ export default [
     Pronunciation: 'DEM-uh-gog',
     PartofSpeech: 'n',
     Shortdef: 'A politician who gains power by appealing to emotions.',
-    Longdef: "The senator's aides honestly believed that they had agreed to work for a statesman, but saw now the theory were furthering the ambitions of a demagogue.",
+    Longdef: "The senator's aides believed they work for a statesman, but saw now they were furthering the ambitions of a demagogue.",
     syn: [
         "Charlatan",
         "Fraud",
@@ -4279,7 +4280,7 @@ export default [
     Pronunciation: 'die-ug-NOSS-tik',
     PartofSpeech: 'a',
     Shortdef: "Pertaining to diagnosis. Tool used to evaulate.",
-    Longdef: "The terrorists, the papers claimed, had a diabolical agenda.",
+    Longdef: "The tech team ran a diagnostic on the systems and everything checked out.",
     syn: ["Analysis", "Examination", "Checkup", "Assessment", "Evaluation"]
 },
 
@@ -4314,7 +4315,7 @@ export default [
     Word: 'Dichotomy',
     Pronunciation: 'die-KOT-uh-me',
     PartofSpeech: 'n',
-    Shortdef: 'Viewision into two contrasting pairs.',
+    Shortdef: 'Division into two contrasting pairs.',
     Longdef: "There is public interest and there is private interest. Reconciling that dichotomy can be a difficult job.",
     syn: [
         "Viewision",
@@ -4625,7 +4626,7 @@ export default [
     alpha: 'd',
     Prebuilt: '',
     SocialSituation: '',
-    Word: 'Viewergence',
+    Word: 'Divergence',
     Pronunciation: 'di-VER-gence',
     PartofSpeech: 'n',
     Shortdef: 'Process of departing from a given course.',
@@ -4713,7 +4714,7 @@ export default [
     Pronunciation: 'ek-SEN-trik',
     PartofSpeech: 'a',
     Shortdef: 'Marked by unconventional behavior.',
-    Longdef: "Lionel's eccentric behavior eventually led to people in the lab avoiding him entirely for fear of what it would mean for their reputation.",
+    Longdef: "Lionel's eccentric behavior led people in the lab avoiding him entirely for fear of their reputations.",
     syn: ["quirky", "peculiar", "odd", "weird", "unusual", "abnormal", "unconventional", "offbeat", "strange", "bizarre", "idiosyncratic", "nonconformist", "off-center", "outlandish", "different"]
 },
 
@@ -4748,7 +4749,7 @@ export default [
     Pronunciation: 'ek-LEK-tic',
     PartofSpeech: 'a',
     Shortdef: 'Consisting of variety of different sources or origins.',
-    Longdef: "Ryan s anthology offers selections from many authors, resulting in a rather eclectic volume.",
+    Longdef: "Ryan's anthology offers selections from many authors, resulting in a rather eclectic volume.",
     syn: ["inclusive", "Viewerse", "varied", "assorted", "wide-ranging", "heterogeneous", "mixed", "multifaceted", "nuanced", "selective"]
 },
 
@@ -4760,7 +4761,7 @@ export default [
     Pronunciation: 'ed-ih-fih-KAY-shun',
     PartofSpeech: 'n',
     Shortdef: 'Enlightenment; sharing important insights.',
-    Longdef: "Although the author includes supplements on Egyptian construction for the edification of his readers, the ideas are not connected with the central idea of his book.",
+    Longdef: "The author includes supplements on Egyptian construction for the edification of his readers.",
     syn: [
         "education",
         "enlightenment",
@@ -5707,7 +5708,7 @@ export default [
     alpha: 'f',
     Prebuilt: '',
     SocialSituation: {JobInterview: 'Job Interview'},
-    Word: 'Fait accompli',
+    Word: 'Fait Accompli',
     Pronunciation: 'FATE uh-com-PLEE',
     PartofSpeech: 'n',
     Shortdef: 'Something undertaken and already concluded.',
@@ -5755,7 +5756,7 @@ export default [
     alpha: 'f',
     Prebuilt: '',
     SocialSituation: {Politics: 'Politics'},
-    Word: 'Faux pas',
+    Word: 'Faux Pas',
     Pronunciation: 'fo PAW',
     PartofSpeech: 'n',
     Shortdef: 'French for false step.',
@@ -6024,7 +6025,7 @@ export default [
     Pronunciation: 'FRAK-shus',
     PartofSpeech: 'a',
     Shortdef: 'Unruly; likely to cause disturbance.',
-    Longdef: "After years of trial and error, Dr. Powers made a fortuitous discovery when he mistakenly combined two chemical compounds, leading to a new drug.",
+    Longdef: "The fractious political groups, with their disruptive tactics, are upsetting the balance of power in the Senate.",
     syn: ["disobedient", "unruly", "difficult", "rebellious", "unmanageable", "troublesome", "contrary", "stubborn", "cantankerous", "testy", "irritable", "cranky", "fussy"]
 },
 
@@ -6131,7 +6132,7 @@ export default [
     Pronunciation: 'GANE-say',
     PartofSpeech: 'v',
     Shortdef: 'To declare false.',
-    Longdef: "The principles of the Bill of Rights, Mr. Secretary, will admit no gainsaying; they have proven to have created a superior form of government.",
+    Longdef: "The Bill of Rights will admit no gainsaying; they have proven to have created a superior form of government.",
     syn: ["contradict", "challenge", "dispute", "oppose", "deny", "disapprove", "object", "protest", "refute", "resist"]
 },
 
@@ -6335,7 +6336,7 @@ export default [
     Pronunciation: 'graft',
     PartofSpeech: 'n',
     Shortdef: 'The unscrupulous use of rank for personal gain.',
-    Longdef: "The game had been sold out for months, and the many easy acquisition of tickets led to whisperings of graft in the administration.",
+    Longdef: "The game had been sold out which led to whisperings of graft in the administration.",
     syn: ["grafting", "transplant", "implant", "transference", "union", "attachment", "integration", "graftage", "grafting", "inoculation", "scion", "shoot"]
 },
 
@@ -6359,7 +6360,7 @@ export default [
     Pronunciation: 'gran-DIL-uh-kwence',
     PartofSpeech: 'n',
     Shortdef: 'Pompous speech or expression; bombast.',
-    Longdef: "Your honor, I may not always employ the grandiloquence the prosecutor does with her smooth words, but I believe I have a commonsense solution.",
+    Longdef: "I may not always employ the grandiloquence of the prosecutor with her smooth words, but I have a commonsense solution.",
     syn: ["pompousness", "bombast", "rhetoric", "verbiage", "wordiness", "verbosity", "eloquence", "ornateness", "flowery language"]
 },
 
@@ -6706,7 +6707,7 @@ export default [
     Pronunciation: 'HYOO-briss',
     PartofSpeech: 'n',
     Shortdef: 'Excessive pride.',
-    Longdef: "Colin may have begun as a pleasant clerk, but by the time he took over the company in he showed signs of hubris that would accompany his downfall.",
+    Longdef: "Colin may have been humble, but when he took over the company he showed signs of hubris that would accompany his downfall.",
     syn: [
         "arrogance", 
         "pride", 
@@ -6837,7 +6838,7 @@ export default [
     Pronunciation: 'IM-uh-late',
     PartofSpeech: 'v',
     Shortdef: "To kill as a sacrifice, especially by fire.",
-    Longdef: "The monk's dramatic act of self-immolation made headlines around the world",
+    Longdef: "The monk's dramatic act of self-immolation made headlines around the world.",
     syn: [
         'sacrifice',
         'burn as an offering',
@@ -6896,7 +6897,7 @@ export default [
     Pronunciation: 'IM-pass',
     PartofSpeech: 'n',
     Shortdef: 'A situation that seems to offer no solution or escape.',
-    Longdef: "Mark realized that the negotiations had reached an impasse and that for anything to move forward both side sneeded to make more compromises.",
+    Longdef:  "Mark realized that the negotiations had reached an impasse, to move forward both sides needed to make more compromises.",
     syn: ["deadlock", "stalemate", "gridlock", "standoff", "dilemma", "difficulty", "obstruction", "blockage", "halt", "standstill"]
 },
 
@@ -7422,7 +7423,7 @@ export default [
     PartofSpeech: 'a',
     Shortdef: 'Incapable of making a mistake.',
     Longdef: "You have no need to worry about the security of this mission, gentlemen; the HAL 9000 computer is infallible.",
-    syn: [straight, reliable, accurate, errorless, faultless, certain, perfect, flawless, foolproof, unerring]
+    syn: ["straight", "reliable", "accurate", "errorless", "faultless", "certain", "perfect", "flawless", "foolproof", "unerring"]
 },
 
 {   id: '517',

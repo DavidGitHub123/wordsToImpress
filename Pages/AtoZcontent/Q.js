@@ -3,6 +3,8 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import NavButtonWord from '../../components/NavButtonWord';
 
 export default function QWords({ navigation }) {
 
@@ -33,27 +35,17 @@ export default function QWords({ navigation }) {
         <View>
           <Text style={style.header}>Q Words</Text>
         </View>
-        
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Quagmire"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Qualm"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Querulous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Quintessence"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Quixotic"/>
-        </Pressable>
 
         <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+          <NavButtonWord navigation={navigation} title="Quagmire" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Qualm" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Querulous" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Quintessence" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Quixotic" destination="Word"/>
+        </View>
+
+        <View>
+          <HomeButton navigation={navigation}/>
         </View>
 
         </View>

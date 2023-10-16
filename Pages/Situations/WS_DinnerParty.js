@@ -3,23 +3,23 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+
+const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  <View style={style.appButtonContainer}>
+    <Icon.Button
+      name={icon}
+      backgroundColor={backgroundColor}
+      onPress={onPress}
+      style={style.appButton}
+    >
+      <Text style={style.appButtonText}>{title}</Text>
+    </Icon.Button>
+  </View>
+);
 
 export default function WS_DinnerParty({ navigation }) {
-
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor={backgroundColor}
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-
-const [show, setShow] = useState(true);
+  const [selectedWord, setSelectedWord] = useState(null);
 
   return (
     <SafeAreaView style={style.container}>
@@ -36,110 +36,101 @@ const [show, setShow] = useState(true);
         <Text style={style.header}>Word Situations: Boss</Text>
       </View>
 
-      <View>
-        <Pressable style={style.appButton} >
-            { show == true ? <Clamorous /> : null }
-            <AppButton icon="sign-in" title="Clamorous" 
-            onPress={()=>setShow(!show)} 
-            />
-        </Pressable>
-      </View>
+      {selectedWord ? 
+            selectedWord : 
+            (<View>
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Clamorous" 
+              onPress={()=>setSelectedWord(<Clamorous />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Diffident" 
+              onPress={()=>setSelectedWord(<Diffident />)} 
+              />
+            </Pressable>
+          </View>
+          
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Educe" 
+              onPress={()=>setSelectedWord(<Educe />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Fatuous" 
+              onPress={()=>setSelectedWord(<Fatuous />)} 
+              />
+            </Pressable>
+          </View>
+          
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Gauche" 
+              onPress={()=>setSelectedWord(<Gauche />)} 
+              />
+            </Pressable>
+          </View>
+          
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Harangue" 
+              onPress={()=>setSelectedWord(<Harangue />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Imbibe" 
+              onPress={()=>setSelectedWord(<Imbibe />)} 
+              />
+            </Pressable>
+          </View>
+          
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Juxtapose" 
+              onPress={()=>setSelectedWord(<Juxtapose />)} 
+              />
+            </Pressable>
+          </View>
+          
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Largess" 
+              onPress={()=>setSelectedWord(<Largess />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Melodious" 
+              onPress={()=>setSelectedWord(<Melodious />)} 
+              />
+            </Pressable>
+          </View>
+          
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Nabob" 
+              onPress={()=>setSelectedWord(<Nabob />)} 
+              />
+            </Pressable>
+          </View>
           
       <View>
-        <Pressable style={style.appButton} >
-            { show == true ? <Diffident /> : null }
-            <AppButton icon="sign-in" title="Diffident" 
-            onPress={()=>setShow(!show)} 
-            />
-        </Pressable>
+        <HomeButton navigation={navigation}/>
       </View>
-
-      <View>
-        <Pressable style={style.appButton} >
-            { show == true ? <Educe /> : null }
-            <AppButton icon="sign-in" title="Educe" 
-            onPress={()=>setShow(!show)} 
-            />
-        </Pressable>
-      </View>
-
-      <View>
-        <Pressable style={style.appButton} >
-            { show == true ? <Fatuous /> : null }
-            <AppButton icon="sign-in" title="Fatuous" 
-            onPress={()=>setShow(!show)} 
-            />
-        </Pressable>
-      </View>
-           
-      <View>
-        <Pressable style={style.appButton} >
-            { show == true ? <Gauche /> : null }
-            <AppButton icon="sign-in" title="Gauche" 
-            onPress={()=>setShow(!show)} 
-            />
-        </Pressable>
-      </View>
-
-      <View>
-        <Pressable style={style.appButton} >
-            { show == true ? <Harangue /> : null }
-            <AppButton icon="sign-in" title="Harangue" 
-            onPress={()=>setShow(!show)} 
-            />
-        </Pressable>
-      </View>
-
-      <View>
-        <Pressable style={style.appButton} >
-            { show == true ? <Imbibe /> : null }
-            <AppButton icon="sign-in" title="Imbibe" 
-            onPress={()=>setShow(!show)} 
-            />
-        </Pressable>
-      </View>
-
-      <View>
-        <Pressable style={style.appButton} >
-            { show == true ? <Juxtapose /> : null }
-            <AppButton icon="sign-in" title="Juxtapose" 
-            onPress={()=>setShow(!show)} 
-            />
-        </Pressable>
-      </View>
-
-      <View>
-        <Pressable style={style.appButton} >
-            { show == true ? <Largess /> : null }
-            <AppButton icon="sign-in" title="Largess" 
-            onPress={()=>setShow(!show)} 
-            />
-        </Pressable>
-      </View>
-
-      <View>
-        <Pressable style={style.appButton} >
-            { show == true ? <Melodious /> : null }
-            <AppButton icon="sign-in" title="Melodious" 
-            onPress={()=>setShow(!show)} 
-            />
-        </Pressable>
-      </View>
-        
-      <View>
-        <Pressable style={style.appButton} >
-            { show == true ? <Nabob /> : null }
-            <AppButton icon="sign-in" title="Nabob" 
-            onPress={()=>setShow(!show)} 
-            />
-        </Pressable>
-      </View>
-
-      <View>
-        <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-          <AppButton icon="sign-in" title="Home"/>
-        </Pressable>
-      </View>
+      </View>)}
 
       </View>
       </LinearGradient>
@@ -148,10 +139,11 @@ const [show, setShow] = useState(true);
   );
 }
 
-// Add function add to my list
+
 const Clamorous = () => {
     return(
     <View>
+        <Text style={style.subHead}>Clamorous</Text>
         <Text style={style.text}>Pron. KLAM-uhr-uss</ Text >
         <Text style={style.text}>Def: Loud; expressively vehement.</Text >
         <Text>
@@ -171,6 +163,7 @@ const Clamorous = () => {
 const Diffident = () => {
     return(
     <View>
+        <Text style={style.subHead}>Diffident</Text>
         <Text style={style.text}>Pron. DEFF-ih-dent</Text>
         <Text style={style.text}>Def: Unassertive; lacking in self-worth.</Text>
         <Text>
@@ -190,6 +183,7 @@ const Diffident = () => {
 const Educe = () => {
     return(
     <View>
+        <Text style={style.subHead}>Educe</Text>
         <Text style={style.text}>Pron. ee-DYOOCE</Text>
         <Text style={style.text}>Def: To bring out the potential of something.</Text>
         <Text>
@@ -209,6 +203,7 @@ const Educe = () => {
 const Fatuous = () => {
     return(
     <View>
+        <Text style={style.subHead}>Fatuous</Text>
         <Text style={style.text}>Pron. FAR-yoo-uss</Text>
         <Text style={style.text}>Def: Stupid or foolish.</Text>
         <Text>
@@ -228,6 +223,7 @@ const Fatuous = () => {
 const Gauche = () => {
     return(
     <View>
+      <Text style={style.subHead}>Gauche</Text>
       <Text style={style.text}>Pron. gohsh</Text>
       <Text style={style.text}>Def: Tactless; lacking in social refinement.</Text>
       <Text>
@@ -247,6 +243,7 @@ const Gauche = () => {
 const Harangue = () => {
     return(
     <View>
+        <Text style={style.subHead}>Harangue</Text>
         <Text style={style.text}>Pron. huh-RANG</Text>
         <Text style={style.text}>Def: A scolding delivered in public.</Text>
         <Text>
@@ -266,6 +263,7 @@ const Harangue = () => {
 const Imbibe = () => {
     return(
     <View>
+        <Text style={style.subHead}>Imbibe</Text>
         <Text style={style.text}>Pron. im-BIBE</Text>
         <Text style={style.text}>Def: To drink alcoholic beverages.</Text>
         <Text>
@@ -284,6 +282,7 @@ const Imbibe = () => {
 const Juxtapose = () => {
     return(
     <View>
+        <Text style={style.subHead}>Juxtapose</Text>
         <Text style={style.text}>Pron. JUK-stuh-pose</Text>
         <Text style={style.text}>Def: To place side by side for comparison.</Text>
         <Text>
@@ -303,6 +302,7 @@ const Juxtapose = () => {
 const Largess = () => {
     return(
     <View>
+        <Text style={style.subHead}>Largess</Text>
         <Text style={style.text}>Pron. lar-ZHESS</Text> 
         <Text style={style.text}>Def: Generously bestowed gifts.</Text>
         <Text>
@@ -322,6 +322,7 @@ const Largess = () => {
 const Melodious = () => {
     return(
     <View>
+        <Text style={style.subHead}>Melodious</Text>
         <Text style={style.text}>Pron. muh-LOW-dee-us</Text>
         <Text style={style.text}>Def: Pleasant or agreeable to the ear.</Text>
         <Text>
@@ -341,6 +342,7 @@ const Melodious = () => {
 const Nabob = () => {
     return(
     <View>
+        <Text style={style.subHead}>Nabob</Text>
         <Text style={style.text}>Pron. NAY-bob</Text>
         <Text style={style.text}>Def: A wealthy person accustomed to luxury.</Text>
         <Text>
@@ -369,6 +371,14 @@ const style = StyleSheet.create({
     fontSize: 30,
     color: '#f0f8ff',
     fontWeight: '800',
+  },
+
+  subHead: {
+    fontSize: 25,
+    color: '#f0f8ff',
+    fontWeight: '600',
+    paddingVertical: 15,
+    paddingHorizontal: 15,
   },
 
   text: {

@@ -3,24 +3,25 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../components/HomeButton';
+import NavButton from '../components/NavButton';
 
+
+const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+    <View style={style.appButtonContainer}>
+      <Icon.Button
+        name={icon}
+        backgroundColor={backgroundColor}
+        onPress={onPress}
+        style={style.appButton}
+      >
+        <Text style={style.appButtonText}>{title}</Text>
+      </Icon.Button>
+    </View>
+  );
 
 export default function PreBuiltList({ navigation }) {
-
-    const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-        <View style={style.appButtonContainer}>
-          <Icon.Button
-            name={icon}
-            backgroundColor={backgroundColor}
-            onPress={onPress}
-            style={style.appButton}
-          >
-            <Text style={style.appButtonText}>{title}</Text>
-          </Icon.Button>
-        </View>
-      );
-
-      const [show, setShow] = useState(true);
+    const [selectedWord, setSelectedWord] = useState(null);
 
   return (
     <SafeAreaView style={style.container}>
@@ -38,357 +39,418 @@ export default function PreBuiltList({ navigation }) {
             <Text style={style.text}>Add these words to create a quick starter list</Text>
         </View>
 
+        {selectedWord ? 
+            selectedWord : 
+            (<View>
+
+{/* Add ShowComponentButton */}
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Abstemious" 
+              onPress={()=>setSelectedWord(<Abstemious />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Acrid" 
+              onPress={()=>setSelectedWord(<Acrid /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Acrimonious" 
+              onPress={()=>setSelectedWord(<Acrimonious /> )} 
+              />
+            </Pressable>
+          </View>
+      
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Adamant" 
+              onPress={()=>setSelectedWord(<Adamant /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Agnosticism" 
+              onPress={()=>setSelectedWord(<Agnosticism /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Animosity" 
+              onPress={()=>setSelectedWord(<Animosity /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Anomaly" 
+              onPress={()=>setSelectedWord(<Anomaly /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Ardent" 
+              onPress={()=>setSelectedWord(<Ardent /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Ascetic" 
+              onPress={()=>setSelectedWord(<Ascetic /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Avarice" 
+              onPress={()=>setSelectedWord(<Avarice /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Biogenesis" 
+              onPress={()=>setSelectedWord(<Biogenesis /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Bovine" 
+              onPress={()=>setSelectedWord(<Bovine />  )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Cohort" 
+              onPress={()=>setSelectedWord(<Cohort />  )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Deplorable" 
+              onPress={()=>setSelectedWord(<Deplorable />  )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Dexterous" 
+              onPress={()=>setSelectedWord(<Dexterous />  )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Discomfit" 
+              onPress={()=>setSelectedWord(<Discomfit />  )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Disparate" 
+              onPress={()=>setSelectedWord(<Disparate />  )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Emphatic" 
+              onPress={()=>setSelectedWord(<Emphatic />  )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Emulate" 
+              onPress={()=>setSelectedWord(<Emulate /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Enigmatic" 
+              onPress={()=>setSelectedWord(<Enigmatic />  )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Erratic" 
+              onPress={()=>setSelectedWord(<Erratic />  )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Eurdite" 
+              onPress={()=>setSelectedWord(<Eurdite />   )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Espouse" 
+              onPress={()=>setSelectedWord(<Espouse />    )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Febrile" 
+              onPress={()=>setSelectedWord(<Febrile />   )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Febrile" 
+              onPress={()=>setSelectedWord(<Foray /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Grimace" 
+              onPress={()=>setSelectedWord(<Grimace /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Hubris" 
+              onPress={()=>setSelectedWord(<Hubris /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Impugn" 
+              onPress={()=>setSelectedWord(<Impugn /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Inane" 
+              onPress={()=>setSelectedWord(<Inane />)} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Indelible" 
+              onPress={()=>setSelectedWord(<Indelible /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Intercession" 
+              onPress={()=>setSelectedWord(<Intercession /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Jurisprudence" 
+              onPress={()=>setSelectedWord(<Jurisprudence />  )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Livid" 
+              onPress={()=>setSelectedWord(<Livid />  )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Mundane" 
+              onPress={()=>setSelectedWord(<Mundane /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Myriad" 
+              onPress={()=>setSelectedWord(<Myriad />  )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Ostracized" 
+              onPress={()=>setSelectedWord(<Ostracized />  )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Pander" 
+              onPress={()=>setSelectedWord(<Pander />   )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Paradox" 
+              onPress={()=>setSelectedWord(<Paradox />   )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Perjure" 
+              onPress={()=>setSelectedWord(<Perjure /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Pinnacle"
+              onPress={()=>setSelectedWord(<Pinnacle /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Placate"
+              onPress={()=>setSelectedWord(<Placate /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Protégé"
+              onPress={()=>setSelectedWord(<Protégé /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Provocative"
+              onPress={()=>setSelectedWord(<Provocative /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Rectify"
+              onPress={()=>setSelectedWord(<Rectify /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Renege"
+              onPress={()=>setSelectedWord(<Renege /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Reprobate"
+              onPress={()=>setSelectedWord(<Reprobate /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Rhetoric"
+              onPress={()=>setSelectedWord(<Rhetoric /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Stalemate"
+              onPress={()=>setSelectedWord(<Stalemate /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Vanguard"
+              onPress={()=>setSelectedWord(<Vanguard /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Vehement"
+              onPress={()=>setSelectedWord(<Vehement /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+
+    
         <View>
-            <Pressable style={style.appButton} >
-                { show === true ? <Abstemious /> : null }
-                <AppButton icon="sign-in" title="Abstemious"
-                    onPress={()=>setShow(!show)}    
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Acrid /> : null }
-                <AppButton icon="sign-in" title="Acrid" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Acrimonious /> : null }
-                <AppButton icon="sign-in" title="Acrimonious" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Adamant /> : null }
-                <AppButton icon="sign-in" title="Adamant" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Agnosticism /> : null }
-                <AppButton icon="sign-in" title="Agnosticism"
-
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Animosity /> : null }
-                <AppButton icon="sign-in" title="Animosity"
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Anomaly /> : null }
-                <AppButton icon="sign-in" title="Anomaly" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Ardent /> : null }
-                <AppButton icon="sign-in" title="Ardent" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Ascetic /> : null }
-                <AppButton icon="sign-in" title="Ascetic" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Avarice /> : null }
-                <AppButton icon="sign-in" title="Avarice" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Biogenesis /> : null }
-                <AppButton icon="sign-in" title="Biogenesis" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Bovine /> : null }
-                <AppButton icon="sign-in" title="Bovine" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Cohort /> : null }
-                <AppButton icon="sign-in" title="Cohort" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Deplorable /> : null }
-                <AppButton icon="sign-in" title="Deplorable" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Dexterous /> : null }
-                <AppButton icon="sign-in" title="Dexterous" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Discomfit /> : null }
-                <AppButton icon="sign-in" title="Discomfit" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-                    
-            <Pressable style={style.appButton} >
-                { show === true ? <Disparate /> : null }
-                <AppButton icon="sign-in" title="Disparate" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-                
-            <Pressable style={style.appButton} >
-                { show === true ? <Emphatic /> : null }
-                <AppButton icon="sign-in" title="Emphatic" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-                
-            <Pressable style={style.appButton} >
-                { show === true ? <Emulate /> : null }
-                <AppButton icon="sign-in" title="Emulate" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-                
-            <Pressable style={style.appButton} >
-                { show === true ? <Enigmatic /> : null }
-                <AppButton icon="sign-in" title="Enigmatic" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Erratic /> : null }
-                <AppButton icon="sign-in" title="Erratic" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Eurdite /> : null }
-                <AppButton icon="sign-in" title="Eurdite" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable> 
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Espouse /> : null }
-                <AppButton icon="sign-in" title="Espouse" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>    
-     
-            <Pressable style={style.appButton} >
-                { show === true ? <Febrile /> : null }
-                <AppButton icon="sign-in" title="Febrile" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable> 
-                
-            <Pressable style={style.appButton} >
-                { show === true ? <Foray /> : null }
-                <AppButton icon="sign-in" title="Foray" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable> 
-                
-            <Pressable style={style.appButton} >
-                { show === true ? <Grimace /> : null }
-                <AppButton icon="sign-in" title="Grimace" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable> 
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Hubris /> : null }
-                <AppButton icon="sign-in" title="Hubris" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable> 
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Impugn /> : null }
-                <AppButton icon="sign-in" title="Impugn" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable> 
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Inane /> : null }
-                <AppButton icon="sign-in" title="Inane" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>     
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Indelible /> : null }
-                <AppButton icon="sign-in" title="Indelible" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable> 
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Intercession /> : null }
-                <AppButton icon="sign-in" title="Intercession" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Jurisprudence /> : null }
-                <AppButton icon="sign-in" title="Jurisprudence" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Livid /> : null }
-                <AppButton icon="sign-in" title="Livid" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Mundane /> : null }
-                <AppButton icon="sign-in" title="Mundane" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Myriad /> : null }
-                <AppButton icon="sign-in" title="Myriad" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>     
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Ostracized /> : null }
-                <AppButton icon="sign-in" title="Ostracized" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Pander /> : null }
-                <AppButton icon="sign-in" title="Pander" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Paradox /> : null }
-                <AppButton icon="sign-in" title="Paradox" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-
-            <Pressable style={style.appButton} >
-                { show === true ? <Perjure /> : null }
-                <AppButton icon="sign-in" title="Perjure" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-                
-            <Pressable style={style.appButton} >
-                { show === true ? <Pinnacle /> : null }
-                <AppButton icon="sign-in" title="Pinnacle" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-                
-            <Pressable style={style.appButton} >
-                { show === true ? <Placate /> : null }
-                <AppButton icon="sign-in" title="Placate" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-                
-            <Pressable style={style.appButton} >
-                { show === true ? <Protégé /> : null }
-                <AppButton icon="sign-in" title="Protégé" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-               
-            <Pressable style={style.appButton} >
-                { show === true ? <Provocative /> : null }
-                <AppButton icon="sign-in" title="Provocative" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-                
-            <Pressable style={style.appButton} >
-                { show === true ? <Renege /> : null }
-                <AppButton icon="sign-in" title="Renege" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-                
-            <Pressable style={style.appButton} >
-                { show === true ? <Reprobate /> : null }
-                <AppButton icon="sign-in" title="Reprobate" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-                
-            <Pressable style={style.appButton} >
-                { show === true ? <Rhetoric /> : null }
-                <AppButton icon="sign-in" title="Rhetoric" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-                
-            <Pressable style={style.appButton} >
-                { show === true ? <Stalemate /> : null }
-                <AppButton icon="sign-in" title="Stalemate" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-                
-            <Pressable style={style.appButton} >
-                { show === true ? <Vanguard /> : null }
-                <AppButton icon="sign-in" title="Vanguard" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>
-                
-            <Pressable style={style.appButton} >
-                { show === true ? <Vehement /> : null }
-                <AppButton icon="sign-in" title="Vehement" 
-                    onPress={()=>setShow(!show)}
-                />
-            </Pressable>   
-
+            <HomeButton navigation={ navigation } />
         </View>
-
-        <View>
-            <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-               <AppButton icon="sign-in" title="Home"/>
-            </Pressable>
-        </View>
+        </View>)}
 
         </View>
         </LinearGradient>
@@ -397,11 +459,12 @@ export default function PreBuiltList({ navigation }) {
   );
 }
 
- {/* Function to add to My List */}
+// Add AddButton
 
 const Abstemious = () => {
     return(
     <View>
+        <Text style={style.subHead}>Abstemious</Text>
         <Text style={style.text}>Pron. ab-STEE-me-us</Text>               
         <Text style={style.text}>Def: Consuming food and rink in moderation.</Text>
         <Text>
@@ -421,6 +484,7 @@ const Abstemious = () => {
 const Acrid  = () => {
     return(
     <View>
+        <Text style={style.subHead}>Acrid</Text>
         <Text style={style.text}>Pron. AK-rid  </Text>
         <Text style={style.text}>Def: Biting or harsh in odor or taste.</Text>
         <Text>
@@ -440,6 +504,7 @@ const Acrid  = () => {
 const Acrimonious =  () => {
     return(
     <View>
+        <Text style={style.subHead}>Acrimonious</Text>
         <Text style={style.text}>Pron. ak-ri-MO-nee-us</Text>
         <Text style={style.text}>Def: Mean-spirited, bitter or ill-natured.</Text> 
         <Text>
@@ -459,6 +524,7 @@ const Acrimonious =  () => {
 const Adamant = () => {
     return(
     <View>
+        <Text style={style.subHead}>Adamant</Text>
         <Text style={style.text}>Pron. AD-uh-munt</Text>
         <Text style={style.text}>Def: Unwilling to submit; stubborn and unyielding.</Text>
         <Text>
@@ -478,6 +544,7 @@ const Adamant = () => {
 const Agnosticism = () => {
     return(
     <View>
+        <Text style={style.subHead}>Agnosticism</Text>
         <Text style={style.text}>Pron. ag-NOS-ti-sihz-um</Text>
         <Text style={style.text}>Def: Belief that it is impossible to know whether or not God exists.</Text>
         <Text>
@@ -496,6 +563,8 @@ const Agnosticism = () => {
 const Animosity = () => {
     return(
     <View>
+        <Text style={style.subHead}>Animosity</Text>
+        <Text style={style.subHead}>Animosity</Text>
         <Text style={style.text}>Pron. an-ih-MOSS-it-tee</Text>
         <Text style={style.text}>Def: Intense hostility toward a person or thing.</Text>
         <Text>
@@ -515,6 +584,7 @@ const Animosity = () => {
 const Anomaly = () => {
     return(
     <View>
+        <Text style={style.subHead}>Anomaly</Text>
         <Text style={style.text}>Pron. uh-NOM-a-lee</Text>
         <Text style={style.text}>Def: A deviation from established form.</Text>
         <Text>
@@ -534,6 +604,7 @@ const Anomaly = () => {
 const Ardent = () => {
     return(
     <View>
+        <Text style={style.subHead}>Ardent</Text>
         <Text style={style.text}>Pron. AR-dent</Text>
         <Text style={style.text}>Def: Intense, passionate, devote; characterized by high emotion.</Text>
         <Text>
@@ -553,6 +624,7 @@ const Ardent = () => {
 const Ascetic = () => {
     return(
     <View>
+        <Text style={style.subHead}>Ascetic</Text>
         <Text style={style.text}>Pron. uh-SET-ik</Text>
         <Text style={style.text}>Def: A person who chooses a life of constant and strict self-denial.</Text> 
         <Text>  
@@ -571,6 +643,7 @@ const Ascetic = () => {
 const Avarice = () => {
     return(
     <View>
+        <Text style={style.subHead}>Avarice</Text>
         <Text style={style.text}>Pron. AV-er-iss</Text>
         <Text style={style.text}>Def: Great desire for riches.</Text> 
         <Text>
@@ -590,6 +663,7 @@ const Avarice = () => {
 const Biogenesis = () => {
     return(
     <View>
+        <Text style={style.subHead}>Biogenesis</Text>
         <Text style={style.text}>Pron. bye-oh-JEN-ih-siss</Text>
         <Text style={style.text}>Def: The process of life arising from other living things.</Text>
         <Text>
@@ -609,6 +683,7 @@ const Biogenesis = () => {
 const Bovine = () => {
     return(
     <View>
+        <Text style={style.subHead}>Bovine</Text>
         <Text style={style.text}>Pron. BO-vine</Text>
         <Text style={style.text}>Def: Dull, unresponsive or slow.</Text>
         <Text>
@@ -628,6 +703,7 @@ const Bovine = () => {
 const Cohort = () => {
     return(
     <View>
+        <Text style={style.subHead}>Cohort</Text>
         <Text style={style.text}>Pron. KO-hort</Text>
         <Text style={style.text}>Def: A companion with whom one is united through common experience.</Text>
         <Text> 
@@ -647,6 +723,7 @@ const Cohort = () => {
 const Deplorable = () => {
     return(
     <View>
+        <Text style={style.subHead}>Deplorable</Text>
         <Text style={style.text}>Pron. de-PLOR-uh-bull</Text>
         <Text style={style.text}>Def: Extremely reproachful; worthy of censure.</Text>
         <Text>
@@ -666,6 +743,7 @@ const Deplorable = () => {
 const Dexterous = () => {
     return(
     <View>
+        <Text style={style.subHead}>Dexterous</Text>
         <Text style={style.text}>Pron. DEK-ster-uss</Text>
         <Text style={style.text}>Def: Skillful.</Text> 
         <Text>
@@ -685,6 +763,7 @@ const Dexterous = () => {
 const Discomfit = () => {
     return(
     <View>
+        <Text style={style.subHead}>Discomfit</Text>
         <Text style={style.text}>Pron. diss-KUMM-fit</Text>
         <Text style={style.text}>Def: To cause to come into disorder.</Text>
         <Text> 
@@ -704,6 +783,7 @@ const Discomfit = () => {
 const Disparate = () => {
     return(
     <View>
+        <Text style={style.subHead}>Disparate</Text>
         <Text style={style.text}>Pron. DISS-puh-rut</Text> 
         <Text style={style.text}>Def: Utterly dissimilar.</Text>
         <Text>
@@ -723,6 +803,7 @@ const Disparate = () => {
 const Emphatic = () => {
     return(
     <View>
+        <Text style={style.subHead}>Emphatic</Text>
         <Text style={style.text}>Pron. em-FA-tik</Text>
         <Text style={style.text}>Def: Highlighted; extremely expressive.</Text> 
         <Text>  
@@ -742,6 +823,7 @@ const Emphatic = () => {
 const Emulate = () => {
     return(
     <View>
+        <Text style={style.subHead}>Emulate</Text>
         <Text style={style.text}>Pron. EM-yoo-late</Text>
         <Text style={style.text}>Def: To strive to match or better by means of imitation.</Text>
         <Text>
@@ -761,6 +843,7 @@ const Emulate = () => {
 const Enigmatic = () => {
     return(
     <View>
+        <Text style={style.subHead}>Enigmatic</Text>
         <Text style={style.text}>Pron. en-ig-MA-tick</Text>
         <Text style={style.text}>Def: Reminiscent of an enigmling or perplexing.</Text>
         <Text>
@@ -777,9 +860,10 @@ const Enigmatic = () => {
         )
 }
 
-const  Erratic = () => {
+const Erratic = () => {
     return(
     <View>
+        <Text style={style.subHead}>Erratic</Text>
         <Text style={style.text}>Pron. ih-RAT-ik</Text>
         <Text style={style.text}>Def: Inconsistent; lacking a set course.</Text>
         <Text>
@@ -799,6 +883,7 @@ const  Erratic = () => {
 const Eurdite = () => {
     return(
     <View>
+        <Text style={style.subHead}>Eurdite</Text>
         <Text style={style.text}>Pron. AIR-yoo-dite</Text>
         <Text style={style.text}>Def: Possessing extensive knowledge on a given subject.</Text>
         <Text> 
@@ -818,6 +903,7 @@ const Eurdite = () => {
 const Espouse = () => {
     return(
     <View>
+        <Text style={style.subHead}>Espouse</Text>
         <Text style={style.text}>Pron. ih-SPOWZ</Text>
         <Text style={style.text}>Def: To advocate as though one's own.</Text>
         <Text>
@@ -836,6 +922,7 @@ const Espouse = () => {
 const Febrile = () => {
     return(
     <View>
+        <Text style={style.subHead}>Febrile</Text>
         <Text style={style.text}>Pron. FEE-brul</Text>
         <Text style={style.text}>Def: Feverish.</Text>
         <Text>
@@ -855,6 +942,7 @@ const Febrile = () => {
 const Foray = () => {
     return(
     <View>
+        <Text style={style.subHead}>Foray</Text>
         <Text style={style.text}>Pron. FORE-ay</Text>
         <Text style={style.text}>Def: An initial try.</Text>
         <Text>
@@ -871,9 +959,10 @@ const Foray = () => {
         )
 }
 
-const  Grimace = () => {
+const Grimace = () => {
     return(
     <View>
+        <Text style={style.subHead}>Grimace</Text>
         <Text style={style.text}>Pron. GRIM-ace</Text>
         <Text style={style.text}>Def: A facial expression showing disgust or discomfort.</Text>
         <Text>   
@@ -893,6 +982,7 @@ const  Grimace = () => {
 const Hubris = () => {
     return(
     <View>
+        <Text style={style.subHead}>Hubris</Text>
         <Text style={style.text}>Pron. HYOO-briss</Text>
         <Text style={style.text}>Def: Excessive pride.</Text>
         <Text>
@@ -912,6 +1002,7 @@ const Hubris = () => {
 const Impugn = () => {
     return(
     <View>
+        <Text style={style.subHead}>Impugn</Text>
         <Text style={style.text}>Pron. im-PYOON</Text>
         <Text style={style.text}>Def: To brand as false in argument or discourse.</Text>
         <Text>
@@ -931,6 +1022,7 @@ const Impugn = () => {
 const Inane = () => {
     return(
     <View>
+        <Text style={style.subHead}>Inane</Text>
         <Text style={style.text}>Pron. in-ANE</Text>
         <Text style={style.text}>Def: Pointless or lacking in substance.</Text>
         <Text>
@@ -950,6 +1042,7 @@ const Inane = () => {
 const Indelible = () => {
     return(
     <View>
+        <Text style={style.subHead}>Indelible</Text>
         <Text style={style.text}>Pron. in-DELL-ih-bul</Text>
         <Text style={style.text}>Def: Unremovable.</Text>
         <Text> 
@@ -969,6 +1062,7 @@ const Indelible = () => {
 const Intercession = () => {
     return(
     <View>
+        <Text style={style.subHead}>Intercession</Text>
         <Text style={style.text}>Pron. in-ter-SESH-un</Text>
         <Text style={style.text}>Def: An instance of pleading in favor of another person or party.</Text>
         <Text>  
@@ -988,6 +1082,7 @@ const Intercession = () => {
 const Jurisprudence = () => {
     return(
     <View>
+        <Text style={style.subHead}>Jurisprudence</Text>
         <Text style={style.text}>Pron. joor-iss-PROO-dnce</Text>
         <Text style={style.text}>Def: The science of law.</Text>
         <Text>
@@ -1007,6 +1102,7 @@ const Jurisprudence = () => {
 const Livid = () => {
     return(
     <View>
+        <Text style={style.subHead}>Livid</Text>
         <Text style={style.text}>Pron. LIH-vid</Text>  
         <Text style={style.text}>Def: Extremely angry; infuriated.</Text>
         <Text>
@@ -1026,6 +1122,7 @@ const Livid = () => {
 const Mundane = () => {
     return(
     <View>
+        <Text style={style.subHead}>Mundane</Text>
         <Text style={style.text}>Pron. mun-DANE</Text>
         <Text style={style.text}>Def: Ordinary or everyday.</Text>
         <Text>
@@ -1045,6 +1142,7 @@ const Mundane = () => {
 const Myriad = () => {
     return(
     <View>
+        <Text style={style.subHead}>Myriad</Text>
         <Text style={style.text}>Pron. MEER-ee-ud</Text>
         <Text style={style.text}>Def: Innumerable, many of something.</Text>
         <Text>
@@ -1064,6 +1162,7 @@ const Myriad = () => {
 const Ostracized = () => {
     return(
     <View>
+        <Text style={style.subHead}>Ostracized</Text>
         <Text style={style.text}>Pron. OSS-truh-sized</Text>   
         <Text style={style.text}>Def: To exclude or banish.</Text>
         <Text>
@@ -1083,6 +1182,7 @@ const Ostracized = () => {
 const Pander = () => {
     return(
     <View>
+        <Text style={style.subHead}>Pander</Text>
         <Text style={style.text}>Pron. PAN-der</Text>  
         <Text style={style.text}>Def: To appeal to the worst in someone.</Text>
         <Text>  
@@ -1102,6 +1202,7 @@ const Pander = () => {
 const Paradox = () => {
     return(
     <View>
+        <Text style={style.subHead}>Paradox</Text>
         <Text style={style.text}>Pron. PAIR-uh-doks</Text>
         <Text style={style.text}>Def: A seemingly self-contradictory statement that expresses a valid idea.</Text> 
         <Text>
@@ -1121,6 +1222,7 @@ const Paradox = () => {
 const Perjure = () => {
     return(
     <View>
+      <Text style={style.subHead}>Perjure</Text>
         <Text style={style.text}>Pron. PURR-jer</Text>
         <Text style={style.text}>Def: To lie or give false and misleading testimony.</Text>
         <Text>
@@ -1140,6 +1242,7 @@ const Perjure = () => {
 const Pinnacle = () => {
     return(
     <View>
+        <Text style={style.subHead}>Pinnacle</Text>
         <Text style={style.text}>Pron. PIN-uh-kul</Text>
         <Text style={style.text}>Def: The topmost point.</Text>
         <Text>
@@ -1159,6 +1262,7 @@ const Pinnacle = () => {
 const Placate = () => {
     return(
     <View>
+        <Text style={style.subHead}>Placate</Text>
         <Text style={style.text}>Pron. PLAY-kate</Text>
         <Text style={style.text}>Def: To appease.</Text>
         <Text>
@@ -1178,6 +1282,7 @@ const Placate = () => {
 const Protégé = () => {
     return(
     <View>
+      <Text style={style.subHead}>Protégé</Text>
         <Text style={style.text}>Pron. PRO-tuh-zhay</Text>
         <Text style={style.text}>Def: Someone aided by another influential person.</Text>
         <Text>
@@ -1197,6 +1302,7 @@ const Protégé = () => {
 const Provocative = () => {
     return(
     <View>
+        <Text style={style.subHead}>Provocative</Text>
         <Text style={style.text}>Pron. pruh-VOK-uh-tive</Text> 
         <Text style={style.text}>Def: Stimulating or combative.</Text>
         <Text>
@@ -1216,6 +1322,7 @@ const Provocative = () => {
 const Rectify = () => {
     return(
     <View>
+        <Text style={style.subHead}>Rectify</Text>
         <Text style={style.text}>Pron. REK-tih-fie</Text>  
         <Text style={style.text}>Def: To put right.</Text>
         <Text>
@@ -1235,6 +1342,7 @@ const Rectify = () => {
 const Renege = () => {
     return(
     <View>
+      <Text style={style.subHead}>Renege</Text>
         <Text style={style.text}>Pron. ri-NEG</Text>
         <Text style={style.text}>Def: To go back on one's word.</Text>
         <Text>
@@ -1254,6 +1362,7 @@ const Renege = () => {
 const Reprobate = () => {
     return(
     <View>
+        <Text style={style.subHead}>Reprobate</Text>
         <Text style={style.text}>Pron. REP-ruh-bate</Text>
         <Text style={style.text}>Def: An unprincipled person.</Text>
         <Text>
@@ -1273,6 +1382,7 @@ const Reprobate = () => {
 const Rhetoric = () => {
     return(
     <View>
+        <Text style={style.subHead}>Rhetoric</Text>
         <Text style={style.text}>Pron. RET-ur-ik</Text>
         <Text style={style.text}>Def: The art of the effective use of language.</Text>
         <Text>
@@ -1292,6 +1402,7 @@ const Rhetoric = () => {
 const Stalemate = () => {
     return(
     <View>
+        <Text style={style.subHead}>Stalemate</Text>
         <Text style={style.text}>Pron. STALE-mate</Text>
         <Text style={style.text}>Def: In chess, in which there is no winner.</Text>
         <Text> 
@@ -1309,6 +1420,7 @@ const Stalemate = () => {
 const Vanguard = () => {
     return(
     <View>
+        <Text style={style.subHead}>Vanguard</Text>
         <Text style={style.text}>Pron. VAN-gard</Text>
         <Text style={style.text}>Def: The most advanced groups (of a military force of social movement).</Text>
         <Text>
@@ -1328,6 +1440,7 @@ const Vanguard = () => {
 const Vehement = () => {
     return(
     <View>
+        <Text style={style.subHead}>Vehement</Text>
         <Text style={style.text}>Pron. VEE-uh-ment</Text>
         <Text style={style.text}>Def: Strongly felt or marked by high emotion.</Text>
         <Text>
@@ -1356,6 +1469,14 @@ const style = StyleSheet.create({
         fontSize: 30,
         color: '#f0f8ff',
         fontWeight: '800',
+    },
+
+    subHead: {
+      fontSize: 25,
+      color: '#f0f8ff',
+      fontWeight: '600',
+      paddingVertical: 15,
+      paddingHorizontal: 15,
     },
 
     text: {

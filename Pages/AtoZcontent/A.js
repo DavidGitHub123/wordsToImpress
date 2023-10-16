@@ -3,7 +3,8 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
-
+import HomeButton from '../../components/HomeButton';
+import NavButtonWord from '../../components/NavButtonWord';
 
 export default function AWords({ navigation }) {
 
@@ -35,339 +36,124 @@ export default function AWords({ navigation }) {
         <Text style={style.header}>A Words</Text>
       </View>
 
-        {/*TODO: pass in props on navigate! */}
-        <Pressable onPress={onPress=()=>{() => navigation.navigate('Word')}}>
-          <AppButton icon="sign-in" title="Abate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Abdicate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Aberration"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Abet"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Abhorrent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Abide"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Abject "/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Abjure"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ablution"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Abnegate "/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Aboriginal"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Abortive"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Abrade "/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Abrogate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Abscond"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Absolve "/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Abstemious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Abstinence"/>
-        </Pressable> 
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Abstruse"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Accede"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Accentuate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Accolade"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Accord"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Accrue"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Acquiescence"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Acrid"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Acrimonious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Acumen"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Acute"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ad Infinitum"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Adage"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Adamant"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Adduce"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Adept"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Adherent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ad Hoc"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Adjudicate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Adjure"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Adroit"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Adulation"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Adulterate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Aesthetics"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Affinity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Affirmative"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Affliction"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Agape"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Aggrandize"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Agnosticism"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Akin"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Alacrity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Albatross"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Allay"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Allude"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Altruism"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Amalgamate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ambience"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ambiguous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ambivalent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Amble"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ameliorate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Amenable"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Amend"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Amenities"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Amiable"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Amoral"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Amorous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Amorphous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Amortize"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Anachronism"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Analogous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Anarchy"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Anathema"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ancillary"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Androgynous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Anecdote"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Animosity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Annunciate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Anomaly"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Antecedent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Antipathy"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Antiquity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Antithesis"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Aphorism"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Aplomb"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Apocalyptic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Apocryphal"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Appellation"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Apprise"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Apropos"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Arbiter"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Arbitrary"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ardent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Arduous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Aromatic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ascetic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ascribe"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Aspersion"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Assertion"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Assiduously"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Audacious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Augment"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Auspices"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Auspicious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Austere"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Autonomous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Avail"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Avant-garde"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Avarice"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Avowal"/>
-        </Pressable>
+      <View>
+        <NavButtonWord navigation={navigation} title="Abate" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abdicate" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Aberration" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abet" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abhorrent" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abide" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abject" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abjure" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Ablution" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abnegate" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Aboriginal" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abortive" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abet" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abhorrent" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abide" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abject" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abrade" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abrogate" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abscond" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Absolve" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abstemious" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abstinence" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abstruse" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Accede" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Accentuate" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Accolade" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Accord" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Accrue" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Acquiescence" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Acrid" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Acrimonious" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Acumen" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Acute" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Ad Infinitum" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Adage" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Adamant" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Adduce" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Adept" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Adherent" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Ad Hoc" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Adjudicate" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Adjure" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Adroit" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Adulation" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Adulterate" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Aesthetics" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Affinity" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Affirmative" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Affliction" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Agape" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Aggrandize" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Agnosticism" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Akin" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Alacrity" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Albatross" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Allay" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Allude" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Altruism" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Amalgamate" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Ambience" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Ambiguous" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Ambivalent" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Amble" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Ameliorate" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Amenable" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Amend" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Amenities" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Amiable" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Amoral" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Amorous" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Amorphous" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Amortize" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Anachronism" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Analogous" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Anarchy" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Anathema" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Ancillary" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Androgynous" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Anecdote" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Animosity" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Annunciate" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Anomaly" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Antecedent" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Antipathy" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Antiquity" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Antithesis" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Aphorism" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Aplomb" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Apocalyptic" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Apocryphal" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Appellation" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Apprise" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Apropos" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Arbiter" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Arbitrary" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Ardent" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Arduous" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Aromatic" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Ascetic" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Ascribe" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Aspersion" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Assertion" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Assiduously" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Audacious" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Augment" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Auspices" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Auspicious" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Austere" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Autonomous" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Avail" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Avant-garde" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Avarice" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Avowal" destination="Word"/>
+      </View>
 
         <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+          <HomeButton navigation={navigation}/>
         </View>
 
         </View>

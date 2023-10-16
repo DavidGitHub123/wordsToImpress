@@ -3,6 +3,8 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import NavButtonWord from '../../components/NavButtonWord';
 
 export default function PWords({ navigation }) {
 
@@ -33,303 +35,109 @@ export default function PWords({ navigation }) {
         <View>
           <Text style={style.header}>P Words</Text>
         </View>
-        
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pacify"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Palatable"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Palpable"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pandemic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pandemonium"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pander"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Paradigm"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Paradox"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Paragon"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Paralysis"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Parameter"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Parenthetical"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Paroxysm"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Parsimonious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pathos"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Paucity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Peccadillo"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pecuniary"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pedagogue"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pedantic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pejorative"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Penultimate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Peremptory"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Perennial"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Perfidy"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Perfunctory"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Periphery"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Perjure"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Permeate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pernicious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Perpetuate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Perspicacity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Perspicuity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Peruse"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pervasive"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Petulant"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Philander"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Picayune"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Picturesque"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Piety"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pinnacle"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pique"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Placate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Placid"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Platitude"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Platonic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Plaudit"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Plenitude"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Plethora"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Plight"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Poignant"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Polarize"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Polemics"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pontificate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Portend"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Posit"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pragmatic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Precarious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Precedent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Precipice"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Precocious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Preemptive"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Presage"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Prescience"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pretense"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Prevaricate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pristine"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Proclivity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Procure"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Prodigal"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Profilgate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Profundity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Prognosticate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Progressive"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Proliferate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Promulgate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Propagate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Propinquity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Propound"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Prosaic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Proscribe"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Protean"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Protégé"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Protocol"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Proverbial"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Providence"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Provocative"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Prudent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Prurient"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Puerile"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pugnacious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Pulchritude"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Punctilious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Puritanical"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Purlieus"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Purported"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Putative"/>
-        </Pressable>
 
         <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+          <NavButtonWord navigation={navigation} title="Pacify" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Palatable" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Palpable" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pandemic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pandemonium" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pander" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Paradigm" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Paradox" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Paragon" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Paralysis" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Parameter" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Parenthetical" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Paroxysm" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Parsimonious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pathos" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Paucity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Peccadillo" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pecuniary" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pedagogue" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pedantic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pejorative" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Penultimate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Peremptory" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Perennial" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Perfidy" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Perfunctory" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Periphery" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Perjure" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Permeate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pernicious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Perpetuate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Perspicacity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Perspicuity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Peruse" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pervasive" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Petulant" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Philander" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Picayune" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Picturesque" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Piety" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pinnacle" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pique" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Placate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Placid" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Platitude" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Platonic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Plaudit" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Plenitude" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Plethora" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Plight" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Poignant" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Polarize" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Polemics" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pontificate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Portend" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Posit" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pragmatic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Precarious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Precedent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Precipice" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Precocious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Preemptive" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Presage" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Prescience" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pretense" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Prevaricate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pristine" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Proclivity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Procure" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Prodigal" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Profilgate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Profundity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Prognosticate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Progressive" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Proliferate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Promulgate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Propagate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Propinquity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Propound" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Prosaic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Proscribe" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Protean" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Protégé" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Protocol" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Proverbial" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Providence" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Provocative" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Prudent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Prurient" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Puerile" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pugnacious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Pulchritude" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Punctilious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Puritanical" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Purlieus" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Purported" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Putative" destination="Word"/>>
+        </View>
+
+        <View>
+          <HomeButton navigation={navigation}/>
         </View>
 
         </View>

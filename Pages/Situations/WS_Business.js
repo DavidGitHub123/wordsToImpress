@@ -19,9 +19,7 @@ const AppButton = ({ onPress, icon, title, backgroundColor }) => (
 );
 
 export default function WS_Business({ navigation }) {
-
 const [selectedWord, setSelectedWord] = useState(null);
-
 
   return (
     <SafeAreaView style={style.container}>
@@ -35,13 +33,13 @@ const [selectedWord, setSelectedWord] = useState(null);
       <View style={style.page}>
 
         <View>
+          <Text style={style.header}>Word Situations: Business</Text>
+        </View>
 
-
-          <Text style={style.header}>Word Situations: Boss</Text>
-          </View>
           {selectedWord ? 
             selectedWord : 
             (<View>
+
           <View>
             <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Accolade" 
@@ -127,7 +125,6 @@ const [selectedWord, setSelectedWord] = useState(null);
         </View>
         </View>)}
 
-
         </View>
         </LinearGradient>
     </ScrollView>
@@ -138,6 +135,7 @@ const [selectedWord, setSelectedWord] = useState(null);
 const Accolade = () => {
   return(
   <View>
+      <Text style={style.subHead}>Accolade</Text>
       <Text style={style.text}>Pron. AK-uh-lade</Text>
       <Text style={style.text}>Def: Acknowledgement or expression of praise.</Text>
       <Text>
@@ -156,6 +154,7 @@ const Accolade = () => {
 const Bluster = () => {
   return(
   <View>
+      <Text style={style.subHead}>Bluster</Text>
       <Text style={style.text}>Pron. BLUS-ter</Text>
       <Text style={style.text}>Def: To threaten or issue extravagant threat.</Text>
       <Text>
@@ -175,6 +174,7 @@ const Bluster = () => {
 const Cartel = () => {
   return(
   <View>
+      <Text style={style.subHead}>Cartel</Text>
       <Text style={style.text}>Pron. kar-TELL</Text>
       <Text style={style.text}>Def: Group that establishes mutual control of prices and production.</Text>
       <Text>
@@ -194,6 +194,7 @@ const Cartel = () => {
 const Diminution = () => {
   return(
   <View>
+      <Text style={style.subHead}>Diminution</Text>
       <Text style={style.text}>Pron. dim-ih-NOO-shen</Text>
       <Text style={style.text}>Def: Reduction due to outside influences.</Text>
       <Text>
@@ -212,6 +213,7 @@ const Diminution = () => {
 const Effrontery = () => {
   return(
   <View>
+      <Text style={style.subHead}>Effrontery</Text>
       <Text style={style.text}>Pron. ih-FRON-ter-ee</Text>
       <Text style={style.text}>Def: Impudent boldness.</Text>
       <Text>
@@ -231,6 +233,7 @@ const Effrontery = () => {
 const Feckless = () => {
   return(
   <View>
+      <Text style={style.subHead}>Feckless</Text>
       <Text style={style.text}>Pron. FEK-liss</Text>
       <Text style={style.text}>Def: Ineffective or feeble.</Text>
       <Text>
@@ -250,6 +253,7 @@ const Feckless = () => {
 const Gargantuan = () => {
   return(
   <View>
+      <Text style={style.subHead}>Gargantuan</Text>
       <Text style={style.text}>Pron. gar-GAN-choo-un</Text>
       <Text style={style.text}>Def: Enormous. From fictional king (Gargantua).</Text>
       <Text>
@@ -269,6 +273,7 @@ const Gargantuan = () => {
 const Harbinger = () => {
   return(
   <View>
+      <Text style={style.subHead}>Harbinger</Text>
       <Text style={style.text}>Pron. HAR-bin-jur</Text>
       <Text style={style.text}>Def: A forerunner. Something that comes before.</Text>
       <Text>
@@ -288,6 +293,7 @@ const Harbinger = () => {
 const Impetuous = () => {
   return(
   <View>
+      <Text style={style.subHead}>Impetuous</Text>
       <Text style={style.text}>Pron. im-PET-you-us</Text>
       <Text style={style.text}>Def: Impulsive; driven by emotion.</Text>
       <Text>
@@ -307,6 +313,7 @@ const Impetuous = () => {
 const Logistics = () => {
   return(
   <View>
+      <Text style={style.subHead}>Logistics</Text>
       <Text style={style.text}>Pron. loe-JIS-tiks</Text>
       <Text style={style.text}>Def: Essential details of how something is to be accomplished.</Text>
       <Text>
@@ -336,6 +343,14 @@ const style = StyleSheet.create({
     fontSize: 30,
     color: '#f0f8ff',
     fontWeight: '800',
+  },
+
+  subHead: {
+    fontSize: 25,
+    color: '#f0f8ff',
+    fontWeight: '600',
+    paddingVertical: 15,
+    paddingHorizontal: 15,
   },
 
   text: {

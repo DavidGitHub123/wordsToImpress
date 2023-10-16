@@ -3,6 +3,8 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import NavButtonWord from '../../components/NavButtonWord';
 
 export default function JWords({ navigation }) {
 
@@ -33,39 +35,21 @@ export default function JWords({ navigation }) {
         <View>
           <Text style={style.header}>J Words</Text>
         </View>
-        
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Jejune"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Jettison"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Jingoistic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Jocular"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Jocund"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Jostle"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Judicature"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Jurisprudence"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Juxtapose"/>
-        </Pressable>
 
         <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+          <NavButtonWord navigation={navigation} title="Jejune" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Jettison" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Jingoistic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Jocular" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Jocund" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Jostle" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Judicature" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Jurisprudence" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Juxtapose" destination="Word"/>
+        </View>
+
+        <View>
+          <HomeButton navigation={navigation}/>
         </View>
 
         </View>

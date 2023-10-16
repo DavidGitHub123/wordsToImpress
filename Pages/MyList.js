@@ -3,6 +3,7 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, Button, Fl
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../components/HomeButton';
+import NavButton from '../components/NavButton';
 
 // import { onSnapshot } from "firebase/firestore" -- firebase database
 
@@ -37,7 +38,9 @@ export default function MyList({ navigation }) {
         <Text style={style.header}>My List</Text>
       </View>
 
+{/* When AddButton is clicked, word shows up in a list here */}
       {/* Each word in this list is Button to word screen */}
+      {/* Add ShowComponentButton. Click on word and word info shows up*/}
       <View style={style.section}>
         <Pressable style={style.appButton} >
           <AppButton icon="sign-in" title="Abate"
@@ -57,19 +60,11 @@ export default function MyList({ navigation }) {
       </View>
 
       <View>
-      <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="A-Z Words"
-          onPress={() => navigation.navigate('AtoZButtons')}
-          />
-        </Pressable>
+        <NavButton navigation={navigation} title="A-Z Words" destination="AtoZButtons"/>
+      </View>
 
-        {/* <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Home"
-          onPress={() => navigation.navigate('Home')}
-          />
-        </Pressable> */}
+      <View>
         <HomeButton navigation={ navigation } />
-
       </View>
 
       </View>

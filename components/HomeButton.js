@@ -22,6 +22,10 @@ export default function HomeButton({ navigation }){
         onPress={() => navigation.navigate('HomeScreen')}
         />
     </Pressable>);
+
+{/* <View>
+<HomeButton navigation={navigation}/>
+</View> */}
 }
 
 const style = StyleSheet.create({

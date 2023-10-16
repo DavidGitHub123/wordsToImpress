@@ -3,23 +3,23 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+
+const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  <View style={style.appButtonContainer}>
+    <Icon.Button
+      name={icon}
+      backgroundColor={backgroundColor}
+      onPress={onPress}
+      style={style.appButton}
+    >
+      <Text style={style.appButtonText}>{title}</Text>
+    </Icon.Button>
+  </View>
+);
 
 export default function WS_Negotiations({ navigation }) {
-
-    const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-        <View style={style.appButtonContainer}>
-          <Icon.Button
-            name={icon}
-            backgroundColor={backgroundColor}
-            onPress={onPress}
-            style={style.appButton}
-          >
-            <Text style={style.appButtonText}>{title}</Text>
-          </Icon.Button>
-        </View>
-      );
-    
-    const [show, setShow] = useState(true);
+  const [selectedWord, setSelectedWord] = useState(null);
 
   return (
     <SafeAreaView style={style.container}>
@@ -34,106 +34,97 @@ export default function WS_Negotiations({ navigation }) {
 
         <View>
             <Text style={style.header}>Word Situations: Boss</Text>
-        <View>
+        </View>
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Accord /> : null }
+        {selectedWord ? 
+            selectedWord : 
+            (<View>
+
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Accord" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Accord /> )} 
               />
-          </Pressable>
-        </View>
+            </Pressable>
+          </View>
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Cessation /> : null }
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Cessation" 
-              onPress={()=>setShow(!show)} 
-                />
-          </Pressable>
-        </View>
-            
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Dialectic /> : null }
+              onPress={()=>setSelectedWord(<Cessation /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Dialectic" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Dialectic />  )} 
               />
-          </Pressable>
-        </View>
-            
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Elusive /> : null }
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Elusive" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Elusive />  )} 
               />
-          </Pressable>
-        </View>          
-            
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Flux /> : null }
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Flux" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Flux />  )} 
               />
-          </Pressable>
-        </View>     
-            
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Gauntlet /> : null }
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Gauntlet" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Gauntlet />   )} 
               />
-          </Pressable>
-        </View>          
-            
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Holistic /> : null }
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Holistic" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Holistic />   )} 
               />
-          </Pressable>
-        </View>  
-            
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Impasse /> : null }
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Impasse" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Impasse /> )} 
               />
-          </Pressable>
-        </View>   
-            
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Mitigate /> : null }
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Mitigate" 
-              onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Mitigate /> )} 
               />
-          </Pressable>
-        </View>   
-            
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Ultimatum /> : null }
-              <AppButton icon="sign-in" title="Ultimatum" 
-              onPress={()=>setShow(!show)} 
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Mitigate" 
+              onPress={()=>setSelectedWord(<Ultimatum /> )} 
               />
-          </Pressable>
-        </View>
-
+            </Pressable>
+          </View>
+ 
         <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+          <HomeButton navigation={navigation}/>
         </View>
+        </View>)}
 
-        </View>
-        </View>
         </View>
         </LinearGradient>
     </ScrollView>
@@ -141,11 +132,11 @@ export default function WS_Negotiations({ navigation }) {
   );
 }
 
-// Add function add to my list
 
 const Accord = () => {
     return(
     <View>
+        <Text style={style.subHead}>Accord</Text>
         <Text style={style.text}>Pron. uh-CORD</Text>
         <Text style={style.text}>Def: Formal reaching of agreement.</Text>
         <Text>
@@ -165,6 +156,7 @@ const Accord = () => {
 const Cessation = () => {
     return(
     <View>
+      <Text style={style.subHead}>Cessation</Text>
         <Text style={style.text}>Pron. sess-SAY-shun</Text>
         <Text style={style.text}>Def: Act of drawing to a close.</Text>
         <Text>
@@ -184,6 +176,7 @@ const Cessation = () => {
 const Dialectic = () => {
     return(
     <View>
+        <Text style={style.subHead}>Dialectic</Text>
         <Text style={style.text}>Pron. die-uh-LEK-tic</Text>
         <Text style={style.text}>Def: Pertaining to logical arguments.</Text>
         <Text>
@@ -203,6 +196,7 @@ const Dialectic = () => {
 const Elusive = () => {
     return(
     <View>
+        <Text style={style.subHead}>Elusive</Text>
         <Text style={style.text}>Pron. ee-LOO-siv</Text>
         <Text style={style.text}>Def: Difficult to perceive or describe.</Text>
         <Text>
@@ -221,6 +215,7 @@ const Elusive = () => {
 const Flux = () => {
     return(
     <View>
+        <Text style={style.subHead}>Flux</Text>
         <Text style={style.text}>Pron. fluks</Text>
         <Text style={style.text}>Def: Ongoing flow or unceasing change.</Text>
         <Text>
@@ -239,6 +234,7 @@ const Flux = () => {
 const Gauntlet = () => {
     return(
     <View>
+        <Text style={style.subHead}>Gauntlet</Text>
         <Text style={style.text}>Pron. GONT-let</Text>
         <Text style={style.text}>Def: 'A challenge; in medieval times a duel.</Text>
         <Text>
@@ -258,6 +254,7 @@ const Gauntlet = () => {
 const Holistic = () => {
     return(
     <View>
+        <Text style={style.subHead}>Holistic</Text>
         <Text style={style.text}>Pron. ho-LISS-tik</Text>
         <Text style={style.text}>Def: Emphasizing cooperation of the parts.</Text>
         <Text>
@@ -277,6 +274,7 @@ const Holistic = () => {
 const Impasse = () => {
     return(
     <View>
+        <Text style={style.subHead}>Impasse</Text>
         <Text style={style.text}>Pron. IM-pass</Text>
         <Text style={style.text}>Def: A situation that seems to offer no solution.</Text>
         <Text>
@@ -296,6 +294,7 @@ const Impasse = () => {
 const Mitigate = () => {
     return(
     <View>
+        <Text style={style.subHead}>Mitigate</Text>
         <Text style={style.text}>Pron. MIH-tih-gate</Text>
         <Text style={style.text}>Def: o moderate or lessen the impact.</Text>
         <Text>
@@ -315,6 +314,7 @@ const Mitigate = () => {
 const Ultimatum = () => {
     return(
     <View>
+        <Text style={style.subHead}>Ultimatum</Text>
         <Text style={style.text}>Pron. ul-tih-MAY-tum</Text>
         <Text style={style.text}>Def: One's last set of demands.</Text>
         <Text>
@@ -343,6 +343,14 @@ const style = StyleSheet.create({
     fontSize: 30,
     color: '#f0f8ff',
     fontWeight: '800',
+  },
+
+  subHead: {
+    fontSize: 25,
+    color: '#f0f8ff',
+    fontWeight: '600',
+    paddingVertical: 15,
+    paddingHorizontal: 15,
   },
 
   text: {

@@ -3,7 +3,7 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../components/HomeButton';
-
+import NavButton from '../components/NavButton';
 
 export default function WordSituations({ navigation }) {
 
@@ -36,66 +36,16 @@ export default function WordSituations({ navigation }) {
       </View>
       
         <View style={style.section}>
-
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Boss"
-          onPress={() => navigation.navigate('WS_Boss')}
-          />
-        </Pressable>
-
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Business"
-          onPress={() => navigation.navigate('WS_Business')}
-          />
-        </Pressable>
-
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Dinner Party"
-          onPress={() => navigation.navigate('WS_DinnerParty')}
-          />
-        </Pressable>
-
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Getting A Raise"
-          onPress={() => navigation.navigate('WS_GettingRaise')}
-          />
-        </Pressable>
-
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="In Court"
-          onPress={() => navigation.navigate('WS_InCourt')}
-          />
-        </Pressable>
-
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Job Interview"
-          onPress={() => navigation.navigate('WS_JobInterview')}
-          />
-        </Pressable>
-
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Meeting Inlaws"
-          onPress={() => navigation.navigate('WS_MeetingInLaws')}
-          />
-        </Pressable>
-
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Negotiations"
-          onPress={() => navigation.navigate('WS_Negotiations')}
-          />
-        </Pressable>
-
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Politics"
-          onPress={() => navigation.navigate('WS_Politics')}
-          />
-        </Pressable>
-
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="SpeedingTicket"
-          onPress={() => navigation.navigate('WS_SpeedingTicket')}
-          />
-        </Pressable>
+          <NavButton navigation={navigation} title="Boss" destination="WS_Boss"/>
+          <NavButton navigation={navigation} title="Business" destination="WS_Business"/>
+          <NavButton navigation={navigation} title="Dinner Party" destination="WS_DinnerParty"/>
+          <NavButton navigation={navigation} title="GettingRaise" destination="GettingRaise"/>
+          <NavButton navigation={navigation} title="In Court" destination="WS_InCourt"/>
+          <NavButton navigation={navigation} title="Job Interview" destination="WS_JobInterview"/>
+          <NavButton navigation={navigation} title="Meeting Inlaws" destination="WS_MeetingInLaws"/>
+          <NavButton navigation={navigation} title="Negotiations" destination="WS_Negotiations"/>
+          <NavButton navigation={navigation} title="Politics" destination="WS_Politics"/>
+          <NavButton navigation={navigation} title="Speeding Ticket" destination="WS_SpeedingTicket"/>
         </View>
 
         <View>

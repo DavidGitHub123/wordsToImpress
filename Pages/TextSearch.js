@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../components/HomeButton';
 // Paywall
 
 
@@ -38,9 +39,7 @@ export default function TextSearch({ navigation }) {
       {/* Drop text inside box/Look for syn */}
       
       <View>
-        <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-          <AppButton icon="sign-in" title="Home"/>
-        </Pressable>
+        <HomeButton navigation={ navigation } />
       </View>
 
       </View>
@@ -53,13 +52,15 @@ export default function TextSearch({ navigation }) {
 
 const style = StyleSheet.create({
   page: {
-    paddingVertical: 100,
-    paddingHorizontal: 0,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 50,
   },
 
   header: {
     fontSize: 40,
-    color: '#000',
+    color: '#fff',
     justifyContent: 'center',
     alignItems: 'center'
   },

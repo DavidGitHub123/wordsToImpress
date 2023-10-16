@@ -3,23 +3,23 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+
+const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  <View style={style.appButtonContainer}>
+    <Icon.Button
+      name={icon}
+      backgroundColor={backgroundColor}
+      onPress={onPress}
+      style={style.appButton}
+    >
+      <Text style={style.appButtonText}>{title}</Text>
+    </Icon.Button>
+  </View>
+);
 
 export default function WS_GettingRaise({ navigation }) {
-
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor={backgroundColor}
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-
-const [show, setShow] = useState(true);
+  const [selectedWord, setSelectedWord] = useState(null);
 
   return (
     <SafeAreaView style={style.container}>
@@ -34,106 +34,98 @@ const [show, setShow] = useState(true);
 
         <View>
           <Text style={style.header}>Word Situations: Boss</Text>
-        <View>
+        </View>
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Aggrandize /> : null }
+      {selectedWord ? 
+          selectedWord : 
+          (<View>
+
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Aggrandize" 
-             onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Aggrandize />)} 
               />
-          </Pressable>
-        </View>
+            </Pressable>
+          </View>
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Benevolent /> : null }
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Benevolent" 
-             onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Benevolent />)} 
               />
-          </Pressable>
-        </View>
+            </Pressable>
+          </View>
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Celerity /> : null }
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Celerity" 
-             onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Celerity />)} 
               />
-          </Pressable>
-        </View>
-            
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Debilitate /> : null }
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Debilitate" 
-             onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Debilitate />)} 
               />
-          </Pressable>
-        </View>
+            </Pressable>
+          </View>
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Effete /> : null }
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Effete" 
-             onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Effete />)} 
               />
-          </Pressable>
-        </View>
-        
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Facetious /> : null }
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Facetious" 
-             onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Facetious />)} 
               />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Garrulity /> : null }
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Garrulity" 
-             onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Garrulity />)} 
               />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Halcyon /> : null }
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Halcyon" 
-             onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Halcyon /> )} 
               />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Iconoclastic /> : null }
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
               <AppButton icon="sign-in" title="Iconoclastic" 
-             onPress={()=>setShow(!show)} 
+              onPress={()=>setSelectedWord(<Iconoclastic /> )} 
               />
-          </Pressable>
-        </View>
+            </Pressable>
+          </View>
 
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Neplusultra /> : null }
-              <AppButton icon="sign-in" title="Ne plus ultra" 
-             onPress={()=>setShow(!show)} 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Ne Plus Ultra" 
+              onPress={()=>setSelectedWord(<Neplusultra /> )} 
               />
-          </Pressable>
-        </View>
+            </Pressable>
+          </View>
+ 
           
-        <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
+          <View>
+            <HomeButton navigation={navigation}/>
         </View>
+        </View>)}
 
-        </View>
-        </View>
         </View>
         </LinearGradient>
     </ScrollView>
@@ -141,11 +133,11 @@ const [show, setShow] = useState(true);
   );
 }
 
-// Add function add to my list
 
 const Aggrandize = () => {
     return(
     <View>
+        <Text style={style.subHead}>Aggrandize</Text>
         <Text style={style.text}>Pron. uh-GRAND-ize</Text>
         <Text style={style.text}>Def: Make to appear great.</Text>
         <Text>
@@ -165,6 +157,7 @@ const Aggrandize = () => {
 const Benevolent = () => {
     return(
     <View>
+        <Text style={style.subHead}>Benevolent</Text>
         <Text style={style.text}>Pron. be-NEV-i-lent'</Text>
         <Text style={style.text}>Def: Tendency to do well toward others.</Text>
         <Text>
@@ -184,6 +177,7 @@ const Benevolent = () => {
 const Celerity = () => {
     return(
     <View>
+        <Text style={style.subHead}>Celerity</Text>
         <Text style={style.text}>Pron. suh-LAIR-ih-tee</Text>
         <Text style={style.text}>Def: Speed; swiftness of action or motion.</Text>
         <Text>
@@ -202,6 +196,7 @@ const Celerity = () => {
 const Debilitate = () => {
     return(
     <View>
+        <Text style={style.subHead}>Debilitate</Text>
         <Text style={style.text}>Pron. dih-BILL-ih-tate</Text>
         <Text style={style.text}>Def: To enfeeble or weaken.</Text>
         <Text>
@@ -221,6 +216,7 @@ const Debilitate = () => {
 const Effete = () => {
     return(
     <View>
+        <Text style={style.subHead}>Effete</Text>
         <Text style={style.text}>Pron. uh-FEET</Text>
         <Text style={style.text}>Def: Lacking vitality; without force.</Text>
         <Text>
@@ -239,6 +235,7 @@ const Effete = () => {
 const Facetious = () => {
     return(
     <View>
+        <Text style={style.subHead}>Facetious</Text>
         <Text style={style.text}>Pron. fuh-SEE-shuss</Text>
         <Text style={style.text}>Def: Playful talk; communicated in jest.</Text>
         <Text>
@@ -258,6 +255,7 @@ const Facetious = () => {
 const Garrulity = () => {
     return(
     <View>
+        <Text style={style.subHead}>Garrulity </Text>
         <Text style={style.text}> Pron. guh-ROO-lih-tee</Text>
         <Text style={style.text}>Def: Talkativeness.</Text>
         <Text>
@@ -277,6 +275,7 @@ const Garrulity = () => {
 const Halcyon = () => {
     return(
     <View>
+        <Text style={style.subHead}>Halcyon</Text>
         <Text style={style.text}>Pron. HAL-see-on</Text>
         <Text style={style.text}>Def: Tranquil, peaceful.</Text>
         <Text>
@@ -296,6 +295,7 @@ const Halcyon = () => {
 const Iconoclastic = () => {
     return(
     <View>
+        <Text style={style.subHead}>Iconoclastic</Text>
         <Text style={style.text}>Pron. eye-kon-uh-KLASS-tik</Text>
         <Text style={style.text}>Def: Attacking cherished institutions or beliefs.</Text>
         <Text>
@@ -315,6 +315,7 @@ const Iconoclastic = () => {
 const Neplusultra= () => {
     return(
     <View>
+        <Text style={style.subHead}>Ne Plus Ultra</Text>
         <Text style={style.text}>Pron. nay plooce OOL-truh</Text>
         <Text style={style.text}>Def: The highest possible embodiment of something.</Text>
         <Text>
@@ -343,6 +344,14 @@ const style = StyleSheet.create({
     fontSize: 30,
     color: '#f0f8ff',
     fontWeight: '800',
+  },
+
+  subHead: {
+    fontSize: 25,
+    color: '#f0f8ff',
+    fontWeight: '600',
+    paddingVertical: 15,
+    paddingHorizontal: 15,
   },
 
   text: {

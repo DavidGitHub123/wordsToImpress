@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
-
+import HomeButton from '../components/HomeButton';
+import NavButton from '../components/NavButton';
 
 export default function VocabMastery({ navigation }) {
 
@@ -35,25 +36,12 @@ export default function VocabMastery({ navigation }) {
         </View>
 
         <View style={style.section}>
-          <Pressable style={style.appButton} >
-            <AppButton icon="sign-in" title="Multiple Choice"
-            onPress={() => navigation.navigate('MultipleChoice')}
-            />
-          </Pressable>
-          
-          <Pressable style={style.appButton} >
-            <AppButton icon="sign-in" title="Flash Cards"
-            onPress={() => navigation.navigate('FlashCards')}
-            />
-          </Pressable> 
+          <NavButton navigation={navigation} title="Multiple Choice" destination="MultipleChoice"/>
+          <NavButton navigation={navigation} title="Flash Cards" destination="FlashCards"/>
         </View>
 
         <View>
-          <Pressable style={style.appButton} >
-            <AppButton icon="sign-in" title="Home"
-            onPress={() => navigation.navigate('Home')}
-            />
-          </Pressable> 
+          <HomeButton navigation={ navigation } />
         </View>
 
 

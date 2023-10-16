@@ -3,23 +3,23 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+
+const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  <View style={style.appButtonContainer}>
+    <Icon.Button
+      name={icon}
+      backgroundColor={backgroundColor}
+      onPress={onPress}
+      style={style.appButton}
+    >
+      <Text style={style.appButtonText}>{title}</Text>
+    </Icon.Button>
+  </View>
+);
 
 export default function WS_Politics({ navigation }) {
-
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor={backgroundColor}
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-
-const [show, setShow] = useState(true);
+  const [selectedWord, setSelectedWord] = useState(null);
 
   return (
     <SafeAreaView style={style.container}>
@@ -34,109 +34,97 @@ const [show, setShow] = useState(true);
 
         <View>
             <Text style={style.header}>Word Situations: Boss</Text>
-        <View> 
-
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Capitulate /> : null }
-              <AppButton icon="sign-in" title="Capitulate" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Decorum /> : null }
-              <AppButton icon="sign-in" title="Decorum" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Gainsay /> : null }
-              <AppButton icon="sign-in" title="Gainsay" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Hegemony /> : null }
-              <AppButton icon="sign-in" title="Hegemony" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Imbroglio /> : null }
-              <AppButton icon="sign-in" title="Imbroglio" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>
-
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Jingoistic /> : null }
-              <AppButton icon="sign-in" title="Jingoistic" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Liaison /> : null }
-              <AppButton icon="sign-in" title="Liaison" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>    
-          
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Maleficence /> : null }
-              <AppButton icon="sign-in" title="Maleficence" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>     
-          
-        <View>
-          <Pressable style={style.appButton} >
-              { show == true ? <Quagmire /> : null }
-              <AppButton icon="sign-in" title="Quagmire" 
-              onPress={()=>setShow(!show)} 
-              />
-          </Pressable>
-        </View>      
-          
-        <View>
-          <Pressable style={style.appButton}>
-              { show == true ? <Unilateral /> : null }
-              <AppButton icon="sign-in" title="Unilateral" 
-               onPress={()=>setShow(!show)} 
-               />
-          </Pressable>
         </View> 
-          
-        <View>
-          <Pressable style={style.appButton} onPress={() => navigation.navigate('Home')}>
-            <AppButton icon="sign-in" title="Home"/>
-          </Pressable>
-          <Pressable style={style.appButton} onPress={() => navigation.goBack()}>
-            <AppButton icon="sign-in" title="Previous"/>
-          </Pressable>
-        </View>
 
+        {selectedWord ? 
+            selectedWord : 
+            (<View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Capitulate" 
+              onPress={()=>setSelectedWord(<Capitulate />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Decorum" 
+              onPress={()=>setSelectedWord(<Decorum />)} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Gainsay" 
+              onPress={()=>setSelectedWord(<Gainsay />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Hegemony" 
+              onPress={()=>setSelectedWord(<Hegemony /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Imbroglio" 
+              onPress={()=>setSelectedWord(<Imbroglio /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Jingoistic" 
+              onPress={()=>setSelectedWord(<Jingoistic />  )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Liaison" 
+              onPress={()=>setSelectedWord(<Liaison />  )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Maleficence" 
+              onPress={()=>setSelectedWord(<Maleficence />  )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Quagmire" 
+              onPress={()=>setSelectedWord(<Quagmire />  )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Unilateral" 
+              onPress={()=>setSelectedWord(<Unilateral />   )} 
+              />
+            </Pressable>
+          </View>
+
+        <View>
+          <HomeButton navigation={navigation}/>
         </View>
-        </View>
+        </View>)}
+
         </View>
         </LinearGradient>
     </ScrollView>
@@ -144,11 +132,12 @@ const [show, setShow] = useState(true);
   );
 }
 
-// Add function add to my list
+
 
 const Capitulate = () => {
   return(
   <View>
+      <Text style={style.subHead}>Capitulate</Text>
       <Text style={style.text}>Pron. kuh-PIT-yoo-late</Text>
       <Text style={style.text}>Def: 'Give up, surrender.</Text>
       <Text>
@@ -168,6 +157,7 @@ const Capitulate = () => {
 const Decorum = () => {
   return(
   <View>
+      <Text style={style.subHead}>Decorum</Text>
       <Text style={style.text}>Pron. di-COR-um</Text>
       <Text style={style.text}>Def: Social propriety; dignified conduct.</Text>
       <Text>
@@ -187,6 +177,7 @@ const Decorum = () => {
 const Gainsay = () => {
   return(
   <View>
+      <Text style={style.subHead}>Gainsay</Text>
       <Text style={style.text}>Pron. GANE-say</Text>
       <Text style={style.text}>Def: To declare false.</Text>
       <Text>
@@ -206,6 +197,7 @@ const Gainsay = () => {
 const Hegemony = () => {
   return(
   <View>
+      <Text style={style.subHead}>Hegemony</Text>
       <Text style={style.text}>Pron. he-JEM-uh-nee</Text>
       <Text style={style.text}>Def: Predominant influence, especially in affairs of nations.</Text>
       <Text>
@@ -225,6 +217,7 @@ const Hegemony = () => {
 const Imbroglio = () => {
   return(
   <View>
+      <Text style={style.subHead}>Imbroglio</Text>
       <Text style={style.text}>Pron. im-BROA-lee-o</Text>
       <Text style={style.text}>Def: An entanglement or complicated misunderstanding.</Text>
       <Text>
@@ -244,6 +237,7 @@ const Imbroglio = () => {
 const Jingoistic = () => {
   return(
   <View>
+      <Text style={style.subHead}>Jingoistic</Text>
       <Text style={style.text}>Pron. jin-go-ISS-tik</Text>
       <Text style={style.text}>Def: Aggressively and overbearingly patriotic.</Text>
       <Text>
@@ -263,6 +257,7 @@ const Jingoistic = () => {
 const Liaison = () => {
   return(
   <View>
+      <Text style={style.subHead}>Liaison</Text>
       <Text>Pron. lee-ay-ZON</Text>
       <Text>Def: A communications channel or go-between.</Text>
       <Text>
@@ -282,6 +277,7 @@ const Liaison = () => {
 const Maleficence = () => {
   return(
   <View>
+      <Text style={style.subHead}>Maleficence</Text>
       <Text>Pron. muh-LEF-ih-sence</Text>
       <Text>Def: The undertaking of evil or harmful acts.</Text>
       <Text>
@@ -301,6 +297,7 @@ const Maleficence = () => {
 const Quagmire = () => {
   return(
   <View>
+      <Text style={style.subHead}>Quagmire</Text>
       <Text style={style.text}>Pron. KWAG-mire</Text>
       <Text style={style.text}>Def: 'An entanglement that offers no means of escape.</Text>
       <Text>
@@ -320,6 +317,7 @@ const Quagmire = () => {
 const Unilateral = () => {
   return(
   <View>
+      <Text style={style.subHead}>Unilateral</Text>
       <Text style={style.text}>Pron. yoo-ni-Lat-ur-el</Text>
       <Text style={style.text}>Def: Undertaken independently.</Text>
       <Text>
@@ -348,6 +346,14 @@ const style = StyleSheet.create({
     fontSize: 30,
     color: '#f0f8ff',
     fontWeight: '800',
+  },
+
+  subHead: {
+    fontSize: 25,
+    color: '#f0f8ff',
+    fontWeight: '600',
+    paddingVertical: 15,
+    paddingHorizontal: 15,
   },
 
   text: {
