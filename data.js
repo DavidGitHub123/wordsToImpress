@@ -8941,7 +8941,7 @@ export default [
     alpha: 'n',
     Prebuilt: '',
     SocialSituation: {GettingaRaise: 'Getting a Raise'},
-    Word: 'Ne plus ultra',
+    Word: 'Ne Plus Ultra',
     Pronunciation:'nay plooce OOL-truh',
     PartofSpeech: 'n',
     Shortdef: 'The highest possible embodiment of something.',
@@ -10748,7 +10748,7 @@ export default [
     Word: 'Providence',
     Pronunciation: 'PROV-ih-dunce',
     PartofSpeech: 'n',
-    Shortdef: "Viewine care; assurance God will provide.",
+    Shortdef: "Divine care; assurance God will provide.",
     Longdef: "Despite Mother's assurance that providence will see to our needs, I feel I should try to find a job.",
     syn: ["fate", "destiny", "Viewine intervention", "Karma", "God's will", "predetermination"]
 },
@@ -11782,7 +11782,7 @@ export default [
     Pronunciation: 'SAV-wahr FAIR',
     PartofSpeech: 'n',
     Shortdef: 'A sense of confidence and proficiency.',
-    Longdef: "You brought to our company a certain savior faire; clients felt confident our products worked better and sales increase sales 50%.",
+    Longdef: "You brought to our company a certain savior faire; clients felt confident our products worked better and sales increase 50%.",
     syn: ["Tact", "Diplomacy", "Social grace", "Poise", "Finesse", "Polish", "Proficiency"]
 },
 

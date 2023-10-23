@@ -5,6 +5,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../components/HomeButton';
 import { useRoute } from '@react-navigation/native';
+import { navStyle } from '../components/NavButton.js';
+// import Sound from 'react-native-sound';
 
 export default function Word({ navigation }) {
   const route = useRoute();
@@ -23,25 +25,41 @@ export default function Word({ navigation }) {
     </View>
   );
 
-
-
-
     function populate(selectedWord){
       const wordData = data.find(el => el.Word === selectedWord)
-      return(<View>
-          <Text>{wordData.Word}</Text>
-          <Text>{wordData.Pronunciation}</Text>
-          <Text>Definition</Text>
-          <Text>{wordData.Shortdef}</Text>
-          <Text>Sentence</Text>
-          <Text>{wordData.Longdef}</Text>
-          <Pressable><AppButton title="Audio"></AppButton></Pressable>
+      
+      if (!wordData) {
+        throw new Error(`Error: Could not find ${selectedWord} in data file.`)
+      }
+
+      return(<View style={style.page}>
+          <Text style={style.header}>{wordData.Word}</Text>
+          <Text style={style.text}>Pron.{wordData.Pronunciation}</Text>
+          <Text style={style.space}>
+            <Text style={style.subHead}>Def: </Text>
+            <Text style={style.text}>{wordData.Shortdef}</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.subHead}>Sentence: </Text>
+            <Text style={style.text}>{wordData.Longdef}</Text>
+          </Text>
+          <Pressable style={navStyle.appButton}><AppButton title="Add to My List"></AppButton></Pressable>
+          <Pressable style={navStyle.appButton}><AppButton title="Listen"></AppButton></Pressable>
+          
       </View>)
+  
     }
 
+    // onPress = {() => playSound(`audio/${wordData.Word}.mp3}`)}
 
 
-  
+    // const sound = new Sound('sounds/soundfile.mp3', Sound.MAIN_BUNDLE, (error) => {
+    //   if (error) {
+    //   console.log('Error loading sound:', error);
+    //   } else {
+    //   console.log('Sound loaded successfully.');
+    //   }
+    //   });
    
 
 
@@ -49,66 +67,54 @@ export default function Word({ navigation }) {
     <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
     <LinearGradient
-        colors={["#0047ab", "#4169e1"]}
-        start={[0.1, 1]}
-        opacity={.95}
+          colors={["#4682B4", "#6699CC"]}
+          start={[0.25, 0.25]}
+          opacity={.95}
       >
         <View>
           {populate(selectedWord)}
-          <Pressable><AppButton title="Go Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
+          <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
           <HomeButton navigation={ navigation } />
         </View>
-        </LinearGradient>
+
+    </LinearGradient>
     </ScrollView>
     </SafeAreaView>
-    )
-
-  
-  // return (
-  //   // <SafeAreaView style={style.container}>
-  //   // <ScrollView alwaysBounceHorizontal={true}>
-  //   // <LinearGradient
-  //   //     colors={["#0047ab", "#4169e1"]}
-  //   //     start={[0.1, 1]}
-  //   //     opacity={.95}
-  //   //   >
-
-  //   //   <Word />
-
-  //   //   {/* <View>
-  //   //     <Text>{props.word}</Text>
-  //   //     <Text>{props.Pronunciation}</Text>
-  //   //     <Text>Definition</Text>
-  //   //     <Text>{props.Shortdef}</Text>
-  //   //     <Text>Sentence</Text>
-  //   //     <Text>{props.Longdef}</Text>
-  //   //   </View> */}
-
-  //   //     <View>
-  //   //       <Pressable style={style.appButton} >
-  //   //         <AppButton icon="sign-in" title="Add to My List"
-  //   //           onPress={() => navigation.navigate('MyList')}
-  //   //           />
-  //   //       </Pressable> 
-  //   //     </View>
-
-  //   //     <View>
-  //   //       <HomeButton navigation={ navigation } />
-  //   //     </View>
-
-
-  //   //     </LinearGradient>
-  //   // </ScrollView>
-  //   // </SafeAreaView>
-  // );
+    );
 }
 
 
 const style = StyleSheet.create({
   page: {
-    paddingVertical: 100,
-    paddingHorizontal: 0,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 30,
   },
+
+  header: {
+    fontSize: 50,
+    color: '#FF8C00',
+    fontWeight: '800',
+    paddingBottom: 20,
+  },
+
+  space: {
+    paddingBottom: 20,
+  },
+
+  subHead: {
+    fontSize: 30,
+    color: '#FF8C00',
+    fontWeight: '600',
+  },
+
+  text: {
+    fontSize: 28,
+    color: '#f0f8ff',
+    paddingBottom: 20,
+  },
+
 
   appButton: {
     paddingHorizontal: 70,

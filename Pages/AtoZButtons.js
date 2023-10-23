@@ -3,7 +3,7 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList }
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../components/HomeButton';
-import NavButton from '../components/NavButton';
+import { NavButton } from '../components/NavButton';
 
 export default function AtoZButtons({ navigation }) {
 
@@ -24,8 +24,8 @@ export default function AtoZButtons({ navigation }) {
     <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
     <LinearGradient
-        colors={["#0047ab", "#4169e1"]}
-        start={[0.1, 1]}
+        colors={["#4682B4", "#6699CC"]}
+        start={[0.25, 0.25]}
         opacity={.95}
       >
 

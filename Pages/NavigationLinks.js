@@ -7,11 +7,11 @@ import WordSituations from '../Pages/WordSituations';
 import BuildMyList from '../Pages/BuildMyList';
 import System from '../Pages/System';
 import Word from '../Pages/Word';
-import PreBuiltList from '../Pages/PreBuiltList';
+import PreBuiltListNew from '../Pages/PreBuiltListNew';
 import AtoZButtons from '../Pages/AtoZButtons';
 import ChallengeFriend from '../Pages/ChallengeFriend';
 import ConversationSearch from '../Pages/ConversationSearch';
-import FlashCards from '../Pages/FlashCards';
+import RapidFire from '../Pages/RapidFire';
 import MultipleChoice from '../Pages/MultipleChoice';
 import ScheduleQuizzes from '../Pages/ScheduleQuizzes';
 import Quiz from '../Pages/Quiz';
@@ -61,7 +61,7 @@ export default function NavigationLinks() {
         >
             <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ title: 'Home'}}/>
             <Stack.Screen name="MyList" component={MyList} options={{ title: 'My Vocab List'}}/>
-            <Stack.Screen name="PreBuiltList" component={PreBuiltList} options={{ title: 'Pre-Built List'}}/>
+            <Stack.Screen name="PreBuiltListNew" component={PreBuiltListNew} options={{ title: 'Pre-Built List'}}/>
             <Stack.Screen name="VocabMastery" component={VocabMastery} options={{ title: 'Vocab Mastery'}}/>
             <Stack.Screen name="WordOfDay" component={WordOfDay} options={{ title: 'Word of Day'}}/>
             <Stack.Screen name="WordSituations" component={WordSituations} options={{ title: 'Word Situations'}}/>
@@ -71,7 +71,7 @@ export default function NavigationLinks() {
             <Stack.Screen name="AtoZButtons" component={AtoZButtons} options={{ title: 'Words A-Z'}}/>
             <Stack.Screen name="ChallengeFriend" component={ChallengeFriend} options={{ title: 'Challenge A Friend'}}/>
             <Stack.Screen name="ConversationSearch" component={ConversationSearch} options={{ title: 'Conversation Search'}}/>
-            <Stack.Screen name="FlashCards" component={FlashCards} options={{ title: 'Flash Cards'}}/>
+            <Stack.Screen name="RapidFire" component={RapidFire} options={{ title: 'RapidFire'}}/>
             <Stack.Screen name="MultipleChoice" component={MultipleChoice} options={{ title: 'Multiple Choice Quizes'}}/>
             <Stack.Screen name="ScheduleQuizzes" component={ScheduleQuizzes} options={{ title: 'Schedule Quizzes'}}/>
             <Stack.Screen name="Quiz" component={Quiz} options={{ title: 'Quizzes'}}/>

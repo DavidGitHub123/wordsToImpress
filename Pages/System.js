@@ -9,7 +9,8 @@ const AppButton = ({ onPress, icon, title, backgroundColor }) => (
   <View style={style.appButtonContainer}>
     <Icon.Button
       name={icon}
-      backgroundColor={backgroundColor}
+      backgroundColor='#FF8C00'
+      borderRadius={40}
       onPress={onPress}
       style={style.appButton}
     >
@@ -21,7 +22,6 @@ const AppButton = ({ onPress, icon, title, backgroundColor }) => (
 
 export default function System({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
-  // const [hideSection, setHideSection] = useState(true);
 
   const hideButton = (
   <Pressable style={style.appButton} >
@@ -30,7 +30,6 @@ export default function System({ navigation }) {
     />
   </Pressable>)
   
-
   const About = () => {
     return(
     <View style={style.buttonSpace}>
@@ -41,17 +40,67 @@ export default function System({ navigation }) {
         quickly and efficiently develop an impressive vocabulary.</Text>
         {hideButton}
     </View>
-
         )
 }
+
+const Rule = () => {
+  return(
+  <View style={style.buttonSpace}>
+      <Text style={style.subHead}>Rule of 50</Text>
+      <Text style={style.text}>We each have a vocabulary unique to us. Most successful people have mastered 
+      50 to 100 “big” vocabulary words that they consistently integrate in their 
+      speech and writing. The Words to Impress app helps you build a list unique to you. 
+      Once your list is complete, study those words – making them your own.</Text>
+      {hideButton}
+  </View>
+      )
+}
+
+const Help = () => {
+  return(
+  <View style={style.buttonSpace}>
+      <Text style={style.subHead}>AI Help</Text>
+      <Text style={style.text}>Unlike other vocabulary-building systems that present you with hundreds of 
+      words to learn, this app helps you build the right list for you – and master these words quickly. 
+      This AI tool anlyzes your writing and speech for common words unique to you. Then provides you 
+      with a list of upgraded words based on concepts and ideas familiar to you.</Text>
+      {hideButton}
+  </View>
+      )
+}
+
+const Situations = () => {
+  return(
+  <View style={style.buttonSpace}>
+      <Text style={style.subHead}>Word Situations</Text>
+      <Text style={style.text}>This feature identifies words unique to politics, business, job interviews, etc. 
+      When in a particular social situation, look up that situation and be ready with words to impress.</Text>
+      {hideButton}
+  </View>
+      )
+}
+
+const Reinforcement = () => {
+  return(
+  <View style={style.buttonSpace}>
+      <Text style={style.subHead}>Learning Reinforcement</Text>
+      <Text style={style.text}>The Vocabulary Mastery section provides games and tests to help you learn your list of words 
+      and reinforce them to make them part of your everyday speech and writing. The app features 
+      word of the day pop-ups to discover new words. Or schedule daily quizzes and connect to 
+      friends to test each other.</Text>
+      {hideButton}
+  </View>
+      )
+}
+
 
   return (
     <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
     <LinearGradient
-        colors={["#0047ab", "#4169e1"]}
-        start={[0.1, 1]}
-        opacity={.95}
+          colors={["#4682B4", "#6699CC"]}
+          start={[0.25, 0.25]}
+          opacity={.95}
         >
 
       <View style={style.page}>
@@ -78,11 +127,6 @@ export default function System({ navigation }) {
               onPress={()=>setSelectedWord(<About/>)} 
               />
             </Pressable>
-            {/* <Pressable style={style.appButton} >
-              <AppButton icon="sign-in" title="Close" 
-              onPress={()=>setHideSection(<About/>)} 
-              />
-            </Pressable> */}
           </View>
 
           <View>
@@ -133,51 +177,6 @@ export default function System({ navigation }) {
 
 
 
-const Rule = () => {
-    return(
-    <View style={style.buttonSpace}>
-        <Text style={style.subHead}>Rule of 50</Text>
-        <Text style={style.text}>We each have a vocabulary unique to us. Most successful people have mastered 
-        50 to 100 “big” vocabulary words that they consistently integrate in their 
-        speech and writing. The Words to Impress app helps you build a list unique to you. 
-        Once your list is complete, study those words – making them your own.</Text>
-    </View>
-        )
-}
-
-const Help = () => {
-    return(
-    <View style={style.buttonSpace}>
-        <Text style={style.subHead}>AI Help</Text>
-        <Text style={style.text}>Unlike other vocabulary-building systems that present you with hundreds of 
-        words to learn, this app helps you build the right list for you – and master these words quickly. 
-        This AI tool anlyzes your writing and speech for common words unique to you. Then provides you 
-        with a list of upgraded words based on concepts and ideas familiar to you.</Text>
-    </View>
-        )
-}
-
-const Situations = () => {
-    return(
-    <View style={style.buttonSpace}>
-        <Text style={style.subHead}>Word Situations</Text>
-        <Text style={style.text}>This feature identifies words unique to politics, business, job interviews, etc. 
-        When in a particular social situation, look up that situation and be ready with words to impress.</Text>
-    </View>
-        )
-}
-
-const Reinforcement = () => {
-    return(
-    <View style={style.buttonSpace}>
-        <Text style={style.subHead}>Learning Reinforcement</Text>
-        <Text style={style.text}>The Vocabulary Mastery section provides games and tests to help you learn your list of words 
-        and reinforce them to make them part of your everyday speech and writing. The app features 
-        word of the day pop-ups to discover new words. Or schedule daily quizzes and connect to 
-        friends to test each other.</Text>
-    </View>
-        )
-}
 
 
 const style = StyleSheet.create({

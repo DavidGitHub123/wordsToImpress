@@ -21,13 +21,230 @@ const AppButton = ({ onPress, icon, title, backgroundColor }) => (
 export default function WS_MeetingInLaws({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
 
+  const hideButton = (
+    <Pressable style={style.appButton} >
+      <AppButton icon="sign-in" title="Hide" 
+      onPress={()=>setSelectedWord(null)} 
+      />
+    </Pressable>)
+
+const Acquiescence = () => {
+  return(
+  <View>
+      <Text style={style.subHead}>Acquiescence</Text>
+      <Text style={style.text}>Pron. ak-wee-ESS-unce</Text>
+      <Text style={style.text}>Def: Act of passive agreement.</Text>
+      <Text>
+        <Text style={style.text}>Hank, enchanted by grand-fatherhood, gave over to complete </Text>
+        <Text style={style.bold}>acquiescence</Text>
+        <Text style={style.text}> with little Laura.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+        <AppButton icon="sign-in" title="Add to My List"
+        onPress={() => navigation.navigate('')}
+        />
+      </Pressable>
+      {hideButton}
+  </View>
+      )
+}
+
+const Belated = () => {
+  return(
+  <View>
+      <Text style={style.subHead}>Belated</Text>
+      <Text style={style.text}>Pron. bee-LAY-ted</Text>
+      <Text style={style.text}>Def: Late or tardy; delayed.</Text>
+      <Text>
+        <Text style={style.text}>Jane sent a 
+        <Text style={style.bold}> birthday </Text>
+        <Text style={style.text}></Text>card but still felt guilty about forgetting your birthday.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+        <AppButton icon="sign-in" title="Add to My List"
+        onPress={() => navigation.navigate('')}
+        />
+      </Pressable>
+      {hideButton}
+  </View>
+      )
+}
+
+const Dilapidated = () => {
+  return(
+  <View>
+      <Text style={style.subHead}>Dilapidated</Text>
+      <Text style={style.text}>Pron. di-LAP-ih-dated</Text>
+      <Text style={style.text}>Def: To fall into disrepair.</Text>
+      <Text>
+        <Text style={style.text}>The </Text>
+        <Text style={style.bold}>dilapidated</Text>
+        <Text style={style.text}> barn swayed and finally collapsed.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+        <AppButton icon="sign-in" title="Add to My List"
+        onPress={() => navigation.navigate('')}
+        />
+      </Pressable>
+      {hideButton}
+  </View>
+      )
+}
+
+const Eccentric = () => {
+  return(
+  <View>
+      <Text style={style.subHead}>Eccentric</Text>
+      <Text style={style.text}>Pron. ek-SEN-trik</Text>
+      <Text style={style.text}>Def: Marked by unconventional behavior.</Text>
+      <Text>
+        <Text style={style.text}>Lionel's </Text>
+        <Text style={style.bold}>eccentric</Text>
+        <Text style={style.text}> behavior led people avoiding him entirely.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+        <AppButton icon="sign-in" title="Add to My List"
+        onPress={() => navigation.navigate('')}
+        />
+      </Pressable>
+      {hideButton}
+  </View>
+      )
+}
+
+const Fallacious = () => {
+  return(
+  <View>
+      <Text style={style.subHead}>Fallacious</Text>
+      <Text style={style.text}>Pron. fuh-LAY-shuss</Text>
+      <Text style={style.text}>Def: False; containing logical errors.</Text>
+      <Text>
+        <Text style={style.text}>McCarthy's accusations against the Army were totally </Text>
+        <Text style={style.bold}>fallacious</Text>.
+      </Text>
+      <Pressable style={style.appButton} >
+        <AppButton icon="sign-in" title="Add to My List"
+        onPress={() => navigation.navigate('')}
+        />
+      </Pressable>
+      {hideButton}
+  </View>
+      )
+}
+
+const Heretic = () => {
+  return(
+  <View>
+      <Text style={style.subHead}>Heretic</Text>
+      <Text style={style.text}>Pron. HARE-uh-tic</Text>
+      <Text style={style.text}>Def: Professing belief, but differing with parts of the belief system.</Text>
+      <Text>
+        <Text style={style.text}>His stand against the church's political stances branded Clint as a </Text>
+        <Text style={style.bold}>heretic</Text>.
+      </Text>
+      <Pressable style={style.appButton} >
+        <AppButton icon="sign-in" title="Add to My List"
+        onPress={() => navigation.navigate('')}
+        />
+      </Pressable>
+      {hideButton}
+  </View>
+      )
+}
+
+const Impeccable = () => {
+  return(
+  <View>
+      <Text style={style.subHead}>Impeccable</Text>
+      <Text style={style.text}>Pron. im-PECK-uh-bull</Text>
+      <Text style={style.text}>Def: Flawless; virtually perfect.</Text>
+      <Text>
+        <Text style={style.text}>Roger, a man of </Text>
+        <Text style={style.bold}>impeccable</Text>
+        <Text style={style.text}> taste in clothes, wore a striking suit.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+        <AppButton icon="sign-in" title="Add to My List"
+        onPress={() => navigation.navigate('')}
+        />
+      </Pressable>
+      {hideButton}
+  </View>
+      )
+}
+
+const Malady = () => {
+  return(
+  <View>
+      <Text style={style.subHead}>Malady</Text>
+      <Text style={style.text}>Pron. MAL-uh-dee</Text>
+      <Text style={style.text}>Def: An illness or unwholesome condition.</Text>
+      <Text>
+        <Text style={style.text}>Jason's </Text>
+        <Text style={style.bold}>malady</Text>
+        <Text style={style.text}>, if undiagnosed, could have taken his life.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+        <AppButton icon="sign-in" title="Add to My List"
+        onPress={() => navigation.navigate('')}
+        />
+      </Pressable>
+      {hideButton}
+  </View>
+      )
+}
+
+const Ursine = () => {
+  return(
+  <View>
+      <Text style={style.subHead}>Ursine</Text>
+      <Text style={style.text}>Pron. UR-sin</Text>
+      <Text style={style.text}>Def: Bearlike; Latin word for bear.</Text>
+      <Text>
+        <Text style={style.text}>In his excitement, Harold gave her a fierce (might I say </Text>
+        <Text style={style.bold}>ursine</Text>
+        <Text style={style.text}>!) embrace.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+        <AppButton icon="sign-in" title="Add to My List"
+        onPress={() => navigation.navigate('')}
+        />
+      </Pressable>
+      {hideButton}
+  </View>
+      )
+}
+
+const Wayfaring = () => {
+  return(
+  <View>
+      <Text style={style.subHead}>Wayfaring</Text>
+      <Text style={style.text}>Pron. WAY-fare-ing</Text>
+      <Text style={style.text}>Def: Tending to travel by foot.
+        <Text style={style.text}>My grandfather, like many men of his generation, spent some time as a </Text>
+        <Text style={style.bold}>wayfaring</Text>
+        <Text style={style.text}> laborer.</Text>
+      </Text>
+      <Pressable style={style.appButton} >
+        <AppButton icon="sign-in" title="Add to My List"
+        onPress={() => navigation.navigate('')}
+        />
+      </Pressable>
+      {hideButton}
+  </View>
+      )
+}
+
+
+
+
   return (
     <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
     <LinearGradient
-        colors={["#0047ab", "#4169e1"]}
-        start={[0.1, 1]}
-        opacity={.95}
+          colors={["#4682B4", "#6699CC"]}
+          start={[0.25, 0.25]}
+          opacity={.95}
         >
 
       <View style={style.page}>
@@ -130,206 +347,6 @@ export default function WS_MeetingInLaws({ navigation }) {
     </ScrollView>
     </SafeAreaView>
   );
-}
-
-// Add function add to my list
-
-const Acquiescence = () => {
-    return(
-    <View>
-        <Text style={style.subHead}>Acquiescence</Text>
-        <Text style={style.text}>Pron. ak-wee-ESS-unce</Text>
-        <Text style={style.text}>Def: Act of passive agreement.</Text>
-        <Text>
-          <Text style={style.text}>Hank, enchanted by grand-fatherhood, gave over to complete </Text>
-          <Text style={style.bold}>acquiescence</Text>
-          <Text style={style.text}> with little Laura.</Text>
-        </Text>
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Add to My List"
-          onPress={() => navigation.navigate('')}
-          />
-        </Pressable>
-    </View>
-        )
-}
-
-const Belated = () => {
-    return(
-    <View>
-        <Text style={style.subHead}>Belated</Text>
-        <Text style={style.text}>Pron. bee-LAY-ted</Text>
-        <Text style={style.text}>Def: Late or tardy; delayed.</Text>
-        <Text>
-          <Text style={style.text}>Jane sent a 
-          <Text style={style.bold}> birthday </Text>
-          <Text style={style.text}></Text>card but still felt guilty about forgetting your birthday.</Text>
-        </Text>
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Add to My List"
-          onPress={() => navigation.navigate('')}
-          />
-        </Pressable>
-    </View>
-        )
-}
-
-const Dilapidated = () => {
-    return(
-    <View>
-        <Text style={style.subHead}>Dilapidated</Text>
-        <Text style={style.text}>Pron. di-LAP-ih-dated</Text>
-        <Text style={style.text}>Def: To fall into disrepair.</Text>
-        <Text>
-          <Text style={style.text}>The </Text>
-          <Text style={style.bold}>dilapidated</Text>
-          <Text style={style.text}> barn swayed and finally collapsed.</Text>
-        </Text>
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Add to My List"
-          onPress={() => navigation.navigate('')}
-          />
-        </Pressable>
-    </View>
-        )
-}
-
-const Eccentric = () => {
-    return(
-    <View>
-        <Text style={style.subHead}>Eccentric</Text>
-        <Text style={style.text}>Pron. ek-SEN-trik</Text>
-        <Text style={style.text}>Def: Marked by unconventional behavior.</Text>
-        <Text>
-          <Text style={style.text}>Lionel's </Text>
-          <Text style={style.bold}>eccentric</Text>
-          <Text style={style.text}> behavior led people avoiding him entirely.</Text>
-        </Text>
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Add to My List"
-          onPress={() => navigation.navigate('')}
-          />
-        </Pressable>
-    </View>
-        )
-}
-
-const Fallacious = () => {
-    return(
-    <View>
-        <Text style={style.subHead}>Fallacious</Text>
-        <Text style={style.text}>Pron. fuh-LAY-shuss</Text>
-        <Text style={style.text}>Def: False; containing logical errors.</Text>
-        <Text>
-          <Text style={style.text}>McCarthy's accusations against the Army were totally </Text>
-          <Text style={style.bold}>fallacious</Text>.
-        </Text>
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Add to My List"
-          onPress={() => navigation.navigate('')}
-          />
-        </Pressable>
-    </View>
-        )
-}
-
-const Heretic = () => {
-    return(
-    <View>
-        <Text style={style.subHead}>Heretic</Text>
-        <Text style={style.text}>Pron. HARE-uh-tic</Text>
-        <Text style={style.text}>Def: Professing belief, but differing with parts of the belief system.</Text>
-        <Text>
-          <Text style={style.text}>His stand against the church's political stances branded Clint as a </Text>
-          <Text style={style.bold}>heretic</Text>.
-        </Text>
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Add to My List"
-          onPress={() => navigation.navigate('')}
-          />
-        </Pressable>
-    </View>
-        )
-}
-
-const Impeccable = () => {
-    return(
-    <View>
-        <Text style={style.subHead}>Impeccable</Text>
-        <Text style={style.text}>Pron. im-PECK-uh-bull</Text>
-        <Text style={style.text}>Def: Flawless; virtually perfect.</Text>
-        <Text>
-          <Text style={style.text}>Roger, a man of </Text>
-          <Text style={style.bold}>impeccable</Text>
-          <Text style={style.text}> taste in clothes, wore a striking suit.</Text>
-        </Text>
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Add to My List"
-          onPress={() => navigation.navigate('')}
-          />
-        </Pressable>
-    </View>
-        )
-}
-
-const Malady = () => {
-    return(
-    <View>
-        <Text style={style.subHead}>Malady</Text>
-        <Text style={style.text}>Pron. MAL-uh-dee</Text>
-        <Text style={style.text}>Def: An illness or unwholesome condition.</Text>
-        <Text>
-          <Text style={style.text}>Jason's </Text>
-          <Text style={style.bold}>malady</Text>
-          <Text style={style.text}>, if undiagnosed, could have taken his life.</Text>
-        </Text>
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Add to My List"
-          onPress={() => navigation.navigate('')}
-          />
-        </Pressable>
-    </View>
-        )
-}
-
-const Ursine = () => {
-    return(
-    <View>
-        <Text style={style.subHead}>Ursine</Text>
-        <Text style={style.text}>Pron. UR-sin</Text>
-        <Text style={style.text}>Def: Bearlike; Latin word for bear.</Text>
-        <Text>
-          <Text style={style.text}>In his excitement, Harold gave her a fierce (might I say </Text>
-          <Text style={style.bold}>ursine</Text>
-          <Text style={style.text}>!) embrace.</Text>
-        </Text>
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Add to My List"
-          onPress={() => navigation.navigate('')}
-          />
-        </Pressable>
-    </View>
-        )
-}
-
-const Wayfaring = () => {
-    return(
-    <View>
-        <Text style={style.subHead}>Wayfaring</Text>
-        <Text style={style.text}>Pron. WAY-fare-ing</Text>
-        <Text style={style.text}>Def: Tending to travel by foot.</Text>
-          <Text style={style.text}>My grandfather, like many men of his generation, spent some time as a </Text>
-          <Text style={style.bold}>wayfaring</Text>
-          <Text style={style.text}> laborer.</Text>
-        <Text></Text>
-        
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Add to My List"
-          onPress={() => navigation.navigate('')}
-          />
-        </Pressable>
-    </View>
-        )
 }
 
 

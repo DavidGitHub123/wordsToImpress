@@ -4,7 +4,7 @@ import { useState, useEffect, Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../../components/HomeButton';
-import NavButtonWord from '../../components/NavButtonWord';
+import { NavButtonWord } from '../../components/NavButtonWord';
 
 export default function ZWords({ navigation }) {
 

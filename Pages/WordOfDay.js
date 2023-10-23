@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
-// import data from './data.js';
+import data from '../data.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../components/HomeButton';
@@ -20,25 +20,34 @@ export default function WordOfDay({ navigation }) {
     </View>
   );
 
+  function GetWordOfTheDay(){
+    const randomIndex = Math.floor(Math.random() * data.length)
+    const selectedWord = data[randomIndex];
+
+    return(<View>
+          <Text>{selectedWord.Word}</Text>
+          <Text>{selectedWord.Pronunciation}</Text>
+          <Text style={style.text}>Definition</Text>
+          <Text>{selectedWord.Shortdef}</Text>
+          <Text style={style.text}>Sentence</Text>
+          <Text>{selectedWord.Longdef}</Text>
+    </View>)
+  }
+
   return (
     <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
     <LinearGradient
-        colors={["#0047ab", "#4169e1"]}
-        start={[0.1, 1]}
-        opacity={.95}
+          colors={["#4682B4", "#6699CC"]}
+          start={[0.25, 0.25]}
+          opacity={.95}
       >
 
       <View style={style.page}>
 
         <View>
           <Text style={style.header}>Word of the Day</Text>
-          {/* <Text>{props.word}</Text>
-          <Text>{props.Pronunciation}</Text> */}
-          <Text style={style.text}>Definition</Text>
-          {/* <Text>{props.Shortdef}</Text> */}
-          <Text style={style.text}>Sentence</Text>
-          {/* <Text>{props.Longdef}</Text> */}
+          {GetWordOfTheDay()}
         </View>
 
 

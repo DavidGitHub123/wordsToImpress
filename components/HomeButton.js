@@ -7,7 +7,7 @@ export default function HomeButton({ navigation }){
         <View style={style.appButtonContainer}>
           <Icon.Button
             name={icon}
-            backgroundColor={backgroundColor}
+            backgroundColor='#FF5E0E'
             onPress={onPress}
             style={style.appButton}
           >

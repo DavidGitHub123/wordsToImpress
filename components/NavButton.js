@@ -1,63 +1,50 @@
 import { View, Image, Text, StyleSheet, Pressable, Button, ScrollView, SafeAreaView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function NavButton({ navigation, title, destination, icon="sign-in" }){
+function NavButton({ navigation, title, destination, icon="sign-in" }){
 
     const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-        <View style={style.appButtonContainer}>
+        <View style={navStyle.appButtonContainer}>
           <Icon.Button
             name={icon}
-            backgroundColor={backgroundColor}
+            backgroundColor='#FF8C00'
+            borderRadius={40}
+            borderWidth={5}
+            borderColor='#BBC2CC'
             onPress={onPress}
-            style={style.appButton}
+            style={navStyle.appButton}
           >
-            <Text style={style.appButtonText}>{title}</Text>
+            <Text style={navStyle.appButtonText}>{title}</Text>
           </Icon.Button>
           </View>
       );
       
-    return (<Pressable style={style.appButton} >
+    return (<Pressable style={navStyle.appButton} >
         <AppButton icon={icon} title={title}
-        onPress={() => navigation.navigate(destination)}
+        onPress={() => navigation.navigate(destination, {selectedWord: title})}
         />
       </Pressable> )
 }
 
 
-const style = StyleSheet.create({
-
-    page: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-      },
-  
-    image: {
-      width: 0,
-      height: 0,
-      paddingVertical: 100,
-      paddingHorizontal: 200,
-    },
-  
-    section: {
-      paddingVertical: 30,
-    },
+const navStyle = StyleSheet.create({
   
     appButton: {
-      paddingHorizontal: 50,
       alignItems: 'center',
       justifyContent: 'center',
     },
   
     appButtonText: {
       fontSize: 20,
-      color: '#fff'
+      color: '#000',
+      fontWeight: 'bold',
     },
   
     appButtonContainer: {
       width: 250,
-      paddingVertical: 10,
-      paddingHorizontal: 0,
+      paddingVertical: 3,
     },
   
   })
+
+  export {NavButton, navStyle}
