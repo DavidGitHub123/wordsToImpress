@@ -1,9 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../components/HomeButton';
 import { NavButton } from '../components/NavButton';
+import blue5 from '../assets/blue5.jpg'
 
 export default function VocabMastery({ navigation }) {
 
@@ -23,49 +22,54 @@ export default function VocabMastery({ navigation }) {
   return (
     <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
-    <LinearGradient
-          colors={["#4682B4", "#6699CC"]}
-          start={[0.25, 0.25]}
-          opacity={.95}
-      >
-
-<View style={style.page}>
+    <ImageBackground source={blue5} imageStyle={style.image} resizeMode="cover" style={style.page}>
 
         <View>
           <Text style={style.header}>Vocab Mastery</Text>
         </View>
 
         <View style={style.section}>
-          <NavButton navigation={navigation} title="Multiple Choice" destination="MultipleChoice"/>
+          <NavButton navigation={navigation} title="StackIt" destination="StackIt"/>
           <NavButton navigation={navigation} title="RapidFire" destination="RapidFire"/>
+          <NavButton navigation={navigation} title="QuickMatch" destination="QuickMatch"/>
         </View>
 
+        <View style={style.section}>
+          <NavButton navigation={navigation} title="Schedule Quizzes" destination="ScheduleQuizzes"/>
+          <NavButton navigation={navigation} title="Challenge A Friend" destination="ChallengeFriend"/>
+        </View>
+        
         <View>
           <HomeButton navigation={ navigation } />
         </View>
 
 
-      </View>
-      </LinearGradient>
+        </ImageBackground>
     </ScrollView>
     </SafeAreaView>
   );
 }
 
-
 const style = StyleSheet.create({
   page: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 50,
+    // backgroundColor: '#000',
+    paddingVertical: 30,
+    paddingBottom: 400
   },
 
+  // image: {
+  //   opacity: .5,
+  // },
+
   header: {
-    fontSize: 30,
+    fontSize: 40,
     color: '#f0f8ff',
     fontWeight: '800',
-  },
+    textAlign: 'center',
+    paddingBottom: 20
+    },
 
   section: {
     paddingVertical: 10,

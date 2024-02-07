@@ -1,10 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../components/HomeButton';
-// Paywall
-
+import { navStyle } from '../components/NavButton.js';
+import blue7 from '../assets/blue7.jpg'
 
 export default function TextSearch({ navigation }) {
 
@@ -12,7 +10,10 @@ export default function TextSearch({ navigation }) {
     <View style={style.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor={backgroundColor}
+        backgroundColor='#FF8C00'
+        borderRadius={40}
+        borderWidth={3}
+        borderColor='#BBC2CC'
         onPress={onPress}
         style={style.appButton}
       >
@@ -24,61 +25,71 @@ export default function TextSearch({ navigation }) {
   return (
     <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
-    <LinearGradient
-          colors={["#4682B4", "#6699CC"]}
-          start={[0.25, 0.25]}
-          opacity={.95}
-        >
+    <ImageBackground source={blue7} imageStyle={style.image} resizeMode="cover" style={style.page}>
 
-      <View style={style.page}>
 
       <View>
         <Text style={style.header}>Text Search</Text>
+        <Text style={style.text}>Copy text from your emails, communications, proposals, etc. into this box and let 
+        our AI tools analyze your communication patterns to suggest new vocabulary words that 
+        correspond to your speaking style and context. Then add these words to My Vocab List.</Text>
       </View>
 
       {/* Drop text inside box/Look for syn */}
       
-      <View>
+      <View style={style.buttons}>
+        <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
         <HomeButton navigation={ navigation } />
       </View>
 
-      </View>
-      </LinearGradient>
+      </ImageBackground>
     </ScrollView>
     </SafeAreaView>
   );
 }
 
-
 const style = StyleSheet.create({
   page: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 50,
+    paddingTop: 40,
+    paddingBottom: 450,
+    // backgroundColor: '#000',
   },
+
+  // image: {
+  //   opacity: .5,
+  // },
 
   header: {
     fontSize: 40,
-    color: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center'
+    color: '#f0f8ff',
+    fontWeight: '800',
+    paddingBottom: 10,
+    textAlign: 'center'
+  },
+
+  text: {
+    fontSize: 18,
+    color: '#f0f8ff',
+    paddingHorizontal: 50
+  },
+
+  buttons: {
+    paddingTop: 20,
   },
 
   appButton: {
-    paddingHorizontal: 70,
     alignItems: 'center',
     justifyContent: 'center'
   },
 
   appButtonText: {
-    fontSize: 20,
+    fontSize: 18,
     color: '#fff'
   },
 
   appButtonContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 0,
+    paddingVertical: 5,
+    width: 300,
   },
 
 })

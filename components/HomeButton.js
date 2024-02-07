@@ -18,14 +18,10 @@ export default function HomeButton({ navigation }){
       
     return(        
     <Pressable style={style.appButton} >
-        <AppButton icon="sign-in" title="Home"
+        <AppButton icon="home" title="Home"
         onPress={() => navigation.navigate('HomeScreen')}
         />
     </Pressable>);
-
-{/* <View>
-<HomeButton navigation={navigation}/>
-</View> */}
 }
 
 const style = StyleSheet.create({

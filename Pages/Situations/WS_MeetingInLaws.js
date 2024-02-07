@@ -1,15 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
-import { useState, useEffect, Component} from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, ImageBackground } from 'react-native';
+import { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../../components/HomeButton';
+import AddButton from '../../components/AddButton';
+import ListenButton from '../../components/ListenButton';
+import { navStyle } from '../../components/NavButton.js';
+import inlaws4 from '../../assets/Backgrounds/inlaws4.jpg'
 
-const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+const AppButton = ({ onPress, icon, title }) => (
   <View style={style.appButtonContainer}>
     <Icon.Button
       name={icon}
-      backgroundColor={backgroundColor}
+      backgroundColor='#FF8C00'
+      borderRadius={40}
+      borderWidth={3}
+      borderColor='#BBC2CC'
       onPress={onPress}
       style={style.appButton}
     >
@@ -17,6 +22,8 @@ const AppButton = ({ onPress, icon, title, backgroundColor }) => (
     </Icon.Button>
   </View>
 );
+
+const image = source = require('../../assets/Backgrounds/inlaws.jpg')
 
 export default function WS_MeetingInLaws({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -30,227 +37,279 @@ export default function WS_MeetingInLaws({ navigation }) {
 
 const Acquiescence = () => {
   return(
-  <View>
-      <Text style={style.subHead}>Acquiescence</Text>
-      <Text style={style.text}>Pron. ak-wee-ESS-unce</Text>
-      <Text style={style.text}>Def: Act of passive agreement.</Text>
-      <Text>
-        <Text style={style.text}>Hank, enchanted by grand-fatherhood, gave over to complete </Text>
-        <Text style={style.bold}>acquiescence</Text>
-        <Text style={style.text}> with little Laura.</Text>
-      </Text>
-      <Pressable style={style.appButton} >
-        <AppButton icon="sign-in" title="Add to My List"
-        onPress={() => navigation.navigate('')}
-        />
-      </Pressable>
-      {hideButton}
-  </View>
-      )
-}
+    <View style={style.component}>
+      <View style={style.screen}>
+        <Text style={style.subHead}>Acquiescence</Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Pron: </Text>
+            <Text style={style.text}>ak-wee-ESS-unce</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Def: </Text>
+            <Text style={style.text}>Act of passive agreement.</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.text}>Hank, enchanted by grand-fatherhood, gave over to complete </Text>
+            <Text style={style.bold}>acquiescence</Text>
+            <Text style={style.text}> with little Laura.</Text>
+          </Text>
+      </View>
+        <ListenButton />
+        <AddButton />
+        {hideButton}
+    </View>         
+    ) 
+  }
 
 const Belated = () => {
   return(
-  <View>
-      <Text style={style.subHead}>Belated</Text>
-      <Text style={style.text}>Pron. bee-LAY-ted</Text>
-      <Text style={style.text}>Def: Late or tardy; delayed.</Text>
-      <Text>
-        <Text style={style.text}>Jane sent a 
-        <Text style={style.bold}> birthday </Text>
-        <Text style={style.text}></Text>card but still felt guilty about forgetting your birthday.</Text>
-      </Text>
-      <Pressable style={style.appButton} >
-        <AppButton icon="sign-in" title="Add to My List"
-        onPress={() => navigation.navigate('')}
-        />
-      </Pressable>
-      {hideButton}
-  </View>
-      )
-}
+    <View style={style.component}>
+      <View style={style.screen}>
+        <Text style={style.subHead}>Belated</Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Pron: </Text>
+            <Text style={style.text}>bee-LAY-ted</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Def: </Text>
+            <Text style={style.text}>Late or tardy; delayed.</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.text}>Jane sent a 
+            <Text style={style.bold}> birthday </Text>
+            <Text style={style.text}></Text>card but still felt guilty about forgetting your birthday.</Text>
+          </Text>
+      </View>
+        <ListenButton />
+        <AddButton />
+        {hideButton}
+    </View>         
+    ) 
+  }
 
-const Dilapidated = () => {
-  return(
-  <View>
-      <Text style={style.subHead}>Dilapidated</Text>
-      <Text style={style.text}>Pron. di-LAP-ih-dated</Text>
-      <Text style={style.text}>Def: To fall into disrepair.</Text>
-      <Text>
-        <Text style={style.text}>The </Text>
-        <Text style={style.bold}>dilapidated</Text>
-        <Text style={style.text}> barn swayed and finally collapsed.</Text>
-      </Text>
-      <Pressable style={style.appButton} >
-        <AppButton icon="sign-in" title="Add to My List"
-        onPress={() => navigation.navigate('')}
-        />
-      </Pressable>
-      {hideButton}
-  </View>
-      )
-}
+  const Dilapidated = () => {
+    return(
+      <View style={style.component}>
+        <View style={style.screen}>
+          <Text style={style.subHead}>Dilapidated</Text>
+            <Text style={style.space}>
+              <Text style={style.title}>Pron: </Text>
+              <Text style={style.text}>di-LAP-ih-dated</Text>
+            </Text>
+            <Text style={style.space}>
+              <Text style={style.title}>Def: </Text>
+              <Text style={style.text}>To fall into disrepair.</Text>
+            </Text>
+            <Text style={style.space}>
+              <Text style={style.title}>Sentence: </Text>
+              <Text style={style.text}>The </Text>
+              <Text style={style.bold}>dilapidated</Text>
+              <Text style={style.text}> barn swayed and finally collapsed.</Text>
+            </Text>
+        </View>
+          <ListenButton />
+        <AddButton />
+          {hideButton}
+      </View>         
+      ) 
+    }
 
-const Eccentric = () => {
-  return(
-  <View>
-      <Text style={style.subHead}>Eccentric</Text>
-      <Text style={style.text}>Pron. ek-SEN-trik</Text>
-      <Text style={style.text}>Def: Marked by unconventional behavior.</Text>
-      <Text>
-        <Text style={style.text}>Lionel's </Text>
-        <Text style={style.bold}>eccentric</Text>
-        <Text style={style.text}> behavior led people avoiding him entirely.</Text>
-      </Text>
-      <Pressable style={style.appButton} >
-        <AppButton icon="sign-in" title="Add to My List"
-        onPress={() => navigation.navigate('')}
-        />
-      </Pressable>
-      {hideButton}
-  </View>
-      )
-}
+    const Eccentric = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Eccentric</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>ek-SEN-trik</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>Marked by unconventional behavior.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>Lionel's </Text>
+                <Text style={style.bold}>eccentric</Text>
+                <Text style={style.text}> behavior led people avoiding him entirely.</Text>
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
 
-const Fallacious = () => {
-  return(
-  <View>
-      <Text style={style.subHead}>Fallacious</Text>
-      <Text style={style.text}>Pron. fuh-LAY-shuss</Text>
-      <Text style={style.text}>Def: False; containing logical errors.</Text>
-      <Text>
-        <Text style={style.text}>McCarthy's accusations against the Army were totally </Text>
-        <Text style={style.bold}>fallacious</Text>.
-      </Text>
-      <Pressable style={style.appButton} >
-        <AppButton icon="sign-in" title="Add to My List"
-        onPress={() => navigation.navigate('')}
-        />
-      </Pressable>
-      {hideButton}
-  </View>
-      )
-}
+    const Fallacious = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Fallacious</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>fuh-LAY-shuss</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>False; containing logical errors.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>McCarthy's accusations against the Army were totally </Text>
+                <Text style={style.bold}>fallacious</Text>.
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
 
-const Heretic = () => {
-  return(
-  <View>
-      <Text style={style.subHead}>Heretic</Text>
-      <Text style={style.text}>Pron. HARE-uh-tic</Text>
-      <Text style={style.text}>Def: Professing belief, but differing with parts of the belief system.</Text>
-      <Text>
-        <Text style={style.text}>His stand against the church's political stances branded Clint as a </Text>
-        <Text style={style.bold}>heretic</Text>.
-      </Text>
-      <Pressable style={style.appButton} >
-        <AppButton icon="sign-in" title="Add to My List"
-        onPress={() => navigation.navigate('')}
-        />
-      </Pressable>
-      {hideButton}
-  </View>
-      )
-}
+    const Heretic = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Heretic</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>HARE-uh-tic</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>Professing belief, but differing with parts of the belief system.</Text>
+              </Text>
+              <Text style={style.space}>
+              <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>His stand against the church's political stances branded Clint as a </Text>
+                <Text style={style.bold}>heretic</Text>.
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
 
-const Impeccable = () => {
-  return(
-  <View>
-      <Text style={style.subHead}>Impeccable</Text>
-      <Text style={style.text}>Pron. im-PECK-uh-bull</Text>
-      <Text style={style.text}>Def: Flawless; virtually perfect.</Text>
-      <Text>
-        <Text style={style.text}>Roger, a man of </Text>
-        <Text style={style.bold}>impeccable</Text>
-        <Text style={style.text}> taste in clothes, wore a striking suit.</Text>
-      </Text>
-      <Pressable style={style.appButton} >
-        <AppButton icon="sign-in" title="Add to My List"
-        onPress={() => navigation.navigate('')}
-        />
-      </Pressable>
-      {hideButton}
-  </View>
-      )
-}
+      const Impeccable = () => {
+        return(
+          <View style={style.component}>
+            <View style={style.screen}>
+              <Text style={style.subHead}>Impeccable</Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Pron: </Text>
+                  <Text style={style.text}>im-PECK-uh-bull</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Def: </Text>
+                  <Text style={style.text}>Flawless; virtually perfect.</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Sentence: </Text>
+                  <Text style={style.text}>Roger, a man of </Text>
+                  <Text style={style.bold}>impeccable</Text>
+                  <Text style={style.text}> taste in clothes, wore a striking suit.</Text>
+                </Text>
+            </View>
+              <ListenButton />
+        <AddButton />
+              {hideButton}
+          </View>         
+          ) 
+        }
 
-const Malady = () => {
-  return(
-  <View>
-      <Text style={style.subHead}>Malady</Text>
-      <Text style={style.text}>Pron. MAL-uh-dee</Text>
-      <Text style={style.text}>Def: An illness or unwholesome condition.</Text>
-      <Text>
-        <Text style={style.text}>Jason's </Text>
-        <Text style={style.bold}>malady</Text>
-        <Text style={style.text}>, if undiagnosed, could have taken his life.</Text>
-      </Text>
-      <Pressable style={style.appButton} >
-        <AppButton icon="sign-in" title="Add to My List"
-        onPress={() => navigation.navigate('')}
-        />
-      </Pressable>
-      {hideButton}
-  </View>
-      )
-}
+      const Malady = () => {
+        return(
+          <View style={style.component}>
+            <View style={style.screen}>
+              <Text style={style.subHead}>Malady</Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Pron: </Text>
+                  <Text style={style.text}>MAL-uh-dee</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Def: </Text>
+                  <Text style={style.text}>An illness or unwholesome condition.</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Sentence: </Text>
+                  <Text style={style.text}>Jason's </Text>
+                  <Text style={style.bold}>malady</Text>
+                  <Text style={style.text}>, if undiagnosed, could have taken his life.</Text>
+                </Text>
+            </View>
+              <ListenButton />
+        <AddButton />
+              {hideButton}
+          </View>         
+          ) 
+        }
 
-const Ursine = () => {
-  return(
-  <View>
-      <Text style={style.subHead}>Ursine</Text>
-      <Text style={style.text}>Pron. UR-sin</Text>
-      <Text style={style.text}>Def: Bearlike; Latin word for bear.</Text>
-      <Text>
-        <Text style={style.text}>In his excitement, Harold gave her a fierce (might I say </Text>
-        <Text style={style.bold}>ursine</Text>
-        <Text style={style.text}>!) embrace.</Text>
-      </Text>
-      <Pressable style={style.appButton} >
-        <AppButton icon="sign-in" title="Add to My List"
-        onPress={() => navigation.navigate('')}
-        />
-      </Pressable>
-      {hideButton}
-  </View>
-      )
-}
+      const Ursine = () => {
+        return(
+          <View style={style.component}>
+            <View style={style.screen}>
+              <Text style={style.subHead}>Malady</Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Pron: </Text>
+                  <Text style={style.text}>UR-sin</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Def: </Text>
+                  <Text style={style.text}>Bearlike; Latin word for bear.</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Sentence: </Text>
+                  <Text style={style.text}>In his excitement, Harold gave her a fierce (might I say </Text>
+                  <Text style={style.bold}>ursine</Text>
+                  <Text style={style.text}>!) embrace.</Text>
+                </Text>
+            </View>
+              <ListenButton />
+        <AddButton />
+              {hideButton}
+          </View>         
+          ) 
+        }
 
-const Wayfaring = () => {
-  return(
-  <View>
-      <Text style={style.subHead}>Wayfaring</Text>
-      <Text style={style.text}>Pron. WAY-fare-ing</Text>
-      <Text style={style.text}>Def: Tending to travel by foot.
-        <Text style={style.text}>My grandfather, like many men of his generation, spent some time as a </Text>
-        <Text style={style.bold}>wayfaring</Text>
-        <Text style={style.text}> laborer.</Text>
-      </Text>
-      <Pressable style={style.appButton} >
-        <AppButton icon="sign-in" title="Add to My List"
-        onPress={() => navigation.navigate('')}
-        />
-      </Pressable>
-      {hideButton}
-  </View>
-      )
-}
-
-
-
+        const Wayfaring = () => {
+          return(
+            <View style={style.component}>
+              <View style={style.screen}>
+                <Text style={style.subHead}>Wayfaring</Text>
+                  <Text style={style.space}>
+                    <Text style={style.title}>Pron: </Text>
+                    <Text style={style.text}>WAY-fare-ing</Text>
+                  </Text>
+                  <Text style={style.space}>
+                    <Text style={style.title}>Def: </Text>
+                    <Text style={style.text}>Tending to travel by foot.</Text>
+                  </Text>
+                  <Text style={style.space}>
+                    <Text style={style.title}>Sentence: </Text>
+                    <Text style={style.text}>My grandfather, like many men of his generation, spent some time as a </Text>
+                    <Text style={style.bold}>wayfaring</Text>
+                    <Text style={style.text}> laborer.</Text>
+                  </Text>
+              </View>
+                <ListenButton />
+        <AddButton />
+                {hideButton}
+            </View>         
+            ) 
+          }
 
   return (
     <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
-    <LinearGradient
-          colors={["#4682B4", "#6699CC"]}
-          start={[0.25, 0.25]}
-          opacity={.95}
-        >
-
-      <View style={style.page}>
+    <ImageBackground source={inlaws4} imageStyle={style.image} resizeMode="cover" style={style.page}>
   
         <View>
-          <Text style={style.header}>Word Situations: Boss</Text>
+          <Text style={style.header}>Inlaws</Text>
         </View>
 
         {selectedWord ? 
@@ -337,13 +396,13 @@ const Wayfaring = () => {
             </Pressable>
           </View>
         
-        <View>
+        <View style={style.bottomButtons}>
+          <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
           <HomeButton navigation={navigation}/>
         </View>
         </View>)}
 
-        </View>
-        </LinearGradient>
+        </ImageBackground>
     </ScrollView>
     </SafeAreaView>
   );
@@ -353,41 +412,67 @@ const Wayfaring = () => {
 const style = StyleSheet.create({
   page: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 50,
+    backgroundColor: '#000',
+    paddingVertical: 30,
+  },
+
+  image: {
+    opacity: .5,
   },
 
   header: {
-    fontSize: 30,
+    fontSize: 40,
+    textShadowColor: '#000',
+    textShadowRadius: 5,
     color: '#f0f8ff',
     fontWeight: '800',
-  },
-
-  subHead: {
-    fontSize: 25,
-    color: '#f0f8ff',
-    fontWeight: '600',
-    paddingVertical: 15,
-    paddingHorizontal: 15,
-  },
-
-  text: {
-    fontSize: 15,
-    color: '#f0f8ff',
-    paddingHorizontal: 20,
-  },
-
-  bold: {
-    fontSize: 17,
-    color:  '#800080',
-    // fontWeight: 800,
+    paddingVertical: 10,
+    textAlign: 'center',
   },
 
   appButton: {
-    paddingHorizontal: 70,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+
+  component: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+    paddingBottom: 200
+  },
+
+  screen: {
+    opacity: .7,
+    backgroundColor: 'black',
+    marginBottom: 40,
+    padding: 20
+  },
+
+  subHead: {
+    fontSize: 40,
+    color: '#FF8C00'
+  },
+
+  text: {
+    fontSize: 25,
+    color: '#fff'
+  },
+
+  title: {
+    fontSize: 25,
+    color: '#FF8C00'
+  },
+
+  bold: {
+    fontSize: 25,
+    fontWeight: 600,
+    color: '#FF8C00'
+  },
+
+  space: {
+    paddingTop: 10,
   },
 
   appButtonText: {
@@ -396,11 +481,12 @@ const style = StyleSheet.create({
   },
 
   appButtonContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 0,
-    width: 300
-  },
+    width: 200,
+    marginVertical: 2
+    },
+
+  bottomButtons: {
+    paddingTop: 20
+  }
 
 })
-
-

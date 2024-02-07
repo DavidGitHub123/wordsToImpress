@@ -3,11 +3,14 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function AddButton({ navigation }){
 
-    const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+    const AppButton = ({ onPress, icon, title }) => (
         <View style={style.appButtonContainer}>
           <Icon.Button
             name={icon}
-            backgroundColor={backgroundColor}
+            backgroundColor='#FF8C00'
+            borderRadius={40}
+            borderWidth={3}
+            borderColor='#BBC2CC'
             onPress={onPress}
             style={style.appButton}
           >
@@ -18,8 +21,8 @@ export default function AddButton({ navigation }){
       
     return(        
     <Pressable style={style.appButton} >
-        <AppButton icon="sign-in" title="Add to My List"
-        onPress={() => }
+        <AppButton icon="plus" title="Add to My List"
+        onPress={() => navigation.navigate('HomeScreen')}
         />
     </Pressable>);
 }
@@ -55,7 +58,7 @@ const style = StyleSheet.create({
     },
   
     appButtonContainer: {
-      width: 250,
+      width: 300,
       paddingVertical: 10,
       paddingHorizontal: 0,
     },

@@ -1,44 +1,31 @@
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
-import { useState, useEffect, Component} from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../components/HomeButton';
 import { NavButtonWord } from '../components/NavButtonWord';
 
 
   export default function PreBuiltListNew({ navigation }) {
-
-    const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-      <View style={style.appButtonContainer}>
-        <Icon.Button
-          name={icon}
-          backgroundColor={backgroundColor}
-          onPress={onPress}
-          style={style.appButton}
-        >
-          <Text style={style.appButtonText}>{title}</Text>
-        </Icon.Button>
-      </View>
-    );
   
     return (
-      <SafeAreaView style={style.container}>
+      <SafeAreaView>
       <ScrollView alwaysBounceHorizontal={true}>
-      <LinearGradient
-            colors={["#4682B4", "#6699CC"]}
-            start={[0.25, 0.25]}
-            opacity={.95}
-          >
-  
-        <View style={style.page}>
-  
+      {/* <ImageBackground source={blue4} imageStyle={style.image} resizeMode="cover" style={style.page}> */}
+          <LinearGradient
+          colors={["#335C81", "#6699FF"]}
+          start={{x: .5, y: .25}} end={{x: .5, y: .25}}
+          opacity={.95}
+          style={style.page}
+        >
+
         <View>
             <Text style={style.header}>Pre-Built List</Text>
-            <Text style={style.header}>Of 50 Words</Text>
-            <Text style={style.text}>Add these words to create a quick starter list and begin learning today!</Text>
+            <Text style={style.subHead}>We've built you a list of 50 words. 
+            Add these words to create a quick starter list and begin learning today!</Text>
+            <Text style={style.subHead}>Or use the AI Word Search or AI Conversation Search to 
+            analyze your communications patterns to generate your learning list.</Text> 
         </View>
   
-        <View>
+        <View style={style.section}>
           <NavButtonWord navigation={navigation} title="Abstemious" destination="Word"/>
           <NavButtonWord navigation={navigation} title="Acrid" destination="Word"/>
           <NavButtonWord navigation={navigation} title="Acrimonious" destination="Word"/>
@@ -95,9 +82,8 @@ import { NavButtonWord } from '../components/NavButtonWord';
           <HomeButton navigation={navigation}/>
         </View>
 
-        </View>
-
-    </LinearGradient>
+        </LinearGradient>
+        {/* </ImageBackground> */}
     </ScrollView>
     </SafeAreaView>
   );
@@ -105,34 +91,34 @@ import { NavButtonWord } from '../components/NavButtonWord';
 
 
 const style = StyleSheet.create({
-    page: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      margin: 30,
-    },
+  page: {
+    paddingBottom: 50
+  },
+
+  image: {
+    opacity: .5,
+  },
 
     header: {
-        fontSize: 50,
-        color: '#FF8C00',
+        fontSize: 32,
+        color: '#f0f8ff',
         fontWeight: '800',
+        textAlign: 'center',
+        paddingTop: 40,
+        paddingBottom: 20
     },
 
     subHead: {
-      fontSize: 30,
-      color: '#FF8C00',
-      fontWeight: 'bold',
-    },
-
-    text: {
-        fontSize: 25,
-        color: '#f0f8ff',
-        paddingBottom: 20,
+      fontSize: 20,
+      color: '#f0f8ff',
+      paddingHorizontal: 40,
+      paddingBottom: 20,
+      fontWeight: '500',
     },
 
     bold: {
         fontSize: 30,
-        color:  '#FF8C00',
+        color: '#f0f8ff',
         // fontWeight: 800,
       },
   
@@ -142,14 +128,18 @@ const style = StyleSheet.create({
     },
   
     appButtonText: {
-      fontSize: 20,
-      color: '#fff'
+      fontSize: 18,
+      color: '#f0f8ff'
     },
   
     appButtonContainer: {
       paddingVertical: 10,
       width: 250
     },
+
+    section: {
+      paddingBottom: 30
+    }
   
   })
   

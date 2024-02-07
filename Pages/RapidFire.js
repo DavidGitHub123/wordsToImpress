@@ -1,53 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../components/HomeButton';
-import { NavButton } from '../components/NavButton';
+import { NavButton, navStyle } from '../components/NavButton';
+import blue8 from '../assets/blue8.jpg'
+
 
 export default function RapidFire({ navigation }) {
 
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-    <View style={style.appButtonContainer}>
+  const AppButton = ({ onPress, icon, title }) => (
+    <SafeAreaView style={style.appButtonContainer}>
+      <ScrollView>
       <Icon.Button
         name={icon}
-        backgroundColor={backgroundColor}
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-  
-  return (
-    <SafeAreaView style={style.container}>
-    <ScrollView alwaysBounceHorizontal={true}>
-    <LinearGradient
-          colors={["#4682B4", "#6699CC"]}
-          start={[0.25, 0.25]}
-          opacity={.95}
-      >
-
-      <View style={style.page}>
+        backgroundColor='#FF8C00'
+        borderRadius={40}
+        borderWidth={3}
+        borderColor='#BBC2CC'
+        onPress={onPress}></Icon.Button>
+        <ImageBackground source={blue8} imageStyle={style.image} resizeMode="cover" style={style.page}>
 
       <View>
-          <Text style={style.header}>Flash Cards</Text>
+          <Text style={style.header}>
+            RapidFire
+          </Text>
+          <Text style={style.text}>
+            Test your vocab speed and recall. Select 10 words from your Vocab List and play the game.
+          </Text>
+          <NavButton navigation={navigation} title="Play Game" destination="RapidFireCards"/>
+          {/* Button takes you to RapidFire_MyList with checkbox in front of word. 
+              User selects 10 words from their MyList. 
+              Then button at top of page takes them to RapidFireCards where they play the game. */}
       </View>
 
-      <View>
-        <NavButton navigation={navigation} title="Select Words" destination="MyList"/>
-        <NavButton navigation={navigation} title="Take A Quiz" destination="Quiz"/>
-        <NavButton navigation={navigation} title="Schedule Quizzes" destination="ScheduleQuizzes"/>
-        <NavButton navigation={navigation} title="Challenge A Friend" destination="ChallengeFriend"/>
-      </View>
-
-      <View>
+      <View style={style.buttons}>
+        <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
         <HomeButton navigation={ navigation } />
       </View>
 
-      </View>
-      </LinearGradient>
+      </ImageBackground>
     </ScrollView>
     </SafeAreaView>
   );
@@ -56,32 +46,54 @@ export default function RapidFire({ navigation }) {
 
 const style = StyleSheet.create({
   page: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 50,
+    paddingBottom: 350,
+    // backgroundColor: '#000',
   },
 
+  // image: {
+  //   opacity: .5,
+  // },
+
   header: {
-    fontSize: 30,
+    fontSize: 40,
     color: '#f0f8ff',
     fontWeight: '800',
+    textAlign: 'center',
+    paddingTop: 40,
+    paddingBottom: 20
+    },
+
+    text: {
+      fontSize: 18,
+      color: '#f0f8ff',
+      paddingBottom: 30,
+      paddingHorizontal: 30
+    },
+
+    wordList: {
+      fontSize: 18,
+      color: '#f0f8ff',
+      textAlign: 'center',
+      paddingTop: 20
+    },
+
+  buttons: {
+    paddingTop: 20,
   },
+
   appButton: {
-    paddingHorizontal: 70,
     alignItems: 'center',
     justifyContent: 'center'
   },
 
   appButtonText: {
-    fontSize: 20,
+    fontSize: 18,
     color: '#fff'
   },
 
   appButtonContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 0,
-    width: 300
+    paddingVertical: 5,
+    width: 250,
   },
 
 })

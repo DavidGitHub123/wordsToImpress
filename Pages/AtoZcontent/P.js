@@ -1,18 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
-import { useState, useEffect, Component} from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../../components/HomeButton';
 import { NavButtonWord } from '../../components/NavButtonWord';
+import { navStyle } from '../../components/NavButton.js';
 
 export default function PWords({ navigation }) {
 
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  const AppButton = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor={backgroundColor}
+        backgroundColor='#FF8C00'
+        borderRadius={40}
+        borderWidth={3}
+        borderColor='#BBC2CC'
         onPress={onPress}
         style={style.appButton}
       >
@@ -69,7 +71,7 @@ export default function PWords({ navigation }) {
           <NavButtonWord navigation={navigation} title="Pernicious" destination="Word"/>
           <NavButtonWord navigation={navigation} title="Perpetuate" destination="Word"/>
           <NavButtonWord navigation={navigation} title="Perspicacity" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Perspicuity" destination="Word"/>
+          {/* <NavButtonWord navigation={navigation} title="Perspicuity" destination="Word"/> */}
           <NavButtonWord navigation={navigation} title="Peruse" destination="Word"/>
           <NavButtonWord navigation={navigation} title="Pervasive" destination="Word"/>
           <NavButtonWord navigation={navigation} title="Petulant" destination="Word"/>
@@ -82,7 +84,7 @@ export default function PWords({ navigation }) {
           <NavButtonWord navigation={navigation} title="Placate" destination="Word"/>
           <NavButtonWord navigation={navigation} title="Placid" destination="Word"/>
           <NavButtonWord navigation={navigation} title="Platitude" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Platonic" destination="Word"/>
+          {/* <NavButtonWord navigation={navigation} title="Platonic" destination="Word"/> */}
           <NavButtonWord navigation={navigation} title="Plaudit" destination="Word"/>
           <NavButtonWord navigation={navigation} title="Plenitude" destination="Word"/>
           <NavButtonWord navigation={navigation} title="Plethora" destination="Word"/>
@@ -133,10 +135,11 @@ export default function PWords({ navigation }) {
           <NavButtonWord navigation={navigation} title="Puritanical" destination="Word"/>
           <NavButtonWord navigation={navigation} title="Purlieus" destination="Word"/>
           <NavButtonWord navigation={navigation} title="Purported" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Putative" destination="Word"/>>
+          <NavButtonWord navigation={navigation} title="Putative" destination="Word"/>
         </View>
 
-        <View>
+        <View style={style.bottomButtons}>
+          <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
           <HomeButton navigation={navigation}/>
         </View>
 
@@ -153,13 +156,19 @@ const style = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 50,
+    paddingTop: 50,
+    paddingBottom: 100
   },
 
   header: {
     fontSize: 30,
     color: '#f0f8ff',
     fontWeight: '800',
+    paddingBottom: 20,
+  },
+
+  bottomButtons: {
+    paddingTop: 50,
   },
 
   appButton: {

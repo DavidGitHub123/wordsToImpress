@@ -1,20 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, Button, FlatList } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, ImageBackground, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../components/HomeButton';
 import { NavButton } from '../components/NavButton';
-
+import { NavButtonWord } from '../components/NavButtonWord';
+import { LinearGradient } from "expo-linear-gradient";
 // import { onSnapshot } from "firebase/firestore" -- firebase database
 
 
 export default function MyList({ navigation }) {
 
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  const AppButton = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor={backgroundColor}
+        backgroundColor='#FF8C00'
+        borderRadius={40}
+        borderWidth={3}
+        borderColor='#BBC2CC'
         onPress={onPress}
         style={style.appButton}
       >
@@ -26,48 +28,48 @@ export default function MyList({ navigation }) {
   return (
     <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
+    {/* <ImageBackground source={blue3} imageStyle={style.image} resizeMode="cover" style={style.page}> */}
     <LinearGradient
-          colors={["#4682B4", "#6699CC"]}
-          start={[0.25, 0.25]}
+          colors={["#335C81", "#6699FF"]}
+          start={{x: .5, y: .25}} end={{x: .5, y: .25}}
           opacity={.95}
+          style={style.page}
         >
-
-      <View style={style.page}>
       
       <View>
         <Text style={style.header}>My List</Text>
       </View>
 
-{/* When AddButton is clicked, word shows up in a list here */}
-      {/* Each word in this list is Button to word screen */}
-      {/* Add ShowComponentButton. Click on word and word info shows up*/}
+      <View>
+        <Text style={style.text}>Circle/XX% Mastery</Text>
+      </View>
+
+      <View>
+        <Text style={style.textOrange}>Mastered Words (x/50)</Text>
+        <Text style={style.textYellow}>Unmastered Words (x/50)</Text>
+      </View>
+
+{/* Once word has been answered correctly 10 times, put in mastery category */}
+{/* Once 50 words are in mastered category, congratulations. 
+      Button to start new list of 50 appears on this page.
+      Button simply takes them to AtoZ page.
+      From this point, now button to see previous list of 50 appears. */}
+
       <View style={style.section}>
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Abate"
-          onPress={() => navigation.navigate('')}
-          />
-        </Pressable>
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Abdicate"
-          onPress={() => navigation.navigate('')}
-          />
-        </Pressable>
-        <Pressable style={style.appButton} >
-          <AppButton icon="sign-in" title="Aberration"
-          onPress={() => navigation.navigate('')}
-          />
-        </Pressable>
+        <NavButtonWord navigation={navigation} title="Abate" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abate" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abate" destination="Word"/>
+        <NavButtonWord navigation={navigation} title="Abate" destination="Word"/>
       </View>
 
-      <View>
+      <View style={style.buttons}>
+        {/* <NavButton navigation={navigation} title="1st List of 50" destination=""/> */}
+        <NavButton navigation={navigation} title="Vocab Mastery" destination="VocabMastery"/>
         <NavButton navigation={navigation} title="A-Z Words" destination="AtoZButtons"/>
-      </View>
-
-      <View>
         <HomeButton navigation={ navigation } />
       </View>
 
-      </View>
+      {/* </ImageBackground> */}
       </LinearGradient>
     </ScrollView>
     </SafeAreaView>
@@ -80,14 +82,37 @@ export default function MyList({ navigation }) {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: 50,
+      paddingTop: 50,
+      paddingBottom: 300,
+    },
 
+    image: {
+      width: '100%',
+      height: '100%'
     },
 
     header: {
       fontSize: 30,
       color: '#f0f8ff',
       fontWeight: '800',
+    },
+
+    text: {
+      fontSize: 24,
+      color: '#f0f8ff',
+      fontWeight: '600',
+    },
+
+    textYellow: {
+      fontSize: 24,
+      color: 'yellow',
+      fontWeight: '600',
+    },
+
+    textOrange: {
+      fontSize: 24,
+      color: 'orange',
+      fontWeight: '600',
     },
 
     section: {

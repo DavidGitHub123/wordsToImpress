@@ -1,17 +1,20 @@
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
-import { useState, useEffect, Component} from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../../components/HomeButton';
 import { NavButtonWord } from '../../components/NavButtonWord';
+import { navStyle } from '../../components/NavButton.js';
 
 export default function AWords({ navigation }) {
 
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  const AppButton = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor={backgroundColor}
+        backgroundColor='#FF8C00'
+        borderRadius={40}
+        borderWidth={3}
+        borderColor='#BBC2CC'
         onPress={onPress}
         style={style.appButton}
       >
@@ -25,9 +28,10 @@ export default function AWords({ navigation }) {
     <ScrollView alwaysBounceHorizontal={true}>
     <LinearGradient
           colors={["#4682B4", "#6699CC"]}
-          start={[0.25, 0.25]}
+          start={{x: .5, y: .25}} end={{x: .5, y: .25}}
           opacity={.95}
         >
+
 
       <View style={style.page}>
 
@@ -69,7 +73,6 @@ export default function AWords({ navigation }) {
         <NavButtonWord navigation={navigation} title="Acrimonious" destination="Word"/>
         <NavButtonWord navigation={navigation} title="Acumen" destination="Word"/>
         <NavButtonWord navigation={navigation} title="Acute" destination="Word"/>
-        <NavButtonWord navigation={navigation} title="Ad Infinitum" destination="Word"/>
         <NavButtonWord navigation={navigation} title="Adage" destination="Word"/>
         <NavButtonWord navigation={navigation} title="Adamant" destination="Word"/>
         <NavButtonWord navigation={navigation} title="Adduce" destination="Word"/>
@@ -151,12 +154,12 @@ export default function AWords({ navigation }) {
         <NavButtonWord navigation={navigation} title="Avowal" destination="Word"/>
       </View>
 
-        <View>
+        <View style={style.bottomButtons}>
+          <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
           <HomeButton navigation={navigation}/>
         </View>
 
         </View>
-
     </LinearGradient>
     </ScrollView>
     </SafeAreaView>
@@ -170,18 +173,22 @@ const style = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 50,
-
+    paddingTop: 50,
+    paddingBottom: 100
   },
 
   header: {
     fontSize: 30,
     color: '#f0f8ff',
     fontWeight: '800',
+    paddingBottom: 20,
+  },
+
+  bottomButtons: {
+    paddingTop: 50,
   },
 
   appButton: {
-    paddingHorizontal: 70,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -193,7 +200,6 @@ const style = StyleSheet.create({
 
   appButtonContainer: {
     paddingVertical: 10,
-    paddingHorizontal: 0,
     width: 300,
   },
 

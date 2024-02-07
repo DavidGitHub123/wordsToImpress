@@ -12,9 +12,11 @@ import AtoZButtons from '../Pages/AtoZButtons';
 import ChallengeFriend from '../Pages/ChallengeFriend';
 import ConversationSearch from '../Pages/ConversationSearch';
 import RapidFire from '../Pages/RapidFire';
-import MultipleChoice from '../Pages/MultipleChoice';
+import RapidFireCards from '../Pages/RapidFireCards';
+import RapidFire_MyList from '../Pages/RapidFire_MyList';
+import QuickMatch from '../Pages/QuickMatch';
+import StackIt from '../Pages/StackIt';
 import ScheduleQuizzes from '../Pages/ScheduleQuizzes';
-import Quiz from '../Pages/Quiz';
 import TextSearch from '../Pages/TextSearch';
 import WS_Boss from '../Pages/Situations/WS_Boss';
 import WS_Business from '../Pages/Situations/WS_Business';
@@ -57,7 +59,7 @@ export default function NavigationLinks() {
   return(
       <Stack.Navigator 
         initialRouteName='HomeScreen'
-        // screenOptions={{ headerShown: false}}
+        screenOptions={{ headerShown: false}}
         >
             <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ title: 'Home'}}/>
             <Stack.Screen name="MyList" component={MyList} options={{ title: 'My Vocab List'}}/>
@@ -72,9 +74,11 @@ export default function NavigationLinks() {
             <Stack.Screen name="ChallengeFriend" component={ChallengeFriend} options={{ title: 'Challenge A Friend'}}/>
             <Stack.Screen name="ConversationSearch" component={ConversationSearch} options={{ title: 'Conversation Search'}}/>
             <Stack.Screen name="RapidFire" component={RapidFire} options={{ title: 'RapidFire'}}/>
-            <Stack.Screen name="MultipleChoice" component={MultipleChoice} options={{ title: 'Multiple Choice Quizes'}}/>
+            <Stack.Screen name="RapidFire_MyList" component={RapidFire_MyList} options={{ title: 'RapidFire MyList'}}/>
+            <Stack.Screen name="RapidFireCards" component={RapidFireCards} options={{ title: 'RapidFire'}}/>
+            <Stack.Screen name="QuickMatch" component={QuickMatch} options={{ title: 'QuickMatch'}}/>
+            <Stack.Screen name="StackIt" component={StackIt} options={{ title: 'StackIt'}}/>
             <Stack.Screen name="ScheduleQuizzes" component={ScheduleQuizzes} options={{ title: 'Schedule Quizzes'}}/>
-            <Stack.Screen name="Quiz" component={Quiz} options={{ title: 'Quizzes'}}/>
             <Stack.Screen name="TextSearch" component={TextSearch} options={{ title: 'Text Search'}}/>
             <Stack.Screen name="WS_Boss" component={WS_Boss} options={{ title: 'WS: Boss'}}/>
             <Stack.Screen name="WS_Business" component={WS_Business} options={{ title: 'WS: Business'}}/>

@@ -35,7 +35,7 @@ const navStyle = StyleSheet.create({
     },
   
     appButtonText: {
-      fontSize: 20,
+      fontSize: 16,
       color: '#fff',
     //   fontWeight: 'bold',
     },

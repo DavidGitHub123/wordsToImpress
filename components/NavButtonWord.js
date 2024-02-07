@@ -9,7 +9,7 @@ function NavButtonWord({ navigation, title, destination, icon="sign-in" }){
             name={icon}
             backgroundColor='#FF8C00'
             borderRadius={40}
-            borderWidth={5}
+            borderWidth={3}
             borderColor='#BBC2CC'
             onPress={onPress}
             style={navStyle.appButton}
@@ -30,21 +30,24 @@ function NavButtonWord({ navigation, title, destination, icon="sign-in" }){
 
 const navStyle = StyleSheet.create({
   
-    appButton: {
-      alignItems: 'center',
-      justifyContent: 'center',
+  appButton: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  appButtonText: {
+    fontSize: 20,
+    color: '#fff'
+  },
+
+  appButtonContainer: {
+    width: 270,
+    marginVertical: 2
     },
-  
-    appButtonText: {
-      fontSize: 20,
-      color: '#000',
-      fontWeight: 'bold',
-    },
-  
-    appButtonContainer: {
-      width: 250,
-      paddingVertical: 3,
-    },
+
+  bottomButtons: {
+    paddingTop: 20
+  }
   
   })
 

@@ -1,12 +1,12 @@
 import { View, Image, Text, StyleSheet, Pressable, Button, ScrollView, SafeAreaView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-function LearnButton({ navigation, title, destination, icon="sign-in" }){
+function LearnButton({ navigation, title, destination, icon="user" }){
 
     const AppButton = ({ onPress, icon, title, backgroundColor }) => (
         <View style={navStyle.appButtonContainer}>
           <Icon.Button
-            // name={icon}
+            name={icon}
             backgroundColor='transparent'
             // borderRadius={10}
             borderWidth={1}
@@ -32,17 +32,16 @@ const navStyle = StyleSheet.create({
     appButton: {
       alignItems: 'center',
       justifyContent: 'center',
+      padding: 3
     },
   
     appButtonText: {
-      fontSize: 20,
+      fontSize: 16,
       color: '#fff',
-    //   fontWeight: 'bold',
     },
   
     appButtonContainer: {
-      width: 140,
-      paddingVertical: 10,
+      width: 150,
     },
   
   })

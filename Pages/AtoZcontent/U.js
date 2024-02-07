@@ -1,25 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
-import { useState, useEffect, Component} from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../../components/HomeButton';
 import { NavButtonWord } from '../../components/NavButtonWord';
+import { navStyle } from '../../components/NavButton.js';
 
 export default function UWords({ navigation }) {
 
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  const AppButton = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor={backgroundColor}
+        backgroundColor='#FF8C00'
+        borderRadius={40}
+        borderWidth={3}
+        borderColor='#BBC2CC'
         onPress={onPress}
         style={style.appButton}
       >
         <Text style={style.appButtonText}>{title}</Text>
       </Icon.Button>
     </View>
-  )
+  );
 
   return (
     <SafeAreaView style={style.container}>
@@ -49,7 +51,8 @@ export default function UWords({ navigation }) {
           <NavButtonWord navigation={navigation} title="Utilitarian" destination="Word"/>
         </View>
 
-        <View>
+        <View style={style.bottomButtons}>
+          <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
           <HomeButton navigation={navigation}/>
         </View>
 
@@ -66,13 +69,19 @@ const style = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 50,
+    paddingTop: 50,
+    paddingBottom: 100
   },
 
   header: {
     fontSize: 30,
     color: '#f0f8ff',
     fontWeight: '800',
+    paddingBottom: 20,
+  },
+
+  bottomButtons: {
+    paddingTop: 50,
   },
 
   appButton: {

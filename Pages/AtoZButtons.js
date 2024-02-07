@@ -1,9 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../components/HomeButton';
 import { NavButton } from '../components/NavButton';
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function AtoZButtons({ navigation }) {
 
@@ -23,16 +22,16 @@ export default function AtoZButtons({ navigation }) {
   return (
     <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
+    {/* <ImageBackground source={blue6} imageStyle={style.image} resizeMode="cover" style={style.page}> */}
     <LinearGradient
-        colors={["#4682B4", "#6699CC"]}
-        start={[0.25, 0.25]}
-        opacity={.95}
-      >
-
-      <View style={style.page}>
+          colors={["#335C81", "#6699FF"]}
+          start={{x: .5, y: .25}} end={{x: .5, y: .25}}
+          opacity={.95}
+          style={style.page}
+        >
 
       <View>
-        <Text style={style.header}>Words AtoZ</Text>
+        <Text style={style.header}>Words A to Z</Text>
       </View>
 
       <View style={style.section}>
@@ -66,8 +65,8 @@ export default function AtoZButtons({ navigation }) {
         <HomeButton navigation={ navigation } />
       </View>
 
-      </View>
       </LinearGradient>
+      {/* </ImageBackground> */}
     </ScrollView>
     </SafeAreaView>
   );
@@ -75,18 +74,23 @@ export default function AtoZButtons({ navigation }) {
 
 
 const style = StyleSheet.create({
+
   page: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 50,
-
+    backgroundColor: '#000',
+    paddingBottom: 100
   },
 
   header: {
-    fontSize: 30,
+    fontSize: 40,
     color: '#f0f8ff',
     fontWeight: '800',
+    paddingTop: 40,
+    textAlign: 'center'
+  },
+
+  image: {
+    // opacity: .5,
   },
 
   section: {
@@ -94,7 +98,6 @@ const style = StyleSheet.create({
   },
 
   appButton: {
-    paddingHorizontal: 70,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -105,10 +108,14 @@ const style = StyleSheet.create({
   },
 
   appButtonContainer: {
-    width: 250,
-    paddingVertical: 10,
-    paddingHorizontal: 0,
-  },
+    width: 270,
+    opacity: .75,
+    marginVertical: 2
+    },
+
+  bottomButtons: {
+    paddingTop: 20
+  }
 
 })
 

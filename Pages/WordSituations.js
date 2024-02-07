@@ -1,9 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from '../components/HomeButton';
 import { NavButton } from '../components/NavButton';
+import blue4 from '../assets/blue4.jpg'
 
 export default function WordSituations({ navigation }) {
 
@@ -23,13 +22,7 @@ export default function WordSituations({ navigation }) {
   return (
     <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
-    <LinearGradient
-          colors={["#4682B4", "#6699CC"]}
-          start={[0.25, 0.25]}
-          opacity={.95}
-        >
-
-      <View style={style.page}>
+    <ImageBackground source={blue4} imageStyle={style.image} resizeMode="cover" style={style.page}>
 
       <View>
         <Text style={style.header}>Word Situations</Text>
@@ -39,7 +32,7 @@ export default function WordSituations({ navigation }) {
           <NavButton navigation={navigation} title="Boss" destination="WS_Boss"/>
           <NavButton navigation={navigation} title="Business" destination="WS_Business"/>
           <NavButton navigation={navigation} title="Dinner Party" destination="WS_DinnerParty"/>
-          <NavButton navigation={navigation} title="GettingRaise" destination="GettingRaise"/>
+          <NavButton navigation={navigation} title="GettingRaise" destination="WS_GettingRaise"/>
           <NavButton navigation={navigation} title="In Court" destination="WS_InCourt"/>
           <NavButton navigation={navigation} title="Job Interview" destination="WS_JobInterview"/>
           <NavButton navigation={navigation} title="Meeting Inlaws" destination="WS_MeetingInLaws"/>
@@ -52,8 +45,7 @@ export default function WordSituations({ navigation }) {
           <HomeButton navigation={navigation}/>
         </View>
 
-        </View>
-        </LinearGradient>
+        </ImageBackground>
     </ScrollView>
     </SafeAreaView>
   );
@@ -62,15 +54,22 @@ export default function WordSituations({ navigation }) {
 const style = StyleSheet.create({
   page: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 50,
+    // backgroundColor: '#000',
+    paddingTop: 30,
+    paddingBottom: 100
   },
 
+  // image: {
+  //   opacity: .5,
+  // },
+
   header: {
-    fontSize: 30,
+    fontSize: 40,
     color: '#f0f8ff',
     fontWeight: '800',
+    paddingBottom: 10,
+    textAlign: 'center'
   },
 
   section: {
