@@ -1,292 +1,491 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, FlatList, Text, View, Button } from 'react-native';
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, Component} from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, ImageBackground } from 'react-native';
+import { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import HomeButton from '../../components/HomeButton';
+import AddButton from '../../components/AddButton';
+import ListenButton from '../../components/ListenButton';
+import { navStyle } from '../../components/NavButton.js';
+import negotiation from '../../assets/Backgrounds/negotiation.jpg'
 
+const AppButton = ({ onPress, icon, title }) => (
+  <View style={style.appButtonContainer}>
+    <Icon.Button
+      name={icon}
+      backgroundColor='#FF8C00'
+      borderRadius={40}
+      borderWidth={3}
+      borderColor='#BBC2CC'
+      onPress={onPress}
+      style={style.appButton}
+    >
+      <Text style={style.appButtonText}>{title}</Text>
+    </Icon.Button>
+  </View>
+);
 
-export default function WS_Negotiations() {
-    const navigate = useNavigate()
+export default function WS_Negotiations({ navigation }) {
+  const [selectedWord, setSelectedWord] = useState(null);
 
-    const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-        <View style={style.appButtonContainer}>
-          <Icon.Button
-            name={icon}
-            backgroundColor={backgroundColor}
-            onPress={onPress}
-            style={style.appButton}
-          >
-            <Text style={style.appButtonText}>{title}</Text>
-          </Icon.Button>
+  const hideButton = (
+    <Pressable style={style.appButton} >
+      <AppButton icon="sign-in" title="Hide" 
+      onPress={()=>setSelectedWord(null)} 
+      />
+    </Pressable>)
+
+const Accord = () => {
+  return(
+    <View style={style.component}>
+      <View style={style.screen}>
+        <Text style={style.subHead}>Accord</Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Pron: </Text>
+            <Text style={style.text}>uh-CORD</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Def: </Text>
+            <Text style={style.text}>Formal reaching of agreement.</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.text}>As the strike was resolved, the representatives reached an </Text>
+            <Text style={style.bold}>accord</Text>
+            <Text style={style.text}> acceptable to both sides.</Text>
+          </Text>
+      </View>
+        <ListenButton />
+        <AddButton />
+        {hideButton}
+    </View>         
+    ) 
+  }
+
+  const Cessation = () => {
+    return(
+      <View style={style.component}>
+        <View style={style.screen}>
+          <Text style={style.subHead}>Cessation</Text>
+            <Text style={style.space}>
+              <Text style={style.title}>Pron: </Text>
+              <Text style={style.text}>sess-SAY-shun</Text>
+            </Text>
+            <Text style={style.space}>
+              <Text style={style.title}>Def: </Text>
+              <Text style={style.text}>Act of drawing to a close.</Text>
+            </Text>
+            <Text style={style.space}>
+              <Text style={style.title}>Sentence: </Text>
+              <Text style={style.text}>Negotiations may bring about a </Text>
+              <Text style={style.bold}>cessation</Text>
+              <Text style={style.text}> of the contracts and both parties will be happy.</Text>
+            </Text>
         </View>
-      );
-    
-    const [show, setShow] = useState(true);
+          <ListenButton />
+        <AddButton />
+          {hideButton}
+      </View>         
+      ) 
+    }
+
+    const Dialectic = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Dialectic</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>die-uh-LEK-tic</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>Pertaining to logical arguments.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>His </Text>
+                <Text style={style.bold}>dialectic</Text>
+                <Text style={style.text}> thoroughness destroy his opponent's argument.</Text>
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
+
+      const Elusive = () => {
+        return(
+          <View style={style.component}>
+            <View style={style.screen}>
+              <Text style={style.subHead}>Elusive</Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Pron: </Text>
+                  <Text style={style.text}>ee-LOO-siv</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Def: </Text>
+                  <Text style={style.text}>Difficult to perceive or describe.</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Sentence: </Text>
+                  <Text style={style.text}>Our goals are easily understood; the nature of the obstacles is somewhat more </Text>
+                  <Text style={style.bold}>elusive</Text>.
+                </Text>
+            </View>
+              <ListenButton />
+        <AddButton />
+              {hideButton}
+          </View>         
+          ) 
+        }
+
+        const Flux  = () => {
+          return(
+            <View style={style.component}>
+              <View style={style.screen}>
+                <Text style={style.subHead}>Flux </Text>
+                  <Text style={style.space}>
+                    <Text style={style.title}>Pron: </Text>
+                    <Text style={style.text}>fluks</Text>
+                  </Text>
+                  <Text style={style.space}>
+                    <Text style={style.title}>Def: </Text>
+                    <Text style={style.text}>Ongoing flow or unceasing change.</Text>
+                  </Text>
+                  <Text style={style.space}>
+                    <Text style={style.title}>Sentence: </Text>
+            .        <Text style={style.text}>Negotiations were difficult because the organization's plans were in a state of continual </Text>
+                      <Text style={style.bold}>flux</Text>.
+                  </Text>
+              </View>
+                <ListenButton />
+        <AddButton />
+                {hideButton}
+            </View>         
+            ) 
+          }
+  
+      const Gauntlet  = () => {
+        return(
+          <View style={style.component}>
+            <View style={style.screen}>
+              <Text style={style.subHead}>Gauntlet</Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Pron: </Text>
+                  <Text style={style.text}>GONT-let</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Def: </Text>
+                  <Text style={style.text}>A challenge; in medieval times a duel.</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Sentence: </Text>
+                  <Text style={style.text}>The negotiation deadline is not a goal; it is a </Text>
+                  <Text style={style.bold}>gauntlet</Text>
+                  <Text style={style.text}> that has been thrown down before us.</Text>
+                </Text>
+            </View>
+              <ListenButton />
+        <AddButton />
+              {hideButton}
+          </View>         
+          ) 
+        }
+
+    const Holistic  = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Holistic</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>ho-LISS-tik</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>Emphasizing cooperation of the parts.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>We need to take a </Text>
+                <Text style={style.bold}>holistic</Text>
+                <Text style={style.text}> approach to closing this deal to ensure all parties are satisfied.</Text>
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
+
+      const Impasse  = () => {
+        return(
+          <View style={style.component}>
+            <View style={style.screen}>
+              <Text style={style.subHead}>Impasse</Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Pron: </Text>
+                  <Text style={style.text}>IM-pass</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Def: </Text>
+                  <Text style={style.text}>A situation that seems to offer no solution.</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Sentence: </Text>
+                  <Text style={style.text}>The negotiations had reached an </Text>
+                  <Text style={style.bold}>impasse</Text>
+                  <Text style={style.text}>, both sides needed to make more compromises.</Text>
+                </Text>
+            </View>
+              <ListenButton />
+        <AddButton />
+              {hideButton}
+          </View>         
+          ) 
+        }
+
+        const Mitigate = () => {
+          return(
+            <View style={style.component}>
+              <View style={style.screen}>
+                <Text style={style.subHead}>Mitigate </Text>
+                  <Text style={style.space}>
+                    <Text style={style.title}>Pron: </Text>
+                    <Text style={style.text}>MIH-tih-gate</Text>
+                  </Text>
+                  <Text style={style.space}>
+                    <Text style={style.title}>Def: </Text>
+                    <Text style={style.text}>To moderate or lessen the impact.</Text>
+                  </Text>
+                  <Text style={style.space}>
+                    <Text style={style.title}>Sentence: </Text>
+                    <Text style={style.text}>The situation had seemed tense until a number of </Text>
+                    <Text style={style.bold}>mitigating</Text>
+                    <Text style={style.text}> factors came into play.</Text>
+                  </Text>
+              </View>
+                <ListenButton />
+        <AddButton />
+                {hideButton}
+            </View>         
+            ) 
+          }
+
+      const Ultimatum = () => {
+        return(
+          <View style={style.component}>
+            <View style={style.screen}>
+              <Text style={style.subHead}>Ultimatum</Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Pron: </Text>
+                  <Text style={style.text}>ul-tih-MAY-tum</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Def: </Text>
+                  <Text style={style.text}>One's last set of demands.</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Sentence: </Text>
+                  <Text style={style.text}>We agree to the 30% increase or we end the negotiations; that is the </Text>
+                  <Text style={style.bold}>ultimatum</Text>
+                  <Text style={style.text}> from my client.</Text>
+                </Text>
+            </View>
+              <ListenButton />
+        <AddButton />
+              {hideButton}
+          </View>         
+          ) 
+        }
+
 
   return (
-    <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
+    <ImageBackground source={negotiation} imageStyle={style.image} resizeMode="cover" style={style.page}>
 
         <View>
-            <Text style={style.header}>Word Situations: Boss</Text>
-        <View>
-
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Accord /> : null }
-              <AppButton icon="sign-in" title="Accord" />
-          </Pressable>
+            <Text style={style.header}>Negotiations</Text>
         </View>
 
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Cessation /> : null }
-              <AppButton icon="sign-in" title="Cessation" />
-          </Pressable>
-        </View>
-            
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Dialectic /> : null }
-              <AppButton icon="sign-in" title="Dialectic" />
-          </Pressable>
-        </View>
-            
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Elusive /> : null }
-              <AppButton icon="sign-in" title="Elusive" />
-          </Pressable>
-        </View>          
-            
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Flux /> : null }
-              <AppButton icon="sign-in" title="Flux" />
-          </Pressable>
-        </View>     
-            
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Gauntlet /> : null }
-              <AppButton icon="sign-in" title="Gauntlet" />
-          </Pressable>
-        </View>          
-            
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Holistic /> : null }
-              <AppButton icon="sign-in" title="Holistic" />
-          </Pressable>
-        </View>  
-            
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Impasse /> : null }
-              <AppButton icon="sign-in" title="Impasse" />
-          </Pressable>
-        </View>   
-            
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Mitigate /> : null }
-              <AppButton icon="sign-in" title="Mitigate" />
-          </Pressable>
-        </View>   
-            
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Ultimatum /> : null }
-              <AppButton icon="sign-in" title="Ultimatum" />
-          </Pressable>
-        </View>
+        {selectedWord ? 
+            selectedWord : 
+            (<View>
 
-        <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
-        </View>
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Accord" 
+              onPress={()=>setSelectedWord(<Accord /> )} 
+              />
+            </Pressable>
+          </View>
 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Cessation" 
+              onPress={()=>setSelectedWord(<Cessation /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Dialectic" 
+              onPress={()=>setSelectedWord(<Dialectic />  )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Elusive" 
+              onPress={()=>setSelectedWord(<Elusive />  )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Flux" 
+              onPress={()=>setSelectedWord(<Flux />  )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Gauntlet" 
+              onPress={()=>setSelectedWord(<Gauntlet />   )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Holistic" 
+              onPress={()=>setSelectedWord(<Holistic />   )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Impasse" 
+              onPress={()=>setSelectedWord(<Impasse /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Mitigate" 
+              onPress={()=>setSelectedWord(<Mitigate /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Ultimatum" 
+              onPress={()=>setSelectedWord(<Ultimatum /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+        <View style={style.bottomButtons}>
+          <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
+          <HomeButton navigation={navigation}/>
         </View>
-        </View>
+        </View>)}
+
+        </ImageBackground>
     </ScrollView>
     </SafeAreaView>
   );
 }
 
 
-const Accord = () => {
-    return(
-    <View>
-        <Text>Pron. uh-CORD</Text>
-        <Text>Def: Formal reaching of agreement.</Text>
-        <Text>As the strike over healthcare was resolved, the representatives reached an </Text><Text style={StyleSheet=bold}>accord</Text><Text> acceptable to both sides.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Cessation = () => {
-    return(
-    <View>
-        <Text>Pron. sess-SAY-shun</Text>
-        <Text>Def: Act of drawing to a close.</Text>
-        <Text>Continued negotiations may bring about a </Text><Text style={StyleSheet=bold}>cessation</Text><Text> of the contracts and both parties will be happy.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Dialectic = () => {
-    return(
-    <View>
-        <Text>Pron. die-uh-LEK-tic</Text>
-        <Text>Def: Pertaining to logical arguments.</Text>
-        <Text>The </Text><Text style={StyleSheet=bold}>dialectic</Text><Text> thoroughness with which he could destroy an opponent's argument was legendary.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Elusive = () => {
-    return(
-    <View>
-        <Text>Pron. ee-LOO-siv</Text>
-        <Text>Def: Difficult to perceive or describe.</Text>
-        <Text>Our goals are easily understood; the nature of the obstacles we face is somewhat more </Text><Text style={StyleSheet=bold}>elusive</Text>.
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Flux = () => {
-    return(
-    <View>
-        <Text>Pron. fluks</Text>
-        <Text>Def: Ongoing flow or unceasing change.</Text>
-        <Text>Negotiations were difficult because the organization's plans were in a state of continual </Text><Text style={StyleSheet=bold}>flux</Text>.
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Gauntlet = () => {
-    return(
-    <View>
-        <Text>Pron. GONT-let</Text>
-        <Text>Def: 'A challenge; in medieval times a duel.</Text>
-        <Text>The negotiation deadline is not simply a goal; it is a </Text><Text style={StyleSheet=bold}>gauntlet</Text><Text> that has been thrown down before us.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Holistic = () => {
-    return(
-    <View>
-        <Text>Pron. ho-LISS-tik</Text>
-        <Text>Def: Emphasizing cooperation of the parts.</Text>
-        <Text>We need to take a </Text><Text style={StyleSheet=bold}>holistic</Text><Text> approach to closing this deal to ensure all parties are satisfied.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Impasse = () => {
-    return(
-    <View>
-        <Text>Pron. IM-pass</Text>
-        <Text>Def: A situation that seems to offer no solution.</Text>
-        <Text>Mark realized that the negotiations had reached an </Text><Text style={StyleSheet=bold}>impasse</Text><Text>, both side needed to make more compromises.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Mitigate = () => {
-    return(
-    <View>
-        <Text>Pron. MIH-tih-gate</Text>
-        <Text>Def: o moderate or lessen the impact.</Text>
-        <Text>The situation had seemed tense until a number of </Text><Text style={StyleSheet=bold}>mitigating</Text><Text> factors came into play."</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Ultimatum = () => {
-    return(
-    <View>
-        <Text>Pron. ul-tih-MAY-tum</Text>
-        <Text>Def: One's last set of demands.</Text>
-        <Text>Either you agree to the 30% increase or we end the negotiations; that is the </Text><Text style={StyleSheet=bold}>ultimatum</Text><Text> from my client.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-
 const style = StyleSheet.create({
-    body: {
-      backgroundColor: 'cmyk(5, 0, 0, 0)',
-      fontFamily: 'Helvetica',
-      color: '#000',
-      display: 'flex',
+  page: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#000',
+    paddingVertical: 30,
+  },
+
+  image: {
+    opacity: .5,
+  },
+
+  header: {
+    fontSize: 40,
+    textShadowColor: '#000',
+    textShadowRadius: 5,
+    color: '#f0f8ff',
+    fontWeight: '800',
+    paddingVertical: 10,
+    textAlign: 'center',
+  },
+
+  appButton: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  component: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+    paddingBottom: 200
+  },
+
+  screen: {
+    opacity: .7,
+    backgroundColor: 'black',
+    marginBottom: 40,
+    padding: 20
+  },
+
+  subHead: {
+    fontSize: 40,
+    color: '#FF8C00'
+  },
+
+  text: {
+    fontSize: 25,
+    color: '#fff'
+  },
+
+  title: {
+    fontSize: 25,
+    color: '#FF8C00'
+  },
+
+  bold: {
+    fontSize: 25,
+    fontWeight: 600,
+    color: '#FF8C00'
+  },
+
+  space: {
+    paddingTop: 10,
+  },
+
+  appButtonText: {
+    fontSize: 20,
+    color: '#fff'
+  },
+
+  appButtonContainer: {
+    width: 200,
+    marginVertical: 2
     },
-  
-    flex: {
-      display: 'flex',
-      fontSize: 10
-    },
-  
-    header: {
-      backgroundColor: 'cmyk(92, 46, 0, 0)',
-      display: 'flex',
-      fontSize: 18,
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: 10
-    },
-  
-    screenContainer: {
-      flex: 1,
-      justifyContent: "center",
-      padding: 80,
-      backgroundColor: "#555",
-    },
-    appButton: {
-      padding: 12,
-    },
-    appButtonText: {
-      fontSize: 17,
-    },
-    appButtonContainer: {
-      paddingVertical: 10,
-      paddingHorizontal: 12,
-    },
-  
-    })
-  
-  
-  
-  
+
+  bottomButtons: {
+    paddingTop: 20
+  }
+
+})

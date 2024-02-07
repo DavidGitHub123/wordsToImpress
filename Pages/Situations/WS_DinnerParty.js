@@ -1,309 +1,491 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, FlatList, Text, View, Button } from 'react-native';
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, Component} from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, ImageBackground } from 'react-native';
+import { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import HomeButton from '../../components/HomeButton';
+import AddButton from '../../components/AddButton';
+import ListenButton from '../../components/ListenButton';
+import { navStyle } from '../../components/NavButton.js';
+import dinnerparty from '../../assets/Backgrounds/dinnerparty.jpg'
 
+const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  <View style={style.appButtonContainer}>
+    <Icon.Button
+      name={icon}
+      backgroundColor='#FF8C00'
+      borderRadius={40}
+      borderWidth={3}
+      borderColor='#BBC2CC'
+      onPress={onPress}
+      style={style.appButton}
+    >
+      <Text style={style.appButtonText}>{title}</Text>
+    </Icon.Button>
+  </View>
+);
 
-export default function WS_DinnerParty() {
-  const navigate = useNavigate()
+export default function WS_DinnerParty({ navigation }) {
+  const [selectedWord, setSelectedWord] = useState(null);
 
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor={backgroundColor}
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
+  const hideButton = (
+    <Pressable style={style.appButton} >
+      <AppButton icon="sign-in" title="Hide" 
+      onPress={()=>setSelectedWord(null)} 
+      />
+    </Pressable>)
 
-const [show, setShow] = useState(true);
+    const Clamorous = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Clamorous</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>KLAM-uhr-uss</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>Loud; expressively vehement.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>Throngs in the street roared with </Text>
+                <Text style={style.bold}>clamorous </Text>
+                <Text style={style.text}>applause.</Text>
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
+
+      const Diffident = () => {
+        return(
+          <View style={style.component}>
+            <View style={style.screen}>
+              <Text style={style.subHead}>Diffident</Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Pron: </Text>
+                  <Text style={style.text}>DEFF-ih-dent</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Def: </Text>
+                  <Text style={style.text}>Unassertive; lacking in self-worth.</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Sentence: </Text>
+                  <Text style={style.text}>She was perhaps too </Text>
+                  <Text style={style.bold}>diffident </Text>
+                  <Text style={style.text}>to work comfortably in an outgoing office environment.</Text>
+                </Text>
+            </View>
+              <ListenButton />
+        <AddButton />
+              {hideButton}
+          </View>         
+          ) 
+        }
+
+        const Educe = () => {
+          return(
+            <View style={style.component}>
+              <View style={style.screen}>
+                <Text style={style.subHead}>Educe</Text>
+                  <Text style={style.space}>
+                    <Text style={style.title}>Pron: </Text>
+                    <Text style={style.text}>ee-DYOOCE</Text>
+                  </Text>
+                  <Text style={style.space}>
+                    <Text style={style.title}>Def: </Text>
+                    <Text style={style.text}>To bring out the potential of something.</Text>
+                  </Text>
+                  <Text style={style.space}>
+                    <Text style={style.title}>Sentence: </Text>
+                    <Text style={style.text}>Myron's attempt to </Text>
+                    <Text style={style.bold}>educe </Text>
+                    <Text style={style.text}>his sister's talents as a painter were futile.</Text>
+                  </Text>
+              </View>
+                <ListenButton />
+        <AddButton />
+                {hideButton}
+            </View>         
+            ) 
+          }
+
+    const Fatuous = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Fatuous</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>FAR-yoo-uss</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>Stupid or foolish.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>She made so many </Text>
+                <Text style={style.bold}>fatuous </Text>
+                <Text style={style.text}>remarks at the party that I stopped apologizing for her.</Text>
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
+
+    const Gauche = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Gauche</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>gosh</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>Tactless; lacking in social refinement.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>David's constant praise of his first wife was considered </Text>
+                <Text style={style.bold}>gauche </Text>
+                <Text style={style.text}>by his new mother-in-law.</Text>
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
+
+    const Harangue = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Harangue</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>huh-RANG</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>A scolding delivered in public.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>Mike's </Text>
+                <Text style={style.bold}>harangue </Text>
+                <Text style={style.text}>of his team left everyone feeling uncomfortable.</Text>
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
+
+      const Imbibe = () => {
+        return(
+          <View style={style.component}>
+            <View style={style.screen}>
+              <Text style={style.subHead}>Imbibe</Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Pron: </Text>
+                  <Text style={style.text}>im-BIBE</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Def: </Text>
+                  <Text style={style.text}>To drink alcoholic beverages.</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Sentence: </Text>
+                  <Text style={style.text}>Donald once had a drinking problem, but he no longer </Text>
+                  <Text style={style.bold}>imbibes.</Text>
+                </Text>
+            </View>
+              <ListenButton />
+        <AddButton />
+              {hideButton}
+          </View>         
+          ) 
+        }
+
+      const Juxtapose = () => {
+        return(
+          <View style={style.component}>
+            <View style={style.screen}>
+              <Text style={style.subHead}>Juxtapose</Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Pron: </Text>
+                  <Text style={style.text}>JUK-stuh-pose</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Def: </Text>
+                  <Text style={style.text}>To place side by side for comparison.</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Sentence: </Text>
+                  <Text style={style.text}>He </Text>
+                  <Text style={style.bold}>juxtaposed </Text>
+                  <Text style={style.text}>the two paragraphs in the essay and found evidence of plagiarism.</Text>
+                </Text>
+            </View>
+              <ListenButton />
+        <AddButton />
+              {hideButton}
+          </View>         
+          ) 
+        }
+        
+      const Largess = () => {
+        return(
+          <View style={style.component}>
+            <View style={style.screen}>
+              <Text style={style.subHead}>Largess</Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Pron: </Text>
+                  <Text style={style.text}>lar-ZHESS</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Def: </Text>
+                  <Text style={style.text}>Generously bestowed gifts.</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Sentence: </Text>
+                  <Text style={style.text}>Her father's </Text>
+                  <Text style={style.bold}>largess </Text>
+                  <Text style={style.text}>was the only thing standing between Barbara and bankruptcy.</Text>
+                </Text>
+            </View>
+              <ListenButton />
+        <AddButton />
+              {hideButton}
+          </View>         
+          ) 
+        }
+
+      const Melodious = () => {
+        return(
+          <View style={style.component}>
+            <View style={style.screen}>
+              <Text style={style.subHead}>Melodious</Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Pron: </Text>
+                  <Text style={style.text}>muh-LOW-dee-us</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Def: </Text>
+                  <Text style={style.text}>Pleasant or agreeable to the ear.</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Sentence: </Text>
+                  <Text style={style.text}>The </Text>
+                  <Text style={style.bold}>melodious </Text>
+                  <Text style={style.text}>tones of his mother's voice reminded Wayne of his childhood.</Text>
+                </Text>
+            </View>
+              <ListenButton />
+              <AddButton />
+              {hideButton}
+          </View>         
+          ) 
+        }
+
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
-    <View style={style.body}>
+    <ImageBackground source={dinnerparty} imageStyle={style.image} resizeMode="cover" style={style.page}>
 
       <View>
-        <Text style={style.header}>Word Situations: Boss</Text>
+        <Text style={style.header}>Dinner Party</Text>
       </View>
 
-      <View>
-        <Pressable onPress={onPress=()=>setShow(!show)}>
-            { show == true ? <Clamorous /> : null }
-            <AppButton icon="sign-in" title="Clamorous" />
-        </Pressable>
-      </View>
+      {selectedWord ? 
+            selectedWord : 
+            (<View>
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Clamorous" 
+              onPress={()=>setSelectedWord(<Clamorous />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Diffident" 
+              onPress={()=>setSelectedWord(<Diffident />)} 
+              />
+            </Pressable>
+          </View>
           
-      <View>
-        <Pressable onPress={onPress=()=>setShow(!show)}>
-            { show == true ? <Diffident /> : null }
-            <AppButton icon="sign-in" title="Diffident" />
-        </Pressable>
-      </View>
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Educe" 
+              onPress={()=>setSelectedWord(<Educe />)} 
+              />
+            </Pressable>
+          </View>
 
-      <View>
-        <Pressable onPress={onPress=()=>setShow(!show)}>
-            { show == true ? <Educe /> : null }
-            <AppButton icon="sign-in" title="Educe" />
-        </Pressable>
-      </View>
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Fatuous" 
+              onPress={()=>setSelectedWord(<Fatuous />)} 
+              />
+            </Pressable>
+          </View>
+          
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Gauche" 
+              onPress={()=>setSelectedWord(<Gauche />)} 
+              />
+            </Pressable>
+          </View>
+          
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Harangue" 
+              onPress={()=>setSelectedWord(<Harangue />)} 
+              />
+            </Pressable>
+          </View>
 
-      <View>
-        <Pressable onPress={onPress=()=>setShow(!show)}>
-            { show == true ? <Fatuous /> : null }
-            <AppButton icon="sign-in" title="Fatuous" />
-        </Pressable>
-      </View>
-           
-      <View>
-        <Pressable onPress={onPress=()=>setShow(!show)}>
-            { show == true ? <Gauche /> : null }
-            <AppButton icon="sign-in" title="Gauche" />
-        </Pressable>
-      </View>
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Imbibe" 
+              onPress={()=>setSelectedWord(<Imbibe />)} 
+              />
+            </Pressable>
+          </View>
+          
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Juxtapose" 
+              onPress={()=>setSelectedWord(<Juxtapose />)} 
+              />
+            </Pressable>
+          </View>
+          
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Largess" 
+              onPress={()=>setSelectedWord(<Largess />)} 
+              />
+            </Pressable>
+          </View>
 
-      <View>
-        <Pressable onPress={onPress=()=>setShow(!show)}>
-            { show == true ? <Harangue /> : null }
-            <AppButton icon="sign-in" title="Harangue" />
-        </Pressable>
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Melodious" 
+              onPress={()=>setSelectedWord(<Melodious />)} 
+              />
+            </Pressable>
+          </View>
+          
+      <View style={style.bottomButtons}>
+        <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
+        <HomeButton navigation={navigation}/>
       </View>
+      </View>)}
 
-      <View>
-        <Pressable onPress={onPress=()=>setShow(!show)}>
-            { show == true ? <Imbibe /> : null }
-            <AppButton icon="sign-in" title="Imbibe" />
-        </Pressable>
-      </View>
-
-      <View>
-        <Pressable onPress={onPress=()=>setShow(!show)}>
-            { show == true ? <Juxtapose /> : null }
-            <AppButton icon="sign-in" title="Juxtapose" />
-        </Pressable>
-      </View>
-
-      <View>
-        <Pressable onPress={onPress=()=>setShow(!show)}>
-            { show == true ? <Largess /> : null }
-            <AppButton icon="sign-in" title="Largess" />
-        </Pressable>
-      </View>
-
-      <View>
-        <Pressable onPress={onPress=()=>setShow(!show)}>
-            { show == true ? <Melodious /> : null }
-            <AppButton icon="sign-in" title="Melodious" />
-        </Pressable>
-      </View>
-        
-      <View>
-        <Pressable onPress={onPress=()=>setShow(!show)}>
-            { show == true ? <Nabob /> : null }
-            <AppButton icon="sign-in" title="Nabob" />
-        </Pressable>
-      </View>
-
-        <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
-        </View>
-
-        </View>
+      </ImageBackground>
     </ScrollView>
     </SafeAreaView>
   );
 }
 
 
-const Clamorous = () => {
-    return(
-    <View>
-        <Text>Pron. KLAM-uhr-uss</ Text >
-        <Text>Def: Loud; expressively vehement.</Text >
-        <Text>Throngs in the street roared with </Text><Text style={StyleSheet=bold}>clamorous</Text> <Text>applause.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Diffident = () => {
-    return(
-    <View>
- <Text>Pron. DEFF-ih-dent</Text>
-            <Text>Def: Unassertive; lacking in self-worth.</Text>
-            <Text>She was perhaps too </Text><Text style={StyleSheet=bold}>diffident</Text><Text> to work comfortably in an outgoing office environment.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Educe = () => {
-    return(
-    <View>
-          <Text>Pron. ee-DYOOCE</Text>
-          <Text>Def: To bring out the potential of something.</Text>
-          <Text>Myron's attempt to </Text><Text style={StyleSheet=bold}>educe</Text><Text> his sister's talents as a painter were futile.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Fatuous = () => {
-    return(
-    <View>
-            <Text>Pron. FAR-yoo-uss</Text>
-            <Text>Def: Stupid or foolish.</Text>
-            <Text>She made so many </Text><Text style={StyleSheet=bold}>fatuous</Text><Text> remarks at the party that I stopped apologizing for her.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Gauche = () => {
-    return(
-    <View>
-          <Text>Pron. gohsh</Text>
-          <Text>Def: Tactless; lacking in social refinement.</Text>
-          <Text>David's constant praise of his first wife was considered </Text><Text style={StyleSheet=bold}>gauche</Text><Text> by his new mother-in-law.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Harangue = () => {
-    return(
-    <View>
-        <Text>Pron. huh-RANG</Text>
-        <Text>Def: A scolding delivered in public.</Text>
-        <Text>Mike's </Text><Text style={StyleSheet=bold}>harangue</Text><Text> of his team left everyone feeling uncomfortable.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Imbibe = () => {
-    return(
-    <View>
-        <Text>Pron. im-BIBE</Text>
-        <Text>Def: To drink alcoholic beverages.</Text>
-        <Text>Donald once had a drinking problem, but now he no longer </Text><Text style={StyleSheet=bold}>imbibes</Text>.
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-
-const Juxtapose = () => {
-    return(
-    <View>
-        <Text>Pron. JUK-stuh-pose</Text>
-        <Text>Def: To place side by side for comparison.</Text>
-        <Text>He </Text><Text style={StyleSheet=bold}>juxtaposed</Text> <Text>the two paragraphs at the end of each essay and found himself looking at the strongest evidence of plagiarism.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Largess = () => {
-    return(
-    <View>
-        <Text>Pron. lar-ZHESS</Text> 
-        <Text>Def: Generously bestowed gifts.</Text>
-        <Text>Her father's </Text><Text style={StyleSheet=bold}>largess</Text><Text> was the only thing standing between Barbara and bankruptcy.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Melodious = () => {
-    return(
-    <View>
-        <Text>Pron. muh-LOW-dee-us</Text>
-        <Text>Def: Pleasant or agreeable to the ear.</Text>
-        <Text>The </Text><Text style={StyleSheet=bold}>melodious</Text> <Text>tones of his mother's voice always reminded Wayne of his childhood.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-const Nabob = () => {
-    return(
-    <View>
-        <Text>.Pron. NAY-bob</Text>
-        <Text>Def: A wealthy person accustomed to luxury.</Text>
-        <Text>All the city's </Text><Text style={StyleSheet=bold}>nabobs</Text>, <Text>potentates, and intellectual stars showed up for Iris' party.</Text>
-        <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Add to My List}"/>
-        </Pressable>
-    </View>
-        )
-}
-
-
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
+  page: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#000',
+    paddingVertical: 30,
   },
 
-  flex: {
-    display: 'flex',
-    fontSize: 10
+  image: {
+    opacity: .5,
   },
 
   header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
+    fontSize: 40,
+    textShadowColor: '#000',
+    textShadowRadius: 5,
+    color: '#f0f8ff',
+    fontWeight: '800',
+    paddingVertical: 10,
+    textAlign: 'center',
   },
 
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
-  },
   appButton: {
-    padding: 12,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
+
+  component: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+    paddingBottom: 200
+  },
+
+  screen: {
+    opacity: .7,
+    backgroundColor: 'black',
+    marginBottom: 40,
+    padding: 20
+  },
+
+  subHead: {
+    fontSize: 40,
+    color: '#FF8C00'
+  },
+
+  text: {
+    fontSize: 25,
+    color: '#fff'
+  },
+
+  title: {
+    fontSize: 25,
+    color: '#FF8C00'
+  },
+
+  bold: {
+    fontSize: 25,
+    fontWeight: 600,
+    color: '#FF8C00'
+  },
+
+  space: {
+    paddingTop: 10,
+  },
+
   appButtonText: {
-    fontSize: 17,
+    fontSize: 20,
+    color: '#fff'
   },
+
   appButtonContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-  },
+    width: 200,
+    marginVertical: 2
+    },
+
+  bottomButtons: {
+    paddingTop: 20
+  }
 
 })

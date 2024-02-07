@@ -1,70 +1,96 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { useNavigate } from 'react-router-dom';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, ImageBackground } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import HomeButton from '../components/HomeButton';
+import { navStyle } from '../components/NavButton.js';
+import blue7 from '../assets/blue7.jpg'
 
-// Paywall
+export default function TextSearch({ navigation }) {
 
+  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+    <View style={style.appButtonContainer}>
+      <Icon.Button
+        name={icon}
+        backgroundColor='#FF8C00'
+        borderRadius={40}
+        borderWidth={3}
+        borderColor='#BBC2CC'
+        onPress={onPress}
+        style={style.appButton}
+      >
+        <Text style={style.appButtonText}>{title}</Text>
+      </Icon.Button>
+    </View>
+  );
 
-export default function TextSearch() {
-  const navigate = useNavigate()
   return (
-    <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
-    <View style={style.body}>
+    <ImageBackground source={blue7} imageStyle={style.image} resizeMode="cover" style={style.page}>
+
 
       <View>
-        <Text style={style.header}> Search</Text>
-      </View>
-      
-       <View>
-        <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Home}"/>
-        </Pressable>
+        <Text style={style.header}>Text Search</Text>
+        <Text style={style.text}>Copy text from your emails, communications, proposals, etc. into this box and let 
+        our AI tools analyze your communication patterns to suggest new vocabulary words that 
+        correspond to your speaking style and context. Then add these words to My Vocab List.</Text>
       </View>
 
-    </View>
+      {/* Drop text inside box/Look for syn */}
+      
+      <View style={style.buttons}>
+        <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
+        <HomeButton navigation={ navigation } />
+      </View>
+
+      </ImageBackground>
     </ScrollView>
     </SafeAreaView>
   );
 }
 
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
+  page: {
+    paddingTop: 40,
+    paddingBottom: 450,
+    // backgroundColor: '#000',
   },
 
-  flex: {
-    display: 'flex',
-    fontSize: 10
-  },
+  // image: {
+  //   opacity: .5,
+  // },
 
   header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
+    fontSize: 40,
+    color: '#f0f8ff',
+    fontWeight: '800',
+    paddingBottom: 10,
+    textAlign: 'center'
   },
 
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
+  text: {
+    fontSize: 18,
+    color: '#f0f8ff',
+    paddingHorizontal: 50
   },
+
+  buttons: {
+    paddingTop: 20,
+  },
+
   appButton: {
-    padding: 12,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
+
   appButtonText: {
-    fontSize: 17,
+    fontSize: 18,
+    color: '#fff'
   },
+
   appButtonContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-},
+    paddingVertical: 5,
+    width: 300,
+  },
 
 })
+

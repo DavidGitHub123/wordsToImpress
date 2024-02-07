@@ -1,18 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, FlatList, Text, View, Button } from 'react-native';
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, Component} from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import { NavButtonWord } from '../../components/NavButtonWord';
+import { navStyle } from '../../components/NavButton.js';
 
+export default function LWords({ navigation }) {
 
-export default function LWords() {
-  const navigate = useNavigate()
-
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  const AppButton = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor={backgroundColor}
+        backgroundColor='#FF8C00'
+        borderRadius={40}
+        borderWidth={3}
+        borderColor='#BBC2CC'
         onPress={onPress}
         style={style.appButton}
       >
@@ -22,95 +24,53 @@ export default function LWords() {
   );
 
   return (
-    <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
+    <LinearGradient
+          colors={["#4682B4", "#6699CC"]}
+          start={[0.25, 0.25]}
+          opacity={.95}
+        >
+
+      <View style={style.page}>
 
         <View>
           <Text style={style.header}>L Words</Text>
         </View>
-
-        <View onPress={toWordScreen}>
-        {/* onPress takes you to the corresponding word screen */}
         
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Laconic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Laggard"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Lambaste"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Lamentation"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Languid"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Largess"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Latent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Laudatory"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Laureate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Lethargic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Levity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Liaison"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Libation"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Litany"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Litigious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Livid"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Logistics"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Loquacious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Lothario"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Lucid"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ludicrous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Lurid"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Lustrous"/>
-        </Pressable>
-
-
         <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
+          <NavButtonWord navigation={navigation} title="Laconic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Laggard" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Lambaste" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Lamentation" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Languid" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Largess" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Latent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Laudatory" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Laureate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Lethargic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Levity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Liaison" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Libation" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Litany" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Litigious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Livid" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Logistics" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Loquacious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Lothario" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Lucid" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Ludicrous" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="KeynotLurid" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Lustrous" destination="Word"/>
         </View>
 
+        <View style={style.bottomButtons}>
+          <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
+          <HomeButton navigation={navigation}/>
+        </View>
 
         </View>
+    </LinearGradient>
     </ScrollView>
     </SafeAreaView>
   );
@@ -118,54 +78,42 @@ export default function LWords() {
 
 
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
-  },
-
-  flex: {
-    display: 'flex',
-    fontSize: 10
+  page: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 50,
+    paddingBottom: 100
   },
 
   header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
+    fontSize: 30,
+    color: '#f0f8ff',
+    fontWeight: '800',
+    paddingBottom: 20,
   },
 
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
+  bottomButtons: {
+    paddingTop: 50,
   },
+  
   appButton: {
-    padding: 12,
+    paddingHorizontal: 70,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
+
   appButtonText: {
-    fontSize: 17,
+    fontSize: 20,
+    color: '#fff'
   },
+
   appButtonContainer: {
     paddingVertical: 10,
-    paddingHorizontal: 12,
+    paddingHorizontal: 0,
+    width: 300
   },
 
 })
 
-
-
-
-
-
-        
-
-
-
-       
 

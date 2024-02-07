@@ -1,291 +1,493 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, FlatList, Text, View, Button } from 'react-native';
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, Component} from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, ImageBackground } from 'react-native';
+import { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import HomeButton from '../../components/HomeButton';
+import AddButton from '../../components/AddButton';
+import ListenButton from '../../components/ListenButton';
+import { navStyle } from '../../components/NavButton.js';
+import politics from '../../assets/Backgrounds/politics.jpg'
+
+const AppButton = ({ onPress, icon, title }) => (
+  <View style={style.appButtonContainer}>
+    <Icon.Button
+      name={icon}
+      backgroundColor='#FF8C00'
+      borderRadius={40}
+      borderWidth={3}
+      borderColor='#BBC2CC'
+      onPress={onPress}
+      style={style.appButton}
+    >
+      <Text style={style.appButtonText}>{title}</Text>
+    </Icon.Button>
+  </View>
+);
 
 
-export default function WS_Politics() {
-  const navigate = useNavigate()
+export default function WS_Politics({ navigation }) {
+  const [selectedWord, setSelectedWord] = useState(null);
 
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor={backgroundColor}
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
+  const hideButton = (
+    <Pressable style={style.appButton} >
+      <AppButton icon="sign-in" title="Hide" 
+      onPress={()=>setSelectedWord(null)} 
+      />
+    </Pressable>)
 
-const [show, setShow] = useState(true);
+
+    const Capitulate = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Capitulate</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>kuh-PIT-yoo-late</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>Give up, surrender.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>The ambassador had been instructed to show flexibility, but not to </Text>
+                <Text style={style.bold}>capitulate</Text>
+                <Text style={style.text}>on trade issues.</Text>
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
+
+    const Decorum = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Decorum</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>di-COR-um</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>Social propriety; dignified conduct.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>Though the delegates were frustrated at the chairman, strict </Text>
+                <Text style={style.bold}>decorum</Text>
+                <Text style={style.bold}> was observed in the meeting.</Text>
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
+
+    const Gainsay = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Gainsay</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>GANE-say</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>To declare false.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>The principles of the Bill of Rights admit no </Text>
+                <Text style={style.bold}>gainsaying</Text>
+                <Text style={style.text}>; they have proven to have created a superior form of government.</Text>
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
+
+      const Hegemony = () => {
+        return(
+          <View style={style.component}>
+            <View style={style.screen}>
+              <Text style={style.subHead}>Hegemony</Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Pron: </Text>
+                  <Text style={style.text}>he-JEM-uh-nee</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Def: </Text>
+                  <Text style={style.text}>Predominant influence, especially in affairs of nations.</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Sentence: </Text>
+                  <Text style={style.text}>Our foe's </Text>
+                  <Text style={style.bold}>hegemony</Text>
+                  <Text style={style.text}> will not stop with his control of smaller nations.</Text>
+                </Text>
+            </View>
+              <ListenButton />
+        <AddButton />
+              {hideButton}
+          </View>         
+          ) 
+        }
+
+    const Imbroglio = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Imbroglio</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>im-BROA-lee-o</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>An entanglement or complicated misunderstanding.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>The recent </Text>
+                <Text style={style.bold}>imbroglio</Text>
+                <Text style={style.text}> over the conflict-of-interest violations has not improved the Mayor's standing.</Text>
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
+
+    const Jingoistic = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Jingoistic</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>jin-go-ISS-tik</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>Aggressively and overbearingly patriotic.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>Such </Text>
+                <Text style={style.bold}>jingoistic</Text>
+                <Text style={style.text}> babble can hardly be said to pass for descent advice to a head of state.</Text>
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
+
+    const Liaison = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Liaison</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>lee-ay-ZON</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>A communications channel or go-between.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>Captain Morse was met by an Air Force </Text>
+                <Text style={style.bold}>liaison</Text>
+                <Text style={style.text}> within minutes of his arrival.</Text>
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
+
+    const Maleficence = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Maleficence</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>muh-LEF-ih-sence</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>The undertaking of evil or harmful acts.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>The long-ignored </Text>
+                <Text style={style.bold}>maleficence</Text>
+                <Text style={style.text}> of the corrupt prison system was finally exposed.</Text>
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
+
+      const Quagmire = () => {
+        return(
+          <View style={style.component}>
+            <View style={style.screen}>
+              <Text style={style.subHead}>Quagmire</Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Pron: </Text>
+                  <Text style={style.text}>KWAG-mire</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Def: </Text>
+                  <Text style={style.text}>An entanglement that offers no means of escape.</Text>
+                </Text>
+                <Text style={style.space}>
+                  <Text style={style.title}>Sentence: </Text>
+                  <Text style={style.text}>The hostage situation threatens to be the worst </Text>
+                  <Text style={style.bold}>quagmire</Text>
+                  <Text style={style.text}> of this administration.</Text>
+                </Text>
+            </View>
+              <ListenButton />
+        <AddButton />
+              {hideButton}
+          </View>         
+          ) 
+        }
+
+    const Unilateral = () => {
+      return(
+        <View style={style.component}>
+          <View style={style.screen}>
+            <Text style={style.subHead}>Unilateral</Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Pron: </Text>
+                <Text style={style.text}>yoo-ni-Lat-ur-el</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Def: </Text>
+                <Text style={style.text}>Undertaken independently.</Text>
+              </Text>
+              <Text style={style.space}>
+                <Text style={style.title}>Sentence: </Text>
+                <Text style={style.text}>The allies resolved that no member country would take any </Text>
+                <Text style={style.bold}>unilateral</Text>
+                <Text style={style.text}> action to threaten mutual security.</Text>
+              </Text>
+          </View>
+            <ListenButton />
+        <AddButton />
+            {hideButton}
+        </View>         
+        ) 
+      }
 
   return (
-    <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
+    <ImageBackground source={politics} imageStyle={style.image} resizeMode="cover" style={style.page}>
 
         <View>
-            <Text style={style.header}>Word Situations: Boss</Text>
-        <View> 
-
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Capitulate /> : null }
-              <AppButton icon="sign-in" title="Capitulate" />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Decorum /> : null }
-              <AppButton icon="sign-in" title="Decorum" />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Gainsay /> : null }
-              <AppButton icon="sign-in" title="Gainsay" />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Hegemony /> : null }
-              <AppButton icon="sign-in" title="Hegemony" />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Imbroglio /> : null }
-              <AppButton icon="sign-in" title="Imbroglio" />
-          </Pressable>
-        </View>
-
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Jingoistic /> : null }
-              <AppButton icon="sign-in" title="Jingoistic" />
-          </Pressable>
-        </View>
-          
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Liaison /> : null }
-              <AppButton icon="sign-in" title="Liaison" />
-          </Pressable>
-        </View>    
-          
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Maleficence /> : null }
-              <AppButton icon="sign-in" title="Maleficence" />
-          </Pressable>
-        </View>     
-          
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Quagmire /> : null }
-              <AppButton icon="sign-in" title="Quagmire" />
-          </Pressable>
-        </View>      
-          
-        <View>
-          <Pressable onPress={onPress=()=>setShow(!show)}>
-              { show == true ? <Unilateral /> : null }
-              <AppButton icon="sign-in" title="Unilateral" />
-          </Pressable>
+            <Text style={style.header}>Politics</Text>
         </View> 
-          
-        <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
-        </View>
 
+        {selectedWord ? 
+            selectedWord : 
+            (<View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Capitulate" 
+              onPress={()=>setSelectedWord(<Capitulate />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Decorum" 
+              onPress={()=>setSelectedWord(<Decorum />)} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Gainsay" 
+              onPress={()=>setSelectedWord(<Gainsay />)} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Hegemony" 
+              onPress={()=>setSelectedWord(<Hegemony /> )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Imbroglio" 
+              onPress={()=>setSelectedWord(<Imbroglio /> )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Jingoistic" 
+              onPress={()=>setSelectedWord(<Jingoistic />  )} 
+              />
+            </Pressable>
+          </View>
+
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Liaison" 
+              onPress={()=>setSelectedWord(<Liaison />  )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Maleficence" 
+              onPress={()=>setSelectedWord(<Maleficence />  )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Quagmire" 
+              onPress={()=>setSelectedWord(<Quagmire />  )} 
+              />
+            </Pressable>
+          </View>
+ 
+          <View>
+            <Pressable style={style.appButton} >
+              <AppButton icon="sign-in" title="Unilateral" 
+              onPress={()=>setSelectedWord(<Unilateral />   )} 
+              />
+            </Pressable>
+          </View>
+
+        <View style={style.bottomButtons}>
+          <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
+          <HomeButton navigation={navigation}/>
         </View>
-        </View>
+        </View>)}
+
+        </ImageBackground>
     </ScrollView>
     </SafeAreaView>
   );
 }
 
-
-const Capitulate = () => {
-  return(
-  <View>
-      <Text>Pron. kuh-PIT-yoo-late</Text>
-      <Text>Def: 'Give up, surrender.</Text>
-      <Text>The ambassador had been instructed to show flexibility on cultural exchanges, but not to </Text><Text style={StyleSheet=bold}>capitulate</Text><Text> when it came to trade issues.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
-      </Pressable>
-  </View>
-      )
-}
-
-const Decorum = () => {
-  return(
-  <View>
-      <Text>Pron. di-COR-um</Text>
-      <Text>Def: Social propriety; dignified conduct.</Text>
-      <Text>Though the delegates were frustrated at the chairman, strict </Text><Text style={StyleSheet=bold}>decorum</Text><Text> was observed in the meeting.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
-      </Pressable>
-  </View>
-      )
-}
-
-const Gainsay = () => {
-  return(
-  <View>
-      <Text>Pron. GANE-say</Text>
-      <Text>Def: To declare false.</Text>
-      <Text>The principles of the Bill of Rights, Mr. Secretary, will admit no </Text><Text style={StyleSheet=bold}>gainsaying</Text><Text>; they have proven to have created a superior form of government.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
-      </Pressable>
-  </View>
-      )
-}
-
-const Hegemony = () => {
-  return(
-  <View>
-      <Text>Pron. he-JEM-uh-nee</Text>
-      <Text>Def: Predominant influence, especially in affairs of nations.</Text>
-      <Text>Our foe's </Text><Text style={StyleSheet=bold}>hegemony</Text><Text> will not stop with his control of smaller nations; his aim is world domination.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
-      </Pressable>
-  </View>
-      )
-}
-
-const Imbroglio = () => {
-  return(
-  <View>
-      <Text>Pron. im-BROA-lee-o</Text>
-      <Text>Def: An entanglement or complicated misunderstanding.</Text>
-      <Text>The recent </Text><Text style={StyleSheet=bold}>imbroglio</Text><Text> over the conflict-of-interest violations has not improved the Mayor's standing with voters.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
-      </Pressable>
-  </View>
-      )
-}
-
-const Jingoistic = () => {
-  return(
-  <View>
-      <Text>Pron. jin-go-ISS-tik</Text>
-      <Text>Def: Aggressively and overbearingly patriotic.</Text>
-      <Text>Such </Text><Text style={StyleSheet=bold}>jingoistic</Text><Text> babble can hardly be said to pass for descent advice to a head of state.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
-      </Pressable>
-  </View>
-      )
-}
-
-const Liaison = () => {
-  return(
-  <View>
-      <Text>Pron. lee-ay-ZON</Text>
-      <Text>Def: A communications channel or go-between.</Text>
-      <Text>Captain Morse was met by an Air Force </Text><Text style={StyleSheet=bold}>liaison</Text><Text> within minutes of his arrival.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
-      </Pressable>
-  </View>
-      )
-}
-
-const Maleficence = () => {
-  return(
-  <View>
-      <Text>Pron. muh-LEF-ih-sence</Text>
-      <Text>Def: The undertaking of evil or harmful acts.</Text>
-      <Text>The long-ignored </Text><Text style={StyleSheet=bold}>maleficence</Text><Text> of the corrupt prison system was finally exposed by a rookie reporter.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
-      </Pressable>
-  </View>
-      )
-}
-
-const Quagmire = () => {
-  return(
-  <View>
-      <Text>Pron. KWAG-mire</Text>
-      <Text>Def: 'An entanglement that offers no means of escape.</Text>
-      <Text>The hostage situation, which worked in the President's favor, now threatens to be the worst </Text><Text style={StyleSheet=bold}>quagmire</Text><Text> of his administration.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
-      </Pressable>
-  </View>
-      )
-}
-
-const Unilateral = () => {
-  return(
-  <View>
-      <Text>Pron. yoo-ni-Lat-ur-el</Text>
-      <Text>Def: Undertaken independently.</Text>
-      <Text>The allies resolved that no member country would take any </Text><Text style={StyleSheet=bold}>unilateral</Text><Text> act that might threaten mutual security.</Text>
-      <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Add to My List}"/>
-      </Pressable>
-  </View>
-      )
-}
-
-
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
+  page: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#000',
+    paddingVertical: 30,
   },
 
-  flex: {
-    display: 'flex',
-    fontSize: 10
+  image: {
+    opacity: .5,
   },
 
   header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
-  },
-
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
-  },
-  appButton: {
-    padding: 12,
-  },
-  appButtonText: {
-    fontSize: 17,
-  },
-  appButtonContainer: {
+    fontSize: 40,
+    textShadowColor: '#000',
+    textShadowRadius: 5,
+    color: '#f0f8ff',
+    fontWeight: '800',
     paddingVertical: 10,
-    paddingHorizontal: 12,
+    textAlign: 'center',
   },
 
-  })
+  appButton: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
 
+  component: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+    paddingBottom: 200
+  },
 
+  screen: {
+    opacity: .7,
+    backgroundColor: 'black',
+    marginBottom: 40,
+    padding: 20
+  },
 
+  subHead: {
+    fontSize: 40,
+    color: '#FF8C00'
+  },
+
+  text: {
+    fontSize: 25,
+    color: '#fff'
+  },
+
+  title: {
+    fontSize: 25,
+    color: '#FF8C00'
+  },
+
+  bold: {
+    fontSize: 25,
+    fontWeight: 600,
+    color: '#FF8C00'
+  },
+
+  space: {
+    paddingTop: 10,
+  },
+
+  appButtonText: {
+    fontSize: 20,
+    color: '#fff'
+  },
+
+  appButtonContainer: {
+    width: 200,
+    marginVertical: 2
+    },
+
+  bottomButtons: {
+    paddingTop: 20
+  }
+
+})

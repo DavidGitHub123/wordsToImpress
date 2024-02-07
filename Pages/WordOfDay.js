@@ -1,18 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import data from './data.js';
-import { useNavigate } from 'react-router-dom';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, ImageBackground } from 'react-native';
+import data from '../data.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import HomeButton from '../components/HomeButton';
+import ListenButton from '../components/ListenButton';
+import AddButton from '../components/AddButton';
+import { navStyle } from '../components/NavButton.js';
+import backgrounds from '../backgrounds.js';
 
 
-export default function WordOfDay(props) {
-  const navigate = useNavigate()
+export default function WordOfDay({ navigation }) {
+  const randomBackgroundIndex = Math.floor(Math.random() * backgrounds.length); 
+  const backgroundImage = (backgrounds[randomBackgroundIndex]); 
 
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  const AppButton = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor={backgroundColor}
+        backgroundColor='#FF8C00'
+        borderRadius={40}
+        borderWidth={3}
+        borderColor='#BBC2CC'
         onPress={onPress}
         style={style.appButton}
       >
@@ -21,78 +28,153 @@ export default function WordOfDay(props) {
     </View>
   );
 
-  return (
-    <SafeAreaView style={style.body}>
-    <ScrollView alwaysBounceHorizontal={true}>
-      <View style={style.body}>
+  function GetWordOfTheDay(){
+    const randomIndex = Math.floor(Math.random() * data.length)
+    const selectedElement = data[randomIndex];
+    const selectedWord = data[randomIndex].Word
 
+    const wordData = data.find(el => el.Word === selectedWord)
+
+    const sentence = wordData.Longdef.split(" ").map((el, i) => {
+      if (el.toLowerCase().includes(selectedWord.toLowerCase())){
+        return <Text key={i} style={style.highlightedText}>{el}</Text>
+      }
+      return <Text key={i} style={style.text}>{el}</Text>
+      })
+
+
+      console.log("Selected Element:")
+      console.log(selectedElement)
+    return(
+      <View style={style.page}>
+      <View style={style.screen}>
+          <Text style={style.word}>{selectedElement.Word}</Text>
+          <Text style={style.space}>
+            <Text style={style.subHead}>Pron. </Text> 
+            <Text style={style.text}>{selectedElement.Pronunciation}</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.subHead}>Def: </Text>
+            <Text style={style.text}>{selectedElement.Shortdef}</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.subHead}>Sentence: </Text>
+            <View style={style.flexSentence}>{sentence}</View>
+          </Text>
+      </View>
+
+      <View style={style.buttons}>
+        {/* <ListenButton word={wordData.Word}/> */}
+        <ListenButton audio={selectedElement.Audio}/>
+        <AddButton />
+        <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
+        <HomeButton navigation={ navigation } />
+      </View>
+      </View>)
+  }
+
+  return (
+    <SafeAreaView style={style.container}>
+    <ScrollView alwaysBounceHorizontal={true}>
+    <ImageBackground source={backgroundImage} resizeMode="cover" style={style.image}>
         <View>
           <Text style={style.header}>Word of the Day</Text>
-          <Text>{props.word}</Text>
-          <Text>{props.Pronunciation}</Text>
-          <Text style={style.headerSmall}>Definition</Text>
-          <Text>{props.Shortdef}</Text>
-          <Text style={style.headerSmall}>Sentence</Text>
-          <Text>{props.Longdef}</Text>
+          {GetWordOfTheDay()}
         </View>
-
-        <View>
-          <Pressable onPress={onPress=()=> {}}>
-              <AppButton icon="sign-in" title="{Add to My List}"/>
-          </Pressable>
-        </View>
-
-        <View>
-          <Pressable onPress={onPress=()=> {}}>
-              <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
-        </View>
-
-
-    </View>
+        </ImageBackground>
     </ScrollView>
     </SafeAreaView>
   );
 }
 
-
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
-  },
-
-  flex: {
-    display: 'flex',
-    fontSize: 10
+  page: {
+    flex: 1,
+    paddingTop: 20,
+    paddingBottom: 200,
+    paddingHorizontal: 20,
   },
 
   header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
+    fontSize: 38,
+    color: '#f0f8ff',
+    fontWeight: '800',
+    paddingBottom: 20,
+    paddingTop: 20,
+    textAlign: 'center',
+    opacity: 0.7,
+    backgroundColor: 'black',
   },
 
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
+  space: {
+    paddingBottom: 10,
   },
+
+  screen: {
+    opacity: 0.7,
+    backgroundColor: 'black',
+    padding: 20
+  },
+
+  subHead: {
+    fontSize: 24,
+    color: '#FF8C00',
+    fontWeight: '600',
+  },
+
+  word: {
+    fontSize: 40,
+    color: '#f0f8ff',
+    fontWeight: '800',
+    paddingBottom: 20,
+  },
+
+  highlightedText: {
+    fontSize: 24,
+    color: '#FF8C00',
+    fontWeight: '600',
+  },
+
+  flexSentence: {
+    display: "flex",
+    flexDirection: "row",
+    flexFlow: "wrap",
+    alignItems: 'flex-start',
+    flexWrap: 'wrap',
+    rowGap: 2,
+    columnGap: 4,
+  },
+
+  text: {
+    fontSize: 24,
+    color: '#f0f8ff',
+  },
+
+  highlightedText: {
+    fontSize: 24,
+    color: '#FF8C00',
+    fontWeight: '800',
+  },
+
+  buttons: {
+    paddingTop: 50,
+  },
+
   appButton: {
-    padding: 12,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
+
   appButtonText: {
-    fontSize: 17,
+    fontSize: 18,
+    color: '#fff'
   },
+
   appButtonContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-},
+    paddingVertical: 5,
+    width: 300,
+  },
 
 })
+
+

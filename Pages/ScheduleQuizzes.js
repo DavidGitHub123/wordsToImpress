@@ -1,70 +1,107 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { useNavigate } from 'react-router-dom';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, ImageBackground } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import HomeButton from '../components/HomeButton';
+import { navStyle } from '../components/NavButton.js';
+import blue3 from '../assets/blue3.jpg'
 
+export default function ScheduleQuizzes({ navigation }) {
 
-export default function ScheduleQuizzes() {
-  const navigate = useNavigate()
+  const AppButton = ({ onPress, icon, title }) => (
+    <View style={style.appButtonContainer}>
+      <Icon.Button
+        name={icon}
+        backgroundColor='#FF8C00'
+        borderRadius={40}
+        borderWidth={3}
+        borderColor='#BBC2CC'
+        onPress={onPress}
+        style={style.appButton}
+      >
+        <Text style={style.appButtonText}>{title}</Text>
+      </Icon.Button>
+    </View>
+  );
+
   return (
-    <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
-    <View style={style.body}>
+    <ImageBackground source={blue3} imageStyle={style.image} resizeMode="cover" style={style.page}>
 
       <View>
-         <Text style={style.header}>Schedule Quizes</Text>
-         <Text style={style.header}>Repetition is the key to learning</Text>
-         <Text style={style.header}>Calendar -- date/time</Text>
+         <Text style={style.header}>Schedule Quizzes</Text>
+         <Text style={style.text}>Repetition is the key to learning. 
+         The more you study your list of 50 words, and quiz yourself, the faster you will become a vocab master.</Text>
       </View>
 
       <View>
-        <Pressable onPress={onPress=()=> {}}>
-          <AppButton icon="sign-in" title="{Home}"/>
+        <Pressable style={style.appButton} onPress={() => navigation.navigate('')}>
+            <AppButton icon="sign-in" title="Schedule Multiple Choice"/>
         </Pressable>
       </View>
 
-    </View>
+      <View>
+        <Pressable style={style.appButton} onPress={() => navigation.navigate('')}>
+            <AppButton icon="sign-in" title="Schedule RapidFire Game"/>
+        </Pressable>
+
+      </View>
+
+      <View style={style.buttons}>
+        <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
+        <HomeButton navigation={ navigation } />
+      </View>
+
+      </ImageBackground>
     </ScrollView>
     </SafeAreaView>
   );
 }
 
+
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
+  page: {
+    flex: 1,
+    backgroundColor: '#000',
+    paddingBottom: 400
   },
 
-  flex: {
-    display: 'flex',
-    fontSize: 10
-  },
+  // image: {
+  //   opacity: .5,
+  // },
 
   header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
+    fontSize: 40,
+    color: '#f0f8ff',
+    fontWeight: '800',
+    paddingBottom: 10,
+    paddingTop: 30,
+    textAlign: 'center'
+  },
+
+  text: {
     fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
+    color: '#f0f8ff',
+    paddingBottom: 30,
+    paddingHorizontal: 40
   },
 
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
+  buttons: {
+    paddingTop: 20,
   },
+
   appButton: {
-    padding: 12,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
-  appButtonText: {
-    fontSize: 17,
-  },
-  appButtonContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-},
 
+  appButtonText: {
+    fontSize: 18,
+    color: '#fff'
+  },
+
+  appButtonContainer: {
+    paddingVertical: 5,
+    width: 300,
+  },
 })
+

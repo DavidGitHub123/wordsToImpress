@@ -1,18 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, FlatList, Text, View, Button } from 'react-native';
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, Component} from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import { NavButtonWord } from '../../components/NavButtonWord';
+import { navStyle } from '../../components/NavButton.js';
 
+export default function FWords({ navigation }) {
 
-export default function FWords() {
-  const navigate = useNavigate()
-
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  const AppButton = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor={backgroundColor}
+        backgroundColor='#FF8C00'
+        borderRadius={40}
+        borderWidth={3}
+        borderColor='#BBC2CC'
         onPress={onPress}
         style={style.appButton}
       >
@@ -22,134 +24,64 @@ export default function FWords() {
   );
 
   return (
-    <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
+    <LinearGradient
+          colors={["#4682B4", "#6699CC"]}
+          start={[0.25, 0.25]}
+          opacity={.95}
+        >
+
+      <View style={style.page}>
 
         <View>
           <Text style={style.header}>F Words</Text>
         </View>
 
-        <View onPress={toWordScreen}>
-        {/* onPress takes you to the corresponding word screen */}
-        
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fabulist"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Facet"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Facetious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fait Accompli"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fallacious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fastidious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fatuous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Faux Pas"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fealty"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Febrile"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Feckless"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Felcity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Feral"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fervent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fetid"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fiasco"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fiat"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fidelity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Flaunt"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fledgling"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Flippant"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Flout"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Flux"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Foible"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Foist"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Foray"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Formidable"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fortuitous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fractious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fratricide"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Frivolity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fruition"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Fulminate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Funereal"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Furtive"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Futility"/>
-        </Pressable>
-
-
         <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
+          <NavButtonWord navigation={navigation} title="Fabulist" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Facet" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Facetious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Fait Accompli" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Fallacious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Fastidious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Fatuous" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Fealty" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Febrile" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Feckless" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Felcity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Feral" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Fervent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Fetid" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Fiasco" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Fiat" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Fidelity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Flaunt" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Fledgling" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Flippant" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Flout" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Flux" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Foible" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Foist" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Foray" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Formidable" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Fractious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Fratricide" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Frivolity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Fruition" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Fulminate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Funereal" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Furtive" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Futility" destination="Word"/>
         </View>
 
+        <View style={style.bottomButtons}>
+          <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
+          <HomeButton navigation={navigation}/>
+        </View>
 
         </View>
+    </LinearGradient>
     </ScrollView>
     </SafeAreaView>
   );
@@ -157,57 +89,42 @@ export default function FWords() {
 
 
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
-  },
-
-  flex: {
-    display: 'flex',
-    fontSize: 10
+  page: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 50,
+    paddingBottom: 100
   },
 
   header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
+    fontSize: 30,
+    color: '#f0f8ff',
+    fontWeight: '800',
+    paddingBottom: 20,
   },
 
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
+  bottomButtons: {
+    paddingTop: 50,
   },
+
   appButton: {
-    padding: 12,
+    paddingHorizontal: 70,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
+
   appButtonText: {
-    fontSize: 17,
+    fontSize: 20,
+    color: '#fff'
   },
+
   appButtonContainer: {
     paddingVertical: 10,
-    paddingHorizontal: 12,
+    paddingHorizontal: 0,
+    width: 300
   },
 
 })
 
 
-
-
-           
-
-
-
-
-
-
-           
-
-
-        

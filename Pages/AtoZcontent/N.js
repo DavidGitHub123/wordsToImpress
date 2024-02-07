@@ -1,18 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, FlatList, Text, View, Button } from 'react-native';
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, Component} from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import { NavButtonWord } from '../../components/NavButtonWord';
+import { navStyle } from '../../components/NavButton.js';
 
+export default function NWords({ navigation }) {
 
-export default function NWords() {
-  const navigate = useNavigate()
-
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  const AppButton = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor={backgroundColor}
+        backgroundColor='#FF8C00'
+        borderRadius={40}
+        borderWidth={3}
+        borderColor='#BBC2CC'
         onPress={onPress}
         style={style.appButton}
       >
@@ -22,109 +24,58 @@ export default function NWords() {
   );
 
   return (
-     <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
+    <LinearGradient
+          colors={["#4682B4", "#6699CC"]}
+          start={[0.25, 0.25]}
+          opacity={.95}
+        >
+
+      <View style={style.page}>
 
         <View>
           <Text style={style.header}>N Words</Text>
         </View>
-
-        <View onPress={toWordScreen}>
-        {/* onPress takes you to the corresponding word screen */}
         
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nabob"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Narcissistic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Narcolepsy"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nascent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nebulous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ne Plus Ultra"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Necrology"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nefarious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nemesis"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Neolithic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Neophyte"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nepotism"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nether"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nexus"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nirvana"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Noblesse Oblige"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nocturnal"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nom De Guerre"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nomenclature"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Non Sequitur"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nonchalance"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nonentity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nonfeasance"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nonpareil"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nouveau Riche"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Noxious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nubile"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Nugatory"/>
-        </Pressable>
-
         <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
+          <NavButtonWord navigation={navigation} title="Nabob" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Narcissistic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Narcolepsy" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nascent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nebulous" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Ne Plus Ultra" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Necrology" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nefarious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nemesis" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Neolithic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Neophyte" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nepotism" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nether" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nexus" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nirvana" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Noblesse Oblige" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nocturnal" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nom De Guerre" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nomenclature" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Non Sequitur" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nonchalance" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nonentity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nonfeasance" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nonpareil" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nouveau Riche" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Noxious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nubile" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Nugatory" destination="Word"/>
         </View>
 
+        <View style={style.bottomButtons}>
+          <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
+          <HomeButton navigation={navigation}/>
+        </View>
 
         </View>
+    </LinearGradient>
     </ScrollView>
     </SafeAreaView>
   );
@@ -132,50 +83,42 @@ export default function NWords() {
 
 
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
-  },
-
-  flex: {
-    display: 'flex',
-    fontSize: 10
+  page: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 50,
+    paddingBottom: 100
   },
 
   header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
+    fontSize: 30,
+    color: '#f0f8ff',
+    fontWeight: '800',
+    paddingBottom: 20,
   },
 
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
+  bottomButtons: {
+    paddingTop: 50,
   },
+
   appButton: {
-    padding: 12,
+    paddingHorizontal: 70,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
+
   appButtonText: {
-    fontSize: 17,
+    fontSize: 20,
+    color: '#fff'
   },
+
   appButtonContainer: {
     paddingVertical: 10,
-    paddingHorizontal: 12,
+    paddingHorizontal: 0,
+    width: 300
   },
 
 })
 
 
-
-
-
-
-
-       

@@ -1,11 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { useNavigate } from 'react-router-dom';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import HomeButton from '../components/HomeButton';
+import { NavButton } from '../components/NavButton';
+import blue5 from '../assets/blue5.jpg'
 
-
-export default function VocabMastery() {
-  const navigate = useNavigate()
+export default function VocabMastery({ navigation }) {
 
   const AppButton = ({ onPress, icon, title, backgroundColor }) => (
     <View style={style.appButtonContainer}>
@@ -21,84 +20,77 @@ export default function VocabMastery() {
   );
 
   return (
-    <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
-
-    <View style={style.body}>
-
-        <View>
-          <Text style={style.header}>VocabMastery</Text>
-        </View>
+    <ImageBackground source={blue5} imageStyle={style.image} resizeMode="cover" style={style.page}>
 
         <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Multiple Choice}"/>
-          </Pressable>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Flash Cards}"/>
-          </Pressable>
+          <Text style={style.header}>Vocab Mastery</Text>
         </View>
 
+        <View style={style.section}>
+          <NavButton navigation={navigation} title="StackIt" destination="StackIt"/>
+          <NavButton navigation={navigation} title="RapidFire" destination="RapidFire"/>
+          <NavButton navigation={navigation} title="QuickMatch" destination="QuickMatch"/>
+        </View>
+
+        <View style={style.section}>
+          <NavButton navigation={navigation} title="Schedule Quizzes" destination="ScheduleQuizzes"/>
+          <NavButton navigation={navigation} title="Challenge A Friend" destination="ChallengeFriend"/>
+        </View>
+        
         <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Schedule Quizzes}"/>
-          </Pressable>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Challenge Friend}"/>
-          </Pressable>
+          <HomeButton navigation={ navigation } />
         </View>
 
-        <View>
-          <Pressable onPress={onPress=()=> {}}>
-              <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
-        </View>
 
-      </View>
+        </ImageBackground>
     </ScrollView>
     </SafeAreaView>
-    );
-  }
+  );
+}
 
-  const style = StyleSheet.create({
-    body: {
-      backgroundColor: 'cmyk(5, 0, 0, 0)',
-      fontFamily: 'Helvetica',
-      color: '#000',
-      display: 'flex',
-    },
-  
-    flex: {
-      display: 'flex',
-      fontSize: 10
-    },
-  
-    header: {
-      backgroundColor: 'cmyk(92, 46, 0, 0)',
-      display: 'flex',
-      fontSize: 18,
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: 10
-    },
-  
-    screenContainer: {
-      flex: 1,
-      justifyContent: "center",
-      padding: 80,
-      backgroundColor: "#555",
-    },
-    appButton: {
-      padding: 12,
-    },
-    appButtonText: {
-      fontSize: 17,
-    },
-    appButtonContainer: {
-      paddingVertical: 10,
-      paddingHorizontal: 12,
-    },
-  })
+const style = StyleSheet.create({
+  page: {
+    flex: 1,
+    justifyContent: 'center',
+    // backgroundColor: '#000',
+    paddingVertical: 30,
+    paddingBottom: 400
+  },
 
+  // image: {
+  //   opacity: .5,
+  // },
 
+  header: {
+    fontSize: 40,
+    color: '#f0f8ff',
+    fontWeight: '800',
+    textAlign: 'center',
+    paddingBottom: 20
+    },
+
+  section: {
+    paddingVertical: 10,
+  },
+
+  appButton: {
+    paddingHorizontal: 70,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  appButtonText: {
+    fontSize: 20,
+    color: '#fff'
+  },
+
+  appButtonContainer: {
+    paddingVertical: 10,
+    paddingHorizontal: 0,
+    width: 300
+  },
+
+})
 

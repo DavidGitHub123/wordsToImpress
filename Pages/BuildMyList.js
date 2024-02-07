@@ -1,80 +1,123 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { useNavigate } from 'react-router-dom';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, ImageBackground } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import HomeButton from '../components/HomeButton';
+import { NavButton } from '../components/NavButton';
+import blue7 from '../assets/blue7.jpg';
 
-// Paywall
+export default function BuildMyList( { navigation } ) {
 
-export default function BuildMyList() {
-  const navigate = useNavigate()
-  
+  const AppButton = ({ onPress, icon, title }) => (
+    <View style={style.appButtonContainer}>
+      <Icon.Button
+        name={icon}
+        backgroundColor='#FF8C00'
+        borderRadius={40}
+        borderWidth={3}
+        borderColor='#BBC2CC'
+        onPress={onPress}
+        style={style.appButton}
+      >
+        <Text style={style.appButtonText}>{title}</Text>
+      </Icon.Button>
+    </View>
+  );
+
   return (
-    <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.page}>
     <ScrollView alwaysBounceHorizontal={true}>
-      <View style={style.body}>
+    <ImageBackground source={blue7} imageStyle={style.image} resizeMode="cover" style={style.page}>
 
         <View>
           <Text style={style.header}>Build My List</Text>
         </View>
         
-        <View>
-            <View style={style.flex}>
-              <Text>Search Your Writing</Text>
-              <p>asdf asdf asdf asdf asdf asdf asdf asdf asdf</p>
+          <View style={style.section}>
+              <Text style={style.subHead}>From Your Writing</Text>
+              <Text style={style.text}>Copy text from your emails, proposals, letters, etc. and let our AI tools 
+              analyze your communication patterns to suggest new vocabulary words that correspond to 
+              your speaking style and context.</Text>
+              <View style={style.buttonSpace}>
+                <NavButton navigation={navigation} title="Text Search" destination="TextSearch"/>
+              </View>
+          </View>
+
+          <View style={style.section}>
+            <Text style={style.subHead}>From Your Speech</Text>
+            <Text style={style.text}>Record your conversations and let our AI tools suggest new vocabulary words that correspond to your speaking style and context.</Text>
+            <View style={style.buttonSpace}>
+              <NavButton navigation={navigation} title="Conversation Search" destination="ConversationSearch"/>
             </View>
-            <View style={style.flex}>
-              <Text>Search your Speech</Text>
-              <Text>asdf asdf asdf asdf asdf asdf asdf asdf asdf</Text>
-            </View>
-        </View>
+          </View>
+
 
         <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
+          <HomeButton navigation={ navigation } />
         </View>
 
-      </View>
+        </ImageBackground>
     </ScrollView>
     </SafeAreaView>
   );
 }
 
+
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
+  page: {
+    // backgroundColor: '#000',
+    paddingTop: 40,
+    paddingBottom: 200
   },
 
-  flex: {
-    display: 'flex',
-    fontSize: 10
-  },
+  // image: {
+  //   opacity: .5,
+  // },
 
   header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
+    fontSize: 40,
+    color: '#f0f8ff',
+    fontWeight: '800',
+    paddingBottom: 10,
+    textAlign: 'center'
   },
 
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
+  subHead: {
+    fontSize: 30,
+    color: '#FF8C00',
+    fontWeight: '600',
+    paddingVertical: 20
   },
-  appButton: {
-    padding: 12,
-  },
-  appButtonText: {
-    fontSize: 17,
-  },
-  appButtonContainer: {
+
+  section: {
     paddingVertical: 10,
-    paddingHorizontal: 12,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
+
+  text: {
+    fontSize: 18,
+    color: '#f0f8ff',
+    paddingHorizontal: 40
+  },
+
+  buttonSpace: {
+    paddingVertical: 10,
+  },
+
+  appButton: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  appButtonText: {
+    fontSize: 18,
+    color: '#fff'
+  },
+
+  appButtonContainer: {
+    paddingVertical: 5,
+    width: 300,
+  },
+
 })
+

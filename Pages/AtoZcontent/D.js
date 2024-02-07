@@ -1,18 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, FlatList, Text, View, Button } from 'react-native';
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, Component} from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import { NavButtonWord } from '../../components/NavButtonWord';
+import { navStyle } from '../../components/NavButton.js';
 
+export default function DWords({ navigation }) {
 
-export default function DWords() {
-  const navigate = useNavigate()
-
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  const AppButton = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor={backgroundColor}
+        backgroundColor='#FF8C00'
+        borderRadius={40}
+        borderWidth={3}
+        borderColor='#BBC2CC'
         onPress={onPress}
         style={style.appButton}
       >
@@ -22,238 +24,102 @@ export default function DWords() {
   );
 
   return (
-    <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
+    <LinearGradient
+          colors={["#4682B4", "#6699CC"]}
+          start={[0.25, 0.25]}
+          opacity={.95}
+        >
+
+      <View style={style.page}>
 
         <View>
           <Text style={style.header}>D Words</Text>
         </View>
-
-        <View onPress={toWordScreen}>
-        {/* onPress takes you to the corresponding word screen */}
-        
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Dalliance"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Dank"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Debacle"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Debauchery"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Debilitate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Debonair"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Decadence"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Decorum"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Decrepit"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Deduce"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Deescalate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Defamation"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Deference"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Degenerate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Deify"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Deign"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Delectable"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Deleterious"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Delineate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Delusion"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Demagogue"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Demarcate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Demure"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Denote"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Denunciation"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Deplorable"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Depravity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Deprecate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Dereliction"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Derision"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Derivation"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Desecrate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Desideratum"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Despondency"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Despotism"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Desultory"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Dexterous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Diabolical"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Diagnostic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Dialectic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Diatribe"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Dichotomy"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Didactic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Diffident"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Dilapidated"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Dilatory"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Dilettante"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Diminution"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Diplomacy"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Discombobulate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Discomfit"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Disconcerting"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Disdain"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Disgruntle"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Disingenuous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Disparage"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Disparate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Disparity"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Disport"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Disseminate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Dissipate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Dissolution"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Dissonance"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Dissuade"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Diurnal"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Divergence"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Docile"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Dogmatic"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Domesticate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Droll"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Dubious"/>
-        </Pressable>
         
         <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
+          <NavButtonWord navigation={navigation} title="Dalliance" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Dank" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Debacle" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Debauchery" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Debilitate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Debonair" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Decadence" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Decrepit" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Decorum" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Deduce" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Deescalate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Defamation" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Deference" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Degenerate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Deify" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Deign" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Delectable" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Deleterious" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Delineate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Delusion" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Demagogue" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Demarcate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Demure" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Denote" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Denunciation" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Deplorable" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Depravity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Deprecate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Dereliction" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Derision" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Derivation" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Desecrate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Desideratum" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Despondency" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Despotism" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Desultory" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Dexterous" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Diabolical" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Diagnostic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Dialectic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Diatribe" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Dichotomy" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Didactic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Diffident" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Dilapidated" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Dilatory" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Dilettante" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Diminution" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Diplomacy" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Discombobulate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Discomfit" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Disconcerting" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Disdain" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Disgruntle" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Disingenuous" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Disparage" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Disparate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Disparity" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Disport" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Disseminate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Dissipate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Dissolution" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Dissonance" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Dissuade" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Diurnal" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Divergence" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Docile" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Dogmatic" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Domesticate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Droll" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Dubious" destination="Word"/>
+        </View>
+
+        <View style={style.bottomButtons}>
+          <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
+          <HomeButton navigation={navigation}/>
         </View>
 
 
         </View>
+    </LinearGradient>
     </ScrollView>
     </SafeAreaView>
   );
@@ -261,58 +127,42 @@ export default function DWords() {
 
 
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
-  },
-
-  flex: {
-    display: 'flex',
-    fontSize: 10
+  page: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 50,
+    paddingBottom: 100
   },
 
   header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
+    fontSize: 30,
+    color: '#f0f8ff',
+    fontWeight: '800',
+    paddingBottom: 20,
   },
 
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
+  bottomButtons: {
+    paddingTop: 50,
   },
+
   appButton: {
-    padding: 12,
+    paddingHorizontal: 70,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
+
   appButtonText: {
-    fontSize: 17,
+    fontSize: 20,
+    color: '#fff'
   },
+
   appButtonContainer: {
     paddingVertical: 10,
-    paddingHorizontal: 12,
+    paddingHorizontal: 0,
+    width: 300
   },
 
 })
 
 
-
-
-           
-
-
-
-
-
-
-           
-
-
-
-        

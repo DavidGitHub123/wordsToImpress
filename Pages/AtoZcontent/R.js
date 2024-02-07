@@ -1,18 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, FlatList, Text, View, Button } from 'react-native';
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, Component} from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { LinearGradient } from "expo-linear-gradient";
+import HomeButton from '../../components/HomeButton';
+import { NavButtonWord } from '../../components/NavButtonWord';
+import { navStyle } from '../../components/NavButton.js';
 
+export default function RWords({ navigation }) {
 
-export default function RWords() {
-  const navigate = useNavigate()
-
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
+  const AppButton = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor={backgroundColor}
+        backgroundColor='#FF8C00'
+        borderRadius={40}
+        borderWidth={3}
+        borderColor='#BBC2CC'
         onPress={onPress}
         style={style.appButton}
       >
@@ -22,189 +24,83 @@ export default function RWords() {
   );
 
   return (
-    <SafeAreaView style={style.body}>
+    <SafeAreaView style={style.container}>
     <ScrollView alwaysBounceHorizontal={true}>
+    <LinearGradient
+          colors={["#4682B4", "#6699CC"]}
+          start={[0.25, 0.25]}
+          opacity={.95}
+        >
+
+      <View style={style.page}>
 
         <View>
           <Text style={style.header}>R Words</Text>
         </View>
 
-        <View onPress={toWordScreen}>
-        {/* onPress takes you to the corresponding word screen */}
-        
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ramification"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Rankle"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Rapport"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Rapprochement"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Rarefied"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ravenous"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Reapportionment"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Rebuff"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Recalcitrant"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Recant"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Recapitulate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Reciprocate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Recompense"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Reconcile"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Reconnoiter"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Rectify"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Recumbent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Redundant"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Refurbish"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Relentless"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Relevance"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Relinquish"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Remunerate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Renege"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Renounce"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Replete"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Replicate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Reprehensible"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Reprobate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Reprieve"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Reproach"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Reprobate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Reprove"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Repudiate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Repugnance"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Requisite"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Rescind"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Resolute"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Resonate"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Resplendent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Restive"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Resurgence"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Resurrect"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Reticent"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Retribution"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Retroactive"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Retrospect"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Revamp"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Revile"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Rhetoric"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ribald"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Rubicon"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Rueful"/>
-        </Pressable>
-        <Pressable onPress={onPress=()=>{}}>
-          <AppButton icon="sign-in" title="Ruminate"/>
-        </Pressable>
-
-
-
         <View>
-          <Pressable onPress={onPress=()=> {}}>
-            <AppButton icon="sign-in" title="{Home}"/>
-          </Pressable>
+          <NavButtonWord navigation={navigation} title="Ramification" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Rankle" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Rapport" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Rapprochement" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Rarefied" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Ravenous" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Reapportionment" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Recalcitrant" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Recant" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Recapitulate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Reciprocate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Recompense" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Reconcile" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Reconnoiter" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Rectify" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Recumbent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Redundant" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Refurbish" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Relentless" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Relevance" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Relinquish" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Remunerate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Renege" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Renounce" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Replete" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Replicate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Reprehensible" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Reprobate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Reprieve" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Reproach" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Reprobate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Reprove" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Repudiate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Repugnance" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Requisite" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Rescind" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Resolute" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Resonate" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Resplendent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Restive" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Resurgence" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Resurrect" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Reticent" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Retribution" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Retroactive" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Retrospect" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Revamp" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Revile" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Rhetoric" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Ribald" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Rubicon" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Rueful" destination="Word"/>
+          <NavButtonWord navigation={navigation} title="Ruminate" destination="Word"/>
         </View>
 
+        <View style={style.bottomButtons}>
+          <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
+          <HomeButton navigation={navigation}/>
+        </View>
 
         </View>
+    </LinearGradient>
     </ScrollView>
     </SafeAreaView>
   );
@@ -212,57 +108,42 @@ export default function RWords() {
 
 
 const style = StyleSheet.create({
-  body: {
-    backgroundColor: 'cmyk(5, 0, 0, 0)',
-    fontFamily: 'Helvetica',
-    color: '#000',
-    display: 'flex',
-  },
-
-  flex: {
-    display: 'flex',
-    fontSize: 10
+  page: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 50,
+    paddingBottom: 100
   },
 
   header: {
-    backgroundColor: 'cmyk(92, 46, 0, 0)',
-    display: 'flex',
-    fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
+    fontSize: 30,
+    color: '#f0f8ff',
+    fontWeight: '800',
+    paddingBottom: 20,
   },
 
-  screenContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
+  bottomButtons: {
+    paddingTop: 50,
   },
+
   appButton: {
-    padding: 12,
+    paddingHorizontal: 70,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
+
   appButtonText: {
-    fontSize: 17,
+    fontSize: 20,
+    color: '#fff'
   },
+
   appButtonContainer: {
     paddingVertical: 10,
-    paddingHorizontal: 12,
+    paddingHorizontal: 0,
+    width: 300
   },
 
 })
 
 
-
-
-
-
-
-
-
-
-
-       
-
-
-       
