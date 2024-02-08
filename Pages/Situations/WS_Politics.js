@@ -1,20 +1,29 @@
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable, ImageBackground } from 'react-native';
-import { useState } from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import HomeButton from '../../components/HomeButton';
-import AddButton from '../../components/AddButton';
-import ListenButton from '../../components/ListenButton';
-import { navStyle } from '../../components/NavButton.js';
-import politics from '../../assets/Backgrounds/politics.jpg'
+import React from "react";
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  ImageBackground,
+} from "react-native";
+import { useState } from "react";
+import Icon from "react-native-vector-icons/FontAwesome";
+import HomeButton from "../../components/HomeButton";
+import AddButton from "../../components/AddButton";
+import ListenButton from "../../components/ListenButton";
+import { navStyle } from "../../components/NavButton.js";
+import politics from "../../assets/Backgrounds/politics.jpg";
 
 const AppButton = ({ onPress, icon, title }) => (
   <View style={style.appButtonContainer}>
     <Icon.Button
       name={icon}
-      backgroundColor='#FF8C00'
+      backgroundColor="#FF8C00"
       borderRadius={40}
       borderWidth={3}
-      borderColor='#BBC2CC'
+      borderColor="#BBC2CC"
       onPress={onPress}
       style={style.appButton}
     >
@@ -23,389 +32,459 @@ const AppButton = ({ onPress, icon, title }) => (
   </View>
 );
 
-
 export default function WS_Politics({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
 
   const hideButton = (
-    <Pressable style={style.appButton} >
-      <AppButton icon="sign-in" title="Hide" 
-      onPress={()=>setSelectedWord(null)} 
+    <Pressable style={style.appButton}>
+      <AppButton
+        icon="sign-in"
+        title="Hide"
+        onPress={() => setSelectedWord(null)}
       />
-    </Pressable>)
+    </Pressable>
+  );
 
-
-    const Capitulate = () => {
-      return(
-        <View style={style.component}>
-          <View style={style.screen}>
-            <Text style={style.subHead}>Capitulate</Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Pron: </Text>
-                <Text style={style.text}>kuh-PIT-yoo-late</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Def: </Text>
-                <Text style={style.text}>Give up, surrender.</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Sentence: </Text>
-                <Text style={style.text}>The ambassador had been instructed to show flexibility, but not to </Text>
-                <Text style={style.bold}>capitulate</Text>
-                <Text style={style.text}>on trade issues.</Text>
-              </Text>
-          </View>
-            <ListenButton />
+  const Capitulate = () => {
+    return (
+      <View style={style.component}>
+        <View style={style.screen}>
+          <Text style={style.subHead}>Capitulate</Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Pron: </Text>
+            <Text style={style.text}>kuh-PIT-yoo-late</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Def: </Text>
+            <Text style={style.text}>Give up, surrender.</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.text}>
+              The ambassador had been instructed to show flexibility, but not to{" "}
+            </Text>
+            <Text style={style.bold}>capitulate</Text>
+            <Text style={style.text}>on trade issues.</Text>
+          </Text>
+        </View>
+        <ListenButton />
         <AddButton />
-            {hideButton}
-        </View>         
-        ) 
-      }
+        {hideButton}
+      </View>
+    );
+  };
 
-    const Decorum = () => {
-      return(
-        <View style={style.component}>
-          <View style={style.screen}>
-            <Text style={style.subHead}>Decorum</Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Pron: </Text>
-                <Text style={style.text}>di-COR-um</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Def: </Text>
-                <Text style={style.text}>Social propriety; dignified conduct.</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Sentence: </Text>
-                <Text style={style.text}>Though the delegates were frustrated at the chairman, strict </Text>
-                <Text style={style.bold}>decorum</Text>
-                <Text style={style.bold}> was observed in the meeting.</Text>
-              </Text>
-          </View>
-            <ListenButton />
+  const Decorum = () => {
+    return (
+      <View style={style.component}>
+        <View style={style.screen}>
+          <Text style={style.subHead}>Decorum</Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Pron: </Text>
+            <Text style={style.text}>di-COR-um</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Def: </Text>
+            <Text style={style.text}>Social propriety; dignified conduct.</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.text}>
+              Though the delegates were frustrated at the chairman, strict{" "}
+            </Text>
+            <Text style={style.bold}>decorum</Text>
+            <Text style={style.bold}> was observed in the meeting.</Text>
+          </Text>
+        </View>
+        <ListenButton />
         <AddButton />
-            {hideButton}
-        </View>         
-        ) 
-      }
+        {hideButton}
+      </View>
+    );
+  };
 
-    const Gainsay = () => {
-      return(
-        <View style={style.component}>
-          <View style={style.screen}>
-            <Text style={style.subHead}>Gainsay</Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Pron: </Text>
-                <Text style={style.text}>GANE-say</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Def: </Text>
-                <Text style={style.text}>To declare false.</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Sentence: </Text>
-                <Text style={style.text}>The principles of the Bill of Rights admit no </Text>
-                <Text style={style.bold}>gainsaying</Text>
-                <Text style={style.text}>; they have proven to have created a superior form of government.</Text>
-              </Text>
-          </View>
-            <ListenButton />
+  const Gainsay = () => {
+    return (
+      <View style={style.component}>
+        <View style={style.screen}>
+          <Text style={style.subHead}>Gainsay</Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Pron: </Text>
+            <Text style={style.text}>GANE-say</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Def: </Text>
+            <Text style={style.text}>To declare false.</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.text}>
+              The principles of the Bill of Rights admit no{" "}
+            </Text>
+            <Text style={style.bold}>gainsaying</Text>
+            <Text style={style.text}>
+              ; they have proven to have created a superior form of government.
+            </Text>
+          </Text>
+        </View>
+        <ListenButton />
         <AddButton />
-            {hideButton}
-        </View>         
-        ) 
-      }
+        {hideButton}
+      </View>
+    );
+  };
 
-      const Hegemony = () => {
-        return(
-          <View style={style.component}>
-            <View style={style.screen}>
-              <Text style={style.subHead}>Hegemony</Text>
-                <Text style={style.space}>
-                  <Text style={style.title}>Pron: </Text>
-                  <Text style={style.text}>he-JEM-uh-nee</Text>
-                </Text>
-                <Text style={style.space}>
-                  <Text style={style.title}>Def: </Text>
-                  <Text style={style.text}>Predominant influence, especially in affairs of nations.</Text>
-                </Text>
-                <Text style={style.space}>
-                  <Text style={style.title}>Sentence: </Text>
-                  <Text style={style.text}>Our foe's </Text>
-                  <Text style={style.bold}>hegemony</Text>
-                  <Text style={style.text}> will not stop with his control of smaller nations.</Text>
-                </Text>
-            </View>
-              <ListenButton />
+  const Hegemony = () => {
+    return (
+      <View style={style.component}>
+        <View style={style.screen}>
+          <Text style={style.subHead}>Hegemony</Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Pron: </Text>
+            <Text style={style.text}>he-JEM-uh-nee</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Def: </Text>
+            <Text style={style.text}>
+              Predominant influence, especially in affairs of nations.
+            </Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.text}>Our foe&#39s </Text>
+            <Text style={style.bold}>hegemony</Text>
+            <Text style={style.text}>
+              {" "}
+              will not stop with his control of smaller nations.
+            </Text>
+          </Text>
+        </View>
+        <ListenButton />
         <AddButton />
-              {hideButton}
-          </View>         
-          ) 
-        }
+        {hideButton}
+      </View>
+    );
+  };
 
-    const Imbroglio = () => {
-      return(
-        <View style={style.component}>
-          <View style={style.screen}>
-            <Text style={style.subHead}>Imbroglio</Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Pron: </Text>
-                <Text style={style.text}>im-BROA-lee-o</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Def: </Text>
-                <Text style={style.text}>An entanglement or complicated misunderstanding.</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Sentence: </Text>
-                <Text style={style.text}>The recent </Text>
-                <Text style={style.bold}>imbroglio</Text>
-                <Text style={style.text}> over the conflict-of-interest violations has not improved the Mayor's standing.</Text>
-              </Text>
-          </View>
-            <ListenButton />
+  const Imbroglio = () => {
+    return (
+      <View style={style.component}>
+        <View style={style.screen}>
+          <Text style={style.subHead}>Imbroglio</Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Pron: </Text>
+            <Text style={style.text}>im-BROA-lee-o</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Def: </Text>
+            <Text style={style.text}>
+              An entanglement or complicated misunderstanding.
+            </Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.text}>The recent </Text>
+            <Text style={style.bold}>imbroglio</Text>
+            <Text style={style.text}>
+              {" "}
+              over the conflict-of-interest violations has not improved the
+              Mayor&#39s standing.
+            </Text>
+          </Text>
+        </View>
+        <ListenButton />
         <AddButton />
-            {hideButton}
-        </View>         
-        ) 
-      }
+        {hideButton}
+      </View>
+    );
+  };
 
-    const Jingoistic = () => {
-      return(
-        <View style={style.component}>
-          <View style={style.screen}>
-            <Text style={style.subHead}>Jingoistic</Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Pron: </Text>
-                <Text style={style.text}>jin-go-ISS-tik</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Def: </Text>
-                <Text style={style.text}>Aggressively and overbearingly patriotic.</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Sentence: </Text>
-                <Text style={style.text}>Such </Text>
-                <Text style={style.bold}>jingoistic</Text>
-                <Text style={style.text}> babble can hardly be said to pass for descent advice to a head of state.</Text>
-              </Text>
-          </View>
-            <ListenButton />
+  const Jingoistic = () => {
+    return (
+      <View style={style.component}>
+        <View style={style.screen}>
+          <Text style={style.subHead}>Jingoistic</Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Pron: </Text>
+            <Text style={style.text}>jin-go-ISS-tik</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Def: </Text>
+            <Text style={style.text}>
+              Aggressively and overbearingly patriotic.
+            </Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.text}>Such </Text>
+            <Text style={style.bold}>jingoistic</Text>
+            <Text style={style.text}>
+              {" "}
+              babble can hardly be said to pass for descent advice to a head of
+              state.
+            </Text>
+          </Text>
+        </View>
+        <ListenButton />
         <AddButton />
-            {hideButton}
-        </View>         
-        ) 
-      }
+        {hideButton}
+      </View>
+    );
+  };
 
-    const Liaison = () => {
-      return(
-        <View style={style.component}>
-          <View style={style.screen}>
-            <Text style={style.subHead}>Liaison</Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Pron: </Text>
-                <Text style={style.text}>lee-ay-ZON</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Def: </Text>
-                <Text style={style.text}>A communications channel or go-between.</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Sentence: </Text>
-                <Text style={style.text}>Captain Morse was met by an Air Force </Text>
-                <Text style={style.bold}>liaison</Text>
-                <Text style={style.text}> within minutes of his arrival.</Text>
-              </Text>
-          </View>
-            <ListenButton />
+  const Liaison = () => {
+    return (
+      <View style={style.component}>
+        <View style={style.screen}>
+          <Text style={style.subHead}>Liaison</Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Pron: </Text>
+            <Text style={style.text}>lee-ay-ZON</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Def: </Text>
+            <Text style={style.text}>
+              A communications channel or go-between.
+            </Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.text}>
+              Captain Morse was met by an Air Force{" "}
+            </Text>
+            <Text style={style.bold}>liaison</Text>
+            <Text style={style.text}> within minutes of his arrival.</Text>
+          </Text>
+        </View>
+        <ListenButton />
         <AddButton />
-            {hideButton}
-        </View>         
-        ) 
-      }
+        {hideButton}
+      </View>
+    );
+  };
 
-    const Maleficence = () => {
-      return(
-        <View style={style.component}>
-          <View style={style.screen}>
-            <Text style={style.subHead}>Maleficence</Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Pron: </Text>
-                <Text style={style.text}>muh-LEF-ih-sence</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Def: </Text>
-                <Text style={style.text}>The undertaking of evil or harmful acts.</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Sentence: </Text>
-                <Text style={style.text}>The long-ignored </Text>
-                <Text style={style.bold}>maleficence</Text>
-                <Text style={style.text}> of the corrupt prison system was finally exposed.</Text>
-              </Text>
-          </View>
-            <ListenButton />
+  const Maleficence = () => {
+    return (
+      <View style={style.component}>
+        <View style={style.screen}>
+          <Text style={style.subHead}>Maleficence</Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Pron: </Text>
+            <Text style={style.text}>muh-LEF-ih-sence</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Def: </Text>
+            <Text style={style.text}>
+              The undertaking of evil or harmful acts.
+            </Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.text}>The long-ignored </Text>
+            <Text style={style.bold}>maleficence</Text>
+            <Text style={style.text}>
+              {" "}
+              of the corrupt prison system was finally exposed.
+            </Text>
+          </Text>
+        </View>
+        <ListenButton />
         <AddButton />
-            {hideButton}
-        </View>         
-        ) 
-      }
+        {hideButton}
+      </View>
+    );
+  };
 
-      const Quagmire = () => {
-        return(
-          <View style={style.component}>
-            <View style={style.screen}>
-              <Text style={style.subHead}>Quagmire</Text>
-                <Text style={style.space}>
-                  <Text style={style.title}>Pron: </Text>
-                  <Text style={style.text}>KWAG-mire</Text>
-                </Text>
-                <Text style={style.space}>
-                  <Text style={style.title}>Def: </Text>
-                  <Text style={style.text}>An entanglement that offers no means of escape.</Text>
-                </Text>
-                <Text style={style.space}>
-                  <Text style={style.title}>Sentence: </Text>
-                  <Text style={style.text}>The hostage situation threatens to be the worst </Text>
-                  <Text style={style.bold}>quagmire</Text>
-                  <Text style={style.text}> of this administration.</Text>
-                </Text>
-            </View>
-              <ListenButton />
+  const Quagmire = () => {
+    return (
+      <View style={style.component}>
+        <View style={style.screen}>
+          <Text style={style.subHead}>Quagmire</Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Pron: </Text>
+            <Text style={style.text}>KWAG-mire</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Def: </Text>
+            <Text style={style.text}>
+              An entanglement that offers no means of escape.
+            </Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.text}>
+              The hostage situation threatens to be the worst{" "}
+            </Text>
+            <Text style={style.bold}>quagmire</Text>
+            <Text style={style.text}> of this administration.</Text>
+          </Text>
+        </View>
+        <ListenButton />
         <AddButton />
-              {hideButton}
-          </View>         
-          ) 
-        }
+        {hideButton}
+      </View>
+    );
+  };
 
-    const Unilateral = () => {
-      return(
-        <View style={style.component}>
-          <View style={style.screen}>
-            <Text style={style.subHead}>Unilateral</Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Pron: </Text>
-                <Text style={style.text}>yoo-ni-Lat-ur-el</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Def: </Text>
-                <Text style={style.text}>Undertaken independently.</Text>
-              </Text>
-              <Text style={style.space}>
-                <Text style={style.title}>Sentence: </Text>
-                <Text style={style.text}>The allies resolved that no member country would take any </Text>
-                <Text style={style.bold}>unilateral</Text>
-                <Text style={style.text}> action to threaten mutual security.</Text>
-              </Text>
-          </View>
-            <ListenButton />
+  const Unilateral = () => {
+    return (
+      <View style={style.component}>
+        <View style={style.screen}>
+          <Text style={style.subHead}>Unilateral</Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Pron: </Text>
+            <Text style={style.text}>yoo-ni-Lat-ur-el</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Def: </Text>
+            <Text style={style.text}>Undertaken independently.</Text>
+          </Text>
+          <Text style={style.space}>
+            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.text}>
+              The allies resolved that no member country would take any{" "}
+            </Text>
+            <Text style={style.bold}>unilateral</Text>
+            <Text style={style.text}> action to threaten mutual security.</Text>
+          </Text>
+        </View>
+        <ListenButton />
         <AddButton />
-            {hideButton}
-        </View>         
-        ) 
-      }
+        {hideButton}
+      </View>
+    );
+  };
 
   return (
     <SafeAreaView style={style.container}>
-    <ScrollView alwaysBounceHorizontal={true}>
-    <ImageBackground source={politics} imageStyle={style.image} resizeMode="cover" style={style.page}>
-
-        <View>
+      <ScrollView alwaysBounceHorizontal={true}>
+        <ImageBackground
+          source={politics}
+          imageStyle={style.image}
+          resizeMode="cover"
+          style={style.page}
+        >
+          <View>
             <Text style={style.header}>Politics</Text>
-        </View> 
-
-        {selectedWord ? 
-            selectedWord : 
-            (<View>
-
-          <View>
-            <Pressable style={style.appButton} >
-              <AppButton icon="sign-in" title="Capitulate" 
-              onPress={()=>setSelectedWord(<Capitulate />)} 
-              />
-            </Pressable>
           </View>
 
-          <View>
-            <Pressable style={style.appButton} >
-              <AppButton icon="sign-in" title="Decorum" 
-              onPress={()=>setSelectedWord(<Decorum />)} 
-              />
-            </Pressable>
-          </View>
- 
-          <View>
-            <Pressable style={style.appButton} >
-              <AppButton icon="sign-in" title="Gainsay" 
-              onPress={()=>setSelectedWord(<Gainsay />)} 
-              />
-            </Pressable>
-          </View>
+          {selectedWord ? (
+            selectedWord
+          ) : (
+            <View>
+              <View>
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Capitulate"
+                    onPress={() => setSelectedWord(<Capitulate />)}
+                  />
+                </Pressable>
+              </View>
 
-          <View>
-            <Pressable style={style.appButton} >
-              <AppButton icon="sign-in" title="Hegemony" 
-              onPress={()=>setSelectedWord(<Hegemony /> )} 
-              />
-            </Pressable>
-          </View>
- 
-          <View>
-            <Pressable style={style.appButton} >
-              <AppButton icon="sign-in" title="Imbroglio" 
-              onPress={()=>setSelectedWord(<Imbroglio /> )} 
-              />
-            </Pressable>
-          </View>
+              <View>
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Decorum"
+                    onPress={() => setSelectedWord(<Decorum />)}
+                  />
+                </Pressable>
+              </View>
 
-          <View>
-            <Pressable style={style.appButton} >
-              <AppButton icon="sign-in" title="Jingoistic" 
-              onPress={()=>setSelectedWord(<Jingoistic />  )} 
-              />
-            </Pressable>
-          </View>
+              <View>
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Gainsay"
+                    onPress={() => setSelectedWord(<Gainsay />)}
+                  />
+                </Pressable>
+              </View>
 
-          <View>
-            <Pressable style={style.appButton} >
-              <AppButton icon="sign-in" title="Liaison" 
-              onPress={()=>setSelectedWord(<Liaison />  )} 
-              />
-            </Pressable>
-          </View>
- 
-          <View>
-            <Pressable style={style.appButton} >
-              <AppButton icon="sign-in" title="Maleficence" 
-              onPress={()=>setSelectedWord(<Maleficence />  )} 
-              />
-            </Pressable>
-          </View>
- 
-          <View>
-            <Pressable style={style.appButton} >
-              <AppButton icon="sign-in" title="Quagmire" 
-              onPress={()=>setSelectedWord(<Quagmire />  )} 
-              />
-            </Pressable>
-          </View>
- 
-          <View>
-            <Pressable style={style.appButton} >
-              <AppButton icon="sign-in" title="Unilateral" 
-              onPress={()=>setSelectedWord(<Unilateral />   )} 
-              />
-            </Pressable>
-          </View>
+              <View>
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Hegemony"
+                    onPress={() => setSelectedWord(<Hegemony />)}
+                  />
+                </Pressable>
+              </View>
 
-        <View style={style.bottomButtons}>
-          <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
-          <HomeButton navigation={navigation}/>
-        </View>
-        </View>)}
+              <View>
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Imbroglio"
+                    onPress={() => setSelectedWord(<Imbroglio />)}
+                  />
+                </Pressable>
+              </View>
 
+              <View>
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Jingoistic"
+                    onPress={() => setSelectedWord(<Jingoistic />)}
+                  />
+                </Pressable>
+              </View>
+
+              <View>
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Liaison"
+                    onPress={() => setSelectedWord(<Liaison />)}
+                  />
+                </Pressable>
+              </View>
+
+              <View>
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Maleficence"
+                    onPress={() => setSelectedWord(<Maleficence />)}
+                  />
+                </Pressable>
+              </View>
+
+              <View>
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Quagmire"
+                    onPress={() => setSelectedWord(<Quagmire />)}
+                  />
+                </Pressable>
+              </View>
+
+              <View>
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Unilateral"
+                    onPress={() => setSelectedWord(<Unilateral />)}
+                  />
+                </Pressable>
+              </View>
+
+              <View style={style.bottomButtons}>
+                <Pressable style={navStyle.appButton}>
+                  <AppButton
+                    title="Back"
+                    onPress={() => navigation.goBack()}
+                  ></AppButton>
+                </Pressable>
+                <HomeButton navigation={navigation} />
+              </View>
+            </View>
+          )}
         </ImageBackground>
-    </ScrollView>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -413,63 +492,63 @@ export default function WS_Politics({ navigation }) {
 const style = StyleSheet.create({
   page: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#000',
+    justifyContent: "center",
+    backgroundColor: "#000",
     paddingVertical: 30,
   },
 
   image: {
-    opacity: .5,
+    opacity: 0.5,
   },
 
   header: {
     fontSize: 40,
-    textShadowColor: '#000',
+    textShadowColor: "#000",
     textShadowRadius: 5,
-    color: '#f0f8ff',
-    fontWeight: '800',
+    color: "#f0f8ff",
+    fontWeight: "800",
     paddingVertical: 10,
-    textAlign: 'center',
+    textAlign: "center",
   },
 
   appButton: {
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   component: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
     padding: 20,
-    paddingBottom: 200
+    paddingBottom: 200,
   },
 
   screen: {
-    opacity: .7,
-    backgroundColor: 'black',
+    opacity: 0.7,
+    backgroundColor: "black",
     marginBottom: 40,
-    padding: 20
+    padding: 20,
   },
 
   subHead: {
     fontSize: 40,
-    color: '#FF8C00'
+    color: "#FF8C00",
   },
 
   text: {
     fontSize: 25,
-    color: '#fff'
+    color: "#fff",
   },
 
   title: {
     fontSize: 25,
-    color: '#FF8C00'
+    color: "#FF8C00",
   },
 
   bold: {
     fontSize: 25,
     fontWeight: 600,
-    color: '#FF8C00'
+    color: "#FF8C00",
   },
 
   space: {
@@ -478,16 +557,15 @@ const style = StyleSheet.create({
 
   appButtonText: {
     fontSize: 20,
-    color: '#fff'
+    color: "#fff",
   },
 
   appButtonContainer: {
     width: 200,
-    marginVertical: 2
-    },
+    marginVertical: 2,
+  },
 
   bottomButtons: {
-    paddingTop: 20
-  }
-
-})
+    paddingTop: 20,
+  },
+});
