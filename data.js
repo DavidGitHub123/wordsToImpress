@@ -1,59 +1,64 @@
+/* eslint-env node */
 export default [
 
-{   id: '001',
-    alpha:'a',
-    Prebuilt:'',
-    SocialSituation: {AtCollege: 'At College'},
+  {
+    id: '001',
+    alpha: 'a',
+    Prebuilt: '',
+    SocialSituation: { AtCollege: 'At College' },
     Word: 'Abash',
     Pronunciation: 'uh-BASH',
-    PartofSpeech:'v',
+    PartofSpeech: 'v',
     Shortdef: "To disconcert, humiliate or shame.",
     Longdef: "The older boys had no qualms about abashing the new arrivals; it was an old tradition at the school.",
-    syn: ['Embarrass', 'Humiliate', 'Shame', 'Disconcert', 'Fluster', 'Mortify', 'Chagrin', 'Confound', 
-    'Disturb', 'Rattle'],
+    syn: ['Embarrass', 'Humiliate', 'Shame', 'Disconcert', 'Fluster', 'Mortify', 'Chagrin', 'Confound',
+      'Disturb', 'Rattle'],
     // Audio: './Audio/Abash.mp3'
     Audio: require('./Audio/Abash.mp3')
-},
+  },
 
 
-{   id: '002',
-    alpha:'a',
-    Prebuilt:'',
+  {
+    id: '002',
+    alpha: 'a',
+    Prebuilt: '',
     SocialSituation: '',
     Word: 'Abate',
     Pronunciation: 'uh-BATE',
-    PartofSpeech:'v',
+    PartofSpeech: 'v',
     Shortdef: "To put to an end; reduce in intensity.",
     Longdef: "The flood waters abated when the rain stopped.",
     syn: ["decrease", "diminish", "lessen", "reduce", "subside", "weaken", "extinguish", "quell", "moderate", "temper", "mitigate"],
     // Audio: './Audio/Abate.mp3'
     Audio: require('./Audio/Abate.mp3')
-},
+  },
 
-{   id: '003',
+  {
+    id: '003',
     alpha: 'a',
     Prebuilt: '',
-    SocialSituation: {AfteraMovie: 'After a Movie'},
+    SocialSituation: { AfteraMovie: 'After a Movie' },
     Word: 'Abdicate',
     Pronunciation: 'AB-di-kate',
     PartofSpeech: 'v',
     Shortdef: "Formally give up position or responsibility.",
     Longdef: "The King, as we all know, abdicated rather than give up the woman he loved.",
     syn: [
-        "renounce",
-        "relinquish",
-        "resign",
-        "vacate",
-        "give up",
-        "step down",
-        "surrender",
-        "forfeit"
-        ],
+      "renounce",
+      "relinquish",
+      "resign",
+      "vacate",
+      "give up",
+      "step down",
+      "surrender",
+      "forfeit"
+    ],
     // Audio: './Audio/Abdicate.mp3'
     Audio: require('./Audio/Abdicate.mp3')
-},
+  },
 
-{   id: '004',
+  {
+    id: '004',
     alpha: 'a',
     Prebuilt: '',
     SocialSituation: '',
@@ -65,7 +70,7 @@ export default [
     syn: ["anomaly", "deviation", "irregularity", "oddity", "abnormality", "flaw", "eccentricity", "peculiarity"],
     // Audio: './Audio/Aberration.mp3'
     Audio: require('./Audio/Aberration.mp3')
-}
+  }
 ]
 
 

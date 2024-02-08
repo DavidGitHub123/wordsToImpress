@@ -1,20 +1,27 @@
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Pressable } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import React from "react";
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+} from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 import { LinearGradient } from "expo-linear-gradient";
-import HomeButton from '../../components/HomeButton';
-import { NavButtonWord } from '../../components/NavButtonWord';
-import { navStyle } from '../../components/NavButton.js';
+import HomeButton from "../../components/HomeButton";
+import { NavButtonWord } from "../../components/NavButtonWord";
+import { navStyle } from "../../components/NavButton.js";
 
 export default function EWords({ navigation }) {
-
   const AppButton = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor='#FF8C00'
+        backgroundColor="#FF8C00"
         borderRadius={40}
         borderWidth={3}
-        borderColor='#BBC2CC'
+        borderColor="#BBC2CC"
         onPress={onPress}
         style={style.appButton}
       >
@@ -25,112 +32,369 @@ export default function EWords({ navigation }) {
 
   return (
     <SafeAreaView style={style.container}>
-    <ScrollView alwaysBounceHorizontal={true}>
-    <LinearGradient
+      <ScrollView alwaysBounceHorizontal={true}>
+        <LinearGradient
           colors={["#4682B4", "#6699CC"]}
           start={[0.25, 0.25]}
-          opacity={.95}
+          opacity={0.95}
         >
+          <View style={style.page}>
+            <View>
+              <Text style={style.header}>E Words</Text>
+            </View>
 
-      <View style={style.page}>
+            <View>
+              <NavButtonWord
+                navigation={navigation}
+                title="Ebullience"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Eccentric"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Echelon"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Eclectic"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Educe"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Effete"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Efflorescent"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Effrontery"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Effulgent"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Egalitarian"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Egocentric"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Egregious"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Eke"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Elicit"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Elocution"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Eloquent"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Elucidate"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Elusive"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Emanate"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Emancipate"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Embellish"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Embodiment"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Eminence"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Emissary"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Empathize"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Emphatic"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Emulate"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Encomium"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Endemic"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Enervate"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Enigmatic"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="En Masse"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Enmity"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Ennui"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Enshrine"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Enthrall"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Entity"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Enunciate"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Envisage"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Epicure"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Equanimity"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Equivocal"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Eradicate"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Erratic"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Ersatz"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Erudite"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Esoteric"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Espouse"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Estrange"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Etymology"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Euphemism"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Euphony"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Evasive"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Evince"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Eviscerate"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Evoke"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Exacerbate"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Excoriate"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Exculpate"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Exigency"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Expeditious"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Expletive"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Extenuate"
+                destination="Word"
+              />
+              <NavButtonWord
+                navigation={navigation}
+                title="Extrapolate"
+                destination="Word"
+              />
+            </View>
 
-        <View>
-          <Text style={style.header}>E Words</Text>
-        </View>
-        
-        <View>
-          <NavButtonWord navigation={navigation} title="Ebullience" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Eccentric" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Echelon" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Eclectic" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Educe" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Effete" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Efflorescent" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Effrontery" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Effulgent" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Egalitarian" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Egocentric" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Egregious" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Eke" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Elicit" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Elocution" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Eloquent" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Elucidate" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Elusive" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Emanate" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Emancipate" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Embellish" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Embodiment" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Eminence" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Emissary" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Empathize" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Emphatic" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Emulate" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Encomium" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Endemic" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Enervate" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Enigmatic" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="En Masse" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Enmity" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Ennui" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Enshrine" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Enthrall" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Entity" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Enunciate" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Envisage" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Epicure" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Equanimity" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Equivocal" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Eradicate" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Erratic" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Ersatz" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Erudite" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Esoteric" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Espouse" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Estrange" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Etymology" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Euphemism" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Euphony" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Evasive" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Evince" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Eviscerate" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Evoke" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Exacerbate" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Excoriate" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Exculpate" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Exigency" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Expeditious" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Expletive" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Extenuate" destination="Word"/>
-          <NavButtonWord navigation={navigation} title="Extrapolate" destination="Word"/>
-        </View>
-
-        <View style={style.bottomButtons}>
-          <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
-          <HomeButton navigation={navigation}/>
-        </View>
-
-        </View>
-    </LinearGradient>
-    </ScrollView>
+            <View style={style.bottomButtons}>
+              <Pressable style={navStyle.appButton}>
+                <AppButton
+                  title="Back"
+                  onPress={() => navigation.goBack()}
+                ></AppButton>
+              </Pressable>
+              <HomeButton navigation={navigation} />
+            </View>
+          </View>
+        </LinearGradient>
+      </ScrollView>
     </SafeAreaView>
   );
 }
 
-
 const style = StyleSheet.create({
   page: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     paddingTop: 50,
-    paddingBottom: 100
+    paddingBottom: 100,
   },
 
   header: {
     fontSize: 30,
-    color: '#f0f8ff',
-    fontWeight: '800',
+    color: "#f0f8ff",
+    fontWeight: "800",
     paddingBottom: 20,
   },
 
@@ -140,21 +404,18 @@ const style = StyleSheet.create({
 
   appButton: {
     paddingHorizontal: 70,
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   appButtonText: {
     fontSize: 20,
-    color: '#fff'
+    color: "#fff",
   },
 
   appButtonContainer: {
     paddingVertical: 10,
     paddingHorizontal: 0,
-    width: 300
+    width: 300,
   },
-
-})
-
-
+});

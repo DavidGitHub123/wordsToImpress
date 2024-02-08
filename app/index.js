@@ -1,12 +1,13 @@
-import { NavigationContainer } from '@react-navigation/native';
-import NavigationLinks from '../Pages/NavigationLinks';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import NavigationLinks from "../Pages/NavigationLinks";
 
- function App() {
-    return (
-      <NavigationContainer independent={true} >
-        <NavigationLinks />
-      </NavigationContainer>
-    );
-  }
+function App() {
+  return (
+    <NavigationContainer independent={true}>
+      <NavigationLinks />
+    </NavigationContainer>
+  );
+}
 
-  export default App;
+export default App;
