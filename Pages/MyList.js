@@ -5,9 +5,54 @@ import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import { NavButtonWord } from "../components/NavButtonWord";
 import { LinearGradient } from "expo-linear-gradient";
+import {
+  defaultList,
+  getList,
+  makeNewList,
+  removeList,
+} from "../components/listHelpers";
+import { useState, useEffect } from "react";
 // import { onSnapshot } from "firebase/firestore" -- firebase database
 
 export default function MyList({ navigation }) {
+  const [listOrLoading, setListOrLoading] = useState([
+    <Text key={0}>Loading...</Text>,
+  ]);
+
+  const makeMyListIfItDoesNotExist = async () => {
+    if (!(await doesMyListExist())) {
+      console.log("^_^");
+      await makeNewList(defaultList);
+    }
+  };
+
+  const doesMyListExist = async () => (await getList(defaultList)) !== null;
+
+  useEffect(() => {
+    async function getAndParseList() {
+      //TODO: move this to an init file that runs on boot
+      await makeMyListIfItDoesNotExist();
+
+      console.log(await getList(defaultList));
+      const list = JSON.parse(await getList(defaultList));
+      console.log(list.length);
+      console.log(typeof list);
+      if (list === null || list.length === 0) {
+        return;
+      }
+      const parsedList = list.map((el, i) => (
+        <NavButtonWord
+          key={i}
+          navigation={navigation}
+          title={el}
+          destination="Word"
+        />
+      ));
+      setListOrLoading(parsedList);
+    }
+
+    getAndParseList();
+  }, []);
   /*
   const AppButton = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
@@ -55,28 +100,7 @@ export default function MyList({ navigation }) {
       Button simply takes them to AtoZ page.
       From this point, now button to see previous list of 50 appears. */}
 
-          <View style={style.section}>
-            <NavButtonWord
-              navigation={navigation}
-              title="Abate"
-              destination="Word"
-            />
-            <NavButtonWord
-              navigation={navigation}
-              title="Abate"
-              destination="Word"
-            />
-            <NavButtonWord
-              navigation={navigation}
-              title="Abate"
-              destination="Word"
-            />
-            <NavButtonWord
-              navigation={navigation}
-              title="Abate"
-              destination="Word"
-            />
-          </View>
+          <View style={style.section}>{listOrLoading.map((el) => el)}</View>
 
           <View style={style.buttons}>
             {/* <NavButton navigation={navigation} title="1st List of 50" destination=""/> */}
