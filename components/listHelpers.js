@@ -4,6 +4,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const _listArrayName = "allLists";
 const defaultList = "My List";
 
+const wordMasteryFactory = (word) => {
+  return { word: word, mastery: 0 }
+}
+
+
 const makeNewList = async (name) => {
   try {
     console.log("make new list");
@@ -73,12 +78,10 @@ const getList = async (name) => {
 
 const addOneWordToList = async (name, word) => {
   try {
-    console.log("addOneWordToList");
-    console.log(name);
-    console.log(word);
+    const wordMasteryObject = wordMasteryFactory(word)
     const list = JSON.parse(await AsyncStorage.getItem(name));
     console.log(list);
-    list.push(word);
+    list.push(wordMasteryObject);
     await AsyncStorage.setItem(name, JSON.stringify(list));
   } catch (e) {
     console.error(e);

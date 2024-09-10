@@ -31,6 +31,9 @@ export default function MyList({ navigation }) {
   useEffect(() => {
     async function getAndParseList() {
       //TODO: move this to an init file that runs on boot
+      if (false) {
+        await removeList(defaultList);
+      }
       await makeMyListIfItDoesNotExist();
 
       console.log(await getList(defaultList));
@@ -41,12 +44,15 @@ export default function MyList({ navigation }) {
         return;
       }
       const parsedList = list.map((el, i) => (
-        <NavButtonWord
-          key={i}
-          navigation={navigation}
-          title={el}
-          destination="Word"
-        />
+        <View key={i}>
+          <NavButtonWord
+            navigation={navigation}
+            title={el.word}
+            destination="Word"
+          />
+          <Text>{el.mastery}/5</Text>
+          <Text>{el.mastery >= 5 ? "Mastered" : "Not Quite Mastered"}</Text>
+        </View>
       ));
       setListOrLoading(parsedList);
     }
