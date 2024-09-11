@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 // import Icon from 'react-native-vector-icons/FontAwesome';
 import HomeButton from "../components/HomeButton";
@@ -11,10 +11,14 @@ import {
   makeNewList,
   removeList,
 } from "../components/listHelpers";
-import { useState, useEffect } from "react";
+import PieChart from "react-native-pie-chart";
 // import { onSnapshot } from "firebase/firestore" -- firebase database
 
 export default function MyList({ navigation }) {
+  const [masteredWordCount, setMasteredWordCount] = useState(0);
+  const [unMasteredWordCount, setUnMasteredWordCount] = useState(0);
+  const [listLength, setListLength] = useState(0);
+
   const [listOrLoading, setListOrLoading] = useState([
     <Text key={0}>Loading...</Text>,
   ]);
@@ -55,6 +59,11 @@ export default function MyList({ navigation }) {
         </View>
       ));
       setListOrLoading(parsedList);
+
+      const amountOfMasteredWords = list.filter((el) => el.mastery >= 5).length;
+      setMasteredWordCount(amountOfMasteredWords);
+      setUnMasteredWordCount(list.length - amountOfMasteredWords);
+      setListLength(list.length);
     }
 
     getAndParseList();
@@ -96,8 +105,20 @@ export default function MyList({ navigation }) {
           </View>
 
           <View>
-            <Text style={style.textOrange}>Mastered Words (x/50)</Text>
-            <Text style={style.textYellow}>Unmastered Words (x/50)</Text>
+            <Text style={style.textOrange}>
+              Mastered Words ({masteredWordCount}/{listLength})
+            </Text>
+            <Text style={style.textYellow}>
+              Unmastered Words ({unMasteredWordCount}/{listLength})
+            </Text>
+            {masteredWordCount === 0 && listLength === 0 ? null : (
+              <PieChart
+                widthAndHeight={250}
+                series={[masteredWordCount, unMasteredWordCount]}
+                sliceColor={["#4cf03a", "#5ba653"]}
+                coverRadius={0.8}
+              />
+            )}
           </View>
 
           {/* Once word has been answered correctly 10 times, put in mastery category */}
