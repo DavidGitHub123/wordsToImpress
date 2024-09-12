@@ -48,15 +48,12 @@ export default function MyList({ navigation }) {
         return;
       }
       const parsedList = list.map((el, i) => (
-        <View key={i}>
-          <NavButtonWord
-            navigation={navigation}
-            title={el.word}
-            destination="Word"
-          />
-          <Text>{el.mastery}/5</Text>
-          <Text>{el.mastery >= 5 ? "Mastered" : "Not Quite Mastered"}</Text>
-        </View>
+        <NavButtonWord
+          navigation={navigation}
+          title={el.word}
+          destination="Word"
+          key={i}
+        />
       ));
       setListOrLoading(parsedList);
 
@@ -96,24 +93,14 @@ export default function MyList({ navigation }) {
           opacity={0.95}
           style={style.page}
         >
-          <View>
-            <Text style={style.header}>My List</Text>
-          </View>
-
-          <View>
-            <Text style={style.text}>Circle/XX% Mastery</Text>
-          </View>
-
-          <View>
-            <Text style={style.textOrange}>
-              Mastered Words ({masteredWordCount}/{listLength})
-            </Text>
-            <Text style={style.textYellow}>
-              Unmastered Words ({unMasteredWordCount}/{listLength})
+          <View style={style.donutContainer}>
+            <Text style={style.donutText}>
+              {masteredWordCount}/{listLength} mastered
             </Text>
             {masteredWordCount === 0 && listLength === 0 ? null : (
               <PieChart
-                widthAndHeight={250}
+                style={style.donut}
+                widthAndHeight={200}
                 series={[masteredWordCount, unMasteredWordCount]}
                 sliceColor={["#4cf03a", "#5ba653"]}
                 coverRadius={0.8}
@@ -158,6 +145,26 @@ const style = StyleSheet.create({
     justifyContent: "center",
     paddingTop: 50,
     paddingBottom: 300,
+  },
+
+  donut: {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    top: 0,
+    left: 0,
+  },
+
+  donutText: {
+    lineHeight: 200,
+    verticalAlign: "middle",
+    textAlign: "center",
+  },
+
+  donutContainer: {
+    width: "200px",
+    height: "200px",
+    position: "relative",
   },
 
   image: {
