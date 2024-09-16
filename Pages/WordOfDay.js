@@ -58,8 +58,6 @@ export default function WordOfDay({ navigation }) {
       );
     });
 
-    console.log("Selected Element:");
-    console.log(selectedElement);
     return (
       <View style={style.page}>
         <View style={style.screen}>

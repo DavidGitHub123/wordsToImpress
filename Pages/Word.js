@@ -83,7 +83,7 @@ export default function Word({ navigation }) {
         <View style={style.buttons}>
           <ListenButton audio={wordData.Audio} />
           {/* <ListenButton word={selectedElement.Word}/> */}
-          <AddButton />
+          <AddButton word={wordData.Word} />
           <Pressable style={navStyle.appButton}>
             <AppButton
               title="Back"

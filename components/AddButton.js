@@ -1,8 +1,19 @@
 import React from "react";
 import { StyleSheet, Text, View, Pressable } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { addOneWordToList, defaultList } from "./listHelpers";
 
-export default function AddButton({ navigation }) {
+export default function AddButton(props) {
+  const handleAddToList = async (word) => {
+    // this function handles adding to list
+    // it should pull up a modal that allows users to select each list
+    // then add the word to that list
+    // allows a user to make a new list as well, that'll probably be its own component
+
+    // this is the mvp implementation i have at this moment
+    addOneWordToList(defaultList, word);
+  };
+
   const AppButton = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
       <Icon.Button
@@ -24,7 +35,7 @@ export default function AddButton({ navigation }) {
       <AppButton
         icon="plus"
         title="Add to My List"
-        onPress={() => navigation.navigate("HomeScreen")}
+        onPress={() => handleAddToList(props.word)}
       />
     </Pressable>
   );
