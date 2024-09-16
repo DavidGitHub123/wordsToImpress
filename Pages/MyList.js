@@ -93,6 +93,9 @@ export default function MyList({ navigation }) {
           opacity={0.95}
           style={style.page}
         >
+          <View>
+            <Text style={style.header}>My List</Text>
+          </View>
           <View style={style.donutContainer}>
             <Text style={style.donutText}>
               {masteredWordCount}/{listLength} mastered
@@ -158,6 +161,7 @@ const style = StyleSheet.create({
   donutText: {
     lineHeight: 200,
     verticalAlign: "middle",
+    color: "#fff",
     textAlign: "center",
   },
 
@@ -176,6 +180,7 @@ const style = StyleSheet.create({
     fontSize: 30,
     color: "#f0f8ff",
     fontWeight: "800",
+    paddingBottom: "2vh",
   },
 
   text: {
