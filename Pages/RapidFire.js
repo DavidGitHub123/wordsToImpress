@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -12,8 +12,12 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import HomeButton from "../components/HomeButton";
 import { NavButton, navStyle } from "../components/NavButton";
 import blue8 from "../assets/blue8.jpg";
+import RadioButton from "../components/RadioButton";
 
 export default function RapidFire({ navigation }) {
+  const [timing, setTiming] = useState(10);
+  const [isStarted, setIsStarted] = useState(false);
+
   const AppButton = ({ onPress, icon }) => (
     <SafeAreaView style={style.appButtonContainer}>
       <ScrollView>
@@ -59,6 +63,48 @@ export default function RapidFire({ navigation }) {
         </ImageBackground>
       </ScrollView>
     </SafeAreaView>
+  );
+
+  return (
+    <View>
+      {isStarted ? (
+        <Text>To do: implement this</Text>
+      ) : (
+        <GameSetUp
+          timing={timing}
+          setTiming={setTiming}
+          setIsStarted={setIsStarted}
+        />
+      )}
+    </View>
+  );
+}
+
+function GameSetUp(Props) {
+  const { timing, setTiming, setIsStarted } = Props;
+
+  const timingOptions = [1, 3, 5, 10];
+
+  const timingButtons = timingOptions.map((el, i) => (
+    <Pressable
+      style={style.timingButtonContainer}
+      key={i}
+      onPress={() => setTiming(el)}
+    >
+      <RadioButton selected={timing === el} />
+      <Text>{el} Seconds</Text>
+    </Pressable>
+  ));
+
+  return (
+    <View style={style.timingOptionsContainer}>
+      <Text>Select your speed:</Text>
+      <View>{timingButtons}</View>
+
+      <Pressable onPress={() => setIsStarted(true)}>
+        <Text>Start!</Text>
+      </Pressable>
+    </View>
   );
 }
 
@@ -112,5 +158,19 @@ const style = StyleSheet.create({
   appButtonContainer: {
     paddingVertical: 5,
     width: 250,
+  },
+
+  timingButtonContainer: {
+    display: "flex",
+    flexWrap: "nowrap",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  timingOptionsContainer: {
+    height: "20vh",
+    width: "30vw",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
