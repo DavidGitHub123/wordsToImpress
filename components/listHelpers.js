@@ -81,6 +81,18 @@ const addOneWordToList = async (name, word) => {
   }
 };
 
+const incrementMastery = async (name, word) => {
+  try {
+    const list = JSON.parse(await AsyncStorage.getItem(name));
+    const wordIndex = list.find((el) => el.word === word);
+    list[wordIndex].mastery = list[wordIndex].mastery + 1;
+    await AsyncStorage.setItem(name, JSON.stringify(list));
+    console.log(list);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
 const _resetDefaultList = async () => {
   try {
     await AsyncStorage.removeItem(defaultList);
@@ -98,5 +110,6 @@ export {
   getList,
   addOneWordToList,
   defaultList,
+  incrementMastery,
   _resetDefaultList,
 };

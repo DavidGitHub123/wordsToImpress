@@ -15,8 +15,9 @@ import { navStyle } from "../components/NavButton.js";
 import blue8 from "../assets/blue8.jpg";
 // import { useState } from 'react';
 // import RapicFireCard from '../components/RapidFireCard.js'
+import data from "../data";
 
-export default function RapidFire({ navigation }) {
+export default function RapidFireCards(Props, { navigation }) {
   const AppButton = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
       <Icon.Button
@@ -33,8 +34,27 @@ export default function RapidFire({ navigation }) {
     </View>
   );
 
-  // const [flaschard, setFlashcard] = useState(props);
+  const { words, front, cardIndex } = Props;
 
+  const getDef = () => data.find((el) => el.Word).Shortdef;
+
+  const Cards = words.map((el, i) => {
+    return {
+      front: (
+        <View key={i}>
+          <Text>{el.word}</Text>
+        </View>
+      ),
+      back: (
+        <View key={i}>
+          <Text>{getDef(el.word)}</Text>
+        </View>
+      ),
+    };
+  });
+
+  return front ? Cards[cardIndex].front : Cards[cardIndex].back;
+  /*
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
@@ -53,14 +73,16 @@ export default function RapidFire({ navigation }) {
 
           <Text style={style.wordList}>Their word list with checkbox</Text>
 
-          {/* Populate RapidFireCard.js one word/card at a time as the user clicks each card and reviews definition*/}
-          {/*
+          {/* Populate RapidFireCard.js one word/card at a time as the user clicks each card and reviews definition*/
+}
+{
+  /*
       <View>
         {selectedList.map(wordDefinition => {
           return <RapicFireCard wordDefinition={wordDefinition} key={wordDefinition.id} />
         })}
       </View>
-      */}
+      }
 
           <View style={style.buttons}>
             <Pressable style={navStyle.appButton}>
@@ -75,6 +97,7 @@ export default function RapidFire({ navigation }) {
       </ScrollView>
     </SafeAreaView>
   );
+  */
 }
 
 const style = StyleSheet.create({

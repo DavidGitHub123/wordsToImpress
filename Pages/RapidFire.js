@@ -13,7 +13,12 @@ import HomeButton from "../components/HomeButton";
 import { NavButton, navStyle } from "../components/NavButton";
 import blue8 from "../assets/blue8.jpg";
 import RadioButton from "../components/RadioButton";
-import { getList, defaultList } from "../components/listHelpers";
+import {
+  getList,
+  defaultList,
+  incrementMastery,
+} from "../components/listHelpers";
+import RapidFireCards from "./RapidFireCards";
 
 export default function RapidFire({ navigation }) {
   const [timing, setTiming] = useState(10);
@@ -97,18 +102,49 @@ function Game(Props) {
   const { timing, words } = Props;
 
   const [timeLeft, setTimeLeft] = useState(timing);
+  const [front, setFront] = useState(true);
+  const [cardIndex, setCardIndex] = useState(0);
+
+  const resetRound = () => {
+    setFront(true);
+    setCardIndex(cardIndex + 1);
+    setTimeLeft(timing);
+  };
 
   useEffect(() => {
     if (timeLeft === 0) {
-      console.log("GAME OVER");
+      resetRound();
     } else {
       setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
     }
   }, [timeLeft]);
 
+  const handleNextCard = () => {
+    if (words.length <= cardIndex + 1) {
+      // set nav back
+      console.log("end of list");
+      return;
+    }
+    incrementMastery(defaultList, words[cardIndex]);
+    resetRound();
+  };
+
+  const flipOrNextButton = front ? (
+    <Pressable onPress={() => setFront(false)}>
+      <Text>Flip!</Text>
+    </Pressable>
+  ) : (
+    <Pressable onPress={handleNextCard}>
+      <Text>Next Card!</Text>
+    </Pressable>
+  );
+
   return (
     <View>
+      <Text>Time left:</Text>
       <Text>{timeLeft}</Text>
+      <RapidFireCards words={words} front={front} cardIndex={cardIndex} />
+      {flipOrNextButton}
     </View>
   );
 }

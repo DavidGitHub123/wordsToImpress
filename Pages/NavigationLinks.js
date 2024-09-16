@@ -14,7 +14,6 @@ import ChallengeFriend from "../Pages/ChallengeFriend";
 import ConversationSearch from "../Pages/ConversationSearch";
 import RapidFire from "../Pages/RapidFire";
 import RapidFireCards from "../Pages/RapidFireCards";
-import RapidFire_MyList from "../Pages/RapidFire_MyList";
 import QuickMatch from "../Pages/QuickMatch";
 import StackIt from "../Pages/StackIt";
 import ScheduleQuizzes from "../Pages/ScheduleQuizzes";
@@ -122,11 +121,6 @@ export default function NavigationLinks() {
         name="RapidFire"
         component={RapidFire}
         options={{ title: "RapidFire" }}
-      />
-      <Stack.Screen
-        name="RapidFire_MyList"
-        component={RapidFire_MyList}
-        options={{ title: "RapidFire MyList" }}
       />
       <Stack.Screen
         name="RapidFireCards"
