@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -13,10 +13,23 @@ import HomeButton from "../components/HomeButton";
 import { NavButton, navStyle } from "../components/NavButton";
 import blue8 from "../assets/blue8.jpg";
 import RadioButton from "../components/RadioButton";
+import { getList, defaultList } from "../components/listHelpers";
 
 export default function RapidFire({ navigation }) {
   const [timing, setTiming] = useState(10);
   const [isStarted, setIsStarted] = useState(false);
+  const [words, setWords] = useState(null);
+
+  useEffect(() => {
+    async function getWords() {
+      const list = JSON.parse(await getList(defaultList));
+      console.log(list);
+      const leastMasteredWords = list.sort((a, b) => a.mastery - b.mastery);
+      const amountOfWords = 10;
+      setWords(leastMasteredWords.splice(0, amountOfWords));
+    }
+    getWords();
+  }, []);
 
   const AppButton = ({ onPress, icon }) => (
     <SafeAreaView style={style.appButtonContainer}>
@@ -68,7 +81,7 @@ export default function RapidFire({ navigation }) {
   return (
     <View>
       {isStarted ? (
-        <Text>To do: implement this</Text>
+        <Game timing={timing} words={words} />
       ) : (
         <GameSetUp
           timing={timing}
@@ -76,6 +89,26 @@ export default function RapidFire({ navigation }) {
           setIsStarted={setIsStarted}
         />
       )}
+    </View>
+  );
+}
+
+function Game(Props) {
+  const { timing, words } = Props;
+
+  const [timeLeft, setTimeLeft] = useState(timing);
+
+  useEffect(() => {
+    if (timeLeft === 0) {
+      console.log("GAME OVER");
+    } else {
+      setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+    }
+  }, [timeLeft]);
+
+  return (
+    <View>
+      <Text>{timeLeft}</Text>
     </View>
   );
 }
