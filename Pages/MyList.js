@@ -25,7 +25,6 @@ export default function MyList({ navigation }) {
 
   const makeMyListIfItDoesNotExist = async () => {
     if (!(await doesMyListExist())) {
-      console.log("^_^");
       await makeNewList(defaultList);
     }
   };
@@ -35,15 +34,9 @@ export default function MyList({ navigation }) {
   useEffect(() => {
     async function getAndParseList() {
       //TODO: move this to an init file that runs on boot
-      if (false) {
-        await removeList(defaultList);
-      }
       await makeMyListIfItDoesNotExist();
 
-      console.log(await getList(defaultList));
       const list = JSON.parse(await getList(defaultList));
-      console.log(list.length);
-      console.log(typeof list);
       if (list === null || list.length === 0) {
         return;
       }

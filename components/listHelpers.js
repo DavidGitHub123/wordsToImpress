@@ -5,19 +5,14 @@ const _listArrayName = "allLists";
 const defaultList = "My List";
 
 const wordMasteryFactory = (word) => {
-  return { word: word, mastery: 0 }
-}
-
+  return { word: word, mastery: 0 };
+};
 
 const makeNewList = async (name) => {
   try {
-    console.log("make new list");
-    console.log(name);
     // const isDuplicate = _checkForDuplicates(name);
 
     //if (isDuplicate) {
-    //console.log("goobert");
-    //return;
     // throw new Error("Name already exists");
     //}
 
@@ -32,8 +27,8 @@ const makeNewList = async (name) => {
   }
 };
 
-const _checkForDuplicates = async (name) =>
-  !(await getNamesOfLists()).includes((el) => el === name);
+//const _checkForDuplicates = async (name) =>
+// !(await getNamesOfLists()).includes((el) => el === name);
 
 const removeList = async (name) => {
   try {
@@ -41,7 +36,6 @@ const removeList = async (name) => {
 
     // remove list from _listArrayName
     const listNames = await getNamesOfLists();
-    console.log(listNames);
     if (listNames === null) {
       return;
     }
@@ -78,9 +72,8 @@ const getList = async (name) => {
 
 const addOneWordToList = async (name, word) => {
   try {
-    const wordMasteryObject = wordMasteryFactory(word)
+    const wordMasteryObject = wordMasteryFactory(word);
     const list = JSON.parse(await AsyncStorage.getItem(name));
-    console.log(list);
     list.push(wordMasteryObject);
     await AsyncStorage.setItem(name, JSON.stringify(list));
   } catch (e) {

@@ -11,12 +11,8 @@ export default function AddButton(props) {
     // allows a user to make a new list as well, that'll probably be its own component
 
     // this is the mvp implementation i have at this moment
-    console.log(word);
     addOneWordToList(defaultList, word);
   };
-  console.log(props);
-  console.log("---");
-  console.log(props.word);
 
   const AppButton = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
