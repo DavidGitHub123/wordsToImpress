@@ -9,7 +9,8 @@ import {
   ImageBackground,
 } from "react-native";
 import { NavButton } from "../components/NavButton";
-import { LearnButton } from "../components/LearnButton";
+import { AboutButton } from "../components/AboutButton";
+import { WordSituationButton } from "../components/WordSituationButton";
 import { MyProgressButton } from "../components/MyProgressButton";
 import circles from "../assets/circles.jpg";
 import logo from "../assets/logoborderradius.jpg";
@@ -39,14 +40,22 @@ export default function HomeScreen({ navigation }) {
                 title="MyProgress"
                 destination="MyList"
               />
-              <LearnButton
+              <AboutButton
                 navigation={navigation}
-                title="Learn"
+                title="About"
                 destination="System"
               />
             </View>
 
             <Seperator />
+
+            <View style={style.wordSituationHeader}>
+            <WordSituationButton
+                navigation={navigation}
+                title="Word Situations"
+                destination="WordSituations"
+              />
+            </View>
 
             <View style={style.header}>
               <View style={style.heroHeader}>
@@ -57,19 +66,21 @@ export default function HomeScreen({ navigation }) {
                 {/* <Image style={style.imageHeader} source={require('../assets/logo.jpg')} /> */}
               </View>
 
-              <View>
-                <Text style={style.subHead}>
-                  With an AI solution to master an impressive vocabulary!
-                </Text>
-                <NavButton
-                  navigation={navigation}
-                  title="My Vocab List"
-                  destination="MyList"
-                />
-              </View>
+
             </View>
 
             <Seperator />
+
+            <View style={style.secondSeperator}>
+                {/* <Text style={style.subHead}>
+                  With an AI solution to master an impressive vocabulary!
+                </Text> */}
+                <NavButton
+                  navigation={navigation}
+                  title="My List"
+                  destination="MyList"
+                />
+              </View>
 
             <View style={style.section}>
               <NavButton
@@ -89,19 +100,15 @@ export default function HomeScreen({ navigation }) {
               />
               <NavButton
                 navigation={navigation}
-                title="Word Situations"
-                destination="WordSituations"
+                title="Word of Day"
+                destination="WordOfDay"
               />
               <NavButton
                 navigation={navigation}
                 title="A-Z Words"
                 destination="AtoZButtons"
               />
-              <NavButton
-                navigation={navigation}
-                title="Word of Day"
-                destination="WordOfDay"
-              />
+
             </View>
           </View>
         </ImageBackground>
@@ -120,6 +127,14 @@ const style = StyleSheet.create({
   // },
 
   topHeader: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "row",
+    paddingHorizontal: 10,
+  },
+
+  wordSituationHeader: {
     flex: 1,
     alignItems: "center",
     justifyContent: "space-between",
@@ -170,6 +185,10 @@ const style = StyleSheet.create({
     paddingBottom: 20,
     textShadowColor: "#000",
     textShadowRadius: 5,
+  },
+
+  secondSeperator: {
+    paddingTop: 40,
   },
 
   section: {

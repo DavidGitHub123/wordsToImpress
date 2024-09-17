@@ -2,15 +2,20 @@ import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-function LearnButton({ navigation, title, destination, icon = "user" }) {
+function WordSituationButton({
+  navigation,
+  title,
+  destination,
+//   icon = "line-chart",
+}) {
   const AppButton = ({ onPress, icon, title }) => (
     <View style={navStyle.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor="transparent"
-        // borderRadius={10}
+        backgroundColor="#4682B4"
+        borderRadius={10}
         borderWidth={1}
-        borderColor="#fff"
+        borderColor='#fff'
         onPress={onPress}
         style={navStyle.appButton}
       >
@@ -22,7 +27,7 @@ function LearnButton({ navigation, title, destination, icon = "user" }) {
   return (
     <Pressable style={navStyle.appButton}>
       <AppButton
-        icon={icon}
+        // icon={icon}
         title={title}
         onPress={() =>
           navigation.navigate(destination, { selectedWord: title })
@@ -36,17 +41,18 @@ const navStyle = StyleSheet.create({
   appButton: {
     alignItems: "center",
     justifyContent: "center",
-    padding: 3,
+    width: 220,
   },
 
   appButtonText: {
-    fontSize: 16,
+    fontSize: 20,
     color: "#fff",
+      fontWeight: 'bold',
   },
 
   appButtonContainer: {
-    width: 150,
+    paddingVertical: 20,
   },
 });
 
-export { LearnButton, navStyle };
+export { WordSituationButton, navStyle };

@@ -7,7 +7,7 @@ export default function HomeButton({ navigation }) {
     <View style={style.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor="#FF5E0E"
+        // backgroundColor="#4682B4"
         onPress={onPress}
         style={style.appButton}
       >
@@ -46,7 +46,6 @@ const style = StyleSheet.create({
   },
 
   appButton: {
-    paddingHorizontal: 70,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -57,8 +56,11 @@ const style = StyleSheet.create({
   },
 
   appButtonContainer: {
-    width: 250,
-    paddingVertical: 10,
-    paddingHorizontal: 0,
+    width: 150,
+    // paddingVertical: 10,
+    // paddingHorizontal: 10,
+    // borderRadius: 20,
+    // borderWidth: 3,
+    // borderColor: "#BBC2CC"
   },
 });

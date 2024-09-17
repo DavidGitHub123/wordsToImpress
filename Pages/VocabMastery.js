@@ -41,11 +41,11 @@ export default function VocabMastery({ navigation }) {
           </View>
 
           <View style={style.section}>
-            <NavButton
+            {/* <NavButton
               navigation={navigation}
               title="StackIt"
               destination="StackIt"
-            />
+            /> */}
             <NavButton
               navigation={navigation}
               title="RapidFire"
@@ -64,11 +64,11 @@ export default function VocabMastery({ navigation }) {
               title="Schedule Quizzes"
               destination="ScheduleQuizzes"
             />
-            <NavButton
+            {/* <NavButton
               navigation={navigation}
               title="Challenge A Friend"
               destination="ChallengeFriend"
-            />
+            /> */}
           </View>
 
           <View>
@@ -84,9 +84,8 @@ const style = StyleSheet.create({
   page: {
     flex: 1,
     justifyContent: "center",
-    // backgroundColor: '#000',
-    paddingVertical: 30,
-    paddingBottom: 400,
+    paddingTop: 50,
+    paddingBottom: 600,
   },
 
   // image: {

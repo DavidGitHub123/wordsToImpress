@@ -8,6 +8,7 @@ import {
   ImageBackground,
 } from "react-native";
 // import Icon from 'react-native-vector-icons/FontAwesome';
+// import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import blue7 from "../assets/blue7.jpg";
@@ -40,28 +41,33 @@ export default function BuildMyList({ navigation }) {
           resizeMode="cover"
           style={style.page}
         >
-          <View>
+          
+        {/* <LinearGradient
+          colors={["#335C81", "#6699FF"]}
+          start={{ x: 0.5, y: 0.25 }}
+          end={{ x: 0.5, y: 0.25 }}
+          opacity={1.0}
+          style={style.page}
+        > */}
+
+          <View style={style.screen}>
             <Text style={style.header}>Build My List</Text>
+            <Text style={style.text}>
+              Copy emails, proposals, letters, etc. and let our
+              tools analyze your communication patterns to suggest new
+              vocabulary words that correspond to your speaking and writing style.
+            </Text>
           </View>
 
-          <View style={style.section}>
-            <Text style={style.subHead}>From Your Writing</Text>
-            <Text style={style.text}>
-              Copy text from your emails, proposals, letters, etc. and let our
-              AI tools analyze your communication patterns to suggest new
-              vocabulary words that correspond to your speaking style and
-              context.
-            </Text>
-            <View style={style.buttonSpace}>
+          <View style={style.buttonSpace}>
               <NavButton
                 navigation={navigation}
                 title="Text Search"
                 destination="TextSearch"
               />
             </View>
-          </View>
 
-          <View style={style.section}>
+          {/* <View style={style.section}>
             <Text style={style.subHead}>From Your Speech</Text>
             <Text style={style.text}>
               Record your conversations and let our AI tools suggest new
@@ -75,11 +81,15 @@ export default function BuildMyList({ navigation }) {
                 destination="ConversationSearch"
               />
             </View>
-          </View>
+          </View> */}
 
           <View>
             <HomeButton navigation={navigation} />
           </View>
+
+   
+          {/* </LinearGradient> */}
+
         </ImageBackground>
       </ScrollView>
     </SafeAreaView>
@@ -88,41 +98,42 @@ export default function BuildMyList({ navigation }) {
 
 const style = StyleSheet.create({
   page: {
-    // backgroundColor: '#000',
-    paddingTop: 40,
-    paddingBottom: 200,
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingBottom: 400,
   },
 
-  // image: {
-  //   opacity: .5,
+  // screen: {
+  //   opacity: .7,
+  //   backgroundColor: "#4682B4",
+  //   marginBottom: 50,
+  //   paddingBottom: 20,
   // },
 
   header: {
     fontSize: 40,
-    color: "#f0f8ff",
+    color: "#fff",
     fontWeight: "800",
-    paddingBottom: 10,
+    paddingTop: 60,
     textAlign: "center",
   },
 
-  subHead: {
-    fontSize: 30,
-    color: "#FF8C00",
-    fontWeight: "600",
-    paddingVertical: 20,
-  },
-
-  section: {
-    paddingVertical: 10,
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  // subHead: {
+  //   fontSize: 30,
+  //   color: "#FF8C00",
+  //   fontWeight: "600",
+  //   paddingVertical: 20,
+  // },
 
   text: {
-    fontSize: 18,
-    color: "#f0f8ff",
-    paddingHorizontal: 40,
+    fontSize: 22,
+    color: "#fff",
+    fontWeight: "600",
+    paddingTop: 20,
+    paddingBottom: 20,
+    marginLeft: 40,
+    marginRight: 30,
   },
 
   buttonSpace: {

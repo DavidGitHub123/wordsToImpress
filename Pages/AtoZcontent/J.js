@@ -18,8 +18,8 @@ export default function JWords({ navigation }) {
     <View style={style.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor="#FF8C00"
-        borderRadius={40}
+        backgroundColor="#4682B4"
+        borderRadius={20}
         borderWidth={3}
         borderColor="#BBC2CC"
         onPress={onPress}
@@ -33,14 +33,24 @@ export default function JWords({ navigation }) {
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
-        <LinearGradient
-          colors={["#4682B4", "#6699CC"]}
-          start={[0.25, 0.25]}
-          opacity={0.95}
+      <LinearGradient
+          colors={["#335C81", "#6699FF"]}
+          start={{ x: 0.5, y: 0.25 }}
+          end={{ x: 0.5, y: 0.25 }}
+          opacity={1.0}
         >
           <View style={style.page}>
             <View>
               <Text style={style.header}>J Words</Text>
+            </View>
+
+            <View>
+              <Pressable style={navStyle.appButton}>
+                <AppButton
+                  title="Back"
+                  onPress={() => navigation.goBack()}
+                ></AppButton>
+              </Pressable>
             </View>
 
             <View>
@@ -92,12 +102,6 @@ export default function JWords({ navigation }) {
             </View>
 
             <View style={style.bottomButtons}>
-              <Pressable style={navStyle.appButton}>
-                <AppButton
-                  title="Back"
-                  onPress={() => navigation.goBack()}
-                ></AppButton>
-              </Pressable>
               <HomeButton navigation={navigation} />
             </View>
           </View>
@@ -128,19 +132,18 @@ const style = StyleSheet.create({
   },
 
   appButton: {
-    paddingHorizontal: 70,
     alignItems: "center",
     justifyContent: "center",
   },
 
   appButtonText: {
-    fontSize: 20,
+    fontSize: 18,
     color: "#fff",
   },
 
   appButtonContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 0,
-    width: 300,
+    width: 120,
+    paddingTop: 10,
+    paddingBottom: 40,
   },
 });

@@ -9,9 +9,10 @@ import {
   ImageBackground,
 } from "react-native";
 import { useState } from "react";
+// import { LinearGradient } from "expo-linear-gradient";
 import Icon from "react-native-vector-icons/FontAwesome";
 import HomeButton from "../components/HomeButton";
-import blue10 from "../assets/blue10.jpg";
+import blue13 from "../assets/blue13.jpg";
 
 const AppButton = ({ onPress, icon, title }) => (
   <View style={style.appButtonContainer}>
@@ -47,10 +48,20 @@ export default function System({ navigation }) {
       <View style={style.component}>
         <Text style={style.componentHead}>About</Text>
         <Text style={style.text}>
-          To many people, the language you use defines you as a person. Whether
-          you are a young professional, student studying for the SATs, seasoned
-          business profession, or learning English as a second language, The
-          Words to Impress will help you quickly and efficiently develop an
+          Your language defines you - whether
+          a professional, student studying for the SATs, 
+          or learning English as a second language. The
+          Words to Impress App quickly and efficiently helps you develop an
+          impressive vocabulary.
+        </Text>
+        <Text style={style.text}>
+          The
+          Words to Impress App quickly and efficiently helps you develop an
+          impressive vocabulary.
+        </Text>
+        <Text style={style.text}>
+          The
+          Words to Impress App quickly and efficiently helps you develop an
           impressive vocabulary.
         </Text>
         {hideButton}
@@ -63,11 +74,13 @@ export default function System({ navigation }) {
       <View style={style.component}>
         <Text style={style.componentHead}>Rule of 50</Text>
         <Text style={style.text}>
-          We each have a vocabulary unique to us. Most successful people have
-          mastered 50 to 100 “big” vocabulary words that they consistently
-          integrate in their speech and writing. The Words to Impress app helps
+          We each have a unique vocabulary. Most successful people have
+          mastered 50 to 100 “big” vocabulary words.
+        </Text>
+        <Text style={style.text}>
+          The Words to Impress App helps
           you build a list unique to you. Once your list is complete, study
-          those words – making them your own.
+          those words, making them your own.
         </Text>
         {hideButton}
       </View>
@@ -77,12 +90,15 @@ export default function System({ navigation }) {
   const Help = () => {
     return (
       <View style={style.component}>
-        <Text style={style.componentHead}>AI Help</Text>
+        <Text style={style.componentHead}>Targeted Learning</Text>
         <Text style={style.text}>
           Unlike other vocabulary-building systems that present you with
-          hundreds of words to learn, this app helps you build the right list
-          for you – and master these words quickly. This AI tool anlyzes your
-          writing and speech for common words unique to you. Then provides you
+          hundreds of words to learn, this App helps you build the right list
+          for you.
+        </Text>
+        <Text style={style.text}>
+          The Build My List tool anlyzes your
+          writing for common words unique to you. Then provides you
           with a list of upgraded words based on concepts and ideas familiar to
           you.
         </Text>
@@ -96,10 +112,12 @@ export default function System({ navigation }) {
       <View style={style.component}>
         <Text style={style.componentHead}>Word Situations</Text>
         <Text style={style.text}>
-          Imagine yourself in a high-stakes situation and you don&#39t know
-          which word to use. This feature identifies words unique to politics,
-          business, job interviews, etc. from 10 different categories. When in a
-          particular situation, look up that situation and be ready with a word
+          Imagine yourself in an important situation. What's the best thing to say? 
+        </Text>
+        <Text style={style.text}>
+          Word Situations identifies words unique to politics,
+          business, job interviews, etc. from 10 different categories. 
+          Look up words quick for particular situations and be ready
           to impress.
         </Text>
         {hideButton}
@@ -112,11 +130,12 @@ export default function System({ navigation }) {
       <View style={style.component}>
         <Text style={style.componentHead}>Learning Reinforcement</Text>
         <Text style={style.text}>
-          The Vocabulary Mastery section provides games and tests to help you
-          learn your list of words and reinforce them to make them part of your
-          everyday speech and writing. The app features word of the day pop-ups
-          to discover new words. Or schedule daily quizzes and connect to
-          friends to test each other.
+          The Vocabulary Mastery section provides tools to help you
+          learn your list of words quickly.
+        </Text>
+        <Text style={style.text}>
+          Then reinforce your list of words to make them part of your
+          everyday speech and writing.
         </Text>
         {hideButton}
       </View>
@@ -127,25 +146,32 @@ export default function System({ navigation }) {
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
         <ImageBackground
-          source={blue10}
+          source={blue13}
           imageStyle={style.image}
           resizeMode="cover"
           style={style.page}
         >
+        {/* <LinearGradient
+          colors={["#335C81", "#6699FF"]}
+          start={{ x: 0.5, y: 0.25 }}
+          end={{ x: 0.5, y: 0.25 }}
+          opacity={1.0}
+          style={style.page}
+        > */}
           <View style={style.screen}>
-            <Text style={style.subHead}>
-              Master these words to increase your powers of persuasion and
-              comprehension.
+            <Text style={style.subHead1}>
+              Increase your powers of persuasion and
+              comprehension
             </Text>
-            <Text style={style.text}>
-              The Words to Impress app includes the most impressive words in the
+            <Text style={style.subHead2}>
+              The Words to Impress App includes the most impressive words in the
               English language as identified by the author of the best-selling
-              books in The Words You Should Know series.
+              The Words You Should Know series of books.
             </Text>
-            <Text style={style.text}>
+            {/* <Text style={style.text}>
               Titles include The Words You Should Know, The Words You Should
               Know to Sound Smart, and more!
-            </Text>
+            </Text> */}
           </View>
 
           {selectedWord ? (
@@ -172,7 +198,7 @@ export default function System({ navigation }) {
                 <Pressable style={style.appButton}>
                   <AppButton
                     icon="sign-in"
-                    title="AI Help"
+                    title="Targeted Learning"
                     onPress={() => setSelectedWord(<Help />)}
                   />
                 </Pressable>
@@ -188,7 +214,7 @@ export default function System({ navigation }) {
                 <Pressable style={style.appButton}>
                   <AppButton
                     icon="sign-in"
-                    title="Learning Reinforcement"
+                    title="Reinforcement"
                     onPress={() => setSelectedWord(<Reinforcement />)}
                   />
                 </Pressable>
@@ -199,6 +225,7 @@ export default function System({ navigation }) {
               </View>
             </View>
           )}
+          {/* </LinearGradient> */}
         </ImageBackground>
       </ScrollView>
     </SafeAreaView>
@@ -208,13 +235,14 @@ export default function System({ navigation }) {
 const style = StyleSheet.create({
   page: {
     flex: 1,
+    alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#000",
-    paddingBottom: 50,
+    paddingTop: 50,
+    paddingBottom: 300,
   },
 
   image: {
-    opacity: 0.5,
+    opacity: 0.8,
   },
 
   header: {
@@ -225,17 +253,26 @@ const style = StyleSheet.create({
   },
 
   screen: {
-    opacity: 0.7,
+    opacity: 0.6,
     backgroundColor: "black",
-    // padding: 20,
     marginBottom: 30,
   },
 
-  subHead: {
-    fontSize: 25,
-    color: "#f0f8ff",
+  subHead1: {
+    fontSize: 24,
+    color: "#fff",
     fontWeight: "600",
-    paddingTop: 40,
+    paddingTop: 50,
+    paddingBottom: 10,
+    paddingHorizontal: 30,
+    number: 10
+  },
+
+  subHead2: {
+    fontSize: 20,
+    color: "#fff",
+    fontWeight: "600",
+    paddingTop: 20,
     paddingBottom: 20,
     paddingHorizontal: 30,
   },
