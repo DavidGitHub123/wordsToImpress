@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -28,7 +28,6 @@ export default function RapidFire({ navigation }) {
   useEffect(() => {
     async function getWords() {
       const list = JSON.parse(await getList(defaultList));
-      console.log(list);
       const leastMasteredWords = list.sort((a, b) => a.mastery - b.mastery);
       const amountOfWords = 10;
       setWords(leastMasteredWords.splice(0, amountOfWords));
@@ -104,6 +103,7 @@ function Game(Props) {
   const [timeLeft, setTimeLeft] = useState(timing);
   const [front, setFront] = useState(true);
   const [cardIndex, setCardIndex] = useState(0);
+  const timerID = useRef(-1);
 
   const resetRound = () => {
     setFront(true);
@@ -115,17 +115,19 @@ function Game(Props) {
     if (timeLeft === 0) {
       resetRound();
     } else {
-      setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+      clearTimeout(timerID.current);
+      timerID.current = setTimeout(() => {
+        setTimeLeft(timeLeft - 1);
+      }, 1000);
     }
   }, [timeLeft]);
 
   const handleNextCard = () => {
     if (words.length <= cardIndex + 1) {
-      // set nav back
-      console.log("end of list");
+      setCardIndex(0);
       return;
     }
-    incrementMastery(defaultList, words[cardIndex]);
+    incrementMastery(defaultList, words[cardIndex].word);
     resetRound();
   };
 

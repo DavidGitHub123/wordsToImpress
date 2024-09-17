@@ -10,37 +10,22 @@ const wordMasteryFactory = (word) => {
 
 const makeNewList = async (name) => {
   try {
-    // const isDuplicate = _checkForDuplicates(name);
-
-    //if (isDuplicate) {
-    // throw new Error("Name already exists");
-    //}
+    if (_checkForDuplicates(name)) {
+      throw new Error("Name already exists");
+    }
 
     await AsyncStorage.setItem(name, JSON.stringify([]));
-
-    // add new name to _listArrayName
-    const listNames = await getNamesOfLists();
-    listNames.push(name);
-    await AsyncStorage.setItem(_listArrayName, JSON.stringify(listNames));
   } catch (e) {
     console.error(e);
   }
 };
 
-//const _checkForDuplicates = async (name) =>
-// !(await getNamesOfLists()).includes((el) => el === name);
+const _checkForDuplicates = async (name) =>
+  !(await getNamesOfLists()).includes((el) => el === name);
 
 const removeList = async (name) => {
   try {
     await AsyncStorage.removeItem(name);
-
-    // remove list from _listArrayName
-    const listNames = await getNamesOfLists();
-    if (listNames === null) {
-      return;
-    }
-    const filteredNames = listNames.filter((el) => el !== name);
-    await AsyncStorage.setItem(_listArrayName, JSON.stringify(filteredNames));
   } catch (e) {
     console.error(e);
   }
@@ -48,7 +33,7 @@ const removeList = async (name) => {
 
 const updateList = async (name, data) => {
   try {
-    await AsyncStorage.setItem(name, data);
+    await AsyncStorage.setItem(name, JSON.stringify(data));
   } catch (e) {
     console.error(e);
   }
@@ -56,7 +41,7 @@ const updateList = async (name, data) => {
 
 const getNamesOfLists = async () => {
   try {
-    return await AsyncStorage.getItem(_listArrayName);
+    return await AsyncStorage.getAllKeys();
   } catch (e) {
     console.error(e);
   }
@@ -84,10 +69,9 @@ const addOneWordToList = async (name, word) => {
 const incrementMastery = async (name, word) => {
   try {
     const list = JSON.parse(await AsyncStorage.getItem(name));
-    const wordIndex = list.find((el) => el.word === word);
+    const wordIndex = list.findIndex((el) => el.word === word);
     list[wordIndex].mastery = list[wordIndex].mastery + 1;
     await AsyncStorage.setItem(name, JSON.stringify(list));
-    console.log(list);
   } catch (e) {
     console.error(e);
   }
