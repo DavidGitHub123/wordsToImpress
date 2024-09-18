@@ -80,12 +80,12 @@ export default function WordOfDay({ navigation }) {
           {/* <ListenButton word={wordData.Word}/> */}
           <ListenButton audio={selectedElement.Audio} />
           <AddButton />
-          <Pressable style={navStyle.appButton}>
+          {/* <Pressable style={navStyle.appButton}>
             <AppButton
               title="Back"
               onPress={() => navigation.goBack()}
             ></AppButton>
-          </Pressable>
+          </Pressable> */}
           <HomeButton navigation={navigation} />
         </View>
       </View>

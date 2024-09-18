@@ -33,7 +33,7 @@ export default function AtoZButtons({ navigation }) {
           colors={["#335C81", "#6699FF"]}
           start={{ x: 0.5, y: 0.25 }}
           end={{ x: 0.5, y: 0.25 }}
-          opacity={0.95}
+          opacity={1.0}
           style={style.page}
         >
           <View>

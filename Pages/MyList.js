@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, ImageBackground } from "react-native";
 // import Icon from 'react-native-vector-icons/FontAwesome';
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import { NavButtonWord } from "../components/NavButtonWord";
-import { LinearGradient } from "expo-linear-gradient";
+// import { LinearGradient } from "expo-linear-gradient";
+import blue14 from "../assets/blue14.jpg";
 import {
   defaultList,
   getList,
@@ -12,7 +13,7 @@ import {
   removeList,
 } from "../components/listHelpers";
 import PieChart from "react-native-pie-chart";
-// import { onSnapshot } from "firebase/firestore" -- firebase database
+
 
 export default function MyList({ navigation }) {
   const [masteredWordCount, setMasteredWordCount] = useState(0);
@@ -78,14 +79,14 @@ export default function MyList({ navigation }) {
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
-        {/* <ImageBackground source={blue3} imageStyle={style.image} resizeMode="cover" style={style.page}> */}
-        <LinearGradient
-          colors={["#335C81", "#6699FF"]}
-          start={{ x: 0.5, y: 0.25 }}
-          end={{ x: 0.5, y: 0.25 }}
-          opacity={0.95}
+        <ImageBackground source={blue14} imageStyle={style.image} resizeMode="cover" style={style.page}>
+        {/* <LinearGradient
+          colors={["#6699FF", "#335C81"]}
+          start={{ x: .75, y: 0 }}
+          end={{ x: 0, y: 0 }}
+          opacity={.8}
           style={style.page}
-        >
+        > */}
           <View>
             <Text style={style.header}>My List</Text>
           </View>
@@ -127,8 +128,8 @@ export default function MyList({ navigation }) {
             <HomeButton navigation={navigation} />
           </View>
 
-          {/* </ImageBackground> */}
-        </LinearGradient>
+          </ImageBackground>
+        {/* </LinearGradient> */}
       </ScrollView>
     </SafeAreaView>
   );
@@ -139,7 +140,6 @@ const style = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: 50,
     paddingBottom: 300,
   },
 
@@ -164,10 +164,10 @@ const style = StyleSheet.create({
     position: "relative",
   },
 
-  image: {
-    width: "100%",
-    height: "100%",
-  },
+  // image: {
+  //   width: "100%",
+  //   height: "100%",
+  // },
 
   header: {
     fontSize: 30,

@@ -19,12 +19,12 @@ export default function PreBuiltListNew({ navigation }) {
           <View>
             <Text style={style.header}>Pre-Built List</Text>
             <Text style={style.subHead}>
-              We&#39ve built you a list of 50 words. Add these words to create a
-              quick starter list and begin learning today!
+              We've built you a list of 50 words. Add these words to create a
+              quick starter list and begin learning.
             </Text>
             <Text style={style.subHead}>
-              Or use the AI Word Search or AI Conversation Search to analyze
-              your communications patterns to generate your learning list.
+              Or use the Text Search from Build My List to analyze
+              your communications patterns to generate your list.
             </Text>
           </View>
 
