@@ -85,7 +85,7 @@ export default function RapidFire({ navigation }) {
   return (
     <View>
       {isStarted ? (
-        <Game timing={timing} words={words} />
+        <Game navigation={navigation} timing={timing} words={words} />
       ) : (
         <GameSetUp
           timing={timing}
@@ -98,7 +98,7 @@ export default function RapidFire({ navigation }) {
 }
 
 function Game(Props) {
-  const { timing, words } = Props;
+  const { timing, words, navigation } = Props;
 
   const [timeLeft, setTimeLeft] = useState(timing);
   const [front, setFront] = useState(true);
@@ -125,7 +125,8 @@ function Game(Props) {
   const handleNextCard = () => {
     if (words.length <= cardIndex + 1) {
       setCardIndex(0);
-      return;
+
+      navigation.navigate("MyList");
     }
     incrementMastery(defaultList, words[cardIndex].word);
     resetRound();
