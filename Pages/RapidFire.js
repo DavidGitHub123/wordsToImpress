@@ -105,7 +105,16 @@ function Game(Props) {
   const [cardIndex, setCardIndex] = useState(0);
   const timerID = useRef(-1);
 
+  const exitGame = () => {
+    setCardIndex(0);
+    navigation.navigate("MyList");
+  };
+
   const resetRound = () => {
+    if (words.length <= cardIndex + 1) {
+      exitGame();
+      return;
+    }
     setFront(true);
     setCardIndex(cardIndex + 1);
     setTimeLeft(timing);
@@ -124,9 +133,8 @@ function Game(Props) {
 
   const handleNextCard = () => {
     if (words.length <= cardIndex + 1) {
-      setCardIndex(0);
-
-      navigation.navigate("MyList");
+      exitGame();
+      return;
     }
     incrementMastery(defaultList, words[cardIndex].word);
     resetRound();
