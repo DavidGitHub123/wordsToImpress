@@ -23,7 +23,7 @@ export default async function init() {
     if (_RESET_DEV_LIST) {
       await _resetDefaultList();
 
-      for (const wordData of data.slice(0, 4)) {
+      for (const wordData of data.slice(0, 50)) {
         await addOneWordToList(defaultList, wordData.Word);
       }
     }
