@@ -1,9 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View, Pressable } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-// import { Audio } from 'expo-av';
+import { Audio } from "expo-av";
 import { useState, useEffect } from "react";
-// import data from '../data.js';
 
 export default function ListenButton({ audio }) {
   const AppButton = ({ onPress, icon, title }) => (
@@ -22,30 +21,19 @@ export default function ListenButton({ audio }) {
     </View>
   );
 
-  // const { audio } = Props;
-  // console.log(audio)
-
-  const [sound, setSound] = useState([]);
+  const [sound, setSound] = useState();
 
   async function playSound() {
-    console.log("Loading Sound");
-    console.log("audio:", audio);
-    console.log(typeof audio);
-    // const { sound } = await Audio.Sound.createAsync( {audio} )
-    // const { sound } = await Audio.Sound.createAsync(require(audio))
-    // const { sound } = await Audio.Sound.createAsync(require( {Audio} ))
+    const { sound } = await Audio.Sound.createAsync(audio);
     setSound(sound);
-
-    console.log("Playing Sound");
     await sound.playAsync();
   }
 
   useEffect(() => {
     return sound
       ? () => {
-          console.log("Unloading Sound");
-          // sound.unloadAsync();
-        }
+        sound.unloadAsync();
+      }
       : undefined;
   }, [sound]);
 
