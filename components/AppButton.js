@@ -1,8 +1,13 @@
 import React from "react";
-import { Icon, StyleSheet, Text, View } from "react-natvie";
+import { StyleSheet, Text, View } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 export default function AppButton(Props) {
   const { onPress, icon, title, backgroundColor, borderColor } = Props;
+
+  console.log(icon);
+  console.log(backgroundColor);
+
   return (
     <View style={style.appButtonContainer}>
       <Icon.Button

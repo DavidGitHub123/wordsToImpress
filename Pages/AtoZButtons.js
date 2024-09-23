@@ -1,34 +1,13 @@
-import React from "react"
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
-// import Icon from "react-native-vector-icons/FontAwesome";
+import React from "react";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function AtoZButtons({ navigation }) {
- /* const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor={backgroundColor}
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  ); */
-
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
-        {/* <ImageBackground source={blue6} imageStyle={style.image} resizeMode="cover" style={style.page}> */}
         <LinearGradient
           colors={["#335C81", "#6699FF"]}
           start={{ x: 0.5, y: 0.25 }}

@@ -9,13 +9,13 @@ import {
   Pressable,
 } from "react-native";
 import data from "../data.js";
-import Icon from "react-native-vector-icons/FontAwesome";
 import HomeButton from "../components/HomeButton";
 import ListenButton from "../components/ListenButton";
 import AddButton from "../components/AddButton";
 import { useRoute } from "@react-navigation/native";
 import { navStyle } from "../components/NavButton.js";
 import backgrounds from "../backgrounds.js";
+import AppButton from "../components/AppButton.js";
 
 export default function Word({ navigation }) {
   const route = useRoute();
@@ -23,22 +23,6 @@ export default function Word({ navigation }) {
 
   const randomBackgroundIndex = Math.floor(Math.random() * backgrounds.length);
   const backgroundImage = backgrounds[randomBackgroundIndex];
-
-  const AppButton = ({ onPress, icon, title }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor="#FF8C00"
-        borderRadius={40}
-        borderWidth={3}
-        borderColor="#BBC2CC"
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
 
   function populate(selectedWord) {
     const wordData = data.find((el) => el.Word === selectedWord);

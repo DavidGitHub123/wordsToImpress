@@ -6,29 +6,11 @@ import {
   Text,
   View,
   Pressable,
-  ImageBackground,
 } from "react-native";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import Icon from "react-native-vector-icons/FontAwesome";
 import HomeButton from "../components/HomeButton";
-import blue13 from "../assets/blue13.jpg";
-
-const AppButton = ({ onPress, icon, title }) => (
-  <View style={style.appButtonContainer}>
-    <Icon.Button
-      name={icon}
-      backgroundColor="#FF8C00"
-      borderRadius={40}
-      borderWidth={3}
-      borderColor="#BBC2CC"
-      onPress={onPress}
-      style={style.appButton}
-    >
-      <Text style={style.appButtonText}>{title}</Text>
-    </Icon.Button>
-  </View>
-);
+import AppButton from "../components/AppButton";
 
 export default function System({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -48,13 +30,11 @@ export default function System({ navigation }) {
       <View style={style.component}>
         <Text style={style.componentHead}>About</Text>
         <Text style={style.text}>
-          Your language defines you - whether
-          a professional, student studying for the SATs, 
-          or learning English as a second language.
+          Your language defines you - whether a professional, student studying
+          for the SATs, or learning English as a second language.
         </Text>
         <Text style={style.text}>
-          The
-          Words to Impress App quickly and efficiently helps you develop an
+          The Words to Impress App quickly and efficiently helps you develop an
           impressive vocabulary.
         </Text>
         {hideButton}
@@ -67,13 +47,12 @@ export default function System({ navigation }) {
       <View style={style.component}>
         <Text style={style.componentHead}>Rule of 50</Text>
         <Text style={style.text}>
-          We each have a unique vocabulary. Most successful people have
-          mastered 50 to 100 “big” vocabulary words.
+          We each have a unique vocabulary. Most successful people have mastered
+          50 to 100 “big” vocabulary words.
         </Text>
         <Text style={style.text}>
-          The Words to Impress App helps
-          you build a list unique to you. Once your list is complete, study
-          those words, making them your own.
+          The Words to Impress App helps you build a list unique to you. Once
+          your list is complete, study those words, making them your own.
         </Text>
         {hideButton}
       </View>
@@ -90,9 +69,9 @@ export default function System({ navigation }) {
           for you.
         </Text>
         <Text style={style.text}>
-          The Build My List tool anlyzes your
-          writing for common words unique to you. Then provides you
-          with a list of upgraded words based on familiar concepts and ideas.
+          The Build My List tool anlyzes your writing for common words unique to
+          you. Then provides you with a list of upgraded words based on familiar
+          concepts and ideas.
         </Text>
         {hideButton}
       </View>
@@ -104,13 +83,12 @@ export default function System({ navigation }) {
       <View style={style.component}>
         <Text style={style.componentHead}>Word Situations</Text>
         <Text style={style.text}>
-          Imagine yourself in an important situation. What do you say? 
+          Imagine yourself in an important situation. What do you say?
         </Text>
         <Text style={style.text}>
-          Word Situations identifies words unique to politics,
-          business, job interviews, etc. from 10 different categories. 
-          Look up words quick for particular situations and be ready
-          to impress.
+          Word Situations identifies words unique to politics, business, job
+          interviews, etc. from 10 different categories. Look up words quick for
+          particular situations and be ready to impress.
         </Text>
         {hideButton}
       </View>
@@ -126,8 +104,8 @@ export default function System({ navigation }) {
           learn your list of words quickly.
         </Text>
         <Text style={style.text}>
-          Then reinforce your list of words to make them part of your
-          everyday speech and writing.
+          Then reinforce your list of words to make them part of your everyday
+          speech and writing.
         </Text>
         {hideButton}
       </View>
@@ -152,8 +130,7 @@ export default function System({ navigation }) {
         >
           <View style={style.screen}>
             <Text style={style.subHead1}>
-              Increase your powers of persuasion and
-              comprehension
+              Increase your powers of persuasion and comprehension
             </Text>
             <Text style={style.subHead2}>
               The Words to Impress App includes the most impressive words in the
@@ -217,7 +194,7 @@ export default function System({ navigation }) {
               </View>
             </View>
           )}
-          </LinearGradient>
+        </LinearGradient>
         {/* </ImageBackground> */}
       </ScrollView>
     </SafeAreaView>
@@ -258,7 +235,7 @@ const style = StyleSheet.create({
     paddingTop: 50,
     paddingBottom: 10,
     paddingHorizontal: 30,
-    number: 10
+    number: 10,
   },
 
   subHead2: {

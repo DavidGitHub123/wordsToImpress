@@ -1,6 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View, Pressable } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import AppButton from "./AppButton";
+import { StyleSheet, Pressable } from "react-native";
 import { addOneWordToList, defaultList } from "./listHelpers";
 
 export default function AddButton(props) {
@@ -13,22 +13,6 @@ export default function AddButton(props) {
     // this is the mvp implementation i have at this moment
     addOneWordToList(defaultList, word);
   };
-
-  const AppButton = ({ onPress, icon, title }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor="#FF8C00"
-        borderRadius={40}
-        borderWidth={3}
-        borderColor="#BBC2CC"
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
 
   return (
     <Pressable style={style.appButton}>

@@ -7,26 +7,11 @@ import {
   View,
   ImageBackground,
 } from "react-native";
-// import Icon from 'react-native-vector-icons/FontAwesome';
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import blue4 from "../assets/blue4.jpg";
 
 export default function WordSituations({ navigation }) {
-  /*
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor={backgroundColor}
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-  */
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>

@@ -5,36 +5,17 @@ import {
   StyleSheet,
   Text,
   View,
-  Pressable,
   ImageBackground,
 } from "react-native";
 import data from "../data.js";
-import Icon from "react-native-vector-icons/FontAwesome";
 import HomeButton from "../components/HomeButton";
 import ListenButton from "../components/ListenButton";
 import AddButton from "../components/AddButton";
-import { navStyle } from "../components/NavButton.js";
 import backgrounds from "../backgrounds.js";
 
 export default function WordOfDay({ navigation }) {
   const randomBackgroundIndex = Math.floor(Math.random() * backgrounds.length);
   const backgroundImage = backgrounds[randomBackgroundIndex];
-
-  const AppButton = ({ onPress, icon, title }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor="#FF8C00"
-        borderRadius={40}
-        borderWidth={3}
-        borderColor="#BBC2CC"
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
 
   function GetWordOfTheDay() {
     const randomIndex = Math.floor(Math.random() * data.length);
@@ -77,15 +58,8 @@ export default function WordOfDay({ navigation }) {
         </View>
 
         <View style={style.buttons}>
-          {/* <ListenButton word={wordData.Word}/> */}
           <ListenButton audio={selectedElement.Audio} />
           <AddButton />
-          {/* <Pressable style={navStyle.appButton}>
-            <AppButton
-              title="Back"
-              onPress={() => navigation.goBack()}
-            ></AppButton>
-          </Pressable> */}
           <HomeButton navigation={navigation} />
         </View>
       </View>

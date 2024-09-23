@@ -8,31 +8,13 @@ import {
   View,
   Pressable,
 } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import { navStyle } from "../components/NavButton.js";
 import challengeafriend from "../assets/challengeafriend.jpg";
+import AppButton from "../components/AppButton";
 
 export default function ChallengeFriend({ navigation }) {
-  const AppButton = ({ onPress, icon, title }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor="#FF8C00"
-        borderRadius={40}
-        borderWidth={3}
-        borderColor="#BBC2CC"
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-
-  // const image = source = require('../assets/Backgrounds/challengeafriend.jpg')
-
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
@@ -50,17 +32,6 @@ export default function ChallengeFriend({ navigation }) {
               challenge.
             </Text>
           </View>
-
-          {/* Challenge Friend by sending 10 word multiple choice quiz via text/Same quiz user is working on */}
-          {/* Words come from user's My List/generated randomly */}
-          {/* Give user ability to create a 10 word quiz from their My List */}
-          {/* Form to collect name and phone number */}
-          {/* Click button that generates random quiz for the user to see */}
-          {/* Click button that sends the quiz */}
-          {/* Friend completes the quiz and sees their score */}
-          {/* Friend given option to retry quiz. */}
-          {/* User is sent their score */}
-
           <View>
             <NavButton
               navigation={navigation}

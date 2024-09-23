@@ -1,42 +1,16 @@
 import React, { useState, useEffect } from "react";
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  Pressable,
-  // ImageBackground,
-} from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import HomeButton from "../components/HomeButton.js";
 import { NavButton } from "../components/NavButton.js";
-// import { navStyle } from "../components/NavButton.js";
 import { LinearGradient } from "expo-linear-gradient";
-// import blue9 from "../assets/blue9.jpg";
 import {
   getNLeastMastered,
   defaultList,
   incrementMastery,
 } from "../components/listHelpers.js";
 import data from "../data.js";
-
-const AppButton = ({ onPress, icon, title }) => (
-  <View style={[style.appButtonContainer]}>
-    <Icon.Button
-      name={icon}
-      backgroundColor="#FF8C00"
-      borderRadius={40}
-      borderWidth={3}
-      borderColor="#BBC2CC"
-      onPress={onPress}
-      style={style.appButton}
-    >
-      <Text style={style.appButtonText}>{title}</Text>
-    </Icon.Button>
-  </View>
-);
+import AppButton from "../components/AppButton.js";
 
 export default function QuickQuiz({ navigation }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
@@ -109,12 +83,6 @@ export default function QuickQuiz({ navigation }) {
   ) : (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
-        {/* <ImageBackground
-          source={blue9}
-          imageStyle={style.image}
-          resizeMode="cover"
-          style={style.page}
-        > */}
         <LinearGradient
           colors={["#6699FF", "#335C81"]}
           start={{ x: 0.5, y: 0.25 }}
@@ -142,7 +110,7 @@ export default function QuickQuiz({ navigation }) {
               Identity the correct word that matches this definition.
             </Text>
 
-            <Text style={style.text1 - 10}>1 of 10</Text>
+            <Text style={style.text}>1 of 10</Text>
 
             <View>
               <AppButtonHead title="Definition: The highest point attained."></AppButtonHead>
@@ -261,8 +229,9 @@ function Game(Props) {
       return wrongAnswers.map((el, i) => (
         <AppButton
           key={i}
-          answerKey={i}
           title={el}
+          backgroundColor={"red"}
+          borderColor={"#fff"}
           onPress={() => handleAnswer(false, i)}
           style={i === selectedKey ? incorrectHighlight : null}
         />

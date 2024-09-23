@@ -1,24 +1,8 @@
 import React from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import { StyleSheet, Pressable } from "react-native";
+import AppButton from "./AppButton";
 
 function NavButton({ navigation, title, destination, icon = "sign-in" }) {
-  const AppButton = ({ onPress, icon, title }) => (
-    <View style={navStyle.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor="#FF8C00"
-        borderRadius={10}
-        borderWidth={3}
-        borderColor="#BBC2CC"
-        onPress={onPress}
-        style={navStyle.appButton}
-      >
-        <Text style={navStyle.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-
   return (
     <Pressable style={navStyle.appButton}>
       <AppButton

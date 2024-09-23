@@ -1,38 +1,33 @@
-import React from 'react'
-import { SafeAreaView, ScrollView, StyleSheet, ImageBackground, Text, View, Pressable } from 'react-native';
-import { useState } from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import HomeButton from '../../components/HomeButton';
-import AddButton from '../../components/AddButton';
-import ListenButton from '../../components/ListenButton';
-import { navStyle } from '../../components/NavButton.js';
-import speedingticket from '../../assets/Backgrounds/speedingticket.jpg'
-
-const AppButton = ({ onPress, icon, title }) => (
-  <View style={style.appButtonContainer}>
-    <Icon.Button
-      name={icon}
-      backgroundColor='#FF8C00'
-      borderRadius={40}
-      borderWidth={3}
-      borderColor='#BBC2CC'
-      onPress={onPress}
-      style={style.appButton}
-    >
-      <Text style={style.appButtonText}>{title}</Text>
-    </Icon.Button>
-  </View>
-);
+import React from "react";
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  ImageBackground,
+  Text,
+  View,
+  Pressable,
+} from "react-native";
+import { useState } from "react";
+import HomeButton from "../../components/HomeButton";
+import AddButton from "../../components/AddButton";
+import ListenButton from "../../components/ListenButton";
+import { navStyle } from "../../components/NavButton.js";
+import speedingticket from "../../assets/Backgrounds/speedingticket.jpg";
+import AppButton from "../../components/AppButton";
 
 export default function WS_SpeedingTicket({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
 
   const hideButton = (
-    <Pressable style={style.appButton} >
-      <AppButton icon="sign-in" title="Hide"
+    <Pressable style={style.appButton}>
+      <AppButton
+        icon="sign-in"
+        title="Hide"
         onPress={() => setSelectedWord(null)}
       />
-    </Pressable>)
+    </Pressable>
+  );
 
   const Adroit = () => {
     return (
@@ -45,21 +40,26 @@ export default function WS_SpeedingTicket({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Skillful use of one&#39s hands or body.</Text>
+            <Text style={style.text}>
+              Skillful use of one&#39s hands or body.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
             <Text style={style.text}>Officer, your </Text>
             <Text style={style.bold}>adroit</Text>
-            <Text style={style.text}> driving skills, helped me to pull my car over safely.</Text>
+            <Text style={style.text}>
+              {" "}
+              driving skills, helped me to pull my car over safely.
+            </Text>
           </Text>
         </View>
         <ListenButton />
         <AddButton />
         {hideButton}
       </View>
-    )
-  }
+    );
+  };
 
   const Befuddle = () => {
     return (
@@ -78,15 +78,17 @@ export default function WS_SpeedingTicket({ navigation }) {
             <Text style={style.title}>Sentence: </Text>
             <Text style={style.text}>I&#39m sorry officer that I appear </Text>
             <Text style={style.bold}>befuddled</Text>
-            <Text style={style.text}>, you won&#39t believe what happened.</Text>
+            <Text style={style.text}>
+              , you won&#39t believe what happened.
+            </Text>
           </Text>
         </View>
         <ListenButton />
         <AddButton />
         {hideButton}
       </View>
-    )
-  }
+    );
+  };
 
   const Canard = () => {
     return (
@@ -105,15 +107,17 @@ export default function WS_SpeedingTicket({ navigation }) {
             <Text style={style.title}>Sentence: </Text>
             <Text style={style.text}>Officer, I cannot tell a </Text>
             <Text style={style.bold}>canard</Text>
-            <Text style={style.text}>; I was speeding but let me tell you why.</Text>
+            <Text style={style.text}>
+              ; I was speeding but let me tell you why.
+            </Text>
           </Text>
         </View>
         <ListenButton />
         <AddButton />
         {hideButton}
       </View>
-    )
-  }
+    );
+  };
 
   const Disconcerting = () => {
     return (
@@ -132,15 +136,18 @@ export default function WS_SpeedingTicket({ navigation }) {
             <Text style={style.title}>Sentence: </Text>
             <Text style={style.text}>Officer, I too find it </Text>
             <Text style={style.bold}>disconcerting</Text>
-            <Text style={style.text}> I was driving 20 miles over the speed limit.</Text>
+            <Text style={style.text}>
+              {" "}
+              I was driving 20 miles over the speed limit.
+            </Text>
           </Text>
         </View>
         <ListenButton />
         <AddButton />
         {hideButton}
       </View>
-    )
-  }
+    );
+  };
 
   const Embodiment = () => {
     return (
@@ -166,8 +173,8 @@ export default function WS_SpeedingTicket({ navigation }) {
         <AddButton />
         {hideButton}
       </View>
-    )
-  }
+    );
+  };
 
   const Fulminate = () => {
     return (
@@ -184,7 +191,9 @@ export default function WS_SpeedingTicket({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Officer, last time you pulled me over I spoke loudly, even </Text>
+            <Text style={style.text}>
+              Officer, last time you pulled me over I spoke loudly, even{" "}
+            </Text>
             <Text style={style.bold}>fulminating</Text>
             <Text style={style.text}> in anger. I&#39m sorry.</Text>
           </Text>
@@ -193,8 +202,8 @@ export default function WS_SpeedingTicket({ navigation }) {
         <AddButton />
         {hideButton}
       </View>
-    )
-  }
+    );
+  };
 
   const Imperative = () => {
     return (
@@ -220,8 +229,8 @@ export default function WS_SpeedingTicket({ navigation }) {
         <AddButton />
         {hideButton}
       </View>
-    )
-  }
+    );
+  };
 
   const Lucid = () => {
     return (
@@ -238,17 +247,22 @@ export default function WS_SpeedingTicket({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Officer, I was daydreaming and not in a </Text>
+            <Text style={style.text}>
+              Officer, I was daydreaming and not in a{" "}
+            </Text>
             <Text style={style.bold}>lucid</Text>
-            <Text style={style.text}> state when I passed that speed limit sign.</Text>
+            <Text style={style.text}>
+              {" "}
+              state when I passed that speed limit sign.
+            </Text>
           </Text>
         </View>
         <ListenButton />
         <AddButton />
         {hideButton}
       </View>
-    )
-  }
+    );
+  };
 
   const Misconstrue = () => {
     return (
@@ -261,21 +275,26 @@ export default function WS_SpeedingTicket({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>To misinterpret; make an error in analyzing.</Text>
+            <Text style={style.text}>
+              To misinterpret; make an error in analyzing.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
             <Text style={style.text}>Officer, I do not mean to </Text>
             <Text style={style.bold}>misconstrue</Text>
-            <Text style={style.text}> the situation; I&#39ll defer to your judgment.</Text>
+            <Text style={style.text}>
+              {" "}
+              the situation; I&#39ll defer to your judgment.
+            </Text>
           </Text>
         </View>
         <ListenButton />
         <AddButton />
         {hideButton}
       </View>
-    )
-  }
+    );
+  };
 
   const Upbraid = () => {
     return (
@@ -301,176 +320,203 @@ export default function WS_SpeedingTicket({ navigation }) {
         <AddButton />
         {hideButton}
       </View>
-    )
-  }
-
+    );
+  };
 
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground source={speedingticket} imageStyle={style.image} resizeMode="cover" style={style.page}>
-
+        <ImageBackground
+          source={speedingticket}
+          imageStyle={style.image}
+          resizeMode="cover"
+          style={style.page}
+        >
           <View>
             <Text style={style.header}>Speeding Ticket</Text>
           </View>
 
-          {selectedWord ?
-            selectedWord :
-            (<View>
-
+          {selectedWord ? (
+            selectedWord
+          ) : (
+            <View>
               <View>
-                <Pressable style={style.appButton} >
-                  <AppButton icon="sign-in" title="Adroit"
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Adroit"
                     onPress={() => setSelectedWord(<Adroit />)}
                   />
                 </Pressable>
               </View>
 
               <View>
-                <Pressable style={style.appButton} >
-                  <AppButton icon="sign-in" title="Befuddle"
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Befuddle"
                     onPress={() => setSelectedWord(<Befuddle />)}
                   />
                 </Pressable>
               </View>
 
               <View>
-                <Pressable style={style.appButton} >
-                  <AppButton icon="sign-in" title="Canard"
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Canard"
                     onPress={() => setSelectedWord(<Canard />)}
                   />
                 </Pressable>
               </View>
 
               <View>
-                <Pressable style={style.appButton} >
-                  <AppButton icon="sign-in" title="Disconcerting"
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Disconcerting"
                     onPress={() => setSelectedWord(<Disconcerting />)}
                   />
                 </Pressable>
               </View>
 
               <View>
-                <Pressable style={style.appButton} >
-                  <AppButton icon="sign-in" title="Embodiment"
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Embodiment"
                     onPress={() => setSelectedWord(<Embodiment />)}
                   />
                 </Pressable>
               </View>
 
               <View>
-                <Pressable style={style.appButton} >
-                  <AppButton icon="sign-in" title="Fulminate"
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Fulminate"
                     onPress={() => setSelectedWord(<Fulminate />)}
                   />
                 </Pressable>
               </View>
 
               <View>
-                <Pressable style={style.appButton} >
-                  <AppButton icon="sign-in" title="Imperative"
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Imperative"
                     onPress={() => setSelectedWord(<Imperative />)}
                   />
                 </Pressable>
               </View>
 
               <View>
-                <Pressable style={style.appButton} >
-                  <AppButton icon="sign-in" title="Lucid"
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Lucid"
                     onPress={() => setSelectedWord(<Lucid />)}
                   />
                 </Pressable>
               </View>
 
               <View>
-                <Pressable style={style.appButton} >
-                  <AppButton icon="sign-in" title="Misconstrue"
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Misconstrue"
                     onPress={() => setSelectedWord(<Misconstrue />)}
                   />
                 </Pressable>
               </View>
 
               <View>
-                <Pressable style={style.appButton} >
-                  <AppButton icon="sign-in" title="Upbraid"
+                <Pressable style={style.appButton}>
+                  <AppButton
+                    icon="sign-in"
+                    title="Upbraid"
                     onPress={() => setSelectedWord(<Upbraid />)}
                   />
                 </Pressable>
               </View>
 
               <View style={style.bottomButtons}>
-                <Pressable style={navStyle.appButton}><AppButton title="Back" onPress={() => navigation.goBack()}></AppButton></Pressable>
+                <Pressable style={navStyle.appButton}>
+                  <AppButton
+                    title="Back"
+                    onPress={() => navigation.goBack()}
+                  ></AppButton>
+                </Pressable>
                 <HomeButton navigation={navigation} />
               </View>
-            </View>)}
-
+            </View>
+          )}
         </ImageBackground>
       </ScrollView>
     </SafeAreaView>
   );
 }
 
-
 const style = StyleSheet.create({
   page: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#000',
+    justifyContent: "center",
+    backgroundColor: "#000",
     paddingVertical: 30,
   },
 
   image: {
-    opacity: .5,
+    opacity: 0.5,
   },
 
   header: {
     fontSize: 40,
-    textShadowColor: '#000',
+    textShadowColor: "#000",
     textShadowRadius: 5,
-    color: '#f0f8ff',
-    fontWeight: '800',
+    color: "#f0f8ff",
+    fontWeight: "800",
     paddingVertical: 10,
-    textAlign: 'center',
+    textAlign: "center",
   },
 
   appButton: {
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   component: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
     padding: 20,
-    paddingBottom: 200
+    paddingBottom: 200,
   },
 
   screen: {
-    opacity: .7,
-    backgroundColor: 'black',
+    opacity: 0.7,
+    backgroundColor: "black",
     marginBottom: 40,
-    padding: 20
+    padding: 20,
   },
 
   subHead: {
     fontSize: 40,
-    color: '#FF8C00'
+    color: "#FF8C00",
   },
 
   text: {
     fontSize: 25,
-    color: '#fff'
+    color: "#fff",
   },
 
   title: {
     fontSize: 25,
-    color: '#FF8C00'
+    color: "#FF8C00",
   },
 
   bold: {
     fontSize: 25,
     fontWeight: 600,
-    color: '#FF8C00'
+    color: "#FF8C00",
   },
 
   space: {
@@ -479,16 +525,15 @@ const style = StyleSheet.create({
 
   appButtonText: {
     fontSize: 20,
-    color: '#fff'
+    color: "#fff",
   },
 
   appButtonContainer: {
     width: 200,
-    marginVertical: 2
+    marginVertical: 2,
   },
 
   bottomButtons: {
-    paddingTop: 20
-  }
-
-})
+    paddingTop: 20,
+  },
+});
