@@ -101,11 +101,7 @@ export default function NavigationLinks() {
         component={System}
         options={{ title: "Learning System" }}
       />
-      <Stack.Screen 
-        name="Word" 
-        component={Word} 
-        options={{ title: "Word" }} 
-      />
+      <Stack.Screen name="Word" component={Word} options={{ title: "Word" }} />
       <Stack.Screen
         name="AtoZButtons"
         component={AtoZButtons}
@@ -132,7 +128,7 @@ export default function NavigationLinks() {
         options={{ title: "RapidFire" }}
       />
       <Stack.Screen
-        name="QuickMatch"
+        name="QuickQuiz"
         component={QuickQuiz}
         options={{ title: "QuickQuiz" }}
       />

@@ -49,11 +49,11 @@ export default function VocabMastery({ navigation }) {
             <Text style={style.header}>Vocab Mastery</Text>
 
             <Text style={style.headerText}>
-              Here you can learn words to make them part of your everyday writing and understanding.
-              Once correctly identied 5 times, a word moves into your Mastered List. 
-              Only words you have not mastered appear for more efficient learning.
+              Here you can learn words to make them part of your everyday
+              writing and understanding. Once correctly identied 5 times, a word
+              moves into your Mastered List. Only words you have not mastered
+              appear for more efficient learning.
             </Text>
-
           </View>
 
           <View style={style.section}>
@@ -69,8 +69,8 @@ export default function VocabMastery({ navigation }) {
             />
             <NavButton
               navigation={navigation}
-              title="QuickMatch"
-              destination="QuickMatch"
+              title="QuickQuiz"
+              destination="QuickQuiz"
             />
             <NavButton
               navigation={navigation}
@@ -95,7 +95,7 @@ export default function VocabMastery({ navigation }) {
           <View>
             <HomeButton navigation={navigation} />
           </View>
-        {/* </ImageBackground> */}
+          {/* </ImageBackground> */}
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>

@@ -86,6 +86,16 @@ const _resetDefaultList = async () => {
     console.error(e);
   }
 };
+
+const getNLeastMastered = async (name, n) => {
+  try {
+    const list = JSON.parse(await AsyncStorage.getItem(name));
+    const sortedList = list.sort((a, b) => a.mastery - b.mastery);
+    return sortedList.slice(0, n);
+  } catch (e) {
+    console.error(e);
+  }
+};
 export {
   makeNewList,
   removeList,
@@ -96,4 +106,5 @@ export {
   defaultList,
   incrementMastery,
   _resetDefaultList,
+  getNLeastMastered,
 };
