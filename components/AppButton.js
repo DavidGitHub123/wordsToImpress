@@ -3,29 +3,45 @@ import { StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 export default function AppButton(Props) {
-  const { onPress, icon, title, backgroundColor, borderColor } = Props;
+  const { onPress, icon, title, backgroundColor, borderColor, style, size } =
+    Props;
 
-  console.log(icon);
-  console.log(backgroundColor);
+  const styleSize =
+    size === "large"
+      ? defaultStyle.large
+      : size === "medium"
+        ? defaultStyle.medium
+        : defaultStyle.small;
+
+  const iconButtonStyle = {
+    ...defaultStyle.appButton,
+    ...styleSize,
+    ...style,
+  };
+
+  const containerStyle = {
+    ...defaultStyle.appButtonContainer,
+    ...(size === "large" ? { width: 180 } : {}),
+  };
 
   return (
-    <View style={style.appButtonContainer}>
+    <View style={containerStyle}>
       <Icon.Button
         name={icon}
         backgroundColor={backgroundColor ? backgroundColor : "#FF8C00"}
-        borderRadius={40}
+        borderRadius={10}
         borderWidth={3}
         borderColor={borderColor ? borderColor : "#BBC2CC"}
         onPress={onPress}
-        style={style.appButton}
+        style={iconButtonStyle}
       >
-        <Text style={style.appButtonText}>{title}</Text>
+        <Text style={defaultStyle.appButtonText}>{title}</Text>
       </Icon.Button>
     </View>
   );
 }
 
-const style = StyleSheet.create({
+const defaultStyle = StyleSheet.create({
   appButton: {
     alignItems: "center",
     justifyContent: "center",
@@ -39,5 +55,14 @@ const style = StyleSheet.create({
   appButtonContainer: {
     paddingVertical: 5,
     width: 250,
+  },
+  large: {
+    height: 80,
+  },
+  medium: {
+    height: 60,
+  },
+  small: {
+    height: 40,
   },
 });

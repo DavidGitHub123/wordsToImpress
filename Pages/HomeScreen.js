@@ -8,21 +8,9 @@ import {
   SafeAreaView,
   ImageBackground,
 } from "react-native";
-// import { NavButtonHome } from "../components/NavButtonHome";
-import { NotificationButton } from "../components/NotificationButton";
-import { AboutButton } from "../components/AboutButton";
-import { HomeMyListButton } from "../components/HomeMyListButton";
-import { HomeMyProgressButton } from "../components/HomeMyProgressButton";
-import { HomeBuildMyListButton } from "../components/HomeBuildMyListButton";
-import { HomePreBuiltListButton } from "../components/HomePreBuiltListButton";
-import { HomeWordSituationButton } from "../components/HomeWordSituationButton";
-import { HomeVocabMasteryButton } from "../components/HomeVocabMasteryButton";
-import { HomeWordOfDayButton } from "../components/HomeWordOfDayButton";
-import { HomeAZWordsButton } from "../components/HomeAZWordsButton";
-
 import logo from "../assets/logoborderradius.jpg";
-// import { LinearGradient } from "expo-linear-gradient";
 import phone from "../assets/phone.jpg";
+import AppButton from "../components/AppButton";
 
 export default function HomeScreen({ navigation }) {
   const seperatorStyles = {
@@ -44,15 +32,11 @@ export default function HomeScreen({ navigation }) {
         >
           <View style={style.page}>
             <View style={style.topHeader}>
-              <NotificationButton
-                navigation={navigation}
-                // title=""
-                destination="System"
-              />
-              <AboutButton
-                navigation={navigation}
+              <AppButton icon="bell" />
+              <AppButton
+                icon="table"
                 title="About"
-                destination="System"
+                onPress={() => navigation.navigate("System")}
               />
             </View>
 
@@ -68,54 +52,62 @@ export default function HomeScreen({ navigation }) {
             </View>
             <View>
               <View style={style.buttons}>
-                <HomeMyListButton
-                  navigation={navigation}
+                <AppButton
+                  size="large"
+                  icon="list"
                   title="My List"
-                  destination="MyList"
+                  onPress={() => navigation.navigate("MyList")}
                 />
-                <HomeMyProgressButton
-                  navigation={navigation}
-                  title="MyProgress"
-                  destination="MyList"
+                <AppButton
+                  size="large"
+                  icon="signal"
+                  title="My Progress"
+                  onPress={() => navigation.navigate("MyProgress")}
                 />
               </View>
 
               <View style={style.buttons}>
-                <HomeBuildMyListButton
-                  navigation={navigation}
+                <AppButton
+                  size="large"
+                  icon="wrench"
                   title="Build My List"
-                  destination="BuildMyList"
+                  onPress={() => navigation.navigate("BuildMyList")}
                 />
-                <HomePreBuiltListButton
-                  navigation={navigation}
+                <AppButton
+                  size="large"
+                  icon="clipboard"
                   title="Pre-Built List"
-                  destination="PreBuiltListNew"
+                  onPress={() => navigation.navigate("PreBuiltListNew")}
                 />
               </View>
 
               <View style={style.buttons}>
-                <HomeWordSituationButton
-                  navigation={navigation}
+                <AppButton
+                  size="large"
+                  icon="address-book"
                   title="Word Situations"
-                  destination="WordSituations"
+                  onPress={() => navigation.navigate("WordSituations")}
                 />
-                <HomeVocabMasteryButton
-                  navigation={navigation}
+                <AppButton
+                  size="large"
+                  icon="address-book"
                   title="Vocab Mastery"
-                  destination="VocabMastery"
+                  onPress={() => navigation.navigate("VocabMastery")}
                 />
               </View>
 
               <View style={style.buttons}>
-                <HomeWordOfDayButton
-                  navigation={navigation}
+                <AppButton
+                  size="large"
+                  icon="address-book"
                   title="Word of Day"
-                  destination="WordOfDay"
+                  onPress={() => navigation.navigate("WordOfDay")}
                 />
-                <HomeAZWordsButton
-                  navigation={navigation}
+                <AppButton
+                  size="large"
+                  icon="address-book"
                   title="A-Z Words"
-                  destination="AtoZButtons"
+                  onPress={() => navigation.navigate("AtoZButtons")}
                 />
               </View>
             </View>
@@ -159,11 +151,12 @@ const style = StyleSheet.create({
   buttons: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
     flexDirection: "row",
     paddingHorizontal: 3,
     paddingVertical: 3,
     margin: 3,
+    justifyContent: "center",
+    gap: 10,
   },
 
   imageHeader: {
