@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -12,26 +12,44 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 import HomeButton from "../components/HomeButton.js";
 import { NavButton } from "../components/NavButton.js";
-import { navStyle } from "../components/NavButton.js";
+// import { navStyle } from "../components/NavButton.js";
 import { LinearGradient } from "expo-linear-gradient";
 // import blue9 from "../assets/blue9.jpg";
+import {
+  getNLeastMastered,
+  defaultList,
+  incrementMastery,
+} from "../components/listHelpers.js";
+import data from "../data.js";
+
+const AppButton = ({ onPress, icon, title }) => (
+  <View style={[style.appButtonContainer]}>
+    <Icon.Button
+      name={icon}
+      backgroundColor="#FF8C00"
+      borderRadius={40}
+      borderWidth={3}
+      borderColor="#BBC2CC"
+      onPress={onPress}
+      style={style.appButton}
+    >
+      <Text style={style.appButtonText}>{title}</Text>
+    </Icon.Button>
+  </View>
+);
 
 export default function QuickQuiz({ navigation }) {
-  const AppButton = ({ onPress, icon, title }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor="#FF8C00"
-        borderRadius={40}
-        borderWidth={3}
-        borderColor="#BBC2CC"
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
+  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [list, setList] = useState([]);
+  const [gameRestart, setGameRestart] = useState(false);
+
+  useEffect(() => {
+    async function getAndSetList() {
+      const userList = await getNLeastMastered(defaultList, 10);
+      setList(userList);
+    }
+    getAndSetList();
+  }, [gameRestart]);
 
   const AppButtonGreen = ({ onPress, icon, title }) => (
     <View style={style.appButtonContainer}>
@@ -81,7 +99,14 @@ export default function QuickQuiz({ navigation }) {
     </View>
   );
 
-  return (
+  return isGameStarted ? (
+    <Game
+      list={list}
+      navigation={navigation}
+      setGameRestart={setGameRestart}
+      gameRestart={gameRestart}
+    />
+  ) : (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
         {/* <ImageBackground
@@ -98,150 +123,260 @@ export default function QuickQuiz({ navigation }) {
           style={style.page}
         >
           <View style={style.spacing}>
-            <Text style={style.header}>QuickMatch</Text>
-            <NavButton
-              navigation={navigation}
+            <Text style={style.header}>Quick Quiz</Text>
+            <AppButton
+              onPress={() => setIsGameStarted(true)}
               title="Play Game"
-              // destination="Quiz"
+              icon="sign-in"
             />
           </View>
 
           <View>
-            <Text style={style.mocktext}>
-            New Screen with 1st question
-            </Text>
+            <Text style={style.mocktext}>New Screen with 1st question</Text>
 
             <Text style={style.mocktext}>
-            Counter at top 1/10... Next screen 2/10... and so forth
+              Counter at top 1/10... Next screen 2/10... and so forth
             </Text>
 
             <Text style={style.text}>
-            Identity the correct word that matches this definition.
+              Identity the correct word that matches this definition.
             </Text>
 
-            <Text style={style.text1-10}>
-            1 of 10
-            </Text>
+            <Text style={style.text1 - 10}>1 of 10</Text>
 
             <View>
-              <AppButtonHead
-                  title='Definition: The highest point attained.'
-              ></AppButtonHead>
+              <AppButtonHead title="Definition: The highest point attained."></AppButtonHead>
             </View>
 
             <View style={style.center}>
-              <AppButtonGreen
-                  title='Zenith'
-              />
-              
-              <AppButton
-                  title='Writhe'
-              ></AppButton>
+              <AppButtonGreen title="Zenith" />
 
-              <AppButton
-                  title='Wend'
-              ></AppButton>
+              <AppButton title="Writhe"></AppButton>
 
-              <AppButton
-                  title='Wayfaring'
-              ></AppButton>
-          </View>
+              <AppButton title="Wend"></AppButton>
 
-
-          <View style={style.space2}>
-            <Text style={style.text2}>
-              Correct
-            </Text>
-            <NavButton
-              navigation={navigation}
-              title="Next Word"
-              // destination="Quiz"
-            />
-          </View>
-        </View>
-
-          
-        <View style={style.space3}>
-            <Text style={style.text}>
-            Identity the correct word that matches this definition.
-            1 of 10
-            </Text>
-
-            <Text style={style.text}>
-            help
-            </Text>
-
-
-
-            <View>
-              <AppButtonHead
-                  title='The highest point attained.'
-              ></AppButtonHead>
+              <AppButton title="Wayfaring"></AppButton>
             </View>
 
-            <View style={style.center}>
-              <AppButton
-                  title='Zenith'
-                  color= 'black'
-              />
-              
-              <AppButtonRed
-                  title='Writhe'
-              />
-
-              <AppButton
-                  title='Wend'
-              ></AppButton>
-
-              <AppButton
-                  title='Wayfaring'
-              ></AppButton>
-          </View>
-
-
-          <View style={style.space2}>
-            <Text style={style.text2}>
-              Incorrect
-            </Text>
+            <View style={style.space2}>
+              <Text style={style.text2}>Correct</Text>
               <NavButton
-              navigation={navigation}
-              title="Next Word"
+                navigation={navigation}
+                title="Next Word"
               // destination="Quiz"
-            />
+              />
+            </View>
           </View>
-        </View>
 
+          <View style={style.space3}>
+            <Text style={style.text}>
+              Identity the correct word that matches this definition. 1 of 10
+            </Text>
+
+            <Text style={style.text}>help</Text>
+
+            <View>
+              <AppButtonHead title="The highest point attained."></AppButtonHead>
+            </View>
+
+            <View style={style.center}>
+              <AppButton title="Zenith" color="black" />
+
+              <AppButtonRed title="Writhe" />
+
+              <AppButton title="Wend"></AppButton>
+
+              <AppButton title="Wayfaring"></AppButton>
+            </View>
+
+            <View style={style.space2}>
+              <Text style={style.text2}>Incorrect</Text>
+              <NavButton
+                navigation={navigation}
+                title="Next Word"
+              // destination="Quiz"
+              />
+            </View>
+          </View>
 
           <View style={style.lastscreen}>
-            <Text style={style.mocktext}>
-            Final Screen
-            </Text>
-            <Text style={style.text2}>
-              You scored 8/10
-            </Text>
+            <Text style={style.mocktext}>Final Screen</Text>
+            <Text style={style.text2}>You scored 8/10</Text>
             <NavButton
-                navigation={navigation}
-                title="Play Again"
-                // destination="Quiz"
-              />
+              navigation={navigation}
+              title="Play Again"
+            // destination="Quiz"
+            />
             <NavButton
-                navigation={navigation}
-                title="Word Mastery"
-                // destination="Quiz"
-              />
+              navigation={navigation}
+              title="Word Mastery"
+            // destination="Quiz"
+            />
           </View>
 
-        <View>
-      </View>
+          <View></View>
 
           <View style={style.buttons}>
             <HomeButton navigation={navigation} />
           </View>
-
-          </LinearGradient>
+        </LinearGradient>
         {/* </ImageBackground> */}
       </ScrollView>
     </SafeAreaView>
+  );
+}
+
+function Game(Props) {
+  const [listIndex, setListIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [anwsers, setAnwsers] = useState([]);
+  const [selectedKey, setSelectedKey] = useState(null);
+  const [gameOver, setGameOver] = useState(false);
+  // This state is either true, false, or null
+  // null doesn't display any text
+  // false displays incorrect
+  // true displays correct
+  const [isCorrect, setIsCorrect] = useState(null);
+  const { list, navigation, setGameRestart, gameRestart } = Props;
+  const MAX_INCORRECT_ANSWERS = 3;
+  useEffect(() => {
+    if (listIndex === list.length) {
+      return;
+    }
+    const incorrectHighlight = { backgroundColor: "red", borderColor: "#fff" };
+    const correctHighlight = {
+      backgroundColor: "green",
+      borderColor: "#BBC2CC",
+    };
+
+    const generateThreeWrongAnswers = () => {
+      const wrongAnswers = [];
+      const rightAnswer = list[listIndex].word;
+      while (wrongAnswers.length < MAX_INCORRECT_ANSWERS) {
+        const randomWord = data[getRandomIndex()].Word;
+        if (!randomWord.includes(randomWord) || randomWord !== rightAnswer) {
+          wrongAnswers.push(randomWord);
+        }
+      }
+      return wrongAnswers.map((el, i) => (
+        <AppButton
+          key={i}
+          answerKey={i}
+          title={el}
+          onPress={() => handleAnswer(false, i)}
+          style={i === selectedKey ? incorrectHighlight : null}
+        />
+      ));
+    };
+
+    const rightAnswer = (
+      <AppButton
+        key={MAX_INCORRECT_ANSWERS}
+        answerKey={MAX_INCORRECT_ANSWERS}
+        title={list[listIndex].word}
+        onPress={() => handleAnswer(true, MAX_INCORRECT_ANSWERS)}
+        style={correctHighlight}
+      />
+    );
+
+    const answerArray = generateThreeWrongAnswers();
+    answerArray.push(rightAnswer);
+
+    const shuffledAnswers = answerArray
+      .map((el) => ({ el, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ el }) => el);
+
+    setAnwsers(shuffledAnswers);
+  }, [listIndex]);
+
+  let correctDataIndex;
+  let definition;
+  if (listIndex < list.length - 1) {
+    correctDataIndex = data.findIndex((el) => el.Word === list[listIndex].word);
+
+    definition = data[correctDataIndex].Shortdef;
+  }
+
+  const getRandomIndex = () => Math.floor(Math.random() * data.length);
+
+  const handleAnswer = (correct, key) => {
+    setSelectedKey(key);
+    console.log(correct);
+    setIsCorrect(correct);
+    if (correct) {
+      setScore(score + 1);
+      incrementMastery(defaultList, list[listIndex].word);
+    }
+  };
+
+  const handleNext = () => {
+    setSelectedKey(null);
+    setIsCorrect(null);
+    if (listIndex + 1 === list.length) {
+      setGameOver(true);
+      setListIndex(0);
+    }
+    setListIndex(listIndex + 1);
+  };
+
+  const nextButton = (
+    <AppButton title="Next Word" icon="sign-in" onPress={handleNext} />
+  );
+
+  const handleStartOver = () => {
+    setGameRestart(!gameRestart);
+    setListIndex(0);
+    setScore(0);
+    setGameOver(false);
+  };
+
+  const GameOver = (
+    <View>
+      <Text>You scored {score}/10</Text>
+      <AppButton icon="sign-in" title="Play Again" onPress={handleStartOver} />
+      <NavButton
+        navigation={navigation}
+        title="Word Mastery"
+        destination="WordMastery"
+      />
+      <HomeButton navigation={navigation} />
+    </View>
+  );
+
+  const afterRoundTextAndButton = () => {
+    if (isCorrect === null) {
+      return null;
+    } else if (isCorrect) {
+      return (
+        <View>
+          <Text>Correct</Text>
+          {nextButton}
+        </View>
+      );
+    }
+    return (
+      <View>
+        <Text>Incorrect</Text>
+        {nextButton}
+      </View>
+    );
+  };
+
+  return (
+    <View>
+      {!gameOver ? (
+        <View>
+          <Text>{listIndex + 1}/10</Text>
+          <Text>Identify the correct word that matches this definition.</Text>
+          <Text>Definition: {definition}</Text>
+          <View>{anwsers}</View>
+          <View>{afterRoundTextAndButton()}</View>
+        </View>
+      ) : (
+        GameOver
+      )}
+    </View>
   );
 }
 
@@ -264,7 +399,7 @@ const style = StyleSheet.create({
   },
 
   center: {
-    alignItems: 'center',
+    alignItems: "center",
   },
 
   lastscreen: {
@@ -310,7 +445,7 @@ const style = StyleSheet.create({
     paddingBottom: 30,
     paddingHorizontal: 40,
     fontWeight: 700,
-    textAlign: 'center',
+    textAlign: "center",
   },
 
   buttons: {
@@ -337,8 +472,7 @@ const style = StyleSheet.create({
   },
 
   appButtonHeadText: {
-  fontSize:26,
-  color: '#fff',
+    fontSize: 26,
+    color: "#fff",
   },
-
 });

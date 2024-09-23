@@ -14,7 +14,7 @@ import { NavButton, navStyle } from "../components/NavButton";
 // import blue8 from "../assets/blue8.jpg";
 import RadioButton from "../components/RadioButton";
 import {
-  getList,
+  getNLeastMastered,
   defaultList,
   incrementMastery,
 } from "../components/listHelpers";
@@ -28,10 +28,7 @@ export default function RapidFire({ navigation }) {
 
   useEffect(() => {
     async function getWords() {
-      const list = JSON.parse(await getList(defaultList));
-      const leastMasteredWords = list.sort((a, b) => a.mastery - b.mastery);
-      const amountOfWords = 10;
-      setWords(leastMasteredWords.splice(0, amountOfWords));
+      setWords(await getNLeastMastered(defaultList, 10));
     }
     getWords();
   }, []);
@@ -82,7 +79,7 @@ export default function RapidFire({ navigation }) {
             </Pressable>
             <HomeButton navigation={navigation} />
           </View>
-        {/* </ImageBackground> */}
+          {/* </ImageBackground> */}
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>
@@ -198,9 +195,8 @@ const style = StyleSheet.create({
   page: {
     paddingTop: 350,
     paddingHorizontal: 100,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
-
 
   header: {
     fontSize: 40,
@@ -249,11 +245,11 @@ const style = StyleSheet.create({
     flexWrap: "nowrap",
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingTop:10,
+    paddingTop: 10,
   },
 
   timingOptionsContainer: {
-    paddingTop:100,
+    paddingTop: 100,
     height: "20vh",
     width: "30vw",
     display: "flex",
