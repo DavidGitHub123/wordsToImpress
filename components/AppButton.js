@@ -19,8 +19,13 @@ export default function AppButton(Props) {
     ...style,
   };
 
+  const containerStyle = {
+    ...defaultStyle.appButtonContainer,
+    ...(size === "large" ? { width: 180 } : {}),
+  };
+
   return (
-    <View style={defaultStyle.appButtonContainer}>
+    <View style={containerStyle}>
       <Icon.Button
         name={icon}
         backgroundColor={backgroundColor ? backgroundColor : "#FF8C00"}

@@ -151,11 +151,12 @@ const style = StyleSheet.create({
   buttons: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
     flexDirection: "row",
     paddingHorizontal: 3,
     paddingVertical: 3,
     margin: 3,
+    justifyContent: "center",
+    gap: 10,
   },
 
   imageHeader: {
