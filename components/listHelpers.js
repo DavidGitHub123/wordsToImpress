@@ -1,6 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// used for getting all names of lists from storage
 const defaultList = "My List";
 
 const wordMasteryFactory = (word) => {
@@ -48,7 +47,7 @@ const getNamesOfLists = async () => {
 
 const getList = async (name) => {
   try {
-    return await AsyncStorage.getItem(name);
+    return JSON.parse(await AsyncStorage.getItem(name));
   } catch (e) {
     console.error(e);
   }
@@ -57,7 +56,7 @@ const getList = async (name) => {
 const addOneWordToList = async (name, word) => {
   try {
     const wordMasteryObject = wordMasteryFactory(word);
-    const list = JSON.parse(await AsyncStorage.getItem(name));
+    const list = await getList(name);
     list.push(wordMasteryObject);
     await AsyncStorage.setItem(name, JSON.stringify(list));
   } catch (e) {
@@ -67,7 +66,7 @@ const addOneWordToList = async (name, word) => {
 
 const incrementMastery = async (name, word) => {
   try {
-    const list = JSON.parse(await AsyncStorage.getItem(name));
+    const list = await getList(name);
     const wordIndex = list.findIndex((el) => el.word === word);
     list[wordIndex].mastery = list[wordIndex].mastery + 1;
     await AsyncStorage.setItem(name, JSON.stringify(list));
@@ -88,9 +87,19 @@ const _resetDefaultList = async () => {
 
 const getNLeastMastered = async (name, n) => {
   try {
-    const list = JSON.parse(await AsyncStorage.getItem(name));
+    const list = await getList(name);
     const sortedList = list.sort((a, b) => a.mastery - b.mastery);
     return sortedList.slice(0, n);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+const removeOneWordFromList = async (name, word) => {
+  try {
+    const list = await getList(name);
+    const filteredList = list.filter((el) => el.word !== word);
+    await updateList(name, filteredList);
   } catch (e) {
     console.error(e);
   }
@@ -106,4 +115,5 @@ export {
   incrementMastery,
   _resetDefaultList,
   getNLeastMastered,
+  removeOneWordFromList,
 };

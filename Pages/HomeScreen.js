@@ -90,7 +90,7 @@ export default function HomeScreen({ navigation }) {
                 />
                 <AppButton
                   size="large"
-                  icon="address-book"
+                  icon="trophy"
                   title="Vocab Mastery"
                   onPress={() => navigation.navigate("VocabMastery")}
                 />
@@ -99,13 +99,13 @@ export default function HomeScreen({ navigation }) {
               <View style={style.buttons}>
                 <AppButton
                   size="large"
-                  icon="address-book"
+                  icon="calendar"
                   title="Word of Day"
                   onPress={() => navigation.navigate("WordOfDay")}
                 />
                 <AppButton
                   size="large"
-                  icon="address-book"
+                  icon="book"
                   title="A-Z Words"
                   onPress={() => navigation.navigate("AtoZButtons")}
                 />
