@@ -4,57 +4,61 @@ import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import { NavButtonWord } from "../components/NavButtonWord";
 import { LinearGradient } from "expo-linear-gradient";
-import { defaultList, getList, makeNewList } from "../components/listHelpers";
+import {
+  defaultList,
+  getList,
+  removeOneWordFromList,
+} from "../components/listHelpers";
 import PieChart from "react-native-pie-chart";
+import IconButton from "../components/IconButton";
 
 export default function MyList({ navigation }) {
   const [masteredWordCount, setMasteredWordCount] = useState(0);
   const [unMasteredWordCount, setUnMasteredWordCount] = useState(0);
   const [listLength, setListLength] = useState(0);
 
+  const handleDelete = async (word) => {
+    await removeOneWordFromList(defaultList, word);
+    await getAndParseList();
+  };
+
   const [listOrLoading, setListOrLoading] = useState([
     <Text key={0}>Loading...</Text>,
   ]);
 
-  const makeMyListIfItDoesNotExist = async () => {
-    if (!(await doesMyListExist())) {
-      await makeNewList(defaultList);
+  async function getAndParseList() {
+    const list = await getList(defaultList);
+    if (list === null || list.length === 0) {
+      return;
     }
-  };
-
-  const doesMyListExist = async () => (await getList(defaultList)) !== null;
-
-  useEffect(() => {
-    async function getAndParseList() {
-      //TODO: move this to an init file that runs on boot
-      await makeMyListIfItDoesNotExist();
-
-      const list = JSON.parse(await getList(defaultList));
-      if (list === null || list.length === 0) {
-        return;
-      }
-      const parsedList = list.map((el, i) => (
+    const parsedList = list.map((el, i) => (
+      <View key={i} style={style.wordDeleteContainer}>
         <NavButtonWord
           navigation={navigation}
           title={el.word}
           destination="Word"
-          key={i}
         />
-      ));
-      setListOrLoading(parsedList);
+        <IconButton
+          name="trash"
+          onPress={() => handleDelete(el.word)}
+          style={style.deleteButton}
+        />
+      </View>
+    ));
+    setListOrLoading(parsedList);
 
-      const amountOfMasteredWords = list.filter((el) => el.mastery >= 5).length;
-      setMasteredWordCount(amountOfMasteredWords);
-      setUnMasteredWordCount(list.length - amountOfMasteredWords);
-      setListLength(list.length);
-    }
+    const amountOfMasteredWords = list.filter((el) => el.mastery >= 5).length;
+    setMasteredWordCount(amountOfMasteredWords);
+    setUnMasteredWordCount(list.length - amountOfMasteredWords);
+    setListLength(list.length);
+  }
 
+  useEffect(() => {
     getAndParseList();
   }, []);
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
-        {/* <ImageBackground source={blue14} imageStyle={style.image} resizeMode="cover" style={style.page}> */}
         <LinearGradient
           colors={["#6699FF", "#335C81"]}
           start={{ x: 0.5, y: 0.25 }}
@@ -72,19 +76,17 @@ export default function MyList({ navigation }) {
             {masteredWordCount === 0 && listLength === 0 ? null : (
               <PieChart
                 style={style.donut}
-                widthAndHeight={150}
+                widthAndHeight={200}
                 series={[masteredWordCount, unMasteredWordCount]}
                 sliceColor={["#4cf03a", "#5ba653"]}
                 coverRadius={0.8}
               />
             )}
-            <HomeButton navigation={navigation} />
           </View>
 
-          <View style={style.section}>{listOrLoading.map((el) => el)}</View>
+          <View style={style.section}>{listOrLoading}</View>
 
           <View style={style.buttons}>
-            {/* <NavButton navigation={navigation} title="1st List of 50" destination=""/> */}
             <NavButton
               navigation={navigation}
               title="Vocab Mastery"
@@ -95,9 +97,9 @@ export default function MyList({ navigation }) {
               title="A-Z Words"
               destination="AtoZButtons"
             />
-          </View>
 
-          {/* </ImageBackground> */}
+            <HomeButton navigation={navigation} />
+          </View>
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>
@@ -129,8 +131,8 @@ const style = StyleSheet.create({
   },
 
   donutContainer: {
-    width: "100px",
-    height: "100px",
+    width: 200,
+    height: 200,
     position: "relative",
   },
 
@@ -178,5 +180,17 @@ const style = StyleSheet.create({
     width: 250,
     paddingVertical: 10,
     paddingHorizontal: 0,
+  },
+
+  wordDeleteContainer: {
+    width: "2000",
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  deleteButton: {
+    marginLeft: 5,
   },
 });
