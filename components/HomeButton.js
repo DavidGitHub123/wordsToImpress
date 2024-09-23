@@ -6,6 +6,7 @@ export default function HomeButton({ navigation }) {
   return (
     <Pressable style={style.appButton}>
       <AppButton
+        style={style.appButton}
         icon="home"
         title="Home"
         onPress={() => navigation.navigate("HomeScreen")}
