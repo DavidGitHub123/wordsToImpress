@@ -7,29 +7,13 @@ import {
   View,
   Pressable,
 } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
 import { LinearGradient } from "expo-linear-gradient";
+import AppButton from "../../components/AppButton";
 import HomeButton from "../../components/HomeButton";
 import { NavButtonWord } from "../../components/NavButtonWord";
 import { navStyle } from "../../components/NavButton.js";
 
 export default function AWords({ navigation }) {
-  const AppButton = ({ onPress, icon, title }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor="#4682B4"
-        borderRadius={20}
-        borderWidth={3}
-        borderColor="#BBC2CC"
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>

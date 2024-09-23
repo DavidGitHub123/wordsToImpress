@@ -1,7 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // used for getting all names of lists from storage
-const _listArrayName = "allLists";
 const defaultList = "My List";
 
 const wordMasteryFactory = (word) => {

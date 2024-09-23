@@ -6,31 +6,13 @@ import {
   Text,
   View,
   Pressable,
-  // ImageBackground,
 } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
 import HomeButton from "../components/HomeButton";
 import { navStyle } from "../components/NavButton.js";
-// import blue3 from "../assets/blue3.jpg";
 import { LinearGradient } from "expo-linear-gradient";
+import AppButton from "../components/AppButton";
 
 export default function ScheduleQuizzes({ navigation }) {
-  const AppButton = ({ onPress, icon, title }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor="#FF8C00"
-        borderRadius={40}
-        borderWidth={3}
-        borderColor="#BBC2CC"
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
@@ -83,7 +65,7 @@ export default function ScheduleQuizzes({ navigation }) {
             </Pressable>
             <HomeButton navigation={navigation} />
           </View>
-        {/* </ImageBackground> */}
+          {/* </ImageBackground> */}
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>

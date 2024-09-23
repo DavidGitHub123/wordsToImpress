@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, ImageBackground } from "react-native";
-// import Icon from 'react-native-vector-icons/FontAwesome';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import { NavButtonWord } from "../components/NavButtonWord";
 import { LinearGradient } from "expo-linear-gradient";
-// import blue14 from "../assets/blue14.jpg";
-import {
-  defaultList,
-  getList,
-  makeNewList,
-  removeList,
-} from "../components/listHelpers";
+import { defaultList, getList, makeNewList } from "../components/listHelpers";
 import PieChart from "react-native-pie-chart";
-
 
 export default function MyList({ navigation }) {
   const [masteredWordCount, setMasteredWordCount] = useState(0);
@@ -59,23 +51,6 @@ export default function MyList({ navigation }) {
 
     getAndParseList();
   }, []);
-  /*
-  const AppButton = ({ onPress, icon, title }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor='#FF8C00'
-        borderRadius={40}
-        borderWidth={3}
-        borderColor='#BBC2CC'
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-  */
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
@@ -120,7 +95,6 @@ export default function MyList({ navigation }) {
               title="A-Z Words"
               destination="AtoZButtons"
             />
-
           </View>
 
           {/* </ImageBackground> */}

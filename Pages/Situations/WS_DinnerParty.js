@@ -9,28 +9,12 @@ import {
   ImageBackground,
 } from "react-native";
 import { useState } from "react";
-import Icon from "react-native-vector-icons/FontAwesome";
 import HomeButton from "../../components/HomeButton";
 import AddButton from "../../components/AddButton";
 import ListenButton from "../../components/ListenButton";
 import { navStyle } from "../../components/NavButton.js";
 import dinnerparty from "../../assets/Backgrounds/dinnerparty.jpg";
-
-const AppButton = ({ onPress, icon, title }) => (
-  <View style={style.appButtonContainer}>
-    <Icon.Button
-      name={icon}
-      backgroundColor="#FF8C00"
-      borderRadius={40}
-      borderWidth={3}
-      borderColor="#BBC2CC"
-      onPress={onPress}
-      style={style.appButton}
-    >
-      <Text style={style.appButtonText}>{title}</Text>
-    </Icon.Button>
-  </View>
-);
+import AppButton from "../../components/AppButton";
 
 export default function WS_DinnerParty({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -118,10 +102,10 @@ export default function WS_DinnerParty({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Myron's attempt to </Text>
+            <Text style={style.text}>Myron&#39s attempt to </Text>
             <Text style={style.bold}>educe </Text>
             <Text style={style.text}>
-              his sister's talents as a painter were futile.
+              his sister&#39s talents as a painter were futile.
             </Text>
           </Text>
         </View>
@@ -179,7 +163,7 @@ export default function WS_DinnerParty({ navigation }) {
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
             <Text style={style.text}>
-              David's constant praise of his first wife was considered{" "}
+              David&#39s constant praise of his first wife was considered
             </Text>
             <Text style={style.bold}>gauche </Text>
             <Text style={style.text}>by his new mother-in-law.</Text>
@@ -207,7 +191,7 @@ export default function WS_DinnerParty({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Mike's </Text>
+            <Text style={style.text}>Mike&#39s </Text>
             <Text style={style.bold}>harangue </Text>
             <Text style={style.text}>
               of his team left everyone feeling uncomfortable.
@@ -237,7 +221,7 @@ export default function WS_DinnerParty({ navigation }) {
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
             <Text style={style.text}>
-              Donald once had a drinking problem, but he no longer{" "}
+              Donald once had a drinking problem, but he no longer
             </Text>
             <Text style={style.bold}>imbibes.</Text>
           </Text>
@@ -295,7 +279,7 @@ export default function WS_DinnerParty({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Her father's </Text>
+            <Text style={style.text}>Her father&#39s </Text>
             <Text style={style.bold}>largess </Text>
             <Text style={style.text}>
               was the only thing standing between Barbara and bankruptcy.
@@ -327,7 +311,7 @@ export default function WS_DinnerParty({ navigation }) {
             <Text style={style.text}>The </Text>
             <Text style={style.bold}>melodious </Text>
             <Text style={style.text}>
-              tones of his mother's voice reminded Wayne of his childhood.
+              tones of his mother&#39s voice reminded Wayne of his childhood.
             </Text>
           </Text>
         </View>

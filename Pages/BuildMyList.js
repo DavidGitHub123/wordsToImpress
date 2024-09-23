@@ -1,71 +1,36 @@
 import React from "react";
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  ImageBackground,
-} from "react-native";
-// import Icon from 'react-native-vector-icons/FontAwesome';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
-import blue7 from "../assets/blue7.jpg";
 
 export default function BuildMyList({ navigation }) {
-  /*
-  const AppButton = ({ onPress, icon, title }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor='#FF8C00'
-        borderRadius={40}
-        borderWidth={3}
-        borderColor='#BBC2CC'
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-  */
-
   return (
     <SafeAreaView style={style.page}>
       <ScrollView alwaysBounceHorizontal={true}>
-        {/* <ImageBackground
-          source={blue7}
-          imageStyle={style.image}
-          resizeMode="cover"
-          style={style.page}
-        > */}
-          
-          <LinearGradient
+        <LinearGradient
           colors={["#6699FF", "#335C81"]}
           start={{ x: 0.5, y: 0.25 }}
           end={{ x: 0.25, y: 0.5 }}
           opacity={1.0}
           style={style.page}
         >
-
           <View style={style.screen}>
             <Text style={style.header}>Build My List</Text>
             <Text style={style.text}>
-              Copy emails, proposals, letters, etc. and let our
-              tools analyze your communication patterns to suggest new
-              vocabulary words that correspond to your speaking and writing style.
+              Copy emails, proposals, letters, etc. and let our tools analyze
+              your communication patterns to suggest new vocabulary words that
+              correspond to your speaking and writing style.
             </Text>
           </View>
 
           <View style={style.buttonSpace}>
-              <NavButton
-                navigation={navigation}
-                title="Text Search"
-                destination="TextSearch"
-              />
-            </View>
+            <NavButton
+              navigation={navigation}
+              title="Text Search"
+              destination="TextSearch"
+            />
+          </View>
 
           {/* <View style={style.section}>
             <Text style={style.subHead}>From Your Speech</Text>
@@ -86,9 +51,7 @@ export default function BuildMyList({ navigation }) {
           <View>
             <HomeButton navigation={navigation} />
           </View>
-
-   
-          </LinearGradient>
+        </LinearGradient>
 
         {/* </ImageBackground> */}
       </ScrollView>

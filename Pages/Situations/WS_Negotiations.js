@@ -9,28 +9,12 @@ import {
   ImageBackground,
 } from "react-native";
 import { useState } from "react";
-import Icon from "react-native-vector-icons/FontAwesome";
 import HomeButton from "../../components/HomeButton";
 import AddButton from "../../components/AddButton";
 import ListenButton from "../../components/ListenButton";
 import { navStyle } from "../../components/NavButton.js";
 import negotiation from "../../assets/Backgrounds/negotiation.jpg";
-
-const AppButton = ({ onPress, icon, title }) => (
-  <View style={style.appButtonContainer}>
-    <Icon.Button
-      name={icon}
-      backgroundColor="#FF8C00"
-      borderRadius={40}
-      borderWidth={3}
-      borderColor="#BBC2CC"
-      onPress={onPress}
-      style={style.appButton}
-    >
-      <Text style={style.appButtonText}>{title}</Text>
-    </Icon.Button>
-  </View>
-);
+import AppButton from "../../components/AppButton";
 
 export default function WS_Negotiations({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);

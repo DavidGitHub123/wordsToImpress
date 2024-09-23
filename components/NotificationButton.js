@@ -1,24 +1,8 @@
 import React from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import { StyleSheet, Pressable } from "react-native";
+import AppButton from "./AppButton";
 
 function NotificationButton({ navigation, title, destination, icon = "bell" }) {
-  const AppButton = ({ onPress, icon, title }) => (
-    <View style={navStyle.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor="transparent"
-        // borderRadius={10}
-        // borderWidth={1}
-        // borderColor="#fff"
-        onPress={onPress}
-        style={navStyle.appButton}
-      >
-        <Text style={navStyle.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-
   return (
     <Pressable style={navStyle.appButton}>
       <AppButton

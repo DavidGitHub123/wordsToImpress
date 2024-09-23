@@ -1,17 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Pressable,
-  // ImageBackground,
-} from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
-import HomeButton from "../components/HomeButton";
-import { NavButton, navStyle } from "../components/NavButton";
-// import blue8 from "../assets/blue8.jpg";
+import { StyleSheet, Text, View, Pressable } from "react-native";
 import RadioButton from "../components/RadioButton";
 import {
   getNLeastMastered,
@@ -19,7 +7,6 @@ import {
   incrementMastery,
 } from "../components/listHelpers";
 import RapidFireCards from "./RapidFireCards";
-import { LinearGradient } from "expo-linear-gradient";
 
 export default function RapidFire({ navigation }) {
   const [timing, setTiming] = useState(10);
@@ -32,58 +19,6 @@ export default function RapidFire({ navigation }) {
     }
     getWords();
   }, []);
-
-  const AppButton = ({ onPress, icon }) => (
-    <SafeAreaView style={style.appButtonContainer}>
-      <ScrollView>
-        <Icon.Button
-          name={icon}
-          backgroundColor="#FF8C00"
-          borderRadius={40}
-          borderWidth={3}
-          borderColor="#BBC2CC"
-          onPress={onPress}
-        ></Icon.Button>
-        {/* <ImageBackground
-          source={blue8}
-          imageStyle={style.image}
-          resizeMode="cover"
-          style={style.page}
-        > */}
-        <LinearGradient
-          colors={["#6699FF", "#335C81"]}
-          start={{ x: 0.5, y: 0.25 }}
-          end={{ x: 0.25, y: 0.5 }}
-          opacity={1.0}
-          style={style.page}
-        >
-          <View>
-            <Text style={style.header}>RapidFire</Text>
-            <Text style={style.text}>
-              Test your vocab speed and recall. Select 10 words from your Vocab
-              List and play the game.
-            </Text>
-            <NavButton
-              navigation={navigation}
-              title="Play Game"
-              destination="RapidFireCards"
-            />
-          </View>
-
-          <View style={style.buttons}>
-            <Pressable style={navStyle.appButton}>
-              <AppButton
-                title="Back"
-                onPress={() => navigation.goBack()}
-              ></AppButton>
-            </Pressable>
-            <HomeButton navigation={navigation} />
-          </View>
-          {/* </ImageBackground> */}
-        </LinearGradient>
-      </ScrollView>
-    </SafeAreaView>
-  );
 
   return (
     <View>

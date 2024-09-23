@@ -1,43 +1,13 @@
 import React from "react";
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  ImageBackground,
-} from "react-native";
-// import Icon from 'react-native-vector-icons/FontAwesome';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import { LinearGradient } from "expo-linear-gradient";
-// import blue5 from "../assets/blue5.jpg";
 
 export default function VocabMastery({ navigation }) {
-  /*
-  const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor={backgroundColor}
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-  */
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
-        {/* <ImageBackground
-          source={blue5}
-          imageStyle={style.image}
-          resizeMode="cover"
-          style={style.page}
-        > */}
-
         <LinearGradient
           colors={["#6699FF", "#335C81"]}
           start={{ x: 0.5, y: 0.25 }}
@@ -57,11 +27,6 @@ export default function VocabMastery({ navigation }) {
           </View>
 
           <View style={style.section}>
-            {/* <NavButton
-              navigation={navigation}
-              title="StackIt"
-              destination="StackIt"
-            /> */}
             <NavButton
               navigation={navigation}
               title="RapidFire"
@@ -85,17 +50,11 @@ export default function VocabMastery({ navigation }) {
               title="Schedule Quizzes"
               destination="ScheduleQuizzes"
             />
-            {/* <NavButton
-              navigation={navigation}
-              title="Challenge A Friend"
-              destination="ChallengeFriend"
-            /> */}
           </View>
 
           <View>
             <HomeButton navigation={navigation} />
           </View>
-          {/* </ImageBackground> */}
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>

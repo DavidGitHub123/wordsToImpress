@@ -6,7 +6,7 @@ import {
   StyleSheet,
   ScrollView,
   SafeAreaView,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
 // import { NavButtonHome } from "../components/NavButtonHome";
 import { NotificationButton } from "../components/NotificationButton";
@@ -23,7 +23,6 @@ import { HomeAZWordsButton } from "../components/HomeAZWordsButton";
 import logo from "../assets/logoborderradius.jpg";
 // import { LinearGradient } from "expo-linear-gradient";
 import phone from "../assets/phone.jpg";
-
 
 export default function HomeScreen({ navigation }) {
   const seperatorStyles = {
@@ -43,17 +42,7 @@ export default function HomeScreen({ navigation }) {
           resizeMode="cover"
           style={style.page}
         >
-
-      {/* <LinearGradient
-          colors={["#335C81", "#6699FF"]}
-          start={{ x: 0.5, y: 0.25 }}
-          end={{ x: 0.5, y: 1 }}
-          opacity={1.0}
-          style={style.page}
-        > */}
-
-        <View style={style.page}>
-            
+          <View style={style.page}>
             <View style={style.topHeader}>
               <NotificationButton
                 navigation={navigation}
@@ -69,133 +58,69 @@ export default function HomeScreen({ navigation }) {
 
             <Seperator />
 
-            {/* <View style={style.header}>
-              <View style={style.heroHeader}>
-                <Text style={style.headLine}>
-                  Build Your Vocabulary PROWESS
-                </Text>
-                <Image style={style.imageHeader} source={logo} />
+            <View style={style.heroHeader}>
+              <Image style={style.imageHeader} source={logo} />
+            </View>
+
+            <View style={style.screen}>
+              <Text style={style.headLine}>Build Your Vocabulary</Text>
+              <Text style={style.prowess}>PROWESS</Text>
+            </View>
+            <View>
+              <View style={style.buttons}>
+                <HomeMyListButton
+                  navigation={navigation}
+                  title="My List"
+                  destination="MyList"
+                />
+                <HomeMyProgressButton
+                  navigation={navigation}
+                  title="MyProgress"
+                  destination="MyList"
+                />
               </View>
-            </View> */}
 
-              <View style={style.heroHeader}>
-                <Image style={style.imageHeader} source={logo} />
-                {/* <Text style={style.headLine}>
-                  Build Your Vocabulary PROWESS
-                </Text> */}
+              <View style={style.buttons}>
+                <HomeBuildMyListButton
+                  navigation={navigation}
+                  title="Build My List"
+                  destination="BuildMyList"
+                />
+                <HomePreBuiltListButton
+                  navigation={navigation}
+                  title="Pre-Built List"
+                  destination="PreBuiltListNew"
+                />
               </View>
 
-              <View style={style.screen}>
-                <Text style={style.headLine}>
-                  Build Your Vocabulary
-                </Text>
-                <Text style={style.prowess}>
-                  PROWESS
-                </Text>
+              <View style={style.buttons}>
+                <HomeWordSituationButton
+                  navigation={navigation}
+                  title="Word Situations"
+                  destination="WordSituations"
+                />
+                <HomeVocabMasteryButton
+                  navigation={navigation}
+                  title="Vocab Mastery"
+                  destination="VocabMastery"
+                />
               </View>
-    
-          {/* </LinearGradient> */}
 
-
-  {/* <View style={style.section}>
-          <NavButtonHome
-            navigation={navigation}
-            title="My List"
-            destination="MyList"
-          />
-          <NavButtonHome
-            navigation={navigation}
-            title="Build My List"
-            destination="BuildMyList"
-          />
-          <NavButtonHome
-            navigation={navigation}
-            title="Pre-Built List"
-            destination="PreBuiltListNew"
-          />
-        <NavButtonHome
-          navigation={navigation}
-          title="Word Situations"
-          destination="WordSituations"
-        />
-          <NavButtonHome
-            navigation={navigation}
-            title="Vocab Mastery"
-            destination="VocabMastery"
-          />
-        <NavButtonHome
-          navigation={navigation}
-          title="Word of Day"
-          destination="WordOfDay"
-        />
-        <NavButtonHome
-          navigation={navigation}
-          title="A-Z Words"
-          destination="AtoZButtons"
-        />
-</View> */}
-
-
-
-<View>
-
-        <View style={style.buttons}>
-          <HomeMyListButton
-            navigation={navigation}
-            title="My List"
-            destination="MyList"
-          />
-          <HomeMyProgressButton
-          navigation={navigation}
-          title="MyProgress"
-          destination="MyList"
-          />
-        </View>
-              
-        <View style={style.buttons}>
-          <HomeBuildMyListButton
-            navigation={navigation}
-            title="Build My List"
-            destination="BuildMyList"
-          />
-          <HomePreBuiltListButton
-            navigation={navigation}
-            title="Pre-Built List"
-            destination="PreBuiltListNew"
-          />
-        </View>
-
-        <View style={style.buttons}>
-        <HomeWordSituationButton
-          navigation={navigation}
-          title="Word Situations"
-          destination="WordSituations"
-        />
-          <HomeVocabMasteryButton
-            navigation={navigation}
-            title="Vocab Mastery"
-            destination="VocabMastery"
-          />
-        </View>
-
-        <View style={style.buttons}>
-        <HomeWordOfDayButton
-          navigation={navigation}
-          title="Word of Day"
-          destination="WordOfDay"
-        />
-        <HomeAZWordsButton
-          navigation={navigation}
-          title="A-Z Words"
-          destination="AtoZButtons"
-        />
-        </View>
-</View>
-
-
-
-        </View>
-      </ImageBackground>
+              <View style={style.buttons}>
+                <HomeWordOfDayButton
+                  navigation={navigation}
+                  title="Word of Day"
+                  destination="WordOfDay"
+                />
+                <HomeAZWordsButton
+                  navigation={navigation}
+                  title="A-Z Words"
+                  destination="AtoZButtons"
+                />
+              </View>
+            </View>
+          </View>
+        </ImageBackground>
       </ScrollView>
     </SafeAreaView>
   );
@@ -249,7 +174,7 @@ const style = StyleSheet.create({
 
   screen: {
     opacity: 7,
-    backgroundColor: '000',
+    backgroundColor: "000",
   },
 
   headLine: {
@@ -259,7 +184,7 @@ const style = StyleSheet.create({
     textShadowColor: "gray",
     textShadowRadius: 5,
     marginTop: -36,
-    textAlign: 'center',
+    textAlign: "center",
   },
 
   prowess: {
@@ -269,7 +194,7 @@ const style = StyleSheet.create({
     textShadowColor: "gray",
     textShadowRadius: 5,
     paddingBottom: 30,
-    textAlign: 'center',
+    textAlign: "center",
   },
 
   // section: {

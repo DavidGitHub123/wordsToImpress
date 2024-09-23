@@ -8,29 +8,13 @@ import {
   Pressable,
   ImageBackground,
 } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import AppButton from "../components/AppButton";
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import { navStyle } from "../components/NavButton.js";
 import blue6 from "../assets/blue6.jpg";
 
 export default function MutlipleChoice({ navigation }) {
-  const AppButton = ({ onPress, icon, title }) => (
-    <View style={style.appButtonContainer}>
-      <Icon.Button
-        name={icon}
-        backgroundColor="#FF8C00"
-        borderRadius={40}
-        borderWidth={3}
-        borderColor="#BBC2CC"
-        onPress={onPress}
-        style={style.appButton}
-      >
-        <Text style={style.appButtonText}>{title}</Text>
-      </Icon.Button>
-    </View>
-  );
-
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
