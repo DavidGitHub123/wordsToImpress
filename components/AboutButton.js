@@ -2,13 +2,13 @@ import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-function AboutButton({ navigation, title, destination, icon = "user" }) {
+function AboutButton({ navigation, title, destination, icon = "table" }) {
   const AppButton = ({ onPress, icon, title }) => (
     <View style={navStyle.appButtonContainer}>
       <Icon.Button
         name={icon}
         backgroundColor="transparent"
-        // borderRadius={10}
+        borderRadius={10}
         borderWidth={1}
         borderColor="#fff"
         onPress={onPress}
@@ -36,16 +36,19 @@ const navStyle = StyleSheet.create({
   appButton: {
     alignItems: "center",
     justifyContent: "center",
-    padding: 3,
+    paddingHorizontal: 30,
+    height: 40,
   },
 
   appButtonText: {
-    fontSize: 16,
+    fontSize: 20,
+    fontWeight: "600",
     color: "#fff",
   },
 
   appButtonContainer: {
-    width: 120,
+    width: 150,
+    padding: 6,
   },
 });
 

@@ -6,12 +6,12 @@ import {
   Text,
   View,
   Pressable,
-  ImageBackground,
+  // ImageBackground,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import HomeButton from "../components/HomeButton";
 import { NavButton, navStyle } from "../components/NavButton";
-import blue8 from "../assets/blue8.jpg";
+// import blue8 from "../assets/blue8.jpg";
 import RadioButton from "../components/RadioButton";
 import {
   getList,
@@ -19,6 +19,7 @@ import {
   incrementMastery,
 } from "../components/listHelpers";
 import RapidFireCards from "./RapidFireCards";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function RapidFire({ navigation }) {
   const [timing, setTiming] = useState(10);
@@ -46,10 +47,17 @@ export default function RapidFire({ navigation }) {
           borderColor="#BBC2CC"
           onPress={onPress}
         ></Icon.Button>
-        <ImageBackground
+        {/* <ImageBackground
           source={blue8}
           imageStyle={style.image}
           resizeMode="cover"
+          style={style.page}
+        > */}
+        <LinearGradient
+          colors={["#6699FF", "#335C81"]}
+          start={{ x: 0.5, y: 0.25 }}
+          end={{ x: 0.25, y: 0.5 }}
+          opacity={1.0}
           style={style.page}
         >
           <View>
@@ -63,9 +71,6 @@ export default function RapidFire({ navigation }) {
               title="Play Game"
               destination="RapidFireCards"
             />
-            {/* Button takes you to RapidFire_MyList with checkbox in front of word. 
-              User selects 10 words from their MyList. 
-              Then button at top of page takes them to RapidFireCards where they play the game. */}
           </View>
 
           <View style={style.buttons}>
@@ -77,7 +82,8 @@ export default function RapidFire({ navigation }) {
             </Pressable>
             <HomeButton navigation={navigation} />
           </View>
-        </ImageBackground>
+        {/* </ImageBackground> */}
+        </LinearGradient>
       </ScrollView>
     </SafeAreaView>
   );
@@ -163,7 +169,7 @@ function Game(Props) {
 function GameSetUp(Props) {
   const { timing, setTiming, setIsStarted } = Props;
 
-  const timingOptions = [1, 3, 5, 10];
+  const timingOptions = [1, 3, 5];
 
   const timingButtons = timingOptions.map((el, i) => (
     <Pressable
@@ -190,13 +196,11 @@ function GameSetUp(Props) {
 
 const style = StyleSheet.create({
   page: {
-    paddingBottom: 350,
-    // backgroundColor: '#000',
+    paddingTop: 350,
+    paddingHorizontal: 100,
+    backgroundColor: '#fff',
   },
 
-  // image: {
-  //   opacity: .5,
-  // },
 
   header: {
     fontSize: 40,
@@ -245,8 +249,11 @@ const style = StyleSheet.create({
     flexWrap: "nowrap",
     flexDirection: "row",
     justifyContent: "space-between",
+    paddingTop:10,
   },
+
   timingOptionsContainer: {
+    paddingTop:100,
     height: "20vh",
     width: "30vw",
     display: "flex",

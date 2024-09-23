@@ -44,7 +44,7 @@ const navStyle = StyleSheet.create({
   },
 
   appButtonContainer: {
-    width: 220,
+    width: 200,
     marginVertical: 2,
   },
 

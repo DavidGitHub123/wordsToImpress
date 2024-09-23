@@ -2,20 +2,15 @@ import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-function MyProgressButton({
-  navigation,
-  title,
-  destination,
-  icon = "line-chart",
-}) {
+function NotificationButton({ navigation, title, destination, icon = "bell" }) {
   const AppButton = ({ onPress, icon, title }) => (
     <View style={navStyle.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor="#FF8C00"
-        borderRadius={10}
-        borderWidth={3}
-        borderColor="#BBC2CC"
+        backgroundColor="transparent"
+        // borderRadius={10}
+        // borderWidth={1}
+        // borderColor="#fff"
         onPress={onPress}
         style={navStyle.appButton}
       >
@@ -41,18 +36,17 @@ const navStyle = StyleSheet.create({
   appButton: {
     alignItems: "center",
     justifyContent: "center",
+    padding: 3,
   },
 
   appButtonText: {
     fontSize: 16,
     color: "#fff",
-    //   fontWeight: 'bold',
   },
 
   appButtonContainer: {
-    width: 150,
-    marginVertical: 2,
+    width: 100,
   },
 });
 
-export { MyProgressButton, navStyle };
+export { NotificationButton, navStyle };

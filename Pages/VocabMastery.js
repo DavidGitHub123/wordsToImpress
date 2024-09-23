@@ -10,7 +10,8 @@ import {
 // import Icon from 'react-native-vector-icons/FontAwesome';
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
-import blue5 from "../assets/blue5.jpg";
+import { LinearGradient } from "expo-linear-gradient";
+// import blue5 from "../assets/blue5.jpg";
 
 export default function VocabMastery({ navigation }) {
   /*
@@ -30,14 +31,29 @@ export default function VocabMastery({ navigation }) {
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground
+        {/* <ImageBackground
           source={blue5}
           imageStyle={style.image}
           resizeMode="cover"
           style={style.page}
+        > */}
+
+        <LinearGradient
+          colors={["#6699FF", "#335C81"]}
+          start={{ x: 0.5, y: 0.25 }}
+          end={{ x: 0.25, y: 0.5 }}
+          opacity={1.0}
+          style={style.page}
         >
           <View>
             <Text style={style.header}>Vocab Mastery</Text>
+
+            <Text style={style.headerText}>
+              Here you can learn words to make them part of your everyday writing and understanding.
+              Once correctly identied 5 times, a word moves into your Mastered List. 
+              Only words you have not mastered appear for more efficient learning.
+            </Text>
+
           </View>
 
           <View style={style.section}>
@@ -55,6 +71,11 @@ export default function VocabMastery({ navigation }) {
               navigation={navigation}
               title="QuickMatch"
               destination="QuickMatch"
+            />
+            <NavButton
+              navigation={navigation}
+              title="SentenceID"
+              destination="SentenceID"
             />
           </View>
 
@@ -74,7 +95,8 @@ export default function VocabMastery({ navigation }) {
           <View>
             <HomeButton navigation={navigation} />
           </View>
-        </ImageBackground>
+        {/* </ImageBackground> */}
+        </LinearGradient>
       </ScrollView>
     </SafeAreaView>
   );
@@ -98,6 +120,13 @@ const style = StyleSheet.create({
     fontWeight: "800",
     textAlign: "center",
     paddingBottom: 20,
+  },
+
+  headerText: {
+    fontSize: 24,
+    color: "#f0f8ff",
+    paddingBottom: 20,
+    paddingHorizontal: 35,
   },
 
   section: {

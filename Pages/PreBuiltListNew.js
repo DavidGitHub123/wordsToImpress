@@ -10,10 +10,10 @@ export default function PreBuiltListNew({ navigation }) {
       <ScrollView alwaysBounceHorizontal={true}>
         {/* <ImageBackground source={blue4} imageStyle={style.image} resizeMode="cover" style={style.page}> */}
         <LinearGradient
-          colors={["#335C81", "#6699FF"]}
+          colors={["#6699FF", "#335C81"]}
           start={{ x: 0.5, y: 0.25 }}
-          end={{ x: 0.5, y: 0.25 }}
-          opacity={0.95}
+          end={{ x: 0.25, y: 0.5 }}
+          opacity={1.0}
           style={style.page}
         >
           <View>

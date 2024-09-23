@@ -8,7 +8,7 @@ import {
   ImageBackground,
 } from "react-native";
 // import Icon from 'react-native-vector-icons/FontAwesome';
-// import { LinearGradient } from "expo-linear-gradient";
+import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import blue7 from "../assets/blue7.jpg";
@@ -35,20 +35,20 @@ export default function BuildMyList({ navigation }) {
   return (
     <SafeAreaView style={style.page}>
       <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground
+        {/* <ImageBackground
           source={blue7}
           imageStyle={style.image}
           resizeMode="cover"
           style={style.page}
-        >
+        > */}
           
-        {/* <LinearGradient
-          colors={["#335C81", "#6699FF"]}
+          <LinearGradient
+          colors={["#6699FF", "#335C81"]}
           start={{ x: 0.5, y: 0.25 }}
-          end={{ x: 0.5, y: 0.25 }}
+          end={{ x: 0.25, y: 0.5 }}
           opacity={1.0}
           style={style.page}
-        > */}
+        >
 
           <View style={style.screen}>
             <Text style={style.header}>Build My List</Text>
@@ -88,9 +88,9 @@ export default function BuildMyList({ navigation }) {
           </View>
 
    
-          {/* </LinearGradient> */}
+          </LinearGradient>
 
-        </ImageBackground>
+        {/* </ImageBackground> */}
       </ScrollView>
     </SafeAreaView>
   );

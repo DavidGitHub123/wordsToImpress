@@ -9,7 +9,7 @@ import {
   ImageBackground,
 } from "react-native";
 import { useState } from "react";
-// import { LinearGradient } from "expo-linear-gradient";
+import { LinearGradient } from "expo-linear-gradient";
 import Icon from "react-native-vector-icons/FontAwesome";
 import HomeButton from "../components/HomeButton";
 import blue13 from "../assets/blue13.jpg";
@@ -50,14 +50,7 @@ export default function System({ navigation }) {
         <Text style={style.text}>
           Your language defines you - whether
           a professional, student studying for the SATs, 
-          or learning English as a second language. The
-          Words to Impress App quickly and efficiently helps you develop an
-          impressive vocabulary.
-        </Text>
-        <Text style={style.text}>
-          The
-          Words to Impress App quickly and efficiently helps you develop an
-          impressive vocabulary.
+          or learning English as a second language.
         </Text>
         <Text style={style.text}>
           The
@@ -99,8 +92,7 @@ export default function System({ navigation }) {
         <Text style={style.text}>
           The Build My List tool anlyzes your
           writing for common words unique to you. Then provides you
-          with a list of upgraded words based on concepts and ideas familiar to
-          you.
+          with a list of upgraded words based on familiar concepts and ideas.
         </Text>
         {hideButton}
       </View>
@@ -112,7 +104,7 @@ export default function System({ navigation }) {
       <View style={style.component}>
         <Text style={style.componentHead}>Word Situations</Text>
         <Text style={style.text}>
-          Imagine yourself in an important situation. What's the best thing to say? 
+          Imagine yourself in an important situation. What do you say? 
         </Text>
         <Text style={style.text}>
           Word Situations identifies words unique to politics,
@@ -130,7 +122,7 @@ export default function System({ navigation }) {
       <View style={style.component}>
         <Text style={style.componentHead}>Learning Reinforcement</Text>
         <Text style={style.text}>
-          The Vocabulary Mastery section provides tools to help you
+          The Vocabulary Mastery section provides games and quizes to help you
           learn your list of words quickly.
         </Text>
         <Text style={style.text}>
@@ -145,19 +137,19 @@ export default function System({ navigation }) {
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground
+        {/* <ImageBackground
           source={blue13}
           imageStyle={style.image}
           resizeMode="cover"
           style={style.page}
-        >
-        {/* <LinearGradient
-          colors={["#335C81", "#6699FF"]}
+        > */}
+        <LinearGradient
+          colors={["#6699FF", "#335C81"]}
           start={{ x: 0.5, y: 0.25 }}
-          end={{ x: 0.5, y: 0.25 }}
+          end={{ x: 0.25, y: 0.5 }}
           opacity={1.0}
           style={style.page}
-        > */}
+        >
           <View style={style.screen}>
             <Text style={style.subHead1}>
               Increase your powers of persuasion and
@@ -220,13 +212,13 @@ export default function System({ navigation }) {
                 </Pressable>
               </View>
 
-              <View>
+              <View style={style.homeButton}>
                 <HomeButton navigation={navigation} />
               </View>
             </View>
           )}
-          {/* </LinearGradient> */}
-        </ImageBackground>
+          </LinearGradient>
+        {/* </ImageBackground> */}
       </ScrollView>
     </SafeAreaView>
   );
@@ -253,13 +245,14 @@ const style = StyleSheet.create({
   },
 
   screen: {
-    opacity: 0.6,
+    opacity: 0.5,
     backgroundColor: "black",
+    paddingBottom: 20,
     marginBottom: 30,
   },
 
   subHead1: {
-    fontSize: 24,
+    fontSize: 36,
     color: "#fff",
     fontWeight: "600",
     paddingTop: 50,
@@ -281,6 +274,7 @@ const style = StyleSheet.create({
     fontSize: 30,
     color: "#f0f8ff",
     fontWeight: "600",
+    paddingBottom: 10,
   },
 
   component: {
@@ -292,6 +286,10 @@ const style = StyleSheet.create({
     color: "#f0f8ff",
     paddingBottom: 20,
     paddingHorizontal: 20,
+  },
+
+  homeButton: {
+    paddingTop: 30,
   },
 
   appButton: {

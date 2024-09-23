@@ -6,14 +6,24 @@ import {
   StyleSheet,
   ScrollView,
   SafeAreaView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
-import { NavButton } from "../components/NavButton";
+// import { NavButtonHome } from "../components/NavButtonHome";
+import { NotificationButton } from "../components/NotificationButton";
 import { AboutButton } from "../components/AboutButton";
-import { WordSituationButton } from "../components/WordSituationButton";
-import { MyProgressButton } from "../components/MyProgressButton";
-import circles from "../assets/circles.jpg";
+import { HomeMyListButton } from "../components/HomeMyListButton";
+import { HomeMyProgressButton } from "../components/HomeMyProgressButton";
+import { HomeBuildMyListButton } from "../components/HomeBuildMyListButton";
+import { HomePreBuiltListButton } from "../components/HomePreBuiltListButton";
+import { HomeWordSituationButton } from "../components/HomeWordSituationButton";
+import { HomeVocabMasteryButton } from "../components/HomeVocabMasteryButton";
+import { HomeWordOfDayButton } from "../components/HomeWordOfDayButton";
+import { HomeAZWordsButton } from "../components/HomeAZWordsButton";
+
 import logo from "../assets/logoborderradius.jpg";
+// import { LinearGradient } from "expo-linear-gradient";
+import phone from "../assets/phone.jpg";
+
 
 export default function HomeScreen({ navigation }) {
   const seperatorStyles = {
@@ -28,17 +38,27 @@ export default function HomeScreen({ navigation }) {
     <SafeAreaView>
       <ScrollView alwaysBounceHorizontal={true}>
         <ImageBackground
-          source={circles}
+          source={phone}
           imageStyle={style.image}
           resizeMode="cover"
           style={style.page}
         >
-          <View style={style.page}>
+
+      {/* <LinearGradient
+          colors={["#335C81", "#6699FF"]}
+          start={{ x: 0.5, y: 0.25 }}
+          end={{ x: 0.5, y: 1 }}
+          opacity={1.0}
+          style={style.page}
+        > */}
+
+        <View style={style.page}>
+            
             <View style={style.topHeader}>
-              <MyProgressButton
+              <NotificationButton
                 navigation={navigation}
-                title="MyProgress"
-                destination="MyList"
+                // title=""
+                destination="System"
               />
               <AboutButton
                 navigation={navigation}
@@ -49,69 +69,133 @@ export default function HomeScreen({ navigation }) {
 
             <Seperator />
 
-            <View style={style.wordSituationHeader}>
-            <WordSituationButton
-                navigation={navigation}
-                title="Word Situations"
-                destination="WordSituations"
-              />
-            </View>
-
-            <View style={style.header}>
+            {/* <View style={style.header}>
               <View style={style.heroHeader}>
                 <Text style={style.headLine}>
                   Build Your Vocabulary PROWESS
                 </Text>
                 <Image style={style.imageHeader} source={logo} />
-                {/* <Image style={style.imageHeader} source={require('../assets/logo.jpg')} /> */}
               </View>
+            </View> */}
 
-
-            </View>
-
-            <Seperator />
-
-            <View style={style.secondSeperator}>
-                {/* <Text style={style.subHead}>
-                  With an AI solution to master an impressive vocabulary!
+              <View style={style.heroHeader}>
+                <Image style={style.imageHeader} source={logo} />
+                {/* <Text style={style.headLine}>
+                  Build Your Vocabulary PROWESS
                 </Text> */}
-                <NavButton
-                  navigation={navigation}
-                  title="My List"
-                  destination="MyList"
-                />
               </View>
 
-            <View style={style.section}>
-              <NavButton
-                navigation={navigation}
-                title="Build My List"
-                destination="BuildMyList"
-              />
-              <NavButton
-                navigation={navigation}
-                title="Pre-Built List"
-                destination="PreBuiltListNew"
-              />
-              <NavButton
-                navigation={navigation}
-                title="Vocab Mastery"
-                destination="VocabMastery"
-              />
-              <NavButton
-                navigation={navigation}
-                title="Word of Day"
-                destination="WordOfDay"
-              />
-              <NavButton
-                navigation={navigation}
-                title="A-Z Words"
-                destination="AtoZButtons"
-              />
+              <View style={style.screen}>
+                <Text style={style.headLine}>
+                  Build Your Vocabulary
+                </Text>
+                <Text style={style.prowess}>
+                  PROWESS
+                </Text>
+              </View>
+    
+          {/* </LinearGradient> */}
 
-            </View>
-          </View>
-        </ImageBackground>
+
+  {/* <View style={style.section}>
+          <NavButtonHome
+            navigation={navigation}
+            title="My List"
+            destination="MyList"
+          />
+          <NavButtonHome
+            navigation={navigation}
+            title="Build My List"
+            destination="BuildMyList"
+          />
+          <NavButtonHome
+            navigation={navigation}
+            title="Pre-Built List"
+            destination="PreBuiltListNew"
+          />
+        <NavButtonHome
+          navigation={navigation}
+          title="Word Situations"
+          destination="WordSituations"
+        />
+          <NavButtonHome
+            navigation={navigation}
+            title="Vocab Mastery"
+            destination="VocabMastery"
+          />
+        <NavButtonHome
+          navigation={navigation}
+          title="Word of Day"
+          destination="WordOfDay"
+        />
+        <NavButtonHome
+          navigation={navigation}
+          title="A-Z Words"
+          destination="AtoZButtons"
+        />
+</View> */}
+
+
+
+<View>
+
+        <View style={style.buttons}>
+          <HomeMyListButton
+            navigation={navigation}
+            title="My List"
+            destination="MyList"
+          />
+          <HomeMyProgressButton
+          navigation={navigation}
+          title="MyProgress"
+          destination="MyList"
+          />
+        </View>
+              
+        <View style={style.buttons}>
+          <HomeBuildMyListButton
+            navigation={navigation}
+            title="Build My List"
+            destination="BuildMyList"
+          />
+          <HomePreBuiltListButton
+            navigation={navigation}
+            title="Pre-Built List"
+            destination="PreBuiltListNew"
+          />
+        </View>
+
+        <View style={style.buttons}>
+        <HomeWordSituationButton
+          navigation={navigation}
+          title="Word Situations"
+          destination="WordSituations"
+        />
+          <HomeVocabMasteryButton
+            navigation={navigation}
+            title="Vocab Mastery"
+            destination="VocabMastery"
+          />
+        </View>
+
+        <View style={style.buttons}>
+        <HomeWordOfDayButton
+          navigation={navigation}
+          title="Word of Day"
+          destination="WordOfDay"
+        />
+        <HomeAZWordsButton
+          navigation={navigation}
+          title="A-Z Words"
+          destination="AtoZButtons"
+        />
+        </View>
+</View>
+
+
+
+        </View>
+      </ImageBackground>
       </ScrollView>
     </SafeAreaView>
   );
@@ -119,79 +203,76 @@ export default function HomeScreen({ navigation }) {
 
 const style = StyleSheet.create({
   page: {
-    marginBottom: 100,
+    paddingBottom: 100,
   },
-
-  // image: {
-  //   opacity: .5,
-  // },
 
   topHeader: {
     flex: 1,
     alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "row",
-    paddingHorizontal: 10,
-  },
-
-  wordSituationHeader: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "space-between",
-    flexDirection: "row",
-    paddingHorizontal: 10,
-  },
-
-  header: {
-    paddingTop: 15,
-    paddingBottom: 30,
-    paddingHorizontal: 20,
-    textShadowColor: "#000",
-    textShadowRadius: 5,
+    paddingHorizontal: 5,
+    paddingVertical: 10,
+    margin: 3,
   },
 
   heroHeader: {
+    alignItems: "center",
+  },
+
+  // heroHeader: {
+  //   flex: 1,
+  //   alignItems: "center",
+  //   justifyContent: "space-between",
+  //   flexDirection: "row",
+  //   marginRight: 25,
+  //   textShadowColor: "#000",
+  //   textShadowRadius: 5,
+  //   marginBottom: 20,
+  // },
+
+  buttons: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "center",
     flexDirection: "row",
-    paddingHorizontal: 15,
-    textShadowColor: "#000",
-    textShadowRadius: 5,
-    marginBottom: -20,
+    paddingHorizontal: 3,
+    paddingVertical: 3,
+    margin: 3,
   },
 
   imageHeader: {
-    width: 170,
-    height: 170,
+    width: 250,
+    height: 250,
     resizeMode: "contain",
-    borderRadius: 20,
+  },
+
+  screen: {
+    opacity: 7,
+    backgroundColor: '000',
   },
 
   headLine: {
-    fontSize: 32,
+    fontSize: 34,
     color: "#f0f8ff",
-    fontWeight: "800",
-    marginRight: 10,
-    textShadowColor: "#000",
+    fontWeight: "700",
+    textShadowColor: "gray",
     textShadowRadius: 5,
+    marginTop: -36,
+    textAlign: 'center',
   },
 
-  subHead: {
-    fontSize: 24,
+  prowess: {
+    fontSize: 60,
     color: "#f0f8ff",
-    fontWeight: "500",
-    paddingHorizontal: 20,
-    paddingBottom: 20,
-    textShadowColor: "#000",
+    fontWeight: "700",
+    textShadowColor: "gray",
     textShadowRadius: 5,
+    paddingBottom: 30,
+    textAlign: 'center',
   },
 
-  secondSeperator: {
-    paddingTop: 40,
-  },
-
-  section: {
-    paddingTop: 20,
-  },
+  // section: {
+  //   paddingTop: 20,
+  // },
 });

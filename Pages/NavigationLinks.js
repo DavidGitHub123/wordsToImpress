@@ -14,7 +14,7 @@ import ChallengeFriend from "../Pages/ChallengeFriend";
 import ConversationSearch from "../Pages/ConversationSearch";
 import RapidFire from "../Pages/RapidFire";
 import RapidFireCards from "../Pages/RapidFireCards";
-import QuickMatch from "../Pages/QuickMatch";
+import QuickQuiz from "../Pages/QuickQuiz";
 import StackIt from "../Pages/StackIt";
 import ScheduleQuizzes from "../Pages/ScheduleQuizzes";
 import TextSearch from "../Pages/TextSearch";
@@ -101,7 +101,11 @@ export default function NavigationLinks() {
         component={System}
         options={{ title: "Learning System" }}
       />
-      <Stack.Screen name="Word" component={Word} options={{ title: "Word" }} />
+      <Stack.Screen 
+        name="Word" 
+        component={Word} 
+        options={{ title: "Word" }} 
+      />
       <Stack.Screen
         name="AtoZButtons"
         component={AtoZButtons}
@@ -129,8 +133,8 @@ export default function NavigationLinks() {
       />
       <Stack.Screen
         name="QuickMatch"
-        component={QuickMatch}
-        options={{ title: "QuickMatch" }}
+        component={QuickQuiz}
+        options={{ title: "QuickQuiz" }}
       />
       <Stack.Screen
         name="StackIt"

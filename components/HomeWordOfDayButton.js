@@ -2,22 +2,19 @@ import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-function WordSituationButton({
-  navigation,
-  title,
-  destination,
-//   icon = "line-chart",
-}) {
+function HomeWordOfDayButton({ navigation, title, destination, icon = "calendar" }) {
   const AppButton = ({ onPress, icon, title }) => (
     <View style={navStyle.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor="#4682B4"
+        backgroundColor="#FF8C00"
         borderRadius={10}
-        borderWidth={1}
-        borderColor='#fff'
+        borderWidth={3}
+        borderColor="#fff"
+            // borderColor="#BBC2CC"
         onPress={onPress}
         style={navStyle.appButton}
+        // padding={15}
       >
         <Text style={navStyle.appButtonText}>{title}</Text>
       </Icon.Button>
@@ -27,7 +24,7 @@ function WordSituationButton({
   return (
     <Pressable style={navStyle.appButton}>
       <AppButton
-        // icon={icon}
+        icon={icon}
         title={title}
         onPress={() =>
           navigation.navigate(destination, { selectedWord: title })
@@ -41,18 +38,20 @@ const navStyle = StyleSheet.create({
   appButton: {
     alignItems: "center",
     justifyContent: "center",
-    width: 220,
+    height: 80,
   },
 
   appButtonText: {
     fontSize: 20,
     color: "#fff",
-      fontWeight: 'bold',
   },
 
   appButtonContainer: {
-    paddingVertical: 20,
+    width: 200,
+    padding: 6,
   },
+
+
 });
 
-export { WordSituationButton, navStyle };
+export { HomeWordOfDayButton, navStyle };

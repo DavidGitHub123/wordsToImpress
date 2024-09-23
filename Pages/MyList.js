@@ -4,8 +4,8 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, ImageBackground } fro
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import { NavButtonWord } from "../components/NavButtonWord";
-// import { LinearGradient } from "expo-linear-gradient";
-import blue14 from "../assets/blue14.jpg";
+import { LinearGradient } from "expo-linear-gradient";
+// import blue14 from "../assets/blue14.jpg";
 import {
   defaultList,
   getList,
@@ -79,14 +79,14 @@ export default function MyList({ navigation }) {
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground source={blue14} imageStyle={style.image} resizeMode="cover" style={style.page}>
-        {/* <LinearGradient
+        {/* <ImageBackground source={blue14} imageStyle={style.image} resizeMode="cover" style={style.page}> */}
+        <LinearGradient
           colors={["#6699FF", "#335C81"]}
-          start={{ x: .75, y: 0 }}
-          end={{ x: 0, y: 0 }}
-          opacity={.8}
+          start={{ x: 0.5, y: 0.25 }}
+          end={{ x: 0.25, y: 0.5 }}
+          opacity={1.0}
           style={style.page}
-        > */}
+        >
           <View>
             <Text style={style.header}>My List</Text>
           </View>
@@ -97,19 +97,14 @@ export default function MyList({ navigation }) {
             {masteredWordCount === 0 && listLength === 0 ? null : (
               <PieChart
                 style={style.donut}
-                widthAndHeight={200}
+                widthAndHeight={150}
                 series={[masteredWordCount, unMasteredWordCount]}
                 sliceColor={["#4cf03a", "#5ba653"]}
                 coverRadius={0.8}
               />
             )}
+            <HomeButton navigation={navigation} />
           </View>
-
-          {/* Once word has been answered correctly 10 times, put in mastery category */}
-          {/* Once 50 words are in mastered category, congratulations. 
-      Button to start new list of 50 appears on this page.
-      Button simply takes them to AtoZ page.
-      From this point, now button to see previous list of 50 appears. */}
 
           <View style={style.section}>{listOrLoading.map((el) => el)}</View>
 
@@ -125,11 +120,11 @@ export default function MyList({ navigation }) {
               title="A-Z Words"
               destination="AtoZButtons"
             />
-            <HomeButton navigation={navigation} />
+
           </View>
 
-          </ImageBackground>
-        {/* </LinearGradient> */}
+          {/* </ImageBackground> */}
+        </LinearGradient>
       </ScrollView>
     </SafeAreaView>
   );
@@ -140,7 +135,8 @@ const style = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    paddingBottom: 300,
+    paddingBottom: 100,
+    paddingTop: 100,
   },
 
   donut: {
@@ -159,18 +155,13 @@ const style = StyleSheet.create({
   },
 
   donutContainer: {
-    width: "200px",
-    height: "200px",
+    width: "100px",
+    height: "100px",
     position: "relative",
   },
 
-  // image: {
-  //   width: "100%",
-  //   height: "100%",
-  // },
-
   header: {
-    fontSize: 30,
+    fontSize: 40,
     color: "#f0f8ff",
     fontWeight: "800",
     paddingBottom: "2vh",
