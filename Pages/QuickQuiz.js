@@ -4,13 +4,9 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import HomeButton from "../components/HomeButton.js";
 import { NavButton } from "../components/NavButton.js";
 import { LinearGradient } from "expo-linear-gradient";
-import {
-  getNLeastMastered,
-  defaultList,
-  incrementMastery,
-} from "../components/listHelpers.js";
-import data from "../data.js";
+import { getNLeastMastered, defaultList } from "../components/listHelpers.js";
 import AppButton from "../components/AppButton.js";
+import MultipleChoiceGame from "../components/MultipleChoiceGame.js";
 
 export default function QuickQuiz({ navigation }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
@@ -74,7 +70,7 @@ export default function QuickQuiz({ navigation }) {
   );
 
   return isGameStarted ? (
-    <Game
+    <MultipleChoiceGame
       list={list}
       navigation={navigation}
       setGameRestart={setGameRestart}
@@ -188,197 +184,8 @@ export default function QuickQuiz({ navigation }) {
             <HomeButton navigation={navigation} />
           </View>
         </LinearGradient>
-        {/* </ImageBackground> */}
       </ScrollView>
     </SafeAreaView>
-  );
-}
-
-function Game(Props) {
-  const [listIndex, setListIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [anwsers, setAnwsers] = useState([]);
-  const [selectedKey, setSelectedKey] = useState(null);
-  const [gameOver, setGameOver] = useState(false);
-  const [hasBeenSelected, setHasBeenSelected] = useState(false);
-  const [correctJSX, setCorrectJsx] = useState(null);
-  // This state is either true, false, or null
-  // null doesn't display any text
-  // false displays incorrect
-  // true displays correct
-  const [isCorrect, setIsCorrect] = useState(null);
-  const { list, navigation, setGameRestart, gameRestart } = Props;
-  const MAX_INCORRECT_ANSWERS = 3;
-
-  useEffect(() => {
-    if (hasBeenSelected || isCorrect === null || selectedKey === null) {
-      return;
-    }
-    setHasBeenSelected(true);
-
-    const copyAnswers = anwsers.slice();
-    const indexToHighlight = copyAnswers.findIndex(
-      (el) => el.props.highlightKey === selectedKey,
-    );
-
-    let style = {};
-    if (isCorrect) {
-      style = { backgroundColor: "green", borderColor: "#BBC2CC" };
-    } else {
-      style = { backgroundColor: "red", borderColor: "#fff" };
-    }
-    const highlightedButton = (
-      <AppButton
-        key={selectedKey}
-        title={copyAnswers[indexToHighlight].props.title}
-        style={style}
-      />
-    );
-    copyAnswers[indexToHighlight] = highlightedButton;
-
-    setAnwsers([...copyAnswers]);
-  }, [selectedKey]);
-
-  useEffect(() => {
-    if (isCorrect === null) {
-      setCorrectJsx(null);
-    } else if (isCorrect) {
-      setCorrectJsx(
-        <View>
-          <Text>Correct</Text>
-          {nextButton}
-        </View>,
-      );
-    } else {
-      setCorrectJsx(
-        <View>
-          <Text>Incorrect</Text>
-          {nextButton}
-        </View>,
-      );
-    }
-  }, [hasBeenSelected]);
-
-  useEffect(() => {
-    if (listIndex === list.length) {
-      return;
-    }
-
-    const generateThreeWrongAnswers = () => {
-      const wrongAnswers = [];
-      const rightAnswer = list[listIndex].word;
-
-      while (wrongAnswers.length < MAX_INCORRECT_ANSWERS) {
-        const randomWord = data[getRandomIndex()].Word;
-        if (!randomWord.includes(randomWord) || randomWord !== rightAnswer) {
-          wrongAnswers.push(randomWord);
-        }
-      }
-
-      return wrongAnswers.map((el, i) => (
-        <AppButton
-          key={i}
-          highlightKey={i}
-          title={el}
-          onPress={() => handleAnswer(false, i)}
-        />
-      ));
-    };
-
-    const rightAnswer = (
-      <AppButton
-        key={MAX_INCORRECT_ANSWERS}
-        highlightKey={MAX_INCORRECT_ANSWERS}
-        title={list[listIndex].word}
-        onPress={() => {
-          handleAnswer(true, MAX_INCORRECT_ANSWERS);
-        }}
-      />
-    );
-
-    const answerArray = generateThreeWrongAnswers();
-    answerArray.push(rightAnswer);
-
-    const shuffledAnswers = answerArray
-      .map((el) => ({ el, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ el }) => el);
-    setAnwsers(shuffledAnswers);
-  }, [listIndex]);
-
-  let correctDataIndex;
-  let definition;
-  if (listIndex < list.length - 1) {
-    correctDataIndex = data.findIndex((el) => el.Word === list[listIndex].word);
-
-    definition = data[correctDataIndex].Shortdef;
-  }
-
-  const getRandomIndex = () => Math.floor(Math.random() * data.length);
-
-  const handleAnswer = (correct, key) => {
-    // early return if isCorrect is true or false
-    console.log(hasBeenSelected);
-    if (isCorrect !== null || hasBeenSelected) {
-      return;
-    }
-    setSelectedKey(key);
-    setIsCorrect(correct);
-    if (correct) {
-      setScore(score + 1);
-      incrementMastery(defaultList, list[listIndex].word);
-    }
-  };
-
-  const handleNext = () => {
-    setHasBeenSelected(false);
-    setSelectedKey(null);
-    setIsCorrect(null);
-    if (listIndex + 1 === list.length) {
-      setGameOver(true);
-      setListIndex(0);
-    }
-    setListIndex(listIndex + 1);
-  };
-
-  const nextButton = (
-    <AppButton title="Next Word" icon="sign-in" onPress={handleNext} />
-  );
-
-  const handleStartOver = () => {
-    setGameRestart(!gameRestart);
-    setListIndex(0);
-    setScore(0);
-    setGameOver(false);
-  };
-
-  const GameOver = (
-    <View>
-      <Text>You scored {score}/10</Text>
-      <AppButton icon="sign-in" title="Play Again" onPress={handleStartOver} />
-      <NavButton
-        navigation={navigation}
-        title="Word Mastery"
-        destination="WordMastery"
-      />
-      <HomeButton navigation={navigation} />
-    </View>
-  );
-
-  return (
-    <View>
-      {!gameOver ? (
-        <View>
-          <Text>{listIndex + 1}/10</Text>
-          <Text>Identify the correct word that matches this definition.</Text>
-          <Text>Definition: {definition}</Text>
-          <View>{anwsers}</View>
-          <View>{correctJSX}</View>
-        </View>
-      ) : (
-        GameOver
-      )}
-    </View>
   );
 }
 
