@@ -200,6 +200,8 @@ function Game(Props) {
   const [anwsers, setAnwsers] = useState([]);
   const [selectedKey, setSelectedKey] = useState(null);
   const [gameOver, setGameOver] = useState(false);
+  const [hasBeenSelected, setHasBeenSelected] = useState(false);
+  const [correctJSX, setCorrectJsx] = useState(null);
   // This state is either true, false, or null
   // null doesn't display any text
   // false displays incorrect
@@ -207,33 +209,78 @@ function Game(Props) {
   const [isCorrect, setIsCorrect] = useState(null);
   const { list, navigation, setGameRestart, gameRestart } = Props;
   const MAX_INCORRECT_ANSWERS = 3;
+
+  useEffect(() => {
+    if (hasBeenSelected || isCorrect === null || selectedKey === null) {
+      return;
+    }
+    setHasBeenSelected(true);
+
+    const copyAnswers = anwsers.slice();
+    const indexToHighlight = copyAnswers.findIndex(
+      (el) => el.props.highlightKey === selectedKey,
+    );
+
+    let style = {};
+    if (isCorrect) {
+      style = { backgroundColor: "green", borderColor: "#BBC2CC" };
+    } else {
+      style = { backgroundColor: "red", borderColor: "#fff" };
+    }
+    const highlightedButton = (
+      <AppButton
+        key={selectedKey}
+        title={copyAnswers[indexToHighlight].props.title}
+        style={style}
+      />
+    );
+    copyAnswers[indexToHighlight] = highlightedButton;
+
+    setAnwsers([...copyAnswers]);
+  }, [selectedKey]);
+
+  useEffect(() => {
+    if (isCorrect === null) {
+      setCorrectJsx(null);
+    } else if (isCorrect) {
+      setCorrectJsx(
+        <View>
+          <Text>Correct</Text>
+          {nextButton}
+        </View>,
+      );
+    } else {
+      setCorrectJsx(
+        <View>
+          <Text>Incorrect</Text>
+          {nextButton}
+        </View>,
+      );
+    }
+  }, [hasBeenSelected]);
+
   useEffect(() => {
     if (listIndex === list.length) {
       return;
     }
-    const incorrectHighlight = { backgroundColor: "red", borderColor: "#fff" };
-    const correctHighlight = {
-      backgroundColor: "green",
-      borderColor: "#BBC2CC",
-    };
 
     const generateThreeWrongAnswers = () => {
       const wrongAnswers = [];
       const rightAnswer = list[listIndex].word;
+
       while (wrongAnswers.length < MAX_INCORRECT_ANSWERS) {
         const randomWord = data[getRandomIndex()].Word;
         if (!randomWord.includes(randomWord) || randomWord !== rightAnswer) {
           wrongAnswers.push(randomWord);
         }
       }
+
       return wrongAnswers.map((el, i) => (
         <AppButton
           key={i}
+          highlightKey={i}
           title={el}
-          backgroundColor={"red"}
-          borderColor={"#fff"}
           onPress={() => handleAnswer(false, i)}
-          style={i === selectedKey ? incorrectHighlight : null}
         />
       ));
     };
@@ -241,10 +288,11 @@ function Game(Props) {
     const rightAnswer = (
       <AppButton
         key={MAX_INCORRECT_ANSWERS}
-        answerKey={MAX_INCORRECT_ANSWERS}
+        highlightKey={MAX_INCORRECT_ANSWERS}
         title={list[listIndex].word}
-        onPress={() => handleAnswer(true, MAX_INCORRECT_ANSWERS)}
-        style={correctHighlight}
+        onPress={() => {
+          handleAnswer(true, MAX_INCORRECT_ANSWERS);
+        }}
       />
     );
 
@@ -255,7 +303,6 @@ function Game(Props) {
       .map((el) => ({ el, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)
       .map(({ el }) => el);
-
     setAnwsers(shuffledAnswers);
   }, [listIndex]);
 
@@ -270,8 +317,12 @@ function Game(Props) {
   const getRandomIndex = () => Math.floor(Math.random() * data.length);
 
   const handleAnswer = (correct, key) => {
+    // early return if isCorrect is true or false
+    console.log(hasBeenSelected);
+    if (isCorrect !== null || hasBeenSelected) {
+      return;
+    }
     setSelectedKey(key);
-    console.log(correct);
     setIsCorrect(correct);
     if (correct) {
       setScore(score + 1);
@@ -280,6 +331,7 @@ function Game(Props) {
   };
 
   const handleNext = () => {
+    setHasBeenSelected(false);
     setSelectedKey(null);
     setIsCorrect(null);
     if (listIndex + 1 === list.length) {
@@ -313,25 +365,6 @@ function Game(Props) {
     </View>
   );
 
-  const afterRoundTextAndButton = () => {
-    if (isCorrect === null) {
-      return null;
-    } else if (isCorrect) {
-      return (
-        <View>
-          <Text>Correct</Text>
-          {nextButton}
-        </View>
-      );
-    }
-    return (
-      <View>
-        <Text>Incorrect</Text>
-        {nextButton}
-      </View>
-    );
-  };
-
   return (
     <View>
       {!gameOver ? (
@@ -340,7 +373,7 @@ function Game(Props) {
           <Text>Identify the correct word that matches this definition.</Text>
           <Text>Definition: {definition}</Text>
           <View>{anwsers}</View>
-          <View>{afterRoundTextAndButton()}</View>
+          <View>{correctJSX}</View>
         </View>
       ) : (
         GameOver
