@@ -13,7 +13,6 @@ export default function MultipleChoiceGame(Props) {
   const [gameOver, setGameOver] = useState(false);
   const [displayNext, setDisplayNext] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
-
   const { list, navigation, setGameRestart, gameRestart } = Props;
   const MAX_INCORRECT_ANSWERS = 3;
 
