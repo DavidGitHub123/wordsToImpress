@@ -11,6 +11,7 @@ import {
 import logo from "../assets/logoborderradius.jpg";
 import phone from "../assets/phone.jpg";
 import AppButton from "../components/AppButton";
+import IconButton from "../components/IconButton";
 
 export default function HomeScreen({ navigation }) {
   const seperatorStyles = {
@@ -32,7 +33,10 @@ export default function HomeScreen({ navigation }) {
         >
           <View style={style.page}>
             <View style={style.topHeader}>
-              <AppButton icon="bell" />
+              <IconButton
+                name="bell"
+                onPress={() => navigation.navigate("Notifications")}
+              />
               <AppButton
                 icon="table"
                 title="About"

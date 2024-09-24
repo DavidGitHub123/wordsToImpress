@@ -28,6 +28,7 @@ import WS_MeetingInLaws from "../Pages/Situations/WS_MeetingInLaws";
 import WS_Negotiations from "../Pages/Situations/WS_Negotiations";
 import WS_Politics from "../Pages/Situations/WS_Politics";
 import WS_SpeedingTicket from "../Pages/Situations/WS_SpeedingTicket";
+import Notifications from "../Pages/Notifications";
 import A from "../Pages/AtoZcontent/A";
 import B from "../Pages/AtoZcontent/B";
 import C from "../Pages/AtoZcontent/C";
@@ -102,6 +103,11 @@ export default function NavigationLinks() {
         options={{ title: "Learning System" }}
       />
       <Stack.Screen name="Word" component={Word} options={{ title: "Word" }} />
+      <Stack.Screen
+        name="Notifications"
+        component={Notifications}
+        options={{ title: "Notifications" }}
+      />
       <Stack.Screen
         name="AtoZButtons"
         component={AtoZButtons}
