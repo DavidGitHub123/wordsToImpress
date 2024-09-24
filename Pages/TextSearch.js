@@ -16,7 +16,9 @@ import data from "../data";
 import { addOneWordToList, defaultList } from "../components/listHelpers";
 
 export default function TextSearch({ navigation }) {
-  const [text, setText] = useState("");
+  const [text, setText] = useState(
+    "this is some example text, i am hoping to show you that this feature is not a flaw and you don't find it objectionable!",
+  );
   const [suggestions, setSuggestions] = useState(null);
 
   const handleTextChange = (t) => setText(t);
@@ -31,8 +33,8 @@ export default function TextSearch({ navigation }) {
     setSuggestions(foundSuggestions);
   };
 
-  const handleAddToList = (word) => {
-    addOneWordToList(defaultList, word);
+  const handleAddToList = async (word) => {
+    await addOneWordToList(defaultList, word);
     setSuggestions((prev) => prev.filter((el) => el.word !== word));
   };
 
