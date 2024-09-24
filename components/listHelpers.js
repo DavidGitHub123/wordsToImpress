@@ -55,8 +55,7 @@ const getList = async (name) => {
 
 const addOneWordToList = async (name, word) => {
   try {
-    if (!listContainsWord(name, word)) {
-      console.log("returned!!");
+    if (!(await listContainsWord(name, word))) {
       return;
     }
     const wordMasteryObject = wordMasteryFactory(word);
@@ -112,10 +111,6 @@ const removeOneWordFromList = async (name, word) => {
 const listContainsWord = async (name, word) => {
   try {
     const list = await getList(name);
-    console.log(list.filter((el) => el.word === word).length);
-    console.log(
-      list.filter((el) => el.word === word).length === 0 || list.length === 0,
-    );
     return (
       list.filter((el) => el.word === word).length === 0 || list.length === 0
     );

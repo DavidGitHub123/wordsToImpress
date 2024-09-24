@@ -21,8 +21,6 @@ export default function TextSearch({ navigation }) {
   );
   const [suggestions, setSuggestions] = useState(null);
 
-  const handleTextChange = (t) => setText(t);
-
   const handleSubmit = () => {
     const words = text.match(/([a-zA-Z]+\b)/gm).map((el) => el.toLowerCase());
 
@@ -33,9 +31,9 @@ export default function TextSearch({ navigation }) {
     setSuggestions(foundSuggestions);
   };
 
-  const handleAddToList = async (word) => {
-    await addOneWordToList(defaultList, word);
-    setSuggestions((prev) => prev.filter((el) => el.word !== word));
+  const handleAddToList = async (suggestedWord) => {
+    await addOneWordToList(defaultList, suggestedWord);
+    setSuggestions((prev) => prev.filter((el) => el !== suggestedWord));
   };
 
   const formatSuggestions = () => {
@@ -81,7 +79,7 @@ export default function TextSearch({ navigation }) {
             <TextInput
               editable
               multiline
-              onChangeText={handleTextChange}
+              onChangeText={(t) => setText(t)}
               value={text}
               style={style.textBox}
             />
