@@ -1,20 +1,27 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, ImageBackground } from "react-native";
+// import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
+import img65 from "../assets/img/img65.jpg";
 
 export default function BuildMyList({ navigation }) {
   return (
     <SafeAreaView style={style.page}>
       <ScrollView alwaysBounceHorizontal={true}>
-        <LinearGradient
+        {/* <LinearGradient
           colors={["#6699FF", "#335C81"]}
           start={{ x: 0.5, y: 0.25 }}
           end={{ x: 0.25, y: 0.5 }}
           opacity={1.0}
           style={style.page}
-        >
+        > */}
+        <ImageBackground
+          source={img65}
+          imageStyle={style.image}
+          resizeMode="cover"
+          style={style.page}
+        > 
           <View style={style.screen}>
             <Text style={style.header}>Build My List</Text>
             <Text style={style.text}>
@@ -51,7 +58,8 @@ export default function BuildMyList({ navigation }) {
           <View>
             <HomeButton navigation={navigation} />
           </View>
-        </LinearGradient>
+        {/* </LinearGradient> */}
+          </ImageBackground>
 
         {/* </ImageBackground> */}
       </ScrollView>
@@ -67,12 +75,12 @@ const style = StyleSheet.create({
     paddingBottom: 400,
   },
 
-  // screen: {
-  //   opacity: .7,
-  //   backgroundColor: "#4682B4",
-  //   marginBottom: 50,
-  //   paddingBottom: 20,
-  // },
+  screen: {
+    opacity: .7,
+    backgroundColor: "#4682B4",
+    marginBottom: 50,
+    paddingBottom: 20,
+  },
 
   header: {
     fontSize: 40,

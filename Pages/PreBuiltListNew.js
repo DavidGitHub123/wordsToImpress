@@ -11,12 +11,12 @@ export default function PreBuiltListNew({ navigation }) {
         {/* <ImageBackground source={blue4} imageStyle={style.image} resizeMode="cover" style={style.page}> */}
         <LinearGradient
           colors={["#6699FF", "#335C81"]}
-          start={{ x: 0.5, y: 0.25 }}
-          end={{ x: 0.25, y: 0.5 }}
+          start={{ x: 0.5, y: 0.5 }}
+          end={{ x: 0.5, y: 0.5 }}
           opacity={1.0}
           style={style.page}
         >
-          <View>
+          <View style={style.screen}>
             <Text style={style.header}>Pre-Built List</Text>
             <Text style={style.subHead}>
               We've built you a list of 50 words. Add these words to create a
@@ -26,6 +26,10 @@ export default function PreBuiltListNew({ navigation }) {
               Or use the Text Search from Build My List to analyze
               your communications patterns to generate your list.
             </Text>
+          </View>
+
+          <View style={style.HomeButton}>
+            <HomeButton navigation={navigation} />
           </View>
 
           <View style={style.section}>
@@ -296,8 +300,16 @@ const style = StyleSheet.create({
     paddingBottom: 50,
   },
 
-  image: {
-    opacity: 0.5,
+
+  screen: {
+    opacity: .7,
+    backgroundColor: "#4682B4",
+    marginBottom: 30,
+    paddingBottom: 40,
+  },
+
+  HomeButton: {
+    paddingBottom: 20,
   },
 
   header: {

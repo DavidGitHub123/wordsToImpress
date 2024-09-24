@@ -19,6 +19,10 @@ export default function AtoZButtons({ navigation }) {
             <Text style={style.header}>Words A to Z</Text>
           </View>
 
+          <View style={style.homeButton}>
+            <HomeButton navigation={navigation} />
+          </View>
+
           <View style={style.section}>
             <NavButton navigation={navigation} title="A" destination="A" />
             <NavButton navigation={navigation} title="B" destination="B" />
@@ -69,6 +73,10 @@ const style = StyleSheet.create({
     fontWeight: "800",
     paddingTop: 40,
     textAlign: "center",
+  },
+
+  homeButton: {
+    paddingTop: 30,
   },
 
   image: {
