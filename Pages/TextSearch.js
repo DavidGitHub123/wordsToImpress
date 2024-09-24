@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -6,13 +6,56 @@ import {
   Text,
   View,
   Pressable,
+  TextInput,
 } from "react-native";
 import HomeButton from "../components/HomeButton";
 import { navStyle } from "../components/NavButton.js";
 import { LinearGradient } from "expo-linear-gradient";
 import AppButton from "../components/AppButton";
+import data from "../data";
+import { addOneWordToList, defaultList } from "../components/listHelpers";
 
 export default function TextSearch({ navigation }) {
+  const [text, setText] = useState("");
+  const [suggestions, setSuggestions] = useState(null);
+
+  const handleTextChange = (t) => setText(t);
+
+  const handleSubmit = () => {
+    const words = text.match(/([a-zA-Z]+\b)/gm).map((el) => el.toLowerCase());
+
+    const foundSuggestions = data
+      .filter((el) => el.syn.filter((s) => words.includes(s)).length > 0)
+      .map((el) => el.Word);
+
+    setSuggestions(foundSuggestions);
+  };
+
+  const handleAddToList = (word) => {
+    addOneWordToList(defaultList, word);
+    setSuggestions((prev) => prev.filter((el) => el.word !== word));
+  };
+
+  const formatSuggestions = () => {
+    if (!suggestions) {
+      return;
+    }
+
+    return (
+      <View>
+        <Text>Add these words to your list to improve your vocab.</Text>
+        {suggestions.map((el, i) => (
+          <AppButton
+            key={i}
+            title={el}
+            icon="plus"
+            onPress={() => handleAddToList(el)}
+          />
+        ))}
+      </View>
+    );
+  };
+
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
@@ -27,13 +70,22 @@ export default function TextSearch({ navigation }) {
             <Text style={style.header}>Text Search</Text>
             <Text style={style.text}>
               Copy text from your emails, communications, proposals, etc. into
-              this box and let our AI tools analyze your communication patterns
-              to suggest new vocabulary words that correspond to your speaking
-              style and context. Then add these words to My Vocab List.
+              this box and let us analyze your communication patterns to suggest
+              new vocabulary words that correspond to your speaking style and
+              context. Then add these words to My Vocab List.
             </Text>
           </View>
-
-
+          <View style={style.textBoxContainer}>
+            <TextInput
+              editable
+              multiline
+              onChangeText={handleTextChange}
+              value={text}
+              style={style.textBox}
+            />
+            <AppButton title="Analyze" onPress={handleSubmit} />
+          </View>
+          <View>{formatSuggestions()}</View>
           <View style={style.buttons}>
             <Pressable style={navStyle.appButton}>
               <AppButton
@@ -91,5 +143,17 @@ const style = StyleSheet.create({
   appButtonContainer: {
     paddingVertical: 5,
     width: 300,
+  },
+
+  textBox: {
+    height: 500,
+    width: 400,
+    borderWidth: 1,
+    padding: 10,
+    backgroundColor: "#fff",
+  },
+  textBoxContainer: {
+    display: "flex",
+    justifyContent: "center",
   },
 });
