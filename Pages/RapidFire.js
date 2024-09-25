@@ -7,6 +7,7 @@ import {
   incrementMastery,
 } from "../components/listHelpers";
 import RapidFireCards from "./RapidFireCards";
+import AppButton from "../components/AppButton";
 
 export default function RapidFire({ navigation }) {
   const [timing, setTiming] = useState(10);
@@ -119,9 +120,11 @@ function GameSetUp(Props) {
       <Text>Select your speed:</Text>
       <View>{timingButtons}</View>
 
-      <Pressable onPress={() => setIsStarted(true)}>
-        <Text>Start!</Text>
-      </Pressable>
+      <AppButton
+        title="Start"
+        icon="play-circle"
+        onPress={() => setIsStarted(true)}
+      />
     </View>
   );
 }
@@ -185,10 +188,11 @@ const style = StyleSheet.create({
 
   timingOptionsContainer: {
     paddingTop: 100,
-    height: "20vh",
+    height: "30vh",
     width: "30vw",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    borderWidth: 2,
   },
 });
