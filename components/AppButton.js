@@ -45,11 +45,13 @@ const defaultStyle = StyleSheet.create({
   appButton: {
     alignItems: "center",
     justifyContent: "center",
+    textAlign: "center",
   },
 
   appButtonText: {
-    fontSize: 18,
+    fontSize: 16,
     color: "#fff",
+    textAlign: "center",
   },
 
   appButtonContainer: {
