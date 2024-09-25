@@ -4,7 +4,6 @@ import {
   addOneWordToList,
   _resetDefaultList,
   makeNewList,
-  getList,
 } from "./listHelpers";
 
 import data from "../data";

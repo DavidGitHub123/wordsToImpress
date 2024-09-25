@@ -53,6 +53,7 @@ import U from "../Pages/AtoZcontent/U";
 import V from "../Pages/AtoZcontent/V";
 import W from "../Pages/AtoZcontent/W";
 import Z from "../Pages/AtoZcontent/Z";
+import SentenceID from "./SentenceID";
 
 const Stack = createNativeStackNavigator();
 
@@ -86,6 +87,11 @@ export default function NavigationLinks() {
         name="WordOfDay"
         component={WordOfDay}
         options={{ title: "Word of Day" }}
+      />
+      <Stack.Screen
+        name="SentenceID"
+        component={SentenceID}
+        options={{ title: "SentenceID" }}
       />
       <Stack.Screen
         name="WordSituations"
