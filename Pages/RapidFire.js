@@ -1,5 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { StyleSheet, Text, View, Pressable } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  SafeAreaView,
+  ScrollView,
+} from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import RadioButton from "../components/RadioButton";
 import {
   getNLeastMastered,
@@ -22,17 +30,29 @@ export default function RapidFire({ navigation }) {
   }, []);
 
   return (
-    <View>
-      {isStarted ? (
-        <Game navigation={navigation} timing={timing} words={words} />
-      ) : (
-        <GameSetUp
-          timing={timing}
-          setTiming={setTiming}
-          setIsStarted={setIsStarted}
-        />
-      )}
-    </View>
+    <SafeAreaView style={style.mainContainer}>
+      <ScrollView alwaysBounceHorizontal={true}>
+        <LinearGradient
+          colors={["#6699FF", "#335C81"]}
+          start={{ x: 0.5, y: 0.5 }}
+          end={{ x: 0.5, y: 0.5 }}
+          opacity={1.0}
+          style={style.page}
+        >
+          <View>
+            {isStarted ? (
+              <Game navigation={navigation} timing={timing} words={words} />
+            ) : (
+              <GameSetUp
+                timing={timing}
+                setTiming={setTiming}
+                setIsStarted={setIsStarted}
+              />
+            )}
+          </View>
+        </LinearGradient>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -80,19 +100,14 @@ function Game(Props) {
   };
 
   const flipOrNextButton = front ? (
-    <Pressable onPress={() => setFront(false)}>
-      <Text>Flip!</Text>
-    </Pressable>
+    <AppButton title="Flip" icon="undo" onPress={() => setFront(false)} />
   ) : (
-    <Pressable onPress={handleNextCard}>
-      <Text>Next Card!</Text>
-    </Pressable>
+    <AppButton title="Next card" icon="step-forward" onPress={handleNextCard} />
   );
 
   return (
-    <View>
-      <Text>Time left:</Text>
-      <Text>{timeLeft}</Text>
+    <View style={style.gameContainer}>
+      <Text style={style.header}>Time left: {timeLeft}</Text>
       <RapidFireCards words={words} front={front} cardIndex={cardIndex} />
       {flipOrNextButton}
     </View>
@@ -111,13 +126,14 @@ function GameSetUp(Props) {
       onPress={() => setTiming(el)}
     >
       <RadioButton selected={timing === el} />
-      <Text>{el} Seconds</Text>
+      <Text style={style.white}>{el} Seconds</Text>
     </Pressable>
   ));
 
   return (
     <View style={style.timingOptionsContainer}>
-      <Text>Select your speed:</Text>
+      <Text style={style.header}>Rapid fire </Text>
+      <Text style={style.text}>Select your speed:</Text>
       <View>{timingButtons}</View>
 
       <AppButton
@@ -130,10 +146,14 @@ function GameSetUp(Props) {
 }
 
 const style = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+  },
+
   page: {
-    paddingTop: 350,
-    paddingHorizontal: 100,
     backgroundColor: "#fff",
+    height: "100%",
+    width: "100%",
   },
 
   header: {
@@ -143,6 +163,10 @@ const style = StyleSheet.create({
     textAlign: "center",
     paddingTop: 40,
     paddingBottom: 20,
+  },
+
+  white: {
+    color: "#f0f8ff",
   },
 
   text: {
@@ -163,36 +187,36 @@ const style = StyleSheet.create({
     paddingTop: 20,
   },
 
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  appButtonText: {
-    fontSize: 18,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    paddingVertical: 5,
-    width: 250,
-  },
-
   timingButtonContainer: {
     display: "flex",
     flexWrap: "nowrap",
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingTop: 10,
+    alignItems: "center",
+    padding: 10,
+    gap: 5,
   },
 
-  timingOptionsContainer: {
-    paddingTop: 100,
-    height: "30vh",
-    width: "30vw",
+  gameContainer: {
+    margin: "auto",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    borderWidth: 2,
+  },
+
+  timingOptionsContainer: {
+    margin: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  center: {
+    margin: "auto",
+  },
+  container: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    zIndex: -1,
   },
 });
