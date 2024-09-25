@@ -66,7 +66,7 @@ export default function HomeScreen({ navigation }) {
                   size="large"
                   icon="signal"
                   title="My Progress"
-                  onPress={() => navigation.navigate("MyProgress")}
+                  onPress={() => navigation.navigate("MyList")}
                 />
               </View>
 
