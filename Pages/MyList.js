@@ -56,6 +56,12 @@ export default function MyList({ navigation }) {
   useEffect(() => {
     getAndParseList();
   }, []);
+
+  const GREEN_PERCENT = 0.7;
+  const donutColor =
+    GREEN_PERCENT <= masteredWordCount / listLength
+      ? { highlight: "#4cf03a", base: "#5ba653" }
+      : { highlight: "#ffbb00", base: "#cc9600" };
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
@@ -78,7 +84,7 @@ export default function MyList({ navigation }) {
                 style={style.donut}
                 widthAndHeight={200}
                 series={[masteredWordCount, unMasteredWordCount]}
-                sliceColor={["#4cf03a", "#5ba653"]}
+                sliceColor={[donutColor.highlight, donutColor.base]}
                 coverRadius={0.8}
               />
             )}
@@ -99,8 +105,6 @@ export default function MyList({ navigation }) {
           </View>
 
           <View style={style.section}>{listOrLoading}</View>
-
-
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>
