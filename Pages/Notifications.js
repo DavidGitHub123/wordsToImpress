@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import { LinearGradient } from "expo-linear-gradient";
+import AppButton from "../components/AppButton";
+import DateTimePicker from "@react-native-community/datetimepicker";
 
 export default function Notifications({ navigation }) {
+  const [showModal, setShowModal] = useState(false);
+  const [notificationType, setNotificationType] = useState(null);
+
+  const openModal = (notifType) => {
+    setNotificationType(notifType);
+    setShowModal(true);
+  };
+
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
@@ -15,53 +25,73 @@ export default function Notifications({ navigation }) {
           opacity={1.0}
           style={style.page}
         >
-          <View>
-            <Text style={style.header}>Notifications</Text>
-          </View>
-          <View style={style.section}>
-            <View>
-              <NavButton
-                navigation={navigation}
+          {!showModal ? (
+            <View style={style.centerChildren}>
+              <Text style={style.header}>Notifications</Text>
+              <AppButton
                 title="Schedule Word of the Day"
-                destination="A"
+                onPress={() => openModal("Word of the Day")}
+                icon="sign-in"
               />
-              <Text>Select Time: 12:34 am/pm Timezone</Text>
-            </View>
-            <View>
-              <NavButton
-                navigation={navigation}
+              <AppButton
                 title="Schedule Word Reminders"
-                destination="A"
+                onPress={() => openModal("Word Reminders")}
+                icon="sign-in"
               />
-              <Text>Select as many Word Mastery notification as you like.</Text>
-              <Text>Select Time: 12:34 am/pm Timezone</Text>
-              <Text>Select Time: 12:34 am/pm Timezone</Text>
-              <Text>Select Time: 12:34 am/pm Timezone</Text>
-              <Text>Select Time: 12:34 am/pm Timezone</Text>
-              <Text>Select Time: 12:34 am/pm Timezone</Text>
-              <Text>Select Time: 12:34 am/pm Timezone</Text>
-              <Text>Select Time: 12:34 am/pm Timezone</Text>
-              <Text>Select Time: 12:34 am/pm Timezone</Text>
-            </View>
-            <View>
-              <NavButton
-                navigation={navigation}
-                title="Schedule Word Mastery Challenges"
-                destination="A"
+              <AppButton
+                title="Schedule Word Mastery Challenge"
+                onPress={() => openModal("Word Mastery Challenge")}
+                icon="sign-in"
               />
-              <Text>Select Time: 12:34 am/pm Timezone</Text>
-              <Text>Select Time: 12:34 am/pm Timezone</Text>
-              <Text>Select Time: 12:34 am/pm Timezone</Text>
-              <Text>Select Time: 12:34 am/pm Timezone</Text>
-              <Text>Select Time: 12:34 am/pm Timezone</Text>
             </View>
-          </View>
+          ) : (
+            <ScheduleModal notificationType={notificationType} />
+          )}
           <View>
             <HomeButton navigation={navigation} />
           </View>
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>
+  );
+}
+
+function ScheduleModal(Props) {
+  const [time, setTime] = useState(new Date(Date.now()));
+  const [showTimePicker, setShowTimePicker] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const { notificationType } = Props;
+
+  const handleSubmit = () => {
+    setIsSubmitted(true);
+  };
+
+  const handleDateChange = (_, time) => {
+    setShowTimePicker(false);
+    setTime(time);
+  };
+
+  return (
+    <View style={style.centerChildren}>
+      <Text style={style.header}>
+        Schedule your {notificationType} reminder
+      </Text>
+      {showTimePicker && (
+        <DateTimePicker
+          value={time}
+          mode="time"
+          is24Hour={false}
+          onChange={handleDateChange}
+        />
+      )}
+      <AppButton
+        icon="user-clock"
+        title="Set time"
+        onPress={() => setShowTimePicker(true)}
+      />
+      <AppButton icon="sign-out-alt" title="Remind me" onPress={handleSubmit} />
+    </View>
   );
 }
 
@@ -86,6 +116,14 @@ const style = StyleSheet.create({
 
   section: {
     paddingVertical: 30,
+  },
+
+  centerChildren: {
+    margin: "auto",
+    textAlign: "center",
+    display: "flex",
+    justifyContent: "center",
+    alignContent: "center",
   },
 
   appButton: {
