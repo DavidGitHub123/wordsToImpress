@@ -5,6 +5,7 @@ import { NavButton } from "../components/NavButton";
 import { LinearGradient } from "expo-linear-gradient";
 import AppButton from "../components/AppButton";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { format } from "util";
 
 export default function Notifications({ navigation }) {
   const [showModal, setShowModal] = useState(false);
@@ -70,6 +71,49 @@ function ScheduleModal(Props) {
   const handleDateChange = (_, time) => {
     setShowTimePicker(false);
     setTime(time);
+    setIsSubmitted(true);
+  };
+
+  console.log(style.text);
+  const RenderTime = () => {
+    const unformattedHours = time.getHours();
+    const unformattedMinutes = time.getMinutes();
+
+    let formattedHours;
+    if (unformattedHours === 0) {
+      formattedHours = 12;
+    } else if (unformattedHours > 12) {
+      formattedHours = unformattedHours - 12;
+    } else {
+      formattedHours = unformattedHours;
+    }
+
+    const minutesArray = [
+      "00",
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+    ];
+
+    const formattedMinutes =
+      unformattedMinutes.toString().length === 1
+        ? minutesArray[unformattedMinutes]
+        : unformattedMinutes;
+
+    const ampm = unformattedHours >= 12 ? " PM" : " AM";
+
+    return (
+      <Text style={style.text}>
+        {formattedHours}:{formattedMinutes}
+        {ampm}
+      </Text>
+    );
   };
 
   return (
@@ -90,6 +134,7 @@ function ScheduleModal(Props) {
         title="Set time"
         onPress={() => setShowTimePicker(true)}
       />
+      {isSubmitted && RenderTime()}
       <AppButton icon="sign-out-alt" title="Remind me" onPress={handleSubmit} />
     </View>
   );
@@ -102,16 +147,18 @@ const style = StyleSheet.create({
     paddingBottom: 100,
   },
 
+  text: {
+    fontSize: 24,
+    color: "#f0f8ff",
+    fontWeight: "700",
+  },
+
   header: {
     fontSize: 40,
     color: "#f0f8ff",
     fontWeight: "800",
     paddingTop: 40,
     textAlign: "center",
-  },
-
-  image: {
-    // opacity: .5,
   },
 
   section: {
