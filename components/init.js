@@ -5,6 +5,7 @@ import {
   _resetDefaultList,
   makeNewList,
 } from "./listHelpers";
+import { requestPermissionsAsync } from "expo-notifications";
 
 import data from "../data";
 import { makeNotifsItemIfItDoesntExist } from "./notificationHelpers";
