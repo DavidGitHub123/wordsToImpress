@@ -285,9 +285,6 @@ export default function PreBuiltListNew({ navigation }) {
             />
           </View>
 
-          <View>
-            <HomeButton navigation={navigation} />
-          </View>
         </LinearGradient>
         {/* </ImageBackground> */}
       </ScrollView>

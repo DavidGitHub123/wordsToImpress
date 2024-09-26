@@ -50,9 +50,6 @@ export default function AtoZButtons({ navigation }) {
             <NavButton navigation={navigation} title="Z" destination="Z" />
           </View>
 
-          <View>
-            <HomeButton navigation={navigation} />
-          </View>
         </LinearGradient>
         {/* </ImageBackground> */}
       </ScrollView>

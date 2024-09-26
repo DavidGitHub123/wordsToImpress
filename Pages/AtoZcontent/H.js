@@ -28,14 +28,17 @@ export default function HWords({ navigation }) {
               <Text style={style.header}>H Words</Text>
             </View>
 
-            <View>
+            <View style={style.bottomButtons}>
               <Pressable style={navStyle.appButton}>
                 <AppButton
                   title="Back"
                   onPress={() => navigation.goBack()}
                 ></AppButton>
               </Pressable>
-            </View>
+              <View>
+                <HomeButton navigation={navigation} />
+              </View>
+            </View>>
 
             <View>
               <NavButtonWord
@@ -135,9 +138,6 @@ export default function HWords({ navigation }) {
               />
             </View>
 
-            <View style={style.bottomButtons}>
-              <HomeButton navigation={navigation} />
-            </View>
           </View>
         </LinearGradient>
       </ScrollView>
@@ -162,7 +162,8 @@ const style = StyleSheet.create({
   },
 
   bottomButtons: {
-    paddingTop: 50,
+    paddingTop: 40,
+    paddingBottom: 40,
   },
 
   appButton: {
