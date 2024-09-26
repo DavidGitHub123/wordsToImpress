@@ -15,7 +15,7 @@ const getNotifs = async () => {
 };
 
 const doesNotifExist = async (notif) => {
-  const notifs = getNotifs();
+  const notifs = await getNotifs();
   console.log(notifs);
   return notifs.includes(notif);
 };
@@ -24,13 +24,13 @@ const addNotif = async (notif) => {
   const notifs = await getNotifs();
   console.log(notifs);
   notifs.push(notif);
-  await AsyncStorage.setItem(_NOTIF_NAMES, notifs);
+  await AsyncStorage.setItem(_NOTIF_NAMES, JSON.stringify(notifs));
 };
 
 const removeNotif = async (notif) => {
-  const notifs = await getNotifs();
-  notifs.filter((el) => el !== notif);
-  await AsyncStorage.setItem(_NOTIF_NAMES, notifs);
+  let notifs = await getNotifs();
+  notifs = notifs.filter((el) => el !== notif);
+  await AsyncStorage.setItem(_NOTIF_NAMES, JSON.stringify(notifs));
 };
 
 export {

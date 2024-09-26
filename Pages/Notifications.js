@@ -5,6 +5,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import AppButton from "../components/AppButton";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import * as Notifs from "expo-notifications";
+import IconButton from "../components/IconButton";
 import {
   getNotifs,
   doesNotifExist,
@@ -31,11 +32,33 @@ async function schedulePushNotification(title, body, trigger) {
   });
 }
 
+const get12HourFormat = (hour) => (hour > 12 ? hour - 12 : hour);
+
+const getMinuteFormat = (minute) => {
+  const minutesArray = [
+    "00",
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+  ];
+
+  return minute.toString().length === 1 ? minutesArray[minute] : minute;
+};
+
+const getAMPM = (hour) => (hour >= 12 ? "PM" : "AM");
+
 export default function Notifications({ navigation }) {
   const [showModal, setShowModal] = useState(false);
   const [notificationType, setNotificationType] = useState(null);
   const [time, setTime] = useState(new Date(Date.now()));
   const [userNotifs, setUserNotifs] = useState(null);
+  const [update, setUpdate] = useState(false);
 
   const NOTIF_TYPES = {
     wordOfDay: "Word of the Day",
@@ -49,7 +72,7 @@ export default function Notifications({ navigation }) {
     }
 
     fetchNotifs();
-  }, []);
+  }, [update]);
 
   const openModal = (notifType) => {
     setNotificationType(notifType);
@@ -59,9 +82,9 @@ export default function Notifications({ navigation }) {
   const handleClose = async () => {
     setShowModal(false);
 
-    const hour = time.getHours();
-    const minute = time.getMinutes();
-    const ampm = hour >= 12 ? "PM" : "AM";
+    const hour = get12HourFormat(time.getHours());
+    let minute = getMinuteFormat(time.getMinutes());
+    const ampm = getAMPM(time.getHours());
 
     const notificationName = `${notificationType}-${hour}-${minute}-${ampm}`;
 
@@ -81,25 +104,46 @@ export default function Notifications({ navigation }) {
 
     const body = "Come master some more words.";
 
+    minute = time.getMinutes();
+
     const trigger = { hour, minute, repeats: true };
 
     await schedulePushNotification(title, body, trigger);
+    setUpdate(!update);
+  };
+
+  const handleRemoveNotifs = async (notif) => {
+    console.log(notif);
+    await removeNotif(notif);
+    setUpdate(!update);
   };
 
   const renderNotifs = (type) => {
     if (!userNotifs) {
       return null;
     }
-    console.log(userNotifs);
     const selectedType = userNotifs.filter((el) => el.includes(type));
+    const sortedNotifs = selectedType.sort((a, b) => {
+      const [_, aHour, aMinute, __] = a.split("-").map((el) => parseInt(el));
+      const [___, bHour, bMinute, ____] = b
+        .split("-")
+        .map((el) => parseInt(el));
+      if (aHour !== bHour) {
+        return aHour - bHour;
+      }
+      return aMinute - bMinute;
+    });
     return (
       <View>
-        {selectedType.map((el, i) => {
+        {sortedNotifs.map((el, i) => {
           const [_, hour, minute, ampm] = el.split("-");
           return (
-            <Text key={i} style={style.text}>
-              Notification scheduled at: {hour}:{minute} {ampm}
-            </Text>
+            <View key={i}>
+              <Text style={style.text}>
+                Notification scheduled at: {hour}:{minute} {ampm}
+              </Text>
+              <IconButton name="trash" onPress={() => handleRemoveNotifs(el)} />
+            </View>
           );
         })}
       </View>
@@ -168,42 +212,13 @@ function ScheduleModal(Props) {
   };
 
   const RenderTime = () => {
-    const unformattedHours = time.getHours();
-    const unformattedMinutes = time.getMinutes();
-
-    let formattedHours;
-    if (unformattedHours === 0) {
-      formattedHours = 12;
-    } else if (unformattedHours > 12) {
-      formattedHours = unformattedHours - 12;
-    } else {
-      formattedHours = unformattedHours;
-    }
-
-    const minutesArray = [
-      "00",
-      "01",
-      "02",
-      "03",
-      "04",
-      "05",
-      "06",
-      "07",
-      "08",
-      "09",
-    ];
-
-    const formattedMinutes =
-      unformattedMinutes.toString().length === 1
-        ? minutesArray[unformattedMinutes]
-        : unformattedMinutes;
-
-    const ampm = unformattedHours >= 12 ? " PM" : " AM";
+    const formattedHours = get12HourFormat(time.getHours());
+    const formattedMinutes = getMinuteFormat(time.getMinutes());
+    const ampm = getAMPM(time.getHours());
 
     return (
       <Text style={style.text}>
-        {formattedHours}:{formattedMinutes}
-        {ampm}
+        We will remind you at {formattedHours}:{formattedMinutes} {ampm}
       </Text>
     );
   };
@@ -226,8 +241,16 @@ function ScheduleModal(Props) {
         title="Set time"
         onPress={() => setShowTimePicker(true)}
       />
-      {isSubmitted && RenderTime()}
-      <AppButton icon="sign-out-alt" title="Remind me" onPress={handleClose} />
+      {isSubmitted && (
+        <View style={style.centerChildren}>
+          {RenderTime()}
+          <AppButton
+            icon="sign-out-alt"
+            title="Remind me"
+            onPress={handleClose}
+          />
+        </View>
+      )}
     </View>
   );
 }
@@ -240,13 +263,13 @@ const style = StyleSheet.create({
   },
 
   text: {
-    fontSize: 24,
+    fontSize: 20,
     color: "#f0f8ff",
     fontWeight: "700",
   },
 
   header: {
-    fontSize: 40,
+    fontSize: 36,
     color: "#f0f8ff",
     fontWeight: "800",
     paddingTop: 40,
