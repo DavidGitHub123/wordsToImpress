@@ -10,21 +10,33 @@ const makeNotifsItemIfItDoesntExist = async () => {
   await AsyncStorage.setItem(_NOTIF_NAMES, JSON.stringify([]));
 };
 
+const getNotifs = async () => {
+  return JSON.parse(await AsyncStorage.getItem(_NOTIF_NAMES));
+};
+
 const doesNotifExist = async (notif) => {
-  const notifs = JSON.parse(await AsyncStorage.getItem(_NOTIF_NAMES));
+  const notifs = getNotifs();
+  console.log(notifs);
   return notifs.includes(notif);
 };
 
 const addNotif = async (notif) => {
-  const notifs = JSON.parse(await AsyncStorage.getItem(_NOTIF_NAMES));
+  const notifs = await getNotifs();
+  console.log(notifs);
   notifs.push(notif);
   await AsyncStorage.setItem(_NOTIF_NAMES, notifs);
 };
 
 const removeNotif = async (notif) => {
-  const notifs = JSON.parse(await AsyncStorage.getItem(_NOTIF_NAMES));
+  const notifs = await getNotifs();
   notifs.filter((el) => el !== notif);
   await AsyncStorage.setItem(_NOTIF_NAMES, notifs);
 };
 
-export { makeNotifsItemIfItDoesntExist, doesNotifExist, addNotif, removeNotif };
+export {
+  makeNotifsItemIfItDoesntExist,
+  getNotifs,
+  doesNotifExist,
+  addNotif,
+  removeNotif,
+};

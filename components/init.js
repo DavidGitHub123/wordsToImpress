@@ -7,6 +7,7 @@ import {
 } from "./listHelpers";
 
 import data from "../data";
+import { makeNotifsItemIfItDoesntExist } from "./notificationHelpers";
 
 export default async function init() {
   const _DEV_MODE = true;
@@ -17,6 +18,8 @@ export default async function init() {
   if (!namesOfLists.includes(defaultList)) {
     await makeNewList(defaultList);
   }
+
+  await makeNotifsItemIfItDoesntExist();
 
   if (_DEV_MODE) {
     if (_RESET_DEV_LIST) {

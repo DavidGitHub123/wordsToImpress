@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import HomeButton from "../components/HomeButton";
 import { LinearGradient } from "expo-linear-gradient";
 import AppButton from "../components/AppButton";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import * as Notifs from "expo-notifications";
+import {
+  getNotifs,
+  doesNotifExist,
+  addNotif,
+  removeNotif,
+} from "../components/notificationHelpers";
 
 Notifs.setNotificationHandler({
   handleNotification: async () => ({
@@ -29,6 +35,21 @@ export default function Notifications({ navigation }) {
   const [showModal, setShowModal] = useState(false);
   const [notificationType, setNotificationType] = useState(null);
   const [time, setTime] = useState(new Date(Date.now()));
+  const [userNotifs, setUserNotifs] = useState(null);
+
+  const NOTIF_TYPES = {
+    wordOfDay: "Word of the Day",
+    wordReminder: "Word Reminders",
+    mastery: "Word Mastery Challenge",
+  };
+
+  useEffect(() => {
+    async function fetchNotifs() {
+      setUserNotifs(await getNotifs());
+    }
+
+    fetchNotifs();
+  }, []);
 
   const openModal = (notifType) => {
     setNotificationType(notifType);
@@ -38,19 +59,51 @@ export default function Notifications({ navigation }) {
   const handleClose = async () => {
     setShowModal(false);
 
+    const hour = time.getHours();
+    const minute = time.getMinutes();
+    const ampm = hour >= 12 ? "PM" : "AM";
+
+    const notificationName = `${notificationType}-${hour}-${minute}-${ampm}`;
+
+    if (await doesNotifExist(notificationName)) {
+      return;
+    }
+
+    await addNotif(notificationName);
+
     const titleAndURLDictionary = {
-      "Word of the Day": "Check out the word of the day",
-      "Word Reminders": "Lets build your vocab with new words",
-      "Word Mastery Challenge": "Let's master some more words",
+      [NOTIF_TYPES.wordOfDay]: "Check out the word of the day",
+      [NOTIF_TYPES.wordReminder]: "Lets build your vocab with new words",
+      [NOTIF_TYPES.mastery]: "Let's master some more words",
     };
 
     const title = titleAndURLDictionary[notificationType];
 
     const body = "Come master some more words.";
 
-    const trigger = { hour: 16, minute: 50, repeats: true };
+    const trigger = { hour, minute, repeats: true };
 
     await schedulePushNotification(title, body, trigger);
+  };
+
+  const renderNotifs = (type) => {
+    if (!userNotifs) {
+      return null;
+    }
+    console.log(userNotifs);
+    const selectedType = userNotifs.filter((el) => el.includes(type));
+    return (
+      <View>
+        {selectedType.map((el, i) => {
+          const [_, hour, minute, ampm] = el.split("-");
+          return (
+            <Text key={i} style={style.text}>
+              Notification scheduled at: {hour}:{minute} {ampm}
+            </Text>
+          );
+        })}
+      </View>
+    );
   };
 
   return (
@@ -68,19 +121,22 @@ export default function Notifications({ navigation }) {
               <Text style={style.header}>Notifications</Text>
               <AppButton
                 title="Schedule Word of the Day"
-                onPress={() => openModal("Word of the Day")}
+                onPress={() => openModal(NOTIF_TYPES.wordOfDay)}
                 icon="sign-in"
               />
+              {renderNotifs(NOTIF_TYPES.wordOfDay)}
               <AppButton
                 title="Schedule Word Reminders"
-                onPress={() => openModal("Word Reminders")}
+                onPress={() => openModal(NOTIF_TYPES.wordReminder)}
                 icon="sign-in"
               />
+              {renderNotifs(NOTIF_TYPES.wordReminder)}
               <AppButton
                 title="Schedule Word Mastery Challenge"
-                onPress={() => openModal("Word Mastery Challenge")}
+                onPress={() => openModal(NOTIF_TYPES.mastery)}
                 icon="sign-in"
               />
+              {renderNotifs(NOTIF_TYPES.mastery)}
             </View>
           ) : (
             <ScheduleModal
