@@ -1,16 +1,26 @@
-import React, { useState, useEffect } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { useState, useEffect, useRef } from "react";
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Platform,
+} from "react-native";
 import HomeButton from "../components/HomeButton";
 import { LinearGradient } from "expo-linear-gradient";
 import AppButton from "../components/AppButton";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import * as Notifs from "expo-notifications";
+import * as Device from "expo-device";
 import IconButton from "../components/IconButton";
+import Constants from "expo-constants";
 import {
   getNotifs,
   doesNotifExist,
   addNotif,
   removeNotif,
+  cancelAllNotifs,
 } from "../components/notificationHelpers";
 
 Notifs.setNotificationHandler({
@@ -21,15 +31,85 @@ Notifs.setNotificationHandler({
   }),
 });
 
-async function schedulePushNotification(title, body, trigger) {
-  await Notifs.scheduleNotificationAsync({
-    content: {
-      title,
-      body,
-      data: { data: "goes here", test: { test1: "more data" } },
-    },
-    trigger,
-  });
+async function schedulePushNotification(
+  title,
+  body,
+  hour,
+  minute,
+  notificationName,
+  url,
+) {
+  if (Platform.OS === "andriod") {
+    await Notifs.scheduleNotificationAsync({
+      content: {
+        title,
+        body,
+        data: { notificationName, url },
+      },
+      trigger: { hour, minute, type: "daily", repeats: true },
+    });
+  } else {
+    await Notifs.scheduleNotificationAsync({
+      content: {
+        title,
+        body,
+        data: { notificationName, url },
+      },
+      trigger: {
+        hour,
+        minute,
+        repeats: true,
+      },
+    });
+  }
+}
+
+async function registerForPushNotificationsAsync() {
+  let token;
+
+  if (Platform.OS === "android") {
+    await Notifs.setNotificationChannelAsync("default", {
+      name: "default",
+      importance: Notifs.AndroidImportance.MAX,
+      vibrationPattern: [0, 250, 250, 250],
+      lightColor: "#FF231F7C",
+    });
+  }
+
+  if (Device.isDevice) {
+    const { status: existingStatus } = await Notifs.getPermissionsAsync();
+    let finalStatus = existingStatus;
+    if (existingStatus !== "granted") {
+      const { status } = await Notifs.requestPermissionsAsync();
+      finalStatus = status;
+    }
+    if (finalStatus !== "granted") {
+      alert("Failed to get push token for push notification!");
+      return;
+    }
+    // Learn more about projectId:
+    // https://docs.expo.dev/push-notifications/push-notifications-setup/#configure-projectid
+    // EAS projectId is used here.
+    try {
+      const projectId =
+        Constants?.expoConfig?.extra?.eas?.projectId ??
+        Constants?.easConfig?.projectId;
+      if (!projectId) {
+        throw new Error("Project ID not found");
+      }
+      token = (
+        await Notifs.getExpoPushTokenAsync({
+          projectId,
+        })
+      ).data;
+    } catch (e) {
+      token = `${e}`;
+    }
+  } else {
+    alert("Must use physical device for Push Notifications");
+  }
+
+  return token;
 }
 
 const get12HourFormat = (hour) => (hour > 12 ? hour - 12 : hour);
@@ -59,6 +139,48 @@ export default function Notifications({ navigation }) {
   const [time, setTime] = useState(new Date(Date.now()));
   const [userNotifs, setUserNotifs] = useState(null);
   const [update, setUpdate] = useState(false);
+
+  const [expoPushToken, setExpoPushToken] = useState("");
+  const [channels, setChannels] = useState([]);
+  const [notification, setNotification] = useState(undefined);
+  const notificationListener = useRef();
+  const responseListener = useRef();
+
+  useEffect(() => {
+    registerForPushNotificationsAsync().then(
+      (token) => token && setExpoPushToken(token),
+    );
+
+    if (Platform.OS === "android") {
+      Notifs.getNotificationChannelsAsync().then((value) =>
+        setChannels(value ?? []),
+      );
+    }
+    notificationListener.current = Notifs.addNotificationReceivedListener(
+      (notification) => {
+        console.log("1");
+        setNotification(notification);
+      },
+    );
+
+    responseListener.current = Notifs.addNotificationResponseReceivedListener(
+      (response) => {
+        console.log("2");
+        const url = response.notification.request.content.data.url;
+        console.log(url);
+        navigation.navigate(url);
+      },
+    );
+
+    return () => {
+      notificationListener.current &&
+        Notifications.removeNotificationSubscription(
+          notificationListener.current,
+        );
+      responseListener.current &&
+        Notifications.removeNotificationSubscription(responseListener.current);
+    };
+  }, []);
 
   const NOTIF_TYPES = {
     wordOfDay: "Word of the Day",
@@ -95,27 +217,52 @@ export default function Notifications({ navigation }) {
     await addNotif(notificationName);
 
     const titleAndURLDictionary = {
-      [NOTIF_TYPES.wordOfDay]: "Check out the word of the day",
-      [NOTIF_TYPES.wordReminder]: "Lets build your vocab with new words",
-      [NOTIF_TYPES.mastery]: "Let's master some more words",
+      [NOTIF_TYPES.wordOfDay]: {
+        title: "Check out the word of the day",
+        url: "WordOfDay",
+      },
+      [NOTIF_TYPES.wordReminder]: {
+        title: "Lets build your vocab with new words",
+        url: "MyList",
+      },
+      [NOTIF_TYPES.mastery]: {
+        title: "Let's master some more words",
+        url: "VocabMastery",
+      },
     };
 
-    const title = titleAndURLDictionary[notificationType];
-
+    const title = titleAndURLDictionary[notificationType].title;
+    const url = titleAndURLDictionary[notificationType].url;
     const body = "Come master some more words.";
 
     minute = time.getMinutes();
 
-    const trigger = { hour, minute, repeats: true };
+    await schedulePushNotification(
+      title,
+      body,
+      hour,
+      minute,
+      notificationName,
+      url,
+    );
+    setUpdate(!update);
+  };
 
-    await schedulePushNotification(title, body, trigger);
+  const handleCancelAll = async () => {
+    await Notifs.cancelAllScheduledNotificationsAsync();
+    cancelAllNotifs();
     setUpdate(!update);
   };
 
   const handleRemoveNotifs = async (notif) => {
-    console.log(notif);
     await removeNotif(notif);
     setUpdate(!update);
+
+    const scheduledNotifs = await Notifs.getAllScheduledNotificationsAsync();
+    const cancelledNotifIdentifier = scheduledNotifs.find(
+      (el) => el.content.data.notificationName === notif,
+    ).identifier;
+    await Notifs.cancelScheduledNotificationAsync(cancelledNotifIdentifier);
   };
 
   const renderNotifs = (type) => {
@@ -124,7 +271,9 @@ export default function Notifications({ navigation }) {
     }
     const selectedType = userNotifs.filter((el) => el.includes(type));
     const sortedNotifs = selectedType.sort((a, b) => {
+      // eslint-disable-next-line no-unused-vars
       const [_, aHour, aMinute, __] = a.split("-").map((el) => parseInt(el));
+      // eslint-disable-next-line no-unused-vars
       const [___, bHour, bMinute, ____] = b
         .split("-")
         .map((el) => parseInt(el));
@@ -136,6 +285,7 @@ export default function Notifications({ navigation }) {
     return (
       <View>
         {sortedNotifs.map((el, i) => {
+          // eslint-disable-next-line no-unused-vars
           const [_, hour, minute, ampm] = el.split("-");
           return (
             <View key={i}>
@@ -181,6 +331,11 @@ export default function Notifications({ navigation }) {
                 icon="sign-in"
               />
               {renderNotifs(NOTIF_TYPES.mastery)}
+              <AppButton
+                icon="trash"
+                title="Clear all notifications"
+                onPress={() => handleCancelAll()}
+              />
             </View>
           ) : (
             <ScheduleModal
