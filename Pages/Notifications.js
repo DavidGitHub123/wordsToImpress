@@ -1,23 +1,60 @@
 import React, { useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import HomeButton from "../components/HomeButton";
-import { NavButton } from "../components/NavButton";
 import { LinearGradient } from "expo-linear-gradient";
 import AppButton from "../components/AppButton";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { format } from "util";
+import * as Notifs from "expo-notifications";
+
+Notifs.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+  }),
+});
+
+async function schedulePushNotification(title, body, trigger) {
+  await Notifs.scheduleNotificationAsync({
+    content: {
+      title,
+      body,
+      data: { data: "goes here", test: { test1: "more data" } },
+    },
+    trigger,
+  });
+}
 
 export default function Notifications({ navigation }) {
   const [showModal, setShowModal] = useState(false);
   const [notificationType, setNotificationType] = useState(null);
+  const [time, setTime] = useState(new Date(Date.now()));
 
   const openModal = (notifType) => {
     setNotificationType(notifType);
     setShowModal(true);
   };
 
+  const handleClose = async () => {
+    setShowModal(false);
+
+    const titleAndURLDictionary = {
+      "Word of the Day": "Check out the word of the day",
+      "Word Reminders": "Lets build your vocab with new words",
+      "Word Mastery Challenge": "Let's master some more words",
+    };
+
+    const title = titleAndURLDictionary[notificationType];
+
+    const body = "Come master some more words.";
+
+    const trigger = { hour: 16, minute: 50, repeats: true };
+
+    await schedulePushNotification(title, body, trigger);
+  };
+
   return (
-    <SafeAreaView style={style.container}>
+    <SafeAreaView>
       <ScrollView alwaysBounceHorizontal={true}>
         <LinearGradient
           colors={["#335C81", "#6699FF"]}
@@ -46,7 +83,12 @@ export default function Notifications({ navigation }) {
               />
             </View>
           ) : (
-            <ScheduleModal notificationType={notificationType} />
+            <ScheduleModal
+              notificationType={notificationType}
+              time={time}
+              setTime={setTime}
+              handleClose={handleClose}
+            />
           )}
           <View>
             <HomeButton navigation={navigation} />
@@ -58,15 +100,10 @@ export default function Notifications({ navigation }) {
 }
 
 function ScheduleModal(Props) {
-  const [time, setTime] = useState(new Date(Date.now()));
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const { notificationType } = Props;
-
-  const handleSubmit = () => {
-    setIsSubmitted(true);
-  };
+  const { notificationType, time, setTime, handleClose } = Props;
 
   const handleDateChange = (_, time) => {
     setShowTimePicker(false);
@@ -74,7 +111,6 @@ function ScheduleModal(Props) {
     setIsSubmitted(true);
   };
 
-  console.log(style.text);
   const RenderTime = () => {
     const unformattedHours = time.getHours();
     const unformattedMinutes = time.getMinutes();
@@ -135,7 +171,7 @@ function ScheduleModal(Props) {
         onPress={() => setShowTimePicker(true)}
       />
       {isSubmitted && RenderTime()}
-      <AppButton icon="sign-out-alt" title="Remind me" onPress={handleSubmit} />
+      <AppButton icon="sign-out-alt" title="Remind me" onPress={handleClose} />
     </View>
   );
 }
@@ -170,7 +206,6 @@ const style = StyleSheet.create({
     textAlign: "center",
     display: "flex",
     justifyContent: "center",
-    alignContent: "center",
   },
 
   appButton: {
