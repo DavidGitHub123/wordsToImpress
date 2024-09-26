@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 export default function AppButton(Props) {
   const { onPress, icon, title, backgroundColor, borderColor, style, size } =
@@ -27,7 +27,7 @@ export default function AppButton(Props) {
   return (
     <View style={containerStyle}>
       <Icon.Button
-        name={icon}
+        name={icon === "sign-in" ? "sign-in-alt" : icon}
         backgroundColor={backgroundColor ? backgroundColor : "#FF8C00"}
         borderRadius={10}
         borderWidth={3}
