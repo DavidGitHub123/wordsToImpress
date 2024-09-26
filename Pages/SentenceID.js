@@ -4,11 +4,14 @@ import { LinearGradient } from "expo-linear-gradient";
 import { getNLeastMastered, defaultList } from "../components/listHelpers.js";
 import AppButton from "../components/AppButton.js";
 import MultipleChoiceGame from "../components/MultipleChoiceGame.js";
+import data from "../data.js";
 
-export default function QuickQuiz({ navigation }) {
+export default function SentenceID({ navigation }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [list, setList] = useState([]);
   const [gameRestart, setGameRestart] = useState(false);
+
+  const getShortDef = (word) => data.find((el) => el.Word === word).Shortdef;
 
   useEffect(() => {
     async function getAndSetList() {
@@ -18,6 +21,7 @@ export default function QuickQuiz({ navigation }) {
         return {
           Word: el.word,
           mastery: el.mastery,
+          Shortdef: getShortDef(el.word),
         };
       });
 
@@ -29,8 +33,8 @@ export default function QuickQuiz({ navigation }) {
   return isGameStarted ? (
     <MultipleChoiceGame
       list={list}
-      questionType="Shortdef"
-      answerType="Word"
+      questionType="Longdef"
+      answerType="Shortdef"
       navigation={navigation}
       setGameRestart={setGameRestart}
       gameRestart={gameRestart}
@@ -46,7 +50,7 @@ export default function QuickQuiz({ navigation }) {
           style={style.page}
         >
           <View style={style.centerContainer}>
-            <Text style={style.header}>Quick Quiz</Text>
+            <Text style={style.header}>Sentence ID</Text>
             <AppButton
               onPress={() => setIsGameStarted(true)}
               title="Play Game"

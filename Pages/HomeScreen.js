@@ -33,7 +33,10 @@ export default function HomeScreen({ navigation }) {
         >
           <View style={style.page}>
             <View style={style.topHeader}>
-              <IconButton name="bell" />
+              <IconButton
+                name="bell"
+                onPress={() => navigation.navigate("Notifications")}
+              />
               <AppButton
                 icon="table"
                 title="About"

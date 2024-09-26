@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import AppButton from "./AppButton";
 import { NavButton } from "./NavButton";
 import HomeButton from "./HomeButton";
@@ -13,25 +14,38 @@ export default function MultipleChoiceGame(Props) {
   const [gameOver, setGameOver] = useState(false);
   const [displayNext, setDisplayNext] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
-
-  const { list, navigation, setGameRestart, gameRestart } = Props;
+  const {
+    list,
+    navigation,
+    setGameRestart,
+    gameRestart,
+    questionType,
+    answerType,
+  } = Props;
   const MAX_INCORRECT_ANSWERS = 3;
+  const typeDictoinary = {
+    Longdef: "sentence",
+    Shortdef: "definition",
+    Word: "word",
+  };
 
-  let definition;
+  let question;
   if (listIndex < list.length - 1) {
-    const wordIndex = data.findIndex((el) => el.Word === list[listIndex].word);
-
-    definition = data[wordIndex].Shortdef;
+    const wordIndex = data.findIndex((el) => el.Word === list[listIndex].Word);
+    console.log(questionType);
+    question = data[wordIndex][questionType];
   }
 
   useEffect(() => {
     const getRandomIndex = () => Math.floor(Math.random() * data.length);
 
     let wrongAnswers = [];
-    const rightAnswerWord = list[listIndex].word;
+    const rightAnswerWord = list[listIndex][answerType];
+    console.log(rightAnswerWord);
+    console.log(list[listIndex]);
 
     while (wrongAnswers.length < MAX_INCORRECT_ANSWERS) {
-      const randomWord = data[getRandomIndex()].Word;
+      const randomWord = data[getRandomIndex()][answerType];
       if (!randomWord.includes(randomWord) || randomWord !== rightAnswerWord) {
         wrongAnswers.push(randomWord);
       }
@@ -39,14 +53,15 @@ export default function MultipleChoiceGame(Props) {
 
     const answerArray = wrongAnswers.map((el) => ({
       correct: false,
-      word: el,
+      answer: el,
       highlighted: false,
     }));
 
     answerArray.push({
       correct: true,
-      word: rightAnswerWord,
+      answer: rightAnswerWord,
       highlighted: false,
+      Word: list[listIndex].Word,
     });
 
     const shuffledAnswers = answerArray
@@ -61,9 +76,9 @@ export default function MultipleChoiceGame(Props) {
     if (displayNext) {
       return;
     }
-
+    console.log(anwsers[index]);
     if (anwsers[index].correct) {
-      incrementMastery(defaultList, anwsers[index].word);
+      incrementMastery(defaultList, anwsers[index].Word);
       setScore(score + 1);
     }
 
@@ -96,7 +111,7 @@ export default function MultipleChoiceGame(Props) {
   };
 
   const renderAnwsers = () => (
-    <View>
+    <View style={style.answerContainer}>
       {anwsers.map((el, i) => {
         let style = {};
         if (el.highlighted && el.correct) {
@@ -107,8 +122,9 @@ export default function MultipleChoiceGame(Props) {
 
         return (
           <AppButton
+            size="large"
             key={i}
-            title={el.word}
+            title={el.answer}
             style={style}
             onPress={() => handleAnwser(i)}
           />
@@ -118,38 +134,140 @@ export default function MultipleChoiceGame(Props) {
   );
 
   const renderCorrectandNextButton = () => (
-    <View>
-      <Text>{isCorrect ? "Correct" : "Incorrect"}</Text>
+    <View style={style.centerContainer}>
+      <Text style={style.text}>{isCorrect ? "Correct" : "Incorrect"}</Text>
       <AppButton title="Next Word" icon="sign-in" onPress={handleNext} />
     </View>
   );
 
   return (
-    <View>
-      {gameOver ? (
-        <View>
-          <Text>You scored {score}/10</Text>
-          <AppButton
-            icon="sign-in"
-            title="Play Again"
-            onPress={handleStartOver}
-          />
-          <NavButton
-            navigation={navigation}
-            title="Word Mastery"
-            destination="WordMastery"
-          />
-          <HomeButton navigation={navigation} />
-        </View>
-      ) : (
-        <View>
-          <Text>{listIndex + 1}/10</Text>
-          <Text>Identify the correct word that matches this definition.</Text>
-          <Text>Definition: {definition}</Text>
-          {renderAnwsers()}
-          {displayNext ? renderCorrectandNextButton() : null}
-        </View>
-      )}
-    </View>
+    <SafeAreaView style={style.mainContainer}>
+      <ScrollView alwaysBounceHorizontal={true}>
+        <LinearGradient
+          colors={["#6699FF", "#335C81"]}
+          start={{ x: 0.5, y: 0.5 }}
+          end={{ x: 0.5, y: 0.5 }}
+          opacity={1.0}
+          style={style.page}
+        >
+          <View>
+            {gameOver ? (
+              <View style={style.centerContainer}>
+                <Text style={style.header}>You scored {score}/10</Text>
+                <AppButton
+                  icon="sign-in"
+                  title="Play Again"
+                  onPress={handleStartOver}
+                />
+                <NavButton
+                  navigation={navigation}
+                  title="Word Mastery"
+                  destination="WordMastery"
+                />
+                <HomeButton navigation={navigation} />
+              </View>
+            ) : (
+              <View style={style.centerContainer}>
+                <Text style={style.header}>{listIndex + 1}/10</Text>
+                <Text style={style.text}>
+                  Identify the correct word that matches this{" "}
+                  {typeDictoinary[questionType]}.
+                </Text>
+                <Text style={style.text}>{question}</Text>
+                {renderAnwsers()}
+                {displayNext ? renderCorrectandNextButton() : null}
+              </View>
+            )}
+          </View>
+        </LinearGradient>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
+
+const style = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+  },
+
+  page: {
+    backgroundColor: "#fff",
+    height: "100%",
+    width: "100%",
+  },
+
+  header: {
+    fontSize: 40,
+    color: "#f0f8ff",
+    fontWeight: "800",
+    textAlign: "center",
+    paddingTop: 40,
+    paddingBottom: 20,
+  },
+
+  white: {
+    color: "#f0f8ff",
+  },
+
+  text: {
+    fontSize: 18,
+    color: "#f0f8ff",
+    padding: 10,
+  },
+
+  wordList: {
+    fontSize: 18,
+    color: "#f0f8ff",
+    textAlign: "center",
+    paddingTop: 20,
+  },
+
+  buttons: {
+    paddingTop: 20,
+  },
+
+  timingButtonContainer: {
+    display: "flex",
+    flexWrap: "nowrap",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 10,
+    gap: 5,
+  },
+
+  gameContainer: {
+    margin: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  timingOptionsContainer: {
+    margin: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  center: {
+    margin: "auto",
+  },
+  centerContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  container: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    zIndex: -1,
+  },
+  answerContainer: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    width: 400,
+    justifyContent: "space-evenly",
+  },
+});

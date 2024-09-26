@@ -42,8 +42,10 @@ export default function TextSearch({ navigation }) {
     }
 
     return (
-      <View>
-        <Text>Add these words to your list to improve your vocab.</Text>
+      <View style={style.centerChildren}>
+        <Text style={style.text}>
+          Add these words to your list to improve your vocab.
+        </Text>
         {suggestions.map((el, i) => (
           <AppButton
             key={i}
@@ -75,7 +77,7 @@ export default function TextSearch({ navigation }) {
               context. Then add these words to My Vocab List.
             </Text>
           </View>
-          <View style={style.textBoxContainer}>
+          <View style={style.centerChildren}>
             <TextInput
               editable
               multiline
@@ -85,7 +87,7 @@ export default function TextSearch({ navigation }) {
             />
             <AppButton title="Analyze" onPress={handleSubmit} />
           </View>
-          <View>{formatSuggestions()}</View>
+          {formatSuggestions()}
           <View style={style.buttons}>
             <Pressable style={navStyle.appButton}>
               <AppButton
@@ -124,6 +126,7 @@ const style = StyleSheet.create({
     fontSize: 18,
     color: "#f0f8ff",
     paddingHorizontal: 50,
+    margin: 5,
   },
 
   buttons: {
@@ -146,14 +149,18 @@ const style = StyleSheet.create({
   },
 
   textBox: {
-    height: 500,
-    width: 400,
+    height: 400,
+    width: 500,
     borderWidth: 1,
     padding: 10,
     backgroundColor: "#fff",
+    // margin: "auto",
   },
-  textBoxContainer: {
+  centerChildren: {
     display: "flex",
-    justifyContent: "center",
+    alignItems: "center",
+  },
+  center: {
+    margin: "auto",
   },
 });

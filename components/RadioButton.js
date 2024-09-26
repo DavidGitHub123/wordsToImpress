@@ -15,7 +15,7 @@ const style = StyleSheet.create({
     width: 24,
     borderRadius: 12,
     borderWidth: 2,
-    borderColor: "#000",
+    borderColor: "#FFF",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -23,6 +23,6 @@ const style = StyleSheet.create({
     height: 12,
     width: 12,
     borderRadius: 6,
-    backgroundColor: "#000",
+    backgroundColor: "#FFF",
   },
 });

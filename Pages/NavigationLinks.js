@@ -28,6 +28,7 @@ import WS_MeetingInLaws from "../Pages/Situations/WS_MeetingInLaws";
 import WS_Negotiations from "../Pages/Situations/WS_Negotiations";
 import WS_Politics from "../Pages/Situations/WS_Politics";
 import WS_SpeedingTicket from "../Pages/Situations/WS_SpeedingTicket";
+import Notifications from "../Pages/Notifications";
 import A from "../Pages/AtoZcontent/A";
 import B from "../Pages/AtoZcontent/B";
 import C from "../Pages/AtoZcontent/C";
@@ -52,6 +53,7 @@ import U from "../Pages/AtoZcontent/U";
 import V from "../Pages/AtoZcontent/V";
 import W from "../Pages/AtoZcontent/W";
 import Z from "../Pages/AtoZcontent/Z";
+import SentenceID from "./SentenceID";
 
 const Stack = createNativeStackNavigator();
 
@@ -87,6 +89,11 @@ export default function NavigationLinks() {
         options={{ title: "Word of Day" }}
       />
       <Stack.Screen
+        name="SentenceID"
+        component={SentenceID}
+        options={{ title: "SentenceID" }}
+      />
+      <Stack.Screen
         name="WordSituations"
         component={WordSituations}
         options={{ title: "Word Situations" }}
@@ -102,6 +109,11 @@ export default function NavigationLinks() {
         options={{ title: "Learning System" }}
       />
       <Stack.Screen name="Word" component={Word} options={{ title: "Word" }} />
+      <Stack.Screen
+        name="Notifications"
+        component={Notifications}
+        options={{ title: "Notifications" }}
+      />
       <Stack.Screen
         name="AtoZButtons"
         component={AtoZButtons}

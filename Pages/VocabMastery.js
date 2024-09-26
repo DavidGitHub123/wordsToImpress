@@ -1,5 +1,12 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, ImageBackground } from "react-native";
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+} from "react-native";
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 // import { LinearGradient } from "expo-linear-gradient";
@@ -9,13 +16,6 @@ export default function VocabMastery({ navigation }) {
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
-        {/* <LinearGradient
-          colors={["#6699FF", "#335C81"]}
-          start={{ x: 0.5, y: 0.25 }}
-          end={{ x: 0.25, y: 0.5 }}
-          opacity={1.0}
-          style={style.page}
-        > */}
         <ImageBackground
           source={img122}
           imageStyle={style.image}
@@ -55,15 +55,14 @@ export default function VocabMastery({ navigation }) {
             <NavButton
               navigation={navigation}
               title="Schedule Quizzes"
-              destination="ScheduleQuizzes"
+              destination="Notifications"
             />
           </View>
 
           <View>
             <HomeButton navigation={navigation} />
           </View>
-          </ImageBackground>
-        {/* </LinearGradient> */}
+        </ImageBackground>
       </ScrollView>
     </SafeAreaView>
   );
