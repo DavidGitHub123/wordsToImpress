@@ -43,14 +43,7 @@ export default function MyList({ navigation }) {
       return;
     }
 
-    const testList = list.map((el, i) => {
-      if (i <= 34) {
-        el.mastery = 5;
-      }
-      return el;
-    });
-
-    const parsedList = testList.map((el, i) => (
+    const parsedList = list.map((el, i) => (
       <View key={i} style={style.wordDeleteContainer}>
         <NavButtonWord
           navigation={navigation}

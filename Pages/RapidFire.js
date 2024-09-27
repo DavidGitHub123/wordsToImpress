@@ -59,6 +59,8 @@ export default function RapidFire({ navigation }) {
 function Game(Props) {
   const { timing, words, navigation } = Props;
 
+  console.log(words);
+
   const [timeLeft, setTimeLeft] = useState(timing);
   const [front, setFront] = useState(true);
   const [cardIndex, setCardIndex] = useState(0);
