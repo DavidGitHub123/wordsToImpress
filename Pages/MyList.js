@@ -16,6 +16,7 @@ export default function MyList({ navigation }) {
   const [masteredWordCount, setMasteredWordCount] = useState(0);
   const [unMasteredWordCount, setUnMasteredWordCount] = useState(0);
   const [listLength, setListLength] = useState(0);
+  const [hasListInit, setHasListInit] = useState(false);
 
   const handleDelete = async (word) => {
     await removeOneWordFromList(defaultList, word);
@@ -23,14 +24,26 @@ export default function MyList({ navigation }) {
   };
 
   const [listOrLoading, setListOrLoading] = useState([
-    <Text key={0}>Loading...</Text>,
+    <Text key={0} style={style.text}>
+      Loading...
+    </Text>,
   ]);
 
   async function getAndParseList() {
     const list = await getList(defaultList);
-    if (list === null || list.length === 0) {
+    console.log(list);
+    if (list === null) {
+      return;
+    } else if (list.length === 0) {
+      setListLength(0);
+      setListOrLoading(
+        <Text style={{ ...style.text, ...style.textAlignCenter }} key={0}>
+          No words in your list, go add some to see them here
+        </Text>,
+      );
       return;
     }
+
     const parsedList = list.map((el, i) => (
       <View key={i} style={style.wordDeleteContainer}>
         <NavButtonWord
@@ -54,9 +67,17 @@ export default function MyList({ navigation }) {
   }
 
   useEffect(() => {
-    getAndParseList();
+    const asyncWrapper = async () => {
+      await getAndParseList();
+      setHasListInit(true);
+    };
+    asyncWrapper();
   }, []);
 
+  const donutSeries = [
+    masteredWordCount,
+    unMasteredWordCount === 0 ? 1 : unMasteredWordCount,
+  ];
   const GREEN_PERCENT = 0.7;
   const donutColor =
     GREEN_PERCENT <= masteredWordCount / listLength
@@ -77,18 +98,17 @@ export default function MyList({ navigation }) {
           </View>
           <View style={style.donutContainer}>
             <Text style={style.donutText}>
-              {masteredWordCount}/{listLength} 
-              {/* mastered */}
+              {masteredWordCount}/{listLength}
             </Text>
-            {masteredWordCount === 0 && listLength === 0 ? null : (
+            {
               <PieChart
                 style={style.donut}
                 widthAndHeight={200}
-                series={[masteredWordCount, unMasteredWordCount]}
+                series={donutSeries}
                 sliceColor={[donutColor.highlight, donutColor.base]}
                 coverRadius={0.8}
               />
-            )}
+            }
           </View>
 
           <Text style={style.mylistheader}>My List</Text>
@@ -96,22 +116,13 @@ export default function MyList({ navigation }) {
           <View style={style.section}>{listOrLoading}</View>
 
           <View style={style.buttons}>
-            <HomeButton 
-              style={style.homebutton}
-              navigation={navigation} />
+            <HomeButton style={style.homebutton} navigation={navigation} />
             <NavButton
               navigation={navigation}
               title="Vocab Mastery"
               destination="VocabMastery"
             />
-            {/* <NavButton
-              navigation={navigation}
-              title="A-Z Words"
-              destination="AtoZButtons"
-            /> */}
           </View>
-
-
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>
@@ -155,7 +166,7 @@ const style = StyleSheet.create({
     fontWeight: "800",
   },
 
- mylistheader: {
+  mylistheader: {
     fontSize: 40,
     color: "#f0f8ff",
     fontWeight: "800",
@@ -220,5 +231,8 @@ const style = StyleSheet.create({
   },
   deleteButton: {
     marginLeft: 5,
+  },
+  textAlignCenter: {
+    textAlign: "center",
   },
 });
