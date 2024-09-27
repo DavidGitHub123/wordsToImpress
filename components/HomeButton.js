@@ -2,11 +2,11 @@ import React from "react";
 import { StyleSheet, Pressable } from "react-native";
 import AppButton from "./AppButton";
 
-export default function HomeButton({ navigation }) {
+export default function HomeButton({ navigation, style }) {
   return (
-    <Pressable style={style.appButton}>
+    <Pressable style={{ ...styles.appButton, ...style }}>
       <AppButton
-        style={style.appButton}
+        style={styles.appButton}
         icon="home"
         title="Home"
         onPress={() => navigation.navigate("HomeScreen")}
@@ -15,7 +15,7 @@ export default function HomeButton({ navigation }) {
   );
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   appButton: {
     alignItems: "center",
     justifyContent: "center",
