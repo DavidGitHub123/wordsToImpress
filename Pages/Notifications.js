@@ -184,7 +184,7 @@ export default function Notifications({ navigation }) {
 
   const NOTIF_TYPES = {
     wordOfDay: "Word of the Day",
-    wordReminder: "Word Reminders",
+    wordReminder: "Word Mastery",
     mastery: "Word Mastery Challenge",
   };
 
@@ -313,20 +313,21 @@ export default function Notifications({ navigation }) {
           {!showModal ? (
             <View style={style.centerChildren}>
               <Text style={style.header}>Notifications</Text>
+              <Text style={style.subheader}>Click to Schedule</Text>
               <AppButton
-                title="Schedule Word of the Day"
+                title="Word of the Day"
                 onPress={() => openModal(NOTIF_TYPES.wordOfDay)}
                 icon="sign-in"
               />
               {renderNotifs(NOTIF_TYPES.wordOfDay)}
               <AppButton
-                title="Schedule Word Reminders"
+                title="Word Mastery"
                 onPress={() => openModal(NOTIF_TYPES.wordReminder)}
                 icon="sign-in"
               />
               {renderNotifs(NOTIF_TYPES.wordReminder)}
               <AppButton
-                title="Schedule Word Mastery Challenge"
+                title="Word Mastery Challenges"
                 onPress={() => openModal(NOTIF_TYPES.mastery)}
                 icon="sign-in"
               />
@@ -345,9 +346,21 @@ export default function Notifications({ navigation }) {
               handleClose={handleClose}
             />
           )}
-          <View>
-            <HomeButton navigation={navigation} />
+
+          <View style={style.bottomButtons}>
+                <AppButton 
+                  title="Back"
+                  onPress={() => navigation.goBack()}
+                ></AppButton>
+                <View style={style.homeButton}>
+                  <HomeButton navigation={navigation} />
+                </View>
           </View>
+
+
+
+
+
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>
@@ -381,7 +394,7 @@ function ScheduleModal(Props) {
   return (
     <View style={style.centerChildren}>
       <Text style={style.header}>
-        Schedule your {notificationType} reminder
+        {notificationType} reminder
       </Text>
       {showTimePicker && (
         <DateTimePicker
@@ -414,7 +427,7 @@ const style = StyleSheet.create({
   page: {
     flex: 1,
     backgroundColor: "#000",
-    paddingBottom: 100,
+    paddingBottom: 500,
   },
 
   text: {
@@ -428,6 +441,15 @@ const style = StyleSheet.create({
     color: "#f0f8ff",
     fontWeight: "800",
     paddingTop: 40,
+    textAlign: "center",
+  },
+
+  subheader: {
+    fontSize: 24,
+    color: "#f0f8ff",
+    fontWeight: "600",
+    paddingTop: 10,
+    paddingBottom: 10,
     textAlign: "center",
   },
 
@@ -461,4 +483,9 @@ const style = StyleSheet.create({
   bottomButtons: {
     paddingTop: 20,
   },
+
+  homeButton: {
+    paddingTop: 20,
+  },
+
 });

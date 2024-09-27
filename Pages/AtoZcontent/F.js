@@ -28,13 +28,16 @@ export default function FWords({ navigation }) {
               <Text style={style.header}>F Words</Text>
             </View>
 
-            <View>
+            <View style={style.bottomButtons}>
               <Pressable style={navStyle.appButton}>
                 <AppButton
                   title="Back"
                   onPress={() => navigation.goBack()}
                 ></AppButton>
               </Pressable>
+              <View>
+                <HomeButton navigation={navigation} />
+              </View>
             </View>
 
             <View>
@@ -210,9 +213,6 @@ export default function FWords({ navigation }) {
               />
             </View>
 
-            <View style={style.bottomButtons}>
-              <HomeButton navigation={navigation} />
-            </View>
           </View>
         </LinearGradient>
       </ScrollView>
@@ -237,7 +237,8 @@ const style = StyleSheet.create({
   },
 
   bottomButtons: {
-    paddingTop: 50,
+    paddingTop: 40,
+    paddingBottom: 40,
   },
 
   appButton: {
