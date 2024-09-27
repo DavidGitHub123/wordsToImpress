@@ -11,12 +11,12 @@ import {
 } from "../components/listHelpers";
 import PieChart from "react-native-pie-chart";
 import IconButton from "../components/IconButton";
+import { FA5Style } from "react-native-vector-icons/FontAwesome5";
 
 export default function MyList({ navigation }) {
   const [masteredWordCount, setMasteredWordCount] = useState(0);
   const [unMasteredWordCount, setUnMasteredWordCount] = useState(0);
   const [listLength, setListLength] = useState(0);
-  const [hasListInit, setHasListInit] = useState(false);
 
   const handleDelete = async (word) => {
     await removeOneWordFromList(defaultList, word);
@@ -31,7 +31,6 @@ export default function MyList({ navigation }) {
 
   async function getAndParseList() {
     const list = await getList(defaultList);
-    console.log(list);
     if (list === null) {
       return;
     } else if (list.length === 0) {
@@ -44,7 +43,14 @@ export default function MyList({ navigation }) {
       return;
     }
 
-    const parsedList = list.map((el, i) => (
+    const testList = list.map((el, i) => {
+      if (i <= 34) {
+        el.mastery = 5;
+      }
+      return el;
+    });
+
+    const parsedList = testList.map((el, i) => (
       <View key={i} style={style.wordDeleteContainer}>
         <NavButtonWord
           navigation={navigation}
@@ -69,7 +75,6 @@ export default function MyList({ navigation }) {
   useEffect(() => {
     const asyncWrapper = async () => {
       await getAndParseList();
-      setHasListInit(true);
     };
     asyncWrapper();
   }, []);
