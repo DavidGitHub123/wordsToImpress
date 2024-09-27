@@ -309,16 +309,16 @@ export default function Notifications({ navigation }) {
           style={style.page}
         >
           {!showModal ? (
-
             <View style={style.centerChildren}>
               <View style={style.screen}>
                 <Text style={style.header}>Notifications</Text>
                 <Text style={style.subHead2}>
-                  Repetition is the key to learning. Receive phone notifications of the Word of the Day. 
-                  Or schedule notifications every hour or few hours of the words in your Word Mastery List.
-                  Or schedule to take Word Mastery Challenges at convenient times. 
+                  Repetition is the key to learning. Receive phone notifications
+                  of the Word of the Day. Or schedule notifications every hour
+                  or few hours of the words in your Word Mastery List. Or
+                  schedule to take Word Mastery Challenges at convenient times.
                 </Text>
-            </View>
+              </View>
 
               <Text style={style.subheader}>Click to Schedule</Text>
               <View style={style.buttons}>
@@ -345,28 +345,33 @@ export default function Notifications({ navigation }) {
                   title="Clear all notifications"
                   onPress={() => handleCancelAll()}
                 />
+                <AppButton
+                  title="Back"
+                  onPress={() => navigation.goBack()}
+                ></AppButton>
               </View>
             </View>
-            
           ) : (
-            <ScheduleModal
-              notificationType={notificationType}
-              time={time}
-              setTime={setTime}
-              handleClose={handleClose}
-            />
+            <View style={style.centerChildren}>
+              <ScheduleModal
+                notificationType={notificationType}
+                time={time}
+                setTime={setTime}
+                handleClose={handleClose}
+              />
+              <AppButton
+                viewStyle={{ margin: "auto" }}
+                title="Back"
+                onPress={() => setShowModal(false)}
+              ></AppButton>
+            </View>
           )}
 
           <View style={style.bottomButtons}>
-            <AppButton
-              title="Back"
-              onPress={() => navigation.goBack()}
-            ></AppButton>
             <View style={style.homeButton}>
               <HomeButton navigation={navigation} />
             </View>
           </View>
-          
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>
@@ -485,10 +490,10 @@ const style = StyleSheet.create({
     paddingHorizontal: 30,
   },
 
- buttons: {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: 'center',
+  buttons: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   section: {
