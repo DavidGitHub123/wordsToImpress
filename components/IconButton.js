@@ -18,7 +18,7 @@ const defaultStyle = StyleSheet.create({
   containerStyle: {
     height: 40,
     width: 40,
-    backgroundColor: "#ff8c00",
+    backgroundColor: 'transparent',
     paddingVertical: 5,
     borderRadius: 10,
     alignItems: "center",

@@ -22,7 +22,7 @@ export default function VocabMastery({ navigation }) {
           resizeMode="cover"
           style={style.page}
         >
-          <View>
+          <View style={style.screen}>
             <Text style={style.header}>Vocab Mastery</Text>
 
             <Text style={style.headerText}>
@@ -76,9 +76,13 @@ const style = StyleSheet.create({
     paddingBottom: 600,
   },
 
-  // image: {
-  //   opacity: .5,
-  // },
+  screen: {
+    opacity: 0.5,
+    backgroundColor: "black",
+    paddingTop: 20,
+    paddingBottom: 20,
+    marginBottom: 30,
+  },
 
   header: {
     fontSize: 40,
@@ -89,7 +93,7 @@ const style = StyleSheet.create({
   },
 
   headerText: {
-    fontSize: 24,
+    fontSize: 20,
     color: "#f0f8ff",
     paddingBottom: 20,
     paddingHorizontal: 35,

@@ -299,10 +299,10 @@ const style = StyleSheet.create({
 
 
   screen: {
-    opacity: .7,
-    backgroundColor: "#4682B4",
+    opacity: 0.5,
+    backgroundColor: "black",
+    paddingBottom: 20,
     marginBottom: 30,
-    paddingBottom: 40,
   },
 
   HomeButton: {

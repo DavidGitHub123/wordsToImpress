@@ -55,11 +55,11 @@ const defaultStyle = StyleSheet.create({
   },
 
   appButtonContainer: {
-    paddingVertical: 5,
+    // paddingVertical: 5,
     width: 250,
   },
   large: {
-    height: 80,
+    height: 50,
   },
   medium: {
     height: 60,

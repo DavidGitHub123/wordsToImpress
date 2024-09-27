@@ -73,11 +73,12 @@ export default function MyList({ navigation }) {
           style={style.page}
         >
           <View>
-            <Text style={style.header}>My List</Text>
+            <Text style={style.header}>My Mastery</Text>
           </View>
           <View style={style.donutContainer}>
             <Text style={style.donutText}>
-              {masteredWordCount}/{listLength} mastered
+              {masteredWordCount}/{listLength} 
+              {/* mastered */}
             </Text>
             {masteredWordCount === 0 && listLength === 0 ? null : (
               <PieChart
@@ -90,8 +91,14 @@ export default function MyList({ navigation }) {
             )}
           </View>
 
+          <Text style={style.mylistheader}>My List</Text>
+
+          <View style={style.section}>{listOrLoading}</View>
+
           <View style={style.buttons}>
-            <HomeButton navigation={navigation} />
+            <HomeButton 
+              style={style.homebutton}
+              navigation={navigation} />
             <NavButton
               navigation={navigation}
               title="Vocab Mastery"
@@ -104,7 +111,7 @@ export default function MyList({ navigation }) {
             /> */}
           </View>
 
-          <View style={style.section}>{listOrLoading}</View>
+
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>
@@ -116,8 +123,8 @@ const style = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    paddingBottom: 100,
-    paddingTop: 100,
+    paddingBottom: 300,
+    paddingTop: 50,
   },
 
   donut: {
@@ -133,6 +140,7 @@ const style = StyleSheet.create({
     verticalAlign: "middle",
     color: "#fff",
     textAlign: "center",
+    fontSize: 40,
   },
 
   donutContainer: {
@@ -145,11 +153,22 @@ const style = StyleSheet.create({
     fontSize: 40,
     color: "#f0f8ff",
     fontWeight: "800",
-    paddingBottom: "2vh",
+  },
+
+ mylistheader: {
+    fontSize: 40,
+    color: "#f0f8ff",
+    fontWeight: "800",
+    paddingTop: 40,
   },
 
   buttons: {
-    paddingTop: 20,
+    paddingTop: 30,
+    paddingBottom: 10,
+  },
+
+  homebutton: {
+    paddingBottom: 40,
   },
 
   text: {
