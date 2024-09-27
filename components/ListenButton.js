@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Pressable } from "react-native";
+import { StyleSheet, Pressable, Platform } from "react-native";
 import { Audio } from "expo-av";
 import { useState, useEffect } from "react";
 import AppButton from "./AppButton";
@@ -7,8 +7,21 @@ import AppButton from "./AppButton";
 export default function ListenButton({ audio }) {
   const [sound, setSound] = useState();
 
+  useEffect(() => {
+    const asyncWrapper = async () => {
+      if (Platform.OS === "ios") {
+        await Audio.setAudioModeAsync({
+          playsInSilentModeIOS: true,
+          staysActiveInBackground: false,
+        });
+      }
+    };
+    asyncWrapper();
+  }, []);
+
   async function playSound() {
     const { sound } = await Audio.Sound.createAsync(audio);
+    console.log(sound);
     setSound(sound);
     await sound.playAsync();
   }
@@ -16,14 +29,14 @@ export default function ListenButton({ audio }) {
   useEffect(() => {
     return sound
       ? () => {
-        sound.unloadAsync();
-      }
+          sound.unloadAsync();
+        }
       : undefined;
   }, [sound]);
 
   return (
     <Pressable style={style.appButton}>
-      <AppButton icon="volume-off" title="Listen" onPress={playSound} />
+      <AppButton icon="volume-up" title="Listen" onPress={playSound} />
     </Pressable>
   );
 }

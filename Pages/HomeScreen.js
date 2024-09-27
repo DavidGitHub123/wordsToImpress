@@ -38,6 +38,7 @@ export default function HomeScreen({ navigation }) {
                 onPress={() => navigation.navigate("Notifications")}
               />
               <AppButton
+                viewStyle={{ width: 100 }}
                 icon="table"
                 title="About"
                 onPress={() => navigation.navigate("System")}

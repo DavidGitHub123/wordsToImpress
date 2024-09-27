@@ -3,8 +3,16 @@ import { StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 export default function AppButton(Props) {
-  const { onPress, icon, title, backgroundColor, borderColor, style, size } =
-    Props;
+  const {
+    onPress,
+    icon,
+    title,
+    backgroundColor,
+    borderColor,
+    style,
+    size,
+    viewStyle,
+  } = Props;
 
   const styleSize =
     size === "large"
@@ -22,6 +30,7 @@ export default function AppButton(Props) {
   const containerStyle = {
     ...defaultStyle.appButtonContainer,
     ...(size === "large" ? { width: 180 } : {}),
+    ...viewStyle,
   };
 
   return (
@@ -55,7 +64,7 @@ const defaultStyle = StyleSheet.create({
   },
 
   appButtonContainer: {
-    // paddingVertical: 5,
+    paddingVertical: 5,
     width: 250,
   },
   large: {
