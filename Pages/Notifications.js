@@ -174,11 +174,9 @@ export default function Notifications({ navigation }) {
 
     return () => {
       notificationListener.current &&
-        Notifications.removeNotificationSubscription(
-          notificationListener.current,
-        );
+        Notifs.removeNotificationSubscription(notificationListener.current);
       responseListener.current &&
-        Notifications.removeNotificationSubscription(responseListener.current);
+        Notifs.removeNotificationSubscription(responseListener.current);
     };
   }, []);
 
@@ -288,9 +286,9 @@ export default function Notifications({ navigation }) {
           // eslint-disable-next-line no-unused-vars
           const [_, hour, minute, ampm] = el.split("-");
           return (
-            <View key={i}>
-              <Text style={style.text}>
-                Notification scheduled at: {hour}:{minute} {ampm}
+            <View key={i} style={style.timeContainer}>
+              <Text style={style.timeText}>
+                Notification at: {hour}:{minute} {ampm}
               </Text>
               <IconButton name="trash" onPress={() => handleRemoveNotifs(el)} />
             </View>
@@ -348,19 +346,14 @@ export default function Notifications({ navigation }) {
           )}
 
           <View style={style.bottomButtons}>
-                <AppButton 
-                  title="Back"
-                  onPress={() => navigation.goBack()}
-                ></AppButton>
-                <View style={style.homeButton}>
-                  <HomeButton navigation={navigation} />
-                </View>
+            <AppButton
+              title="Back"
+              onPress={() => navigation.goBack()}
+            ></AppButton>
+            <View style={style.homeButton}>
+              <HomeButton navigation={navigation} />
+            </View>
           </View>
-
-
-
-
-
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>
@@ -385,7 +378,7 @@ function ScheduleModal(Props) {
     const ampm = getAMPM(time.getHours());
 
     return (
-      <Text style={style.text}>
+      <Text style={style.timeText}>
         We will remind you at {formattedHours}:{formattedMinutes} {ampm}
       </Text>
     );
@@ -393,22 +386,23 @@ function ScheduleModal(Props) {
 
   return (
     <View style={style.centerChildren}>
-      <Text style={style.header}>
-        {notificationType} reminder
-      </Text>
+      <Text style={style.header}>{notificationType} reminder</Text>
+      <View style={style.marginAuto}>
+        <AppButton
+          icon="user-clock"
+          title="Set time"
+          onPress={() => setShowTimePicker(true)}
+        />
+      </View>
       {showTimePicker && (
         <DateTimePicker
           value={time}
           mode="time"
           is24Hour={false}
           onChange={handleDateChange}
+          style={style.marginAuto}
         />
       )}
-      <AppButton
-        icon="user-clock"
-        title="Set time"
-        onPress={() => setShowTimePicker(true)}
-      />
       {isSubmitted && (
         <View style={style.centerChildren}>
           {RenderTime()}
@@ -481,6 +475,9 @@ const style = StyleSheet.create({
   },
 
   bottomButtons: {
+    display: "flex",
+    margin: "auto",
+    justifyContent: "center",
     paddingTop: 20,
   },
 
@@ -488,4 +485,21 @@ const style = StyleSheet.create({
     paddingTop: 20,
   },
 
+  timeText: {
+    paddingTop: 2,
+    paddingBottom: 2,
+    fontSize: 16,
+    color: "#f0f8ff",
+    fontWeight: "700",
+    margin: "auto",
+  },
+
+  marginAuto: { margin: "auto" },
+
+  timeContainer: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    gap: 5,
+  },
 });
