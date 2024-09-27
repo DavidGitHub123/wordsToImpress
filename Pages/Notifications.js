@@ -182,8 +182,8 @@ export default function Notifications({ navigation }) {
 
   const NOTIF_TYPES = {
     wordOfDay: "Word of the Day",
-    wordReminder: "Word Mastery",
-    mastery: "Word Mastery Challenge",
+    wordReminder: "Individual Word Mastery",
+    mastery: "Word Mastery Challenges",
   };
 
   useEffect(() => {
@@ -309,33 +309,45 @@ export default function Notifications({ navigation }) {
           style={style.page}
         >
           {!showModal ? (
+
             <View style={style.centerChildren}>
-              <Text style={style.header}>Notifications</Text>
-              <Text style={style.subheader}>Click to Schedule</Text>
-              <AppButton
-                title="Word of the Day"
-                onPress={() => openModal(NOTIF_TYPES.wordOfDay)}
-                icon="sign-in"
-              />
-              {renderNotifs(NOTIF_TYPES.wordOfDay)}
-              <AppButton
-                title="Word Mastery"
-                onPress={() => openModal(NOTIF_TYPES.wordReminder)}
-                icon="sign-in"
-              />
-              {renderNotifs(NOTIF_TYPES.wordReminder)}
-              <AppButton
-                title="Word Mastery Challenges"
-                onPress={() => openModal(NOTIF_TYPES.mastery)}
-                icon="sign-in"
-              />
-              {renderNotifs(NOTIF_TYPES.mastery)}
-              <AppButton
-                icon="trash"
-                title="Clear all notifications"
-                onPress={() => handleCancelAll()}
-              />
+              <View style={style.screen}>
+                <Text style={style.header}>Notifications</Text>
+                <Text style={style.subHead2}>
+                  Repetition is the key to learning. Receive phone notifications of the Word of the Day. 
+                  Or schedule notifications every hour or few hours of the words in your Word Mastery List.
+                  Or schedule to take Word Mastery Challenges at convenient times. 
+                </Text>
             </View>
+
+              <Text style={style.subheader}>Click to Schedule</Text>
+              <View style={style.buttons}>
+                <AppButton
+                  title="Word of the Day"
+                  onPress={() => openModal(NOTIF_TYPES.wordOfDay)}
+                  icon="sign-in"
+                />
+                {renderNotifs(NOTIF_TYPES.wordOfDay)}
+                <AppButton
+                  title="Individual Word Mastery"
+                  onPress={() => openModal(NOTIF_TYPES.wordReminder)}
+                  icon="sign-in"
+                />
+                {renderNotifs(NOTIF_TYPES.wordReminder)}
+                <AppButton
+                  title="Word Mastery Challenges"
+                  onPress={() => openModal(NOTIF_TYPES.mastery)}
+                  icon="sign-in"
+                />
+                {renderNotifs(NOTIF_TYPES.mastery)}
+                <AppButton
+                  icon="trash"
+                  title="Clear all notifications"
+                  onPress={() => handleCancelAll()}
+                />
+              </View>
+            </View>
+            
           ) : (
             <ScheduleModal
               notificationType={notificationType}
@@ -354,6 +366,7 @@ export default function Notifications({ navigation }) {
               <HomeButton navigation={navigation} />
             </View>
           </View>
+          
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>
@@ -386,7 +399,7 @@ function ScheduleModal(Props) {
 
   return (
     <View style={style.centerChildren}>
-      <Text style={style.header}>{notificationType} reminder</Text>
+      <Text style={style.header2}>{notificationType} reminder</Text>
       <View style={style.marginAuto}>
         <AppButton
           icon="user-clock"
@@ -430,11 +443,27 @@ const style = StyleSheet.create({
     fontWeight: "700",
   },
 
+  screen: {
+    opacity: 0.5,
+    backgroundColor: "black",
+    paddingBottom: 20,
+    marginBottom: 30,
+  },
+
   header: {
     fontSize: 36,
     color: "#f0f8ff",
     fontWeight: "800",
     paddingTop: 40,
+    textAlign: "center",
+  },
+
+  header2: {
+    fontSize: 36,
+    color: "#f0f8ff",
+    fontWeight: "800",
+    paddingTop: 40,
+    paddingBottom: 40,
     textAlign: "center",
   },
 
@@ -445,6 +474,21 @@ const style = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     textAlign: "center",
+  },
+
+  subHead2: {
+    fontSize: 20,
+    color: "#fff",
+    fontWeight: "600",
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingHorizontal: 30,
+  },
+
+ buttons: {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: 'center',
   },
 
   section: {
@@ -481,9 +525,9 @@ const style = StyleSheet.create({
     paddingTop: 20,
   },
 
-  homeButton: {
-    paddingTop: 20,
-  },
+  // homeButton: {
+  //   paddingTop: 20,
+  // },
 
   timeText: {
     paddingTop: 2,

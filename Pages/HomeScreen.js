@@ -51,7 +51,8 @@ export default function HomeScreen({ navigation }) {
             </View>
 
             <View style={style.screen}>
-              <Text style={style.headLine}>Build Your Vocabulary</Text>
+              <Text style={style.headLine}>Build Your</Text>
+              <Text style={style.headLine2}>Vocabulary</Text>
               <Text style={style.prowess}>PROWESS</Text>
             </View>
             <View>
@@ -133,7 +134,7 @@ const style = StyleSheet.create({
     justifyContent: "space-between",
     flexDirection: "row",
     paddingHorizontal: 5,
-    paddingVertical: 10,
+    // paddingVertical: 10,
     margin: 3,
   },
 
@@ -175,20 +176,29 @@ const style = StyleSheet.create({
   },
 
   headLine: {
-    fontSize: 34,
+    fontSize: 40,
     color: "#f0f8ff",
-    fontWeight: "700",
-    textShadowColor: "gray",
+    fontWeight: "900",
+    textShadowColor: "black",
     textShadowRadius: 5,
     marginTop: -36,
     textAlign: "center",
   },
 
-  prowess: {
-    fontSize: 60,
+  headLine2: {
+    fontSize: 40,
     color: "#f0f8ff",
-    fontWeight: "700",
-    textShadowColor: "gray",
+    fontWeight: "900",
+    textShadowColor: "black",
+    textShadowRadius: 5,
+    textAlign: "center",
+  },
+
+  prowess: {
+    fontSize: 50,
+    color: "#f0f8ff",
+    fontWeight: "900",
+    textShadowColor: "black",
     textShadowRadius: 5,
     paddingBottom: 30,
     textAlign: "center",
