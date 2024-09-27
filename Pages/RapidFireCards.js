@@ -5,7 +5,9 @@ import data from "../data";
 export default function RapidFireCards(Props) {
   const { words, front, cardIndex } = Props;
 
-  const getDef = () => data.find((el) => el.Word).Shortdef;
+  const getDef = (w) => data.find((el) => el.Word === w).Shortdef;
+
+  console.log();
 
   const Cards = words.map((el, i) => {
     return {
