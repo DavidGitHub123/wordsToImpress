@@ -115,11 +115,6 @@ export default function MyList({ navigation }) {
 
           <View style={style.buttons}>
             <HomeButton style={style.homebutton} navigation={navigation} />
-            <NavButton
-              navigation={navigation}
-              title="Vocab Mastery"
-              destination="VocabMastery"
-            />
           </View>
         </LinearGradient>
       </ScrollView>

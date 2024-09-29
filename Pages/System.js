@@ -133,9 +133,8 @@ export default function System({ navigation }) {
               Increase your powers of persuasion and comprehension
             </Text>
             <Text style={style.subHead2}>
-              The Words to Impress App includes the most impressive words in the
-              English language as identified by the author of the best-selling
-              The Words You Should Know series of books.
+              The Words to Impress App includes the most impressive words as identified by the author of the best-selling
+              Words You Should Know series of books.
             </Text>
             {/* <Text style={style.text}>
               Titles include The Words You Should Know, The Words You Should
@@ -206,19 +205,11 @@ const style = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: 50,
     paddingBottom: 300,
   },
 
   image: {
     opacity: 0.8,
-  },
-
-  header: {
-    fontSize: 34,
-    color: "#FF8C00",
-    fontWeight: "800",
-    paddingBottom: 10,
   },
 
   screen: {
@@ -229,19 +220,17 @@ const style = StyleSheet.create({
   },
 
   subHead1: {
-    fontSize: 36,
+    fontSize: 32,
     color: "#fff",
     fontWeight: "600",
     paddingTop: 50,
-    paddingBottom: 10,
     paddingHorizontal: 30,
-    number: 10,
+    // number: 10,
   },
 
   subHead2: {
     fontSize: 20,
     color: "#fff",
-    fontWeight: "600",
     paddingTop: 20,
     paddingBottom: 20,
     paddingHorizontal: 30,

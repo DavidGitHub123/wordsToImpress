@@ -39,6 +39,9 @@ export default function HomeScreen({ navigation }) {
               />
               <AppButton
                 viewStyle={{ width: 100 }}
+                backgroundColor = 'transparent'
+                borderColor= "#fff"
+                borderWidth='1'
                 icon="table"
                 title="About"
                 onPress={() => navigation.navigate("System")}
@@ -158,11 +161,8 @@ const style = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     flexDirection: "row",
-    paddingHorizontal: 3,
-    paddingVertical: 3,
-    margin: 3,
     justifyContent: "center",
-    gap: 10,
+    gap: 5,
   },
 
   imageHeader: {
@@ -192,6 +192,7 @@ const style = StyleSheet.create({
     fontWeight: "900",
     textShadowColor: "black",
     textShadowRadius: 5,
+    marginTop: -10,
     textAlign: "center",
   },
 
@@ -201,6 +202,7 @@ const style = StyleSheet.create({
     fontWeight: "900",
     textShadowColor: "black",
     textShadowRadius: 5,
+    marginTop: -10,
     paddingBottom: 30,
     textAlign: "center",
   },

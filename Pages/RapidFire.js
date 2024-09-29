@@ -139,6 +139,7 @@ function GameSetUp(Props) {
       <View>{timingButtons}</View>
 
       <AppButton
+        style={style.startButton}
         title="Start"
         icon="play-circle"
         onPress={() => setIsStarted(true)}
@@ -156,6 +157,7 @@ const style = StyleSheet.create({
     backgroundColor: "#fff",
     height: "100%",
     width: "100%",
+    paddingBottom: 400,
   },
 
   header: {
@@ -187,6 +189,11 @@ const style = StyleSheet.create({
 
   buttons: {
     paddingTop: 20,
+  },
+
+  startButton: {
+    height: 50,
+    
   },
 
   timingButtonContainer: {

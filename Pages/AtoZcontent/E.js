@@ -387,7 +387,8 @@ const style = StyleSheet.create({
   },
 
   bottomButtons: {
-    paddingTop: 50,
+    paddingTop: 40,
+    paddingBottom: 40,
   },
 
   appButton: {
