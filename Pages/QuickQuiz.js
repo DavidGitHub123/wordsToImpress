@@ -40,8 +40,8 @@ export default function QuickQuiz({ navigation }) {
       <ScrollView alwaysBounceHorizontal={true}>
         <LinearGradient
           colors={["#6699FF", "#335C81"]}
-          start={{ x: 0.5, y: 0.25 }}
-          end={{ x: 0.25, y: 0.5 }}
+          start={{ x: 0.5, y: 0.5 }}
+          end={{ x: 0.5, y: 0.5 }}
           opacity={1.0}
           style={style.page}
         >
@@ -62,7 +62,7 @@ export default function QuickQuiz({ navigation }) {
 const style = StyleSheet.create({
   page: {
     flex: 1,
-    paddingBottom: 350,
+    paddingBottom: 700,
   },
 
   spacing: {

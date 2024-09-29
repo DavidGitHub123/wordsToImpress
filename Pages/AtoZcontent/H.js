@@ -38,7 +38,7 @@ export default function HWords({ navigation }) {
               <View>
                 <HomeButton navigation={navigation} />
               </View>
-            </View>>
+            </View>
 
             <View>
               <NavButtonWord
