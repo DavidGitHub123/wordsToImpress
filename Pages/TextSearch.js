@@ -17,7 +17,7 @@ import { addOneWordToList, defaultList } from "../components/listHelpers";
 
 export default function TextSearch({ navigation }) {
   const [text, setText] = useState(
-    "this is some example text, i am hoping to show you that this feature is not a flaw and you don't find it objectionable!",
+    "Input text here!",
   );
   const [suggestions, setSuggestions] = useState(null);
 
@@ -43,7 +43,7 @@ export default function TextSearch({ navigation }) {
 
     return (
       <View style={style.centerChildren}>
-        <Text style={style.text}>
+        <Text style={style.textInstructions}>
           Add these words to your list to improve your vocab.
         </Text>
         {suggestions.map((el, i) => (
@@ -71,8 +71,8 @@ export default function TextSearch({ navigation }) {
           <View>
             <Text style={style.header}>Text Search</Text>
             <Text style={style.text}>
-              Copy text from your emails, communications, proposals, etc. into
-              this box and let us analyze your communication patterns to suggest
+              Copy emails, communications, proposals, etc. into
+              this box and analyze your communication patterns to suggest
               new vocabulary words that correspond to your speaking style and
               context. Then add these words to My Vocab List.
             </Text>
@@ -85,10 +85,11 @@ export default function TextSearch({ navigation }) {
               value={text}
               style={style.textBox}
             />
-            <AppButton title="Analyze" onPress={handleSubmit} />
+            {/* <AppButton title="Analyze" onPress={handleSubmit} /> */}
           </View>
           {formatSuggestions()}
           <View style={style.buttons}>
+            <AppButton title="Analyze" onPress={handleSubmit} />
             <Pressable style={navStyle.appButton}>
               <AppButton
                 title="Back"
@@ -107,12 +108,7 @@ const style = StyleSheet.create({
   page: {
     paddingTop: 40,
     paddingBottom: 450,
-    // backgroundColor: '#000',
   },
-
-  // image: {
-  //   opacity: .5,
-  // },
 
   header: {
     fontSize: 40,
@@ -123,14 +119,25 @@ const style = StyleSheet.create({
   },
 
   text: {
-    fontSize: 18,
+    fontSize: 20,
     color: "#f0f8ff",
-    paddingHorizontal: 50,
+    paddingHorizontal: 40,
     margin: 5,
+    paddingBottom: 40,
+  },
+
+  textInstructions: {
+    fontSize: 20,
+    color: "#f0f8ff",
+    paddingHorizontal: 40,
+    paddingTop: 20,
+    paddingBottom: 20,
   },
 
   buttons: {
     paddingTop: 20,
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   appButton: {
@@ -149,11 +156,14 @@ const style = StyleSheet.create({
   },
 
   textBox: {
-    height: 400,
-    width: 500,
+    height: 300,
+    width: 300,
     borderWidth: 1,
-    padding: 10,
+    borderColor: "#fff",
+    borderRadius: 5,
+    // padding: 20,
     backgroundColor: "#fff",
+    // margin: 20,
     // margin: "auto",
   },
   centerChildren: {

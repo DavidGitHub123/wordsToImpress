@@ -367,11 +367,16 @@ export default function Notifications({ navigation }) {
             </View>
           )}
 
-          <View style={style.bottomButtons}>
+          {/* <View style={style.bottomButtons}>
+            <AppButton
+                viewStyle={{ margin: "auto" }}
+                title="Back"
+                onPress={() => setShowModal(false)}
+              ></AppButton>
             <View style={style.homeButton}>
               <HomeButton navigation={navigation} />
             </View>
-          </View>
+          </View> */}
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>
@@ -408,7 +413,7 @@ function ScheduleModal(Props) {
       <View style={style.marginAuto}>
         <AppButton
           icon="user-clock"
-          title="Set time"
+          title="Set Time"
           onPress={() => setShowTimePicker(true)}
         />
       </View>
@@ -426,7 +431,7 @@ function ScheduleModal(Props) {
           {RenderTime()}
           <AppButton
             icon="sign-out-alt"
-            title="Remind me"
+            title="Remind Me"
             onPress={handleClose}
           />
         </View>
@@ -505,6 +510,7 @@ const style = StyleSheet.create({
     textAlign: "center",
     display: "flex",
     justifyContent: "center",
+    paddingBottom: 40,
   },
 
   appButton: {
@@ -530,10 +536,6 @@ const style = StyleSheet.create({
     paddingTop: 20,
   },
 
-  // homeButton: {
-  //   paddingTop: 20,
-  // },
-
   timeText: {
     paddingTop: 2,
     paddingBottom: 2,
@@ -543,7 +545,9 @@ const style = StyleSheet.create({
     margin: "auto",
   },
 
-  marginAuto: { margin: "auto" },
+  marginAuto: { 
+    margin: "auto",
+  },
 
   timeContainer: {
     display: "flex",

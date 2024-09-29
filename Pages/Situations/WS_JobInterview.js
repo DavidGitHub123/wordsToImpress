@@ -481,7 +481,7 @@ const style = StyleSheet.create({
   },
 
   image: {
-    opacity: 0.5,
+    opacity: 0.9,
   },
 
   header: {
@@ -507,7 +507,7 @@ const style = StyleSheet.create({
   },
 
   screen: {
-    opacity: 0.7,
+    opacity: 0.9,
     backgroundColor: "black",
     marginBottom: 40,
     padding: 20,
