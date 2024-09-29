@@ -13,7 +13,7 @@ import HomeButton from "../../components/HomeButton";
 import AddButton from "../../components/AddButton";
 import ListenButton from "../../components/ListenButton";
 import { navStyle } from "../../components/NavButton.js";
-import inlaws4 from "../../assets/Backgrounds/inlaws4.jpg";
+import inlaws3 from "../../assets/Backgrounds/inlaws3.jpg";
 import AppButton from "../../components/AppButton";
 
 export default function WS_MeetingInLaws({ navigation }) {
@@ -325,7 +325,7 @@ export default function WS_MeetingInLaws({ navigation }) {
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
         <ImageBackground
-          source={inlaws4}
+          source={inlaws3}
           imageStyle={style.image}
           resizeMode="cover"
           style={style.page}
@@ -464,7 +464,7 @@ const style = StyleSheet.create({
   },
 
   image: {
-    opacity: 0.5,
+    opacity: 0.9,
   },
 
   header: {
@@ -490,7 +490,7 @@ const style = StyleSheet.create({
   },
 
   screen: {
-    opacity: 0.7,
+    opacity: 0.9,
     backgroundColor: "black",
     marginBottom: 40,
     padding: 20,
