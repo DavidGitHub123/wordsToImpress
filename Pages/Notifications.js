@@ -39,7 +39,6 @@ async function schedulePushNotification(
   notificationName,
   url,
 ) {
-  console.log(">.<");
   if (Platform.OS === "andriod") {
     await Notifs.scheduleNotificationAsync({
       content: {
@@ -78,7 +77,6 @@ async function registerForPushNotificationsAsync() {
   }
 
   if (Device.isDevice) {
-    console.log("wow!!");
     const { status: existingStatus } = await Notifs.getPermissionsAsync();
     let finalStatus = existingStatus;
     if (existingStatus !== "granted") {
@@ -149,11 +147,6 @@ export default function Notifications({ navigation }) {
   const responseListener = useRef();
 
   useEffect(() => {
-    const asyncWrapper = async () => {
-      console.log(await Notifs.getAllScheduledNotificationsAsync());
-    };
-    asyncWrapper();
-
     registerForPushNotificationsAsync().then(
       (token) => token && setExpoPushToken(token),
     );
@@ -165,16 +158,13 @@ export default function Notifications({ navigation }) {
     }
     notificationListener.current = Notifs.addNotificationReceivedListener(
       (notification) => {
-        console.log("1");
         setNotification(notification);
       },
     );
 
     responseListener.current = Notifs.addNotificationResponseReceivedListener(
       (response) => {
-        console.log("2");
         const url = response.notification.request.content.data.url;
-        console.log(url);
         navigation.navigate(url);
       },
     );
