@@ -94,7 +94,7 @@ export default function MyList({ navigation }) {
           </View>
           <View style={style.donutContainer}>
             <Text style={style.percentText}>
-              {(masteredWordCount / listLength).toFixed(2)}%
+              {masteredWordCount / listLength.toFixed(2)}
             </Text>
             <Text style={style.donutText}>
               {masteredWordCount}/{listLength}
@@ -141,7 +141,7 @@ const style = StyleSheet.create({
   },
 
   donutText: {
-    lineHeight: 50,
+    lineHeight: 200,
     verticalAlign: "middle",
     color: "#fff",
     textAlign: "center",
@@ -231,10 +231,7 @@ const style = StyleSheet.create({
   },
   percentText: {
     color: "#4cf03a",
-    fontSize: 35,
+    fontSize: 24,
     fontWeight: "600",
-    marginLeft: "auto",
-    marginRight: "auto",
-    marginTop: 60,
   },
 });
