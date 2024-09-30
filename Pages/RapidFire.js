@@ -59,8 +59,6 @@ export default function RapidFire({ navigation }) {
 function Game(Props) {
   const { timing, words, navigation } = Props;
 
-  console.log(words);
-
   const [timeLeft, setTimeLeft] = useState(timing);
   const [front, setFront] = useState(true);
   const [cardIndex, setCardIndex] = useState(0);
@@ -78,10 +76,16 @@ function Game(Props) {
     }
     setFront(true);
     setCardIndex(cardIndex + 1);
-    setTimeLeft(timing);
+    if (timing === "Unlimited") {
+      setTimeLeft(timing);
+    }
   };
 
   useEffect(() => {
+    if (timing === "Unlimited") {
+      return;
+    }
+
     if (timeLeft === 0) {
       resetRound();
     } else {
@@ -119,7 +123,7 @@ function Game(Props) {
 function GameSetUp(Props) {
   const { timing, setTiming, setIsStarted } = Props;
 
-  const timingOptions = [1, 3, 5];
+  const timingOptions = [1, 3, 5, "Unlimited"];
 
   const timingButtons = timingOptions.map((el, i) => (
     <Pressable
@@ -128,7 +132,9 @@ function GameSetUp(Props) {
       onPress={() => setTiming(el)}
     >
       <RadioButton selected={timing === el} />
-      <Text style={style.white}>{el} Seconds</Text>
+      <Text style={style.white}>
+        {el} {el === "Unlimited" ? "Time" : "Seconds"}
+      </Text>
     </Pressable>
   ));
 
@@ -193,7 +199,6 @@ const style = StyleSheet.create({
 
   startButton: {
     height: 50,
-    
   },
 
   timingButtonContainer: {
