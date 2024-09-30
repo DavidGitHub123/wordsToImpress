@@ -30,7 +30,7 @@ export default function MultipleChoiceGame(Props) {
   };
 
   let question;
-  if (listIndex < list.length - 1) {
+  if (listIndex <= list.length - 1) {
     const wordIndex = data.findIndex((el) => el.Word === list[listIndex].Word);
     console.log(questionType);
     question = data[wordIndex][questionType];
