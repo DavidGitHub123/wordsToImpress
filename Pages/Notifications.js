@@ -39,6 +39,7 @@ async function schedulePushNotification(
   notificationName,
   url,
 ) {
+  console.log(">.<");
   if (Platform.OS === "andriod") {
     await Notifs.scheduleNotificationAsync({
       content: {
@@ -77,6 +78,7 @@ async function registerForPushNotificationsAsync() {
   }
 
   if (Device.isDevice) {
+    console.log("wow!!");
     const { status: existingStatus } = await Notifs.getPermissionsAsync();
     let finalStatus = existingStatus;
     if (existingStatus !== "granted") {
@@ -147,6 +149,11 @@ export default function Notifications({ navigation }) {
   const responseListener = useRef();
 
   useEffect(() => {
+    const asyncWrapper = async () => {
+      console.log(await Notifs.getAllScheduledNotificationsAsync());
+    };
+    asyncWrapper();
+
     registerForPushNotificationsAsync().then(
       (token) => token && setExpoPushToken(token),
     );
@@ -238,7 +245,7 @@ export default function Notifications({ navigation }) {
     await schedulePushNotification(
       title,
       body,
-      hour,
+      time.getHours(),
       minute,
       notificationName,
       url,
@@ -367,16 +374,11 @@ export default function Notifications({ navigation }) {
             </View>
           )}
 
-          {/* <View style={style.bottomButtons}>
-            <AppButton
-                viewStyle={{ margin: "auto" }}
-                title="Back"
-                onPress={() => setShowModal(false)}
-              ></AppButton>
+          <View style={style.bottomButtons}>
             <View style={style.homeButton}>
               <HomeButton navigation={navigation} />
             </View>
-          </View> */}
+          </View>
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>
@@ -413,7 +415,7 @@ function ScheduleModal(Props) {
       <View style={style.marginAuto}>
         <AppButton
           icon="user-clock"
-          title="Set Time"
+          title="Set time"
           onPress={() => setShowTimePicker(true)}
         />
       </View>
@@ -431,7 +433,7 @@ function ScheduleModal(Props) {
           {RenderTime()}
           <AppButton
             icon="sign-out-alt"
-            title="Remind Me"
+            title="Remind me"
             onPress={handleClose}
           />
         </View>
@@ -510,7 +512,6 @@ const style = StyleSheet.create({
     textAlign: "center",
     display: "flex",
     justifyContent: "center",
-    paddingBottom: 40,
   },
 
   appButton: {
@@ -536,6 +537,10 @@ const style = StyleSheet.create({
     paddingTop: 20,
   },
 
+  // homeButton: {
+  //   paddingTop: 20,
+  // },
+
   timeText: {
     paddingTop: 2,
     paddingBottom: 2,
@@ -545,9 +550,7 @@ const style = StyleSheet.create({
     margin: "auto",
   },
 
-  marginAuto: { 
-    margin: "auto",
-  },
+  marginAuto: { margin: "auto" },
 
   timeContainer: {
     display: "flex",
