@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppButton from "./AppButton";
 import { NavButton } from "./NavButton";
@@ -30,7 +30,7 @@ export default function MultipleChoiceGame(Props) {
   };
 
   let question;
-  if (listIndex < list.length - 1) {
+  if (listIndex <= list.length - 1) {
     const wordIndex = data.findIndex((el) => el.Word === list[listIndex].Word);
     console.log(questionType);
     question = data[wordIndex][questionType];
@@ -76,7 +76,6 @@ export default function MultipleChoiceGame(Props) {
     if (displayNext) {
       return;
     }
-    console.log(anwsers[index]);
     if (anwsers[index].correct) {
       incrementMastery(defaultList, anwsers[index].Word);
       setScore(score + 1);
@@ -122,7 +121,7 @@ export default function MultipleChoiceGame(Props) {
 
         return (
           <AppButton
-            size="large"
+            size="full-screen"
             key={i}
             title={el.answer}
             style={style}
@@ -141,47 +140,41 @@ export default function MultipleChoiceGame(Props) {
   );
 
   return (
-    <SafeAreaView style={style.mainContainer}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <LinearGradient
-          colors={["#6699FF", "#335C81"]}
-          start={{ x: 0.5, y: 0.5 }}
-          end={{ x: 0.5, y: 0.5 }}
-          opacity={1.0}
-          style={style.page}
-        >
-          <View>
-            {gameOver ? (
-              <View style={style.centerContainer}>
-                <Text style={style.header}>You scored {score}/10</Text>
-                <AppButton
-                  icon="sign-in"
-                  title="Play Again"
-                  onPress={handleStartOver}
-                />
-                <NavButton
-                  navigation={navigation}
-                  title="Word Mastery"
-                  destination="WordMastery"
-                />
-                <HomeButton navigation={navigation} />
-              </View>
-            ) : (
-              <View style={style.centerContainer}>
-                <Text style={style.header}>{listIndex + 1}/10</Text>
-                <Text style={style.text}>
-                  Identify the correct word that matches this{" "}
-                  {typeDictoinary[questionType]}.
-                </Text>
-                <Text style={style.text}>{question}</Text>
-                {renderAnwsers()}
-                {displayNext ? renderCorrectandNextButton() : null}
-              </View>
-            )}
-          </View>
-        </LinearGradient>
-      </ScrollView>
-    </SafeAreaView>
+    <LinearGradient
+      colors={["#6699FF", "#335C81"]}
+      start={{ x: 0.5, y: 0.5 }}
+      end={{ x: 0.5, y: 0.5 }}
+      opacity={1.0}
+      style={style.flexOne}
+    >
+      {gameOver ? (
+        <View style={style.centerContainer}>
+          <Text style={style.header}>You scored {score}/10</Text>
+          <AppButton
+            icon="sign-in"
+            title="Play Again"
+            onPress={handleStartOver}
+          />
+          <NavButton
+            navigation={navigation}
+            title="Word Mastery"
+            destination="MyList"
+          />
+          <HomeButton navigation={navigation} />
+        </View>
+      ) : (
+        <View style={style.centerContainer}>
+          <Text style={style.header}>{listIndex + 1}/10</Text>
+          <Text style={style.text}>
+            Identify the correct word that matches this{" "}
+            {typeDictoinary[questionType]}.
+          </Text>
+          <Text style={style.text}>{question}</Text>
+          {renderAnwsers()}
+          {displayNext ? renderCorrectandNextButton() : null}
+        </View>
+      )}
+    </LinearGradient>
   );
 }
 
@@ -192,8 +185,10 @@ const style = StyleSheet.create({
 
   page: {
     backgroundColor: "#fff",
-    height: "100%",
-    width: "100%",
+  },
+
+  flexOne: {
+    flex: 1,
   },
 
   header: {
@@ -201,8 +196,8 @@ const style = StyleSheet.create({
     color: "#f0f8ff",
     fontWeight: "800",
     textAlign: "center",
-    paddingTop: 40,
-    paddingBottom: 20,
+    paddingTop: 20,
+    paddingBottom: 10,
   },
 
   white: {
@@ -212,7 +207,7 @@ const style = StyleSheet.create({
   text: {
     fontSize: 18,
     color: "#f0f8ff",
-    padding: 10,
+    padding: 5,
   },
 
   wordList: {
@@ -254,6 +249,7 @@ const style = StyleSheet.create({
   },
   centerContainer: {
     display: "flex",
+    flex: "1",
     justifyContent: "center",
     alignItems: "center",
   },

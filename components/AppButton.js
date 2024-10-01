@@ -14,12 +14,23 @@ export default function AppButton(Props) {
     viewStyle,
   } = Props;
 
-  const styleSize =
-    size === "large"
-      ? defaultStyle.large
-      : size === "medium"
-        ? defaultStyle.medium
-        : defaultStyle.small;
+  let height;
+  let width;
+  let styleSize = {};
+  let containerStyleSize = {};
+  if (size === "full-screen") {
+    height = defaultStyle.fullScreen.height;
+    width = defaultStyle.fullScreen.width;
+    styleSize = defaultStyle.fullScreen;
+    containerStyleSize = defaultStyle.fullScreen;
+  } else if (size === "large") {
+    styleSize = defaultStyle.large;
+    containerStyleSize = defaultStyle.largeContainer;
+  } else if (size === "medium") {
+    styleSize = defaultStyle.medium;
+  } else if (size === " small") {
+    styleSize = defaultStyle.small;
+  }
 
   const iconButtonStyle = {
     ...defaultStyle.appButton,
@@ -29,7 +40,7 @@ export default function AppButton(Props) {
 
   const containerStyle = {
     ...defaultStyle.appButtonContainer,
-    ...(size === "large" ? { width: 180 } : {}),
+    ...containerStyleSize,
     ...viewStyle,
   };
 
@@ -42,6 +53,8 @@ export default function AppButton(Props) {
         borderWidth={3}
         borderColor={borderColor ? borderColor : "#BBC2CC"}
         onPress={onPress}
+        height={height}
+        width={width}
         style={iconButtonStyle}
       >
         <Text style={defaultStyle.appButtonText}>{title}</Text>
@@ -64,7 +77,7 @@ const defaultStyle = StyleSheet.create({
   },
 
   appButtonContainer: {
-    paddingVertical: 5,
+    marginVertical: 5,
     width: 250,
   },
   large: {
@@ -75,5 +88,12 @@ const defaultStyle = StyleSheet.create({
   },
   small: {
     height: 40,
+  },
+  fullScreen: {
+    height: 100,
+    width: 300,
+  },
+  largeContainer: {
+    width: 180,
   },
 });
