@@ -410,13 +410,16 @@ function ScheduleModal(Props) {
         />
       </View>
       {showTimePicker && (
-        <DateTimePicker
-          value={time}
-          mode="time"
-          is24Hour={false}
-          onChange={handleDateChange}
-          style={style.marginAuto}
-        />
+        <View style={style.centerChildren}>
+          <Text style={style.text}>Click me</Text>
+          <DateTimePicker
+            value={time}
+            mode="time"
+            is24Hour={false}
+            onChange={handleDateChange}
+            style={style.marginAuto}
+          />
+        </View>
       )}
       {isSubmitted && (
         <View style={style.centerChildren}>
@@ -443,6 +446,8 @@ const style = StyleSheet.create({
     fontSize: 20,
     color: "#f0f8ff",
     fontWeight: "700",
+    textAlign: "center",
+    paddingVertical: 2,
   },
 
   screen: {
@@ -502,6 +507,7 @@ const style = StyleSheet.create({
     textAlign: "center",
     display: "flex",
     justifyContent: "center",
+    alignContent: "center",
   },
 
   appButton: {
