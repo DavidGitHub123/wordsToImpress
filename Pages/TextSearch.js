@@ -16,9 +16,7 @@ import data from "../data";
 import { addOneWordToList, defaultList } from "../components/listHelpers";
 
 export default function TextSearch({ navigation }) {
-  const [text, setText] = useState(
-    "Input text here!",
-  );
+  const [text, setText] = useState("Input text here!");
   const [suggestions, setSuggestions] = useState(null);
 
   const handleSubmit = () => {
@@ -35,6 +33,8 @@ export default function TextSearch({ navigation }) {
     await addOneWordToList(defaultList, suggestedWord);
     setSuggestions((prev) => prev.filter((el) => el !== suggestedWord));
   };
+
+  const handleClear = async () => setText("");
 
   const formatSuggestions = () => {
     if (!suggestions) {
@@ -71,10 +71,10 @@ export default function TextSearch({ navigation }) {
           <View>
             <Text style={style.header}>Text Search</Text>
             <Text style={style.text}>
-              Copy emails, communications, proposals, etc. into
-              this box and analyze your communication patterns to suggest
-              new vocabulary words that correspond to your speaking style and
-              context. Then add these words to My Vocab List.
+              Copy emails, communications, proposals, etc. into this box and
+              analyze your communication patterns to suggest new vocabulary
+              words that correspond to your speaking style and context. Then add
+              these words to My Vocab List.
             </Text>
           </View>
           <View style={style.centerChildren}>
@@ -85,10 +85,10 @@ export default function TextSearch({ navigation }) {
               value={text}
               style={style.textBox}
             />
-            {/* <AppButton title="Analyze" onPress={handleSubmit} /> */}
           </View>
           {formatSuggestions()}
           <View style={style.buttons}>
+            <AppButton title="Clear" onPress={handleClear} />
             <AppButton title="Analyze" onPress={handleSubmit} />
             <Pressable style={navStyle.appButton}>
               <AppButton
