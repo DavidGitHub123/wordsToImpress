@@ -36,26 +36,22 @@ export default function QuickQuiz({ navigation }) {
       gameRestart={gameRestart}
     />
   ) : (
-    <SafeAreaView style={style.container}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <LinearGradient
-          colors={["#6699FF", "#335C81"]}
-          start={{ x: 0.5, y: 0.5 }}
-          end={{ x: 0.5, y: 0.5 }}
-          opacity={1.0}
-          style={style.page}
-        >
-          <View style={style.centerContainer}>
-            <Text style={style.header}>Quick Quiz</Text>
-            <AppButton
-              onPress={() => setIsGameStarted(true)}
-              title="Play Game"
-              icon="sign-in"
-            />
-          </View>
-        </LinearGradient>
-      </ScrollView>
-    </SafeAreaView>
+    <LinearGradient
+      colors={["#6699FF", "#335C81"]}
+      start={{ x: 0.5, y: 0.5 }}
+      end={{ x: 0.5, y: 0.5 }}
+      opacity={1.0}
+      style={style.page}
+    >
+      <View style={style.centerContainer}>
+        <Text style={style.header}>Quick Quiz</Text>
+        <AppButton
+          onPress={() => setIsGameStarted(true)}
+          title="Play Game"
+          icon="sign-in"
+        />
+      </View>
+    </LinearGradient>
   );
 }
 
