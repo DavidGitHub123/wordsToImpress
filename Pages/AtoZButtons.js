@@ -1,29 +1,30 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, Text, View } from "react-native";
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import { LinearGradient } from "expo-linear-gradient";
+import { mainStyles } from "../components/mainStyles";
 
 export default function AtoZButtons({ navigation }) {
   return (
-    <SafeAreaView style={style.container}>
+    <SafeAreaView>
       <ScrollView alwaysBounceHorizontal={true}>
         <LinearGradient
           colors={["#335C81", "#6699FF"]}
           start={{ x: 0.5, y: 0.25 }}
           end={{ x: 0.5, y: 0.25 }}
           opacity={1.0}
-          style={style.page}
+          style={mainStyles.page}
         >
           <View>
-            <Text style={style.header}>Words A to Z</Text>
+            <Text style={mainStyles.header}>Words A to Z</Text>
           </View>
 
-          <View style={style.homeButton}>
+          <View style={mainStyles.homeButton}>
             <HomeButton navigation={navigation} />
           </View>
 
-          <View style={style.section}>
+          <View style={mainStyles.section}>
             <NavButton navigation={navigation} title="A" destination="A" />
             <NavButton navigation={navigation} title="B" destination="B" />
             <NavButton navigation={navigation} title="C" destination="C" />
@@ -49,58 +50,8 @@ export default function AtoZButtons({ navigation }) {
             <NavButton navigation={navigation} title="W" destination="W" />
             <NavButton navigation={navigation} title="Z" destination="Z" />
           </View>
-
         </LinearGradient>
-        {/* </ImageBackground> */}
       </ScrollView>
     </SafeAreaView>
   );
 }
-
-const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    backgroundColor: "#000",
-    paddingBottom: 100,
-  },
-
-  header: {
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingTop: 40,
-    textAlign: "center",
-  },
-
-  homeButton: {
-    paddingTop: 30,
-  },
-
-  image: {
-    // opacity: .5,
-  },
-
-  section: {
-    paddingVertical: 30,
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  appButtonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 270,
-    opacity: 0.75,
-    marginVertical: 2,
-  },
-
-  bottomButtons: {
-    paddingTop: 20,
-  },
-});

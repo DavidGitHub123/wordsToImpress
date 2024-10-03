@@ -5,12 +5,10 @@ import MyList from "../Pages/MyList";
 import VocabMastery from "../Pages/VocabMastery";
 import WordOfDay from "../Pages/WordOfDay";
 import WordSituations from "../Pages/WordSituations";
-import BuildMyList from "../Pages/BuildMyList";
 import System from "../Pages/System";
 import Word from "../Pages/Word";
 import PreBuiltListNew from "../Pages/PreBuiltListNew";
 import AtoZButtons from "../Pages/AtoZButtons";
-import ChallengeFriend from "../Pages/ChallengeFriend";
 import ConversationSearch from "../Pages/ConversationSearch";
 import RapidFire from "../Pages/RapidFire";
 import RapidFireCards from "../Pages/RapidFireCards";
@@ -99,11 +97,6 @@ export default function NavigationLinks() {
         options={{ title: "Word Situations" }}
       />
       <Stack.Screen
-        name="BuildMyList"
-        component={BuildMyList}
-        options={{ title: "Build My List" }}
-      />
-      <Stack.Screen
         name="System"
         component={System}
         options={{ title: "Learning System" }}
@@ -118,11 +111,6 @@ export default function NavigationLinks() {
         name="AtoZButtons"
         component={AtoZButtons}
         options={{ title: "Words A-Z" }}
-      />
-      <Stack.Screen
-        name="ChallengeFriend"
-        component={ChallengeFriend}
-        options={{ title: "Challenge A Friend" }}
       />
       <Stack.Screen
         name="ConversationSearch"

@@ -12,6 +12,7 @@ import logo from "../assets/logoborderradius.jpg";
 import phone from "../assets/phone.jpg";
 import AppButton from "../components/AppButton";
 import IconButton from "../components/IconButton";
+import { mainStyles } from "../components/mainStyles";
 
 export default function HomeScreen({ navigation }) {
   const seperatorStyles = {
@@ -39,9 +40,9 @@ export default function HomeScreen({ navigation }) {
               />
               <AppButton
                 viewStyle={{ width: 100 }}
-                backgroundColor = 'transparent'
-                borderColor= "#fff"
-                borderWidth='1'
+                backgroundColor="transparent"
+                borderColor="#fff"
+                borderWidth="1"
                 icon="table"
                 title="About"
                 onPress={() => navigation.navigate("System")}
@@ -55,8 +56,8 @@ export default function HomeScreen({ navigation }) {
             </View>
 
             <View style={style.screen}>
-              <Text style={style.headLine}>Build Your</Text>
-              <Text style={style.headLine2}>Vocabulary</Text>
+              <Text style={mainStyles.headLine}>Build Your</Text>
+              <Text style={mainStyles.headLine2}>Vocabulary</Text>
               <Text style={style.prowess}>PROWESS</Text>
             </View>
             <View>
@@ -80,7 +81,7 @@ export default function HomeScreen({ navigation }) {
                   size="large"
                   icon="wrench"
                   title="Build My List"
-                  onPress={() => navigation.navigate("BuildMyList")}
+                  onPress={() => navigation.navigate("TextSearch")}
                 />
                 <AppButton
                   size="large"
@@ -138,24 +139,12 @@ const style = StyleSheet.create({
     justifyContent: "space-between",
     flexDirection: "row",
     paddingHorizontal: 5,
-    // paddingVertical: 10,
     margin: 3,
   },
 
   heroHeader: {
     alignItems: "center",
   },
-
-  // heroHeader: {
-  //   flex: 1,
-  //   alignItems: "center",
-  //   justifyContent: "space-between",
-  //   flexDirection: "row",
-  //   marginRight: 25,
-  //   textShadowColor: "#000",
-  //   textShadowRadius: 5,
-  //   marginBottom: 20,
-  // },
 
   buttons: {
     flex: 1,
@@ -171,31 +160,6 @@ const style = StyleSheet.create({
     resizeMode: "contain",
   },
 
-  screen: {
-    opacity: 7,
-    backgroundColor: "000",
-  },
-
-  headLine: {
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "900",
-    textShadowColor: "black",
-    textShadowRadius: 5,
-    marginTop: -36,
-    textAlign: "center",
-  },
-
-  headLine2: {
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "900",
-    textShadowColor: "black",
-    textShadowRadius: 5,
-    marginTop: -10,
-    textAlign: "center",
-  },
-
   prowess: {
     fontSize: 50,
     color: "#f0f8ff",
@@ -206,8 +170,4 @@ const style = StyleSheet.create({
     paddingBottom: 30,
     textAlign: "center",
   },
-
-  // section: {
-  //   paddingTop: 20,
-  // },
 });
