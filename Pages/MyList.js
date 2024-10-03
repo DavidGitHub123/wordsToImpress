@@ -10,6 +10,7 @@ import {
 } from "../components/listHelpers";
 import PieChart from "react-native-pie-chart";
 import IconButton from "../components/IconButton";
+import { mainStyles } from "../components/mainStyles";
 
 export default function MyList({ navigation }) {
   const [masteredWordCount, setMasteredWordCount] = useState(0);
@@ -22,7 +23,7 @@ export default function MyList({ navigation }) {
   };
 
   const [listOrLoading, setListOrLoading] = useState([
-    <Text key={0} style={style.text}>
+    <Text key={0} style={mainStyles.text}>
       Loading...
     </Text>,
   ]);
@@ -34,7 +35,7 @@ export default function MyList({ navigation }) {
     } else if (list.length === 0) {
       setListLength(0);
       setListOrLoading(
-        <Text style={{ ...style.text, ...style.textAlignCenter }} key={0}>
+        <Text style={{ ...mainStyles.text, ...style.textAlignCenter }} key={0}>
           No words in your list, go add some to see them here
         </Text>,
       );
@@ -87,7 +88,7 @@ export default function MyList({ navigation }) {
           start={{ x: 0.5, y: 0.5 }}
           end={{ x: 0.5, y: 0.5 }}
           opacity={1.0}
-          style={style.page}
+          style={mainStyles.page}
         >
           <View>
             <Text style={style.header}>My Mastery</Text>
@@ -124,14 +125,6 @@ export default function MyList({ navigation }) {
 }
 
 const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingBottom: 100,
-    paddingTop: 50,
-  },
-
   donut: {
     width: "100%",
     height: "100%",
@@ -174,12 +167,6 @@ const style = StyleSheet.create({
 
   homebutton: {
     paddingBottom: 40,
-  },
-
-  text: {
-    fontSize: 24,
-    color: "#f0f8ff",
-    fontWeight: "600",
   },
 
   textYellow: {

@@ -7,6 +7,7 @@ import {
   ScrollView,
   SafeAreaView,
   ImageBackground,
+  Platform,
 } from "react-native";
 import logo from "../assets/logoborderradius.jpg";
 import phone from "../assets/phone.jpg";
@@ -15,14 +16,6 @@ import IconButton from "../components/IconButton";
 import { mainStyles } from "../components/mainStyles";
 
 export default function HomeScreen({ navigation }) {
-  const seperatorStyles = {
-    height: 1,
-    width: "100%",
-    backgroundColor: "#ddd",
-  };
-
-  const Seperator = () => <View style={seperatorStyles} />;
-
   return (
     <SafeAreaView>
       <ScrollView alwaysBounceHorizontal={true}>
@@ -30,9 +23,9 @@ export default function HomeScreen({ navigation }) {
           source={phone}
           imageStyle={style.image}
           resizeMode="cover"
-          style={style.page}
+          style={mainStyles.page}
         >
-          <View style={style.page}>
+          <View style={mainStyles.page}>
             <View style={style.topHeader}>
               <IconButton
                 name="bell"
@@ -49,7 +42,7 @@ export default function HomeScreen({ navigation }) {
               />
             </View>
 
-            <Seperator />
+            <View style={style.seperator} />
 
             <View style={style.heroHeader}>
               <Image style={style.imageHeader} source={logo} />
@@ -129,16 +122,12 @@ export default function HomeScreen({ navigation }) {
 }
 
 const style = StyleSheet.create({
-  page: {
-    paddingBottom: 100,
-  },
-
   topHeader: {
     flex: 1,
     alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "row",
-    paddingHorizontal: 5,
+    marginTop: Platform.OS ? 35 : 0,
     margin: 3,
   },
 
@@ -169,5 +158,10 @@ const style = StyleSheet.create({
     marginTop: -10,
     paddingBottom: 30,
     textAlign: "center",
+  },
+  seperator: {
+    height: 1,
+    width: "100%",
+    backgroundColor: "#ddd",
   },
 });

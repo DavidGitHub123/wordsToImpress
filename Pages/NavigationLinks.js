@@ -9,7 +9,6 @@ import System from "../Pages/System";
 import Word from "../Pages/Word";
 import PreBuiltListNew from "../Pages/PreBuiltListNew";
 import AtoZButtons from "../Pages/AtoZButtons";
-import ConversationSearch from "../Pages/ConversationSearch";
 import RapidFire from "../Pages/RapidFire";
 import RapidFireCards from "../Pages/RapidFireCards";
 import QuickQuiz from "../Pages/QuickQuiz";
@@ -111,11 +110,6 @@ export default function NavigationLinks() {
         name="AtoZButtons"
         component={AtoZButtons}
         options={{ title: "Words A-Z" }}
-      />
-      <Stack.Screen
-        name="ConversationSearch"
-        component={ConversationSearch}
-        options={{ title: "Conversation Search" }}
       />
       <Stack.Screen
         name="RapidFire"
