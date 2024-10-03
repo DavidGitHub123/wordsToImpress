@@ -15,13 +15,6 @@ import * as Notifs from "expo-notifications";
 import * as Device from "expo-device";
 import IconButton from "../components/IconButton";
 import Constants from "expo-constants";
-import {
-  getNotifs,
-  doesNotifExist,
-  addNotif,
-  removeNotif,
-  cancelAllNotifs,
-} from "../components/notificationHelpers";
 
 Notifs.setNotificationHandler({
   handleNotification: async () => ({
@@ -87,9 +80,6 @@ async function registerForPushNotificationsAsync() {
       alert("Failed to get push token for push notification!");
       return;
     }
-    // Learn more about projectId:
-    // https://docs.expo.dev/push-notifications/push-notifications-setup/#configure-projectid
-    // EAS projectId is used here.
     try {
       const projectId =
         Constants?.expoConfig?.extra?.eas?.projectId ??
@@ -137,8 +127,8 @@ export default function Notifications({ navigation }) {
   const [showModal, setShowModal] = useState(false);
   const [notificationType, setNotificationType] = useState(null);
   const [time, setTime] = useState(new Date(Date.now()));
-  const [userNotifs, setUserNotifs] = useState(null);
   const [update, setUpdate] = useState(false);
+  const [currNotifs, setCurrNotifs] = useState(null);
 
   const [expoPushToken, setExpoPushToken] = useState("");
   const [channels, setChannels] = useState([]);
@@ -149,6 +139,10 @@ export default function Notifications({ navigation }) {
   useEffect(() => {
     registerForPushNotificationsAsync().then(
       (token) => token && setExpoPushToken(token),
+    );
+
+    Notifs.getAllScheduledNotificationsAsync().then(
+      (n) => n && setCurrNotifs(),
     );
 
     if (Platform.OS === "android") {
@@ -184,11 +178,9 @@ export default function Notifications({ navigation }) {
   };
 
   useEffect(() => {
-    async function fetchNotifs() {
-      setUserNotifs(await getNotifs());
-    }
-
-    fetchNotifs();
+    Notifs.getAllScheduledNotificationsAsync().then(
+      (n) => n && setCurrNotifs(n),
+    );
   }, [update]);
 
   const openModal = (notifType) => {
@@ -204,12 +196,6 @@ export default function Notifications({ navigation }) {
     const ampm = getAMPM(time.getHours());
 
     const notificationName = `${notificationType}-${hour}-${minute}-${ampm}`;
-
-    if (await doesNotifExist(notificationName)) {
-      return;
-    }
-
-    await addNotif(notificationName);
 
     const titleAndURLDictionary = {
       [NOTIF_TYPES.wordOfDay]: {
@@ -245,31 +231,39 @@ export default function Notifications({ navigation }) {
 
   const handleCancelAll = async () => {
     await Notifs.cancelAllScheduledNotificationsAsync();
-    cancelAllNotifs();
     setUpdate(!update);
   };
 
   const handleRemoveNotifs = async (notif) => {
-    await removeNotif(notif);
-    setUpdate(!update);
-
     const scheduledNotifs = await Notifs.getAllScheduledNotificationsAsync();
     const cancelledNotifIdentifier = scheduledNotifs.find(
-      (el) => el.content.data.notificationName === notif,
+      (el) =>
+        el.content.data.notificationName ===
+        notif.content.data.notificationName,
     ).identifier;
     await Notifs.cancelScheduledNotificationAsync(cancelledNotifIdentifier);
+    setUpdate(!update);
   };
 
   const renderNotifs = (type) => {
-    if (!userNotifs) {
+    console.log("currNotifs:");
+    console.log(currNotifs);
+    if (!currNotifs) {
       return null;
     }
-    const selectedType = userNotifs.filter((el) => el.includes(type));
+    const selectedType = currNotifs.filter(
+      (el) => el.content.data.notificationName.split("-")[0] === type,
+    );
+    console.log("selectedType:");
+    console.log(selectedType);
+
     const sortedNotifs = selectedType.sort((a, b) => {
       // eslint-disable-next-line no-unused-vars
-      const [_, aHour, aMinute, __] = a.split("-").map((el) => parseInt(el));
+      const [_, aHour, aMinute, __] = a.content.data.notificationName
+        .split("-")
+        .map((el) => parseInt(el));
       // eslint-disable-next-line no-unused-vars
-      const [___, bHour, bMinute, ____] = b
+      const [___, bHour, bMinute, ____] = b.content.data.notificationName
         .split("-")
         .map((el) => parseInt(el));
       if (aHour !== bHour) {
@@ -277,11 +271,14 @@ export default function Notifications({ navigation }) {
       }
       return aMinute - bMinute;
     });
+    console.log("sortedNotifs:");
+    console.log(sortedNotifs);
     return (
       <View>
         {sortedNotifs.map((el, i) => {
           // eslint-disable-next-line no-unused-vars
-          const [_, hour, minute, ampm] = el.split("-");
+          const [_, hour, minute, ampm] =
+            el.content.data.notificationName.split("-");
           return (
             <View key={i} style={style.timeContainer}>
               <Text style={style.timeText}>
