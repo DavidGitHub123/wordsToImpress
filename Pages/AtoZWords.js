@@ -7,13 +7,26 @@ import {
   View,
   Pressable,
 } from "react-native";
-import AppButton from "../../components/AppButton";
+import data from "../data";
+import { NavButtonWord } from "../components/NavButtonWord";
+import AppButton from "../components/AppButton";
 import { LinearGradient } from "expo-linear-gradient";
-import HomeButton from "../../components/HomeButton";
-import { NavButtonWord } from "../../components/NavButtonWord";
-import { navStyle } from "../../components/NavButton.js";
+import { navStyle } from "../components/NavButton.js";
+import HomeButton from "../components/HomeButton";
 
-export default function WWords({ navigation }) {
+export default function AtoZWords({ route, navigation }) {
+  const { selectedWord } = route.params;
+  const filteredWords = data.filter((el) => el.Word[0] === selectedWord);
+  const renderWords = () =>
+    filteredWords.map((el, i) => (
+      <NavButtonWord
+        navigation={navigation}
+        key={i}
+        title={el.Word}
+        destination="Word"
+      />
+    ));
+
   return (
     <SafeAreaView style={style.container}>
       <ScrollView alwaysBounceHorizontal={true}>
@@ -25,7 +38,7 @@ export default function WWords({ navigation }) {
         >
           <View style={style.page}>
             <View>
-              <Text style={style.header}>W Words</Text>
+              <Text style={style.header}>{selectedWord} Words</Text>
             </View>
 
             <View style={style.bottomButtons}>
@@ -40,39 +53,7 @@ export default function WWords({ navigation }) {
               </View>
             </View>
 
-            <View>
-              <NavButtonWord
-                navigation={navigation}
-                title="Wallow"
-                destination="Word"
-              />
-              <NavButtonWord
-                navigation={navigation}
-                title="Wanton"
-                destination="Word"
-              />
-              <NavButtonWord
-                navigation={navigation}
-                title="Watershed"
-                destination="Word"
-              />
-              <NavButtonWord
-                navigation={navigation}
-                title="Wayfaring"
-                destination="Word"
-              />
-              <NavButtonWord
-                navigation={navigation}
-                title="Wend"
-                destination="Word"
-              />
-              <NavButtonWord
-                navigation={navigation}
-                title="Writhe"
-                destination="Word"
-              />
-            </View>
-
+            <View>{renderWords()}</View>
           </View>
         </LinearGradient>
       </ScrollView>
@@ -86,14 +67,13 @@ const style = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingTop: 50,
-    paddingBottom: 200,
+    paddingBottom: 100,
   },
 
   header: {
     fontSize: 30,
     color: "#f0f8ff",
     fontWeight: "800",
-    paddingBottom: 20,
   },
 
   bottomButtons: {
