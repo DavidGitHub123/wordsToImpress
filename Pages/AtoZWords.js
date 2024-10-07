@@ -16,7 +16,9 @@ import HomeButton from "../components/HomeButton";
 
 export default function AtoZWords({ route, navigation }) {
   const { selectedWord } = route.params;
-  const filteredWords = data.filter((el) => el.Word[0] === selectedWord);
+  const filteredWords = data.filter(
+    (el) => el.Word[0].toUpperCase() === selectedWord.toUpperCase(),
+  );
   const renderWords = () =>
     filteredWords.map((el, i) => (
       <NavButtonWord

@@ -78,7 +78,7 @@ const defaultStyle = StyleSheet.create({
 
   appButtonContainer: {
     marginVertical: 5,
-    width: 250,
+    width: 225,
   },
   large: {
     height: 50,
@@ -94,6 +94,6 @@ const defaultStyle = StyleSheet.create({
     width: 300,
   },
   largeContainer: {
-    width: 180,
+    width: "45%",
   },
 });

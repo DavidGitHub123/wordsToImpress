@@ -1,4 +1,8 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions, StatusBar, Platform } from "react-native";
+
+const StatusBarHeight = StatusBar.currentHeight;
+const screenHeight = Dimensions.get("screen").height;
+const screenWidth = Dimensions.get("screen").width;
 
 const mainStyles = StyleSheet.create({
   header: {
@@ -18,7 +22,6 @@ const mainStyles = StyleSheet.create({
   },
   page: {
     flex: 1,
-    paddingBottom: 100,
   },
   section: {
     paddingVertical: 30,
@@ -68,6 +71,25 @@ const mainStyles = StyleSheet.create({
     paddingBottom: 20,
     paddingHorizontal: 30,
     textAlign: "justify",
+  },
+  topHeader: {
+    marginTop: StatusBarHeight,
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "row",
+  },
+  fullScreen: {
+    height: screenHeight,
+    width: screenWidth,
+  },
+  screenHeight: {
+    height: screenHeight,
+  },
+  screenWidth: {
+    width: screenWidth,
+  },
+  backgroundImage: {
+    flex: 1,
   },
 });
 

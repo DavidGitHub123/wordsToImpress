@@ -91,7 +91,7 @@ export default function MyList({ navigation }) {
           style={mainStyles.page}
         >
           <View>
-            <Text style={style.header}>My Mastery</Text>
+            <Text style={mainStyles.header}>My Mastery</Text>
           </View>
           <View style={style.donutContainer}>
             <Text style={style.percentText}>
@@ -113,7 +113,7 @@ export default function MyList({ navigation }) {
 
           <Text style={style.mylistheader}>My List</Text>
 
-          <View style={style.section}>{listOrLoading}</View>
+          <View style={mainStyles.section}>{listOrLoading}</View>
 
           <View style={style.buttons}>
             <HomeButton style={style.homebutton} navigation={navigation} />
@@ -147,12 +147,6 @@ const style = StyleSheet.create({
     position: "relative",
   },
 
-  header: {
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "800",
-  },
-
   mylistheader: {
     fontSize: 40,
     color: "#f0f8ff",
@@ -179,10 +173,6 @@ const style = StyleSheet.create({
     fontSize: 24,
     color: "orange",
     fontWeight: "600",
-  },
-
-  section: {
-    paddingVertical: 30,
   },
 
   appButton: {
