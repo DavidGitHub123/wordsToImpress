@@ -1,6 +1,7 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View } from "react-native";
 import data from "../data";
+import { mainStyles } from "../components/mainStyles";
 
 export default function RapidFireCards(Props) {
   const { words, front, cardIndex } = Props;
@@ -13,12 +14,12 @@ export default function RapidFireCards(Props) {
     return {
       front: (
         <View key={i}>
-          <Text style={style.header}>{el.word}</Text>
+          <Text style={mainStyles.header}>{el.word}</Text>
         </View>
       ),
       back: (
         <View key={i}>
-          <Text style={style.header}>{getDef(el.word)}</Text>
+          <Text style={mainStyles.header}>{getDef(el.word)}</Text>
         </View>
       ),
     };
@@ -26,14 +27,3 @@ export default function RapidFireCards(Props) {
 
   return front ? Cards[cardIndex].front : Cards[cardIndex].back;
 }
-
-const style = StyleSheet.create({
-  header: {
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    textAlign: "center",
-    paddingTop: 20,
-    paddingBottom: 20,
-  },
-});

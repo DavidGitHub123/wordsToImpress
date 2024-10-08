@@ -12,8 +12,6 @@ import AtoZButtons from "../Pages/AtoZButtons";
 import RapidFire from "../Pages/RapidFire";
 import RapidFireCards from "../Pages/RapidFireCards";
 import QuickQuiz from "../Pages/QuickQuiz";
-import StackIt from "../Pages/StackIt";
-import ScheduleQuizzes from "../Pages/ScheduleQuizzes";
 import TextSearch from "../Pages/TextSearch";
 import WS_Boss from "../Pages/Situations/WS_Boss";
 import WS_Business from "../Pages/Situations/WS_Business";
@@ -107,16 +105,6 @@ export default function NavigationLinks() {
         name="QuickQuiz"
         component={QuickQuiz}
         options={{ title: "QuickQuiz" }}
-      />
-      <Stack.Screen
-        name="StackIt"
-        component={StackIt}
-        options={{ title: "StackIt" }}
-      />
-      <Stack.Screen
-        name="ScheduleQuizzes"
-        component={ScheduleQuizzes}
-        options={{ title: "Schedule Quizzes" }}
       />
       <Stack.Screen
         name="TextSearch"

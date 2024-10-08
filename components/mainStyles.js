@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions, StatusBar, Platform } from "react-native";
+import { StyleSheet, Dimensions, StatusBar } from "react-native";
 
 const StatusBarHeight = StatusBar.currentHeight;
 const screenHeight = Dimensions.get("screen").height;
@@ -53,6 +53,14 @@ const mainStyles = StyleSheet.create({
     color: "#f0f8ff",
     fontWeight: "600",
   },
+  text2: {
+    fontSize: 24,
+    color: "#f0f8ff",
+    paddingBottom: 30,
+    paddingHorizontal: 40,
+    fontWeight: 700,
+    textAlign: "center",
+  },
 
   subheader: {
     fontSize: 24,
@@ -63,6 +71,13 @@ const mainStyles = StyleSheet.create({
     textAlign: "center",
   },
 
+  subHead1: {
+    fontSize: 32,
+    color: "#fff",
+    fontWeight: "600",
+    paddingTop: 50,
+    paddingHorizontal: 30,
+  },
   subHead2: {
     fontSize: 20,
     color: "#fff",
@@ -90,6 +105,18 @@ const mainStyles = StyleSheet.create({
   },
   backgroundImage: {
     flex: 1,
+  },
+  startGameContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 100,
+  },
+  centerContainer: {
+    margin: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

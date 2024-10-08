@@ -5,6 +5,7 @@ import { getNLeastMastered, defaultList } from "../components/listHelpers.js";
 import AppButton from "../components/AppButton.js";
 import MultipleChoiceGame from "../components/MultipleChoiceGame.js";
 import data from "../data.js";
+import { mainStyles } from "../components/mainStyles.js";
 
 export default function SentenceID({ navigation }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
@@ -49,7 +50,7 @@ export default function SentenceID({ navigation }) {
           opacity={1.0}
           style={style.page}
         >
-          <View style={style.centerContainer}>
+          <View style={mainStyles.startGameContainer}>
             <Text style={style.header}>Sentence ID</Text>
             <AppButton
               onPress={() => setIsGameStarted(true)}

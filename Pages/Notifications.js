@@ -297,18 +297,18 @@ export default function Notifications({ navigation }) {
   };
 
   return (
-    <SafeAreaView>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <LinearGradient
-          colors={["#335C81", "#6699FF"]}
-          start={{ x: 0.5, y: 0.25 }}
-          end={{ x: 0.5, y: 0.25 }}
-          opacity={1.0}
-          style={mainStyles.page}
-        >
+    <LinearGradient
+      colors={["#335C81", "#6699FF"]}
+      start={{ x: 0.5, y: 0.25 }}
+      end={{ x: 0.5, y: 0.25 }}
+      opacity={1.0}
+      style={mainStyles.page}
+    >
+      <SafeAreaView>
+        <ScrollView alwaysBounceHorizontal={true}>
           {!showModal ? (
             <View style={mainStyles.centerChildren}>
-              <View style={style.screen}>
+              <View>
                 <Text style={mainStyles.header}>Notifications</Text>
                 <Text style={mainStyles.subHead2}>
                   Repetition is the key to learning. Receive phone notifications
@@ -370,9 +370,9 @@ export default function Notifications({ navigation }) {
               <HomeButton navigation={navigation} />
             </View>
           </View>
-        </LinearGradient>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
 
@@ -412,7 +412,9 @@ function ScheduleModal(Props) {
       </View>
       {showTimePicker && (
         <View style={mainStyles.centerChildren}>
-          <Text style={mainStyles.text}>Click me</Text>
+          <Text style={{ ...mainStyles.text, ...style.marginAuto }}>
+            Click me
+          </Text>
           <DateTimePicker
             value={time}
             mode="time"
@@ -426,6 +428,7 @@ function ScheduleModal(Props) {
         <View style={mainStyles.centerChildren}>
           {RenderTime()}
           <AppButton
+            viewStyle={style.marginAuto}
             icon="sign-out-alt"
             title="Remind me"
             onPress={handleClose}
@@ -437,31 +440,10 @@ function ScheduleModal(Props) {
 }
 
 const style = StyleSheet.create({
-  screen: {
-    paddingBottom: 20,
-    marginBottom: 30,
-  },
-
   buttons: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  appButtonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 270,
-    opacity: 0.75,
-    marginVertical: 2,
   },
 
   bottomButtons: {

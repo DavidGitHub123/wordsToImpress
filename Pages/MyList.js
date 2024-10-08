@@ -81,15 +81,15 @@ export default function MyList({ navigation }) {
       ? { highlight: "#4cf03a", base: "#5ba653" }
       : { highlight: "#ffbb00", base: "#cc9600" };
   return (
-    <SafeAreaView style={style.container}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <LinearGradient
-          colors={["#6699FF", "#335C81"]}
-          start={{ x: 0.5, y: 0.5 }}
-          end={{ x: 0.5, y: 0.5 }}
-          opacity={1.0}
-          style={mainStyles.page}
-        >
+    <LinearGradient
+      colors={["#6699FF", "#335C81"]}
+      start={{ x: 0.5, y: 0.5 }}
+      end={{ x: 0.5, y: 0.5 }}
+      opacity={1.0}
+      style={mainStyles.page}
+    >
+      <SafeAreaView>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View>
             <Text style={mainStyles.header}>My Mastery</Text>
           </View>
@@ -118,9 +118,9 @@ export default function MyList({ navigation }) {
           <View style={style.buttons}>
             <HomeButton style={style.homebutton} navigation={navigation} />
           </View>
-        </LinearGradient>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
 
@@ -145,9 +145,11 @@ const style = StyleSheet.create({
     width: 200,
     height: 200,
     position: "relative",
+    margin: "auto",
   },
 
   mylistheader: {
+    margin: "auto",
     fontSize: 40,
     color: "#f0f8ff",
     fontWeight: "800",
@@ -163,45 +165,12 @@ const style = StyleSheet.create({
     paddingBottom: 40,
   },
 
-  textYellow: {
-    fontSize: 24,
-    color: "yellow",
-    fontWeight: "600",
-  },
-
-  textOrange: {
-    fontSize: 24,
-    color: "orange",
-    fontWeight: "600",
-  },
-
-  appButton: {
-    paddingHorizontal: 70,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  appButtonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 250,
-    paddingVertical: 10,
-    paddingHorizontal: 0,
-  },
-
   wordDeleteContainer: {
-    width: "2000",
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
     alignItems: "center",
-  },
-  deleteButton: {
-    marginLeft: 5,
   },
   textAlignCenter: {
     textAlign: "center",

@@ -10,19 +10,20 @@ import {
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import blue4 from "../assets/blue4.jpg";
+import { mainStyles } from "../components/mainStyles";
 
 export default function WordSituations({ navigation }) {
   return (
-    <SafeAreaView style={style.container}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground
-          source={blue4}
-          imageStyle={style.image}
-          resizeMode="cover"
-          style={style.page}
-        >
+    <ImageBackground
+      source={blue4}
+      imageStyle={style.image}
+      resizeMode="cover"
+      style={mainStyles.page}
+    >
+      <SafeAreaView style={style.container}>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View>
-            <Text style={style.header}>Word Situations</Text>
+            <Text style={mainStyles.header}>Word Situations</Text>
           </View>
 
           <View style={style.section}>
@@ -81,51 +82,14 @@ export default function WordSituations({ navigation }) {
           <View>
             <HomeButton navigation={navigation} />
           </View>
-        </ImageBackground>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    justifyContent: "center",
-    // backgroundColor: '#000',
-    paddingTop: 30,
-    paddingBottom: 100,
-  },
-
-  // image: {
-  //   opacity: .5,
-  // },
-
-  header: {
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingBottom: 10,
-    textAlign: "center",
-  },
-
   section: {
     paddingVertical: 30,
-  },
-
-  appButton: {
-    paddingHorizontal: 70,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  appButtonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 0,
-    width: 300,
   },
 });
