@@ -1,4 +1,8 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions, StatusBar } from "react-native";
+const StatusBarHeight = StatusBar.currentHeight;
+const screenHeight = Dimensions.get("screen").height;
+const screenWidth = Dimensions.get("screen").width;
+
 
 const mainStyles = StyleSheet.create({
   header: {
@@ -18,7 +22,6 @@ const mainStyles = StyleSheet.create({
   },
   page: {
     flex: 1,
-    paddingBottom: 100,
   },
   section: {
     paddingVertical: 30,
@@ -51,6 +54,16 @@ const mainStyles = StyleSheet.create({
     fontWeight: "600",
   },
 
+  text2: {
+    fontSize: 24,
+    color: "#f0f8ff",
+    paddingBottom: 30,
+    paddingHorizontal: 40,
+    fontWeight: 700,
+    textAlign: "center",
+  },
+
+
   subheader: {
     fontSize: 24,
     color: "#f0f8ff",
@@ -58,6 +71,15 @@ const mainStyles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     textAlign: "center",
+  },
+
+
+  subHead1: {
+    fontSize: 32,
+    color: "#fff",
+    fontWeight: "600",
+    paddingTop: 50,
+    paddingHorizontal: 30,
   },
 
   subHead2: {
@@ -69,12 +91,40 @@ const mainStyles = StyleSheet.create({
     paddingHorizontal: 30,
     textAlign: "justify",
   },
+
+  topHeader: {
+    marginTop: StatusBarHeight,
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "row",
+  },
+  fullScreen: {
+    height: screenHeight,
+    width: screenWidth,
+  },
+  screenHeight: {
+    height: screenHeight,
+  },
+  screenWidth: {
+    width: screenWidth,
+  },
+  backgroundImage: {
+    flex: 1,
+  },
+  startGameContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 100,
+  },
+
   centerChildren: {
     margin: "auto",
     textAlign: "center",
     display: "flex",
     justifyContent: "center",
     alignContent: "center",
+
   },
 });
 

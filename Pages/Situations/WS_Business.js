@@ -15,12 +15,13 @@ import ListenButton from "../../components/ListenButton";
 import { navStyle } from "../../components/NavButton.js";
 import business from "../../assets/Backgrounds/business.jpg";
 import AppButton from "../../components/AppButton";
+import { mainStyles } from "../../components/mainStyles";
 
 export default function WS_Business({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
 
   const hideButton = (
-    <Pressable style={style.appButton}>
+    <Pressable>
       <AppButton
         icon="sign-in"
         title="Hide"
@@ -36,17 +37,17 @@ export default function WS_Business({ navigation }) {
           <Text style={style.subHead}>Accolade</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>AK-uh-lade</Text>
+            <Text style={mainStyles.text}>AK-uh-lade</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Acknowledgement or expression of praise.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               The president hung on his office wall many plaques, citations, and{" "}
             </Text>
             <Text style={style.bold}>accolades.</Text>
@@ -66,21 +67,21 @@ export default function WS_Business({ navigation }) {
           <Text style={style.subHead}>Bluster</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>BLUS-ter</Text>
+            <Text style={mainStyles.text}>BLUS-ter</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               To threaten or issue extravagant threat.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               The CEO seems fierce at first because he{" "}
             </Text>
             <Text style={style.bold}>blusters </Text>
-            <Text style={style.text}>to get his way.</Text>
+            <Text style={mainStyles.text}>to get his way.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -97,19 +98,19 @@ export default function WS_Business({ navigation }) {
           <Text style={style.subHead}>Cartel</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>kar-TELL</Text>
+            <Text style={mainStyles.text}>kar-TELL</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Group that establishes mutual control of prices and production.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>The oil </Text>
+            <Text style={mainStyles.text}>The oil </Text>
             <Text style={style.bold}>cartel </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               succeeded in driving world energy prices up significantly.
             </Text>
           </Text>
@@ -128,15 +129,17 @@ export default function WS_Business({ navigation }) {
           <Text style={style.subHead}>Diminution</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>dim-ih-NOO-shen</Text>
+            <Text style={mainStyles.text}>dim-ih-NOO-shen</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Reduction due to outside influences.</Text>
+            <Text style={mainStyles.text}>
+              Reduction due to outside influences.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               The stock fell by 75%; not sure we can recover from such a{" "}
             </Text>
             <Text style={style.bold}>diminution.</Text>
@@ -156,17 +159,17 @@ export default function WS_Business({ navigation }) {
           <Text style={style.subHead}>Effrontery</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>ih-FRON-ter-ee</Text>
+            <Text style={mainStyles.text}>ih-FRON-ter-ee</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Impudent boldness.</Text>
+            <Text style={mainStyles.text}>Impudent boldness.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>She had the </Text>
+            <Text style={mainStyles.text}>She had the </Text>
             <Text style={style.bold}>effrontery</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               to ask for a raise after a dreadful performance.
             </Text>
           </Text>
@@ -185,19 +188,19 @@ export default function WS_Business({ navigation }) {
           <Text style={style.subHead}>Feckless</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>FEK-liss</Text>
+            <Text style={mainStyles.text}>FEK-liss</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Ineffective or feeble.</Text>
+            <Text style={mainStyles.text}>Ineffective or feeble.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               We had hoped for a well-trained consulting firm; we got a pack of{" "}
             </Text>
             <Text style={style.bold}>feckless</Text>
-            <Text style={style.text}>hangers-on.</Text>
+            <Text style={mainStyles.text}>hangers-on.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -214,19 +217,19 @@ export default function WS_Business({ navigation }) {
           <Text style={style.subHead}>Gargantuan</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>gar-GAN-choo-un</Text>
+            <Text style={mainStyles.text}>gar-GAN-choo-un</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Enormous. From fictional king (Gargantua).
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>The </Text>
+            <Text style={mainStyles.text}>The </Text>
             <Text style={style.bold}>gargantuan </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               scale of the budget deficit caught us by surprisehangers-on.
             </Text>
           </Text>
@@ -245,19 +248,19 @@ export default function WS_Business({ navigation }) {
           <Text style={style.subHead}>Harbinger</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>HAR-bin-jur</Text>
+            <Text style={mainStyles.text}>HAR-bin-jur</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Forerunner. Something that comes before.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>These sales figures are a </Text>
+            <Text style={mainStyles.text}>These sales figures are a </Text>
             <Text style={style.bold}>harbinger </Text>
-            <Text style={style.text}>of hard times ahead.</Text>
+            <Text style={mainStyles.text}>of hard times ahead.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -274,17 +277,19 @@ export default function WS_Business({ navigation }) {
           <Text style={style.subHead}>Impetuous</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>im-PET-you-us</Text>
+            <Text style={mainStyles.text}>im-PET-you-us</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Impulsive; driven by emotion.</Text>
+            <Text style={mainStyles.text}>Impulsive; driven by emotion.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Dirk&#39s heated and </Text>
+            <Text style={mainStyles.text}>Dirk&#39s heated and </Text>
             <Text style={style.bold}>impetuous </Text>
-            <Text style={style.text}>remark may well cost him his job.</Text>
+            <Text style={mainStyles.text}>
+              remark may well cost him his job.
+            </Text>
           </Text>
         </View>
         <ListenButton />
@@ -301,21 +306,21 @@ export default function WS_Business({ navigation }) {
           <Text style={style.subHead}>Logistics</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>loe-JIS-tiks</Text>
+            <Text style={mainStyles.text}>loe-JIS-tiks</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Essential details of how something is to be accomplished.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Jane knew the trip could not begin until the{" "}
             </Text>
             <Text style={style.bold}>logistics </Text>
-            <Text style={style.text}>were worked out.</Text>
+            <Text style={mainStyles.text}>were worked out.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -326,24 +331,24 @@ export default function WS_Business({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={style.container}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground
-          source={business}
-          imageStyle={style.image}
-          resizeMode="cover"
-          style={style.page}
-        >
+    <ImageBackground
+      source={business}
+      imageStyle={style.image}
+      resizeMode="cover"
+      style={mainStyles.page}
+    >
+      <SafeAreaView style={style.container}>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View>
-            <Text style={style.header}>Business</Text>
+            <Text style={mainStyles.header}>Business</Text>
           </View>
 
           {selectedWord ? (
             selectedWord
           ) : (
-            <View>
+            <View style={mainStyles.centerContainer}>
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Accolade"
@@ -353,7 +358,7 @@ export default function WS_Business({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Bluster"
@@ -363,7 +368,7 @@ export default function WS_Business({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Cartel"
@@ -373,7 +378,7 @@ export default function WS_Business({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Diminution"
@@ -383,7 +388,7 @@ export default function WS_Business({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Effrontery"
@@ -393,7 +398,7 @@ export default function WS_Business({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Feckless"
@@ -403,7 +408,7 @@ export default function WS_Business({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Gargantuan"
@@ -413,7 +418,7 @@ export default function WS_Business({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Harbinger"
@@ -423,7 +428,7 @@ export default function WS_Business({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Impetuous"
@@ -433,7 +438,7 @@ export default function WS_Business({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Logistics"
@@ -453,37 +458,15 @@ export default function WS_Business({ navigation }) {
               </View>
             </View>
           )}
-        </ImageBackground>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: "#000",
-    paddingVertical: 30,
-  },
-
   image: {
     opacity: 0.9,
-  },
-
-  header: {
-    fontSize: 40,
-    textShadowColor: "#000",
-    textShadowRadius: 5,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingVertical: 10,
-    textAlign: "center",
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
   },
 
   component: {
@@ -505,11 +488,6 @@ const style = StyleSheet.create({
     color: "#FF8C00",
   },
 
-  text: {
-    fontSize: 25,
-    color: "#fff",
-  },
-
   title: {
     fontSize: 25,
     color: "#FF8C00",
@@ -523,16 +501,6 @@ const style = StyleSheet.create({
 
   space: {
     paddingTop: 10,
-  },
-
-  appButtonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 200,
-    marginVertical: 2,
   },
 
   bottomButtons: {

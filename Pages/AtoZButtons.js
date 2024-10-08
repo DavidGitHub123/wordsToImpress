@@ -1,106 +1,69 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, Text, View } from "react-native";
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import { LinearGradient } from "expo-linear-gradient";
+import { mainStyles } from "../components/mainStyles";
 
 export default function AtoZButtons({ navigation }) {
+  const renderButtons = () =>
+    [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z",
+    ].map((el, i) => (
+      <NavButton
+        key={i}
+        navigation={navigation}
+        title={el}
+        destination={"AtoZWords"}
+      />
+    ));
+
   return (
-    <SafeAreaView style={style.container}>
+    <SafeAreaView>
       <ScrollView alwaysBounceHorizontal={true}>
         <LinearGradient
           colors={["#335C81", "#6699FF"]}
           start={{ x: 0.5, y: 0.25 }}
           end={{ x: 0.5, y: 0.25 }}
           opacity={1.0}
-          style={style.page}
+          style={mainStyles.page}
         >
           <View>
-            <Text style={style.header}>Words A to Z</Text>
+            <Text style={mainStyles.header}>Words A to Z</Text>
           </View>
 
-          <View style={style.homeButton}>
+          <View style={mainStyles.homeButton}>
             <HomeButton navigation={navigation} />
           </View>
 
-          <View style={style.section}>
-            <NavButton navigation={navigation} title="A" destination="A" />
-            <NavButton navigation={navigation} title="B" destination="B" />
-            <NavButton navigation={navigation} title="C" destination="C" />
-            <NavButton navigation={navigation} title="D" destination="D" />
-            <NavButton navigation={navigation} title="E" destination="E" />
-            <NavButton navigation={navigation} title="F" destination="F" />
-            <NavButton navigation={navigation} title="G" destination="G" />
-            <NavButton navigation={navigation} title="H" destination="H" />
-            <NavButton navigation={navigation} title="I" destination="I" />
-            <NavButton navigation={navigation} title="J" destination="J" />
-            <NavButton navigation={navigation} title="K" destination="K" />
-            <NavButton navigation={navigation} title="L" destination="L" />
-            <NavButton navigation={navigation} title="M" destination="M" />
-            <NavButton navigation={navigation} title="N" destination="N" />
-            <NavButton navigation={navigation} title="O" destination="O" />
-            <NavButton navigation={navigation} title="P" destination="P" />
-            <NavButton navigation={navigation} title="Q" destination="Q" />
-            <NavButton navigation={navigation} title="R" destination="R" />
-            <NavButton navigation={navigation} title="S" destination="S" />
-            <NavButton navigation={navigation} title="T" destination="T" />
-            <NavButton navigation={navigation} title="U" destination="U" />
-            <NavButton navigation={navigation} title="V" destination="V" />
-            <NavButton navigation={navigation} title="W" destination="W" />
-            <NavButton navigation={navigation} title="Z" destination="Z" />
-          </View>
-
+          <View style={mainStyles.section}>{renderButtons()}</View>
         </LinearGradient>
-        {/* </ImageBackground> */}
       </ScrollView>
     </SafeAreaView>
   );
 }
-
-const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    backgroundColor: "#000",
-    paddingBottom: 100,
-  },
-
-  header: {
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingTop: 40,
-    textAlign: "center",
-  },
-
-  homeButton: {
-    paddingTop: 30,
-  },
-
-  image: {
-    // opacity: .5,
-  },
-
-  section: {
-    paddingVertical: 30,
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  appButtonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 270,
-    opacity: 0.75,
-    marginVertical: 2,
-  },
-
-  bottomButtons: {
-    paddingTop: 20,
-  },
-});

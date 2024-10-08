@@ -14,6 +14,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import AppButton from "../components/AppButton";
 import data from "../data";
 import { addOneWordToList, defaultList } from "../components/listHelpers";
+import { mainStyles } from "../components/mainStyles";
 
 export default function TextSearch({ navigation }) {
   const [text, setText] = useState("Input text here!");
@@ -43,7 +44,7 @@ export default function TextSearch({ navigation }) {
 
     return (
       <View style={style.centerChildren}>
-        <Text style={style.textInstructions}>
+        <Text style={mainStyles.subHead2}>
           Add these words to your list to improve your vocab.
         </Text>
         {suggestions.map((el, i) => (
@@ -59,18 +60,18 @@ export default function TextSearch({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={style.container}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <LinearGradient
-          colors={["#6699FF", "#335C81"]}
-          start={{ x: 0.5, y: 0.5 }}
-          end={{ x: 0.5, y: 0.5 }}
-          opacity={1.0}
-          style={style.page}
-        >
+    <LinearGradient
+      colors={["#6699FF", "#335C81"]}
+      start={{ x: 0.5, y: 0.5 }}
+      end={{ x: 0.5, y: 0.5 }}
+      opacity={1.0}
+      style={mainStyles.page}
+    >
+      <SafeAreaView style={style.container}>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View>
-            <Text style={style.header}>Text Search</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.header}>Text Search</Text>
+            <Text style={mainStyles.text}>
               Copy emails, communications, proposals, etc. into this box and
               analyze your communication patterns to suggest new vocabulary
               words that correspond to your speaking style and context. Then add
@@ -98,73 +99,26 @@ export default function TextSearch({ navigation }) {
             </Pressable>
             <HomeButton navigation={navigation} />
           </View>
-        </LinearGradient>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
 
 const style = StyleSheet.create({
-  page: {
-    paddingTop: 40,
-    paddingBottom: 450,
-  },
-
-  header: {
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingBottom: 10,
-    textAlign: "center",
-  },
-
-  text: {
-    fontSize: 20,
-    color: "#f0f8ff",
-    paddingHorizontal: 40,
-    margin: 5,
-    paddingBottom: 40,
-  },
-
-  textInstructions: {
-    fontSize: 20,
-    color: "#f0f8ff",
-    paddingHorizontal: 40,
-    paddingTop: 20,
-    paddingBottom: 20,
-  },
-
   buttons: {
-    paddingTop: 20,
     alignItems: "center",
     justifyContent: "center",
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  appButtonText: {
-    fontSize: 18,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    paddingVertical: 5,
-    width: 300,
   },
 
   textBox: {
-    height: 300,
-    width: 300,
+    height: "auto",
+    minHeight: 100,
+    width: "90%",
     borderWidth: 1,
     borderColor: "#fff",
     borderRadius: 5,
-    // padding: 20,
     backgroundColor: "#fff",
-    // margin: 20,
-    // margin: "auto",
   },
   centerChildren: {
     display: "flex",

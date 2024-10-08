@@ -15,12 +15,13 @@ import ListenButton from "../../components/ListenButton";
 import { navStyle } from "../../components/NavButton.js";
 import courthouse from "../../assets/Backgrounds/courthouse.jpg";
 import AppButton from "../../components/AppButton";
+import { mainStyles } from "../../components/mainStyles";
 
 export default function WS_InCourt({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
 
   const hideButton = (
-    <Pressable style={style.appButton}>
+    <Pressable>
       <AppButton
         icon="sign-in"
         title="Hide"
@@ -35,17 +36,19 @@ export default function WS_InCourt({ navigation }) {
         <Text style={style.subHead}>Adjudicate</Text>
         <Text style={style.space}>
           <Text style={style.title}>Pron: </Text>
-          <Text style={style.text}>ad-JOO-di-cate</Text>
+          <Text style={mainStyles.text}>ad-JOO-di-cate</Text>
         </Text>
         <Text style={style.space}>
           <Text style={style.title}>Def: </Text>
-          <Text style={style.text}>Judicial procedure to settle a case.</Text>
+          <Text style={mainStyles.text}>
+            Judicial procedure to settle a case.
+          </Text>
         </Text>
         <Text style={style.space}>
           <Text style={style.title}>Sentence: </Text>
-          <Text style={style.text}>Boss, you are the </Text>
+          <Text style={mainStyles.text}>Boss, you are the </Text>
           <Text style={style.bold}>ne plus ultra </Text>
-          <Text style={style.text}>
+          <Text style={mainStyles.text}>
             of bosses; I can&#39t imagine working for someone more capable.
           </Text>
         </Text>
@@ -63,19 +66,21 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.subHead}>Barrage</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>buh-ROZH</Text>
+            <Text style={mainStyles.text}>buh-ROZH</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Concentrated outpouring or volley.</Text>
+            <Text style={mainStyles.text}>
+              Concentrated outpouring or volley.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               The defense attorney subjected the witness to a{" "}
             </Text>
             <Text style={style.bold}>barrage </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               of questions about the events of that night.
             </Text>
           </Text>
@@ -94,21 +99,21 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.subHead}>Catch-22</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>KATCH-twen-tee-too</Text>
+            <Text style={mainStyles.text}>KATCH-twen-tee-too</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Impossible situation with contradictory options.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Judge Brown&#39s memo issued a playful{" "}
             </Text>
             <Text style={style.bold}>catch-22</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               : he was only to be scheduled during the days he&#39d be out of
               town.
             </Text>
@@ -128,21 +133,21 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.subHead}>Defamation</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>def-uh-MAY-shun</Text>
+            <Text style={mainStyles.text}>def-uh-MAY-shun</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               False, baseless attacks on person&#39s reputation.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               After the article your honor, Ms. Smith decided she had enough{" "}
             </Text>
             <Text style={style.bold}>defamation </Text>
-            <Text style={style.text}>of her character.</Text>
+            <Text style={mainStyles.text}>of her character.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -159,17 +164,17 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.subHead}>Elucidate</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>ee-LOO-si-date</Text>
+            <Text style={mainStyles.text}>ee-LOO-si-date</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               False, baseless attacks on person&#39s reputation.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Your honor, what is behind my client&#39s bizarre work habits is
               something only he can{" "}
             </Text>
@@ -190,21 +195,21 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.subHead}>Fabulist</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>FAB-yuh-list</Text>
+            <Text style={mainStyles.text}>FAB-yuh-list</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Liar; someone who tells outrageously untrue stories.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Your honor, the defendant is a notorious{" "}
             </Text>
             <Text style={style.bold}>fabulist </Text>
-            <Text style={style.text}> and should not be believed.</Text>
+            <Text style={mainStyles.text}> and should not be believed.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -221,17 +226,17 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.subHead}>Grandiloquence</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>gran-DIL-uh-kwence</Text>
+            <Text style={mainStyles.text}>gran-DIL-uh-kwence</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Pompous speech or expression.</Text>
+            <Text style={mainStyles.text}>Pompous speech or expression.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>I don&#39t have the </Text>
+            <Text style={mainStyles.text}>I don&#39t have the </Text>
             <Text style={style.bold}>grandiloquence</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               the prosecutor does with her smooth words.
             </Text>
@@ -251,17 +256,17 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.subHead}>Heinous</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>HAY-nuss</Text>
+            <Text style={mainStyles.text}>HAY-nuss</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Evil; reprehensible.</Text>
+            <Text style={mainStyles.text}>Evil; reprehensible.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Because of the </Text>
+            <Text style={mainStyles.text}>Because of the </Text>
             <Text style={style.bold}>heinous</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               nature of this crime, I sentence to life in prison.
             </Text>
@@ -281,17 +286,17 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.subHead}>Ignominious</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>ig-no-MIN-ee-uss</Text>
+            <Text style={mainStyles.text}>ig-no-MIN-ee-uss</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Shameful or disgraceful.</Text>
+            <Text style={mainStyles.text}>Shameful or disgraceful.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Tyrone&#39s </Text>
+            <Text style={mainStyles.text}>Tyrone&#39s </Text>
             <Text style={style.bold}>ignominious</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               defeat in court persuaded him to settle his other lawsuits.
             </Text>
@@ -311,17 +316,17 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.subHead}>Judicature</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>JOO-di-kuh-choor</Text>
+            <Text style={mainStyles.text}>JOO-di-kuh-choor</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Authority of a court of law.</Text>
+            <Text style={mainStyles.text}>Authority of a court of law.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>This case is within my </Text>
+            <Text style={mainStyles.text}>This case is within my </Text>
             <Text style={style.bold}>judicature</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               , despite counsel&#39s arguments to the contrary.
             </Text>
           </Text>
@@ -334,24 +339,24 @@ export default function WS_InCourt({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={style.container}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground
-          source={courthouse}
-          imageStyle={style.image}
-          resizeMode="cover"
-          style={style.page}
-        >
+    <ImageBackground
+      source={courthouse}
+      imageStyle={style.image}
+      resizeMode="cover"
+      style={mainStyles.page}
+    >
+      <SafeAreaView style={style.container}>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View>
-            <Text style={style.header}>In Court</Text>
+            <Text style={mainStyles.header}>In Court</Text>
           </View>
 
           {selectedWord ? (
             selectedWord
           ) : (
-            <View>
+            <View style={mainStyles.centerContainer}>
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Adjudicate"
@@ -361,7 +366,7 @@ export default function WS_InCourt({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Barrage"
@@ -371,7 +376,7 @@ export default function WS_InCourt({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Catch-22"
@@ -381,7 +386,7 @@ export default function WS_InCourt({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Defamation"
@@ -391,7 +396,7 @@ export default function WS_InCourt({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Elucidate"
@@ -401,7 +406,7 @@ export default function WS_InCourt({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Fabulist"
@@ -411,7 +416,7 @@ export default function WS_InCourt({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Grandiloquence"
@@ -421,7 +426,7 @@ export default function WS_InCourt({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Heinous"
@@ -431,7 +436,7 @@ export default function WS_InCourt({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Ignominious"
@@ -441,7 +446,7 @@ export default function WS_InCourt({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Judicature"
@@ -461,37 +466,15 @@ export default function WS_InCourt({ navigation }) {
               </View>
             </View>
           )}
-        </ImageBackground>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: "#000",
-    paddingVertical: 30,
-  },
-
   image: {
     opacity: 0.9,
-  },
-
-  header: {
-    fontSize: 40,
-    textShadowColor: "#000",
-    textShadowRadius: 5,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingVertical: 10,
-    textAlign: "center",
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
   },
 
   component: {
@@ -513,11 +496,6 @@ const style = StyleSheet.create({
     color: "#FF8C00",
   },
 
-  text: {
-    fontSize: 25,
-    color: "#fff",
-  },
-
   title: {
     fontSize: 25,
     color: "#FF8C00",
@@ -531,16 +509,6 @@ const style = StyleSheet.create({
 
   space: {
     paddingTop: 10,
-  },
-
-  appButtonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 200,
-    marginVertical: 2,
   },
 
   bottomButtons: {

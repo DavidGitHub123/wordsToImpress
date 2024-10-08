@@ -16,6 +16,7 @@ import { useRoute } from "@react-navigation/native";
 import { navStyle } from "../components/NavButton.js";
 import backgrounds from "../backgrounds.js";
 import AppButton from "../components/AppButton.js";
+import { mainStyles } from "../components/mainStyles.js";
 
 export default function Word({ navigation }) {
   const route = useRoute();
@@ -40,23 +41,23 @@ export default function Word({ navigation }) {
         );
       }
       return (
-        <Text key={i} style={style.text}>
+        <Text key={i} style={mainStyles.text}>
           {el}
         </Text>
       );
     });
 
     return (
-      <View style={style.page}>
+      <View style={mainStyles.page}>
         <View style={style.screen}>
-          <Text style={style.header}>{wordData.Word}</Text>
+          <Text style={mainStyles.header}>{wordData.Word}</Text>
           <Text style={style.space}>
             <Text style={style.subHead}>Pron. </Text>
-            <Text style={style.text}>{wordData.Pronunciation}</Text>
+            <Text style={mainStyles.text}>{wordData.Pronunciation}</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.subHead}>Def: </Text>
-            <Text style={style.text}>{wordData.Shortdef}</Text>
+            <Text style={mainStyles.text}>{wordData.Shortdef}</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.subHeadSentence}>Sentence: </Text>
@@ -80,35 +81,21 @@ export default function Word({ navigation }) {
   }
 
   return (
-    <SafeAreaView style={style.container}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground
-          source={backgroundImage}
-          resizeMode="cover"
-          style={style.image}
-        >
+    <ImageBackground
+      source={backgroundImage}
+      resizeMode="cover"
+      style={style.image}
+    >
+      <SafeAreaView style={style.container}>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View>{populate(selectedWord)}</View>
-        </ImageBackground>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    paddingTop: 50,
-    paddingBottom: 300,
-    paddingHorizontal: 30,
-  },
-
-  header: {
-    fontSize: 38,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingBottom: 10,
-  },
-
   space: {
     paddingBottom: 10,
   },
@@ -142,12 +129,6 @@ const style = StyleSheet.create({
     columnGap: 4,
   },
 
-  text: {
-    fontSize: 24,
-    color: "#f0f8ff",
-    fontWeight: "600",
-  },
-
   highlightedText: {
     fontSize: 24,
     color: "#FF8C00",
@@ -156,19 +137,5 @@ const style = StyleSheet.create({
 
   buttons: {
     paddingTop: 20,
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  appButtonText: {
-    fontSize: 18,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 300,
   },
 });

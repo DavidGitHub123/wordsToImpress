@@ -15,6 +15,8 @@ import * as Notifs from "expo-notifications";
 import * as Device from "expo-device";
 import IconButton from "../components/IconButton";
 import Constants from "expo-constants";
+import { mainStyles } from "../components/mainStyles";
+
 
 Notifs.setNotificationHandler({
   handleNotification: async () => ({
@@ -293,20 +295,20 @@ export default function Notifications({ navigation }) {
   };
 
   return (
-    <SafeAreaView>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <LinearGradient
-          colors={["#335C81", "#6699FF"]}
-          start={{ x: 0.5, y: 0.25 }}
-          end={{ x: 0.5, y: 0.25 }}
-          opacity={1.0}
-          style={style.page}
-        >
+    <LinearGradient
+      colors={["#335C81", "#6699FF"]}
+      start={{ x: 0.5, y: 0.25 }}
+      end={{ x: 0.5, y: 0.25 }}
+      opacity={1.0}
+      style={mainStyles.page}
+    >
+      <SafeAreaView>
+        <ScrollView alwaysBounceHorizontal={true}>
           {!showModal ? (
-            <View style={style.centerChildren}>
-              <View style={style.screen}>
-                <Text style={style.header}>Notifications</Text>
-                <Text style={style.subHead2}>
+            <View style={mainStyles.centerChildren}>
+              <View>
+                <Text style={mainStyles.header}>Notifications</Text>
+                <Text style={mainStyles.subHead2}>
                   Repetition is the key to learning. Receive phone notifications
                   of the Word of the Day. Or schedule notifications every hour
                   or few hours of the words in your Word Mastery List. Or
@@ -314,7 +316,7 @@ export default function Notifications({ navigation }) {
                 </Text>
               </View>
 
-              <Text style={style.subheader}>Click to Schedule</Text>
+              <Text style={mainStyles.subheader}>Click to Schedule</Text>
               <View style={style.buttons}>
                 <AppButton
                   title="Word of the Day"
@@ -346,7 +348,7 @@ export default function Notifications({ navigation }) {
               </View>
             </View>
           ) : (
-            <View style={style.centerChildren}>
+            <View style={mainStyles.centerChildren}>
               <ScheduleModal
                 notificationType={notificationType}
                 time={time}
@@ -366,9 +368,9 @@ export default function Notifications({ navigation }) {
               <HomeButton navigation={navigation} />
             </View>
           </View>
-        </LinearGradient>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
 
@@ -397,8 +399,8 @@ function ScheduleModal(Props) {
   };
 
   return (
-    <View style={style.centerChildren}>
-      <Text style={style.header2}>{notificationType} reminder</Text>
+    <View style={mainStyles.centerChildren}>
+      <Text style={mainStyles.header2}>{notificationType} reminder</Text>
       <View style={style.marginAuto}>
         <AppButton
           icon="user-clock"
@@ -407,8 +409,10 @@ function ScheduleModal(Props) {
         />
       </View>
       {showTimePicker && (
-        <View style={style.centerChildren}>
-          <Text style={style.text}>Click me</Text>
+        <View style={mainStyles.centerChildren}>
+          <Text style={{ ...mainStyles.text, ...style.marginAuto }}>
+            Click me
+          </Text>
           <DateTimePicker
             value={time}
             mode="time"
@@ -419,9 +423,10 @@ function ScheduleModal(Props) {
         </View>
       )}
       {isSubmitted && (
-        <View style={style.centerChildren}>
+        <View style={mainStyles.centerChildren}>
           {RenderTime()}
           <AppButton
+            viewStyle={style.marginAuto}
             icon="sign-out-alt"
             title="Remind me"
             onPress={handleClose}
@@ -433,94 +438,10 @@ function ScheduleModal(Props) {
 }
 
 const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    backgroundColor: "#000",
-    paddingBottom: 500,
-  },
-
-  text: {
-    fontSize: 20,
-    color: "#f0f8ff",
-    fontWeight: "700",
-    textAlign: "center",
-    paddingVertical: 2,
-  },
-
-  screen: {
-    opacity: 0.5,
-    backgroundColor: "black",
-    paddingBottom: 20,
-    marginBottom: 30,
-  },
-
-  header: {
-    fontSize: 36,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingTop: 40,
-    textAlign: "center",
-  },
-
-  header2: {
-    fontSize: 36,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingTop: 40,
-    paddingBottom: 40,
-    textAlign: "center",
-  },
-
-  subheader: {
-    fontSize: 24,
-    color: "#f0f8ff",
-    fontWeight: "600",
-    paddingTop: 10,
-    paddingBottom: 10,
-    textAlign: "center",
-  },
-
-  subHead2: {
-    fontSize: 20,
-    color: "#fff",
-    fontWeight: "600",
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingHorizontal: 30,
-  },
-
   buttons: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-  },
-
-  section: {
-    paddingVertical: 30,
-  },
-
-  centerChildren: {
-    margin: "auto",
-    textAlign: "center",
-    display: "flex",
-    justifyContent: "center",
-    alignContent: "center",
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  appButtonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 270,
-    opacity: 0.75,
-    marginVertical: 2,
   },
 
   bottomButtons: {
@@ -529,10 +450,6 @@ const style = StyleSheet.create({
     justifyContent: "center",
     paddingTop: 20,
   },
-
-  // homeButton: {
-  //   paddingTop: 20,
-  // },
 
   timeText: {
     paddingTop: 2,

@@ -11,7 +11,6 @@ function NavButtonWord({ navigation, title, destination, icon = "sign-in" }) {
         onPress={() =>
           navigation.navigate(destination, { selectedWord: title })
         }
-      // Once at Word Screen, populate fields
       />
     </Pressable>
   );

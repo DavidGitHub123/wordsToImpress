@@ -10,6 +10,7 @@ import {
 } from "../components/listHelpers";
 import PieChart from "react-native-pie-chart";
 import IconButton from "../components/IconButton";
+import { mainStyles } from "../components/mainStyles";
 
 export default function MyList({ navigation }) {
   const [masteredWordCount, setMasteredWordCount] = useState(0);
@@ -22,7 +23,7 @@ export default function MyList({ navigation }) {
   };
 
   const [listOrLoading, setListOrLoading] = useState([
-    <Text key={0} style={style.text}>
+    <Text key={0} style={mainStyles.text}>
       Loading...
     </Text>,
   ]);
@@ -34,7 +35,7 @@ export default function MyList({ navigation }) {
     } else if (list.length === 0) {
       setListLength(0);
       setListOrLoading(
-        <Text style={{ ...style.text, ...style.textAlignCenter }} key={0}>
+        <Text style={{ ...mainStyles.text, ...style.textAlignCenter }} key={0}>
           No words in your list, go add some to see them here
         </Text>,
       );
@@ -80,17 +81,17 @@ export default function MyList({ navigation }) {
       ? { highlight: "#4cf03a", base: "#5ba653" }
       : { highlight: "#ffbb00", base: "#cc9600" };
   return (
-    <SafeAreaView style={style.container}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <LinearGradient
-          colors={["#6699FF", "#335C81"]}
-          start={{ x: 0.5, y: 0.5 }}
-          end={{ x: 0.5, y: 0.5 }}
-          opacity={1.0}
-          style={style.page}
-        >
+    <LinearGradient
+      colors={["#6699FF", "#335C81"]}
+      start={{ x: 0.5, y: 0.5 }}
+      end={{ x: 0.5, y: 0.5 }}
+      opacity={1.0}
+      style={mainStyles.page}
+    >
+      <SafeAreaView>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View>
-            <Text style={style.header}>My Mastery</Text>
+            <Text style={mainStyles.header}>My Mastery</Text>
           </View>
           <View style={style.donutContainer}>
             <Text style={style.percentText}>
@@ -112,26 +113,18 @@ export default function MyList({ navigation }) {
 
           <Text style={style.mylistheader}>My List</Text>
 
-          <View style={style.section}>{listOrLoading}</View>
+          <View style={mainStyles.section}>{listOrLoading}</View>
 
           <View style={style.buttons}>
             <HomeButton style={style.homebutton} navigation={navigation} />
           </View>
-        </LinearGradient>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
 
 const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingBottom: 100,
-    paddingTop: 50,
-  },
-
   donut: {
     width: "100%",
     height: "100%",
@@ -152,15 +145,11 @@ const style = StyleSheet.create({
     width: 200,
     height: 200,
     position: "relative",
-  },
-
-  header: {
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "800",
+    margin: "auto",
   },
 
   mylistheader: {
+    margin: "auto",
     fontSize: 40,
     color: "#f0f8ff",
     fontWeight: "800",
@@ -176,55 +165,12 @@ const style = StyleSheet.create({
     paddingBottom: 40,
   },
 
-  text: {
-    fontSize: 24,
-    color: "#f0f8ff",
-    fontWeight: "600",
-  },
-
-  textYellow: {
-    fontSize: 24,
-    color: "yellow",
-    fontWeight: "600",
-  },
-
-  textOrange: {
-    fontSize: 24,
-    color: "orange",
-    fontWeight: "600",
-  },
-
-  section: {
-    paddingVertical: 30,
-  },
-
-  appButton: {
-    paddingHorizontal: 70,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  appButtonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 250,
-    paddingVertical: 10,
-    paddingHorizontal: 0,
-  },
-
   wordDeleteContainer: {
-    width: "2000",
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
     alignItems: "center",
-  },
-  deleteButton: {
-    marginLeft: 5,
   },
   textAlignCenter: {
     textAlign: "center",

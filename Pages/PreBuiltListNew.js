@@ -6,25 +6,24 @@ import { NavButtonWord } from "../components/NavButtonWord";
 
 export default function PreBuiltListNew({ navigation }) {
   return (
-    <SafeAreaView>
-      <ScrollView alwaysBounceHorizontal={true}>
-        {/* <ImageBackground source={blue4} imageStyle={style.image} resizeMode="cover" style={style.page}> */}
-        <LinearGradient
-          colors={["#6699FF", "#335C81"]}
-          start={{ x: 0.5, y: 0.5 }}
-          end={{ x: 0.5, y: 0.5 }}
-          opacity={1.0}
-          style={style.page}
-        >
+    <ScrollView alwaysBounceHorizontal={true}>
+      <LinearGradient
+        colors={["#6699FF", "#335C81"]}
+        start={{ x: 0.5, y: 0.5 }}
+        end={{ x: 0.5, y: 0.5 }}
+        opacity={1.0}
+        style={style.page}
+      >
+        <SafeAreaView>
           <View style={style.screen}>
             <Text style={style.header}>Pre-Built List</Text>
             <Text style={style.subHead}>
-             Here's a pre-built list of 50 words. Add these words to create a
-              quick starter list and begin learning.
+              Here&apos;s a pre-built list of 50 words. Add these words to
+              create a quick starter list and begin learning.
             </Text>
             <Text style={style.subHead}>
-              Or use the Build My List feature to analyze
-              your communications patterns to generate a list of vocabulary words unique to you.
+              Or use the Build My List feature to analyze your communications
+              patterns to generate a list of vocabulary words unique to you.
             </Text>
           </View>
 
@@ -32,7 +31,7 @@ export default function PreBuiltListNew({ navigation }) {
             <HomeButton navigation={navigation} />
           </View>
 
-          <View style={style.section}>
+          <View>
             <NavButtonWord
               navigation={navigation}
               title="Abstemious"
@@ -284,11 +283,9 @@ export default function PreBuiltListNew({ navigation }) {
               destination="Word"
             />
           </View>
-
-        </LinearGradient>
-        {/* </ImageBackground> */}
-      </ScrollView>
-    </SafeAreaView>
+        </SafeAreaView>
+      </LinearGradient>
+    </ScrollView>
   );
 }
 
@@ -296,7 +293,6 @@ const style = StyleSheet.create({
   page: {
     paddingBottom: 50,
   },
-
 
   screen: {
     opacity: 0.5,
@@ -324,30 +320,5 @@ const style = StyleSheet.create({
     paddingHorizontal: 40,
     paddingBottom: 20,
     fontWeight: "500",
-  },
-
-  bold: {
-    fontSize: 30,
-    color: "#f0f8ff",
-    // fontWeight: 800,
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  appButtonText: {
-    fontSize: 18,
-    color: "#f0f8ff",
-  },
-
-  appButtonContainer: {
-    paddingVertical: 10,
-    width: 250,
-  },
-
-  section: {
-    paddingBottom: 30,
   },
 });

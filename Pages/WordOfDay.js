@@ -12,13 +12,17 @@ import HomeButton from "../components/HomeButton";
 import ListenButton from "../components/ListenButton";
 import AddButton from "../components/AddButton";
 import backgrounds from "../backgrounds.js";
+import { mainStyles } from "../components/mainStyles.js";
 
 export default function WordOfDay({ navigation }) {
   const randomBackgroundIndex = Math.floor(Math.random() * backgrounds.length);
   const backgroundImage = backgrounds[randomBackgroundIndex];
 
   function GetWordOfTheDay() {
-    const randomIndex = Math.floor(Math.random() * data.length);
+    const day = new Date().getDate();
+    const month = new Date().getMonth();
+    const year = new Date().getFullYear();
+    const randomIndex = (day + month + year) % data.length;
     const selectedElement = data[randomIndex];
     const selectedWord = data[randomIndex].Word;
 
@@ -33,23 +37,23 @@ export default function WordOfDay({ navigation }) {
         );
       }
       return (
-        <Text key={i} style={style.text}>
+        <Text key={i} style={mainStyles.text}>
           {el}
         </Text>
       );
     });
 
     return (
-      <View style={style.page}>
+      <View style={mainStyles.page}>
         <View style={style.screen}>
           <Text style={style.word}>{selectedElement.Word}</Text>
           <Text style={style.space}>
             <Text style={style.subHead}>Pron. </Text>
-            <Text style={style.text}>{selectedElement.Pronunciation}</Text>
+            <Text style={mainStyles.text}>{selectedElement.Pronunciation}</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.subHead}>Def: </Text>
-            <Text style={style.text}>{selectedElement.Shortdef}</Text>
+            <Text style={mainStyles.text}>{selectedElement.Shortdef}</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.subHead}>Sentence: </Text>
@@ -67,42 +71,24 @@ export default function WordOfDay({ navigation }) {
   }
 
   return (
-    <SafeAreaView style={style.container}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground
-          source={backgroundImage}
-          resizeMode="cover"
-          style={style.image}
-        >
+    <ImageBackground
+      source={backgroundImage}
+      resizeMode="cover"
+      style={mainStyles.backgroundImage}
+    >
+      <SafeAreaView style={style.container}>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View>
-            <Text style={style.header}>Word of the Day</Text>
+            <Text style={mainStyles.header}>Word of the Day</Text>
             {GetWordOfTheDay()}
           </View>
-        </ImageBackground>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    paddingTop: 20,
-    paddingBottom: 200,
-    paddingHorizontal: 20,
-  },
-
-  header: {
-    fontSize: 38,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingBottom: 20,
-    paddingTop: 20,
-    textAlign: "center",
-    opacity: 0.7,
-    backgroundColor: "black",
-  },
-
   space: {
     paddingBottom: 10,
   },
@@ -136,11 +122,6 @@ const style = StyleSheet.create({
     columnGap: 4,
   },
 
-  text: {
-    fontSize: 24,
-    color: "#f0f8ff",
-  },
-
   highlightedText: {
     fontSize: 24,
     color: "#FF8C00",
@@ -149,20 +130,5 @@ const style = StyleSheet.create({
 
   buttons: {
     paddingTop: 50,
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  appButtonText: {
-    fontSize: 18,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    paddingVertical: 5,
-    width: 300,
   },
 });
