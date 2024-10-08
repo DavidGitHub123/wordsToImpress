@@ -15,12 +15,13 @@ import ListenButton from "../../components/ListenButton";
 import { navStyle } from "../../components/NavButton.js";
 import politics from "../../assets/Backgrounds/politics.jpg";
 import AppButton from "../../components/AppButton";
+import { mainStyles } from "../../components/mainStyles";
 
 export default function WS_Politics({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
 
   const hideButton = (
-    <Pressable style={style.appButton}>
+    <Pressable>
       <AppButton
         icon="sign-in"
         title="Hide"
@@ -36,19 +37,19 @@ export default function WS_Politics({ navigation }) {
           <Text style={style.subHead}>Capitulate</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>kuh-PIT-yoo-late</Text>
+            <Text style={mainStyles.text}>kuh-PIT-yoo-late</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Give up, surrender.</Text>
+            <Text style={mainStyles.text}>Give up, surrender.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               The ambassador had been instructed to show flexibility, but not to{" "}
             </Text>
             <Text style={style.bold}>capitulate</Text>
-            <Text style={style.text}>on trade issues.</Text>
+            <Text style={mainStyles.text}>on trade issues.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -65,15 +66,17 @@ export default function WS_Politics({ navigation }) {
           <Text style={style.subHead}>Decorum</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>di-COR-um</Text>
+            <Text style={mainStyles.text}>di-COR-um</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Social propriety; dignified conduct.</Text>
+            <Text style={mainStyles.text}>
+              Social propriety; dignified conduct.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Though the delegates were frustrated at the chairman, strict{" "}
             </Text>
             <Text style={style.bold}>decorum</Text>
@@ -94,19 +97,19 @@ export default function WS_Politics({ navigation }) {
           <Text style={style.subHead}>Gainsay</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>GANE-say</Text>
+            <Text style={mainStyles.text}>GANE-say</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>To declare false.</Text>
+            <Text style={mainStyles.text}>To declare false.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               The principles of the Bill of Rights admit no{" "}
             </Text>
             <Text style={style.bold}>gainsaying</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               ; they have proven to have created a superior form of government.
             </Text>
           </Text>
@@ -125,19 +128,19 @@ export default function WS_Politics({ navigation }) {
           <Text style={style.subHead}>Hegemony</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>he-JEM-uh-nee</Text>
+            <Text style={mainStyles.text}>he-JEM-uh-nee</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Predominant influence, especially in affairs of nations.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Our foe&#39s </Text>
+            <Text style={mainStyles.text}>Our foe&#39s </Text>
             <Text style={style.bold}>hegemony</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               will not stop with his control of smaller nations.
             </Text>
@@ -157,19 +160,19 @@ export default function WS_Politics({ navigation }) {
           <Text style={style.subHead}>Imbroglio</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>im-BROA-lee-o</Text>
+            <Text style={mainStyles.text}>im-BROA-lee-o</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               An entanglement or complicated misunderstanding.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>The recent </Text>
+            <Text style={mainStyles.text}>The recent </Text>
             <Text style={style.bold}>imbroglio</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               over the conflict-of-interest violations has not improved the
               Mayor&#39s standing.
@@ -190,19 +193,19 @@ export default function WS_Politics({ navigation }) {
           <Text style={style.subHead}>Jingoistic</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>jin-go-ISS-tik</Text>
+            <Text style={mainStyles.text}>jin-go-ISS-tik</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Aggressively and overbearingly patriotic.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Such </Text>
+            <Text style={mainStyles.text}>Such </Text>
             <Text style={style.bold}>jingoistic</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               babble can hardly be said to pass for descent advice to a head of
               state.
@@ -223,21 +226,21 @@ export default function WS_Politics({ navigation }) {
           <Text style={style.subHead}>Liaison</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>lee-ay-ZON</Text>
+            <Text style={mainStyles.text}>lee-ay-ZON</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               A communications channel or go-between.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Captain Morse was met by an Air Force{" "}
             </Text>
             <Text style={style.bold}>liaison</Text>
-            <Text style={style.text}> within minutes of his arrival.</Text>
+            <Text style={mainStyles.text}> within minutes of his arrival.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -254,19 +257,19 @@ export default function WS_Politics({ navigation }) {
           <Text style={style.subHead}>Maleficence</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>muh-LEF-ih-sence</Text>
+            <Text style={mainStyles.text}>muh-LEF-ih-sence</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               The undertaking of evil or harmful acts.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>The long-ignored </Text>
+            <Text style={mainStyles.text}>The long-ignored </Text>
             <Text style={style.bold}>maleficence</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               of the corrupt prison system was finally exposed.
             </Text>
@@ -286,21 +289,21 @@ export default function WS_Politics({ navigation }) {
           <Text style={style.subHead}>Quagmire</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>KWAG-mire</Text>
+            <Text style={mainStyles.text}>KWAG-mire</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               An entanglement that offers no means of escape.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               The hostage situation threatens to be the worst{" "}
             </Text>
             <Text style={style.bold}>quagmire</Text>
-            <Text style={style.text}> of this administration.</Text>
+            <Text style={mainStyles.text}> of this administration.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -317,19 +320,22 @@ export default function WS_Politics({ navigation }) {
           <Text style={style.subHead}>Unilateral</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>yoo-ni-Lat-ur-el</Text>
+            <Text style={mainStyles.text}>yoo-ni-Lat-ur-el</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Undertaken independently.</Text>
+            <Text style={mainStyles.text}>Undertaken independently.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               The allies resolved that no member country would take any{" "}
             </Text>
             <Text style={style.bold}>unilateral</Text>
-            <Text style={style.text}> action to threaten mutual security.</Text>
+            <Text style={mainStyles.text}>
+              {" "}
+              action to threaten mutual security.
+            </Text>
           </Text>
         </View>
         <ListenButton />
@@ -340,24 +346,24 @@ export default function WS_Politics({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={style.container}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground
-          source={politics}
-          imageStyle={style.image}
-          resizeMode="cover"
-          style={style.page}
-        >
+    <ImageBackground
+      source={politics}
+      imageStyle={style.image}
+      resizeMode="cover"
+      style={mainStyles.page}
+    >
+      <SafeAreaView style={style.container}>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View>
-            <Text style={style.header}>Politics</Text>
+            <Text style={mainStyles.header}>Politics</Text>
           </View>
 
           {selectedWord ? (
             selectedWord
           ) : (
-            <View>
+            <View style={mainStyles.centerContainer}>
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Capitulate"
@@ -367,7 +373,7 @@ export default function WS_Politics({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Decorum"
@@ -377,7 +383,7 @@ export default function WS_Politics({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Gainsay"
@@ -387,7 +393,7 @@ export default function WS_Politics({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Hegemony"
@@ -397,7 +403,7 @@ export default function WS_Politics({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Imbroglio"
@@ -407,7 +413,7 @@ export default function WS_Politics({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Jingoistic"
@@ -417,7 +423,7 @@ export default function WS_Politics({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Liaison"
@@ -427,7 +433,7 @@ export default function WS_Politics({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Maleficence"
@@ -437,7 +443,7 @@ export default function WS_Politics({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Quagmire"
@@ -447,7 +453,7 @@ export default function WS_Politics({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Unilateral"
@@ -467,9 +473,9 @@ export default function WS_Politics({ navigation }) {
               </View>
             </View>
           )}
-        </ImageBackground>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 

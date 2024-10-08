@@ -15,13 +15,6 @@ import * as Notifs from "expo-notifications";
 import * as Device from "expo-device";
 import IconButton from "../components/IconButton";
 import Constants from "expo-constants";
-import {
-  getNotifs,
-  doesNotifExist,
-  addNotif,
-  removeNotif,
-  cancelAllNotifs,
-} from "../components/notificationHelpers";
 import { mainStyles } from "../components/mainStyles";
 
 Notifs.setNotificationHandler({

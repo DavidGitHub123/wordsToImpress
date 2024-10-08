@@ -15,12 +15,13 @@ import AddButton from "../../components/AddButton";
 import ListenButton from "../../components/ListenButton";
 import { navStyle } from "../../components/NavButton.js";
 import jobinterview from "../../assets/Backgrounds/jobinterview.jpg";
+import { mainStyles } from "../../components/mainStyles";
 
 export default function WS_JobInterview({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
 
   const hideButton = (
-    <Pressable style={style.appButton}>
+    <Pressable>
       <AppButton
         icon="sign-in"
         title="Hide"
@@ -36,19 +37,22 @@ export default function WS_JobInterview({ navigation }) {
           <Text style={style.subHead}>Baccalaureate</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>bak-uh-LOR-ee-it</Text>
+            <Text style={mainStyles.text}>bak-uh-LOR-ee-it</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Degree awarded upon completion of an undergraduate program.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>I received my </Text>
+            <Text style={mainStyles.text}>I received my </Text>
             <Text style={style.bold}>baccalaureate</Text>
-            <Text style={style.text}> in 2020 from Brandeis University.</Text>
+            <Text style={mainStyles.text}>
+              {" "}
+              in 2020 from Brandeis University.
+            </Text>
           </Text>
         </View>
         <ListenButton />
@@ -65,19 +69,19 @@ export default function WS_JobInterview({ navigation }) {
           <Text style={style.subHead}>Cavalier</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>KAV-uh-leer</Text>
+            <Text style={mainStyles.text}>KAV-uh-leer</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Degree awarded upon completion of an undergraduate program.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>I warned the CEO about his </Text>
+            <Text style={mainStyles.text}>I warned the CEO about his </Text>
             <Text style={style.bold}>cavalier</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               attitude towards financial management and company suffered.
             </Text>
@@ -97,21 +101,21 @@ export default function WS_JobInterview({ navigation }) {
           <Text style={style.subHead}>Deprecate</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>DEP-ri-cate</Text>
+            <Text style={mainStyles.text}>DEP-ri-cate</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               To belittle; disapproval of something.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Jean insisted her report contained not a single{" "}
             </Text>
             <Text style={style.bold}>deprecating</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               word, but I could read between the lines.
             </Text>
@@ -131,19 +135,19 @@ export default function WS_JobInterview({ navigation }) {
           <Text style={style.subHead}>Ebullience</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>ih-BOLL-yunce</Text>
+            <Text style={mainStyles.text}>ih-BOLL-yunce</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               To belittle; disapproval of something.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Sharon&#39s</Text>
+            <Text style={mainStyles.text}>Sharon&#39s</Text>
             <Text style={style.bold}>ebullience</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               as she delivered the presentation set her apart.
             </Text>
@@ -163,21 +167,21 @@ export default function WS_JobInterview({ navigation }) {
           <Text style={style.subHead}>Fait Accompli</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>FATE uh-com-PLEE</Text>
+            <Text style={mainStyles.text}>FATE uh-com-PLEE</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Something undertaken and already concluded.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               I did sign the contract without the CEO&#39s consent as it was a{" "}
             </Text>
             <Text style={style.bold}>fait accompli</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               , and he promoted me to vice president.
             </Text>
           </Text>
@@ -196,17 +200,17 @@ export default function WS_JobInterview({ navigation }) {
           <Text style={style.subHead}>Galvanize</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>GAL-vuh-nize</Text>
+            <Text style={mainStyles.text}>GAL-vuh-nize</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>To arouse or summon to action.</Text>
+            <Text style={mainStyles.text}>To arouse or summon to action.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>The letter had a </Text>
+            <Text style={mainStyles.text}>The letter had a </Text>
             <Text style={style.bold}>galvanizing</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               effect on Madge, and she started working harder.
             </Text>
@@ -226,19 +230,19 @@ export default function WS_JobInterview({ navigation }) {
           <Text style={style.subHead}>Imbue</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>im-BYOO</Text>
+            <Text style={mainStyles.text}>im-BYOO</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               To saturate or flow throughout by absorption.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>My philosophy on management is </Text>
+            <Text style={mainStyles.text}>My philosophy on management is </Text>
             <Text style={style.bold}>imbued</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               with ideas from Wharton Business School.
             </Text>
@@ -258,17 +262,19 @@ export default function WS_JobInterview({ navigation }) {
           <Text style={style.subHead}>Jejune</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>ji-JUNE</Text>
+            <Text style={mainStyles.text}>ji-JUNE</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Dull or lackluster.</Text>
+            <Text style={mainStyles.text}>Dull or lackluster.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>I find your advertising campaign </Text>
+            <Text style={mainStyles.text}>
+              I find your advertising campaign{" "}
+            </Text>
             <Text style={style.bold}>jejune</Text>
-            <Text style={style.text}>, slow, and off message.</Text>
+            <Text style={mainStyles.text}>, slow, and off message.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -285,17 +291,17 @@ export default function WS_JobInterview({ navigation }) {
           <Text style={style.subHead}>Kudos</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>KOO_dos</Text>
+            <Text style={mainStyles.text}>KOO_dos</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Dull or lackluster.</Text>
+            <Text style={mainStyles.text}>Dull or lackluster.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Big</Text>
+            <Text style={mainStyles.text}>Big</Text>
             <Text style={style.bold}>Kudos</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               to you for such a profitable fourth quarter.
             </Text>
@@ -315,17 +321,19 @@ export default function WS_JobInterview({ navigation }) {
           <Text style={style.subHead}>Utilitarian</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>yoo-til-ih-TARE-ee-un</Text>
+            <Text style={mainStyles.text}>yoo-til-ih-TARE-ee-un</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Concern for the practical or useful.</Text>
+            <Text style={mainStyles.text}>
+              Concern for the practical or useful.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Take the </Text>
+            <Text style={mainStyles.text}>Take the </Text>
             <Text style={style.bold}>utilitarian</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               approach and scrap the old focus on efficiencies.
             </Text>
@@ -339,24 +347,24 @@ export default function WS_JobInterview({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={style.container}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground
-          source={jobinterview}
-          imageStyle={style.image}
-          resizeMode="cover"
-          style={style.page}
-        >
+    <ImageBackground
+      source={jobinterview}
+      imageStyle={style.image}
+      resizeMode="cover"
+      style={mainStyles.page}
+    >
+      <SafeAreaView style={style.container}>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View>
-            <Text style={style.header}>Job Interview</Text>
+            <Text style={mainStyles.header}>Job Interview</Text>
           </View>
 
           {selectedWord ? (
             selectedWord
           ) : (
-            <View>
+            <View style={mainStyles.centerContainer}>
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Baccalaureate"
@@ -366,7 +374,7 @@ export default function WS_JobInterview({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Cavalier"
@@ -376,7 +384,7 @@ export default function WS_JobInterview({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Deprecate"
@@ -386,7 +394,7 @@ export default function WS_JobInterview({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Ebullience"
@@ -396,7 +404,7 @@ export default function WS_JobInterview({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Fait Accompli"
@@ -406,7 +414,7 @@ export default function WS_JobInterview({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Galvanize"
@@ -416,7 +424,7 @@ export default function WS_JobInterview({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Imbue"
@@ -426,7 +434,7 @@ export default function WS_JobInterview({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Jejune"
@@ -436,7 +444,7 @@ export default function WS_JobInterview({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Kudos"
@@ -446,7 +454,7 @@ export default function WS_JobInterview({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Utilitarian"
@@ -466,37 +474,15 @@ export default function WS_JobInterview({ navigation }) {
               </View>
             </View>
           )}
-        </ImageBackground>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: "#000",
-    paddingVertical: 30,
-  },
-
   image: {
     opacity: 0.9,
-  },
-
-  header: {
-    fontSize: 40,
-    textShadowColor: "#000",
-    textShadowRadius: 5,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingVertical: 10,
-    textAlign: "center",
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
   },
 
   component: {
@@ -517,12 +503,6 @@ const style = StyleSheet.create({
     fontSize: 40,
     color: "#FF8C00",
   },
-
-  text: {
-    fontSize: 25,
-    color: "#fff",
-  },
-
   title: {
     fontSize: 25,
     color: "#FF8C00",
@@ -537,12 +517,6 @@ const style = StyleSheet.create({
   space: {
     paddingTop: 10,
   },
-
-  appButtonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
-
   appButtonContainer: {
     width: 200,
     marginVertical: 2,

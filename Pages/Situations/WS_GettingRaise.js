@@ -15,12 +15,13 @@ import ListenButton from "../../components/ListenButton";
 import { navStyle } from "../../components/NavButton.js";
 import gettingraise3 from "../../assets/Backgrounds/gettingraise3.jpg";
 import AppButton from "../../components/AppButton";
+import { mainStyles } from "../../components/mainStyles";
 
 export default function WS_GettingRaise({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
 
   const hideButton = (
-    <Pressable style={style.appButton}>
+    <Pressable>
       <AppButton
         icon="sign-in"
         title="Hide"
@@ -36,17 +37,17 @@ export default function WS_GettingRaise({ navigation }) {
           <Text style={style.subHead}>Aggrandize</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>uh-GRAND-ize</Text>
+            <Text style={mainStyles.text}>uh-GRAND-ize</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Make to appear great.</Text>
+            <Text style={mainStyles.text}>Make to appear great.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>I don&#39t want to appear to </Text>
+            <Text style={mainStyles.text}>I don&#39t want to appear to </Text>
             <Text style={style.bold}>aggrandize </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               myself, but I did lead my sales team to triple sales.
             </Text>
           </Text>
@@ -65,17 +66,19 @@ export default function WS_GettingRaise({ navigation }) {
           <Text style={style.subHead}>Benevolent</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>be-NEV-i-lent</Text>
+            <Text style={mainStyles.text}>be-NEV-i-lent</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Tendency to do well toward others.</Text>
+            <Text style={mainStyles.text}>
+              Tendency to do well toward others.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>You are a </Text>
+            <Text style={mainStyles.text}>You are a </Text>
             <Text style={style.bold}>benevolent </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               and generous person to have given me so many opportunities.
             </Text>
           </Text>
@@ -94,17 +97,17 @@ export default function WS_GettingRaise({ navigation }) {
           <Text style={style.subHead}>Celerity</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>suh-LAIR-ih-tee</Text>
+            <Text style={mainStyles.text}>suh-LAIR-ih-tee</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Speed; swiftness of action or motion.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Right away! I will carry out your orders with{" "}
             </Text>
             <Text style={style.bold}>celerity.</Text>
@@ -124,17 +127,17 @@ export default function WS_GettingRaise({ navigation }) {
           <Text style={style.subHead}>Debilitate</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>dih-BILL-ih-tate</Text>
+            <Text style={mainStyles.text}>dih-BILL-ih-tate</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>To enfeeble or weaken.</Text>
+            <Text style={mainStyles.text}>To enfeeble or weaken.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>The team has a </Text>
+            <Text style={mainStyles.text}>The team has a </Text>
             <Text style={style.bold}>debilitating </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               impact on our productivity, and sales are down.
             </Text>
           </Text>
@@ -153,15 +156,17 @@ export default function WS_GettingRaise({ navigation }) {
           <Text style={style.subHead}>Effete</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>uh-FEET</Text>
+            <Text style={mainStyles.text}>uh-FEET</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Lacking vitality; without force.</Text>
+            <Text style={mainStyles.text}>
+              Lacking vitality; without force.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               The new department is lacking force with no results; they are{" "}
             </Text>
             <Text style={style.bold}>effete.</Text>
@@ -181,17 +186,19 @@ export default function WS_GettingRaise({ navigation }) {
           <Text style={style.subHead}>Facetious</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>fuh-SEE-shuss</Text>
+            <Text style={mainStyles.text}>fuh-SEE-shuss</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Playful talk; communicated in jest.</Text>
+            <Text style={mainStyles.text}>
+              Playful talk; communicated in jest.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Serious, I was just being </Text>
+            <Text style={mainStyles.text}>Serious, I was just being </Text>
             <Text style={style.bold}>facetious </Text>
-            <Text style={style.text}>about your wife&#39s dress.</Text>
+            <Text style={mainStyles.text}>about your wife&#39s dress.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -208,17 +215,17 @@ export default function WS_GettingRaise({ navigation }) {
           <Text style={style.subHead}>Garrulity</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>guh-ROO-lih-tee</Text>
+            <Text style={mainStyles.text}>guh-ROO-lih-tee</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Talkativeness.</Text>
+            <Text style={mainStyles.text}>Talkativeness.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Michael&#39s </Text>
+            <Text style={mainStyles.text}>Michael&#39s </Text>
             <Text style={style.bold}>garrulity </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               of non-stop talking gave him the reputation of a motor-mouth.
             </Text>
           </Text>
@@ -237,17 +244,17 @@ export default function WS_GettingRaise({ navigation }) {
           <Text style={style.subHead}>Halcyon</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>HAL-see-on</Text>
+            <Text style={mainStyles.text}>HAL-see-on</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Tranquil, peaceful.</Text>
+            <Text style={mainStyles.text}>Tranquil, peaceful.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>The company&#39s </Text>
+            <Text style={mainStyles.text}>The company&#39s </Text>
             <Text style={style.bold}>halcyon </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               years as the leader were over; new competitors had moved into
               their markets.
             </Text>
@@ -267,19 +274,19 @@ export default function WS_GettingRaise({ navigation }) {
           <Text style={style.subHead}>Iconoclastic</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>I-kon-uh-KLASS-tik</Text>
+            <Text style={mainStyles.text}>I-kon-uh-KLASS-tik</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Attacking cherished institutions or beliefs.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Boss, your </Text>
+            <Text style={mainStyles.text}>Boss, your </Text>
             <Text style={style.bold}>iconoclastic </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               approach has reignited success in this company, although the older
               executives resent you.
             </Text>
@@ -299,19 +306,19 @@ export default function WS_GettingRaise({ navigation }) {
           <Text style={style.subHead}>Ne Plus Ultra</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>nay plooce OOL-truhk</Text>
+            <Text style={mainStyles.text}>nay plooce OOL-truhk</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               The highest possible embodiment of something.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Boss, you are the </Text>
+            <Text style={mainStyles.text}>Boss, you are the </Text>
             <Text style={style.bold}>ne plus ultra </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               of bosses; I can&#39t imagine working for someone more capable.
             </Text>
           </Text>
@@ -324,24 +331,24 @@ export default function WS_GettingRaise({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={style.container}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground
-          source={gettingraise3}
-          imageStyle={style.image}
-          resizeMode="cover"
-          style={style.page}
-        >
+    <ImageBackground
+      source={gettingraise3}
+      imageStyle={style.image}
+      resizeMode="cover"
+      style={mainStyles.page}
+    >
+      <SafeAreaView style={style.container}>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View>
-            <Text style={style.header}>Getting A Raise</Text>
+            <Text style={mainStyles.header}>Getting A Raise</Text>
           </View>
 
           {selectedWord ? (
             selectedWord
           ) : (
-            <View>
+            <View style={mainStyles.centerContainer}>
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Aggrandize"
@@ -351,7 +358,7 @@ export default function WS_GettingRaise({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Benevolent"
@@ -361,7 +368,7 @@ export default function WS_GettingRaise({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Celerity"
@@ -371,7 +378,7 @@ export default function WS_GettingRaise({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Debilitate"
@@ -381,7 +388,7 @@ export default function WS_GettingRaise({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Effete"
@@ -391,7 +398,7 @@ export default function WS_GettingRaise({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Facetious"
@@ -401,7 +408,7 @@ export default function WS_GettingRaise({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Garrulity"
@@ -411,7 +418,7 @@ export default function WS_GettingRaise({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Halcyon"
@@ -421,7 +428,7 @@ export default function WS_GettingRaise({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Iconoclastic"
@@ -431,7 +438,7 @@ export default function WS_GettingRaise({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Ne Plus Ultra"
@@ -451,37 +458,15 @@ export default function WS_GettingRaise({ navigation }) {
               </View>
             </View>
           )}
-        </ImageBackground>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: "#000",
-    paddingVertical: 30,
-  },
-
   image: {
     opacity: 0.9,
-  },
-
-  header: {
-    fontSize: 40,
-    textShadowColor: "#000",
-    textShadowRadius: 5,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingVertical: 10,
-    textAlign: "center",
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
   },
 
   component: {
@@ -503,11 +488,6 @@ const style = StyleSheet.create({
     color: "#FF8C00",
   },
 
-  text: {
-    fontSize: 25,
-    color: "#fff",
-  },
-
   title: {
     fontSize: 25,
     color: "#FF8C00",
@@ -521,16 +501,6 @@ const style = StyleSheet.create({
 
   space: {
     paddingTop: 10,
-  },
-
-  appButtonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 200,
-    marginVertical: 2,
   },
 
   bottomButtons: {

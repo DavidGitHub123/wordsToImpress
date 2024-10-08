@@ -334,14 +334,14 @@ export default function WS_Boss({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={style.container}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground
-          source={boss3}
-          imageStyle={style.image}
-          resizeMode="cover"
-          style={mainStyles.page}
-        >
+    <ImageBackground
+      source={boss3}
+      imageStyle={style.image}
+      resizeMode="cover"
+      style={mainStyles.page}
+    >
+      <SafeAreaView style={style.container}>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View>
             <Text style={mainStyles.header}>The Boss</Text>
           </View>
@@ -349,7 +349,7 @@ export default function WS_Boss({ navigation }) {
           {selectedWord ? (
             selectedWord
           ) : (
-            <View>
+            <View style={mainStyles.centerContainer}>
               <View>
                 <Pressable>
                   <AppButton
@@ -461,9 +461,9 @@ export default function WS_Boss({ navigation }) {
               </View>
             </View>
           )}
-        </ImageBackground>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 

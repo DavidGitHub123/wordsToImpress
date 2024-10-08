@@ -15,12 +15,13 @@ import ListenButton from "../../components/ListenButton";
 import { navStyle } from "../../components/NavButton.js";
 import negotiation from "../../assets/Backgrounds/negotiation.jpg";
 import AppButton from "../../components/AppButton";
+import { mainStyles } from "../../components/mainStyles";
 
 export default function WS_Negotiations({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
 
   const hideButton = (
-    <Pressable style={style.appButton}>
+    <Pressable>
       <AppButton
         icon="sign-in"
         title="Hide"
@@ -36,19 +37,19 @@ export default function WS_Negotiations({ navigation }) {
           <Text style={style.subHead}>Accord</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>uh-CORD</Text>
+            <Text style={mainStyles.text}>uh-CORD</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Formal reaching of agreement.</Text>
+            <Text style={mainStyles.text}>Formal reaching of agreement.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               As the strike was resolved, the representatives reached an{" "}
             </Text>
             <Text style={style.bold}>accord</Text>
-            <Text style={style.text}> acceptable to both sides.</Text>
+            <Text style={mainStyles.text}> acceptable to both sides.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -65,17 +66,17 @@ export default function WS_Negotiations({ navigation }) {
           <Text style={style.subHead}>Cessation</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>sess-SAY-shun</Text>
+            <Text style={mainStyles.text}>sess-SAY-shun</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Act of drawing to a close.</Text>
+            <Text style={mainStyles.text}>Act of drawing to a close.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Negotiations may bring about a </Text>
+            <Text style={mainStyles.text}>Negotiations may bring about a </Text>
             <Text style={style.bold}>cessation</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               of the contracts and both parties will be happy.
             </Text>
@@ -95,17 +96,19 @@ export default function WS_Negotiations({ navigation }) {
           <Text style={style.subHead}>Dialectic</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>die-uh-LEK-tic</Text>
+            <Text style={mainStyles.text}>die-uh-LEK-tic</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Pertaining to logical arguments.</Text>
+            <Text style={mainStyles.text}>
+              Pertaining to logical arguments.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>His </Text>
+            <Text style={mainStyles.text}>His </Text>
             <Text style={style.bold}>dialectic</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               thoroughness destroy his opponent&#39s argument.
             </Text>
@@ -125,15 +128,17 @@ export default function WS_Negotiations({ navigation }) {
           <Text style={style.subHead}>Elusive</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>ee-LOO-siv</Text>
+            <Text style={mainStyles.text}>ee-LOO-siv</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Difficult to perceive or describe.</Text>
+            <Text style={mainStyles.text}>
+              Difficult to perceive or describe.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Our goals are easily understood; the nature of the obstacles is
               somewhat more{" "}
             </Text>
@@ -154,15 +159,17 @@ export default function WS_Negotiations({ navigation }) {
           <Text style={style.subHead}>Flux </Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>fluks</Text>
+            <Text style={mainStyles.text}>fluks</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Ongoing flow or unceasing change.</Text>
+            <Text style={mainStyles.text}>
+              Ongoing flow or unceasing change.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>.{" "}
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Negotiations were difficult because the organization&#39s plans
               were in a state of continual{" "}
             </Text>
@@ -183,21 +190,21 @@ export default function WS_Negotiations({ navigation }) {
           <Text style={style.subHead}>Gauntlet</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>GONT-let</Text>
+            <Text style={mainStyles.text}>GONT-let</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               A challenge; in medieval times a duel.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               The negotiation deadline is not a goal; it is a{" "}
             </Text>
             <Text style={style.bold}>gauntlet</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               that has been thrown down before us.
             </Text>
@@ -217,19 +224,19 @@ export default function WS_Negotiations({ navigation }) {
           <Text style={style.subHead}>Holistic</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>ho-LISS-tik</Text>
+            <Text style={mainStyles.text}>ho-LISS-tik</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Emphasizing cooperation of the parts.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>We need to take a </Text>
+            <Text style={mainStyles.text}>We need to take a </Text>
             <Text style={style.bold}>holistic</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               {" "}
               approach to closing this deal to ensure all parties are satisfied.
             </Text>
@@ -249,19 +256,21 @@ export default function WS_Negotiations({ navigation }) {
           <Text style={style.subHead}>Impasse</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>IM-pass</Text>
+            <Text style={mainStyles.text}>IM-pass</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               A situation that seems to offer no solution.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>The negotiations had reached an </Text>
+            <Text style={mainStyles.text}>
+              The negotiations had reached an{" "}
+            </Text>
             <Text style={style.bold}>impasse</Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               , both sides needed to make more compromises.
             </Text>
           </Text>
@@ -280,19 +289,21 @@ export default function WS_Negotiations({ navigation }) {
           <Text style={style.subHead}>Mitigate </Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>MIH-tih-gate</Text>
+            <Text style={mainStyles.text}>MIH-tih-gate</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>To moderate or lessen the impact.</Text>
+            <Text style={mainStyles.text}>
+              To moderate or lessen the impact.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               The situation had seemed tense until a number of{" "}
             </Text>
             <Text style={style.bold}>mitigating</Text>
-            <Text style={style.text}> factors came into play.</Text>
+            <Text style={mainStyles.text}> factors came into play.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -309,20 +320,20 @@ export default function WS_Negotiations({ navigation }) {
           <Text style={style.subHead}>Ultimatum</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>ul-tih-MAY-tum</Text>
+            <Text style={mainStyles.text}>ul-tih-MAY-tum</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>One&#39s last set of demands.</Text>
+            <Text style={mainStyles.text}>One&#39s last set of demands.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               We agree to the 30% increase or we end the negotiations; that is
               the{" "}
             </Text>
             <Text style={style.bold}>ultimatum</Text>
-            <Text style={style.text}> from my client.</Text>
+            <Text style={mainStyles.text}> from my client.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -333,24 +344,24 @@ export default function WS_Negotiations({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={style.container}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground
-          source={negotiation}
-          imageStyle={style.image}
-          resizeMode="cover"
-          style={style.page}
-        >
+    <ImageBackground
+      source={negotiation}
+      imageStyle={style.image}
+      resizeMode="cover"
+      style={mainStyles.page}
+    >
+      <SafeAreaView style={style.container}>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View>
-            <Text style={style.header}>Negotiations</Text>
+            <Text style={mainStyles.header}>Negotiations</Text>
           </View>
 
           {selectedWord ? (
             selectedWord
           ) : (
-            <View>
+            <View style={mainStyles.centerContainer}>
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Accord"
@@ -360,7 +371,7 @@ export default function WS_Negotiations({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Cessation"
@@ -370,7 +381,7 @@ export default function WS_Negotiations({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Dialectic"
@@ -380,7 +391,7 @@ export default function WS_Negotiations({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Elusive"
@@ -390,7 +401,7 @@ export default function WS_Negotiations({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Flux"
@@ -400,7 +411,7 @@ export default function WS_Negotiations({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Gauntlet"
@@ -410,7 +421,7 @@ export default function WS_Negotiations({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Holistic"
@@ -420,7 +431,7 @@ export default function WS_Negotiations({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Impasse"
@@ -430,7 +441,7 @@ export default function WS_Negotiations({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Mitigate"
@@ -440,7 +451,7 @@ export default function WS_Negotiations({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Ultimatum"
@@ -460,37 +471,15 @@ export default function WS_Negotiations({ navigation }) {
               </View>
             </View>
           )}
-        </ImageBackground>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: "#000",
-    paddingVertical: 30,
-  },
-
   image: {
     opacity: 0.9,
-  },
-
-  header: {
-    fontSize: 40,
-    textShadowColor: "#000",
-    textShadowRadius: 5,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingVertical: 10,
-    textAlign: "center",
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
   },
 
   component: {
@@ -512,11 +501,6 @@ const style = StyleSheet.create({
     color: "#FF8C00",
   },
 
-  text: {
-    fontSize: 25,
-    color: "#fff",
-  },
-
   title: {
     fontSize: 25,
     color: "#FF8C00",
@@ -530,16 +514,6 @@ const style = StyleSheet.create({
 
   space: {
     paddingTop: 10,
-  },
-
-  appButtonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 200,
-    marginVertical: 2,
   },
 
   bottomButtons: {

@@ -15,12 +15,13 @@ import ListenButton from "../../components/ListenButton";
 import { navStyle } from "../../components/NavButton.js";
 import dinnerparty from "../../assets/Backgrounds/dinnerparty.jpg";
 import AppButton from "../../components/AppButton";
+import { mainStyles } from "../../components/mainStyles";
 
 export default function WS_DinnerParty({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
 
   const hideButton = (
-    <Pressable style={style.appButton}>
+    <Pressable>
       <AppButton
         icon="sign-in"
         title="Hide"
@@ -36,17 +37,19 @@ export default function WS_DinnerParty({ navigation }) {
           <Text style={style.subHead}>Clamorous</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>KLAM-uhr-uss</Text>
+            <Text style={mainStyles.text}>KLAM-uhr-uss</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Loud; expressively vehement.</Text>
+            <Text style={mainStyles.text}>Loud; expressively vehement.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Throngs in the street roared with </Text>
+            <Text style={mainStyles.text}>
+              Throngs in the street roared with{" "}
+            </Text>
             <Text style={style.bold}>clamorous </Text>
-            <Text style={style.text}>applause.</Text>
+            <Text style={mainStyles.text}>applause.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -63,17 +66,19 @@ export default function WS_DinnerParty({ navigation }) {
           <Text style={style.subHead}>Diffident</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>DEFF-ih-dent</Text>
+            <Text style={mainStyles.text}>DEFF-ih-dent</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Unassertive; lacking in self-worth.</Text>
+            <Text style={mainStyles.text}>
+              Unassertive; lacking in self-worth.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>She was perhaps too </Text>
+            <Text style={mainStyles.text}>She was perhaps too </Text>
             <Text style={style.bold}>diffident </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               to work comfortably in an outgoing office environment.
             </Text>
           </Text>
@@ -92,19 +97,19 @@ export default function WS_DinnerParty({ navigation }) {
           <Text style={style.subHead}>Educe</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>ee-DYOOCE</Text>
+            <Text style={mainStyles.text}>ee-DYOOCE</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               To bring out the potential of something.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Myron&#39s attempt to </Text>
+            <Text style={mainStyles.text}>Myron&#39s attempt to </Text>
             <Text style={style.bold}>educe </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               his sister&#39s talents as a painter were futile.
             </Text>
           </Text>
@@ -123,17 +128,17 @@ export default function WS_DinnerParty({ navigation }) {
           <Text style={style.subHead}>Fatuous</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>FAR-yoo-uss</Text>
+            <Text style={mainStyles.text}>FAR-yoo-uss</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Stupid or foolish.</Text>
+            <Text style={mainStyles.text}>Stupid or foolish.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>She made so many </Text>
+            <Text style={mainStyles.text}>She made so many </Text>
             <Text style={style.bold}>fatuous </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               remarks at the party that I stopped apologizing for her.
             </Text>
           </Text>
@@ -152,21 +157,21 @@ export default function WS_DinnerParty({ navigation }) {
           <Text style={style.subHead}>Gauche</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>gosh</Text>
+            <Text style={mainStyles.text}>gosh</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Tactless; lacking in social refinement.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               David&#39s constant praise of his first wife was considered
             </Text>
             <Text style={style.bold}>gauche </Text>
-            <Text style={style.text}>by his new mother-in-law.</Text>
+            <Text style={mainStyles.text}>by his new mother-in-law.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -183,17 +188,17 @@ export default function WS_DinnerParty({ navigation }) {
           <Text style={style.subHead}>Harangue</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>huh-RANG</Text>
+            <Text style={mainStyles.text}>huh-RANG</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>A scolding delivered in public.</Text>
+            <Text style={mainStyles.text}>A scolding delivered in public.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Mike&#39s </Text>
+            <Text style={mainStyles.text}>Mike&#39s </Text>
             <Text style={style.bold}>harangue </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               of his team left everyone feeling uncomfortable.
             </Text>
           </Text>
@@ -212,15 +217,15 @@ export default function WS_DinnerParty({ navigation }) {
           <Text style={style.subHead}>Imbibe</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>im-BIBE</Text>
+            <Text style={mainStyles.text}>im-BIBE</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>To drink alcoholic beverages.</Text>
+            <Text style={mainStyles.text}>To drink alcoholic beverages.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               Donald once had a drinking problem, but he no longer
             </Text>
             <Text style={style.bold}>imbibes.</Text>
@@ -240,19 +245,19 @@ export default function WS_DinnerParty({ navigation }) {
           <Text style={style.subHead}>Juxtapose</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>JUK-stuh-pose</Text>
+            <Text style={mainStyles.text}>JUK-stuh-pose</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               To place side by side for comparison.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>He </Text>
+            <Text style={mainStyles.text}>He </Text>
             <Text style={style.bold}>juxtaposed </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               the two paragraphs in the essay and found evidence of plagiarism.
             </Text>
           </Text>
@@ -271,17 +276,17 @@ export default function WS_DinnerParty({ navigation }) {
           <Text style={style.subHead}>Largess</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>lar-ZHESS</Text>
+            <Text style={mainStyles.text}>lar-ZHESS</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Generously bestowed gifts.</Text>
+            <Text style={mainStyles.text}>Generously bestowed gifts.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>Her father&#39s </Text>
+            <Text style={mainStyles.text}>Her father&#39s </Text>
             <Text style={style.bold}>largess </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               was the only thing standing between Barbara and bankruptcy.
             </Text>
           </Text>
@@ -300,17 +305,19 @@ export default function WS_DinnerParty({ navigation }) {
           <Text style={style.subHead}>Melodious</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
-            <Text style={style.text}>muh-LOW-dee-us</Text>
+            <Text style={mainStyles.text}>muh-LOW-dee-us</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Def: </Text>
-            <Text style={style.text}>Pleasant or agreeable to the ear.</Text>
+            <Text style={mainStyles.text}>
+              Pleasant or agreeable to the ear.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.title}>Sentence: </Text>
-            <Text style={style.text}>The </Text>
+            <Text style={mainStyles.text}>The </Text>
             <Text style={style.bold}>melodious </Text>
-            <Text style={style.text}>
+            <Text style={mainStyles.text}>
               tones of his mother&#39s voice reminded Wayne of his childhood.
             </Text>
           </Text>
@@ -323,24 +330,24 @@ export default function WS_DinnerParty({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={style.container}>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <ImageBackground
-          source={dinnerparty}
-          imageStyle={style.image}
-          resizeMode="cover"
-          style={style.page}
-        >
+    <ImageBackground
+      source={dinnerparty}
+      imageStyle={style.image}
+      resizeMode="cover"
+      style={mainStyles.page}
+    >
+      <SafeAreaView style={style.container}>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View>
-            <Text style={style.header}>Dinner Party</Text>
+            <Text style={mainStyles.header}>Dinner Party</Text>
           </View>
 
           {selectedWord ? (
             selectedWord
           ) : (
-            <View>
+            <View style={mainStyles.centerContainer}>
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Clamorous"
@@ -350,7 +357,7 @@ export default function WS_DinnerParty({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Diffident"
@@ -360,7 +367,7 @@ export default function WS_DinnerParty({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Educe"
@@ -370,7 +377,7 @@ export default function WS_DinnerParty({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Fatuous"
@@ -380,7 +387,7 @@ export default function WS_DinnerParty({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Gauche"
@@ -390,7 +397,7 @@ export default function WS_DinnerParty({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Harangue"
@@ -400,7 +407,7 @@ export default function WS_DinnerParty({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Imbibe"
@@ -410,7 +417,7 @@ export default function WS_DinnerParty({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Juxtapose"
@@ -420,7 +427,7 @@ export default function WS_DinnerParty({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Largess"
@@ -430,7 +437,7 @@ export default function WS_DinnerParty({ navigation }) {
               </View>
 
               <View>
-                <Pressable style={style.appButton}>
+                <Pressable>
                   <AppButton
                     icon="sign-in"
                     title="Melodious"
@@ -450,37 +457,15 @@ export default function WS_DinnerParty({ navigation }) {
               </View>
             </View>
           )}
-        </ImageBackground>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: "#000",
-    paddingVertical: 30,
-  },
-
   image: {
     opacity: 0.9,
-  },
-
-  header: {
-    fontSize: 40,
-    textShadowColor: "#000",
-    textShadowRadius: 5,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingVertical: 10,
-    textAlign: "center",
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
   },
 
   component: {
@@ -502,11 +487,6 @@ const style = StyleSheet.create({
     color: "#FF8C00",
   },
 
-  text: {
-    fontSize: 25,
-    color: "#fff",
-  },
-
   title: {
     fontSize: 25,
     color: "#FF8C00",
@@ -520,16 +500,6 @@ const style = StyleSheet.create({
 
   space: {
     paddingTop: 10,
-  },
-
-  appButtonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 200,
-    marginVertical: 2,
   },
 
   bottomButtons: {
