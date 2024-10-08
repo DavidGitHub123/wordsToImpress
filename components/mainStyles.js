@@ -1,8 +1,8 @@
 import { StyleSheet, Dimensions, StatusBar } from "react-native";
-
 const StatusBarHeight = StatusBar.currentHeight;
 const screenHeight = Dimensions.get("screen").height;
 const screenWidth = Dimensions.get("screen").width;
+
 
 const mainStyles = StyleSheet.create({
   header: {
@@ -53,6 +53,7 @@ const mainStyles = StyleSheet.create({
     color: "#f0f8ff",
     fontWeight: "600",
   },
+
   text2: {
     fontSize: 24,
     color: "#f0f8ff",
@@ -61,6 +62,7 @@ const mainStyles = StyleSheet.create({
     fontWeight: 700,
     textAlign: "center",
   },
+
 
   subheader: {
     fontSize: 24,
@@ -71,6 +73,7 @@ const mainStyles = StyleSheet.create({
     textAlign: "center",
   },
 
+
   subHead1: {
     fontSize: 32,
     color: "#fff",
@@ -78,6 +81,7 @@ const mainStyles = StyleSheet.create({
     paddingTop: 50,
     paddingHorizontal: 30,
   },
+
   subHead2: {
     fontSize: 20,
     color: "#fff",
@@ -87,6 +91,7 @@ const mainStyles = StyleSheet.create({
     paddingHorizontal: 30,
     textAlign: "justify",
   },
+
   topHeader: {
     marginTop: StatusBarHeight,
     alignItems: "center",
@@ -112,11 +117,14 @@ const mainStyles = StyleSheet.create({
     alignItems: "center",
     marginTop: 100,
   },
-  centerContainer: {
+
+  centerChildren: {
     margin: "auto",
+    textAlign: "center",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
+    alignContent: "center",
+
   },
 });
 
