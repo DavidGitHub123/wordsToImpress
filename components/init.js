@@ -9,7 +9,7 @@ import {
 import data from "../data";
 
 export default async function init() {
-  const _DEV_MODE = true;
+  const _DEV_MODE = false;
   const _RESET_DEV_LIST = true;
 
   const namesOfLists = await getNamesOfLists();
