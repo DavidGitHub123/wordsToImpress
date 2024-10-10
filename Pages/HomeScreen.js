@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Image,
@@ -14,6 +14,7 @@ import IconButton from "../components/IconButton";
 import { mainStyles } from "../components/mainStyles";
 
 export default function HomeScreen({ navigation }) {
+  const [count, setCount] = useState(0);
   return (
     <ImageBackground
       style={mainStyles.backgroundImage}
@@ -49,6 +50,16 @@ export default function HomeScreen({ navigation }) {
           <Text style={style.prowess}>PROWESS</Text>
         </View>
         <View>
+          <View style={style.buttons}>
+            <AppButton
+              size="large"
+              title="+"
+              onPress={() => setCount(count + 1)}
+            />
+            <View style={{ backgroundColor: "black" }}>
+              <Text style={mainStyles.text}>{count}</Text>
+            </View>
+          </View>
           <View style={style.buttons}>
             <AppButton
               size="large"
