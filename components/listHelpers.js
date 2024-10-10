@@ -1,4 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import data from "../data";
 
 const defaultList = "My List";
 
@@ -8,7 +9,7 @@ const wordMasteryFactory = (word) => {
 
 const makeNewList = async (name) => {
   try {
-    if (_checkForDuplicates(name)) {
+    if (await _checkForDuplicates(name)) {
       throw new Error("Name already exists");
     }
 
@@ -19,7 +20,7 @@ const makeNewList = async (name) => {
 };
 
 const _checkForDuplicates = async (name) =>
-  !(await getNamesOfLists()).includes((el) => el === name);
+  (await getNamesOfLists()).includes(name);
 
 const removeList = async (name) => {
   try {
@@ -80,8 +81,6 @@ const incrementMastery = async (name, word) => {
 
 const _resetDefaultList = async () => {
   try {
-    await AsyncStorage.removeItem(defaultList);
-
     await AsyncStorage.setItem(defaultList, JSON.stringify([]));
   } catch (e) {
     console.error(e);
@@ -118,6 +117,21 @@ const listContainsWord = async (name, word) => {
     console.error(e);
   }
 };
+
+const initLists = async (isDev) => {
+  const lists = await getNamesOfLists();
+  if (!lists.includes(defaultList)) {
+    await makeNewList(defaultList);
+  }
+
+  if (isDev) {
+    await _resetDefaultList();
+
+    for (const wordData of data.slice(0, 50)) {
+      await addOneWordToList(defaultList, wordData.Word);
+    }
+  }
+};
 export {
   makeNewList,
   removeList,
@@ -130,4 +144,5 @@ export {
   _resetDefaultList,
   getNLeastMastered,
   removeOneWordFromList,
+  initLists,
 };
