@@ -80,6 +80,12 @@ export default function MyList({ navigation }) {
     GREEN_PERCENT <= masteredWordCount / listLength
       ? { highlight: "#4cf03a", base: "#5ba653" }
       : { highlight: "#ffbb00", base: "#cc9600" };
+
+  const percentText = masteredWordCount / listLength;
+  const formattedPercentText = isNaN(percentText)
+    ? "0.00"
+    : percentText.toFixed(2);
+
   return (
     <LinearGradient
       colors={["#6699FF", "#335C81"]}
@@ -94,9 +100,7 @@ export default function MyList({ navigation }) {
             <Text style={mainStyles.header}>My Mastery</Text>
           </View>
           <View style={style.donutContainer}>
-            <Text style={style.percentText}>
-              {(masteredWordCount / listLength).toFixed(2)}%
-            </Text>
+            <Text style={style.percentText}>{formattedPercentText}%</Text>
             <Text style={style.donutText}>
               {masteredWordCount}/{listLength}
             </Text>
