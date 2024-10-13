@@ -21,7 +21,7 @@ export default function WS_Business({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
 
   const hideButton = (
-    <Pressable>
+    <Pressable style={mainStyles.centerContainer}>
       <AppButton
         icon="sign-in"
         title="Hide"
@@ -495,7 +495,7 @@ const style = StyleSheet.create({
 
   bold: {
     fontSize: 25,
-    fontWeight: 600,
+    fontWeight: "600",
     color: "#FF8C00",
   },
 

@@ -503,7 +503,7 @@ const style = StyleSheet.create({
 
   bold: {
     fontSize: 25,
-    fontWeight: 600,
+    fontWeight: "600",
     color: "#FF8C00",
   },
 
