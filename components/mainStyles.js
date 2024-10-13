@@ -23,8 +23,6 @@ const mainStyles = StyleSheet.create({
   },
   page: {
     flex: 1,
-    paddingBottom: 200,
-    paddingHorizontal: 20,
   },
   section: {
     paddingVertical: 30,
@@ -54,14 +52,10 @@ const mainStyles = StyleSheet.create({
   text: {
     fontSize: 18,
     color: "#f0f8ff",
-    paddingBottom: 10,
-    paddingHorizontal: 20,
   },
   text2: {
     fontSize: 24,
     color: "#f0f8ff",
-    paddingBottom: 30,
-    paddingHorizontal: 40,
     fontWeight: 700,
     textAlign: "center",
   },
@@ -124,6 +118,12 @@ const mainStyles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    textAlign: "center",
+  },
+  greenText: {
+    color: "#4cf03a",
+    fontSize: 24,
+    fontWeight: 700,
     textAlign: "center",
   },
 });

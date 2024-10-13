@@ -90,7 +90,7 @@ const defaultStyle = StyleSheet.create({
     height: 40,
   },
   fullScreen: {
-    height: 100,
+    height: 75,
     width: 300,
   },
   largeContainer: {

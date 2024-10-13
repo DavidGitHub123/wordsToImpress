@@ -6,6 +6,7 @@ import { NavButton } from "./NavButton";
 import HomeButton from "./HomeButton";
 import data from "../data";
 import { incrementMastery, defaultList } from "./listHelpers";
+import { mainStyles } from "./mainStyles";
 
 export default function MultipleChoiceGame(Props) {
   const [anwsers, setAnwsers] = useState([]);
@@ -34,6 +35,19 @@ export default function MultipleChoiceGame(Props) {
     const wordIndex = data.findIndex((el) => el.Word === list[listIndex].Word);
     console.log(questionType);
     question = data[wordIndex][questionType];
+
+    question = question.split(" ").map((el, i) => {
+      const isHighlighted = (w) =>
+        w.toLowerCase().includes(data[wordIndex].Word.toLowerCase());
+      return (
+        <Text
+          key={i}
+          style={isHighlighted(el) ? mainStyles.greenText : mainStyles.text2}
+        >
+          {el}
+        </Text>
+      );
+    });
   }
 
   useEffect(() => {
@@ -134,7 +148,7 @@ export default function MultipleChoiceGame(Props) {
 
   const renderCorrectandNextButton = () => (
     <View style={style.centerContainer}>
-      <Text style={style.text}>{isCorrect ? "Correct" : "Incorrect"}</Text>
+      <Text style={mainStyles.text}>{isCorrect ? "Correct" : "Incorrect"}</Text>
       <AppButton title="Next Word" icon="sign-in" onPress={handleNext} />
     </View>
   );
@@ -163,13 +177,13 @@ export default function MultipleChoiceGame(Props) {
           <HomeButton navigation={navigation} />
         </View>
       ) : (
-        <View style={style.centerContainer}>
+        <View style={{ ...style.centerContainer, ...style.width90 }}>
           <Text style={style.header}>{listIndex + 1}/10</Text>
-          <Text style={style.text}>
+          <Text style={mainStyles.text2}>
             Identify the correct word that matches this{" "}
-            {typeDictoinary[questionType]}.
+            {typeDictoinary[questionType]}:
           </Text>
-          <Text style={style.text}>{question}</Text>
+          <View style={style.flexQuestion}>{question}</View>
           {renderAnwsers()}
           {displayNext ? renderCorrectandNextButton() : null}
         </View>
@@ -202,12 +216,6 @@ const style = StyleSheet.create({
 
   white: {
     color: "#f0f8ff",
-  },
-
-  text: {
-    fontSize: 18,
-    color: "#f0f8ff",
-    padding: 5,
   },
 
   wordList: {
@@ -265,5 +273,16 @@ const style = StyleSheet.create({
     flexWrap: "wrap",
     width: 400,
     justifyContent: "space-evenly",
+  },
+  width90: { width: "90%", margin: "auto" },
+
+  flexQuestion: {
+    display: "flex",
+    flexDirection: "row",
+    flexFlow: "wrap",
+    alignItems: "baseline",
+    flexWrap: "wrap",
+    rowGap: 2,
+    columnGap: 4,
   },
 });

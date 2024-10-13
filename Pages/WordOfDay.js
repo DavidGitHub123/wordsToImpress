@@ -116,7 +116,7 @@ const style = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexFlow: "wrap",
-    alignItems: "flex-start",
+    alignItems: "baseline",
     flexWrap: "wrap",
     rowGap: 2,
     columnGap: 4,
