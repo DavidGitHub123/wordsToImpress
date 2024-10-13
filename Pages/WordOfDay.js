@@ -6,6 +6,7 @@ import {
   Text,
   View,
   ImageBackground,
+  Dimensions,
 } from "react-native";
 import data from "../data.js";
 import HomeButton from "../components/HomeButton";
@@ -27,27 +28,23 @@ export default function WordOfDay({ navigation }) {
 
   function formatWordOfTheDay() {
     const wordData = GetWordOfTheDay();
-    const sentence = wordData.Longdef.split(" ").map((el, i) => {
-      if (el.toLowerCase().includes(wordData.Word.toLowerCase())) {
-        return (
-          <Text key={i} style={style.highlightedText}>
-            {el}
-          </Text>
-        );
-      }
-      return (
-        <Text key={i} style={mainStyles.text}>
-          {el}
-        </Text>
-      );
-    });
+    const highlightWord = (w) =>
+      w.toLowerCase().includes(wordData.Word.toLowerCase());
+    const sentence = wordData.Longdef.split(" ").map((el, i) => (
+      <Text
+        key={i}
+        style={highlightWord(el) ? style.highlightedText : mainStyles.text}
+      >
+        {el}
+      </Text>
+    ));
 
     return (
       <View style={mainStyles.page}>
         <View style={style.screen}>
           <Text style={style.word}>{wordData.Word}</Text>
           <Text style={style.space}>
-            <Text style={style.subHead}>Pron. </Text>
+            <Text style={style.subHead}>Pron: </Text>
             <Text style={mainStyles.text}>{wordData.Pronunciation}</Text>
           </Text>
           <Text style={style.space}>
@@ -55,8 +52,10 @@ export default function WordOfDay({ navigation }) {
             <Text style={mainStyles.text}>{wordData.Shortdef}</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.subHead}>Sentence: </Text>
-            <View style={style.flexSentence}>{sentence}</View>
+            <View style={style.flexSentence}>
+              <Text style={style.subHead}>Sentence: </Text>
+              {sentence}
+            </View>
           </Text>
         </View>
 
@@ -86,6 +85,8 @@ export default function WordOfDay({ navigation }) {
     </ImageBackground>
   );
 }
+
+const sentenceWidth = Dimensions.get("screen").width * 0.9;
 
 const style = StyleSheet.create({
   space: {
@@ -119,6 +120,7 @@ const style = StyleSheet.create({
     flexWrap: "wrap",
     rowGap: 2,
     columnGap: 4,
+    width: sentenceWidth,
   },
 
   highlightedText: {
