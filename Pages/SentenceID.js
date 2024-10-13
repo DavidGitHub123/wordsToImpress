@@ -70,17 +70,17 @@ const style = StyleSheet.create({
     paddingBottom: 700,
   },
 
-  spacing: {
-    paddingBottom: 100,
-  },
+  // spacing: {
+  //   paddingBottom: 100,
+  // },
 
-  space2: {
-    paddingTop: 20,
-  },
+  // space2: {
+  //   paddingTop: 20,
+  // },
 
-  space3: {
-    paddingTop: 100,
-  },
+  // space3: {
+  //   paddingTop: 100,
+  // },
 
   center: {
     alignItems: "center",
@@ -107,7 +107,7 @@ const style = StyleSheet.create({
   },
 
   text: {
-    fontSize: 24,
+    fontSize: 50,
     color: "#f0f8ff",
     paddingBottom: 30,
     paddingHorizontal: 40,

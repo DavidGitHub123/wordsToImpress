@@ -69,11 +69,11 @@ const style = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingTop: 50,
-    paddingBottom: 100,
+    paddingBottom: 200,
   },
 
   header: {
-    fontSize: 30,
+    fontSize: 10,
     color: "#f0f8ff",
     fontWeight: "800",
   },

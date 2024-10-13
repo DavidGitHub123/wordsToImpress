@@ -33,8 +33,6 @@ export default function System({ navigation }) {
         <Text style={mainStyles.text}>
           Your language defines you - whether a professional, student studying
           for the SATs, or learning English as a second language.
-        </Text>
-        <Text style={mainStyles.text}>
           The Words to Impress App quickly and efficiently helps you develop an
           impressive vocabulary.
         </Text>
@@ -50,8 +48,6 @@ export default function System({ navigation }) {
         <Text style={mainStyles.text}>
           We each have a unique vocabulary. Most successful people have mastered
           50 to 100 “big” vocabulary words.
-        </Text>
-        <Text style={mainStyles.text}>
           The Words to Impress App helps you build a list unique to you. Once
           your list is complete, study those words, making them your own.
         </Text>
@@ -68,8 +64,6 @@ export default function System({ navigation }) {
           Unlike other vocabulary-building systems that present you with
           hundreds of words to learn, this App helps you build the right list
           for you.
-        </Text>
-        <Text style={mainStyles.text}>
           The Build My List tool anlyzes your writing for common words unique to
           you. Then provides you with a list of upgraded words based on familiar
           concepts and ideas.
@@ -84,9 +78,7 @@ export default function System({ navigation }) {
       <View style={mainStyles.centerContainer}>
         <Text style={style.componentHead}>Word Situations</Text>
         <Text style={mainStyles.text}>
-          Imagine yourself in an important situation. What do you say?
-        </Text>
-        <Text style={mainStyles.text}>
+      Imagine yourself in an important situation. What do you say?
           Word Situations identifies words unique to politics, business, job
           interviews, etc. from 10 different categories. Look up words quick for
           particular situations and be ready to impress.
@@ -103,8 +95,6 @@ export default function System({ navigation }) {
         <Text style={mainStyles.text}>
           The Vocabulary Mastery section provides games and quizes to help you
           learn your list of words quickly.
-        </Text>
-        <Text style={mainStyles.text}>
           Then reinforce your list of words to make them part of your everyday
           speech and writing.
         </Text>
@@ -197,6 +187,7 @@ const style = StyleSheet.create({
     backgroundColor: "black",
     paddingBottom: 20,
     marginBottom: 30,
+    borderRadius: 20,
   },
   componentHead: {
     fontSize: 30,

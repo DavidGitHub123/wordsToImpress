@@ -8,7 +8,7 @@ import {
   ImageBackground,
 } from "react-native";
 import logo from "../assets/logoborderradius.jpg";
-import phone from "../assets/phone.jpg";
+import words5 from "../assets/words5.jpg";
 import AppButton from "../components/AppButton";
 import IconButton from "../components/IconButton";
 import { mainStyles } from "../components/mainStyles";
@@ -18,7 +18,7 @@ export default function HomeScreen({ navigation }) {
     <ImageBackground
       style={mainStyles.backgroundImage}
       resizeMode="cover"
-      source={phone}
+      source={words5}
     >
       <SafeAreaView>
         <View style={mainStyles.topHeader}>
@@ -33,6 +33,7 @@ export default function HomeScreen({ navigation }) {
             borderWidth="1"
             icon="table"
             title="About"
+            paddingRight='20'
             onPress={() => navigation.navigate("System")}
           />
         </View>
@@ -44,8 +45,8 @@ export default function HomeScreen({ navigation }) {
         </View>
 
         <View style={style.screen}>
-          <Text style={mainStyles.headLine}>Build Your</Text>
-          <Text style={mainStyles.headLine2}>Vocabulary</Text>
+          <Text style={style.buildyour}>Build Your</Text>
+          <Text style={style.vocabulary}>Vocabulary</Text>
           <Text style={style.prowess}>PROWESS</Text>
         </View>
         <View>
@@ -132,13 +133,34 @@ const style = StyleSheet.create({
     resizeMode: "contain",
   },
 
+  buildyour: {
+    letterSpacing: 4,
+    fontSize: 44,
+    color: "#f0f8ff",
+    fontWeight: "900",
+    textShadowColor: "black",
+    textShadowRadius: 5,
+    textAlign: "center",
+    marginTop: -40,
+  },
+
+  vocabulary: {
+    letterSpacing: 4,
+    fontSize: 38,
+    color: "#f0f8ff",
+    fontWeight: "900",
+    textShadowColor: "black",
+    textShadowRadius: 5,
+    marginTop: -5,
+    textAlign: "center",
+  },
+
   prowess: {
     fontSize: 50,
     color: "#f0f8ff",
     fontWeight: "900",
     textShadowColor: "black",
     textShadowRadius: 5,
-    marginTop: -10,
     paddingBottom: 30,
     textAlign: "center",
   },

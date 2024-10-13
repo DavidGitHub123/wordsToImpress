@@ -345,12 +345,12 @@ export default function Notifications({ navigation }) {
             <View style={mainStyles.centerChildren}>
               <View>
                 <Text style={mainStyles.header}>Notifications</Text>
-                <Text style={mainStyles.subHead2}>
+                {/* <Text style={mainStyles.subHead2}>
                   Repetition is the key to learning. Receive phone notifications
                   of the Word of the Day. Or schedule notifications every hour
                   or few hours of the words in your Word Mastery List. Or
                   schedule to take Word Mastery Challenges at convenient times.
-                </Text>
+                </Text> */}
               </View>
 
               <Text style={mainStyles.subheader}>Click to Schedule</Text>
