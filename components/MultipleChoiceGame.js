@@ -249,7 +249,7 @@ const style = StyleSheet.create({
   },
   centerContainer: {
     display: "flex",
-    flex: "1",
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
