@@ -16,7 +16,9 @@ import * as Device from "expo-device";
 import IconButton from "../components/IconButton";
 import Constants from "expo-constants";
 import { mainStyles } from "../components/mainStyles";
-
+import { getList, defaultList } from "../components/listHelpers";
+import data from "../data";
+import WordOfDay, { GetWordOfTheDay } from "./WordOfDay";
 
 Notifs.setNotificationHandler({
   handleNotification: async () => ({
@@ -104,7 +106,14 @@ async function registerForPushNotificationsAsync() {
   return token;
 }
 
-const get12HourFormat = (hour) => (hour > 12 ? hour - 12 : hour);
+const get12HourFormat = (hour) => {
+  if (hour === 0 || hour === 12) {
+    return 12;
+  } else if (hour > 12) {
+    return hour - 12;
+  }
+  return hour;
+};
 
 const getMinuteFormat = (minute) => {
   const minutesArray = [
@@ -187,10 +196,10 @@ export default function Notifications({ navigation }) {
 
   const openModal = (notifType) => {
     setNotificationType(notifType);
-    setShowModal(true);
+    setShowModal(notifType);
   };
 
-  const handleClose = async () => {
+  const handleClose = async (title, body) => {
     setShowModal(false);
 
     const hour = get12HourFormat(time.getHours());
@@ -214,9 +223,7 @@ export default function Notifications({ navigation }) {
       },
     };
 
-    const title = titleAndURLDictionary[notificationType].title;
     const url = titleAndURLDictionary[notificationType].url;
-    const body = "Come master some more words.";
 
     minute = time.getMinutes();
 
@@ -294,6 +301,36 @@ export default function Notifications({ navigation }) {
     );
   };
 
+  let modal = null;
+  if (showModal === NOTIF_TYPES.wordOfDay) {
+    modal = (
+      <WordOfTheDayModal
+        notificationType={notificationType}
+        time={time}
+        setTime={setTime}
+        handleClose={handleClose}
+      />
+    );
+  } else if (showModal === NOTIF_TYPES.wordReminder) {
+    modal = (
+      <IndividualWordModal
+        notificationType={notificationType}
+        time={time}
+        setTime={setTime}
+        handleClose={handleClose}
+      />
+    );
+  } else if (showModal === NOTIF_TYPES.mastery) {
+    modal = (
+      <WordMasteryModal
+        notificationType={notificationType}
+        time={time}
+        setTime={setTime}
+        handleClose={handleClose}
+      />
+    );
+  }
+
   return (
     <LinearGradient
       colors={["#335C81", "#6699FF"]}
@@ -304,7 +341,7 @@ export default function Notifications({ navigation }) {
     >
       <SafeAreaView>
         <ScrollView alwaysBounceHorizontal={true}>
-          {!showModal ? (
+          {!modal ? (
             <View style={mainStyles.centerChildren}>
               <View>
                 <Text style={mainStyles.header}>Notifications</Text>
@@ -349,12 +386,7 @@ export default function Notifications({ navigation }) {
             </View>
           ) : (
             <View style={mainStyles.centerChildren}>
-              <ScheduleModal
-                notificationType={notificationType}
-                time={time}
-                setTime={setTime}
-                handleClose={handleClose}
-              />
+              {modal}
               <AppButton
                 viewStyle={{ margin: "auto" }}
                 title="Back"
@@ -373,8 +405,19 @@ export default function Notifications({ navigation }) {
     </LinearGradient>
   );
 }
+const RenderTime = (time) => {
+  const formattedHours = get12HourFormat(time.getHours());
+  const formattedMinutes = getMinuteFormat(time.getMinutes());
+  const ampm = getAMPM(time.getHours());
 
-function ScheduleModal(Props) {
+  return (
+    <Text style={style.timeText}>
+      We will remind you at {formattedHours}:{formattedMinutes} {ampm}
+    </Text>
+  );
+};
+
+function WordOfTheDayModal(Props) {
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -386,15 +429,11 @@ function ScheduleModal(Props) {
     setIsSubmitted(true);
   };
 
-  const RenderTime = () => {
-    const formattedHours = get12HourFormat(time.getHours());
-    const formattedMinutes = getMinuteFormat(time.getMinutes());
-    const ampm = getAMPM(time.getHours());
-
-    return (
-      <Text style={style.timeText}>
-        We will remind you at {formattedHours}:{formattedMinutes} {ampm}
-      </Text>
+  const handleSubmit = () => {
+    const wordOfTheDay = GetWordOfTheDay();
+    handleClose(
+      wordOfTheDay.Word,
+      `${wordOfTheDay.Shortdef}\nLearn more words with Words to Impress.`,
     );
   };
 
@@ -410,9 +449,11 @@ function ScheduleModal(Props) {
       </View>
       {showTimePicker && (
         <View style={mainStyles.centerChildren}>
-          <Text style={{ ...mainStyles.text, ...style.marginAuto }}>
-            Click me
-          </Text>
+          {Platform.OS === "ios" && (
+            <Text style={{ ...mainStyles.text, ...style.marginAuto }}>
+              Click me
+            </Text>
+          )}
           <DateTimePicker
             value={time}
             mode="time"
@@ -424,13 +465,191 @@ function ScheduleModal(Props) {
       )}
       {isSubmitted && (
         <View style={mainStyles.centerChildren}>
-          {RenderTime()}
+          {RenderTime(time)}
           <AppButton
             viewStyle={style.marginAuto}
             icon="sign-out-alt"
             title="Remind me"
-            onPress={handleClose}
+            onPress={handleSubmit}
           />
+        </View>
+      )}
+    </View>
+  );
+}
+function IndividualWordModal(Props) {
+  const [showTimePicker, setShowTimePicker] = useState(false);
+  const [selectedWord, setSelectedWord] = useState(null);
+  const [list, setList] = useState(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const { notificationType, time, setTime, handleClose } = Props;
+
+  useEffect(() => {
+    const asyncWrapper = async () => {
+      const wordList = await getList(defaultList);
+      setList(wordList.map((el) => el.word));
+    };
+    asyncWrapper();
+  }, []);
+
+  const handleDateChange = (_, time) => {
+    setShowTimePicker(false);
+    setTime(time);
+    setIsSubmitted(true);
+  };
+
+  const handleSubmit = () => {
+    const title = selectedWord;
+    const wordIndex = data.findIndex((el) => el.Word === title);
+    const shortDef = data[wordIndex].Shortdef;
+    const body = `${shortDef}\nLearn more words with Words to Impress.`;
+    handleClose(title, body);
+  };
+
+  const renderList = () => {
+    if (!list) {
+      return <Text style={mainStyles.text}>Loading...</Text>;
+    }
+    return list
+      .sort((a, b) => (a === selectedWord ? -1 : b === selectedWord ? 1 : 0))
+      .map((el, i) => (
+        <AppButton
+          title={el}
+          key={i}
+          onPress={() => setSelectedWord(el)}
+          style={i === 0 && selectedWord ? { backgroundColor: "blue" } : {}}
+        />
+      ));
+  };
+
+  const renderWordOrList = () => {
+    const formattedList = renderList();
+    if (selectedWord) {
+      return (
+        <View>
+          {formattedList[0]}
+          <AppButton title="Show list" onPress={() => setSelectedWord(null)} />
+        </View>
+      );
+    }
+    return formattedList;
+  };
+
+  return (
+    <View style={mainStyles.centerChildren}>
+      <Text style={mainStyles.header2}>{notificationType} reminder</Text>
+      <View style={style.marginAuto}>
+        <AppButton
+          icon="user-clock"
+          title="Set time"
+          onPress={() => setShowTimePicker(true)}
+        />
+      </View>
+      {showTimePicker && (
+        <View style={mainStyles.centerChildren}>
+          {Platform.OS === "ios" && (
+            <Text style={{ ...mainStyles.text, ...style.marginAuto }}>
+              Click me
+            </Text>
+          )}
+          <DateTimePicker
+            value={time}
+            mode="time"
+            is24Hour={false}
+            onChange={handleDateChange}
+            style={style.marginAuto}
+          />
+        </View>
+      )}
+      {isSubmitted && (
+        <View style={mainStyles.centerChildren}>
+          {RenderTime(time)}
+          {selectedWord && (
+            <AppButton
+              viewStyle={style.marginAuto}
+              icon="sign-out-alt"
+              title="Remind me"
+              onPress={handleSubmit}
+            />
+          )}
+        </View>
+      )}
+      <View style={{ ...mainStyles.centerChildren, ...style.marginAuto }}>
+        {renderWordOrList()}
+      </View>
+    </View>
+  );
+}
+function WordMasteryModal(Props) {
+  const [showTimePicker, setShowTimePicker] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [option, setOption] = useState(null);
+
+  const { notificationType, time, setTime, handleClose } = Props;
+
+  const handleDateChange = (_, time) => {
+    setShowTimePicker(false);
+    setTime(time);
+    setIsSubmitted(true);
+  };
+
+  const handleSubmit = () => {
+    const title = `Come test your skills in ${option}`;
+    const body = "Learn more words with Words to Impress.";
+    handleClose(title, body);
+  };
+
+  const renderOptions = () =>
+    ["Sentence ID", "Quick Quiz", "Rapid Fire"].map((el, i) => (
+      <AppButton
+        style={option === el ? { backgroundColor: "blue" } : {}}
+        title={el}
+        key={i}
+        onPress={() => setOption(el)}
+      />
+    ));
+
+  return (
+    <View style={mainStyles.centerChildren}>
+      <Text style={mainStyles.header2}>{notificationType} reminder</Text>
+      <View style={style.marginAuto}>
+        <AppButton
+          icon="user-clock"
+          title="Set time"
+          onPress={() => setShowTimePicker(true)}
+        />
+      </View>
+      {showTimePicker && (
+        <View style={mainStyles.centerChildren}>
+          {Platform.OS === "ios" && (
+            <Text style={{ ...mainStyles.text, ...style.marginAuto }}>
+              Click me
+            </Text>
+          )}
+          <DateTimePicker
+            value={time}
+            mode="time"
+            is24Hour={false}
+            onChange={handleDateChange}
+            style={style.marginAuto}
+          />
+        </View>
+      )}
+      <View style={{ ...mainStyles.centerChildren, ...style.marginAuto }}>
+        {renderOptions()}
+      </View>
+      {isSubmitted && (
+        <View style={mainStyles.centerChildren}>
+          {RenderTime(time)}
+          {option && (
+            <AppButton
+              viewStyle={style.marginAuto}
+              icon="sign-out-alt"
+              title="Remind me"
+              onPress={handleSubmit}
+            />
+          )}
         </View>
       )}
     </View>

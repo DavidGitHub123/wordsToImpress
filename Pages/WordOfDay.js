@@ -14,22 +14,21 @@ import AddButton from "../components/AddButton";
 import backgrounds from "../backgrounds.js";
 import { mainStyles } from "../components/mainStyles.js";
 
+export function GetWordOfTheDay() {
+  const day = new Date().getDate();
+  const month = new Date().getMonth();
+  const year = new Date().getFullYear();
+  const randomIndex = (day + month + year) % data.length;
+  return data[randomIndex];
+}
 export default function WordOfDay({ navigation }) {
   const randomBackgroundIndex = Math.floor(Math.random() * backgrounds.length);
   const backgroundImage = backgrounds[randomBackgroundIndex];
 
-  function GetWordOfTheDay() {
-    const day = new Date().getDate();
-    const month = new Date().getMonth();
-    const year = new Date().getFullYear();
-    const randomIndex = (day + month + year) % data.length;
-    const selectedElement = data[randomIndex];
-    const selectedWord = data[randomIndex].Word;
-
-    const wordData = data.find((el) => el.Word === selectedWord);
-
+  function formatWordOfTheDay() {
+    const wordData = GetWordOfTheDay();
     const sentence = wordData.Longdef.split(" ").map((el, i) => {
-      if (el.toLowerCase().includes(selectedWord.toLowerCase())) {
+      if (el.toLowerCase().includes(wordData.Word.toLowerCase())) {
         return (
           <Text key={i} style={style.highlightedText}>
             {el}
@@ -46,14 +45,14 @@ export default function WordOfDay({ navigation }) {
     return (
       <View style={mainStyles.page}>
         <View style={style.screen}>
-          <Text style={style.word}>{selectedElement.Word}</Text>
+          <Text style={style.word}>{wordData.Word}</Text>
           <Text style={style.space}>
             <Text style={style.subHead}>Pron. </Text>
-            <Text style={mainStyles.text}>{selectedElement.Pronunciation}</Text>
+            <Text style={mainStyles.text}>{wordData.Pronunciation}</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.subHead}>Def: </Text>
-            <Text style={mainStyles.text}>{selectedElement.Shortdef}</Text>
+            <Text style={mainStyles.text}>{wordData.Shortdef}</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.subHead}>Sentence: </Text>
@@ -62,7 +61,7 @@ export default function WordOfDay({ navigation }) {
         </View>
 
         <View style={style.buttons}>
-          <ListenButton audio={selectedElement.Audio} />
+          <ListenButton audio={wordData.Audio} />
           <AddButton />
           <HomeButton navigation={navigation} />
         </View>
@@ -80,7 +79,7 @@ export default function WordOfDay({ navigation }) {
         <ScrollView alwaysBounceHorizontal={true}>
           <View>
             <Text style={mainStyles.header}>Word of the Day</Text>
-            {GetWordOfTheDay()}
+            {formatWordOfTheDay()}
           </View>
         </ScrollView>
       </SafeAreaView>
