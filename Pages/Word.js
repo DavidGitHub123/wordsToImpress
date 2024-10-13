@@ -33,15 +33,13 @@ export default function Word({ navigation }) {
     }
 
     const sentence = wordData.Longdef.split(" ").map((el, i) => {
-      if (el.toLowerCase().includes(selectedWord.toLowerCase())) {
-        return (
-          <Text key={i} style={style.highlightedText}>
-            {el}
-          </Text>
-        );
-      }
+      const isHighlighted = (w) =>
+        w.toLowerCase().includes(selectedWord.toLowerCase());
       return (
-        <Text key={i} style={mainStyles.text}>
+        <Text
+          key={i}
+          style={isHighlighted(el) ? style.highlightedText : mainStyles.text}
+        >
           {el}
         </Text>
       );
@@ -103,8 +101,7 @@ const style = StyleSheet.create({
   screen: {
     opacity: 0.7,
     backgroundColor: "black",
-    padding: 30,
-    borderRadius: 20,
+    padding: 20,
   },
 
   subHead: {
@@ -114,7 +111,7 @@ const style = StyleSheet.create({
   },
 
   subHeadSentence: {
-    fontSize: 24,
+    fontSize: 40,
     color: "#FF8C00",
     fontWeight: "600",
     marginBottom: 30,
@@ -124,7 +121,7 @@ const style = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexFlow: "wrap",
-    alignItems: "flex-start",
+    alignItems: "baseline",
     flexWrap: "wrap",
     rowGap: 2,
     columnGap: 4,
