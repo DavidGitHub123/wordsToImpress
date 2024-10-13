@@ -84,7 +84,7 @@ export default function Word({ navigation }) {
     <ImageBackground
       source={backgroundImage}
       resizeMode="cover"
-      style={style.image}
+      style={mainStyles.flexOne}
     >
       <SafeAreaView style={style.container}>
         <ScrollView alwaysBounceHorizontal={true}>
