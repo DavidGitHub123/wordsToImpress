@@ -84,7 +84,7 @@ export default function MyList({ navigation }) {
   const percentText = masteredWordCount / listLength;
   const formattedPercentText = isNaN(percentText)
     ? "0.00"
-    : percentText.toFixed(2);
+    : percentText.toFixed(0);
 
   return (
     <LinearGradient
@@ -101,9 +101,6 @@ export default function MyList({ navigation }) {
           </View>
           <View style={style.donutContainer}>
             <Text style={style.percentText}>{formattedPercentText}%</Text>
-            <Text style={style.donutText}>
-              {masteredWordCount}/{listLength}
-            </Text>
             {
               <PieChart
                 style={style.donut}
@@ -116,6 +113,10 @@ export default function MyList({ navigation }) {
           </View>
 
           <Text style={style.mylistheader}>My List</Text>
+
+          <Text style={style.donutText}>
+              {masteredWordCount}/{listLength}
+            </Text>
 
           <View style={mainStyles.section}>{listOrLoading}</View>
 
@@ -142,7 +143,7 @@ const style = StyleSheet.create({
     verticalAlign: "middle",
     color: "#fff",
     textAlign: "center",
-    fontSize: 40,
+    fontSize: 30,
   },
 
   donutContainer: {
@@ -181,7 +182,7 @@ const style = StyleSheet.create({
   },
   percentText: {
     color: "#4cf03a",
-    fontSize: 35,
+    fontSize: 60,
     fontWeight: "600",
     marginLeft: "auto",
     marginRight: "auto",

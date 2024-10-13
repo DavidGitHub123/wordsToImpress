@@ -103,7 +103,8 @@ const style = StyleSheet.create({
   screen: {
     opacity: 0.7,
     backgroundColor: "black",
-    padding: 20,
+    padding: 30,
+    borderRadius: 20,
   },
 
   subHead: {
@@ -113,7 +114,7 @@ const style = StyleSheet.create({
   },
 
   subHeadSentence: {
-    fontSize: 40,
+    fontSize: 24,
     color: "#FF8C00",
     fontWeight: "600",
     marginBottom: 30,

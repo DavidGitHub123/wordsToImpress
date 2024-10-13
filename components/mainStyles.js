@@ -9,6 +9,7 @@ const mainStyles = StyleSheet.create({
     fontSize: 40,
     color: "#f0f8ff",
     fontWeight: "800",
+    paddingBottom: 20,
     paddingTop: 40,
     textAlign: "center",
   },
@@ -22,6 +23,8 @@ const mainStyles = StyleSheet.create({
   },
   page: {
     flex: 1,
+    paddingBottom: 200,
+    paddingHorizontal: 20,
   },
   section: {
     paddingVertical: 30,
@@ -49,9 +52,10 @@ const mainStyles = StyleSheet.create({
     textAlign: "center",
   },
   text: {
-    fontSize: 24,
+    fontSize: 18,
     color: "#f0f8ff",
-    fontWeight: "600",
+    paddingBottom: 10,
+    paddingHorizontal: 20,
   },
   text2: {
     fontSize: 24,
@@ -88,7 +92,7 @@ const mainStyles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 20,
     paddingHorizontal: 30,
-    textAlign: "justify",
+    // textAlign: "justify",
   },
   topHeader: {
     marginTop: StatusBarHeight,

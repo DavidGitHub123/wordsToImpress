@@ -119,6 +119,7 @@ const style = StyleSheet.create({
     borderColor: "#fff",
     borderRadius: 5,
     backgroundColor: "#fff",
+    marginVertical: 30,
   },
   centerChildren: {
     display: "flex",
