@@ -16,9 +16,10 @@ import backgrounds from "../backgrounds.js";
 import { mainStyles } from "../components/mainStyles.js";
 
 export function GetWordOfTheDay() {
-  const day = new Date().getDate();
-  const month = new Date().getMonth();
-  const year = new Date().getFullYear();
+  // Multiple to make more random
+  const day = new Date().getDate() * 3;
+  const month = new Date().getMonth() * 5;
+  const year = new Date().getFullYear() * 7;
   const randomIndex = (day + month + year) % data.length;
   return data[randomIndex];
 }
