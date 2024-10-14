@@ -135,6 +135,12 @@ const mainStyles = StyleSheet.create({
     fontWeight: 700,
     textAlign: "center",
   },
+  greenColor: {
+    color: "#4cf03a",
+  },
+  greenBackground: {
+    backgroundColor: "#4cf03a",
+  },
 });
 
 export { mainStyles };

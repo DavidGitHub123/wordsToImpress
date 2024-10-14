@@ -2,12 +2,22 @@ import React from "react";
 import { StyleSheet, Pressable } from "react-native";
 import AppButton from "./AppButton";
 
-function NavButtonWord({ navigation, title, destination, icon = "sign-in" }) {
+function NavButtonWord({
+  navigation,
+  title,
+  destination,
+  icon = "sign-in",
+  textColor,
+  backgroundColor,
+}) {
+  console.log(textColor);
   return (
     <Pressable style={navStyle.appButton}>
       <AppButton
         icon={icon}
         title={title}
+        textColor={textColor}
+        backgroundColor={backgroundColor}
         onPress={() =>
           navigation.navigate(destination, { selectedWord: title })
         }

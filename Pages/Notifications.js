@@ -374,8 +374,6 @@ const style = StyleSheet.create({
     margin: "auto",
   },
 
-  marginAuto: { margin: "auto" },
-
   timeContainer: {
     display: "flex",
     flexDirection: "row",

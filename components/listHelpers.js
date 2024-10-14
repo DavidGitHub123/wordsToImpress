@@ -127,9 +127,14 @@ const initLists = async (isDev) => {
   if (isDev) {
     await _resetDefaultList();
 
-    for (const wordData of data.slice(0, 50)) {
-      await addOneWordToList(defaultList, wordData.Word);
-    }
+    const testList = data.slice(0, 50).map((el, i) => {
+      const wordObj = wordMasteryFactory(el.Word);
+      if (i <= 47) {
+        wordObj.mastery = 10;
+      }
+      return wordObj;
+    });
+    await updateList(defaultList, testList);
   }
 };
 export {
