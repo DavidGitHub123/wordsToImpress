@@ -12,6 +12,7 @@ export default function AppButton(Props) {
     style,
     size,
     viewStyle,
+    textColor,
   } = Props;
 
   let height;
@@ -57,7 +58,9 @@ export default function AppButton(Props) {
         width={width}
         style={iconButtonStyle}
       >
-        <Text style={defaultStyle.appButtonText}>{title}</Text>
+        <Text style={{ ...defaultStyle.appButtonText, ...textColor }}>
+          {title}
+        </Text>
       </Icon.Button>
     </View>
   );

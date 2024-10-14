@@ -16,49 +16,35 @@ export default function MyList({ navigation }) {
   const [masteredWordCount, setMasteredWordCount] = useState(0);
   const [unMasteredWordCount, setUnMasteredWordCount] = useState(0);
   const [listLength, setListLength] = useState(0);
+  const [listOrLoading, setListOrLoading] = useState(null);
+
+  console.log(`| List length: ${listLength}      |`);
+  console.log(`| Unmastered length: ${unMasteredWordCount}|`);
+  console.log(`| Mastered length: ${masteredWordCount}  |`);
+  console.log("+----------------------+");
 
   const handleDelete = async (word) => {
     await removeOneWordFromList(defaultList, word);
     await getAndParseList();
   };
 
-  const [listOrLoading, setListOrLoading] = useState([
-    <Text key={0} style={mainStyles.text}>
-      Loading...
-    </Text>,
-  ]);
-
   async function getAndParseList() {
     const list = await getList(defaultList);
     if (list === null) {
       return;
-    } else if (list.length === 0) {
-      setListLength(0);
-      setListOrLoading(
-        <Text style={{ ...mainStyles.text, ...style.textAlignCenter }} key={0}>
-          No words in your list, go add some to see them here
-        </Text>,
-      );
-      return;
     }
+    const sortedList = list.sort((a, b) => {
+      if (a.mastery >= 10 && b.mastery < 10) {
+        return 1;
+      } else if (b.mastery >= 10 && a.mastery < 10) {
+        return -1;
+      }
+      return a.word.localeCompare(b.word);
+    });
 
-    const parsedList = list.map((el, i) => (
-      <View key={i} style={style.wordDeleteContainer}>
-        <NavButtonWord
-          navigation={navigation}
-          title={el.word}
-          destination="Word"
-        />
-        <IconButton
-          name="trash"
-          onPress={() => handleDelete(el.word)}
-          style={style.deleteButton}
-        />
-      </View>
-    ));
-    setListOrLoading(parsedList);
+    setListOrLoading(sortedList);
 
-    const amountOfMasteredWords = list.filter((el) => el.mastery >= 5).length;
+    const amountOfMasteredWords = list.filter((el) => el.mastery >= 10).length;
     setMasteredWordCount(amountOfMasteredWords);
     setUnMasteredWordCount(list.length - amountOfMasteredWords);
     setListLength(list.length);
@@ -75,6 +61,7 @@ export default function MyList({ navigation }) {
     masteredWordCount,
     unMasteredWordCount === 0 ? 1 : unMasteredWordCount,
   ];
+  console.log(donutSeries);
   const GREEN_PERCENT = 0.7;
   const donutColor =
     GREEN_PERCENT <= masteredWordCount / listLength
@@ -83,8 +70,34 @@ export default function MyList({ navigation }) {
 
   const percentText = masteredWordCount / listLength;
   const formattedPercentText = isNaN(percentText)
-    ? "0.00"
-    : percentText.toFixed(0);
+    ? "0"
+    : (percentText * 100).toFixed(0);
+
+  const renderList = () => {
+    if (listOrLoading === null) {
+      return [
+        <Text key={0} style={mainStyles.text}>
+          Loading...
+        </Text>,
+      ];
+    }
+
+    return listOrLoading.map((el, i) => (
+      <View key={i} style={style.wordDeleteContainer}>
+        <NavButtonWord
+          navigation={navigation}
+          title={el.word}
+          destination="Word"
+          backgroundColor={el.mastery >= 10 ? "#5ba653" : null}
+        />
+        <IconButton
+          name="trash"
+          onPress={() => handleDelete(el.word)}
+          style={style.deleteButton}
+        />
+      </View>
+    ));
+  };
 
   return (
     <LinearGradient
@@ -97,30 +110,30 @@ export default function MyList({ navigation }) {
       <SafeAreaView>
         <ScrollView alwaysBounceHorizontal={true}>
           <View style={mainStyles.screen}>
-          <View>
-            <Text style={mainStyles.header}>My Mastery</Text>
-          </View>
-          <View style={style.donutContainer}>
-            <Text style={style.percentText}>{formattedPercentText}%</Text>
-            {
-              <PieChart
-                style={style.donut}
-                widthAndHeight={200}
-                series={donutSeries}
-                sliceColor={[donutColor.highlight, donutColor.base]}
-                coverRadius={0.8}
-              />
-            }
-          </View>
+            <View>
+              <Text style={mainStyles.header}>My Mastery</Text>
+            </View>
+            <View style={style.donutContainer}>
+              <Text style={style.percentText}>{formattedPercentText}%</Text>
+              {
+                <PieChart
+                  style={style.donut}
+                  widthAndHeight={200}
+                  series={donutSeries}
+                  sliceColor={[donutColor.highlight, donutColor.base]}
+                  coverRadius={0.8}
+                />
+              }
+            </View>
           </View>
 
           <Text style={mainStyles.headLine2}>My List</Text>
 
           <Text style={style.donutText}>
-              {masteredWordCount}/{listLength}
-            </Text>
+            {masteredWordCount}/{listLength}
+          </Text>
 
-          <View style={mainStyles.section}>{listOrLoading}</View>
+          <View style={mainStyles.section}>{renderList()}</View>
 
           <View style={style.buttons}>
             <HomeButton style={style.homebutton} navigation={navigation} />
@@ -132,7 +145,6 @@ export default function MyList({ navigation }) {
 }
 
 const style = StyleSheet.create({
-
   donut: {
     width: "100%",
     height: "100%",
