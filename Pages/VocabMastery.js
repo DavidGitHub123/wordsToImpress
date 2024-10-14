@@ -23,7 +23,7 @@ export default function VocabMastery({ navigation }) {
         <View style={style.screen}>
           <Text style={mainStyles.header}>Vocab Mastery</Text>
 
-          <Text style={mainStyles.text}>
+          <Text style={mainStyles.subHead2}>
             Here you can learn words to make them part of your everyday writing
             and understanding. Once correctly identied 5 times, a word moves
             into your Mastered List. Only words you have not mastered appear for

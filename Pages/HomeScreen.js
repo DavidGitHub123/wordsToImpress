@@ -8,7 +8,7 @@ import {
   ImageBackground,
 } from "react-native";
 import logo from "../assets/logoborderradius.jpg";
-import words5 from "../assets/words5.jpg";
+import phone from "../assets/phone.jpg";
 import AppButton from "../components/AppButton";
 import IconButton from "../components/IconButton";
 import { mainStyles } from "../components/mainStyles";
@@ -18,7 +18,7 @@ export default function HomeScreen({ navigation }) {
     <ImageBackground
       style={mainStyles.backgroundImage}
       resizeMode="cover"
-      source={words5}
+      source={phone}
     >
       <SafeAreaView>
         <View style={mainStyles.topHeader}>
@@ -33,7 +33,6 @@ export default function HomeScreen({ navigation }) {
             borderWidth="1"
             icon="table"
             title="About"
-            paddingRight='20'
             onPress={() => navigation.navigate("System")}
           />
         </View>

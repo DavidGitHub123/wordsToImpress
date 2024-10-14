@@ -172,7 +172,7 @@ export default function MultipleChoiceGame(Props) {
           <NavButton
             navigation={navigation}
             title="Word Mastery"
-            destination="MyList"
+            destination="VocabMastery"
           />
           <HomeButton navigation={navigation} />
         </View>

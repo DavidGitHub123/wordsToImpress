@@ -67,7 +67,7 @@ function Game(Props) {
 
   const exitGame = () => {
     setCardIndex(0);
-    navigation.navigate("MyList");
+    navigation.navigate("VocabMastery");
   };
 
   const resetRound = () => {
@@ -114,7 +114,7 @@ function Game(Props) {
 
   return (
     <View style={style.gameContainer}>
-      <Text style={mainStyles.header}>Time left: {timeLeft}</Text>
+      <Text style={style.timeleft}>Time left: {timeLeft}</Text>
       <RapidFireCards words={words} front={front} cardIndex={cardIndex} />
       {flipOrNextButton}
     </View>
@@ -160,6 +160,12 @@ const style = StyleSheet.create({
     height: 50,
   },
 
+  timeleft: {
+    paddingBottom: 20,
+    fontSize: 20,
+    color: '#fff',
+  },
+
   timingButtonContainer: {
     display: "flex",
     flexWrap: "nowrap",
@@ -175,5 +181,10 @@ const style = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    opacity: 0.5,
+    backgroundColor: "black",
+    paddingHorizontal: 60,
+    paddingBottom: 30,
+    borderRadius: 20,
   },
 });
