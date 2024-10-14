@@ -164,19 +164,6 @@ export default function NotificationModal(Props) {
   );
 }
 const style = StyleSheet.create({
-  buttons: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  bottomButtons: {
-    display: "flex",
-    margin: "auto",
-    justifyContent: "center",
-    paddingTop: 20,
-  },
-
   timeText: {
     paddingTop: 2,
     paddingBottom: 2,
