@@ -96,6 +96,7 @@ export default function MyList({ navigation }) {
     >
       <SafeAreaView>
         <ScrollView alwaysBounceHorizontal={true}>
+          <View style={mainStyles.screen}>
           <View>
             <Text style={mainStyles.header}>My Mastery</Text>
           </View>
@@ -111,8 +112,9 @@ export default function MyList({ navigation }) {
               />
             }
           </View>
+          </View>
 
-          <Text style={style.mylistheader}>My List</Text>
+          <Text style={mainStyles.headLine2}>My List</Text>
 
           <Text style={style.donutText}>
               {masteredWordCount}/{listLength}
@@ -130,6 +132,7 @@ export default function MyList({ navigation }) {
 }
 
 const style = StyleSheet.create({
+
   donut: {
     width: "100%",
     height: "100%",

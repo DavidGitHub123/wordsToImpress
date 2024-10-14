@@ -13,6 +13,7 @@ import AppButton from "../components/AppButton";
 import { LinearGradient } from "expo-linear-gradient";
 import { navStyle } from "../components/NavButton.js";
 import HomeButton from "../components/HomeButton";
+import { mainStyles } from "../components/mainStyles.js";
 
 export default function AtoZWords({ route, navigation }) {
   const { selectedWord } = route.params;
@@ -40,7 +41,7 @@ export default function AtoZWords({ route, navigation }) {
         >
           <View style={style.page}>
             <View>
-              <Text style={style.header}>{selectedWord} Words</Text>
+              <Text style={mainStyles.headLine2}>{selectedWord} Words</Text>
             </View>
 
             <View style={style.bottomButtons}>

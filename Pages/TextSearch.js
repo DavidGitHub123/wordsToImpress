@@ -69,13 +69,13 @@ export default function TextSearch({ navigation }) {
     >
       <SafeAreaView style={style.container}>
         <ScrollView alwaysBounceHorizontal={true}>
-          <View>
+          <View style={mainStyles.screen}>
             <Text style={mainStyles.header}>Text Search</Text>
-            <Text style={mainStyles.text}>
-              Copy emails, communications, proposals, etc. into this box and
+            <Text style={mainStyles.subHead2}>
+              Copy emails, proposals, fiction, etc. into this box. Our tools will
               analyze your communication patterns to suggest new vocabulary
-              words that correspond to your speaking style and context. Then add
-              these words to My Vocab List.
+              words that correspond to your speaking and writing style. Then add
+              these words to your vocabulary list.
             </Text>
           </View>
           <View style={style.centerChildren}>

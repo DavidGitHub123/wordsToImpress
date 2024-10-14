@@ -3,6 +3,7 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from "../components/HomeButton";
 import { NavButtonWord } from "../components/NavButtonWord";
+import { mainStyles } from "../components/mainStyles";
 
 export default function PreBuiltListNew({ navigation }) {
   return (
@@ -15,7 +16,7 @@ export default function PreBuiltListNew({ navigation }) {
         style={style.page}
       >
         <SafeAreaView>
-          <View style={style.screen}>
+          <View style={mainStyles.screen}>
             <Text style={style.header}>Pre-Built List</Text>
             <Text style={style.subHead}>
               Here&apos;s a pre-built list of 50 words. Add these words to
@@ -292,13 +293,6 @@ export default function PreBuiltListNew({ navigation }) {
 const style = StyleSheet.create({
   page: {
     paddingBottom: 50,
-  },
-
-  screen: {
-    opacity: 0.5,
-    backgroundColor: "black",
-    paddingBottom: 20,
-    marginBottom: 30,
   },
 
   HomeButton: {
