@@ -50,7 +50,7 @@ export default function System({ navigation }) {
           50 to 100 “big” vocabulary words.
           The Words to Impress App helps you build a list unique to you. Once
           your list is complete, study those words, making them your own. If you're an 
-          overachiever, add more and more words.
+          overachiever, add more words.
         </Text>
         {hideButton}
       </View>
@@ -107,8 +107,8 @@ export default function System({ navigation }) {
   return (
     <LinearGradient
       colors={["#6699FF", "#335C81"]}
-      start={{ x: 0.5, y: 0.25 }}
-      end={{ x: 0.25, y: 0.5 }}
+      start={{ x: 0.5, y: 0.5 }}
+      end={{ x: 0.5, y: 0.5 }}
       opacity={1.0}
       style={mainStyles.page}
     >

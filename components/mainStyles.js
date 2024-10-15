@@ -30,13 +30,6 @@ const mainStyles = StyleSheet.create({
   homeButton: {
     paddingTop: 30,
   },
-  screen: {
-    opacity: 0.5,
-    backgroundColor: "black",
-    paddingBottom: 20,
-    marginBottom: 30,
-    borderRadius: 20,
-  },
   headLine: {
     fontSize: 40,
     color: "#f0f8ff",
@@ -53,7 +46,7 @@ const mainStyles = StyleSheet.create({
     fontWeight: "900",
     textShadowColor: "black",
     textShadowRadius: 5,
-    // marginTop: -10,
+    marginTop: -10,
     textAlign: "center",
   },
   text: {
@@ -84,15 +77,21 @@ const mainStyles = StyleSheet.create({
     color: "#fff",
     fontWeight: "600",
     paddingTop: 50,
-    paddingBottom: 20,
     paddingHorizontal: 30,
   },
   subHead2: {
     fontSize: 20,
     color: "#fff",
     fontWeight: "600",
+    paddingTop: 20,
     paddingBottom: 20,
     paddingHorizontal: 30,
+    // textAlign: "justify",
+  },
+  screen: {
+    opacity: 0.5,
+    backgroundColor: "black",
+    marginBottom: 30,
   },
   topHeader: {
     marginTop: StatusBarHeight,
@@ -100,7 +99,6 @@ const mainStyles = StyleSheet.create({
     justifyContent: "space-between",
     flexDirection: "row",
     paddingHorizontal: 10,
-    // opacity: 0.6,
     backgroundColor: "#FF8C00",
   },
   fullScreen: {

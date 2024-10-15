@@ -17,6 +17,7 @@ import {
 import RapidFireCards from "./RapidFireCards";
 import AppButton from "../components/AppButton";
 import { mainStyles } from "../components/mainStyles";
+import HomeButton from "../components/HomeButton";
 
 export default function RapidFire({ navigation }) {
   const [timing, setTiming] = useState(10);
@@ -134,14 +135,14 @@ function GameSetUp(Props) {
     >
       <RadioButton selected={timing === el} />
       <Text style={mainStyles.text}>
-        {el} {el === "Unlimited" ? "Time" : "Seconds"}
+        {el} {el === "Unlimited" ? "" : "Seconds"}
       </Text>
     </Pressable>
   ));
 
   return (
     <View style={style.timingOptionsContainer}>
-      <Text style={mainStyles.header}>Rapid fire </Text>
+      <Text style={mainStyles.header}>Rapid Fire </Text>
       <Text style={mainStyles.text}>Select your speed:</Text>
       <View>{timingButtons}</View>
 
