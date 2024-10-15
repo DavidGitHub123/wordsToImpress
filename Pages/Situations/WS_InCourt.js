@@ -32,7 +32,7 @@ export default function WS_InCourt({ navigation }) {
 
   const Adjudicate = () => (
     <View style={style.component}>
-      <View style={style.screen}>
+      <View style={mainStyles.screen}>
         <Text style={style.subHead}>Adjudicate</Text>
         <Text style={style.space}>
           <Text style={style.title}>Pron: </Text>
@@ -62,7 +62,7 @@ export default function WS_InCourt({ navigation }) {
   const Barrage = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Barrage</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -95,7 +95,7 @@ export default function WS_InCourt({ navigation }) {
   const Catch22 = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Catch-22</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -129,7 +129,7 @@ export default function WS_InCourt({ navigation }) {
   const Defamation = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Defamation</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -160,7 +160,7 @@ export default function WS_InCourt({ navigation }) {
   const Elucidate = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Elucidate</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -191,7 +191,7 @@ export default function WS_InCourt({ navigation }) {
   const Fabulist = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Fabulist</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -222,7 +222,7 @@ export default function WS_InCourt({ navigation }) {
   const Grandiloquence = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Grandiloquence</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -252,7 +252,7 @@ export default function WS_InCourt({ navigation }) {
   const Heinous = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Heinous</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -282,7 +282,7 @@ export default function WS_InCourt({ navigation }) {
   const Ignominious = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Ignominious</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -312,7 +312,7 @@ export default function WS_InCourt({ navigation }) {
   const Judicature = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Judicature</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -482,13 +482,6 @@ const style = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     paddingBottom: 200,
-  },
-
-  screen: {
-    opacity: 0.9,
-    backgroundColor: "black",
-    marginBottom: 40,
-    padding: 20,
   },
 
   subHead: {

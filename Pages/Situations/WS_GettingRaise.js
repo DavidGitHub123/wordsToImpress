@@ -33,7 +33,7 @@ export default function WS_GettingRaise({ navigation }) {
   const Aggrandize = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Aggrandize</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -62,7 +62,7 @@ export default function WS_GettingRaise({ navigation }) {
   const Benevolent = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Benevolent</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -93,7 +93,7 @@ export default function WS_GettingRaise({ navigation }) {
   const Celerity = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Celerity</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -123,7 +123,7 @@ export default function WS_GettingRaise({ navigation }) {
   const Debilitate = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Debilitate</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -152,7 +152,7 @@ export default function WS_GettingRaise({ navigation }) {
   const Effete = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Effete</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -182,7 +182,7 @@ export default function WS_GettingRaise({ navigation }) {
   const Facetious = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Facetious</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -211,7 +211,7 @@ export default function WS_GettingRaise({ navigation }) {
   const Garrulity = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Garrulity</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -240,7 +240,7 @@ export default function WS_GettingRaise({ navigation }) {
   const Halcyon = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Halcyon</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -270,7 +270,7 @@ export default function WS_GettingRaise({ navigation }) {
   const Iconoclastic = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Iconoclastic</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -302,7 +302,7 @@ export default function WS_GettingRaise({ navigation }) {
   const Neplusultra = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Ne Plus Ultra</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -474,13 +474,6 @@ const style = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     paddingBottom: 200,
-  },
-
-  screen: {
-    opacity: 0.9,
-    backgroundColor: "black",
-    marginBottom: 40,
-    padding: 20,
   },
 
   subHead: {

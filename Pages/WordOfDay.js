@@ -42,7 +42,7 @@ export default function WordOfDay({ navigation }) {
 
     return (
       <View style={mainStyles.page}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.word}>{wordData.Word}</Text>
           <Text style={style.space}>
             <Text style={style.subHead}>Pron: </Text>
@@ -92,12 +92,6 @@ const sentenceWidth = Dimensions.get("screen").width * 0.9;
 const style = StyleSheet.create({
   space: {
     paddingBottom: 10,
-  },
-
-  screen: {
-    opacity: 0.7,
-    backgroundColor: "black",
-    padding: 20,
   },
 
   subHead: {

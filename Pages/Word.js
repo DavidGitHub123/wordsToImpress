@@ -47,7 +47,7 @@ export default function Word({ navigation }) {
 
     return (
       <View style={mainStyles.page}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={mainStyles.header}>{wordData.Word}</Text>
           <Text style={style.space}>
             <Text style={style.subHead}>Pron. </Text>
@@ -96,12 +96,6 @@ export default function Word({ navigation }) {
 const style = StyleSheet.create({
   space: {
     paddingBottom: 10,
-  },
-
-  screen: {
-    opacity: 0.7,
-    backgroundColor: "black",
-    padding: 20,
   },
 
   subHead: {

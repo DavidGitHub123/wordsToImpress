@@ -11,25 +11,26 @@ import {
 import PieChart from "react-native-pie-chart";
 import IconButton from "../components/IconButton";
 import { mainStyles } from "../components/mainStyles";
+import ListDropdown from "../components/ListDropdown";
 
-export default function MyList({ navigation }) {
+export default function MyList({ route, navigation }) {
   const [masteredWordCount, setMasteredWordCount] = useState(0);
   const [unMasteredWordCount, setUnMasteredWordCount] = useState(0);
   const [listLength, setListLength] = useState(0);
   const [listOrLoading, setListOrLoading] = useState(null);
 
-  console.log(`| List length: ${listLength}      |`);
-  console.log(`| Unmastered length: ${unMasteredWordCount}|`);
-  console.log(`| Mastered length: ${masteredWordCount}  |`);
-  console.log("+----------------------+");
+  let listParam;
+  if (route.params && route.params.listParam) {
+    listParam = route.params.listParam;
+  }
 
   const handleDelete = async (word) => {
     await removeOneWordFromList(defaultList, word);
     await getAndParseList();
   };
 
-  async function getAndParseList() {
-    const list = await getList(defaultList);
+  async function getAndParseList(name = defaultList) {
+    const list = await getList(name);
     if (list === null) {
       return;
     }
@@ -52,6 +53,10 @@ export default function MyList({ navigation }) {
 
   useEffect(() => {
     const asyncWrapper = async () => {
+      if (listParam) {
+        await getAndParseList(listParam);
+        return;
+      }
       await getAndParseList();
     };
     asyncWrapper();
@@ -61,7 +66,6 @@ export default function MyList({ navigation }) {
     masteredWordCount,
     unMasteredWordCount === 0 ? 1 : unMasteredWordCount,
   ];
-  console.log(donutSeries);
   const GREEN_PERCENT = 0.7;
   const donutColor =
     GREEN_PERCENT <= masteredWordCount / listLength
@@ -127,8 +131,7 @@ export default function MyList({ navigation }) {
             </View>
           </View>
 
-          <Text style={mainStyles.headLine2}>My List</Text>
-
+          <ListDropdown setParent={getAndParseList} initialList={listParam} />
           <Text style={style.donutText}>
             {masteredWordCount}/{listLength}
           </Text>

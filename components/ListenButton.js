@@ -21,7 +21,6 @@ export default function ListenButton({ audio }) {
 
   async function playSound() {
     const { sound } = await Audio.Sound.createAsync(audio);
-    console.log(sound);
     setSound(sound);
     await sound.playAsync();
   }

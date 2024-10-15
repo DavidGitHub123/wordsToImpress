@@ -33,7 +33,6 @@ export default function MultipleChoiceGame(Props) {
   let question;
   if (listIndex <= list.length - 1) {
     const wordIndex = data.findIndex((el) => el.Word === list[listIndex].Word);
-    console.log(questionType);
     question = data[wordIndex][questionType];
 
     question = question.split(" ").map((el, i) => {
@@ -55,8 +54,6 @@ export default function MultipleChoiceGame(Props) {
 
     let wrongAnswers = [];
     const rightAnswerWord = list[listIndex][answerType];
-    console.log(rightAnswerWord);
-    console.log(list[listIndex]);
 
     while (wrongAnswers.length < MAX_INCORRECT_ANSWERS) {
       const randomWord = data[getRandomIndex()][answerType];
@@ -161,9 +158,11 @@ export default function MultipleChoiceGame(Props) {
       opacity={1.0}
       style={style.flexOne}
     >
-      {gameOver ? (
+      {gameOver ? 
         <View style={style.endContainer}>
-          <Text style={style.header}>You scored {score}/10</Text>
+          <Text style={style.header}>
+            You scored {score}/{list.length}
+          </Text>
           <AppButton
             icon="sign-in"
             title="Play Again"
@@ -178,11 +177,12 @@ export default function MultipleChoiceGame(Props) {
         </View>
       ) : (
         <View style={{ ...style.centerContainer, ...style.width90 }}>
-          <Text style={style.header}>{listIndex + 1}/10</Text>
-          {/* <Text style={mainStyles.subheader}>
-            Identify the word that matches this{" "}
-            {typeDictoinary[questionType]}:
-          </Text> */}
+          <Text style={style.header}>
+            {listIndex + 1}/{list.length}
+          </Text>
+          <Text style={mainStyles.subheader}>
+            Identify the word that matches this {typeDictoinary[questionType]}:
+          </Text>
           <View style={style.flexQuestion}>{question}</View>
           {renderAnwsers()}
           {displayNext ? renderCorrectandNextButton() : null}
@@ -305,7 +305,8 @@ const style = StyleSheet.create({
     alignItems: "baseline",
     flexWrap: "wrap",
     rowGap: 2,
-    columnGap: 4,
-    marginBottom: 20,
+    columnGap: 4,   
+    paddingBottom: 20,
+    color: "pink",
   },
 });
