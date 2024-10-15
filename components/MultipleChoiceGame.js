@@ -160,7 +160,9 @@ export default function MultipleChoiceGame(Props) {
     >
       {gameOver ? (
         <View style={style.centerContainer}>
-          <Text style={style.header}>You scored {score}/10</Text>
+          <Text style={style.header}>
+            You scored {score}/{list.length}
+          </Text>
           <AppButton
             icon="sign-in"
             title="Play Again"
@@ -175,10 +177,11 @@ export default function MultipleChoiceGame(Props) {
         </View>
       ) : (
         <View style={{ ...style.centerContainer, ...style.width90 }}>
-          <Text style={style.header}>{listIndex + 1}/10</Text>
+          <Text style={style.header}>
+            {listIndex + 1}/{list.length}
+          </Text>
           <Text style={mainStyles.subheader}>
-            Identify the word that matches this{" "}
-            {typeDictoinary[questionType]}:
+            Identify the word that matches this {typeDictoinary[questionType]}:
           </Text>
           <View style={style.flexQuestion}>{question}</View>
           {renderAnwsers()}
@@ -281,6 +284,6 @@ const style = StyleSheet.create({
     rowGap: 2,
     columnGap: 4,
     paddingBottom: 20,
-    color: 'pink',
+    color: "pink",
   },
 });

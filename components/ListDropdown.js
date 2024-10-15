@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, Text, Modal, TextInput } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Modal,
+  TextInput,
+  Dimensions,
+} from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 import AppButton from "./AppButton";
 import IconButton from "./IconButton";
@@ -105,6 +112,8 @@ export default function ListDropdown(Props) {
   );
 }
 
+const dimensions = Dimensions.get("screen");
+
 const style = StyleSheet.create({
   dropdown: {
     margin: 16,
@@ -112,7 +121,7 @@ const style = StyleSheet.create({
     borderBottomColor: "gray",
     borderBottomWidth: 0.5,
     backgroundColor: "white",
-    width: "90%",
+    width: dimensions.width * 0.9,
   },
   placeholderStyle: {
     fontSize: 16,
