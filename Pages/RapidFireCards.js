@@ -37,8 +37,7 @@ const style = StyleSheet.create({
   screen: {
     opacity: 0.5,
     backgroundColor: "black",
-    paddingHorizontal: 60,
-    paddingBottom: 30,
+    paddingHorizontal: 10,
     borderRadius: 20,
     marginBottom: 30,
   },
@@ -48,16 +47,16 @@ const style = StyleSheet.create({
     color: "#f0f8ff",
     fontWeight: "800",
     textAlign: "center",
-    paddingTop: 40,
-    paddingBottom: 40,
+    paddingTop: 20,
+    paddingBottom: 20,
   },
 
   subHead: {
     fontSize: 28,
     color: "#f0f8ff",
     paddingVertical: 40,
-    paddingHorizontal: 40,
+    paddingHorizontal: 20,
     fontWeight: "600",
-    textAlign: "center",
+    textAlign: "left",
   },
 });

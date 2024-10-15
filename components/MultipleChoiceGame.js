@@ -179,8 +179,8 @@ export default function MultipleChoiceGame(Props) {
       ) : (
         <View style={{ ...style.centerContainer, ...style.width90 }}>
           <Text style={style.header}>{listIndex + 1}/10</Text>
-          <Text style={mainStyles.text2}>
-            Identify the correct word that matches this{" "}
+          <Text style={mainStyles.subheader}>
+            Identify the word that matches this{" "}
             {typeDictoinary[questionType]}:
           </Text>
           <View style={style.flexQuestion}>{question}</View>
@@ -219,15 +219,14 @@ const style = StyleSheet.create({
   },
 
   wordList: {
-    fontSize: 18,
     color: "#f0f8ff",
     textAlign: "center",
     paddingTop: 20,
   },
 
-  buttons: {
-    paddingTop: 20,
-  },
+  // buttons: {
+  //   paddingTop: 20,
+  // },
 
   timingButtonContainer: {
     display: "flex",
@@ -284,5 +283,7 @@ const style = StyleSheet.create({
     flexWrap: "wrap",
     rowGap: 2,
     columnGap: 4,
+    paddingBottom: 20,
+    color: 'pink',
   },
 });
