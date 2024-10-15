@@ -24,8 +24,8 @@ export default function MyList({ navigation }) {
     await getAndParseList();
   };
 
-  async function getAndParseList() {
-    const list = await getList(defaultList);
+  async function getAndParseList(name = defaultList) {
+    const list = await getList(name);
     if (list === null) {
       return;
     }
@@ -94,6 +94,8 @@ export default function MyList({ navigation }) {
     ));
   };
 
+  const testFunc = (name = ":c") => console.log(name);
+
   return (
     <LinearGradient
       colors={["#6699FF", "#335C81"]}
@@ -122,7 +124,7 @@ export default function MyList({ navigation }) {
             </View>
           </View>
 
-          <ListDropdown />
+          <ListDropdown setParent={getAndParseList} />
           <Text style={style.donutText}>
             {masteredWordCount}/{listLength}
           </Text>

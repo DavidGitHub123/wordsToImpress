@@ -1,41 +1,87 @@
 import React, { useEffect, useState } from "react";
-import { Dimensions, StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text, Modal, TextInput } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
-import { defaultList, getNamesOfLists } from "./listHelpers";
+import AppButton from "./AppButton";
+import IconButton from "./IconButton";
+import { defaultList, getNamesOfLists, makeNewList } from "./listHelpers";
+import { mainStyles } from "./mainStyles";
 
-export default function ListDropdown() {
+export default function ListDropdown(Props) {
   const [showModal, setShowModal] = useState(false);
+  const [alert, setAlert] = useState(null);
+  const [selectedList, setSelectedList] = useState(defaultList);
+  const [inputText, setInputText] = useState("");
   const [lists, setLists] = useState([
     { label: defaultList, value: defaultList },
   ]);
-  const [selectedList, setSelectedList] = useState(defaultList);
+
+  const { setParent } = Props;
 
   const ADD_LIST = "Add list";
 
+  const loadAndSetLists = async () => {
+    const userLists = [await getNamesOfLists(), ADD_LIST].flat().map((el) => ({
+      label: el,
+      value: el,
+    }));
+    setLists(userLists);
+  };
   useEffect(() => {
-    const asyncWrapper = async () => {
-      const userLists = [await getNamesOfLists(), ADD_LIST]
-        .flat()
-        .map((el) => ({
-          label: el,
-          value: el,
-        }));
-      setLists(userLists);
-    };
-    asyncWrapper();
+    loadAndSetLists();
   }, []);
 
   const handleDropdownChange = (list) => {
-    if (list === ADD_LIST) {
-      console.log("true!!")
+    if (list.value === ADD_LIST) {
       setShowModal(true);
+    } else {
+      setParent(list.value);
+      setSelectedList(list.value);
     }
-    setSelectedList(list);
+  };
+
+  // Name is an optional variable, name will be empty if the modal
+  // is closed without making a new list.
+  const handleCloseModal = async (name) => {
+    if (name) {
+      if (lists.filter((el) => el.value === name).length > 0) {
+        return;
+      }
+      await makeNewList(name);
+      setParent(name);
+    }
+    setShowModal(false);
+    setInputText("");
+    setAlert(null);
+    await loadAndSetLists();
+    setSelectedList(name);
   };
 
   return (
     <View>
-      {showModal && <ListModal />}
+      <Modal visible={showModal} onRequestClose={handleCloseModal} transparent>
+        <View style={style.centeredView}>
+          <View style={style.modalView}>
+            <View style={style.xButton}>
+              <IconButton name="times" onPress={() => handleCloseModal()} />
+            </View>
+            {alert && (
+              <View style={style.alert}>
+                <Text style={mainStyles.text}>{alert}</Text>
+              </View>
+            )}
+            <Text style={mainStyles.text2}>Name your new list</Text>
+            <TextInput
+              style={style.input}
+              onChangeText={setInputText}
+              value={inputText}
+            />
+            <AppButton
+              title="Make list"
+              onPress={() => handleCloseModal(inputText)}
+            />
+          </View>
+        </View>
+      </Modal>
       <Dropdown
         data={lists}
         value={selectedList}
@@ -52,16 +98,6 @@ export default function ListDropdown() {
     </View>
   );
 }
-
-function ListModal() {
-  return (
-    <View>
-      <View></View>
-    </View>
-  );
-}
-
-const screenDimensions = Dimensions.get("screen");
 
 const style = StyleSheet.create({
   dropdown: {
@@ -82,9 +118,45 @@ const style = StyleSheet.create({
     height: 40,
     fontSize: 16,
   },
-  invisibleFullScreen: {
-    height: screenDimensions.height,
-    width: screenDimensions.width,
-    backgroundColor: "green",
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "#282a36",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    backgroundColor: "#fff",
+    width: 300,
+    padding: 10,
+  },
+  xButton: {
+    alignSelf: "flex-end",
+  },
+  alert: {
+    textAlign: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#ff5555",
+    borderRadius: 20,
+    height: 30,
+    width: 200,
   },
 });
