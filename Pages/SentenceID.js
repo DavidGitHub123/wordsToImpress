@@ -75,19 +75,6 @@ const style = StyleSheet.create({
     flex: 1,
     paddingBottom: 700,
   },
-
-  // spacing: {
-  //   paddingBottom: 100,
-  // },
-
-  // space2: {
-  //   paddingTop: 20,
-  // },
-
-  // space3: {
-  //   paddingTop: 100,
-  // },
-
   center: {
     alignItems: "center",
   },
