@@ -94,12 +94,6 @@ const style = StyleSheet.create({
     paddingBottom: 10,
   },
 
-  screen: {
-    opacity: 0.7,
-    backgroundColor: "black",
-    padding: 20,
-  },
-
   subHead: {
     fontSize: 24,
     color: "#FF8C00",

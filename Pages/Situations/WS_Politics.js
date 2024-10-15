@@ -513,13 +513,6 @@ const style = StyleSheet.create({
     paddingBottom: 200,
   },
 
-  screen: {
-    opacity: 0.9,
-    backgroundColor: "black",
-    marginBottom: 40,
-    padding: 20,
-  },
-
   subHead: {
     fontSize: 40,
     color: "#FF8C00",

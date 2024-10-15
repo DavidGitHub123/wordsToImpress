@@ -29,14 +29,6 @@ export default function RapidFireCards(Props) {
 }
 
 const style = StyleSheet.create({
-  screen: {
-    opacity: 0.5,
-    backgroundColor: "black",
-    paddingHorizontal: 10,
-    borderRadius: 20,
-    marginBottom: 30,
-  },
-
   header: {
     fontSize: 40,
     color: "#f0f8ff",

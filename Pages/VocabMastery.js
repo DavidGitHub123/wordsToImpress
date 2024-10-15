@@ -66,15 +66,6 @@ export default function VocabMastery({ navigation }) {
 }
 
 const style = StyleSheet.create({
-  screen: {
-    opacity: 0.5,
-    backgroundColor: "black",
-    paddingTop: 20,
-    paddingBottom: 20,
-    marginBottom: 30,
-    borderRadius: 20,
-  },
-
   section: {
     paddingVertical: 10,
   },
