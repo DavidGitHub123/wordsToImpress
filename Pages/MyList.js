@@ -19,8 +19,10 @@ export default function MyList({ route, navigation }) {
   const [listLength, setListLength] = useState(0);
   const [listOrLoading, setListOrLoading] = useState(null);
 
-  const { listParam } = route.params;
-  console.log(listParam);
+  let listParam;
+  if (route.params && route.params.listParam) {
+    listParam = route.params.listParam;
+  }
 
   const handleDelete = async (word) => {
     await removeOneWordFromList(defaultList, word);

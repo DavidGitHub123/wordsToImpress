@@ -58,7 +58,13 @@ export default function ManageLists({ navigation }) {
             )}
             {renderLists()}
 
-            <HomeButton />
+            <View style={style.bottomButton}>
+              <AppButton
+                title="Back"
+                onPress={() => navigation.goBack()}
+              ></AppButton>
+              <HomeButton />
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -84,5 +90,8 @@ const style = StyleSheet.create({
     borderRadius: 20,
     height: 30,
     width: 200,
+  },
+  bottomButton: {
+    marginTop: 30,
   },
 });
