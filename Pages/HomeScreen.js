@@ -108,6 +108,14 @@ export default function HomeScreen({ navigation }) {
               onPress={() => navigation.navigate("AtoZButtons")}
             />
           </View>
+          <View style={style.buttons}>
+            <AppButton
+              size="large"
+              icon="book"
+              title="Manage Lists"
+              onPress={() => navigation.navigate("ManageLists")}
+            />
+          </View>
         </View>
       </SafeAreaView>
     </ImageBackground>

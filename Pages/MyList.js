@@ -13,11 +13,14 @@ import IconButton from "../components/IconButton";
 import { mainStyles } from "../components/mainStyles";
 import ListDropdown from "../components/ListDropdown";
 
-export default function MyList({ navigation }) {
+export default function MyList({ route, navigation }) {
   const [masteredWordCount, setMasteredWordCount] = useState(0);
   const [unMasteredWordCount, setUnMasteredWordCount] = useState(0);
   const [listLength, setListLength] = useState(0);
   const [listOrLoading, setListOrLoading] = useState(null);
+
+  const { listParam } = route.params;
+  console.log(listParam);
 
   const handleDelete = async (word) => {
     await removeOneWordFromList(defaultList, word);
@@ -48,6 +51,10 @@ export default function MyList({ navigation }) {
 
   useEffect(() => {
     const asyncWrapper = async () => {
+      if (listParam) {
+        await getAndParseList(listParam);
+        return;
+      }
       await getAndParseList();
     };
     asyncWrapper();
@@ -94,8 +101,6 @@ export default function MyList({ navigation }) {
     ));
   };
 
-  const testFunc = (name = ":c") => console.log(name);
-
   return (
     <LinearGradient
       colors={["#6699FF", "#335C81"]}
@@ -124,7 +129,7 @@ export default function MyList({ navigation }) {
             </View>
           </View>
 
-          <ListDropdown setParent={getAndParseList} />
+          <ListDropdown setParent={getAndParseList} initialList={listParam} />
           <Text style={style.donutText}>
             {masteredWordCount}/{listLength}
           </Text>

@@ -7,15 +7,16 @@ import { defaultList, getNamesOfLists, makeNewList } from "./listHelpers";
 import { mainStyles } from "./mainStyles";
 
 export default function ListDropdown(Props) {
+  const { setParent, initialList } = Props;
   const [showModal, setShowModal] = useState(false);
   const [alert, setAlert] = useState(null);
-  const [selectedList, setSelectedList] = useState(defaultList);
+  const [selectedList, setSelectedList] = useState(
+    initialList ? initialList : defaultList,
+  );
   const [inputText, setInputText] = useState("");
   const [lists, setLists] = useState([
     { label: defaultList, value: defaultList },
   ]);
-
-  const { setParent } = Props;
 
   const ADD_LIST = "Add list";
 
@@ -44,6 +45,7 @@ export default function ListDropdown(Props) {
   const handleCloseModal = async (name) => {
     if (name) {
       if (lists.filter((el) => el.value === name).length > 0) {
+        setAlert("Name already exists.");
         return;
       }
       await makeNewList(name);
@@ -58,7 +60,11 @@ export default function ListDropdown(Props) {
 
   return (
     <View>
-      <Modal visible={showModal} onRequestClose={handleCloseModal} transparent>
+      <Modal
+        visible={showModal}
+        onRequestClose={handleCloseModal}
+        transparent={true}
+      >
         <View style={style.centeredView}>
           <View style={style.modalView}>
             <View style={style.xButton}>
