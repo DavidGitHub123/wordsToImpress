@@ -33,7 +33,7 @@ export default function WS_JobInterview({ navigation }) {
   const Baccalaureate = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Baccalaureate</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -65,7 +65,7 @@ export default function WS_JobInterview({ navigation }) {
   const Cavalier = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Cavalier</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -97,7 +97,7 @@ export default function WS_JobInterview({ navigation }) {
   const Deprecate = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Deprecate</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -131,7 +131,7 @@ export default function WS_JobInterview({ navigation }) {
   const Ebullience = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Ebullience</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -163,7 +163,7 @@ export default function WS_JobInterview({ navigation }) {
   const FaitAccompli = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Fait Accompli</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -196,7 +196,7 @@ export default function WS_JobInterview({ navigation }) {
   const Galvanize = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Galvanize</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -226,7 +226,7 @@ export default function WS_JobInterview({ navigation }) {
   const Imbue = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Imbue</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -258,7 +258,7 @@ export default function WS_JobInterview({ navigation }) {
   const Jejune = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Jejune</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -287,7 +287,7 @@ export default function WS_JobInterview({ navigation }) {
   const Kudos = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Kudos</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -317,7 +317,7 @@ export default function WS_JobInterview({ navigation }) {
   const Utilitarian = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Utilitarian</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>

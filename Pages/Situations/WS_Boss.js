@@ -33,7 +33,7 @@ export default function WS_Boss({ navigation }) {
   const Aberration = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Aberration</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -64,7 +64,7 @@ export default function WS_Boss({ navigation }) {
   const Beleaguered = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Beleaguered</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -95,7 +95,7 @@ export default function WS_Boss({ navigation }) {
   const Debacle = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Debacle</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -124,7 +124,7 @@ export default function WS_Boss({ navigation }) {
   const Echelon = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Echelon</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -154,7 +154,7 @@ export default function WS_Boss({ navigation }) {
   const Garner = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Garner</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -183,7 +183,7 @@ export default function WS_Boss({ navigation }) {
   const Ignoble = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Ignoble</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -213,7 +213,7 @@ export default function WS_Boss({ navigation }) {
   const Jettison = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Jettison</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -242,7 +242,7 @@ export default function WS_Boss({ navigation }) {
   const Keynote = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Keynote</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -274,7 +274,7 @@ export default function WS_Boss({ navigation }) {
   const Laggard = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Laggard</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -305,7 +305,7 @@ export default function WS_Boss({ navigation }) {
   const Narcissistic = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Narcissistic</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>

@@ -89,8 +89,7 @@ const mainStyles = StyleSheet.create({
     // textAlign: "justify",
   },
   screen: {
-    opacity: 0.5,
-    backgroundColor: "black",
+    backgroundColor: "rgba(0, 0, 0, .5)",
     marginBottom: 30,
   },
   topHeader: {

@@ -20,7 +20,7 @@ export default function VocabMastery({ navigation }) {
       style={mainStyles.page}
     >
       <SafeAreaView style={style.container}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={mainStyles.header}>Vocab Mastery</Text>
 
           <Text style={mainStyles.subHead2}>

@@ -33,7 +33,7 @@ export default function WS_MeetingInLaws({ navigation }) {
   const Acquiescence = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Acquiescence</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -62,7 +62,7 @@ export default function WS_MeetingInLaws({ navigation }) {
   const Belated = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Belated</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -91,7 +91,7 @@ export default function WS_MeetingInLaws({ navigation }) {
   const Dilapidated = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Dilapidated</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -121,7 +121,7 @@ export default function WS_MeetingInLaws({ navigation }) {
   const Eccentric = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Eccentric</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -153,7 +153,7 @@ export default function WS_MeetingInLaws({ navigation }) {
   const Fallacious = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Fallacious</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -183,7 +183,7 @@ export default function WS_MeetingInLaws({ navigation }) {
   const Heretic = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Heretic</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -214,7 +214,7 @@ export default function WS_MeetingInLaws({ navigation }) {
   const Impeccable = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Impeccable</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -244,7 +244,7 @@ export default function WS_MeetingInLaws({ navigation }) {
   const Malady = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Malady</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -275,7 +275,7 @@ export default function WS_MeetingInLaws({ navigation }) {
   const Ursine = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Malady</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -304,7 +304,7 @@ export default function WS_MeetingInLaws({ navigation }) {
   const Wayfaring = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Wayfaring</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>

@@ -33,7 +33,7 @@ export default function WS_DinnerParty({ navigation }) {
   const Clamorous = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Clamorous</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -62,7 +62,7 @@ export default function WS_DinnerParty({ navigation }) {
   const Diffident = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Diffident</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -93,7 +93,7 @@ export default function WS_DinnerParty({ navigation }) {
   const Educe = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Educe</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -124,7 +124,7 @@ export default function WS_DinnerParty({ navigation }) {
   const Fatuous = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Fatuous</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -153,7 +153,7 @@ export default function WS_DinnerParty({ navigation }) {
   const Gauche = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Gauche</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -184,7 +184,7 @@ export default function WS_DinnerParty({ navigation }) {
   const Harangue = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Harangue</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -213,7 +213,7 @@ export default function WS_DinnerParty({ navigation }) {
   const Imbibe = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Imbibe</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -241,7 +241,7 @@ export default function WS_DinnerParty({ navigation }) {
   const Juxtapose = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Juxtapose</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -272,7 +272,7 @@ export default function WS_DinnerParty({ navigation }) {
   const Largess = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Largess</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -301,7 +301,7 @@ export default function WS_DinnerParty({ navigation }) {
   const Melodious = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Melodious</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>

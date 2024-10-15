@@ -33,7 +33,7 @@ export default function WS_SpeedingTicket({ navigation }) {
   const Adroit = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Adroit</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -65,7 +65,7 @@ export default function WS_SpeedingTicket({ navigation }) {
   const Befuddle = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Befuddle</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -96,7 +96,7 @@ export default function WS_SpeedingTicket({ navigation }) {
   const Canard = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Canard</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -127,7 +127,7 @@ export default function WS_SpeedingTicket({ navigation }) {
   const Disconcerting = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Disconcerting</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -157,7 +157,7 @@ export default function WS_SpeedingTicket({ navigation }) {
   const Embodiment = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Embodiment</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -186,7 +186,7 @@ export default function WS_SpeedingTicket({ navigation }) {
   const Fulminate = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Fulminate</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -217,7 +217,7 @@ export default function WS_SpeedingTicket({ navigation }) {
   const Imperative = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Imperative</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -249,7 +249,7 @@ export default function WS_SpeedingTicket({ navigation }) {
   const Lucid = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Lucid</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -283,7 +283,7 @@ export default function WS_SpeedingTicket({ navigation }) {
   const Misconstrue = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Misconstrue</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -315,7 +315,7 @@ export default function WS_SpeedingTicket({ navigation }) {
   const Upbraid = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Upbraid</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>

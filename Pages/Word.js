@@ -47,7 +47,7 @@ export default function Word({ navigation }) {
 
     return (
       <View style={mainStyles.page}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={mainStyles.header}>{wordData.Word}</Text>
           <Text style={style.space}>
             <Text style={style.subHead}>Pron. </Text>

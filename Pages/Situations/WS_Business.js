@@ -33,7 +33,7 @@ export default function WS_Business({ navigation }) {
   const Accolade = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Accolade</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -63,7 +63,7 @@ export default function WS_Business({ navigation }) {
   const Bluster = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Bluster</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -94,7 +94,7 @@ export default function WS_Business({ navigation }) {
   const Cartel = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Cartel</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -125,7 +125,7 @@ export default function WS_Business({ navigation }) {
   const Diminution = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Diminution</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -155,7 +155,7 @@ export default function WS_Business({ navigation }) {
   const Effrontery = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Effrontery</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -184,7 +184,7 @@ export default function WS_Business({ navigation }) {
   const Feckless = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Feckless</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -213,7 +213,7 @@ export default function WS_Business({ navigation }) {
   const Gargantuan = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Gargantuan</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -244,7 +244,7 @@ export default function WS_Business({ navigation }) {
   const Harbinger = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Harbinger</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -273,7 +273,7 @@ export default function WS_Business({ navigation }) {
   const Impetuous = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Impetuous</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -302,7 +302,7 @@ export default function WS_Business({ navigation }) {
   const Logistics = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Logistics</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>

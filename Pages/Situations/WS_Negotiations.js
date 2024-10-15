@@ -33,7 +33,7 @@ export default function WS_Negotiations({ navigation }) {
   const Accord = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Accord</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -62,7 +62,7 @@ export default function WS_Negotiations({ navigation }) {
   const Cessation = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Cessation</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -92,7 +92,7 @@ export default function WS_Negotiations({ navigation }) {
   const Dialectic = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Dialectic</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -124,7 +124,7 @@ export default function WS_Negotiations({ navigation }) {
   const Elusive = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Elusive</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -155,7 +155,7 @@ export default function WS_Negotiations({ navigation }) {
   const Flux = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Flux </Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -186,7 +186,7 @@ export default function WS_Negotiations({ navigation }) {
   const Gauntlet = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Gauntlet</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -220,7 +220,7 @@ export default function WS_Negotiations({ navigation }) {
   const Holistic = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Holistic</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -252,7 +252,7 @@ export default function WS_Negotiations({ navigation }) {
   const Impasse = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Impasse</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -285,7 +285,7 @@ export default function WS_Negotiations({ navigation }) {
   const Mitigate = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Mitigate </Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -316,7 +316,7 @@ export default function WS_Negotiations({ navigation }) {
   const Ultimatum = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Ultimatum</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>

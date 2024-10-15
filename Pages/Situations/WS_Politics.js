@@ -33,7 +33,7 @@ export default function WS_Politics({ navigation }) {
   const Capitulate = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Capitulate</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -62,7 +62,7 @@ export default function WS_Politics({ navigation }) {
   const Decorum = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Decorum</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -93,7 +93,7 @@ export default function WS_Politics({ navigation }) {
   const Gainsay = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Gainsay</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -124,7 +124,7 @@ export default function WS_Politics({ navigation }) {
   const Hegemony = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Hegemony</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -156,7 +156,7 @@ export default function WS_Politics({ navigation }) {
   const Imbroglio = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Imbroglio</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -189,7 +189,7 @@ export default function WS_Politics({ navigation }) {
   const Jingoistic = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Jingoistic</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -222,7 +222,7 @@ export default function WS_Politics({ navigation }) {
   const Liaison = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Liaison</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -253,7 +253,7 @@ export default function WS_Politics({ navigation }) {
   const Maleficence = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Maleficence</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -285,7 +285,7 @@ export default function WS_Politics({ navigation }) {
   const Quagmire = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Quagmire</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
@@ -316,7 +316,7 @@ export default function WS_Politics({ navigation }) {
   const Unilateral = () => {
     return (
       <View style={style.component}>
-        <View style={style.screen}>
+        <View style={mainStyles.screen}>
           <Text style={style.subHead}>Unilateral</Text>
           <Text style={style.space}>
             <Text style={style.title}>Pron: </Text>
