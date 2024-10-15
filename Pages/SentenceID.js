@@ -1,3 +1,5 @@
+// quick quiz where user sees sentence and guess word = multiplechoicegame.js
+
 import React, { useState, useEffect } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
@@ -53,7 +55,7 @@ export default function SentenceID({ navigation }) {
           style={style.page}
         >
           <View style={mainStyles.startGameContainer}>
-            <Text style={style.header}>Sentence ID</Text>
+            <Text style={style.header}>Quick Quiz</Text>
             <ListDropdown
               setParent={(n) => setSelectedList(n)}
               initialList={defaultList}
