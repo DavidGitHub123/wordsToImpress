@@ -6,17 +6,19 @@ import AppButton from "../components/AppButton.js";
 import MultipleChoiceGame from "../components/MultipleChoiceGame.js";
 import data from "../data.js";
 import { mainStyles } from "../components/mainStyles.js";
+import ListDropdown from "../components/ListDropdown.js";
 
 export default function SentenceID({ navigation }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [list, setList] = useState([]);
   const [gameRestart, setGameRestart] = useState(false);
+  const [selectedList, setSelectedList] = useState(defaultList);
 
   const getShortDef = (word) => data.find((el) => el.Word === word).Shortdef;
 
   useEffect(() => {
     async function getAndSetList() {
-      let userList = await getNLeastMastered(defaultList, 10);
+      let userList = await getNLeastMastered(selectedList, 10);
 
       userList = userList.map((el) => {
         return {
@@ -29,7 +31,7 @@ export default function SentenceID({ navigation }) {
       setList(userList);
     }
     getAndSetList();
-  }, [gameRestart]);
+  }, [gameRestart, selectedList]);
 
   return isGameStarted ? (
     <MultipleChoiceGame
@@ -52,6 +54,10 @@ export default function SentenceID({ navigation }) {
         >
           <View style={mainStyles.startGameContainer}>
             <Text style={style.header}>Sentence ID</Text>
+            <ListDropdown
+              setParent={(n) => setSelectedList(n)}
+              initialList={defaultList}
+            />
             <AppButton
               onPress={() => setIsGameStarted(true)}
               title="Play Game"

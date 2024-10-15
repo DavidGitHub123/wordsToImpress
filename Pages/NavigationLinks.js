@@ -26,6 +26,7 @@ import WS_SpeedingTicket from "../Pages/Situations/WS_SpeedingTicket";
 import Notifications from "../Pages/Notifications";
 import SentenceID from "./SentenceID";
 import AtoZWords from "./AtoZWords";
+import ManageLists from "./ManageLists";
 
 const Stack = createNativeStackNavigator();
 
@@ -161,6 +162,7 @@ export default function NavigationLinks() {
         component={WS_SpeedingTicket}
         options={{ title: "WS: SpeedingTicket" }}
       />
+      <Stack.Screen name="ManageLists" component={ManageLists} />
     </Stack.Navigator>
   );
 }

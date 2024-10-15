@@ -10,7 +10,6 @@ function NavButtonWord({
   textColor,
   backgroundColor,
 }) {
-  console.log(textColor);
   return (
     <Pressable style={navStyle.appButton}>
       <AppButton

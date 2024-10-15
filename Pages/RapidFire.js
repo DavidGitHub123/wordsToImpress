@@ -17,19 +17,20 @@ import {
 import RapidFireCards from "./RapidFireCards";
 import AppButton from "../components/AppButton";
 import { mainStyles } from "../components/mainStyles";
-import HomeButton from "../components/HomeButton";
+import ListDropdown from "../components/ListDropdown";
 
 export default function RapidFire({ navigation }) {
   const [timing, setTiming] = useState(10);
   const [isStarted, setIsStarted] = useState(false);
   const [words, setWords] = useState(null);
+  const [selectedList, setSelectedList] = useState(defaultList);
 
   useEffect(() => {
     async function getWords() {
-      setWords(await getNLeastMastered(defaultList, 10));
+      setWords(await getNLeastMastered(selectedList, 10));
     }
     getWords();
-  }, []);
+  }, [selectedList]);
 
   return (
     <LinearGradient
@@ -49,6 +50,7 @@ export default function RapidFire({ navigation }) {
                 timing={timing}
                 setTiming={setTiming}
                 setIsStarted={setIsStarted}
+                setSelectedList={setSelectedList}
               />
             )}
           </View>
@@ -123,7 +125,7 @@ function Game(Props) {
 }
 
 function GameSetUp(Props) {
-  const { timing, setTiming, setIsStarted } = Props;
+  const { timing, setTiming, setIsStarted, setSelectedList } = Props;
 
   const timingOptions = [1, 3, 5, "Unlimited"];
 
@@ -143,6 +145,10 @@ function GameSetUp(Props) {
   return (
     <View style={style.timingOptionsContainer}>
       <Text style={mainStyles.header}>Rapid Fire </Text>
+      <ListDropdown
+        setParent={(n) => setSelectedList(n)}
+        initialList={defaultList}
+      />
       <Text style={mainStyles.text}>Select your speed:</Text>
       <View>{timingButtons}</View>
 
@@ -164,7 +170,7 @@ const style = StyleSheet.create({
   timeleft: {
     paddingBottom: 20,
     fontSize: 20,
-    color: '#fff',
+    color: "#fff",
   },
 
   timingButtonContainer: {
@@ -182,9 +188,8 @@ const style = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    opacity: 0.5,
+    opacity: 0.7,
     backgroundColor: "black",
-    paddingHorizontal: 60,
     paddingBottom: 30,
     borderRadius: 20,
   },
