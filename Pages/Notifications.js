@@ -222,16 +222,12 @@ export default function Notifications({ navigation }) {
   };
 
   const renderNotifs = (type) => {
-    console.log("currNotifs:");
-    console.log(currNotifs);
     if (!currNotifs) {
       return null;
     }
     const selectedType = currNotifs.filter(
       (el) => el.content.data.notificationName.split("-")[0] === type,
     );
-    console.log("selectedType:");
-    console.log(selectedType);
 
     const sortedNotifs = selectedType.sort((a, b) => {
       // eslint-disable-next-line no-unused-vars
@@ -247,8 +243,6 @@ export default function Notifications({ navigation }) {
       }
       return aMinute - bMinute;
     });
-    console.log("sortedNotifs:");
-    console.log(sortedNotifs);
     return (
       <View>
         {sortedNotifs.map((el, i) => {

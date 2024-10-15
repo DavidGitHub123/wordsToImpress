@@ -33,7 +33,6 @@ export default function MultipleChoiceGame(Props) {
   let question;
   if (listIndex <= list.length - 1) {
     const wordIndex = data.findIndex((el) => el.Word === list[listIndex].Word);
-    console.log(questionType);
     question = data[wordIndex][questionType];
 
     question = question.split(" ").map((el, i) => {
@@ -55,8 +54,6 @@ export default function MultipleChoiceGame(Props) {
 
     let wrongAnswers = [];
     const rightAnswerWord = list[listIndex][answerType];
-    console.log(rightAnswerWord);
-    console.log(list[listIndex]);
 
     while (wrongAnswers.length < MAX_INCORRECT_ANSWERS) {
       const randomWord = data[getRandomIndex()][answerType];

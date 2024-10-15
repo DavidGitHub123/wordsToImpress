@@ -11,17 +11,13 @@ import {
 import PieChart from "react-native-pie-chart";
 import IconButton from "../components/IconButton";
 import { mainStyles } from "../components/mainStyles";
+import ListDropdown from "../components/ListDropdown";
 
 export default function MyList({ navigation }) {
   const [masteredWordCount, setMasteredWordCount] = useState(0);
   const [unMasteredWordCount, setUnMasteredWordCount] = useState(0);
   const [listLength, setListLength] = useState(0);
   const [listOrLoading, setListOrLoading] = useState(null);
-
-  console.log(`| List length: ${listLength}      |`);
-  console.log(`| Unmastered length: ${unMasteredWordCount}|`);
-  console.log(`| Mastered length: ${masteredWordCount}  |`);
-  console.log("+----------------------+");
 
   const handleDelete = async (word) => {
     await removeOneWordFromList(defaultList, word);
@@ -61,7 +57,6 @@ export default function MyList({ navigation }) {
     masteredWordCount,
     unMasteredWordCount === 0 ? 1 : unMasteredWordCount,
   ];
-  console.log(donutSeries);
   const GREEN_PERCENT = 0.7;
   const donutColor =
     GREEN_PERCENT <= masteredWordCount / listLength
@@ -127,8 +122,7 @@ export default function MyList({ navigation }) {
             </View>
           </View>
 
-          <Text style={mainStyles.headLine2}>My List</Text>
-
+          <ListDropdown />
           <Text style={style.donutText}>
             {masteredWordCount}/{listLength}
           </Text>
