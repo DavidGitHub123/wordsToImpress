@@ -70,6 +70,8 @@ const mainStyles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     textAlign: "center",
+    paddingVertical: 40,
+    paddingBottom: 30,
   },
 
   subHead1: {
@@ -126,11 +128,12 @@ const mainStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
+
   },
   greenText: {
     color: "#4cf03a",
     fontSize: 24,
-    fontWeight: 700,
+    fontWeight: 900,
     textAlign: "center",
   },
   greenColor: {

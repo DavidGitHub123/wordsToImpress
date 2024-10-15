@@ -42,7 +42,7 @@ export default function MultipleChoiceGame(Props) {
       return (
         <Text
           key={i}
-          style={isHighlighted(el) ? mainStyles.greenText : mainStyles.text2}
+          style={isHighlighted(el) ? mainStyles.greenText : style.definition}
         >
           {el}
         </Text>
@@ -148,7 +148,7 @@ export default function MultipleChoiceGame(Props) {
 
   const renderCorrectandNextButton = () => (
     <View style={style.centerContainer}>
-      <Text style={mainStyles.text}>{isCorrect ? "Correct" : "Incorrect"}</Text>
+      <Text style={style.text}>{isCorrect ? "Correct" : "Incorrect"}</Text>
       <AppButton title="Next Word" icon="sign-in" onPress={handleNext} />
     </View>
   );
@@ -162,7 +162,7 @@ export default function MultipleChoiceGame(Props) {
       style={style.flexOne}
     >
       {gameOver ? (
-        <View style={style.centerContainer}>
+        <View style={style.endContainer}>
           <Text style={style.header}>You scored {score}/10</Text>
           <AppButton
             icon="sign-in"
@@ -179,10 +179,10 @@ export default function MultipleChoiceGame(Props) {
       ) : (
         <View style={{ ...style.centerContainer, ...style.width90 }}>
           <Text style={style.header}>{listIndex + 1}/10</Text>
-          <Text style={mainStyles.subheader}>
+          {/* <Text style={mainStyles.subheader}>
             Identify the word that matches this{" "}
             {typeDictoinary[questionType]}:
-          </Text>
+          </Text> */}
           <View style={style.flexQuestion}>{question}</View>
           {renderAnwsers()}
           {displayNext ? renderCorrectandNextButton() : null}
@@ -214,6 +214,20 @@ const style = StyleSheet.create({
     paddingBottom: 10,
   },
 
+  text: {
+    fontSize: 28,
+    color: "#f0f8ff",
+    fontWeight: "600",
+    textAlign: 'center',
+  },
+
+  definition: {
+    fontSize: 28,
+    color: "#f0f8ff",
+    fontWeight: "600",
+    textAlign: 'center',
+  },
+
   white: {
     color: "#f0f8ff",
   },
@@ -224,9 +238,9 @@ const style = StyleSheet.create({
     paddingTop: 20,
   },
 
-  // buttons: {
-  //   paddingTop: 20,
-  // },
+  buttons: {
+    paddingTop: 20,
+  },
 
   timingButtonContainer: {
     display: "flex",
@@ -255,10 +269,18 @@ const style = StyleSheet.create({
     margin: "auto",
   },
   centerContainer: {
+    // display: "flex",
+    // flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 40,
+  },
+  endContainer: {
     display: "flex",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    // paddingHorizontal: 40,
   },
   container: {
     position: "absolute",
@@ -272,6 +294,7 @@ const style = StyleSheet.create({
     flexWrap: "wrap",
     width: 400,
     justifyContent: "space-evenly",
+    paddingBottom: 40,
   },
   width90: { width: "90%", margin: "auto" },
 
@@ -283,7 +306,6 @@ const style = StyleSheet.create({
     flexWrap: "wrap",
     rowGap: 2,
     columnGap: 4,
-    paddingBottom: 20,
-    color: 'pink',
+    marginBottom: 20,
   },
 });

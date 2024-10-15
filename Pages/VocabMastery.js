@@ -34,17 +34,17 @@ export default function VocabMastery({ navigation }) {
         <View style={style.section}>
           <NavButton
             navigation={navigation}
-            title="RapidFire"
+            title="Rapid Fire"
             destination="RapidFire"
           />
           <NavButton
             navigation={navigation}
-            title="QuickQuiz"
+            title="Word Match"
             destination="QuickQuiz"
           />
           <NavButton
             navigation={navigation}
-            title="SentenceID"
+            title="Quick Quiz"
             destination="SentenceID"
           />
         </View>
