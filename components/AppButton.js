@@ -13,6 +13,7 @@ export default function AppButton(Props) {
     size,
     viewStyle,
     textColor,
+    textSize,
   } = Props;
 
   let height;
@@ -45,6 +46,8 @@ export default function AppButton(Props) {
     ...viewStyle,
   };
 
+  const fontSize = { fontSize: textSize ? textSize : 16 };
+
   return (
     <View style={containerStyle}>
       <Icon.Button
@@ -58,7 +61,9 @@ export default function AppButton(Props) {
         width={width}
         style={iconButtonStyle}
       >
-        <Text style={{ ...defaultStyle.appButtonText, ...textColor }}>
+        <Text
+          style={{ ...defaultStyle.appButtonText, ...textColor, ...fontSize }}
+        >
           {title}
         </Text>
       </Icon.Button>

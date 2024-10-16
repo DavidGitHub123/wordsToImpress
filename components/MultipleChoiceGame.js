@@ -36,7 +36,7 @@ export default function MultipleChoiceGame(Props) {
       return (
         <Text
           key={i}
-          style={isHighlighted(el) ? mainStyles.greenText : style.definition}
+          style={isHighlighted(el) ? mainStyles.greenText2 : style.definition}
         >
           {el}
         </Text>
@@ -115,6 +115,8 @@ export default function MultipleChoiceGame(Props) {
     setGameRestart(!gameRestart);
   };
 
+  const textSize = answerType === "Word" ? 32 : 20;
+
   const renderAnwsers = () => (
     <View style={style.answerContainer}>
       {anwsers.map((el, i) => {
@@ -131,6 +133,7 @@ export default function MultipleChoiceGame(Props) {
             key={i}
             title={el.answer}
             style={style}
+            textSize={textSize}
             onPress={() => handleAnwser(i)}
           />
         );
