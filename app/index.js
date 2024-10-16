@@ -20,9 +20,5 @@ function App() {
 export default App;
 
 const style = StyleSheet.create({
-  background: {
-    flex: 1,
-    zIndex: -1,
-  },
   flex: { flex: 1 },
 });

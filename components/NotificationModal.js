@@ -174,11 +174,4 @@ const style = StyleSheet.create({
   },
 
   marginAuto: { margin: "auto" },
-
-  timeContainer: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    gap: 5,
-  },
 });

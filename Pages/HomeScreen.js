@@ -10,7 +10,6 @@ import {
 import logo from "../assets/logoborderradius.jpg";
 import phone from "../assets/phone.jpg";
 import AppButton from "../components/AppButton";
-import IconButton from "../components/IconButton";
 import { mainStyles } from "../components/mainStyles";
 
 export default function HomeScreen({ navigation }) {
@@ -26,7 +25,7 @@ export default function HomeScreen({ navigation }) {
             name="bell"
             onPress={() => navigation.navigate("Notifications")}
           /> */}
-            <AppButton
+          <AppButton
             viewStyle={{ width: 100 }}
             // backgroundColor="transparent"
             borderColor="transparent"

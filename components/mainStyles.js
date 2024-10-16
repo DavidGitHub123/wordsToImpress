@@ -47,7 +47,6 @@ const mainStyles = StyleSheet.create({
     color: "#f0f8ff",
     fontWeight: "600",
     paddingTop: 10,
-    paddingBottom: 10,
     textAlign: "center",
     paddingVertical: 40,
     paddingBottom: 30,
@@ -106,7 +105,6 @@ const mainStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
-
   },
   greenText: {
     color: "#4cf03a",

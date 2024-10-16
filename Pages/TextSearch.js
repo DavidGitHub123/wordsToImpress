@@ -5,11 +5,9 @@ import {
   StyleSheet,
   Text,
   View,
-  Pressable,
   TextInput,
 } from "react-native";
 import HomeButton from "../components/HomeButton";
-import { navStyle } from "../components/NavButton.js";
 import { LinearGradient } from "expo-linear-gradient";
 import AppButton from "../components/AppButton";
 import data from "../data";
@@ -72,8 +70,8 @@ export default function TextSearch({ navigation }) {
           <View style={mainStyles.screen}>
             <Text style={mainStyles.header}>Text Search</Text>
             <Text style={style.subHead2}>
-              Copy emails, proposals, fiction, etc. into this box. Our tools will
-              analyze your communication patterns to suggest new vocabulary
+              Copy emails, proposals, fiction, etc. into this box. Our tools
+              will analyze your communication patterns to suggest new vocabulary
               words that correspond to your speaking and writing style. Then add
               these words to your vocabulary list.
             </Text>
@@ -123,9 +121,6 @@ const style = StyleSheet.create({
   centerChildren: {
     display: "flex",
     alignItems: "center",
-  },
-  center: {
-    margin: "auto",
   },
   subHead2: {
     fontSize: 20,
