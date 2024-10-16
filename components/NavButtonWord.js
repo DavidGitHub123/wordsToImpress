@@ -30,20 +30,6 @@ const navStyle = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
-  appButtonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 270,
-    marginVertical: 2,
-  },
-
-  bottomButtons: {
-    paddingTop: 20,
-  },
 });
 
 export { NavButtonWord, navStyle };

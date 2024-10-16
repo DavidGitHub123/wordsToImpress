@@ -510,11 +510,6 @@ const style = StyleSheet.create({
   space: {
     paddingTop: 10,
   },
-  appButtonContainer: {
-    width: 200,
-    marginVertical: 2,
-  },
-
   bottomButtons: {
     paddingTop: 20,
   },

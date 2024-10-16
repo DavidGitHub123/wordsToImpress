@@ -131,11 +131,9 @@ export default function MyList({ route, navigation }) {
             </View>
 
             <Text style={style.donutText}>
-            {masteredWordCount}/{listLength}
-          </Text>
-
+              {masteredWordCount}/{listLength}
+            </Text>
           </View>
-
 
           {/* <View>
             <Text style={style.myListHead}>My Lists</Text>
@@ -148,7 +146,6 @@ export default function MyList({ route, navigation }) {
           <View style={style.buttons}>
             <HomeButton navigation={navigation} />
           </View>
-
         </ScrollView>
       </SafeAreaView>
     </LinearGradient>
@@ -156,7 +153,6 @@ export default function MyList({ route, navigation }) {
 }
 
 const style = StyleSheet.create({
-
   screen: {
     backgroundColor: "rgba(0, 0, 0, .5)",
     marginBottom: 10,
@@ -192,29 +188,12 @@ const style = StyleSheet.create({
     position: "relative",
     margin: "auto",
   },
-  myListHead: {
-    fontSize: 32,
-    color: "#fff",
-    fontWeight: "600",
-    marginLeft: 20,
-  },
-  mylistheader: {
-    margin: "auto",
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingTop: 40,
-  },
-
   wordDeleteContainer: {
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
     justifyContent: "space-evenly",
     alignItems: "center",
-  },
-  textAlignCenter: {
-    textAlign: "center",
   },
   percentText: {
     color: "#4cf03a",

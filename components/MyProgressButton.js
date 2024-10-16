@@ -26,16 +26,6 @@ const navStyle = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
-  appButtonText: {
-    fontSize: 16,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 150,
-    marginVertical: 2,
-  },
 });
 
 export { MyProgressButton, navStyle };

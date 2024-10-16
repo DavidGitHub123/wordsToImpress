@@ -32,9 +32,9 @@ export default function System({ navigation }) {
         <Text style={style.componentHead}>About</Text>
         <Text style={mainStyles.subHead2}>
           Your language defines you, whether a professional, student studying
-          for the SATs, or learning English as a second language.
-          The Words to Impress App quickly and efficiently helps you develop an
-          impressive vocabulary.
+          for the SATs, or learning English as a second language. The Words to
+          Impress App quickly and efficiently helps you develop an impressive
+          vocabulary.
         </Text>
         {hideButton}
       </View>
@@ -47,10 +47,10 @@ export default function System({ navigation }) {
         <Text style={style.componentHead}>Rule of 50</Text>
         <Text style={mainStyles.subHead2}>
           We each have a unique vocabulary. Most successful people have mastered
-          50 to 100 “big” vocabulary words.
-          The Words to Impress App helps you build a list unique to you. Once
-          your list is complete, study those words, making them your own. If you're an 
-          overachiever, add more words.
+          50 to 100 “big” vocabulary words. The Words to Impress App helps you
+          build a list unique to you. Once your list is complete, study those
+          words, making them your own. If you&apos;re an overachiever, add more
+          words.
         </Text>
         {hideButton}
       </View>
@@ -64,10 +64,9 @@ export default function System({ navigation }) {
         <Text style={mainStyles.subHead2}>
           Unlike other vocabulary-building systems that present you with
           hundreds of words to learn, this App helps you build the right list
-          for you.
-          The Build My List tool anlyzes your writing for common words unique to
-          you. Then provides you with a list of upgraded words based on familiar
-          concepts and ideas.
+          for you. The Build My List tool anlyzes your writing for common words
+          unique to you. Then provides you with a list of upgraded words based
+          on familiar concepts and ideas.
         </Text>
         {hideButton}
       </View>
@@ -79,10 +78,10 @@ export default function System({ navigation }) {
       <View style={mainStyles.centerContainer}>
         <Text style={style.componentHead}>Word Situations</Text>
         <Text style={mainStyles.subHead2}>
-      Imagine yourself in an important situation. What do you say?
-          Word Situations identifies words unique to politics, business, job
-          interviews, etc. from 10 different categories. Look up words quickly for
-          particular situations and be ready to impress.
+          Imagine yourself in an important situation. What do you say? Word
+          Situations identifies words unique to politics, business, job
+          interviews, etc. from 10 different categories. Look up words quickly
+          for particular situations and be ready to impress.
         </Text>
         {hideButton}
       </View>
@@ -95,9 +94,8 @@ export default function System({ navigation }) {
         <Text style={style.componentHead}>Learning Reinforcement</Text>
         <Text style={mainStyles.subHead2}>
           The Vocabulary Mastery section provides games and quizes to help you
-          learn your list of words.
-          Then reinforce your list of words to make them part of your everyday
-          speech and writing.
+          learn your list of words. Then reinforce your list of words to make
+          them part of your everyday speech and writing.
         </Text>
         {hideButton}
       </View>
@@ -183,16 +181,11 @@ export default function System({ navigation }) {
 }
 
 const style = StyleSheet.create({
-
   componentHead: {
     fontSize: 30,
     color: "#f0f8ff",
     fontWeight: "600",
     paddingBottom: 10,
-  },
-
-  component: {
-    paddingHorizontal: 20,
   },
 
   homeButton: {

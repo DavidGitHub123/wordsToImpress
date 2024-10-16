@@ -297,14 +297,6 @@ const style = StyleSheet.create({
   HomeButton: {
     paddingBottom: 20,
   },
-  header: {
-    fontSize: 32,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    textAlign: "center",
-    paddingTop: 40,
-    paddingBottom: 20,
-  },
   subHead2: {
     fontSize: 20,
     color: "#f0f8ff",

@@ -73,30 +73,8 @@ const style = StyleSheet.create({
     paddingBottom: 200,
   },
 
-  header: {
-    fontSize: 10,
-    color: "#f0f8ff",
-    fontWeight: "800",
-  },
-
   bottomButtons: {
     paddingTop: 40,
-    paddingBottom: 40,
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  appButtonText: {
-    fontSize: 18,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 120,
-    paddingTop: 10,
     paddingBottom: 40,
   },
 });

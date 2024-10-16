@@ -21,20 +21,6 @@ const navStyle = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
-  appButtonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    width: 200,
-    marginVertical: 2,
-  },
-
-  bottomButtons: {
-    paddingTop: 20,
-  },
 });
 
 export { CorrectButton, navStyle };
