@@ -1,5 +1,3 @@
-// word match game where user sees definition and matches word = multiplechoicegame.js
-
 import React, { useState, useEffect } from "react";
 import { Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
@@ -51,8 +49,8 @@ export default function QuickQuiz({ navigation }) {
       <View style={mainStyles.startGameContainer}>
         <Text style={mainStyles.header}>Word Match</Text>
         <Text style={mainStyles.subheader}>
-            Identify the correct word that matches each definition.
-          </Text>
+          Identify the correct word that matches each definition.
+        </Text>
         <ListDropdown
           setParent={(n) => setSelectedList(n)}
           initialList={defaultList}
