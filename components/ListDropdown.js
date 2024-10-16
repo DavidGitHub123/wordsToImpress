@@ -99,8 +99,8 @@ export default function ListDropdown(Props) {
         data={lists}
         value={selectedList}
         style={style.dropdown}
-        placeholderStyle={style.placeholderStyle}
         selectedTextStyle={style.selectedTextStyle}
+        placeholderStyle={style.placeholderStyle}
         inputSearchStyle={style.inputSearchStyle}
         onChange={handleDropdownChange}
         maxHeight={300}
@@ -124,10 +124,10 @@ const style = StyleSheet.create({
     width: dimensions.width * 0.9,
   },
   placeholderStyle: {
-    fontSize: 16,
+    fontSize: 24,
   },
   selectedTextStyle: {
-    fontSize: 16,
+    fontSize: 24,
   },
   inputSearchStyle: {
     height: 40,
