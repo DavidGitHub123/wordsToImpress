@@ -6,12 +6,15 @@ import { getNamesOfLists, removeList } from "../components/listHelpers";
 import { mainStyles } from "../components/mainStyles";
 import HomeButton from "../components/HomeButton";
 import AppButton from "../components/AppButton";
+import CreateListModal from "../components/CreateListModal";
 
 export default function ManageLists({ navigation }) {
   const [lists, setLists] = useState(null);
   const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
-  const getAndSetLists = async () => setLists(await getNamesOfLists());
+  const getAndSetLists = async () =>
+    setLists((await getNamesOfLists()).sort((a, b) => a.localeCompare(b)));
 
   useEffect(() => {
     getAndSetLists();
@@ -49,6 +52,12 @@ export default function ManageLists({ navigation }) {
     >
       <SafeAreaView>
         <ScrollView alwaysBounceHorizontal={true}>
+          <CreateListModal
+            showModal={showModal}
+            setShowModal={setShowModal}
+            lists={lists}
+            updateLists={getAndSetLists}
+          />
           <View style={mainStyles.screen}>
             <Text style={mainStyles.header}>My Vocab Mastery Lists</Text>
           </View>
@@ -62,15 +71,17 @@ export default function ManageLists({ navigation }) {
             )}
             {renderLists()}
 
-            <View style={style.bottomButton}>
+            <View style={mainStyles.homeButton}>
+              <AppButton
+                title="Make a new list"
+                icon="plus"
+                onPress={() => setShowModal(true)}
+              />
               <AppButton
                 title="Back"
                 onPress={() => navigation.goBack()}
               ></AppButton>
-
-              <View style={mainStyles.homeButton}>
-                <HomeButton navigation={navigation} />
-              </View>
+              <HomeButton navigation={navigation} />
             </View>
           </View>
         </ScrollView>
