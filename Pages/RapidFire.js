@@ -188,9 +188,9 @@ const style = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    opacity: 0.7,
-    backgroundColor: "black",
-    paddingBottom: 30,
+    backgroundColor: "rgba(0, 0, 0, .5)",
     borderRadius: 20,
+    // paddingHorizontal: 30,
+    paddingVertical: 50,
   },
 });

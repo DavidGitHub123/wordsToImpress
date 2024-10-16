@@ -9,8 +9,7 @@ const mainStyles = StyleSheet.create({
     fontSize: 40,
     color: "#f0f8ff",
     fontWeight: "800",
-    paddingBottom: 20,
-    paddingTop: 40,
+    paddingTop: 20,
     textAlign: "center",
   },
   header2: {
@@ -30,25 +29,6 @@ const mainStyles = StyleSheet.create({
   homeButton: {
     paddingTop: 30,
   },
-  headLine: {
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "900",
-    textShadowColor: "black",
-    textShadowRadius: 5,
-    marginTop: -36,
-    textAlign: "center",
-  },
-
-  headLine2: {
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "900",
-    textShadowColor: "black",
-    textShadowRadius: 5,
-    marginTop: -10,
-    textAlign: "center",
-  },
   text: {
     fontSize: 18,
     color: "#f0f8ff",
@@ -62,7 +42,6 @@ const mainStyles = StyleSheet.create({
   flexOne: {
     flex: 1,
   },
-
   subheader: {
     fontSize: 24,
     color: "#f0f8ff",
@@ -78,21 +57,21 @@ const mainStyles = StyleSheet.create({
     fontSize: 32,
     color: "#fff",
     fontWeight: "600",
-    paddingTop: 50,
-    paddingHorizontal: 30,
+    paddingTop: 20,
   },
   subHead2: {
     fontSize: 20,
     color: "#fff",
     fontWeight: "600",
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingHorizontal: 30,
-    // textAlign: "justify",
+    paddingVertical: 10,
+    paddingHorizontal: 40,
   },
   screen: {
     backgroundColor: "rgba(0, 0, 0, .5)",
     marginBottom: 30,
+    borderRadius: 20,
+    paddingHorizontal: 30,
+    paddingVertical: 30,
   },
   topHeader: {
     marginTop: StatusBarHeight,

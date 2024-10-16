@@ -41,7 +41,7 @@ export default function AtoZWords({ route, navigation }) {
         >
           <View style={style.page}>
             <View>
-              <Text style={mainStyles.headLine2}>{selectedWord} Words</Text>
+              <Text style={mainStyles.header}>{selectedWord} Words</Text>
             </View>
 
             <View style={style.bottomButtons}>

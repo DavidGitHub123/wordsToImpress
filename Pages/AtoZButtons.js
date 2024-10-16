@@ -54,7 +54,7 @@ export default function AtoZButtons({ navigation }) {
           style={mainStyles.page}
         >
           <View style={style.page}>
-            <Text style={mainStyles.headLine2}>Words A to Z</Text>
+            <Text style={mainStyles.header}>Words A to Z</Text>
           </View>
 
           <View style={mainStyles.homeButton}>

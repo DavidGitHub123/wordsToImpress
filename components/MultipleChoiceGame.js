@@ -175,14 +175,14 @@ export default function MultipleChoiceGame(Props) {
           />
           <HomeButton navigation={navigation} />
         </View>
-      ) : (
+       : (
         <View style={{ ...style.centerContainer, ...style.width90 }}>
           <Text style={style.header}>
             {listIndex + 1}/{list.length}
           </Text>
-          <Text style={mainStyles.subheader}>
+          {/* <Text style={mainStyles.subheader}>
             Identify the word that matches this {typeDictoinary[questionType]}:
-          </Text>
+          </Text> */}
           <View style={style.flexQuestion}>{question}</View>
           {renderAnwsers()}
           {displayNext ? renderCorrectandNextButton() : null}
@@ -215,14 +215,14 @@ const style = StyleSheet.create({
   },
 
   text: {
-    fontSize: 28,
+    fontSize: 40,
     color: "#f0f8ff",
     fontWeight: "600",
     textAlign: 'center',
   },
 
   definition: {
-    fontSize: 28,
+    fontSize: 30,
     color: "#f0f8ff",
     fontWeight: "600",
     textAlign: 'center',
@@ -280,7 +280,6 @@ const style = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    // paddingHorizontal: 40,
   },
   container: {
     position: "absolute",
@@ -296,7 +295,7 @@ const style = StyleSheet.create({
     justifyContent: "space-evenly",
     paddingBottom: 40,
   },
-  width90: { width: "90%", margin: "auto" },
+  width90: { width: "100%", margin: "auto" },
 
   flexQuestion: {
     display: "flex",
@@ -306,7 +305,6 @@ const style = StyleSheet.create({
     flexWrap: "wrap",
     rowGap: 2,
     columnGap: 4,   
-    paddingBottom: 20,
-    color: "pink",
+    paddingBottom: 30,
   },
 });

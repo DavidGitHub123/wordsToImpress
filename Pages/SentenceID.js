@@ -56,6 +56,9 @@ export default function SentenceID({ navigation }) {
         >
           <View style={mainStyles.startGameContainer}>
             <Text style={style.header}>Quick Quiz</Text>
+            <Text style={mainStyles.subheader}>
+            Identify the correct definition that matches the highlighted word.
+          </Text>
             <ListDropdown
               setParent={(n) => setSelectedList(n)}
               initialList={defaultList}
