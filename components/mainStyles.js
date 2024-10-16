@@ -79,6 +79,8 @@ const mainStyles = StyleSheet.create({
     flexDirection: "row",
     paddingHorizontal: 10,
     backgroundColor: "#FF8C00",
+    borderBottomWidth: 2,
+    borderBottomColor: "#fff",
   },
   fullScreen: {
     height: screenHeight,

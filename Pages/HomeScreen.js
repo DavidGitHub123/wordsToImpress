@@ -19,26 +19,19 @@ export default function HomeScreen({ navigation }) {
       resizeMode="cover"
       source={phone}
     >
+      <View style={style.unsafeBanner} />
       <SafeAreaView>
         <View style={mainStyles.topHeader}>
-          {/* <IconButton
-            name="bell"
-            onPress={() => navigation.navigate("Notifications")}
-          /> */}
           <AppButton
             viewStyle={{ width: 100 }}
-            // backgroundColor="transparent"
             borderColor="transparent"
-            // borderWidth="1"
             icon="bell"
             title="Schedule"
             onPress={() => navigation.navigate("Notifications")}
           />
           <AppButton
             viewStyle={{ width: 100 }}
-            // backgroundColor="transparent"
             borderColor="transparent"
-            // borderWidth="1"
             icon="table"
             title="About"
             onPress={() => navigation.navigate("System")}
@@ -116,14 +109,6 @@ export default function HomeScreen({ navigation }) {
               onPress={() => navigation.navigate("AtoZButtons")}
             />
           </View>
-          {/* <View style={style.buttons}>
-            <AppButton
-              size="large"
-              icon="book"
-              title="Manage Lists"
-              onPress={() => navigation.navigate("ManageLists")}
-            />
-          </View> */}
         </View>
       </SafeAreaView>
     </ImageBackground>
@@ -183,5 +168,13 @@ const style = StyleSheet.create({
     height: 1,
     width: "100%",
     backgroundColor: "#ddd",
+  },
+  unsafeBanner: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    height: "10%",
+    width: "100%",
+    backgroundColor: "#FF8C00",
   },
 });
