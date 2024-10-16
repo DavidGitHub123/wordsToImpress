@@ -51,7 +51,7 @@ export default function QuickQuiz({ navigation }) {
       <View style={mainStyles.startGameContainer}>
         <Text style={mainStyles.header}>Word Match</Text>
         <Text style={mainStyles.subheader}>
-            Identify the correct word that matches each definition
+            Identify the correct word that matches each definition.
           </Text>
         <ListDropdown
           setParent={(n) => setSelectedList(n)}

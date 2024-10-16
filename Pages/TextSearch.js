@@ -71,7 +71,7 @@ export default function TextSearch({ navigation }) {
         <ScrollView alwaysBounceHorizontal={true}>
           <View style={mainStyles.screen}>
             <Text style={mainStyles.header}>Text Search</Text>
-            <Text style={mainStyles.subHead2}>
+            <Text style={style.subHead2}>
               Copy emails, proposals, fiction, etc. into this box. Our tools will
               analyze your communication patterns to suggest new vocabulary
               words that correspond to your speaking and writing style. Then add
@@ -91,12 +91,12 @@ export default function TextSearch({ navigation }) {
           <View style={style.buttons}>
             <AppButton title="Clear" onPress={handleClear} />
             <AppButton title="Analyze" onPress={handleSubmit} />
-            <Pressable style={navStyle.appButton}>
+            {/* <Pressable style={navStyle.appButton}>
               <AppButton
                 title="Back"
                 onPress={() => navigation.goBack()}
               ></AppButton>
-            </Pressable>
+            </Pressable> */}
             <HomeButton navigation={navigation} />
           </View>
         </ScrollView>
@@ -110,7 +110,6 @@ const style = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
   textBox: {
     height: "auto",
     minHeight: 100,
@@ -119,7 +118,7 @@ const style = StyleSheet.create({
     borderColor: "#fff",
     borderRadius: 5,
     backgroundColor: "#fff",
-    marginVertical: 30,
+    marginVertical: 10,
   },
   centerChildren: {
     display: "flex",
@@ -127,5 +126,11 @@ const style = StyleSheet.create({
   },
   center: {
     margin: "auto",
+  },
+  subHead2: {
+    fontSize: 20,
+    color: "#fff",
+    fontWeight: "600",
+    paddingVertical: 10,
   },
 });

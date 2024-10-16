@@ -113,34 +113,42 @@ export default function MyList({ route, navigation }) {
     >
       <SafeAreaView>
         <ScrollView alwaysBounceHorizontal={true}>
-          <View style={mainStyles.screen}>
+          <View style={style.screen}>
             <View>
-              <Text style={mainStyles.header}>My Mastery</Text>
+              <Text style={style.header}>My Mastery</Text>
             </View>
             <View style={style.donutContainer}>
               <Text style={style.percentText}>{formattedPercentText}%</Text>
               {
                 <PieChart
                   style={style.donut}
-                  widthAndHeight={200}
+                  widthAndHeight={180}
                   series={donutSeries}
                   sliceColor={[donutColor.highlight, donutColor.base]}
                   coverRadius={0.8}
                 />
               }
             </View>
-          </View>
 
-          <ListDropdown setParent={getAndParseList} initialList={listParam} />
-          <Text style={style.donutText}>
+            <Text style={style.donutText}>
             {masteredWordCount}/{listLength}
           </Text>
+
+          </View>
+
+
+          {/* <View>
+            <Text style={style.myListHead}>My Lists</Text>
+          </View> */}
+
+          <ListDropdown setParent={getAndParseList} initialList={listParam} />
 
           <View style={mainStyles.section}>{renderList()}</View>
 
           <View style={style.buttons}>
-            <HomeButton style={style.homebutton} navigation={navigation} />
+            <HomeButton navigation={navigation} />
           </View>
+
         </ScrollView>
       </SafeAreaView>
     </LinearGradient>
@@ -148,6 +156,21 @@ export default function MyList({ route, navigation }) {
 }
 
 const style = StyleSheet.create({
+
+  screen: {
+    backgroundColor: "rgba(0, 0, 0, .5)",
+    marginBottom: 10,
+    borderRadius: 20,
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+  },
+  header: {
+    fontSize: 40,
+    color: "#f0f8ff",
+    fontWeight: "800",
+    paddingBottom: 10,
+    textAlign: "center",
+  },
   donut: {
     width: "100%",
     height: "100%",
@@ -155,37 +178,32 @@ const style = StyleSheet.create({
     top: 0,
     left: 0,
   },
-
   donutText: {
     lineHeight: 50,
     verticalAlign: "middle",
     color: "#fff",
     textAlign: "center",
-    fontSize: 30,
+    fontSize: 40,
+    fontWeight: 900,
   },
-
   donutContainer: {
     width: 200,
     height: 200,
     position: "relative",
     margin: "auto",
   },
-
+  myListHead: {
+    fontSize: 32,
+    color: "#fff",
+    fontWeight: "600",
+    marginLeft: 20,
+  },
   mylistheader: {
     margin: "auto",
     fontSize: 40,
     color: "#f0f8ff",
     fontWeight: "800",
     paddingTop: 40,
-  },
-
-  buttons: {
-    paddingTop: 30,
-    paddingBottom: 10,
-  },
-
-  homebutton: {
-    paddingBottom: 40,
   },
 
   wordDeleteContainer: {
@@ -200,7 +218,7 @@ const style = StyleSheet.create({
   },
   percentText: {
     color: "#4cf03a",
-    fontSize: 60,
+    fontSize: 50,
     fontWeight: "600",
     marginLeft: "auto",
     marginRight: "auto",

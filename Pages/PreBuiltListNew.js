@@ -17,12 +17,12 @@ export default function PreBuiltListNew({ navigation }) {
       >
         <SafeAreaView>
           <View style={mainStyles.screen}>
-            <Text style={style.header}>Pre-Built List</Text>
-            <Text style={style.subHead}>
+            <Text style={mainStyles.header}>Pre-Built List</Text>
+            <Text style={style.subHead2}>
               Here&apos;s a pre-built list of 50 words. Add these words to
               create a quick starter list and begin learning.
             </Text>
-            <Text style={style.subHead}>
+            <Text style={style.subHead2}>
               Or use the Build My List feature to analyze your communications
               patterns to generate a list of vocabulary words unique to you.
             </Text>
@@ -294,11 +294,9 @@ const style = StyleSheet.create({
   page: {
     paddingBottom: 50,
   },
-
   HomeButton: {
     paddingBottom: 20,
   },
-
   header: {
     fontSize: 32,
     color: "#f0f8ff",
@@ -307,12 +305,10 @@ const style = StyleSheet.create({
     paddingTop: 40,
     paddingBottom: 20,
   },
-
-  subHead: {
+  subHead2: {
     fontSize: 20,
     color: "#f0f8ff",
-    paddingHorizontal: 40,
-    paddingBottom: 20,
-    fontWeight: "500",
+    fontWeight: "600",
+    paddingVertical: 10,
   },
 });

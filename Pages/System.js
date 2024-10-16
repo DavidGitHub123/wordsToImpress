@@ -118,7 +118,7 @@ export default function System({ navigation }) {
             <Text style={mainStyles.subHead1}>
               Increase your powers of persuasion and comprehension
             </Text>
-            <Text style={mainStyles.subHead2}>
+            <Text style={style.subHead2}>
               The Words to Impress App includes the most impressive words as
               identified by the author of the best-selling Words You Should Know
               series of books.
@@ -197,5 +197,13 @@ const style = StyleSheet.create({
 
   homeButton: {
     paddingTop: 30,
+  },
+
+  subHead2: {
+    fontSize: 20,
+    color: "#fff",
+    fontWeight: "600",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
   },
 });

@@ -49,6 +49,11 @@ export default function ManageLists({ navigation }) {
     >
       <SafeAreaView>
         <ScrollView alwaysBounceHorizontal={true}>
+
+          <View style={mainStyles.screen}>
+              <Text style={mainStyles.header}>My Vocab Mastery Lists</Text>
+          </View>
+         
           <View style={mainStyles.centerContainer}>
             {error && (
               <View style={style.error}>
@@ -63,7 +68,11 @@ export default function ManageLists({ navigation }) {
                 title="Back"
                 onPress={() => navigation.goBack()}
               ></AppButton>
-              <HomeButton />
+              
+          <View style={mainStyles.homeButton}>
+            <HomeButton navigation={navigation} />
+          </View>
+
             </View>
           </View>
         </ScrollView>
@@ -93,5 +102,13 @@ const style = StyleSheet.create({
   },
   bottomButton: {
     marginTop: 30,
+  },
+  screen: {
+    backgroundColor: "rgba(0, 0, 0, .5)",
+    marginTop: 100,
+    marginBottom: 40,
+    borderRadius: 20,
+    paddingHorizontal: 60,
+    paddingVertical: 60,
   },
 });

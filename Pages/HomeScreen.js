@@ -22,15 +22,24 @@ export default function HomeScreen({ navigation }) {
     >
       <SafeAreaView>
         <View style={mainStyles.topHeader}>
-          <IconButton
+          {/* <IconButton
             name="bell"
+            onPress={() => navigation.navigate("Notifications")}
+          /> */}
+            <AppButton
+            viewStyle={{ width: 100 }}
+            // backgroundColor="transparent"
+            borderColor="transparent"
+            // borderWidth="1"
+            icon="bell"
+            title="Schedule"
             onPress={() => navigation.navigate("Notifications")}
           />
           <AppButton
             viewStyle={{ width: 100 }}
-            backgroundColor="transparent"
-            borderColor="#fff"
-            borderWidth="1"
+            // backgroundColor="transparent"
+            borderColor="transparent"
+            // borderWidth="1"
             icon="table"
             title="About"
             onPress={() => navigation.navigate("System")}
@@ -53,13 +62,13 @@ export default function HomeScreen({ navigation }) {
             <AppButton
               size="large"
               icon="list"
-              title="My List"
-              onPress={() => navigation.navigate("MyList")}
+              title="My Lists"
+              onPress={() => navigation.navigate("ManageLists")}
             />
             <AppButton
               size="large"
               icon="signal"
-              title="My Progress"
+              title="My Mastery"
               onPress={() => navigation.navigate("MyList")}
             />
           </View>
@@ -89,7 +98,7 @@ export default function HomeScreen({ navigation }) {
             <AppButton
               size="large"
               icon="trophy"
-              title="Vocab Mastery"
+              title="Word Mastery"
               onPress={() => navigation.navigate("VocabMastery")}
             />
           </View>
@@ -108,14 +117,14 @@ export default function HomeScreen({ navigation }) {
               onPress={() => navigation.navigate("AtoZButtons")}
             />
           </View>
-          <View style={style.buttons}>
+          {/* <View style={style.buttons}>
             <AppButton
               size="large"
               icon="book"
               title="Manage Lists"
               onPress={() => navigation.navigate("ManageLists")}
             />
-          </View>
+          </View> */}
         </View>
       </SafeAreaView>
     </ImageBackground>
