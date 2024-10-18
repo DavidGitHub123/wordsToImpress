@@ -133,7 +133,7 @@ function GameSetUp(Props) {
     <Pressable
       style={style.timingButtonContainer}
       key={i}
-      onPress={() => setTiming(el)}
+      onPress={() => setTiming(el)}m
     >
       <RadioButton selected={timing === el} />
       <Text style={mainStyles.text}>
@@ -190,7 +190,6 @@ const style = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "rgba(0, 0, 0, .5)",
     borderRadius: 20,
-    // paddingHorizontal: 30,
     paddingVertical: 50,
   },
 });

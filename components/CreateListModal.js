@@ -43,7 +43,7 @@ export default function CreateListModal(Props) {
               <Text style={mainStyles.text}>{alert}</Text>
             </View>
           )}
-          <Text style={mainStyles.text2}>Name your new list</Text>
+          <Text style={mainStyles.subheader}>Name your new list</Text>
           <TextInput
             style={style.input}
             onChangeText={setInputText}

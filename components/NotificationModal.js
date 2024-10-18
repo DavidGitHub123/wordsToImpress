@@ -119,8 +119,8 @@ export default function NotificationModal(Props) {
   const displayRemindMeButton = selectedWord || notifTextRef.current !== null;
 
   return (
-    <View style={mainStyles.centerChildren}>
-      <Text style={mainStyles.header2}>{notificationType} reminder</Text>
+    <View>
+      <Text style={style.header}>{notificationType} reminder</Text>
       <View style={style.marginAuto}>
         <AppButton
           icon="user-clock"
@@ -172,6 +172,13 @@ const style = StyleSheet.create({
     fontWeight: "700",
     margin: "auto",
   },
-
-  marginAuto: { margin: "auto" },
+  marginAuto: { 
+    margin: "auto" },
+    header: {
+      fontSize: 40,
+      color: "#f0f8ff",
+      fontWeight: "800",
+      paddingVertical: 40,
+      textAlign: "center",
+    },
 });

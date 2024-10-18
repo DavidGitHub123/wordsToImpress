@@ -58,7 +58,7 @@ export default function Word({ navigation }) {
             <Text style={mainStyles.text}>{wordData.Shortdef}</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.subHeadSentence}>Sentence: </Text>
+            <Text style={style.subHead}>Sentence: </Text>
             <View style={style.flexSentence}>{sentence}</View>
           </Text>
         </View>
@@ -95,20 +95,13 @@ export default function Word({ navigation }) {
 
 const style = StyleSheet.create({
   space: {
-    paddingBottom: 10,
+    paddingTop: 20,
   },
 
   subHead: {
     fontSize: 24,
     color: "#FF8C00",
-    fontWeight: "600",
-  },
-
-  subHeadSentence: {
-    fontSize: 40,
-    color: "#FF8C00",
-    fontWeight: "600",
-    marginBottom: 30,
+    fontWeight: "700",
   },
 
   flexSentence: {
@@ -119,6 +112,7 @@ const style = StyleSheet.create({
     flexWrap: "wrap",
     rowGap: 2,
     columnGap: 4,
+    paddingTop: 30,
   },
 
   highlightedText: {

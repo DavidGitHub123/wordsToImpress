@@ -34,21 +34,21 @@ export default function WS_Boss({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Aberration</Text>
+          <Text style={mainStyles.header}>Aberration</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>ab-uh-RAY-shun</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Diverging from an expected course
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              Sally&&apos; poor work was hardly grounds for dismissal; it was an{" "}
+              Sally's poor work was hardly grounds for dismissal; it was an{" "}
             </Text>
             <Text style={style.bold}>aberration </Text>
             <Text style={mainStyles.text}>caused by problems at home.</Text>
@@ -65,19 +65,19 @@ export default function WS_Boss({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Beleaguered</Text>
+          <Text style={mainStyles.header}>Beleaguered</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>bee-LEEG-erd</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Embattled; constantly confronted with obstacles.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>The </Text>
             <Text style={style.bold}>beleaguered </Text>
             <Text style={mainStyles.text}>
@@ -96,20 +96,20 @@ export default function WS_Boss({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Debacle</Text>
+          <Text style={mainStyles.header}>Debacle</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>dih-BA-kull</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Utter collapse or rout.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               The initiative seemed promising, but turned out to be
-              George&&apos;{" "}
+              George's {" "}
             </Text>
             <Text style={style.bold}>debacle.</Text>
           </Text>
@@ -125,20 +125,20 @@ export default function WS_Boss({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Echelon</Text>
+          <Text style={mainStyles.header}>Echelon</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>ESH-uh-lon</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>A level of command.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              Tom&&apos; proposal eventually won the approval of the
-              company&#39s upper{" "}
+              Tom's proposal eventually won the approval of the
+              company's upper{" "}
             </Text>
             <Text style={style.bold}>echelon </Text>
             <Text style={mainStyles.text}>of leaders.</Text>
@@ -155,17 +155,17 @@ export default function WS_Boss({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Garner</Text>
+          <Text style={mainStyles.header}>Garner</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>GAR-ner</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>To gather or accumulate.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>William </Text>
             <Text style={style.bold}>garnered </Text>
             <Text style={mainStyles.text}>
@@ -184,18 +184,18 @@ export default function WS_Boss({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Ignoble</Text>
+          <Text style={mainStyles.header}>Ignoble</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>ig-NO-bull</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Dishonorable in nature.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
-            <Text style={mainStyles.text}>Peter&&apos; </Text>
+            <Text style={style.bold}>Sentence: </Text>
+            <Text style={mainStyles.text}>Peter's </Text>
             <Text style={style.bold}>ignoble </Text>
             <Text style={mainStyles.text}>
               aims were well known to the human resources department, which led
@@ -214,17 +214,17 @@ export default function WS_Boss({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Jettison</Text>
+          <Text style={mainStyles.header}>Jettison</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>JET-ih-son</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>To cast off or overboard.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               The project seemed promising, but after research we{" "}
             </Text>
@@ -243,19 +243,19 @@ export default function WS_Boss({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Keynote</Text>
+          <Text style={mainStyles.header}>Keynote</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>KEE-note</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               A prime theme; underlying element.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>The </Text>
             <Text style={style.bold}>keynote </Text>
             <Text style={mainStyles.text}>
@@ -275,17 +275,17 @@ export default function WS_Boss({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Laggard</Text>
+          <Text style={mainStyles.header}>Laggard</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>LAG-urd</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>One who lags behind or loiters.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               We completed the project; it is the{" "}
             </Text>
@@ -306,17 +306,17 @@ export default function WS_Boss({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Narcissistic</Text>
+          <Text style={mainStyles.header}>Narcissistic</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>nar-sis-SIS-tik</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Extreme love of self.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               Self-promotion is one thing; but the{" "}
             </Text>
@@ -477,16 +477,6 @@ const style = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     paddingBottom: 200,
-  },
-
-  subHead: {
-    fontSize: 40,
-    color: "#FF8C00",
-  },
-
-  title: {
-    fontSize: 25,
-    color: "#FF8C00",
   },
 
   bold: {

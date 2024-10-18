@@ -24,6 +24,11 @@ export default function MultipleChoiceGame(Props) {
     answerType,
   } = Props;
   const MAX_INCORRECT_ANSWERS = 3;
+  const typeDictoinary = {
+    Longdef: "sentence",
+    Shortdef: "definition",
+    Word: "word",
+  };
 
   let question;
   if (listIndex <= list.length - 1) {
@@ -36,7 +41,7 @@ export default function MultipleChoiceGame(Props) {
       return (
         <Text
           key={i}
-          style={isHighlighted(el) ? mainStyles.greenText2 : style.definition}
+          style={isHighlighted(el) ? mainStyles.greenText : style.definition}
         >
           {el}
         </Text>
@@ -115,8 +120,6 @@ export default function MultipleChoiceGame(Props) {
     setGameRestart(!gameRestart);
   };
 
-  const textSize = answerType === "Word" ? 32 : 20;
-
   const renderAnwsers = () => (
     <View style={style.answerContainer}>
       {anwsers.map((el, i) => {
@@ -133,7 +136,6 @@ export default function MultipleChoiceGame(Props) {
             key={i}
             title={el.answer}
             style={style}
-            textSize={textSize}
             onPress={() => handleAnwser(i)}
           />
         );
@@ -156,7 +158,7 @@ export default function MultipleChoiceGame(Props) {
       opacity={1.0}
       style={style.flexOne}
     >
-      {gameOver ? (
+      {gameOver ? 
         <View style={style.endContainer}>
           <Text style={style.header}>
             You scored {score}/{list.length}
@@ -173,7 +175,7 @@ export default function MultipleChoiceGame(Props) {
           />
           <HomeButton navigation={navigation} />
         </View>
-      ) : (
+       : (
         <View style={{ ...style.centerContainer, ...style.width90 }}>
           <Text style={style.header}>
             {listIndex + 1}/{list.length}
@@ -191,6 +193,7 @@ export default function MultipleChoiceGame(Props) {
 }
 
 const style = StyleSheet.create({
+
   flexOne: {
     flex: 1,
   },
@@ -205,20 +208,62 @@ const style = StyleSheet.create({
   },
 
   text: {
-    fontSize: 40,
+    fontSize: 28,
     color: "#f0f8ff",
     fontWeight: "600",
-    textAlign: "center",
+    textAlign: 'center',
   },
 
   definition: {
-    fontSize: 30,
+    fontSize: 28,
     color: "#f0f8ff",
     fontWeight: "600",
-    textAlign: "center",
+    textAlign: 'center',
   },
 
+  white: {
+    color: "#f0f8ff",
+  },
+
+  wordList: {
+    color: "#f0f8ff",
+    textAlign: "center",
+    paddingTop: 20,
+  },
+
+  buttons: {
+    paddingTop: 20,
+  },
+
+  timingButtonContainer: {
+    display: "flex",
+    flexWrap: "nowrap",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 10,
+    gap: 5,
+  },
+
+  gameContainer: {
+    margin: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  timingOptionsContainer: {
+    margin: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  center: {
+    margin: "auto",
+  },
   centerContainer: {
+    // display: "flex",
+    // flex: 1,
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 40,
@@ -228,6 +273,12 @@ const style = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  container: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    zIndex: -1,
   },
   answerContainer: {
     display: "flex",
@@ -246,7 +297,7 @@ const style = StyleSheet.create({
     alignItems: "baseline",
     flexWrap: "wrap",
     rowGap: 2,
-    columnGap: 4,
+    columnGap: 4,   
     paddingBottom: 30,
   },
 });

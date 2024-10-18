@@ -34,19 +34,19 @@ export default function WS_JobInterview({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Baccalaureate</Text>
+          <Text style={mainStyles.header}>Baccalaureate</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>bak-uh-LOR-ee-it</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Degree awarded upon completion of an undergraduate program.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>I received my </Text>
             <Text style={style.bold}>baccalaureate</Text>
             <Text style={mainStyles.text}>
@@ -66,19 +66,19 @@ export default function WS_JobInterview({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Cavalier</Text>
+          <Text style={mainStyles.header}>Cavalier</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>KAV-uh-leer</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Degree awarded upon completion of an undergraduate program.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>I warned the CEO about his </Text>
             <Text style={style.bold}>cavalier</Text>
             <Text style={mainStyles.text}>
@@ -98,19 +98,19 @@ export default function WS_JobInterview({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Deprecate</Text>
+          <Text style={mainStyles.header}>Deprecate</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>DEP-ri-cate</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               To belittle; disapproval of something.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               Jean insisted her report contained not a single{" "}
             </Text>
@@ -132,20 +132,20 @@ export default function WS_JobInterview({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Ebullience</Text>
+          <Text style={mainStyles.header}>Ebullience</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>ih-BOLL-yunce</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               To belittle; disapproval of something.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
-            <Text style={mainStyles.text}>Sharon&#39s</Text>
+            <Text style={style.bold}>Sentence: </Text>
+            <Text style={mainStyles.text}>Sharon's </Text>
             <Text style={style.bold}>ebullience</Text>
             <Text style={mainStyles.text}>
               {" "}
@@ -164,21 +164,21 @@ export default function WS_JobInterview({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Fait Accompli</Text>
+          <Text style={mainStyles.header}>Fait Accompli</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>FATE uh-com-PLEE</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Something undertaken and already concluded.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              I did sign the contract without the CEO&#39s consent as it was a{" "}
+              I did sign the contract without the CEO's consent as it was a{" "}
             </Text>
             <Text style={style.bold}>fait accompli</Text>
             <Text style={mainStyles.text}>
@@ -197,17 +197,17 @@ export default function WS_JobInterview({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Galvanize</Text>
+          <Text style={mainStyles.header}>Galvanize</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>GAL-vuh-nize</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>To arouse or summon to action.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>The letter had a </Text>
             <Text style={style.bold}>galvanizing</Text>
             <Text style={mainStyles.text}>
@@ -227,19 +227,19 @@ export default function WS_JobInterview({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Imbue</Text>
+          <Text style={mainStyles.header}>Imbue</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>im-BYOO</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               To saturate or flow throughout by absorption.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>My philosophy on management is </Text>
             <Text style={style.bold}>imbued</Text>
             <Text style={mainStyles.text}>
@@ -259,17 +259,17 @@ export default function WS_JobInterview({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Jejune</Text>
+          <Text style={mainStyles.header}>Jejune</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>ji-JUNE</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Dull or lackluster.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               I find your advertising campaign{" "}
             </Text>
@@ -288,18 +288,18 @@ export default function WS_JobInterview({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Kudos</Text>
+          <Text style={mainStyles.header}>Kudos</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>KOO_dos</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Dull or lackluster.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
-            <Text style={mainStyles.text}>Big</Text>
+            <Text style={style.bold}>Sentence: </Text>
+            <Text style={mainStyles.text}>Big </Text>
             <Text style={style.bold}>Kudos</Text>
             <Text style={mainStyles.text}>
               {" "}
@@ -318,19 +318,19 @@ export default function WS_JobInterview({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Utilitarian</Text>
+          <Text style={mainStyles.header}>Utilitarian</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>yoo-til-ih-TARE-ee-un</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Concern for the practical or useful.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>Take the </Text>
             <Text style={style.bold}>utilitarian</Text>
             <Text style={mainStyles.text}>
@@ -490,15 +490,6 @@ const style = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     paddingBottom: 200,
-  },
-
-  subHead: {
-    fontSize: 40,
-    color: "#FF8C00",
-  },
-  title: {
-    fontSize: 25,
-    color: "#FF8C00",
   },
 
   bold: {

@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, Text, View } from "react-native";
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import { LinearGradient } from "expo-linear-gradient";
@@ -31,8 +31,6 @@ export default function AtoZButtons({ navigation }) {
       "U",
       "V",
       "W",
-      "X",
-      "Y",
       "Z",
     ].map((el, i) => (
       <NavButton
@@ -53,7 +51,7 @@ export default function AtoZButtons({ navigation }) {
           opacity={1.0}
           style={mainStyles.page}
         >
-          <View style={style.page}>
+          <View>
             <Text style={mainStyles.header}>Words A to Z</Text>
           </View>
 
@@ -68,9 +66,5 @@ export default function AtoZButtons({ navigation }) {
   );
 }
 
-const style = StyleSheet.create({
-  page: {
-    paddingTop: 50,
-  }
-});
+
 

@@ -21,7 +21,7 @@ export default function WS_SpeedingTicket({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
 
   const hideButton = (
-    <Pressable>
+    <Pressable style={mainStyles.centerContainer}>
       <AppButton
         icon="sign-in"
         title="Hide"
@@ -34,19 +34,19 @@ export default function WS_SpeedingTicket({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Adroit</Text>
+          <Text style={mainStyles.header}>Adroit</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>uh-DROIT</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
-              Skillful use of one&#39s hands or body.
+              Skillful use of one's hands or body.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>Officer, your </Text>
             <Text style={style.bold}>adroit</Text>
             <Text style={mainStyles.text}>
@@ -66,24 +66,22 @@ export default function WS_SpeedingTicket({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Befuddle</Text>
+          <Text style={mainStyles.header}>Befuddle</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>bee-FUD-il</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>To confuse or perplex.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              I&#39m sorry officer that I appear{" "}
+              I'm sorry officer that I appear{" "}
             </Text>
-            <Text style={style.bold}>befuddled</Text>
-            <Text style={mainStyles.text}>
-              , you won&#39t believe what happened.
-            </Text>
+            <Text style={style.bold}>befuddled, </Text>
+            <Text style={mainStyles.text}>you won't believe what happened.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -97,24 +95,22 @@ export default function WS_SpeedingTicket({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Canard</Text>
+          <Text style={mainStyles.header}>Canard</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>kuh-NARD</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               A fabrication or unfounded story.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>Officer, I cannot tell a </Text>
-            <Text style={style.bold}>canard</Text>
-            <Text style={mainStyles.text}>
-              ; I was speeding but let me tell you why.
-            </Text>
+            <Text style={style.bold}>canard; </Text>
+            <Text style={mainStyles.text}>I was speeding but let me tell you why.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -128,17 +124,17 @@ export default function WS_SpeedingTicket({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Disconcerting</Text>
+          <Text style={mainStyles.header}>Disconcerting</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>diss-kun-SERT-ing</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Ruffled; upset.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>Officer, I too find it </Text>
             <Text style={style.bold}>disconcerting</Text>
             <Text style={mainStyles.text}>
@@ -158,19 +154,19 @@ export default function WS_SpeedingTicket({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Embodiment</Text>
+          <Text style={mainStyles.header}>Embodiment</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>em-BOD-ee-ment</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               To possess a given thing or idea.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>Officer, you are the </Text>
             <Text style={style.bold}>embodiment</Text>
             <Text style={mainStyles.text}> of a brave man of his duty.</Text>
@@ -187,24 +183,24 @@ export default function WS_SpeedingTicket({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Fulminate</Text>
+          <Text style={mainStyles.header}>Fulminate</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>FUL-mih-nate</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               To explode. Launch verbal attack.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               Officer, last time you pulled me over I spoke loudly, even{" "}
             </Text>
             <Text style={style.bold}>fulminating</Text>
-            <Text style={mainStyles.text}> in anger. I&#39m sorry.</Text>
+            <Text style={mainStyles.text}> in anger. I'm sorry.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -218,20 +214,20 @@ export default function WS_SpeedingTicket({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Imperative</Text>
+          <Text style={mainStyles.header}>Imperative</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>im-PAIR-uh-tive</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Essential, obligatory, or mandatory.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
-            <Text style={mainStyles.text}>Officer, it&#39s </Text>
+            <Text style={style.bold}>Sentence: </Text>
+            <Text style={mainStyles.text}>Officer, it's </Text>
             <Text style={style.bold}>imperative</Text>
             <Text style={mainStyles.text}>
               {" "}
@@ -250,19 +246,19 @@ export default function WS_SpeedingTicket({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Lucid</Text>
+          <Text style={mainStyles.header}>Lucid</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>LOO-sid</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Intelligible; clear mental state.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               Officer, I was daydreaming and not in a{" "}
             </Text>
@@ -284,24 +280,24 @@ export default function WS_SpeedingTicket({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Misconstrue</Text>
+          <Text style={mainStyles.header}>Misconstrue</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>miss-kun-STROO</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               To misinterpret; make an error in analyzing.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>Officer, I do not mean to </Text>
             <Text style={style.bold}>misconstrue</Text>
             <Text style={mainStyles.text}>
               {" "}
-              the situation; I&#39ll defer to your judgment.
+              the situation; I'll defer to your judgment.
             </Text>
           </Text>
         </View>
@@ -316,18 +312,18 @@ export default function WS_SpeedingTicket({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Upbraid</Text>
+          <Text style={mainStyles.header}>Upbraid</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>miss-kun-STROO</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>To criticize a person.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
-            <Text style={mainStyles.text}>Officer, please don&#39t </Text>
+            <Text style={style.bold}>Sentence: </Text>
+            <Text style={mainStyles.text}>Officer, please don't </Text>
             <Text style={style.bold}>upbraid</Text>
             <Text style={mainStyles.text}> me; I am a good driver.</Text>
           </Text>
@@ -483,15 +479,6 @@ const style = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     paddingBottom: 200,
-  },
-
-  subHead: {
-    fontSize: 40,
-    color: "#FF8C00",
-  },
-  title: {
-    fontSize: 25,
-    color: "#FF8C00",
   },
 
   bold: {
