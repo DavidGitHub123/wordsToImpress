@@ -109,7 +109,4 @@ const style = StyleSheet.create({
     height: 30,
     width: 200,
   },
-  bottomButton: {
-    marginTop: 30,
-  },
 });

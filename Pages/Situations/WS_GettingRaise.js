@@ -34,18 +34,18 @@ export default function WS_GettingRaise({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Aggrandize</Text>
+          <Text style={mainStyles.header}>Aggrandize</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>uh-GRAND-ize</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Make to appear great.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
-            <Text style={mainStyles.text}>I don&#39t want to appear to </Text>
+            <Text style={style.bold}>Sentence: </Text>
+            <Text style={mainStyles.text}>I don't want to appear to </Text>
             <Text style={style.bold}>aggrandize </Text>
             <Text style={mainStyles.text}>
               myself, but I did lead my sales team to triple sales.
@@ -63,19 +63,19 @@ export default function WS_GettingRaise({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Benevolent</Text>
+          <Text style={mainStyles.header}>Benevolent</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>be-NEV-i-lent</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Tendency to do well toward others.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>You are a </Text>
             <Text style={style.bold}>benevolent </Text>
             <Text style={mainStyles.text}>
@@ -94,19 +94,19 @@ export default function WS_GettingRaise({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Celerity</Text>
+          <Text style={mainStyles.header}>Celerity</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>suh-LAIR-ih-tee</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Speed; swiftness of action or motion.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               Right away! I will carry out your orders with{" "}
             </Text>
@@ -124,17 +124,17 @@ export default function WS_GettingRaise({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Debilitate</Text>
+          <Text style={mainStyles.header}>Debilitate</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>dih-BILL-ih-tate</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>To enfeeble or weaken.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>The team has a </Text>
             <Text style={style.bold}>debilitating </Text>
             <Text style={mainStyles.text}>
@@ -153,19 +153,19 @@ export default function WS_GettingRaise({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Effete</Text>
+          <Text style={mainStyles.header}>Effete</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>uh-FEET</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Lacking vitality; without force.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               The new department is lacking force with no results; they are{" "}
             </Text>
@@ -183,22 +183,22 @@ export default function WS_GettingRaise({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Facetious</Text>
+          <Text style={mainStyles.header}>Facetious</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>fuh-SEE-shuss</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Playful talk; communicated in jest.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>Serious, I was just being </Text>
             <Text style={style.bold}>facetious </Text>
-            <Text style={mainStyles.text}>about your wife&#39s dress.</Text>
+            <Text style={mainStyles.text}>about your wife's dress.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -212,18 +212,18 @@ export default function WS_GettingRaise({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Garrulity</Text>
+          <Text style={mainStyles.header}>Garrulity</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>guh-ROO-lih-tee</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Talkativeness.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
-            <Text style={mainStyles.text}>Michael&#39s </Text>
+            <Text style={style.bold}>Sentence: </Text>
+            <Text style={mainStyles.text}>Michael's </Text>
             <Text style={style.bold}>garrulity </Text>
             <Text style={mainStyles.text}>
               of non-stop talking gave him the reputation of a motor-mouth.
@@ -241,18 +241,18 @@ export default function WS_GettingRaise({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Halcyon</Text>
+          <Text style={mainStyles.header}>Halcyon</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>HAL-see-on</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Tranquil, peaceful.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
-            <Text style={mainStyles.text}>The company&#39s </Text>
+            <Text style={style.bold}>Sentence: </Text>
+            <Text style={mainStyles.text}>The company's </Text>
             <Text style={style.bold}>halcyon </Text>
             <Text style={mainStyles.text}>
               years as the leader were over; new competitors had moved into
@@ -271,19 +271,19 @@ export default function WS_GettingRaise({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Iconoclastic</Text>
+          <Text style={mainStyles.header}>Iconoclastic</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>I-kon-uh-KLASS-tik</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Attacking cherished institutions or beliefs.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>Boss, your </Text>
             <Text style={style.bold}>iconoclastic </Text>
             <Text style={mainStyles.text}>
@@ -303,23 +303,23 @@ export default function WS_GettingRaise({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Ne Plus Ultra</Text>
+          <Text style={mainStyles.header}>Ne Plus Ultra</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>nay plooce OOL-truhk</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               The highest possible embodiment of something.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>Boss, you are the </Text>
             <Text style={style.bold}>ne plus ultra </Text>
             <Text style={mainStyles.text}>
-              of bosses; I can&#39t imagine working for someone more capable.
+              of bosses; I can't imagine working for someone more capable.
             </Text>
           </Text>
         </View>
@@ -474,16 +474,6 @@ const style = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     paddingBottom: 200,
-  },
-
-  subHead: {
-    fontSize: 40,
-    color: "#FF8C00",
-  },
-
-  title: {
-    fontSize: 25,
-    color: "#FF8C00",
   },
 
   bold: {

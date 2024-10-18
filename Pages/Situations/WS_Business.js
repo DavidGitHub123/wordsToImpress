@@ -34,19 +34,19 @@ export default function WS_Business({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Accolade</Text>
+          <Text style={mainStyles.header}>Accolade</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>AK-uh-lade</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Acknowledgement or expression of praise.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               The president hung on his office wall many plaques, citations, and{" "}
             </Text>
@@ -64,19 +64,19 @@ export default function WS_Business({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Bluster</Text>
+          <Text style={mainStyles.header}>Bluster</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>BLUS-ter</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               To threaten or issue extravagant threat.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               The CEO seems fierce at first because he{" "}
             </Text>
@@ -95,19 +95,19 @@ export default function WS_Business({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Cartel</Text>
+          <Text style={mainStyles.header}>Cartel</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>kar-TELL</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Group that establishes mutual control of prices and production.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>The oil </Text>
             <Text style={style.bold}>cartel </Text>
             <Text style={mainStyles.text}>
@@ -126,19 +126,19 @@ export default function WS_Business({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Diminution</Text>
+          <Text style={mainStyles.header}>Diminution</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>dim-ih-NOO-shen</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Reduction due to outside influences.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               The stock fell by 75%; not sure we can recover from such a{" "}
             </Text>
@@ -156,19 +156,19 @@ export default function WS_Business({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Effrontery</Text>
+          <Text style={mainStyles.header}>Effrontery</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>ih-FRON-ter-ee</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Impudent boldness.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>She had the </Text>
-            <Text style={style.bold}>effrontery</Text>
+            <Text style={style.bold}>effrontery </Text>
             <Text style={mainStyles.text}>
               to ask for a raise after a dreadful performance.
             </Text>
@@ -185,22 +185,22 @@ export default function WS_Business({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Feckless</Text>
+          <Text style={mainStyles.header}>Feckless</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>FEK-liss</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Ineffective or feeble.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               We had hoped for a well-trained consulting firm; we got a pack of{" "}
             </Text>
             <Text style={style.bold}>feckless</Text>
-            <Text style={mainStyles.text}>hangers-on.</Text>
+            <Text style={mainStyles.text}> hangers-on.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -214,19 +214,19 @@ export default function WS_Business({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Gargantuan</Text>
+          <Text style={mainStyles.header}>Gargantuan</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>gar-GAN-choo-un</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Enormous. From fictional king (Gargantua).
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>The </Text>
             <Text style={style.bold}>gargantuan </Text>
             <Text style={mainStyles.text}>
@@ -245,19 +245,19 @@ export default function WS_Business({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Harbinger</Text>
+          <Text style={mainStyles.header}>Harbinger</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>HAR-bin-jur</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Forerunner. Something that comes before.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>These sales figures are a </Text>
             <Text style={style.bold}>harbinger </Text>
             <Text style={mainStyles.text}>of hard times ahead.</Text>
@@ -274,18 +274,18 @@ export default function WS_Business({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Impetuous</Text>
+          <Text style={mainStyles.header}>Impetuous</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>im-PET-you-us</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Impulsive; driven by emotion.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
-            <Text style={mainStyles.text}>Dirk&#39s heated and </Text>
+            <Text style={style.bold}>Sentence: </Text>
+            <Text style={mainStyles.text}>Dirk's heated and </Text>
             <Text style={style.bold}>impetuous </Text>
             <Text style={mainStyles.text}>
               remark may well cost him his job.
@@ -303,19 +303,19 @@ export default function WS_Business({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Logistics</Text>
+          <Text style={mainStyles.header}>Logistics</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>loe-JIS-tiks</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Essential details of how something is to be accomplished.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               Jane knew the trip could not begin until the{" "}
             </Text>
@@ -474,16 +474,6 @@ const style = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     paddingBottom: 200,
-  },
-
-  subHead: {
-    fontSize: 40,
-    color: "#FF8C00",
-  },
-
-  title: {
-    fontSize: 25,
-    color: "#FF8C00",
   },
 
   bold: {

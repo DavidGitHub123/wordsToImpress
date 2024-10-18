@@ -42,8 +42,8 @@ export default function TextSearch({ navigation }) {
 
     return (
       <View style={style.centerChildren}>
-        <Text style={mainStyles.subHead2}>
-          Add these words to your list to improve your vocab.
+        <Text style={mainStyles.subText}>
+          Add these words to your lists.
         </Text>
         {suggestions.map((el, i) => (
           <AppButton
@@ -69,7 +69,7 @@ export default function TextSearch({ navigation }) {
         <ScrollView alwaysBounceHorizontal={true}>
           <View style={mainStyles.screen}>
             <Text style={mainStyles.header}>Text Search</Text>
-            <Text style={style.subHead2}>
+            <Text style={mainStyles.subText}>
               Copy emails, proposals, fiction, etc. into this box. Our tools
               will analyze your communication patterns to suggest new vocabulary
               words that correspond to your speaking and writing style. Then add
@@ -89,12 +89,6 @@ export default function TextSearch({ navigation }) {
           <View style={style.buttons}>
             <AppButton title="Clear" onPress={handleClear} />
             <AppButton title="Analyze" onPress={handleSubmit} />
-            {/* <Pressable style={navStyle.appButton}>
-              <AppButton
-                title="Back"
-                onPress={() => navigation.goBack()}
-              ></AppButton>
-            </Pressable> */}
             <HomeButton navigation={navigation} />
           </View>
         </ScrollView>
@@ -110,22 +104,18 @@ const style = StyleSheet.create({
   },
   textBox: {
     height: "auto",
-    minHeight: 100,
-    width: "90%",
+    minHeight: 200,
+    width: "80%",
     borderWidth: 1,
     borderColor: "#fff",
-    borderRadius: 5,
+    borderRadius: 10,
     backgroundColor: "#fff",
-    marginVertical: 10,
+    marginBottom: 30,
+    fontSize: 18,
+    padding: 10
   },
   centerChildren: {
     display: "flex",
     alignItems: "center",
-  },
-  subHead2: {
-    fontSize: 20,
-    color: "#fff",
-    fontWeight: "600",
-    paddingVertical: 10,
   },
 });

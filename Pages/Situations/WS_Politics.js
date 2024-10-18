@@ -34,21 +34,21 @@ export default function WS_Politics({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Capitulate</Text>
+          <Text style={mainStyles.header}>Capitulate</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>kuh-PIT-yoo-late</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Give up, surrender.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               The ambassador had been instructed to show flexibility, but not to{" "}
             </Text>
-            <Text style={style.bold}>capitulate</Text>
+            <Text style={style.bold}>capitulate </Text>
             <Text style={mainStyles.text}>on trade issues.</Text>
           </Text>
         </View>
@@ -63,24 +63,24 @@ export default function WS_Politics({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Decorum</Text>
+          <Text style={mainStyles.header}>Decorum</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>di-COR-um</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Social propriety; dignified conduct.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               Though the delegates were frustrated at the chairman, strict{" "}
             </Text>
             <Text style={style.bold}>decorum</Text>
-            <Text style={style.bold}> was observed in the meeting.</Text>
+            <Text style={mainStyles.text}> was observed in the meeting.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -94,17 +94,17 @@ export default function WS_Politics({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Gainsay</Text>
+          <Text style={mainStyles.header}>Gainsay</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>GANE-say</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>To declare false.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               The principles of the Bill of Rights admit no{" "}
             </Text>
@@ -125,20 +125,20 @@ export default function WS_Politics({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Hegemony</Text>
+          <Text style={mainStyles.header}>Hegemony</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>he-JEM-uh-nee</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Predominant influence, especially in affairs of nations.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
-            <Text style={mainStyles.text}>Our foe&#39s </Text>
+            <Text style={style.bold}>Sentence: </Text>
+            <Text style={mainStyles.text}>Our foe's </Text>
             <Text style={style.bold}>hegemony</Text>
             <Text style={mainStyles.text}>
               {" "}
@@ -157,25 +157,25 @@ export default function WS_Politics({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Imbroglio</Text>
+          <Text style={mainStyles.header}>Imbroglio</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>im-BROA-lee-o</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               An entanglement or complicated misunderstanding.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>The recent </Text>
             <Text style={style.bold}>imbroglio</Text>
             <Text style={mainStyles.text}>
               {" "}
               over the conflict-of-interest violations has not improved the
-              Mayor&#39s standing.
+              Mayor's standing.
             </Text>
           </Text>
         </View>
@@ -190,19 +190,19 @@ export default function WS_Politics({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Jingoistic</Text>
+          <Text style={mainStyles.header}>Jingoistic</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>jin-go-ISS-tik</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Aggressively and overbearingly patriotic.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>Such </Text>
             <Text style={style.bold}>jingoistic</Text>
             <Text style={mainStyles.text}>
@@ -223,19 +223,19 @@ export default function WS_Politics({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Liaison</Text>
+          <Text style={mainStyles.header}>Liaison</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>lee-ay-ZON</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               A communications channel or go-between.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               Captain Morse was met by an Air Force{" "}
             </Text>
@@ -254,19 +254,19 @@ export default function WS_Politics({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Maleficence</Text>
+          <Text style={mainStyles.header}>Maleficence</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>muh-LEF-ih-sence</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               The undertaking of evil or harmful acts.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>The long-ignored </Text>
             <Text style={style.bold}>maleficence</Text>
             <Text style={mainStyles.text}>
@@ -286,19 +286,19 @@ export default function WS_Politics({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Quagmire</Text>
+          <Text style={mainStyles.header}>Quagmire</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>KWAG-mire</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               An entanglement that offers no means of escape.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               The hostage situation threatens to be the worst{" "}
             </Text>
@@ -317,17 +317,17 @@ export default function WS_Politics({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Unilateral</Text>
+          <Text style={mainStyles.header}>Unilateral</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>yoo-ni-Lat-ur-el</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Undertaken independently.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               The allies resolved that no member country would take any{" "}
             </Text>
@@ -489,16 +489,6 @@ const style = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     paddingBottom: 200,
-  },
-
-  subHead: {
-    fontSize: 40,
-    color: "#FF8C00",
-  },
-
-  title: {
-    fontSize: 25,
-    color: "#FF8C00",
   },
 
   bold: {
