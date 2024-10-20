@@ -51,13 +51,13 @@ const dimensions = Dimensions.get("screen");
 
 const style = StyleSheet.create({
   dropdown: {
-    marginLeft: 40,
     height: 40,
     borderBottomColor: "gray",
     borderBottomWidth: 0.5,
     backgroundColor: "white",
     width: dimensions.width * 0.6,
     borderRadius: 10,
+    margin: "auto",
   },
   placeholderStyle: {
     fontSize: 24,
@@ -65,11 +65,11 @@ const style = StyleSheet.create({
   selectedTextStyle: {
     fontSize: 18,
     marginLeft: 20,
-    fontWeight: '600'
+    fontWeight: "600",
   },
   inputSearchStyle: {
     height: 30,
     fontSize: 20,
-    fontWeight: '600'
+    fontWeight: "600",
   },
 });

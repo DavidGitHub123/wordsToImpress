@@ -37,7 +37,11 @@ export default function MultipleChoiceGame(Props) {
       return (
         <Text
           key={i}
-          style={isHighlighted(el) ? mainStyles.greenText2 : style.definition}
+          style={
+            isHighlighted(el)
+              ? mainStyles.greenText2
+              : { ...mainStyles.subheader, paddingVertical: 2 }
+          }
         >
           {el}
         </Text>
@@ -154,7 +158,7 @@ export default function MultipleChoiceGame(Props) {
       <View
         style={{
           ...style.innerProgressBar,
-          ...{ width: `${(listIndex / list.length) * 100}%` },
+          ...{ width: `${((listIndex + 1) / list.length) * 100}%` },
         }}
       />
     </View>
@@ -162,13 +166,17 @@ export default function MultipleChoiceGame(Props) {
 
   const questionContainer =
     questionType === "Shortdef" ? (
-      <View style={style.flexQuestion}>{question}</View>
+      <View
+        style={{ ...mainStyles.screen, ...style.flexQuestion, width: "100%" }}
+      >
+        {question}
+      </View>
     ) : (
       <ChatBubble
         style={style.chatBubble}
         withTail={true}
-        bubbleColor="#e6ebed"
-        tailColor="#e6ebed"
+        bubbleColor="rgba(0, 0, 0, .5)"
+        tailColor="rgba(0, 0, 0, .5)"
       >
         {question}
       </ChatBubble>
@@ -264,13 +272,6 @@ const style = StyleSheet.create({
     textAlign: "center",
   },
 
-  definition: {
-    fontSize: 24,
-    color: "black",
-    fontWeight: "600",
-    textAlign: "center",
-  },
-
   centerContainer: {
     justifyContent: "center",
     alignItems: "center",
@@ -301,11 +302,6 @@ const style = StyleSheet.create({
     rowGap: 2,
     columnGap: 4,
     borderRadius: "20%",
-    backgroundColor: "#e6ebed",
-    paddingTop: 50,
-    paddingHorizontal: dimensions.width * 0.15,
-    height: dimensions.height * 0.2,
-    width: dimensions.width * 0.95,
     textAlign: "center",
     justifyContent: "center",
   },
