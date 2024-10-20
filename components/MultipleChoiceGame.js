@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppButton from "./AppButton";
 import { NavButton } from "./NavButton";
@@ -7,6 +7,7 @@ import HomeButton from "./HomeButton";
 import data from "../data";
 import { incrementMastery, defaultList } from "./listHelpers";
 import { mainStyles } from "./mainStyles";
+import ChatBubble from "react-native-chat-bubble";
 
 export default function MultipleChoiceGame(Props) {
   const [anwsers, setAnwsers] = useState([]);
@@ -24,11 +25,6 @@ export default function MultipleChoiceGame(Props) {
     answerType,
   } = Props;
   const MAX_INCORRECT_ANSWERS = 3;
-  const typeDictoinary = {
-    Longdef: "sentence",
-    Shortdef: "definition",
-    Word: "word",
-  };
 
   let question;
   if (listIndex <= list.length - 1) {
@@ -41,7 +37,7 @@ export default function MultipleChoiceGame(Props) {
       return (
         <Text
           key={i}
-          style={isHighlighted(el) ? mainStyles.greenText : style.definition}
+          style={isHighlighted(el) ? mainStyles.greenText2 : style.definition}
         >
           {el}
         </Text>
@@ -120,6 +116,8 @@ export default function MultipleChoiceGame(Props) {
     setGameRestart(!gameRestart);
   };
 
+  const textSize = questionType === "Shortdef" ? 26 : 20;
+
   const renderAnwsers = () => (
     <View style={style.answerContainer}>
       {anwsers.map((el, i) => {
@@ -133,6 +131,7 @@ export default function MultipleChoiceGame(Props) {
         return (
           <AppButton
             size="full-screen"
+            textSize={textSize}
             key={i}
             title={el.answer}
             style={style}
@@ -150,6 +149,31 @@ export default function MultipleChoiceGame(Props) {
     </View>
   );
 
+  const renderProgressBar = () => (
+    <View style={style.outerProgressBar}>
+      <View
+        style={{
+          ...style.innerProgressBar,
+          ...{ width: `${(listIndex / list.length) * 100}%` },
+        }}
+      />
+    </View>
+  );
+
+  const questionContainer =
+    questionType === "Shortdef" ? (
+      <View style={style.flexQuestion}>{question}</View>
+    ) : (
+      <ChatBubble
+        style={style.chatBubble}
+        withTail={true}
+        bubbleColor="#e6ebed"
+        tailColor="#e6ebed"
+      >
+        {question}
+      </ChatBubble>
+    );
+
   return (
     <LinearGradient
       colors={["#6699FF", "#335C81"]}
@@ -158,7 +182,13 @@ export default function MultipleChoiceGame(Props) {
       opacity={1.0}
       style={style.flexOne}
     >
-      {gameOver ? 
+      <View style={style.progressView}>
+        <Text style={style.progressText}>
+          {listIndex + 1}/{list.length}
+        </Text>
+        {renderProgressBar()}
+      </View>
+      {gameOver ? (
         <View style={style.endContainer}>
           <Text style={style.header}>
             You scored {score}/{list.length}
@@ -175,15 +205,9 @@ export default function MultipleChoiceGame(Props) {
           />
           <HomeButton navigation={navigation} />
         </View>
-       : (
+      ) : (
         <View style={{ ...style.centerContainer, ...style.width90 }}>
-          <Text style={style.header}>
-            {listIndex + 1}/{list.length}
-          </Text>
-          {/* <Text style={mainStyles.subheader}>
-            Identify the word that matches this {typeDictoinary[questionType]}:
-          </Text> */}
-          <View style={style.flexQuestion}>{question}</View>
+          {questionContainer}
           {renderAnwsers()}
           {displayNext ? renderCorrectandNextButton() : null}
         </View>
@@ -192,7 +216,33 @@ export default function MultipleChoiceGame(Props) {
   );
 }
 
+const dimensions = Dimensions.get("screen");
 const style = StyleSheet.create({
+  progressView: {
+    marginTop: 75,
+  },
+  progressText: {
+    margin: "auto",
+    color: "#fff",
+    fontSize: 28,
+  },
+  outerProgressBar: {
+    width: "90%",
+    height: 20,
+    margin: "auto",
+    borderWidth: 5,
+    borderRadius: 10,
+    borderColor: "#fff",
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+  },
+  innerProgressBar: {
+    backgroundColor: "#4cf03a",
+    height: "100%",
+    borderRadius: 2,
+  },
 
   flexOne: {
     flex: 1,
@@ -211,59 +261,17 @@ const style = StyleSheet.create({
     fontSize: 28,
     color: "#f0f8ff",
     fontWeight: "600",
-    textAlign: 'center',
+    textAlign: "center",
   },
 
   definition: {
-    fontSize: 28,
-    color: "#f0f8ff",
+    fontSize: 24,
+    color: "black",
     fontWeight: "600",
-    textAlign: 'center',
-  },
-
-  white: {
-    color: "#f0f8ff",
-  },
-
-  wordList: {
-    color: "#f0f8ff",
     textAlign: "center",
-    paddingTop: 20,
   },
 
-  buttons: {
-    paddingTop: 20,
-  },
-
-  timingButtonContainer: {
-    display: "flex",
-    flexWrap: "nowrap",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 10,
-    gap: 5,
-  },
-
-  gameContainer: {
-    margin: "auto",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  timingOptionsContainer: {
-    margin: "auto",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  center: {
-    margin: "auto",
-  },
   centerContainer: {
-    // display: "flex",
-    // flex: 1,
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 40,
@@ -273,12 +281,6 @@ const style = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  container: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    zIndex: -1,
   },
   answerContainer: {
     display: "flex",
@@ -294,10 +296,27 @@ const style = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexFlow: "wrap",
-    alignItems: "baseline",
+    alignItems: "center",
     flexWrap: "wrap",
     rowGap: 2,
-    columnGap: 4,   
-    paddingBottom: 30,
+    columnGap: 4,
+    borderRadius: "20%",
+    backgroundColor: "#e6ebed",
+    paddingTop: 50,
+    paddingHorizontal: dimensions.width * 0.15,
+    height: dimensions.height * 0.2,
+    width: dimensions.width * 0.95,
+    textAlign: "center",
+    justifyContent: "center",
+  },
+  chatBubble: {
+    width: dimensions.width * 0.95,
+    display: "flex",
+    flexDirection: "row",
+    flexFlow: "wrap",
+    alignItems: "center",
+    flexWrap: "wrap",
+    rowGap: 2,
+    columnGap: 4,
   },
 });

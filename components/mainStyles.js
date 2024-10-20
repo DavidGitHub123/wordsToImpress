@@ -107,8 +107,8 @@ const mainStyles = StyleSheet.create({
 
   greenText2: {
     color: "#4cf03a",
-    fontSize: 30,
-    fontWeight: '900',
+    fontSize: 24,
+    fontWeight: "900",
     textAlign: "center",
   },
 });
