@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import data from "../data";
 
-const defaultList = "My List";
+const defaultList = "My First List";
 
 const wordMasteryFactory = (word) => {
   return { word: word, mastery: 0 };

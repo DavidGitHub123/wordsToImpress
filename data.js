@@ -5033,7 +5033,7 @@ export default [
      Pronunciation: 'ek-SEN-trik',
      PartofSpeech: 'a',
      Shortdef: 'Marked by unconventional behavior.',
-     Longdef: "Lionel's eccentric behavior led people in the lab avoiding him entirely for fear of their reputations.",
+     Longdef: "Lionel&apos;s eccentric behavior led people in the lab avoiding him entirely for fear of their reputations.",
      syn: ["quirky", "peculiar", "odd", "weird", "unusual", "abnormal", "unconventional", "offbeat", "strange", "bizarre", "idiosyncratic", "nonconformist", "off-center", "outlandish", "different"],
      Audio: require('./Audio/Eccentric.mp3')
  },
@@ -5046,7 +5046,7 @@ export default [
      Pronunciation: 'ESH-uh-lom',
      PartofSpeech: 'n',
      Shortdef: 'A level of command.',
-     Longdef: "Tom's proposal eventually won the approval of the company's upper echelon of leaders.",
+     Longdef: "Tom&apos;s proposal eventually won the approval of the company&apos;s upper echelon of leaders.",
      syn: [
          "rank",
          "level",
@@ -5279,7 +5279,7 @@ export default [
      Word: 'Elocution',
      Pronunciation: 'el-oh-KYOO-shun',
      PartofSpeech: 'n',
-     Shortdef: "An inViewidual's style of public speech.",
+     Shortdef: "An individual's style of public speech.",
      Longdef: "The cast's elocution left a great deal to be desired based on their speaking styles.",
      syn: ["Oratory", "Speechmaking", "Rhetoric", "Delivery", "Articulation", "Pronunciation", "Enunciation", "Expression", "Diction", "Phonation"],
      Audio: require('./Audio/Elocution.mp3')

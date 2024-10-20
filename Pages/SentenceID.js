@@ -55,7 +55,7 @@ export default function SentenceID({ navigation }) {
           style={style.page}
         >
           <View style={mainStyles.startGameContainer}>
-            <Text style={style.header}>Quick Quiz</Text>
+            <Text style={mainStyles.header}>Quick Quiz</Text>
             <Text style={mainStyles.subheader}>
             Identify the correct definition that matches the highlighted word.
           </Text>
@@ -88,28 +88,11 @@ const style = StyleSheet.create({
     paddingTop: 200,
   },
 
-  header: {
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingBottom: 10,
-    paddingTop: 30,
-    textAlign: "center",
-  },
-
   mocktext: {
     fontSize: 18,
     color: "#f0f8ff",
     paddingBottom: 30,
     paddingHorizontal: 40,
-  },
-
-  text: {
-    fontSize: 50,
-    color: "#f0f8ff",
-    paddingBottom: 30,
-    paddingHorizontal: 40,
-    fontWeight: 700,
   },
 
   textScale: {
@@ -121,14 +104,6 @@ const style = StyleSheet.create({
     fontWeight: 700,
   },
 
-  text2: {
-    fontSize: 24,
-    color: "#f0f8ff",
-    paddingBottom: 30,
-    paddingHorizontal: 40,
-    fontWeight: 700,
-    textAlign: "center",
-  },
 
   buttons: {
     paddingTop: 20,

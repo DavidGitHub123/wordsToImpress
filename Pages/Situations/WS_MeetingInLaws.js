@@ -34,17 +34,17 @@ export default function WS_MeetingInLaws({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Acquiescence</Text>
+          <Text style={mainStyles.header}>Acquiescence</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>ak-wee-ESS-unce</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Act of passive agreement.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               Hank, enchanted by grand-fatherhood, gave over to complete{" "}
             </Text>
@@ -63,20 +63,20 @@ export default function WS_MeetingInLaws({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Belated</Text>
+          <Text style={mainStyles.header}>Belated</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>bee-LAY-ted</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Late or tardy; delayed.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              Jane sent a<Text style={style.bold}> birthday </Text>
-              <Text style={mainStyles.text}></Text>card but still felt guilty
+              Jane sent a<Text style={style.bold}> belated </Text>
+              <Text style={mainStyles.text}></Text>birthdaycard but still felt guilty
               about forgetting your birthday.
             </Text>
           </Text>
@@ -92,17 +92,17 @@ export default function WS_MeetingInLaws({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Dilapidated</Text>
+          <Text style={mainStyles.header}>Dilapidated</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>di-LAP-ih-dated</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>To fall into disrepair.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>The </Text>
             <Text style={style.bold}>dilapidated</Text>
             <Text style={mainStyles.text}>
@@ -122,20 +122,20 @@ export default function WS_MeetingInLaws({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Eccentric</Text>
+          <Text style={mainStyles.header}>Eccentric</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>ek-SEN-trik</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Marked by unconventional behavior.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
-            <Text style={mainStyles.text}>Lionel&#39s </Text>
+            <Text style={style.bold}>Sentence: </Text>
+            <Text style={mainStyles.text}>Lionel's </Text>
             <Text style={style.bold}>eccentric</Text>
             <Text style={mainStyles.text}>
               {" "}
@@ -154,21 +154,21 @@ export default function WS_MeetingInLaws({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Fallacious</Text>
+          <Text style={mainStyles.header}>Fallacious</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>fuh-LAY-shuss</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               False; containing logical errors.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              McCarthy&#39s accusations against the Army were totally{" "}
+              McCarthy's accusations against the Army were totally{" "}
             </Text>
             <Text style={style.bold}>fallacious</Text>.
           </Text>
@@ -184,21 +184,21 @@ export default function WS_MeetingInLaws({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Heretic</Text>
+          <Text style={mainStyles.header}>Heretic</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>HARE-uh-tic</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Professing belief, but differing with parts of the belief system.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              His stand against the church&#39s political stances branded Clint
+              His stand against the church's political stances branded Clint
               as a{" "}
             </Text>
             <Text style={style.bold}>heretic</Text>.
@@ -215,17 +215,17 @@ export default function WS_MeetingInLaws({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Impeccable</Text>
+          <Text style={mainStyles.header}>Impeccable</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>im-PECK-uh-bull</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Flawless; virtually perfect.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>Roger, a man of </Text>
             <Text style={style.bold}>impeccable</Text>
             <Text style={mainStyles.text}>
@@ -245,20 +245,20 @@ export default function WS_MeetingInLaws({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Malady</Text>
+          <Text style={mainStyles.header}>Malady</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>MAL-uh-dee</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               An illness or unwholesome condition.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
-            <Text style={mainStyles.text}>Jason&#39s </Text>
+            <Text style={style.bold}>Sentence: </Text>
+            <Text style={mainStyles.text}>Jason's </Text>
             <Text style={style.bold}>malady</Text>
             <Text style={mainStyles.text}>
               , if undiagnosed, could have taken his life.
@@ -276,22 +276,22 @@ export default function WS_MeetingInLaws({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Malady</Text>
+          <Text style={mainStyles.header}>Ursine</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>UR-sin</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Bearlike; Latin word for bear.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              In his excitement, Harold gave her a fierce (might I say{" "}
+              In his excitement, Harold gave her a fierce 
             </Text>
-            <Text style={style.bold}>ursine</Text>
-            <Text style={mainStyles.text}>!) embrace.</Text>
+            <Text style={style.bold}> ursine</Text>
+            <Text style={mainStyles.text}> embrace.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -305,17 +305,17 @@ export default function WS_MeetingInLaws({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Wayfaring</Text>
+          <Text style={mainStyles.header}>Wayfaring</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>WAY-fare-ing</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Tending to travel by foot.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               My grandfather, like many men of his generation, spent some time
               as a{" "}
@@ -475,16 +475,6 @@ const style = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     paddingBottom: 200,
-  },
-
-  subHead: {
-    fontSize: 40,
-    color: "#FF8C00",
-  },
-
-  title: {
-    fontSize: 25,
-    color: "#FF8C00",
   },
 
   bold: {

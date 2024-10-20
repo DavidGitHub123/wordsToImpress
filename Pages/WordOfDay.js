@@ -100,13 +100,6 @@ const style = StyleSheet.create({
     fontWeight: "600",
   },
 
-  word: {
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingBottom: 20,
-  },
-
   flexSentence: {
     display: "flex",
     flexDirection: "row",

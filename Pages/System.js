@@ -30,7 +30,7 @@ export default function System({ navigation }) {
     return (
       <View style={mainStyles.centerContainer}>
         <Text style={style.componentHead}>About</Text>
-        <Text style={mainStyles.subHead2}>
+        <Text style={mainStyles.copyText}>
           Your language defines you, whether a professional, student studying
           for the SATs, or learning English as a second language. The Words to
           Impress App quickly and efficiently helps you develop an impressive
@@ -45,7 +45,7 @@ export default function System({ navigation }) {
     return (
       <View style={mainStyles.centerContainer}>
         <Text style={style.componentHead}>Rule of 50</Text>
-        <Text style={mainStyles.subHead2}>
+        <Text style={mainStyles.copyText}>
           We each have a unique vocabulary. Most successful people have mastered
           50 to 100 “big” vocabulary words. The Words to Impress App helps you
           build a list unique to you. Once your list is complete, study those
@@ -61,7 +61,7 @@ export default function System({ navigation }) {
     return (
       <View style={mainStyles.centerContainer}>
         <Text style={style.componentHead}>Targeted Learning</Text>
-        <Text style={mainStyles.subHead2}>
+        <Text style={mainStyles.copyText}>
           Unlike other vocabulary-building systems that present you with
           hundreds of words to learn, this App helps you build the right list
           for you. The Build My List tool anlyzes your writing for common words
@@ -77,7 +77,7 @@ export default function System({ navigation }) {
     return (
       <View style={mainStyles.centerContainer}>
         <Text style={style.componentHead}>Word Situations</Text>
-        <Text style={mainStyles.subHead2}>
+        <Text style={mainStyles.copyText}>
           Imagine yourself in an important situation. What do you say? Word
           Situations identifies words unique to politics, business, job
           interviews, etc. from 10 different categories. Look up words quickly
@@ -92,7 +92,7 @@ export default function System({ navigation }) {
     return (
       <View style={mainStyles.centerContainer}>
         <Text style={style.componentHead}>Learning Reinforcement</Text>
-        <Text style={mainStyles.subHead2}>
+        <Text style={mainStyles.copyText}>
           The Vocabulary Mastery section provides games and quizes to help you
           learn your list of words. Then reinforce your list of words to make
           them part of your everyday speech and writing.
@@ -113,10 +113,10 @@ export default function System({ navigation }) {
       <SafeAreaView style={style.container}>
         <ScrollView alwaysBounceHorizontal={true}>
           <View style={mainStyles.screen}>
-            <Text style={mainStyles.subHead1}>
+            <Text style={style.headerSmall}>
               Increase your powers of persuasion and comprehension
             </Text>
-            <Text style={style.subHead2}>
+            <Text style={mainStyles.subText}>
               The Words to Impress App includes the most impressive words as
               identified by the author of the best-selling Words You Should Know
               series of books.
@@ -169,7 +169,7 @@ export default function System({ navigation }) {
                 </Pressable>
               </View>
 
-              <View style={style.homeButton}>
+              <View style={mainStyles.homeButton}>
                 <HomeButton navigation={navigation} />
               </View>
             </View>
@@ -188,15 +188,11 @@ const style = StyleSheet.create({
     paddingBottom: 10,
   },
 
-  homeButton: {
-    paddingTop: 30,
-  },
+  headerSmall: {
+      fontSize: 32,
+      color: "#fff",
+      fontWeight: "600",
+      paddingTop: 20,
+    },
 
-  subHead2: {
-    fontSize: 20,
-    color: "#fff",
-    fontWeight: "600",
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-  },
 });

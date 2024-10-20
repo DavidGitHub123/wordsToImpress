@@ -12,13 +12,25 @@ const mainStyles = StyleSheet.create({
     paddingTop: 20,
     textAlign: "center",
   },
-  header2: {
-    fontSize: 36,
+  subheader: {
+    fontSize: 30,
     color: "#f0f8ff",
-    fontWeight: "800",
-    paddingTop: 40,
-    paddingBottom: 40,
+    fontWeight: "600",
+    paddingVertical: 20,
     textAlign: "center",
+  },
+  subText: {
+    fontSize: 20,
+    color: "#fff",
+    fontWeight: "600",
+    paddingVertical: 10,
+  },
+  copyText: {
+    fontSize: 20,
+    color: "#fff",
+    fontWeight: "600",
+    paddingVertical: 10,
+    paddingHorizontal: 30,
   },
   page: {
     flex: 1,
@@ -27,43 +39,15 @@ const mainStyles = StyleSheet.create({
     paddingVertical: 30,
   },
   homeButton: {
-    paddingTop: 30,
+    paddingVertical: 30,
   },
   text: {
-    fontSize: 18,
-    color: "#f0f8ff",
-  },
-  text2: {
     fontSize: 24,
     color: "#f0f8ff",
-    fontWeight: 700,
-    textAlign: "center",
+    fontWeight: "700",
   },
   flexOne: {
     flex: 1,
-  },
-  subheader: {
-    fontSize: 24,
-    color: "#f0f8ff",
-    fontWeight: "600",
-    paddingTop: 10,
-    textAlign: "center",
-    paddingVertical: 40,
-    paddingBottom: 30,
-  },
-
-  subHead1: {
-    fontSize: 32,
-    color: "#fff",
-    fontWeight: "600",
-    paddingTop: 20,
-  },
-  subHead2: {
-    fontSize: 20,
-    color: "#fff",
-    fontWeight: "600",
-    paddingVertical: 10,
-    paddingHorizontal: 40,
   },
   screen: {
     backgroundColor: "rgba(0, 0, 0, .5)",
@@ -124,7 +108,7 @@ const mainStyles = StyleSheet.create({
   greenText2: {
     color: "#4cf03a",
     fontSize: 30,
-    fontWeight: 900,
+    fontWeight: '900',
     textAlign: "center",
   },
 });

@@ -34,17 +34,17 @@ export default function WS_Negotiations({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Accord</Text>
+          <Text style={mainStyles.header}>Accord</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>uh-CORD</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Formal reaching of agreement.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               As the strike was resolved, the representatives reached an{" "}
             </Text>
@@ -63,17 +63,17 @@ export default function WS_Negotiations({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Cessation</Text>
+          <Text style={mainStyles.header}>Cessation</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>sess-SAY-shun</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>Act of drawing to a close.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>Negotiations may bring about a </Text>
             <Text style={style.bold}>cessation</Text>
             <Text style={mainStyles.text}>
@@ -93,24 +93,24 @@ export default function WS_Negotiations({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Dialectic</Text>
+          <Text style={mainStyles.header}>Dialectic</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>die-uh-LEK-tic</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Pertaining to logical arguments.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>His </Text>
             <Text style={style.bold}>dialectic</Text>
             <Text style={mainStyles.text}>
               {" "}
-              thoroughness destroy his opponent&#39s argument.
+              thoroughness destroy his opponent's argument.
             </Text>
           </Text>
         </View>
@@ -125,24 +125,24 @@ export default function WS_Negotiations({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Elusive</Text>
+          <Text style={mainStyles.header}>Elusive</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>ee-LOO-siv</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Difficult to perceive or describe.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               Our goals are easily understood; the nature of the obstacles is
               somewhat more{" "}
             </Text>
-            <Text style={style.bold}>elusive</Text>.
+            <Text style={style.bold}>elusive.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -156,24 +156,24 @@ export default function WS_Negotiations({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Flux </Text>
+          <Text style={mainStyles.header}>Flux </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>fluks</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Ongoing flow or unceasing change.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>.{" "}
+            <Text style={style.bold}>Sentence: </Text>.{" "}
             <Text style={mainStyles.text}>
-              Negotiations were difficult because the organization&#39s plans
+              Negotiations were difficult because the organization's plans
               were in a state of continual{" "}
             </Text>
-            <Text style={style.bold}>flux</Text>.
+            <Text style={style.bold}>flux.</Text>
           </Text>
         </View>
         <ListenButton />
@@ -187,19 +187,19 @@ export default function WS_Negotiations({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Gauntlet</Text>
+          <Text style={mainStyles.header}>Gauntlet</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>GONT-let</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               A challenge; in medieval times a duel.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               The negotiation deadline is not a goal; it is a{" "}
             </Text>
@@ -221,19 +221,19 @@ export default function WS_Negotiations({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Holistic</Text>
+          <Text style={mainStyles.header}>Holistic</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>ho-LISS-tik</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               Emphasizing cooperation of the parts.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>We need to take a </Text>
             <Text style={style.bold}>holistic</Text>
             <Text style={mainStyles.text}>
@@ -253,19 +253,19 @@ export default function WS_Negotiations({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Impasse</Text>
+          <Text style={mainStyles.header}>Impasse</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>IM-pass</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               A situation that seems to offer no solution.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               The negotiations had reached an{" "}
             </Text>
@@ -286,19 +286,19 @@ export default function WS_Negotiations({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Mitigate </Text>
+          <Text style={mainStyles.header}>Mitigate </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>MIH-tih-gate</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
               To moderate or lessen the impact.
             </Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               The situation had seemed tense until a number of{" "}
             </Text>
@@ -317,17 +317,17 @@ export default function WS_Negotiations({ navigation }) {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={style.subHead}>Ultimatum</Text>
+          <Text style={mainStyles.header}>Ultimatum</Text>
           <Text style={style.space}>
-            <Text style={style.title}>Pron: </Text>
+            <Text style={style.bold}>Pron: </Text>
             <Text style={mainStyles.text}>ul-tih-MAY-tum</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Def: </Text>
+            <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>One&#39s last set of demands.</Text>
           </Text>
           <Text style={style.space}>
-            <Text style={style.title}>Sentence: </Text>
+            <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               We agree to the 30% increase or we end the negotiations; that is
               the{" "}
@@ -487,16 +487,6 @@ const style = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     paddingBottom: 200,
-  },
-
-  subHead: {
-    fontSize: 40,
-    color: "#FF8C00",
-  },
-
-  title: {
-    fontSize: 25,
-    color: "#FF8C00",
   },
 
   bold: {

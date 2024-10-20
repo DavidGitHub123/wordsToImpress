@@ -31,7 +31,7 @@ export default function AtoZWords({ route, navigation }) {
     ));
 
   return (
-    <SafeAreaView style={style.container}>
+    <SafeAreaView>
       <ScrollView alwaysBounceHorizontal={true}>
         <LinearGradient
           colors={["#335C81", "#6699FF"]}
@@ -39,7 +39,7 @@ export default function AtoZWords({ route, navigation }) {
           end={{ x: 0.5, y: 0.25 }}
           opacity={1.0}
         >
-          <View style={style.page}>
+          <View style={style.container}>
             <View>
               <Text style={mainStyles.header}>{selectedWord} Words</Text>
             </View>
@@ -65,14 +65,9 @@ export default function AtoZWords({ route, navigation }) {
 }
 
 const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingTop: 50,
-    paddingBottom: 200,
+  container: {
+    paddingBottom: 500,
   },
-
   bottomButtons: {
     paddingTop: 40,
     paddingBottom: 40,

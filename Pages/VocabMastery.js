@@ -23,7 +23,7 @@ export default function VocabMastery({ navigation }) {
         <View style={mainStyles.screen}>
           <Text style={mainStyles.header}>Vocab Mastery</Text>
 
-          <Text style={mainStyles.subHead2}>
+          <Text style={mainStyles.subText}>
             Here you can learn words to make them part of your everyday writing
             and understanding. Once correctly identied 5 times, a word moves
             into your Mastered List. Only words you have not mastered appear for
@@ -47,26 +47,21 @@ export default function VocabMastery({ navigation }) {
             title="Quick Quiz"
             destination="SentenceID"
           />
-        </View>
-
-        <View style={style.section}>
           <NavButton
             navigation={navigation}
-            title="Schedule Quizzes"
+            title="Schedule Challenges"
             destination="Notifications"
           />
         </View>
 
-        <View>
+        <View style={mainStyles.section}>
           <HomeButton navigation={navigation} />
         </View>
+
       </SafeAreaView>
     </ImageBackground>
   );
 }
 
 const style = StyleSheet.create({
-  section: {
-    paddingVertical: 10,
-  },
 });

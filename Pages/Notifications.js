@@ -118,7 +118,7 @@ export default function Notifications({ navigation }) {
   const [list, setList] = useState(null);
   const notificationListener = useRef();
   const responseListener = useRef();
-  const vocabMasteryArry = ["Sentence ID", "Quick Quiz", "Rapid Fire"];
+  const vocabMasteryArry = ["Quick Quiz", "Word Match", "Rapid Fire"];
   const wordOfTheDay = GetWordOfTheDay();
   useEffect(() => {
     registerForPushNotificationsAsync();
@@ -283,7 +283,7 @@ export default function Notifications({ navigation }) {
           {!showModal ? (
             <View style={mainStyles.centerChildren}>
               <View>
-                <Text style={mainStyles.header}>Notifications</Text>
+                <Text style={mainStyles.header}>Challenges</Text>
               </View>
 
               <Text style={mainStyles.subheader}>Click to Schedule</Text>
@@ -295,13 +295,13 @@ export default function Notifications({ navigation }) {
                 />
                 {renderNotifs(NOTIF_TYPES.wordOfDay)}
                 <AppButton
-                  title="Individual Word Mastery"
+                  title="Individual Words"
                   onPress={() => openModal(NOTIF_TYPES.wordReminder)}
                   icon="sign-in"
                 />
                 {renderNotifs(NOTIF_TYPES.wordReminder)}
                 <AppButton
-                  title="Word Mastery Challenges"
+                  title="Challenges"
                   onPress={() => openModal(NOTIF_TYPES.mastery)}
                   icon="sign-in"
                 />
@@ -335,7 +335,7 @@ export default function Notifications({ navigation }) {
           )}
 
           <View style={style.bottomButtons}>
-            <View style={style.homeButton}>
+            <View>
               <HomeButton navigation={navigation} />
             </View>
           </View>

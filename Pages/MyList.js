@@ -135,6 +135,7 @@ export default function MyList({ route, navigation }) {
           />
         )}
       </View>
+      
     ));
   };
 
@@ -148,9 +149,9 @@ export default function MyList({ route, navigation }) {
     >
       <SafeAreaView>
         <ScrollView alwaysBounceHorizontal={true}>
-          <View style={style.screen}>
+          <View style={mainStyles.screen}>
             <View>
-              <Text style={style.header}>My Mastery</Text>
+              <Text style={mainStyles.header}>My Mastery</Text>
             </View>
             <View style={style.donutContainer}>
               <Text style={style.percentText}>{formattedPercentText}%</Text>
@@ -183,6 +184,7 @@ export default function MyList({ route, navigation }) {
               />
             )}
           </View>
+
           <View style={mainStyles.section}>{renderList()}</View>
 
           <View style={style.buttons}>
@@ -195,34 +197,12 @@ export default function MyList({ route, navigation }) {
 }
 
 const style = StyleSheet.create({
-  screen: {
-    backgroundColor: "rgba(0, 0, 0, .5)",
-    marginBottom: 10,
-    borderRadius: 20,
-    paddingHorizontal: 30,
-    paddingVertical: 10,
-  },
-  header: {
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingBottom: 10,
-    textAlign: "center",
-  },
   donut: {
     width: "100%",
     height: "100%",
     position: "absolute",
-    top: 0,
+    top: 20,
     left: 0,
-  },
-  donutText: {
-    lineHeight: 50,
-    verticalAlign: "middle",
-    color: "#fff",
-    textAlign: "center",
-    fontSize: 40,
-    fontWeight: 900,
   },
   donutContainer: {
     width: 200,
@@ -234,8 +214,8 @@ const style = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "space-evenly",
-    alignItems: "center",
+    width: 270,
+    marginLeft: 70,
   },
   percentText: {
     color: "#4cf03a",
@@ -243,6 +223,6 @@ const style = StyleSheet.create({
     fontWeight: "600",
     marginLeft: "auto",
     marginRight: "auto",
-    marginTop: 60,
+    marginTop: 80,
   },
 });
