@@ -7,15 +7,15 @@ import { mainStyles } from "../components/mainStyles";
 
 export default function PreBuiltListNew({ navigation }) {
   return (
-    <ScrollView alwaysBounceHorizontal={true}>
-      <LinearGradient
-        colors={["#6699FF", "#335C81"]}
-        start={{ x: 0.5, y: 0.5 }}
-        end={{ x: 0.5, y: 0.5 }}
-        opacity={1.0}
-        style={style.page}
-      >
-        <SafeAreaView>
+    <LinearGradient
+      colors={["#6699FF", "#335C81"]}
+      start={{ x: 0.5, y: 0.5 }}
+      end={{ x: 0.5, y: 0.5 }}
+      opacity={1.0}
+      style={style.page}
+    >
+      <SafeAreaView>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View style={mainStyles.screen}>
             <Text style={mainStyles.header}>Pre-Built List</Text>
             <Text style={mainStyles.subText}>
@@ -284,9 +284,9 @@ export default function PreBuiltListNew({ navigation }) {
               destination="Word"
             />
           </View>
-        </SafeAreaView>
-      </LinearGradient>
-    </ScrollView>
+        </ScrollView>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
 

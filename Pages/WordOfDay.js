@@ -43,7 +43,9 @@ export default function WordOfDay({ navigation }) {
     return (
       <View style={mainStyles.page}>
         <View style={mainStyles.screen}>
-          <Text style={style.word}>{wordData.Word}</Text>
+          <Text style={{ ...mainStyles.header, paddingBottom: 10 }}>
+            {wordData.Word}
+          </Text>
           <Text style={style.space}>
             <Text style={style.subHead}>Pron: </Text>
             <Text style={mainStyles.text}>{wordData.Pronunciation}</Text>
