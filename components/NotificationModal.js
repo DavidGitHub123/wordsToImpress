@@ -1,11 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
-import data from "../data";
+import React, { useState, useRef } from "react";
 import { mainStyles } from "./mainStyles";
 import AppButton from "./AppButton";
 import { Text, View, StyleSheet, Platform } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import ListDropdown from "./ListDropdown";
-import { defaultList, getList } from "./listHelpers";
+
 export const RenderTime = (time) => {
   const formattedHours = get12HourFormat(time.getHours());
   const formattedMinutes = getMinuteFormat(time.getMinutes());
@@ -49,23 +47,11 @@ export default function NotificationModal(Props) {
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [selectedWord, setSelectedWord] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [lists, setLists] = useState(defaultList);
-  const [listOrLoading, setListOrLoading] = useState(null);
   const notifTextRef = useRef(null);
 
   const bodyEnd = "\nLearn more words with Words to Impress.";
 
   const { notificationType, time, setTime, handleClose, options } = Props;
-
-  useEffect(() => {
-    const asyncWrapper = async () => {
-      const list = await getList(lists);
-      setListOrLoading(list.map((el) => el.word));
-    };
-    if (notificationType === "Individual Word Mastery") {
-      asyncWrapper();
-    }
-  }, [lists]);
 
   const handleDateChange = (_, time) => {
     setShowTimePicker(false);
@@ -78,17 +64,8 @@ export default function NotificationModal(Props) {
       handleClose(notifTextRef.current.title, notifTextRef.current.body);
       return;
     }
-    const title = selectedWord;
-    const wordIndex = data.findIndex((el) => el.Word === title);
-    if (wordIndex === -1) {
-      handleClose(
-        `Come test your skills in\n${selectedWord}`,
-        bodyEnd.substring(1),
-      );
-      return;
-    }
-    const shortDef = data[wordIndex].Shortdef;
-    const body = `${shortDef}`;
+    let title = "Word Mastery";
+    const body = "You've scheduled a quiz";
     handleClose(title, body);
   };
   const handleSelectedWord = (word) => {
@@ -101,17 +78,13 @@ export default function NotificationModal(Props) {
     // for word of the day.
     if (options.Word) {
       notifTextRef.current = {
-        title: options.Word,
-        body: options.Shortdef + bodyEnd,
+        title: "Word of the Day",
+        body: options.Word + "\n" + options.Shortdef,
       };
       return;
     }
-    if (!options) {
-      return <Text style={mainStyles.text}>Loading...</Text>;
-    }
 
-    const selection = listOrLoading ? listOrLoading : options;
-    return selection
+    return options
       .sort((a, b) => (a === selectedWord ? -1 : b === selectedWord ? 1 : 0))
       .map((el, i) => (
         <AppButton
@@ -121,19 +94,6 @@ export default function NotificationModal(Props) {
           style={i === 0 && selectedWord ? { backgroundColor: "blue" } : {}}
         />
       ));
-  };
-
-  const renderWordOrList = () => {
-    const formattedList = renderList();
-    if (selectedWord && Array.isArray(options) && options.length > 10) {
-      return (
-        <View>
-          {formattedList[0]}
-          <AppButton title="Show list" onPress={() => setSelectedWord(null)} />
-        </View>
-      );
-    }
-    return formattedList;
   };
 
   const displayRemindMeButton = selectedWord || notifTextRef.current !== null;
@@ -164,15 +124,6 @@ export default function NotificationModal(Props) {
           />
         </View>
       )}
-      {notificationType === "Individual Word Mastery" && (
-        <View style={style.marginAuto}>
-          <ListDropdown
-            style={style.marginAuto}
-            setParent={(n) => setLists(n)}
-            initialList={defaultList}
-          />
-        </View>
-      )}
       {isSubmitted && (
         <View style={mainStyles.centerChildren}>
           {RenderTime(time)}
@@ -187,7 +138,7 @@ export default function NotificationModal(Props) {
         </View>
       )}
       <View style={{ ...mainStyles.centerChildren, ...style.marginAuto }}>
-        {renderWordOrList()}
+        {renderList()}
       </View>
     </View>
   );

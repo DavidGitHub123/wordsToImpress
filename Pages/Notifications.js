@@ -15,7 +15,6 @@ import * as Device from "expo-device";
 import IconButton from "../components/IconButton";
 import Constants from "expo-constants";
 import { mainStyles } from "../components/mainStyles";
-import { getList, defaultList } from "../components/listHelpers";
 import { GetWordOfTheDay } from "./WordOfDay";
 import NotificationModal, {
   get12HourFormat,
@@ -115,7 +114,6 @@ export default function Notifications({ navigation }) {
   const [time, setTime] = useState(new Date(Date.now()));
   const [update, setUpdate] = useState(false);
   const [currNotifs, setCurrNotifs] = useState(null);
-  const [list, setList] = useState(null);
   const notificationListener = useRef();
   const responseListener = useRef();
   const vocabMasteryArry = ["Quick Quiz", "Word Match", "Rapid Fire"];
@@ -135,11 +133,6 @@ export default function Notifications({ navigation }) {
         navigation.navigate(url);
       },
     );
-    const asyncWrapper = async () => {
-      const wordList = await getList(defaultList);
-      setList(wordList.map((el) => el.word));
-    };
-    asyncWrapper();
 
     return () => {
       notificationListener.current &&
@@ -151,7 +144,6 @@ export default function Notifications({ navigation }) {
 
   const NOTIF_TYPES = {
     wordOfDay: "Word of the Day",
-    wordReminder: "Individual Word Mastery",
     mastery: "Word Mastery Challenges",
   };
 
@@ -179,10 +171,6 @@ export default function Notifications({ navigation }) {
       [NOTIF_TYPES.wordOfDay]: {
         title: "Check out the word of the day",
         url: "WordOfDay",
-      },
-      [NOTIF_TYPES.wordReminder]: {
-        title: "Lets build your vocab with new words",
-        url: "MyList",
       },
       [NOTIF_TYPES.mastery]: {
         title: "Let's master some more words",
@@ -264,8 +252,6 @@ export default function Notifications({ navigation }) {
   let options = null;
   if (showModal === NOTIF_TYPES.wordOfDay) {
     options = wordOfTheDay;
-  } else if (showModal === NOTIF_TYPES.wordReminder) {
-    options = list;
   } else if (showModal === NOTIF_TYPES.mastery) {
     options = vocabMasteryArry;
   }
@@ -282,14 +268,14 @@ export default function Notifications({ navigation }) {
         <ScrollView alwaysBounceHorizontal={true}>
           {!showModal ? (
             <View style={mainStyles.centerChildren}>
-
-          <View style={mainStyles.screen}>
-            <Text style={mainStyles.header}>Challenges</Text>
-            <Text style={mainStyles.subText}>
-              It is important to challenge yourself to master your vocabulary lists. Set times to receive notifications
-              to play the games and quizes, as well as receive the word of the day.
-            </Text>
-          </View>
+              <View style={mainStyles.screen}>
+                <Text style={mainStyles.header}>Challenges</Text>
+                <Text style={mainStyles.subText}>
+                  It is important to challenge yourself to master your
+                  vocabulary lists. Set times to receive notifications to play
+                  the games and quizes, as well as receive the word of the day.
+                </Text>
+              </View>
 
               <Text style={mainStyles.subheader}>Click to Schedule</Text>
               <View style={style.buttons}>
@@ -299,12 +285,6 @@ export default function Notifications({ navigation }) {
                   icon="sign-in"
                 />
                 {renderNotifs(NOTIF_TYPES.wordOfDay)}
-                <AppButton
-                  title="Individual Words"
-                  onPress={() => openModal(NOTIF_TYPES.wordReminder)}
-                  icon="sign-in"
-                />
-                {renderNotifs(NOTIF_TYPES.wordReminder)}
                 <AppButton
                   title="Challenges"
                   onPress={() => openModal(NOTIF_TYPES.mastery)}
