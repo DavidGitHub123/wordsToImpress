@@ -282,9 +282,14 @@ export default function Notifications({ navigation }) {
         <ScrollView alwaysBounceHorizontal={true}>
           {!showModal ? (
             <View style={mainStyles.centerChildren}>
-              <View>
-                <Text style={mainStyles.header}>Challenges</Text>
-              </View>
+
+          <View style={mainStyles.screen}>
+            <Text style={mainStyles.header}>Challenges</Text>
+            <Text style={mainStyles.subText}>
+              It is important to challenge yourself to master your vocabulary lists. Set times to receive notifications
+              to play the games and quizes, as well as receive the word of the day.
+            </Text>
+          </View>
 
               <Text style={mainStyles.subheader}>Click to Schedule</Text>
               <View style={style.buttons}>
