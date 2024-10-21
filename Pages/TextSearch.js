@@ -15,7 +15,8 @@ import { addOneWordToList, defaultList } from "../components/listHelpers";
 import { mainStyles } from "../components/mainStyles";
 
 export default function TextSearch({ navigation }) {
-  const [text, setText] = useState("Input text here!");
+  const defaultText = "Input text here!";
+  const [text, setText] = useState(defaultText);
   const [suggestions, setSuggestions] = useState(null);
 
   const handleSubmit = () => {
@@ -33,7 +34,13 @@ export default function TextSearch({ navigation }) {
     setSuggestions((prev) => prev.filter((el) => el !== suggestedWord));
   };
 
-  const handleClear = async () => setText("");
+  const handleClear = () => setText("");
+
+  const handleFocus = () => {
+    if (text === defaultText) {
+      setText("");
+    }
+  };
 
   const formatSuggestions = () => {
     if (!suggestions) {
@@ -42,9 +49,7 @@ export default function TextSearch({ navigation }) {
 
     return (
       <View style={style.centerChildren}>
-        <Text style={mainStyles.subText}>
-          Add these words to your lists.
-        </Text>
+        <Text style={mainStyles.subText}>Add these words to your lists.</Text>
         {suggestions.map((el, i) => (
           <AppButton
             key={i}
@@ -81,6 +86,7 @@ export default function TextSearch({ navigation }) {
               editable
               multiline
               onChangeText={(t) => setText(t)}
+              onFocus={handleFocus}
               value={text}
               style={style.textBox}
             />
@@ -112,7 +118,7 @@ const style = StyleSheet.create({
     backgroundColor: "#fff",
     marginBottom: 30,
     fontSize: 18,
-    padding: 10
+    padding: 10,
   },
   centerChildren: {
     display: "flex",

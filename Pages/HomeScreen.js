@@ -11,6 +11,7 @@ import logo from "../assets/logoborderradius.jpg";
 import phone from "../assets/phone.jpg";
 import AppButton from "../components/AppButton";
 import { mainStyles } from "../components/mainStyles";
+import { defaultList } from "../components/listHelpers";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -28,7 +29,7 @@ export default function HomeScreen({ navigation }) {
             icon="bell"
             title="Schedule"
             onPress={() => navigation.navigate("Notifications")}
-            fontWeight = '700'
+            fontWeight="700"
           />
           <AppButton
             viewStyle={{ width: 100 }}
@@ -62,7 +63,9 @@ export default function HomeScreen({ navigation }) {
               size="large"
               icon="signal"
               title="My Mastery"
-              onPress={() => navigation.navigate("MyList")}
+              onPress={() =>
+                navigation.navigate("MyList", { listParam: defaultList })
+              }
             />
           </View>
 

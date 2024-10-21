@@ -135,7 +135,6 @@ export default function MyList({ route, navigation }) {
           />
         )}
       </View>
-      
     ));
   };
 
@@ -201,8 +200,15 @@ const style = StyleSheet.create({
     width: "100%",
     height: "100%",
     position: "absolute",
-    top: 20,
-    left: 0,
+    top: 10,
+    left: 10,
+  },
+  donutText: {
+    verticalAlign: "middle",
+    color: "#fff",
+    textAlign: "center",
+    fontSize: 40,
+    fontWeight: 900,
   },
   donutContainer: {
     width: 200,
@@ -221,8 +227,7 @@ const style = StyleSheet.create({
     color: "#4cf03a",
     fontSize: 50,
     fontWeight: "600",
-    marginLeft: "auto",
-    marginRight: "auto",
-    marginTop: 80,
+    marginHorizontal: "auto",
+    marginTop: 70,
   },
 });
