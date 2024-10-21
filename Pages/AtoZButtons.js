@@ -40,17 +40,17 @@ export default function AtoZButtons({ navigation }) {
         destination={"AtoZWords"}
       />
     ));
-    
+
   return (
-    <SafeAreaView>
-      <ScrollView alwaysBounceHorizontal={true}>
-        <LinearGradient
-          colors={["#335C81", "#6699FF"]}
-          start={{ x: 0.5, y: 0.25 }}
-          end={{ x: 0.5, y: 0.25 }}
-          opacity={1.0}
-          style={mainStyles.page}
-        >
+    <LinearGradient
+      colors={["#335C81", "#6699FF"]}
+      start={{ x: 0.5, y: 0.25 }}
+      end={{ x: 0.5, y: 0.25 }}
+      opacity={1.0}
+      style={mainStyles.page}
+    >
+      <SafeAreaView>
+        <ScrollView alwaysBounceHorizontal={true}>
           <View>
             <Text style={mainStyles.header}>Words A to Z</Text>
           </View>
@@ -60,11 +60,8 @@ export default function AtoZButtons({ navigation }) {
           </View>
 
           <View style={mainStyles.section}>{renderButtons()}</View>
-        </LinearGradient>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
-
-
-
