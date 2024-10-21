@@ -52,8 +52,8 @@ export default function WS_MeetingInLaws({ navigation }) {
             <Text style={mainStyles.text}> with little Laura.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Acquiescence" />
+        <AddButton word="Acquiescence" />
         {hideButton}
       </View>
     );
@@ -81,8 +81,8 @@ export default function WS_MeetingInLaws({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Belated" />
+        <AddButton word="Belated" />
         {hideButton}
       </View>
     );
@@ -111,8 +111,8 @@ export default function WS_MeetingInLaws({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Dilapidated" />
+        <AddButton word="Dilapidated" />
         {hideButton}
       </View>
     );
@@ -143,8 +143,8 @@ export default function WS_MeetingInLaws({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Eccentric" />
+        <AddButton word="Eccentric" />
         {hideButton}
       </View>
     );
@@ -173,8 +173,8 @@ export default function WS_MeetingInLaws({ navigation }) {
             <Text style={style.bold}>fallacious</Text>.
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Fallacious" />
+        <AddButton word="Fallacious" />
         {hideButton}
       </View>
     );
@@ -204,8 +204,8 @@ export default function WS_MeetingInLaws({ navigation }) {
             <Text style={style.bold}>heretic</Text>.
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Heretic" />
+        <AddButton word="Heretic" />
         {hideButton}
       </View>
     );
@@ -234,8 +234,8 @@ export default function WS_MeetingInLaws({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Impeccable" />
+        <AddButton word="Impeccable" />
         {hideButton}
       </View>
     );
@@ -265,8 +265,8 @@ export default function WS_MeetingInLaws({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Malady" />
+        <AddButton word="Malady" />
         {hideButton}
       </View>
     );
@@ -288,14 +288,14 @@ export default function WS_MeetingInLaws({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              In his excitement, Harold gave her a fierce 
+              In his excitement, Harold gave her a fierce
             </Text>
             <Text style={style.bold}> ursine</Text>
             <Text style={mainStyles.text}> embrace.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Ursine" />
+        <AddButton word="Ursine" />
         {hideButton}
       </View>
     );
@@ -324,8 +324,8 @@ export default function WS_MeetingInLaws({ navigation }) {
             <Text style={mainStyles.text}> laborer.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Wayfaring" />
+        <AddButton word="Wayfaring" />
         {hideButton}
       </View>
     );

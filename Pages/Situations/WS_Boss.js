@@ -54,8 +54,8 @@ export default function WS_Boss({ navigation }) {
             <Text style={mainStyles.text}>caused by problems at home.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Aberration" />
+        <AddButton word="Aberration" />
         {hideButton}
       </View>
     );
@@ -85,8 +85,8 @@ export default function WS_Boss({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Beleaguered" />
+        <AddButton word="Beleaguered" />
         {hideButton}
       </View>
     );
@@ -108,14 +108,13 @@ export default function WS_Boss({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              The initiative seemed promising, but turned out to be
-              George's {" "}
+              The initiative seemed promising, but turned out to be George's{" "}
             </Text>
             <Text style={style.bold}>debacle.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Debacle" />
+        <AddButton word="Debacle" />
         {hideButton}
       </View>
     );
@@ -137,15 +136,14 @@ export default function WS_Boss({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              Tom's proposal eventually won the approval of the
-              company's upper{" "}
+              Tom's proposal eventually won the approval of the company's upper{" "}
             </Text>
             <Text style={style.bold}>echelon </Text>
             <Text style={mainStyles.text}>of leaders.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Echelon" />
+        <AddButton word="Echelon" />
         {hideButton}
       </View>
     );
@@ -173,8 +171,8 @@ export default function WS_Boss({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Garner" />
+        <AddButton word="Garner" />
         {hideButton}
       </View>
     );
@@ -203,8 +201,8 @@ export default function WS_Boss({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Ignoble" />
+        <AddButton word="Ignoble" />
         {hideButton}
       </View>
     );
@@ -232,8 +230,8 @@ export default function WS_Boss({ navigation }) {
             <Text style={mainStyles.text}>the project.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Jettison" />
+        <AddButton word="Jettison" />
         {hideButton}
       </View>
     );
@@ -264,8 +262,8 @@ export default function WS_Boss({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Keynote" />
+        <AddButton word="Keynote" />
         {hideButton}
       </View>
     );
@@ -295,8 +293,8 @@ export default function WS_Boss({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Laggard" />
+        <AddButton word="Laggard" />
         {hideButton}
       </View>
     );
@@ -326,8 +324,8 @@ export default function WS_Boss({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Narcissistic" />
+        <AddButton word="Narcissistic" />
         {hideButton}
       </View>
     );

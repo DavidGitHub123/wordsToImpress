@@ -52,8 +52,8 @@ export default function WS_GettingRaise({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Aggrandize" />
+        <AddButton word="Aggrandize" />
         {hideButton}
       </View>
     );
@@ -83,8 +83,8 @@ export default function WS_GettingRaise({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Benevolent" />
+        <AddButton word="Benevolent" />
         {hideButton}
       </View>
     );
@@ -113,8 +113,8 @@ export default function WS_GettingRaise({ navigation }) {
             <Text style={style.bold}>celerity.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Celerity" />
+        <AddButton word="Celerity" />
         {hideButton}
       </View>
     );
@@ -142,8 +142,8 @@ export default function WS_GettingRaise({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Debilitate" />
+        <AddButton word="Debilitate" />
         {hideButton}
       </View>
     );
@@ -172,8 +172,8 @@ export default function WS_GettingRaise({ navigation }) {
             <Text style={style.bold}>effete.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Effete" />
+        <AddButton word="Effete" />
         {hideButton}
       </View>
     );
@@ -201,8 +201,8 @@ export default function WS_GettingRaise({ navigation }) {
             <Text style={mainStyles.text}>about your wife's dress.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Facetious" />
+        <AddButton word="Facetious" />
         {hideButton}
       </View>
     );
@@ -230,8 +230,8 @@ export default function WS_GettingRaise({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Garrulity" />
+        <AddButton word="Garrulity" />
         {hideButton}
       </View>
     );
@@ -260,8 +260,8 @@ export default function WS_GettingRaise({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Halcyon" />
+        <AddButton word="Halcyon" />
         {hideButton}
       </View>
     );
@@ -292,8 +292,8 @@ export default function WS_GettingRaise({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Iconoclastic" />
+        <AddButton word="Iconoclastic" />
         {hideButton}
       </View>
     );
@@ -323,8 +323,8 @@ export default function WS_GettingRaise({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Ne Plus Ultra" />
+        <AddButton word="Ne Plus Ultra" />
         {hideButton}
       </View>
     );

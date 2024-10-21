@@ -4,7 +4,7 @@ import { Dropdown } from "react-native-element-dropdown";
 import { defaultList, getNamesOfLists } from "./listHelpers";
 
 export default function ListDropdown(Props) {
-  const { setParent, initialList } = Props;
+  const { setParent, initialList, style } = Props;
   const [selectedList, setSelectedList] = useState(
     initialList ? initialList : defaultList,
   );
@@ -29,14 +29,14 @@ export default function ListDropdown(Props) {
   };
 
   return (
-    <View>
+    <View style={style}>
       <Dropdown
         data={lists}
         value={selectedList}
-        style={style.dropdown}
-        selectedTextStyle={style.selectedTextStyle}
-        placeholderStyle={style.placeholderStyle}
-        inputSearchStyle={style.inputSearchStyle}
+        style={styles.dropdown}
+        selectedTextStyle={styles.selectedTextStyle}
+        placeholderStyle={styles.placeholderStyle}
+        inputSearchStyle={styles.inputSearchStyle}
         onChange={handleDropdownChange}
         maxHeight={300}
         labelField="label"
@@ -49,7 +49,7 @@ export default function ListDropdown(Props) {
 
 const dimensions = Dimensions.get("screen");
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   dropdown: {
     height: 40,
     borderBottomColor: "gray",

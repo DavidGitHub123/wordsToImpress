@@ -52,8 +52,8 @@ export default function WS_Politics({ navigation }) {
             <Text style={mainStyles.text}>on trade issues.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Capitulate" />
+        <AddButton word="Capitulate" />
         {hideButton}
       </View>
     );
@@ -83,8 +83,8 @@ export default function WS_Politics({ navigation }) {
             <Text style={mainStyles.text}> was observed in the meeting.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Decorum" />
+        <AddButton word="Decorum" />
         {hideButton}
       </View>
     );
@@ -114,8 +114,8 @@ export default function WS_Politics({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Gainsay" />
+        <AddButton word="Gainsay" />
         {hideButton}
       </View>
     );
@@ -146,8 +146,8 @@ export default function WS_Politics({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Hegemony" />
+        <AddButton word="Hegemony" />
         {hideButton}
       </View>
     );
@@ -179,8 +179,8 @@ export default function WS_Politics({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Imbroglio" />
+        <AddButton word="Imbroglio" />
         {hideButton}
       </View>
     );
@@ -212,8 +212,8 @@ export default function WS_Politics({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Jingoistic" />
+        <AddButton word="Jingoistic" />
         {hideButton}
       </View>
     );
@@ -243,8 +243,8 @@ export default function WS_Politics({ navigation }) {
             <Text style={mainStyles.text}> within minutes of his arrival.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Liaison" />
+        <AddButton word="Liaison" />
         {hideButton}
       </View>
     );
@@ -275,8 +275,8 @@ export default function WS_Politics({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Maleficence" />
+        <AddButton word="Maleficence" />
         {hideButton}
       </View>
     );
@@ -306,8 +306,8 @@ export default function WS_Politics({ navigation }) {
             <Text style={mainStyles.text}> of this administration.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Quagmire" />
+        <AddButton word="Quagmire" />
         {hideButton}
       </View>
     );
@@ -338,8 +338,8 @@ export default function WS_Politics({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Unilateral" />
+        <AddButton word="Unilateral" />
         {hideButton}
       </View>
     );

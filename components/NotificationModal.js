@@ -1,9 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import data from "../data";
 import { mainStyles } from "./mainStyles";
 import AppButton from "./AppButton";
 import { Text, View, StyleSheet, Platform } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import ListDropdown from "./ListDropdown";
+import { defaultList, getList } from "./listHelpers";
 export const RenderTime = (time) => {
   const formattedHours = get12HourFormat(time.getHours());
   const formattedMinutes = getMinuteFormat(time.getMinutes());
@@ -47,11 +49,23 @@ export default function NotificationModal(Props) {
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [selectedWord, setSelectedWord] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [lists, setLists] = useState(defaultList);
+  const [listOrLoading, setListOrLoading] = useState(null);
   const notifTextRef = useRef(null);
 
   const bodyEnd = "\nLearn more words with Words to Impress.";
 
   const { notificationType, time, setTime, handleClose, options } = Props;
+
+  useEffect(() => {
+    const asyncWrapper = async () => {
+      const list = await getList(lists);
+      setListOrLoading(list.map((el) => el.word));
+    };
+    if (notificationType === "Individual Word Mastery") {
+      asyncWrapper();
+    }
+  }, [lists]);
 
   const handleDateChange = (_, time) => {
     setShowTimePicker(false);
@@ -77,6 +91,10 @@ export default function NotificationModal(Props) {
     const body = `${shortDef}`;
     handleClose(title, body);
   };
+  const handleSelectedWord = (word) => {
+    setSelectedWord(word);
+    setShowTimePicker(true);
+  };
 
   const renderList = () => {
     // Checks if a Word object was passed down and render no options
@@ -91,13 +109,15 @@ export default function NotificationModal(Props) {
     if (!options) {
       return <Text style={mainStyles.text}>Loading...</Text>;
     }
-    return options
+
+    const selection = listOrLoading ? listOrLoading : options;
+    return selection
       .sort((a, b) => (a === selectedWord ? -1 : b === selectedWord ? 1 : 0))
       .map((el, i) => (
         <AppButton
           title={el}
           key={i}
-          onPress={() => setSelectedWord(el)}
+          onPress={() => handleSelectedWord(el)}
           style={i === 0 && selectedWord ? { backgroundColor: "blue" } : {}}
         />
       ));
@@ -144,6 +164,15 @@ export default function NotificationModal(Props) {
           />
         </View>
       )}
+      {notificationType === "Individual Word Mastery" && (
+        <View style={style.marginAuto}>
+          <ListDropdown
+            style={style.marginAuto}
+            setParent={(n) => setLists(n)}
+            initialList={defaultList}
+          />
+        </View>
+      )}
       {isSubmitted && (
         <View style={mainStyles.centerChildren}>
           {RenderTime(time)}
@@ -167,18 +196,19 @@ const style = StyleSheet.create({
   timeText: {
     paddingTop: 2,
     paddingBottom: 2,
-    fontSize: 16,
+    fontSize: 20,
     color: "#f0f8ff",
     fontWeight: "700",
     margin: "auto",
   },
-  marginAuto: { 
-    margin: "auto" },
-    header: {
-      fontSize: 40,
-      color: "#f0f8ff",
-      fontWeight: "800",
-      paddingVertical: 40,
-      textAlign: "center",
-    },
+  marginAuto: {
+    margin: "auto",
+  },
+  header: {
+    fontSize: 40,
+    color: "#f0f8ff",
+    fontWeight: "800",
+    paddingVertical: 40,
+    textAlign: "center",
+  },
 });

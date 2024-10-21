@@ -52,8 +52,8 @@ export default function WS_DinnerParty({ navigation }) {
             <Text style={mainStyles.text}>applause.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Clamorous" />
+        <AddButton word="Clamorous" />
         {hideButton}
       </View>
     );
@@ -83,8 +83,8 @@ export default function WS_DinnerParty({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Diffident" />
+        <AddButton word="Diffident" />
         {hideButton}
       </View>
     );
@@ -114,8 +114,8 @@ export default function WS_DinnerParty({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Educe" />
+        <AddButton word="Educe" />
         {hideButton}
       </View>
     );
@@ -143,8 +143,8 @@ export default function WS_DinnerParty({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Fatuous" />
+        <AddButton word="Fatuous" />
         {hideButton}
       </View>
     );
@@ -174,8 +174,8 @@ export default function WS_DinnerParty({ navigation }) {
             <Text style={mainStyles.text}>by his new mother-in-law.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Gauche" />
+        <AddButton word="Gauche" />
         {hideButton}
       </View>
     );
@@ -203,8 +203,8 @@ export default function WS_DinnerParty({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Harangue" />
+        <AddButton word="Harangue" />
         {hideButton}
       </View>
     );
@@ -231,8 +231,8 @@ export default function WS_DinnerParty({ navigation }) {
             <Text style={style.bold}> imbibes.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Imbibe" />
+        <AddButton word="Imbibe" />
         {hideButton}
       </View>
     );
@@ -262,8 +262,8 @@ export default function WS_DinnerParty({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Juxtapose" />
+        <AddButton word="Juxtapose" />
         {hideButton}
       </View>
     );
@@ -291,8 +291,8 @@ export default function WS_DinnerParty({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Largess" />
+        <AddButton word="Largess" />
         {hideButton}
       </View>
     );
@@ -322,8 +322,8 @@ export default function WS_DinnerParty({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Melodious" />
+        <AddButton word="Melodious" />
         {hideButton}
       </View>
     );

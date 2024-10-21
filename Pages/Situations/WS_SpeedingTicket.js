@@ -55,8 +55,8 @@ export default function WS_SpeedingTicket({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Adroit" />
+        <AddButton word="Adroit" />
         {hideButton}
       </View>
     );
@@ -81,11 +81,13 @@ export default function WS_SpeedingTicket({ navigation }) {
               I'm sorry officer that I appear{" "}
             </Text>
             <Text style={style.bold}>befuddled, </Text>
-            <Text style={mainStyles.text}>you won't believe what happened.</Text>
+            <Text style={mainStyles.text}>
+              you won't believe what happened.
+            </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Befuddle" />
+        <AddButton word="Befuddle" />
         {hideButton}
       </View>
     );
@@ -110,11 +112,13 @@ export default function WS_SpeedingTicket({ navigation }) {
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>Officer, I cannot tell a </Text>
             <Text style={style.bold}>canard; </Text>
-            <Text style={mainStyles.text}>I was speeding but let me tell you why.</Text>
+            <Text style={mainStyles.text}>
+              I was speeding but let me tell you why.
+            </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Canard" />
+        <AddButton word="Canard" />
         {hideButton}
       </View>
     );
@@ -143,8 +147,8 @@ export default function WS_SpeedingTicket({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Disconcerting" />
+        <AddButton word="Disconcerting" />
         {hideButton}
       </View>
     );
@@ -172,8 +176,8 @@ export default function WS_SpeedingTicket({ navigation }) {
             <Text style={mainStyles.text}> of a brave man of his duty.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Embodiment" />
+        <AddButton word="Embodiment" />
         {hideButton}
       </View>
     );
@@ -203,8 +207,8 @@ export default function WS_SpeedingTicket({ navigation }) {
             <Text style={mainStyles.text}> in anger. I'm sorry.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Fulminate" />
+        <AddButton word="Fulminate" />
         {hideButton}
       </View>
     );
@@ -235,8 +239,8 @@ export default function WS_SpeedingTicket({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Imperative" />
+        <AddButton word="Imperative" />
         {hideButton}
       </View>
     );
@@ -269,8 +273,8 @@ export default function WS_SpeedingTicket({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Lucid" />
+        <AddButton word="Lucid" />
         {hideButton}
       </View>
     );
@@ -301,8 +305,8 @@ export default function WS_SpeedingTicket({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Misconstrue" />
+        <AddButton word="Misconstrue" />
         {hideButton}
       </View>
     );
@@ -328,8 +332,8 @@ export default function WS_SpeedingTicket({ navigation }) {
             <Text style={mainStyles.text}> me; I am a good driver.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Upbraid" />
+        <AddButton word="Upbraid" />
         {hideButton}
       </View>
     );

@@ -46,13 +46,15 @@ export default function WS_InCourt({ navigation }) {
         </Text>
         <Text style={style.space}>
           <Text style={style.bold}>Sentence: </Text>
-          <Text style={mainStyles.text}>The young lawyers were excited to be in the court house to finally </Text>
+          <Text style={mainStyles.text}>
+            The young lawyers were excited to be in the court house to finally{" "}
+          </Text>
           <Text style={style.bold}>adjudicate </Text>
           <Text style={mainStyles.text}>their first cases.</Text>
         </Text>
       </View>
-      <ListenButton />
-      <AddButton />
+      <ListenButton word="Adjudicate" />
+      <AddButton word="Adjudicate" />
       {hideButton}
     </View>
   );
@@ -83,8 +85,8 @@ export default function WS_InCourt({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Barrage" />
+        <AddButton word="Barrage" />
         {hideButton}
       </View>
     );
@@ -112,13 +114,12 @@ export default function WS_InCourt({ navigation }) {
             </Text>
             <Text style={style.bold}>catch-22</Text>
             <Text style={mainStyles.text}>
-              : he was only to be scheduled during the days he'd be out of
-              town.
+              : he was only to be scheduled during the days he'd be out of town.
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Catch" />
+        <AddButton word="Catch" />
         {hideButton}
       </View>
     );
@@ -148,8 +149,8 @@ export default function WS_InCourt({ navigation }) {
             <Text style={mainStyles.text}>of her character.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Defamation" />
+        <AddButton word="Defamation" />
         {hideButton}
       </View>
     );
@@ -179,8 +180,8 @@ export default function WS_InCourt({ navigation }) {
             <Text style={style.bold}>elucidate.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Elucidate" />
+        <AddButton word="Elucidate" />
         {hideButton}
       </View>
     );
@@ -210,8 +211,8 @@ export default function WS_InCourt({ navigation }) {
             <Text style={mainStyles.text}> and should not be believed.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Fabulist" />
+        <AddButton word="Fabulist" />
         {hideButton}
       </View>
     );
@@ -240,8 +241,8 @@ export default function WS_InCourt({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Grandiloquence" />
+        <AddButton word="Grandiloquence" />
         {hideButton}
       </View>
     );
@@ -270,8 +271,8 @@ export default function WS_InCourt({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Heinous" />
+        <AddButton word="Heinous" />
         {hideButton}
       </View>
     );
@@ -300,8 +301,8 @@ export default function WS_InCourt({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Ignominious" />
+        <AddButton word="Ignominious" />
         {hideButton}
       </View>
     );
@@ -329,8 +330,8 @@ export default function WS_InCourt({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Judicature" />
+        <AddButton word="Judicature" />
         {hideButton}
       </View>
     );
