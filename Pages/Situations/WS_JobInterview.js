@@ -55,8 +55,8 @@ export default function WS_JobInterview({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Baccalaureate" />
+        <AddButton word="Baccalaureate" />
         {hideButton}
       </View>
     );
@@ -87,8 +87,8 @@ export default function WS_JobInterview({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Cavalier" />
+        <AddButton word="Cavalier" />
         {hideButton}
       </View>
     );
@@ -121,8 +121,8 @@ export default function WS_JobInterview({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Deprecate" />
+        <AddButton word="Deprecate" />
         {hideButton}
       </View>
     );
@@ -153,8 +153,8 @@ export default function WS_JobInterview({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Ebullience" />
+        <AddButton word="Ebullience" />
         {hideButton}
       </View>
     );
@@ -186,8 +186,8 @@ export default function WS_JobInterview({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Fait" />
+        <AddButton word="Fait" />
         {hideButton}
       </View>
     );
@@ -216,8 +216,8 @@ export default function WS_JobInterview({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Galvanize" />
+        <AddButton word="Galvanize" />
         {hideButton}
       </View>
     );
@@ -248,8 +248,8 @@ export default function WS_JobInterview({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Imbue" />
+        <AddButton word="Imbue" />
         {hideButton}
       </View>
     );
@@ -277,8 +277,8 @@ export default function WS_JobInterview({ navigation }) {
             <Text style={mainStyles.text}>, slow, and off message.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Jejune" />
+        <AddButton word="Jejune" />
         {hideButton}
       </View>
     );
@@ -307,8 +307,8 @@ export default function WS_JobInterview({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Kudos" />
+        <AddButton word="Kudos" />
         {hideButton}
       </View>
     );
@@ -339,8 +339,8 @@ export default function WS_JobInterview({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Utilitarian" />
+        <AddButton word="Utilitarian" />
         {hideButton}
       </View>
     );

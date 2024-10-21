@@ -3,8 +3,9 @@ import { StyleSheet, Pressable, Platform } from "react-native";
 import { Audio } from "expo-av";
 import { useState, useEffect } from "react";
 import AppButton from "./AppButton";
+import data from "../data";
 
-export default function ListenButton({ audio }) {
+export default function ListenButton({ audio, word }) {
   const [sound, setSound] = useState();
 
   useEffect(() => {
@@ -20,7 +21,12 @@ export default function ListenButton({ audio }) {
   }, []);
 
   async function playSound() {
-    const { sound } = await Audio.Sound.createAsync(audio);
+    let selectedAudio = audio;
+    if (!selectedAudio && word) {
+      selectedAudio = data.find((w) => w.Word === word).Audio;
+    }
+
+    const { sound } = await Audio.Sound.createAsync(selectedAudio);
     setSound(sound);
     await sound.playAsync();
   }

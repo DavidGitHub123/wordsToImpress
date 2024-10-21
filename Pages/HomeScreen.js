@@ -28,13 +28,14 @@ export default function HomeScreen({ navigation }) {
             icon="bell"
             title="Schedule"
             onPress={() => navigation.navigate("Notifications")}
-            fontWeight = '700'
+            fontWeight="700"
           />
           <AppButton
             viewStyle={{ width: 100 }}
             borderColor="transparent"
             icon="table"
             title="About"
+            fontWeight="700"
             onPress={() => navigation.navigate("System")}
           />
         </View>

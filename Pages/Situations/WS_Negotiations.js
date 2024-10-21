@@ -52,8 +52,8 @@ export default function WS_Negotiations({ navigation }) {
             <Text style={mainStyles.text}> acceptable to both sides.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Accord" />
+        <AddButton word="Accord" />
         {hideButton}
       </View>
     );
@@ -82,8 +82,8 @@ export default function WS_Negotiations({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Cessation" />
+        <AddButton word="Cessation" />
         {hideButton}
       </View>
     );
@@ -114,8 +114,8 @@ export default function WS_Negotiations({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Dialectic" />
+        <AddButton word="Dialectic" />
         {hideButton}
       </View>
     );
@@ -145,8 +145,8 @@ export default function WS_Negotiations({ navigation }) {
             <Text style={style.bold}>elusive.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Elusive" />
+        <AddButton word="Elusive" />
         {hideButton}
       </View>
     );
@@ -170,14 +170,14 @@ export default function WS_Negotiations({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>.{" "}
             <Text style={mainStyles.text}>
-              Negotiations were difficult because the organization's plans
-              were in a state of continual{" "}
+              Negotiations were difficult because the organization's plans were
+              in a state of continual{" "}
             </Text>
             <Text style={style.bold}>flux.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Flux" />
+        <AddButton word="Flux" />
         {hideButton}
       </View>
     );
@@ -210,8 +210,8 @@ export default function WS_Negotiations({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Gauntlet" />
+        <AddButton word="Gauntlet" />
         {hideButton}
       </View>
     );
@@ -242,8 +242,8 @@ export default function WS_Negotiations({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Holistic" />
+        <AddButton word="Holistic" />
         {hideButton}
       </View>
     );
@@ -275,8 +275,8 @@ export default function WS_Negotiations({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Impasse" />
+        <AddButton word="Impasse" />
         {hideButton}
       </View>
     );
@@ -306,8 +306,8 @@ export default function WS_Negotiations({ navigation }) {
             <Text style={mainStyles.text}> factors came into play.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Mitigate" />
+        <AddButton word="Mitigate" />
         {hideButton}
       </View>
     );
@@ -336,8 +336,8 @@ export default function WS_Negotiations({ navigation }) {
             <Text style={mainStyles.text}> from my client.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Ultimatum" />
+        <AddButton word="Ultimatum" />
         {hideButton}
       </View>
     );

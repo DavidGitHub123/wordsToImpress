@@ -53,8 +53,8 @@ export default function WS_Business({ navigation }) {
             <Text style={style.bold}>accolades.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Accolade" />
+        <AddButton word="Accolade" />
         {hideButton}
       </View>
     );
@@ -84,8 +84,8 @@ export default function WS_Business({ navigation }) {
             <Text style={mainStyles.text}>to get his way.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Bluster" />
+        <AddButton word="Bluster" />
         {hideButton}
       </View>
     );
@@ -115,8 +115,8 @@ export default function WS_Business({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Cartel" />
+        <AddButton word="Cartel" />
         {hideButton}
       </View>
     );
@@ -145,8 +145,8 @@ export default function WS_Business({ navigation }) {
             <Text style={style.bold}>diminution.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Diminution" />
+        <AddButton word="Diminution" />
         {hideButton}
       </View>
     );
@@ -174,8 +174,8 @@ export default function WS_Business({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Effrontery" />
+        <AddButton word="Effrontery" />
         {hideButton}
       </View>
     );
@@ -203,8 +203,8 @@ export default function WS_Business({ navigation }) {
             <Text style={mainStyles.text}> hangers-on.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Feckless" />
+        <AddButton word="Feckless" />
         {hideButton}
       </View>
     );
@@ -234,8 +234,8 @@ export default function WS_Business({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Gargantuan" />
+        <AddButton word="Gargantuan" />
         {hideButton}
       </View>
     );
@@ -263,8 +263,8 @@ export default function WS_Business({ navigation }) {
             <Text style={mainStyles.text}>of hard times ahead.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Harbinger" />
+        <AddButton word="Harbinger" />
         {hideButton}
       </View>
     );
@@ -292,8 +292,8 @@ export default function WS_Business({ navigation }) {
             </Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Impetuous" />
+        <AddButton word="Impetuous" />
         {hideButton}
       </View>
     );
@@ -323,8 +323,8 @@ export default function WS_Business({ navigation }) {
             <Text style={mainStyles.text}>were worked out.</Text>
           </Text>
         </View>
-        <ListenButton />
-        <AddButton />
+        <ListenButton word="Logistics" />
+        <AddButton word="Logistics" />
         {hideButton}
       </View>
     );
