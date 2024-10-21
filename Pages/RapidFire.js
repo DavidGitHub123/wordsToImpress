@@ -80,7 +80,7 @@ function Game(Props) {
     }
     setFront(true);
     setCardIndex(cardIndex + 1);
-    if (timing === "Unlimited") {
+    if (timing !== "Unlimited") {
       setTimeLeft(timing);
     }
   };
@@ -110,9 +110,19 @@ function Game(Props) {
   };
 
   const flipOrNextButton = front ? (
-    <AppButton title="Flip" icon="undo" onPress={() => setFront(false)} />
+    <AppButton
+      title="Flip"
+      icon="undo"
+      onPress={() => setFront(false)}
+      viewStyle={style.marginAuto}
+    />
   ) : (
-    <AppButton title="Next card" icon="step-forward" onPress={handleNextCard} />
+    <AppButton
+      title="Next card"
+      icon="step-forward"
+      onPress={handleNextCard}
+      viewStyle={style.marginAuto}
+    />
   );
 
   return (
@@ -133,7 +143,8 @@ function GameSetUp(Props) {
     <Pressable
       style={style.timingButtonContainer}
       key={i}
-      onPress={() => setTiming(el)}m
+      onPress={() => setTiming(el)}
+      m
     >
       <RadioButton selected={timing === el} />
       <Text style={mainStyles.text}>
@@ -167,6 +178,8 @@ const style = StyleSheet.create({
     height: 50,
   },
 
+  marginAuto: { margin: "auto" },
+
   timeleft: {
     paddingBottom: 20,
     fontSize: 20,
@@ -181,6 +194,7 @@ const style = StyleSheet.create({
     alignItems: "center",
     padding: 10,
     gap: 5,
+    width: "90%",
   },
 
   timingOptionsContainer: {
