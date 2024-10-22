@@ -95,7 +95,7 @@ export default function PreBuiltListNew({ navigation }) {
             />
             <NavButtonWord
               navigation={navigation}
-              title="Cohort "
+              title="Cognition"
               destination="Word"
             />
             <NavButtonWord
@@ -145,7 +145,7 @@ export default function PreBuiltListNew({ navigation }) {
             />
             <NavButtonWord
               navigation={navigation}
-              title="Eurdite"
+              title="Evince"
               destination="Word"
             />
             <NavButtonWord
@@ -210,7 +210,7 @@ export default function PreBuiltListNew({ navigation }) {
             />
             <NavButtonWord
               navigation={navigation}
-              title="Ostracized"
+              title="Ostracize"
               destination="Word"
             />
             <NavButtonWord
@@ -226,7 +226,7 @@ export default function PreBuiltListNew({ navigation }) {
             <NavButtonWord
               navigation={navigation}
               title="Perjure"
-              destination=""
+              destination="Word"
             />
             <NavButtonWord
               navigation={navigation}
@@ -240,7 +240,7 @@ export default function PreBuiltListNew({ navigation }) {
             />
             <NavButtonWord
               navigation={navigation}
-              title="Protégé"
+              title="Protege"
               destination="Word"
             />
             <NavButtonWord
