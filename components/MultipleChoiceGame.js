@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { View, Text, StyleSheet, Dimensions, Modal } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppButton from "./AppButton";
 import { NavButton } from "./NavButton";
@@ -95,10 +95,8 @@ export default function MultipleChoiceGame(Props) {
     setIsCorrect(anwsers[index].correct);
     setDisplayNext(true);
     setAnwsers((prev) => {
-      const copy = prev.slice();
-      copy[index].highlighted = true;
-
-      return copy;
+      prev[index].highlighted = true;
+      return [...prev];
     });
   };
 
@@ -146,12 +144,20 @@ export default function MultipleChoiceGame(Props) {
     </View>
   );
 
-  const renderCorrectandNextButton = () => (
-    <View style={style.centerContainer}>
-      <Text style={style.text}>{isCorrect ? "Correct" : "Incorrect"}</Text>
-      <AppButton title="Next Word" icon="sign-in" onPress={handleNext} />
-    </View>
-  );
+  const renderCorrectandNextButton = () => {
+    const wordData = data.find(
+      (el) => el[answerType] === list[listIndex][answerType],
+    );
+    return (
+      <View style={style.centerContainer}>
+        <Text style={style.text}>{isCorrect ? "Correct" : "Incorrect"}</Text>
+        <Text style={style.text}>
+          {wordData.Word}: {wordData.Shortdef}
+        </Text>
+        <AppButton title="Next Word" icon="sign-in" onPress={handleNext} />
+      </View>
+    );
+  };
 
   const renderProgressBar = () => (
     <View style={style.outerProgressBar}>
@@ -217,7 +223,18 @@ export default function MultipleChoiceGame(Props) {
         <View style={{ ...style.centerContainer, ...style.width90 }}>
           {questionContainer}
           {renderAnwsers()}
-          {displayNext ? renderCorrectandNextButton() : null}
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={displayNext}
+            onRequestClose={() => setDisplayNext(false)}
+          >
+            <View style={style.centeredView}>
+              <View style={style.modalView}>
+                {renderCorrectandNextButton()}
+              </View>
+            </View>
+          </Modal>
         </View>
       )}
     </LinearGradient>
@@ -314,5 +331,26 @@ const style = StyleSheet.create({
     flexWrap: "wrap",
     rowGap: 2,
     columnGap: 4,
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "black",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
   },
 });
