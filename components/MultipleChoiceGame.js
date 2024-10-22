@@ -80,7 +80,7 @@ export default function MultipleChoiceGame(Props) {
       .sort((a, b) => a.sort - b.sort)
       .map(({ el }) => el);
     setAnwsers(shuffledAnswers);
-  }, [listIndex]);
+  }, [listIndex, list]);
 
   const handleAnwser = (index) => {
     // if displayNext is true return early, as this function has already highlighted something
