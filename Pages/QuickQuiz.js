@@ -15,7 +15,7 @@ export default function QuickQuiz({ navigation }) {
 
   async function getAndSetList() {
     let userList = await getNLeastMastered(selectedList, 10);
-
+    console.log(userList);
     userList = userList.map((el) => {
       return {
         Word: el.word,
