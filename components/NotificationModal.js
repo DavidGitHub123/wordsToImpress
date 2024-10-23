@@ -11,7 +11,7 @@ export const RenderTime = (time) => {
 
   return (
     <Text style={style.timeText}>
-      We will remind you at {formattedHours}:{formattedMinutes} {ampm}
+      Click Remind Me to Set this Reminder at {formattedHours}:{formattedMinutes} {ampm}
     </Text>
   );
 };
@@ -104,7 +104,7 @@ export default function NotificationModal(Props) {
       <View style={style.marginAuto}>
         <AppButton
           icon="user-clock"
-          title="Set time"
+          title="Select Time"
           onPress={() => setShowTimePicker(true)}
         />
       </View>
@@ -145,12 +145,14 @@ export default function NotificationModal(Props) {
 }
 const style = StyleSheet.create({
   timeText: {
-    paddingTop: 2,
-    paddingBottom: 2,
+    paddingTop: 40,
+    paddingBottom: 10,
+    paddingHorizontal: 60,
     fontSize: 20,
     color: "#f0f8ff",
     fontWeight: "700",
     margin: "auto",
+    textAlign: 'center'
   },
   marginAuto: {
     margin: "auto",

@@ -291,6 +291,7 @@ export default function Notifications({ navigation }) {
                   icon="sign-in"
                 />
                 {renderNotifs(NOTIF_TYPES.mastery)}
+              <View style={style.bottomButtons}>
                 <AppButton
                   icon="trash"
                   title="Clear all notifications"
@@ -300,6 +301,7 @@ export default function Notifications({ navigation }) {
                   title="Back"
                   onPress={() => navigation.goBack()}
                 ></AppButton>
+              </View>
               </View>
             </View>
           ) : (
@@ -319,10 +321,8 @@ export default function Notifications({ navigation }) {
             </View>
           )}
 
-          <View style={style.bottomButtons}>
-            <View>
+          <View style={style}>
               <HomeButton navigation={navigation} />
-            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
