@@ -6,6 +6,7 @@ import {
   Pressable,
   SafeAreaView,
   ScrollView,
+  Dimensions,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import RadioButton from "../components/RadioButton";
@@ -14,10 +15,10 @@ import {
   defaultList,
   incrementMastery,
 } from "../components/listHelpers";
-import RapidFireCards from "./RapidFireCards";
 import AppButton from "../components/AppButton";
 import { mainStyles } from "../components/mainStyles";
 import ListDropdown from "../components/ListDropdown";
+import data from "../data";
 
 export default function RapidFire({ navigation }) {
   const [timing, setTiming] = useState(10);
@@ -44,7 +45,12 @@ export default function RapidFire({ navigation }) {
         <ScrollView alwaysBounceHorizontal={true}>
           <View>
             {isStarted ? (
-              <Game navigation={navigation} timing={timing} words={words} />
+              <Game
+                navigation={navigation}
+                timing={timing}
+                words={words}
+                selectedList={selectedList}
+              />
             ) : (
               <GameSetUp
                 timing={timing}
@@ -61,12 +67,16 @@ export default function RapidFire({ navigation }) {
 }
 
 function Game(Props) {
-  const { timing, words, navigation } = Props;
+  const { timing, words, navigation, selectedList } = Props;
 
   const [timeLeft, setTimeLeft] = useState(timing);
   const [front, setFront] = useState(true);
   const [cardIndex, setCardIndex] = useState(0);
   const timerID = useRef(-1);
+
+  if (words.length === 0) {
+    exitGame();
+  }
 
   const exitGame = () => {
     setCardIndex(0);
@@ -105,7 +115,7 @@ function Game(Props) {
       exitGame();
       return;
     }
-    incrementMastery(defaultList, words[cardIndex].word);
+    incrementMastery(selectedList, words[cardIndex].word);
     resetRound();
   };
 
@@ -155,13 +165,15 @@ function GameSetUp(Props) {
 
   return (
     <View style={style.timingOptionsContainer}>
-      <Text style={mainStyles.header}>Rapid Fire </Text>
+      <Text style={{ ...mainStyles.header, marginBottom: 20 }}>Rapid Fire</Text>
       <ListDropdown
         setParent={(n) => setSelectedList(n)}
         initialList={defaultList}
       />
-      <Text style={mainStyles.text}>Select your speed:</Text>
-      <View>{timingButtons}</View>
+      <Text style={{ ...mainStyles.text, marginTop: 30, marginBottom: 5 }}>
+        Select your speed:
+      </Text>
+      <View style={{ marginVertical: 20 }}>{timingButtons}</View>
 
       <AppButton
         style={style.startButton}
@@ -172,8 +184,42 @@ function GameSetUp(Props) {
     </View>
   );
 }
+function RapidFireCards(Props) {
+  const { words, front, cardIndex } = Props;
 
+  const getDef = (w) => data.find((el) => el.Word === w).Shortdef;
+
+  const Cards = words.map((el, i) => {
+    return {
+      front: (
+        <View key={i} style={[mainStyles.screen, style.wordContainer]}>
+          <Text style={[mainStyles.header, style.innerWordContainer]}>
+            {el.word}
+          </Text>
+        </View>
+      ),
+      back: (
+        <View key={i} style={[mainStyles.screen, style.wordContainer]}>
+          <View style={style.innerWordContainer}>
+            <Text style={mainStyles.header}>{el.word}</Text>
+            <Text style={mainStyles.subheader}>{getDef(el.word)}</Text>
+          </View>
+        </View>
+      ),
+    };
+  });
+
+  return front ? Cards[cardIndex].front : Cards[cardIndex].back;
+}
+const dimensions = Dimensions.get("screen");
 const style = StyleSheet.create({
+  wordContainer: {
+    width: dimensions.width * 0.9,
+    height: dimensions.height * 0.5,
+  },
+  innerWordContainer: {
+    margin: "auto",
+  },
   startButton: {
     height: 50,
   },
@@ -190,16 +236,17 @@ const style = StyleSheet.create({
     display: "flex",
     flexWrap: "nowrap",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
     alignItems: "center",
     padding: 10,
-    gap: 5,
+    gap: 20,
     width: "90%",
   },
 
   timingOptionsContainer: {
     margin: "auto",
     display: "flex",
+    width: Dimensions.get("screen").width * 0.9,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "rgba(0, 0, 0, .5)",
