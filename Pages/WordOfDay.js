@@ -29,17 +29,40 @@ export default function WordOfDay({ navigation }) {
 
   function formatWordOfTheDay() {
     const wordData = GetWordOfTheDay();
-    const highlightWord = (w) =>
-      w.toLowerCase().includes(wordData.Word.toLowerCase());
-    const sentence = wordData.Longdef.split(" ").map((el, i) => (
-      <Text
-        key={i}
-        style={highlightWord(el) ? style.highlightedText : mainStyles.text}
-      >
-        {el}
-      </Text>
-    ));
+    const selectedWord = wordData.Word;
 
+    const sentence = wordData.Longdef.split(" ").map((el, i) => {
+      const trucatedWord = selectedWord
+        .substring(0, selectedWord.length - 1)
+        .toLowerCase()
+        .replace(/\W$/, "");
+
+      let isHighlighted = false;
+      if (selectedWord.split(" ").length >= 2) {
+        isHighlighted = selectedWord.split(" ").some((w) => {
+          return (
+            el.length - w.length <= 3 &&
+            el
+              .toLowerCase()
+              .replace(/\W$/, "")
+              .includes(w.toLowerCase().replace(/\W$/, ""))
+          );
+        });
+      } else {
+        isHighlighted = el
+          .replace(/\W$/, "")
+          .toLowerCase()
+          .includes(trucatedWord);
+      }
+      return (
+        <Text
+          key={i}
+          style={isHighlighted ? style.highlightedText : mainStyles.text}
+        >
+          {el}
+        </Text>
+      );
+    });
     return (
       <View style={mainStyles.page}>
         <View style={mainStyles.screen}>
