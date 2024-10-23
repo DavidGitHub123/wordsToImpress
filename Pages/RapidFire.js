@@ -6,6 +6,7 @@ import {
   Pressable,
   SafeAreaView,
   ScrollView,
+  Dimensions,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import RadioButton from "../components/RadioButton";
@@ -190,16 +191,17 @@ const style = StyleSheet.create({
     display: "flex",
     flexWrap: "nowrap",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
     alignItems: "center",
     padding: 10,
-    gap: 5,
+    gap: 20,
     width: "90%",
   },
 
   timingOptionsContainer: {
     margin: "auto",
     display: "flex",
+    width: Dimensions.get("screen").width * 0.9,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "rgba(0, 0, 0, .5)",
