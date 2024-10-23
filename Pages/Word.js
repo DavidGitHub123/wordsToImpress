@@ -37,11 +37,6 @@ export default function Word({ navigation }) {
         .substring(0, selectedWord.length - 1)
         .toLowerCase();
 
-      console.log(trucatedWord);
-      const regex = new RegExp(`${trucatedWord}[\\w\\s]+`);
-      console.log(regex.toString());
-      console.log(selectedWord);
-
       let isHighlighted = false;
       if (selectedWord.split(" ").length >= 2) {
         isHighlighted = selectedWord
