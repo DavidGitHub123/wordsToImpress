@@ -33,12 +33,27 @@ export default function Word({ navigation }) {
     }
 
     const sentence = wordData.Longdef.split(" ").map((el, i) => {
-      const isHighlighted = (w) =>
-        w.toLowerCase().includes(selectedWord.toLowerCase());
+      const trucatedWord = selectedWord
+        .substring(0, selectedWord.length - 1)
+        .toLowerCase();
+
+      console.log(trucatedWord);
+      const regex = new RegExp(`${trucatedWord}[\\w\\s]+`);
+      console.log(regex.toString());
+      console.log(selectedWord);
+
+      let isHighlighted = false;
+      if (selectedWord.split(" ").length >= 2) {
+        isHighlighted = selectedWord
+          .split(" ")
+          .some((w) => el.toLowerCase() === w.toLowerCase());
+      } else {
+        isHighlighted = el.toLowerCase().includes(trucatedWord);
+      }
       return (
         <Text
           key={i}
-          style={isHighlighted(el) ? style.highlightedText : mainStyles.text}
+          style={isHighlighted ? style.highlightedText : mainStyles.text}
         >
           {el}
         </Text>
