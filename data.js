@@ -210,7 +210,7 @@ export default [
      Pronunciation: 'AB-ne-gate',
      PartofSpeech: 'v',
      Shortdef: "To renounce or deny privilege to oneself.",
-     Longdef: "The activist's fast lasted for 47 days; in an election, such abnegation draws headlines and attention from elected officials.",
+     Longdef: "The activist's fast lasted for 47 days; in an election, such abnegating draws headlines and attention from elected officials.",
      syn: [
          "renounce",
          "reject",
