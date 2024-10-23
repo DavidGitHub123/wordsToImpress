@@ -10,7 +10,6 @@ import Word from "../Pages/Word";
 import PreBuiltListNew from "../Pages/PreBuiltListNew";
 import AtoZButtons from "../Pages/AtoZButtons";
 import RapidFire from "../Pages/RapidFire";
-import RapidFireCards from "../Pages/RapidFireCards";
 import QuickQuiz from "../Pages/QuickQuiz";
 import TextSearch from "../Pages/TextSearch";
 import WS_Boss from "../Pages/Situations/WS_Boss";
@@ -95,11 +94,6 @@ export default function NavigationLinks() {
       <Stack.Screen
         name="RapidFire"
         component={RapidFire}
-        options={{ title: "RapidFire" }}
-      />
-      <Stack.Screen
-        name="RapidFireCards"
-        component={RapidFireCards}
         options={{ title: "RapidFire" }}
       />
       <Stack.Screen
