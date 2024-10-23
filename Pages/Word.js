@@ -39,7 +39,6 @@ export default function Word({ navigation }) {
         .replace(/\W$/, "");
 
       let isHighlighted = false;
-      console.log(selectedWord);
       if (selectedWord.split(" ").length >= 2) {
         isHighlighted = selectedWord.split(" ").some((w) => {
           return (
