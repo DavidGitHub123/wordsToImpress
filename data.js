@@ -670,18 +670,6 @@ export default [
      Audio: require('./Audio/Adhoc.mp3')
  },
 
- // {   id: '037',
- //     alpha: 'a',
- //     Prebuilt: '',
- //     SocialSituation: '',
- //     Word: 'Ad infinitum',
- //     Pronunciation: 'ad in-fi-NEYE-tum',
- //     PartofSpeech: 'a',
- //     Shortdef: "Without end.",
- //     Longdef: "Wilbur remarked that he could probably discuss the facility's weaknesses ad infinitum.",
- //     syn: ["endlessly", "infinitely", "ceaselessly", "eternally", "unendingly", "perpetually", "incessantly", "unceasingly", "continuously", "forevermore"]
- // },
-
  {   id: '038',
      alpha: 'a',
      Prebuilt: '',
@@ -897,32 +885,7 @@ export default [
      Audio: require('./Audio/Aggrandize.mp3')
  },
 
-//  {   id: '049',
-//      alpha: 'a',
-//      Prebuilt: 'Prebuilt',
-//      SocialSituation: '',
-//      Word: 'Agnosticism',
-//      Pronunciation: 'ag-NOS-ti-sihz-um',
-//      PartofSpeech: 'n',
-//      Shortdef: "Doubt in the existence of God.", 
-//      Longdef: "Belief that it is impossible to know whether or not an ultimate cause (God) exists.",
-//      syn: [
-//          "Skepticism",
-//          "Doubt",
-//          "Uncertainty",
-//          "Ignorance",
-//          "Noncommittal",
-//          "Indecision",
-//          "Ambivalence",
-//          "Undecided",
-//          "Unbelief",
-//          "Hesitation",
-//          "Dubiousness",
-//          "Scepticism",
-//          "Pessimism"
-//        ],
-//        Audio: require('./Audio/Agnosticism.mp3')
-//  },
+
 
  {   id: '050',
      alpha: 'a',
@@ -3294,44 +3257,7 @@ export default [
      Audio: require('./Audio/Cognition.mp3')
  },
 
- // {   id: '199',
- //     alpha: 'c',
- //     Prebuilt: 'Prebuilt',
- //     SocialSituation: '',
- //     Word: 'Cohort',
- //     Pronunciation: 'KO-hort',
- //     PartofSpeech: 'n',
- //     Shortdef: 'A companion with whom one is united through common experience.',
- //     Longdef: "Because Mark and his cohorts had grown up together in the town, leaving for different colleges was quite difficult.",
- //     syn: ["group", "team", "unit", "crew", "posse", "gang", "squad", "party"],
- //     Audio: require('./Audio/Cohort.mp3')
- // },
 
- // {   id: '200',
- //     alpha: 'c',
- //     Prebuilt: '',
- //     SocialSituation: '',
- //     Word: 'Colloquial',
- //     Pronunciation: 'kuh-LO-kwee-ul',
- //     PartofSpeech: 'a',
- //     Shortdef: 'In common conversational use.',
- //     Longdef: "You cannot expect a college president to take seriously a letter so colloquial in tone.",
- //     syn: ["informal", "conversational", "vernacular", "chatty", "familiar", "everyday", "slangy", "casual", "unofficial", "idiomatic"],
- //     Audio: require('./Audio/Colloquial.mp3')
- // },
-
- // {   id: '201',
- //     alpha: 'c',
- //     Prebuilt: '',
- //     SocialSituation: '',
- //     Word: 'Collusion',
- //     Pronunciation: 'kuh-LOO-zhun',
- //     PartofSpeech: 'n',
- //     Shortdef: 'A secret understanding entered into for an fraudulent end.',
- //     Longdef: "The leaders were arraigned on price collusion in violation of anti-trust laws.",
- //     syn: ["Conspiracy", "Connivance", "Plotting", "Scheme", "Collaboration", "Conspiring", "Confederacy", "Secret agreement", "Machination", "Caballing"],
- //     Audio: require('./Audio/Collusion.mp3')
- // },
 
  {   id: '202',
      alpha: 'c',
@@ -5663,27 +5589,6 @@ export default [
      Audio: require('./Audio/Envisage.mp3')
  },
 
- // {   id: '357',
- //     alpha: 'e',
- //     Prebuilt: '',
- //     SocialSituation: '',
- //     Word: 'Epicure',
- //     Pronunciation: 'EP-ih-kyoor',
- //     PartofSpeech: 'n',
- //     Shortdef: 'A connoisseur; one who cultivates refined tastes.',
- //     Longdef: "Matt who never seemed interested in gourmet dining, has suddenly become something of an epicure of French cuisine.",
- //     syn: [
- //         "Foodie",
- //         "Gourmet",
- //         "Gourmand",
- //         "Sensualist",
- //         "Bon vivant",
- //         "Connoisseur",
- //         "Glutton",
- //         "Hedonist"
- //         ],
- //         Audio: require('./Audio/Epicure.mp3')
- // },
 
  {   id: '358',
      alpha: 'e',
@@ -5994,7 +5899,7 @@ export default [
      Word: 'Exigency',
      Pronunciation: 'EK-si-jen-see',
      PartofSpeech: 'n',
-     Shortdef: 'Something requiring immediate action; an emergency.',
+     Shortdef: 'Requiring immediate action; an emergency.',
      Longdef: "The printer's failure to meet the deadline presented us with an exigency we were ill-equipped to face.",
      syn: ["emergency", "urgency", "crisis", "need", "demand", "requirement", "pressing need", "necessity", "dire straits", "compulsion", "obligation"],
      Audio: require('./Audio/Exigency.mp3')
@@ -7305,29 +7210,7 @@ export default [
      Audio: require('./Audio/Immaculate.mp3')
  },
 
-//  {   id: '473',
-//      alpha: 'I',
-//      Prebuilt: '',
-//      SocialSituation: {AtCollege: 'At College'},
-//      Word: 'Immolate',
-//      Pronunciation: 'IM-uh-late',
-//      PartofSpeech: 'v',
-//      Shortdef: "To kill as a sacrifice, especially by fire.",
-//      Longdef: "The monk's dramatic act of self-immolation made headlines around the world.",
-//      syn: [
-//          'sacrifice',
-//          'burn as an offering',
-//          'offer up',
-//          'give up',
-//          'devote',
-//          'dedicate',
-//          'consecrate',
-//          'martyr',
-//          'death-wish',
-//          'ritually kill'
-//          ],
-//          Audio: require('./Audio/Immolate.mp3')
-//  },
+
 
  {   id: '474',
      alpha: 'I',
@@ -10032,18 +9915,7 @@ export default [
      Audio: require('./Audio/Omniscient.mp3')
  },
 
-//  {   id: '664',
-//      alpha: 'o',
-//      Prebuilt: '',
-//      SocialSituation: '',
-//      Word: 'Onerous',
-//      Pronunciation: 'OWE-nur-uss',
-//      PartofSpeech: 'a',
-//      Shortdef: 'Troublesome and burdensome.',
-//      Longdef: "Contrary to what you may have heard, Professor Powers is not omniscient; he still has a thing or two to learn.",
-//      syn: ["burdensome", "difficult", "taxing", "challenging", "demanding", "onerous", "hefty", "strenuous", "arduous"],
-//      Audio: require('./Audio/Onerous.mp3')
-//  },
+
 
  {   id: '665',
      alpha: 'o',
@@ -10673,29 +10545,7 @@ export default [
      Audio: require('./Audio/Perspicacity.mp3')
  },
 
- // {   id: '710',
- //     alpha: 'p',
- //     Prebuilt: '',
- //     SocialSituation: '',
- //     Word: 'Perspicuity',
- //     Pronunciation: 'purr-spi-KYOO-ih-tee',
- //     PartofSpeech: 'n',
- //     Shortdef: 'Clear and easy.',
- //     Longdef: "The report from the accounting office was loaded with technical jargon; writing with perspicuity is not one of their talents.",
- //     syn: [
- //         "Clarity", 
- //         "Lucidity", 
- //         "Transparency", 
- //         "Intelligibility", 
- //         "Comprehensibility", 
- //         "Precision", 
- //         "Explicitness", 
- //         "Simplicity", 
- //         "Directness", 
- //         "Perceptibility"
- //         ],
- //         Audio: require('./Audio/Perspicacity.mp3')
- // },
+
 
  {   id: '711',
      alpha: 'p',
@@ -10880,18 +10730,7 @@ export default [
      Audio: require('./Audio/Platitude.mp3')
  },
 
- // {   id: '723',
- //     alpha: 'p',
- //     Prebuilt: '',
- //     SocialSituation: '',
- //     Word: 'Platonic',
- //     Pronunciation: 'pluh-TON-ik',
- //     PartofSpeech: 'a',
- //     Shortdef: 'Free from sexual desire in a relationship.',
- //     Longdef: "Emily knew that her relationship with Paul had to remain a platonic one given the office code of conduct.",
- //     syn: ["non-romantic", "non-sexual", "chaste", "friendly", "brotherly", "sisterly", "comradely", "amicable", "cordial", "dispassionate"],
- //     Audio: require('./Audio/Platonic.mp3')
- // },
+
 
  {   id: '724',
      alpha: 'p',
@@ -11824,18 +11663,7 @@ export default [
      Audio: require('./Audio/Ravenous.mp3')
  },
 
-//  {   id: '786',
-//      alpha: 'r',
-//      Prebuilt: '',
-//      SocialSituation: '',
-//      Word: 'Reapportionment',
-//      Pronunciation: 're-uh-PORE-shun-ment',
-//      PartofSpeech: 'n',
-//      Shortdef: 'Redistribution.',
-//      Longdef: "The reapportionment of voting districts dramatically affected the balance of power in the House.",
-//      syn: ["Redistricting", "Reallocation", "Reassignment", "Reorganization", "Distribution", "Allocation", "Viewision", "Partitioning", "Apportionment"],
-//      Audio: require('./Audio/Reapportionment.mp3')
-//  },
+
 
  {   id: '787',
      alpha: 'r',
@@ -12240,18 +12068,7 @@ export default [
      Audio: require('./Audio/Requisite.mp3')
  },
 
-//  {   id: '815',
-//      alpha: 'r',
-//      Prebuilt: '',
-//      SocialSituation: '',
-//      Word: 'Rescind',
-//      Pronunciation: 'ri-SIND',
-//      PartofSpeech: 'v',
-//      Shortdef: 'Reverse an instruction; overrule.',
-//      Longdef: "Joanne's resilience was remarkable; she recovered from the operation in record time.",
-//      syn: ["revoke", "cancel", "annul", "nullify", "withdraw", "void", "undo", "abrogate", "abolish", "invalidate", "overturn", "reverse", "quash", "terminate", "voidify"],
-//      Audio: require('./Audio/Rescind.mp3')
-//  },
+
 
  {   id: '816',
      alpha: 'r',

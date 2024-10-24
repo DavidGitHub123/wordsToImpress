@@ -165,9 +165,15 @@ export default function MyList({ route, navigation }) {
               }
             </View>
 
-            <Text style={style.donutText}>{fractionText}</Text>
+  
+
+            {/* <Text style={style.donutText}>{fractionText}</Text> */}
           </View>
-          <View style={mainStyles.centerContainer}>
+
+          <Text style={mainStyles.subheader}>Mastered Words</Text>
+          <Text style={style.donutText}>{fractionText}</Text>
+          
+          {/* <View style={mainStyles.centerContainer}>
             {showMasteredWords ? (
               <AppButton
                 title="Go back"
@@ -182,7 +188,7 @@ export default function MyList({ route, navigation }) {
                 backgroundColor="#5ba653"
               />
             )}
-          </View>
+          </View> */}
 
           <View style={mainStyles.section}>{renderList()}</View>
 
