@@ -59,7 +59,7 @@ export default function ManageLists({ navigation }) {
             updateLists={getAndSetLists}
           />
           <View style={mainStyles.screen}>
-            <Text style={mainStyles.header}>My Vocab Mastery Lists</Text>
+            <Text style={mainStyles.header}>My Vocab Lists</Text>
           </View>
 
           <View style={mainStyles.centerContainer}>

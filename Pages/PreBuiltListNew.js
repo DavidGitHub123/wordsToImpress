@@ -55,7 +55,7 @@ export default function PreBuiltListNew({ navigation }) {
             />
             <NavButtonWord
               navigation={navigation}
-              title="Agnosticism"
+              title="Alacrity"
               destination="Word"
             />
             <NavButtonWord

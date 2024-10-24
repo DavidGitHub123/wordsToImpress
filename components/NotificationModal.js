@@ -91,7 +91,7 @@ export default function NotificationModal(Props) {
           title={el}
           key={i}
           onPress={() => handleSelectedWord(el)}
-          style={i === 0 && selectedWord ? { backgroundColor: "blue" } : {}}
+          style={i === 0 && selectedWord ? { backgroundColor: "#2350a8" } : {}}
         />
       ));
   };

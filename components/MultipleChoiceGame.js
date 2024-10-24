@@ -127,7 +127,7 @@ export default function MultipleChoiceGame(Props) {
         if (el.highlighted && el.correct) {
           style = { backgroundColor: "green", borderColor: "#BBC2CC" };
         } else if (el.highlighted) {
-          style = { backgroundColor: "red", borderColor: "#fff" };
+          style = { backgroundColor: "#FF0000", borderColor: "#fff" };
         }
 
         return (
