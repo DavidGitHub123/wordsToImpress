@@ -11,7 +11,8 @@ export const RenderTime = (time) => {
 
   return (
     <Text style={style.timeText}>
-      Click Remind Me to Set this Reminder at {formattedHours}:{formattedMinutes} {ampm}
+      Click Remind Me to Set this Reminder at {formattedHours}:
+      {formattedMinutes} {ampm}
     </Text>
   );
 };
@@ -49,8 +50,6 @@ export default function NotificationModal(Props) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const notifTextRef = useRef(null);
 
-  const bodyEnd = "\nLearn more words with Words to Impress.";
-
   const { notificationType, time, setTime, handleClose, options } = Props;
 
   const handleDateChange = (_, time) => {
@@ -84,23 +83,27 @@ export default function NotificationModal(Props) {
       return;
     }
 
-    return options
-      .sort((a, b) => (a === selectedWord ? -1 : b === selectedWord ? 1 : 0))
-      .map((el, i) => (
-        <AppButton
-          title={el}
-          key={i}
-          onPress={() => handleSelectedWord(el)}
-          style={i === 0 && selectedWord ? { backgroundColor: "#2350a8" } : {}}
-        />
-      ));
+    return options.map((el, i) => (
+      <AppButton
+        title={el}
+        key={i}
+        onPress={() => handleSelectedWord(el)}
+        style={
+          selectedWord === el && selectedWord
+            ? { backgroundColor: "#2350a8" }
+            : {}
+        }
+      />
+    ));
   };
 
   const displayRemindMeButton = selectedWord || notifTextRef.current !== null;
 
   return (
-    <View>
-      <Text style={style.header}>{notificationType} reminder</Text>
+    <View style={[style.mb60, style.mt60]}>
+      <View style={[mainStyles.centerChildren, style.marginAuto, style.mb60]}>
+        {renderList()}
+      </View>
       <View style={style.marginAuto}>
         <AppButton
           icon="user-clock"
@@ -111,9 +114,7 @@ export default function NotificationModal(Props) {
       {showTimePicker && (
         <View style={mainStyles.centerChildren}>
           {Platform.OS === "ios" && (
-            <Text style={{ ...mainStyles.text, ...style.marginAuto }}>
-              Click me
-            </Text>
+            <Text style={[mainStyles.text, style.marginAuto]}>Click me</Text>
           )}
           <DateTimePicker
             value={time}
@@ -137,9 +138,6 @@ export default function NotificationModal(Props) {
           )}
         </View>
       )}
-      <View style={{ ...mainStyles.centerChildren, ...style.marginAuto }}>
-        {renderList()}
-      </View>
     </View>
   );
 }
@@ -152,16 +150,15 @@ const style = StyleSheet.create({
     color: "#f0f8ff",
     fontWeight: "700",
     margin: "auto",
-    textAlign: 'center'
+    textAlign: "center",
   },
   marginAuto: {
     margin: "auto",
   },
-  header: {
-    fontSize: 40,
-    color: "#f0f8ff",
-    fontWeight: "800",
-    paddingVertical: 40,
-    textAlign: "center",
+  mb60: {
+    marginBottom: 60,
+  },
+  mt60: {
+    marginTop: 60,
   },
 });
