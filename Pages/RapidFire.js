@@ -10,11 +10,7 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import RadioButton from "../components/RadioButton";
-import {
-  getNLeastMastered,
-  defaultList,
-  incrementMastery,
-} from "../components/listHelpers";
+import { getNLeastMastered, incrementMastery } from "../components/listHelpers";
 import AppButton from "../components/AppButton";
 import { mainStyles } from "../components/mainStyles";
 import ListDropdown from "../components/ListDropdown";
@@ -24,11 +20,25 @@ export default function RapidFire({ navigation }) {
   const [timing, setTiming] = useState(10);
   const [isStarted, setIsStarted] = useState(false);
   const [words, setWords] = useState(null);
-  const [selectedList, setSelectedList] = useState(defaultList);
+  const [selectedList, setSelectedList] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function getWords() {
-      setWords(await getNLeastMastered(selectedList, 10));
+      if (!selectedList) {
+        console.log("early return");
+        return;
+      }
+      const list = await getNLeastMastered(selectedList, 10);
+      if (!list || list.length === 0) {
+        setError(
+          `${selectedList} is empty, add some words or use another list`,
+        );
+        setIsStarted(false);
+      } else {
+        setError(null);
+      }
+      setWords(list);
     }
     getWords();
   }, [selectedList]);
@@ -53,10 +63,13 @@ export default function RapidFire({ navigation }) {
               />
             ) : (
               <GameSetUp
+                error={error}
                 timing={timing}
                 setTiming={setTiming}
                 setIsStarted={setIsStarted}
                 setSelectedList={setSelectedList}
+                selectedList={selectedList}
+                setError={setError}
               />
             )}
           </View>
@@ -145,7 +158,14 @@ function Game(Props) {
 }
 
 function GameSetUp(Props) {
-  const { timing, setTiming, setIsStarted, setSelectedList } = Props;
+  const {
+    timing,
+    setTiming,
+    setIsStarted,
+    setSelectedList,
+    selectedList,
+    error,
+  } = Props;
 
   const timingOptions = [1, 3, 5, "Unlimited"];
 
@@ -163,13 +183,21 @@ function GameSetUp(Props) {
     </Pressable>
   ));
 
+  const handleSubmit = () => {
+    if (!error && selectedList) {
+      setIsStarted(true);
+    }
+  };
+
   return (
     <View style={style.timingOptionsContainer}>
+      {error && (
+        <View style={mainStyles.error}>
+          <Text>{error}</Text>
+        </View>
+      )}
       <Text style={{ ...mainStyles.header, marginBottom: 20 }}>Rapid Fire</Text>
-      <ListDropdown
-        setParent={(n) => setSelectedList(n)}
-        initialList={defaultList}
-      />
+      <ListDropdown setParent={(n) => setSelectedList(n)} />
       <Text style={{ ...mainStyles.text, marginTop: 30, marginBottom: 5 }}>
         Select your speed:
       </Text>
@@ -179,7 +207,7 @@ function GameSetUp(Props) {
         style={style.startButton}
         title="Start"
         icon="play-circle"
-        onPress={() => setIsStarted(true)}
+        onPress={handleSubmit}
       />
     </View>
   );

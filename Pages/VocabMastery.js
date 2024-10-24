@@ -40,12 +40,12 @@ export default function VocabMastery({ navigation }) {
           <NavButton
             navigation={navigation}
             title="Word Match"
-            destination="QuickQuiz"
+            destination="WordMatch"
           />
           <NavButton
             navigation={navigation}
             title="Quick Quiz"
-            destination="SentenceID"
+            destination="QuickQuiz"
           />
           <NavButton
             navigation={navigation}
@@ -57,11 +57,9 @@ export default function VocabMastery({ navigation }) {
         <View style={mainStyles.section}>
           <HomeButton navigation={navigation} />
         </View>
-
       </SafeAreaView>
     </ImageBackground>
   );
 }
 
-const style = StyleSheet.create({
-});
+const style = StyleSheet.create({});
