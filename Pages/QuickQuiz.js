@@ -22,7 +22,6 @@ export default function QuickQuiz({ navigation }) {
   useEffect(() => {
     async function getAndSetList() {
       if (!selectedList) {
-        console.log("early return");
         return;
       }
       let userList = await getNLeastMastered(selectedList, 10);
