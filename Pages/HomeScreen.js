@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import {
   View,
   Image,
@@ -11,9 +11,16 @@ import logo from "../assets/logoborderradius.jpg";
 import phone from "../assets/phone.jpg";
 import AppButton from "../components/AppButton";
 import { mainStyles } from "../components/mainStyles";
-import { defaultList } from "../components/listHelpers";
+import { defaultList, getDefaultList } from "../components/listHelpers";
 
 export default function HomeScreen({ navigation }) {
+  const listNameRef = useRef(defaultList);
+
+  useEffect(() => {
+    (async () => {
+      listNameRef.current = await getDefaultList();
+    })();
+  }, []);
   return (
     <ImageBackground
       style={mainStyles.backgroundImage}
@@ -65,7 +72,9 @@ export default function HomeScreen({ navigation }) {
               icon="signal"
               title="My Mastery"
               onPress={() =>
-                navigation.navigate("MyList", { listParam: defaultList })
+                navigation.navigate("MyList", {
+                  listParam: listNameRef.current,
+                })
               }
             />
           </View>

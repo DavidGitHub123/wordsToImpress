@@ -10,7 +10,6 @@ import Word from "../Pages/Word";
 import PreBuiltListNew from "../Pages/PreBuiltListNew";
 import AtoZButtons from "../Pages/AtoZButtons";
 import RapidFire from "../Pages/RapidFire";
-import QuickQuiz from "../Pages/QuickQuiz";
 import TextSearch from "../Pages/TextSearch";
 import WS_Boss from "../Pages/Situations/WS_Boss";
 import WS_Business from "../Pages/Situations/WS_Business";
@@ -23,9 +22,10 @@ import WS_Negotiations from "../Pages/Situations/WS_Negotiations";
 import WS_Politics from "../Pages/Situations/WS_Politics";
 import WS_SpeedingTicket from "../Pages/Situations/WS_SpeedingTicket";
 import Notifications from "../Pages/Notifications";
-import SentenceID from "./SentenceID";
 import AtoZWords from "./AtoZWords";
 import ManageLists from "./ManageLists";
+import WordMatch from "./WordMatch";
+import QuickQuiz from "./QuickQuiz";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,127 +35,31 @@ export default function NavigationLinks() {
       initialRouteName="HomeScreen"
       screenOptions={{ headerShown: false }}
     >
-      <Stack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
-        options={{ title: "Home" }}
-      />
-      <Stack.Screen
-        name="MyList"
-        component={MyList}
-        options={{ title: "My Vocab List" }}
-      />
-      <Stack.Screen
-        name="PreBuiltListNew"
-        component={PreBuiltListNew}
-        options={{ title: "Pre-Built List" }}
-      />
-      <Stack.Screen
-        name="VocabMastery"
-        component={VocabMastery}
-        options={{ title: "Vocab Mastery" }}
-      />
-      <Stack.Screen
-        name="WordOfDay"
-        component={WordOfDay}
-        options={{ title: "Word of Day" }}
-      />
-      <Stack.Screen
-        name="SentenceID"
-        component={SentenceID}
-        options={{ title: "SentenceID" }}
-      />
-      <Stack.Screen
-        name="WordSituations"
-        component={WordSituations}
-        options={{ title: "Word Situations" }}
-      />
-      <Stack.Screen
-        name="System"
-        component={System}
-        options={{ title: "Learning System" }}
-      />
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="MyList" component={MyList} />
+      <Stack.Screen name="PreBuiltListNew" component={PreBuiltListNew} />
+      <Stack.Screen name="VocabMastery" component={VocabMastery} />
+      <Stack.Screen name="WordOfDay" component={WordOfDay} />
+      <Stack.Screen name="QuickQuiz" component={QuickQuiz} />
+      <Stack.Screen name="WordSituations" component={WordSituations} />
+      <Stack.Screen name="System" component={System} />
       <Stack.Screen name="Word" component={Word} options={{ title: "Word" }} />
-      <Stack.Screen
-        name="Notifications"
-        component={Notifications}
-        options={{ title: "Notifications" }}
-      />
-      <Stack.Screen
-        name="AtoZButtons"
-        component={AtoZButtons}
-        options={{ title: "Words A-Z" }}
-      />
-      <Stack.Screen
-        name="AtoZWords"
-        component={AtoZWords}
-        options={{ title: "Words" }}
-      />
-      <Stack.Screen
-        name="RapidFire"
-        component={RapidFire}
-        options={{ title: "RapidFire" }}
-      />
-      <Stack.Screen
-        name="QuickQuiz"
-        component={QuickQuiz}
-        options={{ title: "QuickQuiz" }}
-      />
-      <Stack.Screen
-        name="TextSearch"
-        component={TextSearch}
-        options={{ title: "Text Search" }}
-      />
-      <Stack.Screen
-        name="WS_Boss"
-        component={WS_Boss}
-        options={{ title: "WS: Boss" }}
-      />
-      <Stack.Screen
-        name="WS_Business"
-        component={WS_Business}
-        options={{ title: "WS: Business" }}
-      />
-      <Stack.Screen
-        name="WS_DinnerParty"
-        component={WS_DinnerParty}
-        options={{ title: "WS: DinnerParty" }}
-      />
-      <Stack.Screen
-        name="WS_GettingRaise"
-        component={WS_GettingRaise}
-        options={{ title: "WS: GettingRaise" }}
-      />
-      <Stack.Screen
-        name="WS_InCourt"
-        component={WS_InCourt}
-        options={{ title: "WS: InCourt" }}
-      />
-      <Stack.Screen
-        name="WS_JobInterview"
-        component={WS_JobInterview}
-        options={{ title: "WS: JobInterview" }}
-      />
-      <Stack.Screen
-        name="WS_MeetingInLaws"
-        component={WS_MeetingInLaws}
-        options={{ title: "WS:Meeting-In-Laws" }}
-      />
-      <Stack.Screen
-        name="WS_Negotiations"
-        component={WS_Negotiations}
-        options={{ title: "WS: Negotiations" }}
-      />
-      <Stack.Screen
-        name="WS_Politics"
-        component={WS_Politics}
-        options={{ title: "WS: Politics" }}
-      />
-      <Stack.Screen
-        name="WS_SpeedingTicket"
-        component={WS_SpeedingTicket}
-        options={{ title: "WS: SpeedingTicket" }}
-      />
+      <Stack.Screen name="Notifications" component={Notifications} />
+      <Stack.Screen name="AtoZButtons" component={AtoZButtons} />
+      <Stack.Screen name="AtoZWords" component={AtoZWords} />
+      <Stack.Screen name="RapidFire" component={RapidFire} />
+      <Stack.Screen name="WordMatch" component={WordMatch} />
+      <Stack.Screen name="TextSearch" component={TextSearch} />
+      <Stack.Screen name="WS_Boss" component={WS_Boss} />
+      <Stack.Screen name="WS_Business" component={WS_Business} />
+      <Stack.Screen name="WS_DinnerParty" component={WS_DinnerParty} />
+      <Stack.Screen name="WS_GettingRaise" component={WS_GettingRaise} />
+      <Stack.Screen name="WS_InCourt" component={WS_InCourt} />
+      <Stack.Screen name="WS_JobInterview" component={WS_JobInterview} />
+      <Stack.Screen name="WS_MeetingInLaws" component={WS_MeetingInLaws} />
+      <Stack.Screen name="WS_Negotiations" component={WS_Negotiations} />
+      <Stack.Screen name="WS_Politics" component={WS_Politics} />
+      <Stack.Screen name="WS_SpeedingTicket" component={WS_SpeedingTicket} />
       <Stack.Screen name="ManageLists" component={ManageLists} />
     </Stack.Navigator>
   );

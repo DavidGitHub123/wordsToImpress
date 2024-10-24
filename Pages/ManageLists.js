@@ -64,7 +64,7 @@ export default function ManageLists({ navigation }) {
 
           <View style={mainStyles.centerContainer}>
             {error && (
-              <View style={style.error}>
+              <View style={mainStyles.error}>
                 <IconButton name="times" onPress={() => setError(null)} />
                 <Text>{error}</Text>
               </View>
@@ -96,17 +96,5 @@ const style = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
-  },
-  error: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    textAlign: "center",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#ff5555",
-    borderRadius: 20,
-    height: 30,
-    width: 200,
   },
 });

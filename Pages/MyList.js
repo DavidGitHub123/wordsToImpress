@@ -23,13 +23,13 @@ export default function MyList({ route, navigation }) {
   const [masteredWords, setMasteredWords] = useState(null);
   const [showMasteredWords, setShowMasteredWords] = useState(false);
 
-  let listParam;
+  let selectedList = defaultList;
   if (route.params && route.params.listParam) {
-    listParam = route.params.listParam;
+    selectedList = route.params.listParam;
   }
 
   const handleDelete = async (word) => {
-    await removeOneWordFromList(defaultList, word);
+    await removeOneWordFromList(selectedList, word);
     await getAndParseList();
   };
   async function getAndParseMasterList() {
@@ -67,8 +67,8 @@ export default function MyList({ route, navigation }) {
 
   useEffect(() => {
     const asyncWrapper = async () => {
-      if (listParam) {
-        await getAndParseList(listParam);
+      if (selectedList) {
+        await getAndParseList(selectedList);
         await getAndParseMasterList();
         return;
       }
@@ -85,7 +85,9 @@ export default function MyList({ route, navigation }) {
 
   const unMasteredDonutSeries = [
     masteredWordCount,
-    unMasteredWordCount === 0 ? 1 : unMasteredWordCount,
+    unMasteredWordCount === 0 && masteredWordCount === 0
+      ? 1
+      : unMasteredWordCount,
   ];
 
   const donutSeries = showMasteredWords

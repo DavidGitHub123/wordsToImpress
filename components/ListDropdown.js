@@ -4,19 +4,23 @@ import { Dropdown } from "react-native-element-dropdown";
 import { defaultList, getNamesOfLists } from "./listHelpers";
 
 export default function ListDropdown(Props) {
-  const { setParent, initialList, style } = Props;
-  const [selectedList, setSelectedList] = useState(
-    initialList ? initialList : defaultList,
-  );
-  const [lists, setLists] = useState([
-    { label: defaultList, value: defaultList },
-  ]);
+  const { setParent, style } = Props;
+  const [selectedList, setSelectedList] = useState(null);
+  const [lists, setLists] = useState([{ label: "Loading...", value: "null" }]);
 
   const loadAndSetLists = async () => {
-    const userLists = (await getNamesOfLists()).map((el) => ({
+    const allLists = await getNamesOfLists();
+    const userLists = allLists.map((el) => ({
       label: el,
       value: el,
     }));
+    if (allLists.includes(defaultList)) {
+      setParent(defaultList);
+      setSelectedList(defaultList);
+    } else {
+      setParent(allLists[0]);
+      setSelectedList(allLists[0]);
+    }
     setLists(userLists);
   };
   useEffect(() => {
@@ -24,6 +28,9 @@ export default function ListDropdown(Props) {
   }, []);
 
   const handleDropdownChange = (list) => {
+    if (!list.value) {
+      return;
+    }
     setParent(list.value);
     setSelectedList(list.value);
   };

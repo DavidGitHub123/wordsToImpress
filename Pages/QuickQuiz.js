@@ -1,39 +1,65 @@
+// quick quiz where user sees sentence and guess word = multiplechoicegame.js
+
 import React, { useState, useEffect } from "react";
-import { Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { getNLeastMastered, defaultList } from "../components/listHelpers.js";
+import { getNLeastMastered } from "../components/listHelpers.js";
 import AppButton from "../components/AppButton.js";
 import MultipleChoiceGame from "../components/MultipleChoiceGame.js";
+import data from "../data.js";
 import { mainStyles } from "../components/mainStyles.js";
-import ListDropdown from "../components/ListDropdown";
+import ListDropdown from "../components/ListDropdown.js";
 
 export default function QuickQuiz({ navigation }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [list, setList] = useState([]);
   const [gameRestart, setGameRestart] = useState(false);
-  const [selectedList, setSelectedList] = useState(defaultList);
+  const [selectedList, setSelectedList] = useState(null);
+  const [error, setError] = useState(null);
 
-  async function getAndSetList() {
-    let userList = await getNLeastMastered(selectedList, 10);
-    console.log(userList);
-    userList = userList.map((el) => {
-      return {
-        Word: el.word,
-        mastery: el.mastery,
-      };
-    });
+  const getShortDef = (word) => data.find((el) => el.Word === word).Shortdef;
 
-    setList(userList);
-  }
   useEffect(() => {
-    getAndSetList(selectedList);
-  }, [selectedList, gameRestart]);
+    async function getAndSetList() {
+      if (!selectedList) {
+        console.log("early return");
+        return;
+      }
+      let userList = await getNLeastMastered(selectedList, 10);
+
+      if (userList.length === 0) {
+        setError(
+          `${selectedList} is empty, add some words or use another list`,
+        );
+        return;
+      } else {
+        setError(null);
+      }
+      userList = userList.map((el) => {
+        return {
+          Word: el.word,
+          mastery: el.mastery,
+          Shortdef: getShortDef(el.word),
+        };
+      });
+
+      setList(userList);
+    }
+
+    getAndSetList();
+  }, [gameRestart, selectedList]);
+
+  const handleSubmit = () => {
+    if (!error && selectedList) {
+      setIsGameStarted(true);
+    }
+  };
 
   return isGameStarted ? (
     <MultipleChoiceGame
       list={list}
-      questionType="Shortdef"
-      answerType="Word"
+      questionType="Longdef"
+      answerType="Shortdef"
       navigation={navigation}
       setGameRestart={setGameRestart}
       gameRestart={gameRestart}
@@ -46,21 +72,91 @@ export default function QuickQuiz({ navigation }) {
       opacity={1.0}
       style={mainStyles.page}
     >
-      <View style={mainStyles.startGameContainer}>
-        <Text style={mainStyles.header}>Word Match</Text>
-        <Text style={mainStyles.subheader}>
-          Identify the correct word that matches each definition.
-        </Text>
-        <ListDropdown
-          setParent={(n) => setSelectedList(n)}
-          initialList={defaultList}
-        />
-        <AppButton
-          onPress={() => setIsGameStarted(true)}
-          title="Play Game"
-          icon="sign-in"
-        />
-      </View>
+      <SafeAreaView style={style.container}>
+        <ScrollView alwaysBounceHorizontal={true}>
+          <View style={[mainStyles.startGameContainer, mainStyles.screen]}>
+            <Text style={mainStyles.header}>Quick Quiz</Text>
+            <Text style={mainStyles.subheader}>
+              Identify the correct definition that matches the highlighted word.
+            </Text>
+            {error && (
+              <View style={[mainStyles.error, { marginVertical: 20 }]}>
+                <Text>{error}</Text>
+              </View>
+            )}
+            {!selectedList && <Text style={mainStyles.text}>Loading</Text>}
+            <ListDropdown setParent={setSelectedList} />
+            <AppButton
+              onPress={handleSubmit}
+              title="Play Game"
+              icon="sign-in"
+            />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
     </LinearGradient>
   );
 }
+
+const style = StyleSheet.create({
+  page: {
+    flex: 1,
+    paddingBottom: 700,
+  },
+  center: {
+    alignItems: "center",
+  },
+
+  lastscreen: {
+    paddingTop: 200,
+  },
+
+  mocktext: {
+    fontSize: 18,
+    color: "#f0f8ff",
+    paddingBottom: 30,
+    paddingHorizontal: 40,
+  },
+
+  textScale: {
+    marginTop: -10,
+    fontSize: 24,
+    color: "#f0f8ff",
+    paddingBottom: 30,
+    paddingHorizontal: 40,
+    fontWeight: 700,
+  },
+
+  buttons: {
+    paddingTop: 20,
+  },
+
+  appButton: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  appButtonText: {
+    fontSize: 18,
+    color: "#fff",
+  },
+
+  appButtonContainer: {
+    paddingVertical: 5,
+    width: 250,
+  },
+
+  appButtonHead: {
+    padding: 20,
+  },
+
+  appButtonHeadText: {
+    fontSize: 26,
+    color: "#fff",
+  },
+  centerContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});

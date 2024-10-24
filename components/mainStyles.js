@@ -111,6 +111,18 @@ const mainStyles = StyleSheet.create({
     fontWeight: "900",
     textAlign: "center",
   },
+  error: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    textAlign: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#ff5555",
+    borderRadius: 20,
+    height: 80,
+    width: 300,
+  },
 });
 
 export { mainStyles };

@@ -291,17 +291,17 @@ export default function Notifications({ navigation }) {
                   icon="sign-in"
                 />
                 {renderNotifs(NOTIF_TYPES.mastery)}
-              <View style={style.bottomButtons}>
-                <AppButton
-                  icon="trash"
-                  title="Clear all notifications"
-                  onPress={() => handleCancelAll()}
-                />
-                <AppButton
-                  title="Back"
-                  onPress={() => navigation.goBack()}
-                ></AppButton>
-              </View>
+                <View style={style.bottomButtons}>
+                  <AppButton
+                    icon="trash"
+                    title="Clear all notifications"
+                    onPress={() => handleCancelAll()}
+                  />
+                  <AppButton
+                    title="Back"
+                    onPress={() => navigation.goBack()}
+                  ></AppButton>
+                </View>
               </View>
             </View>
           ) : (
@@ -322,7 +322,7 @@ export default function Notifications({ navigation }) {
           )}
 
           <View style={style}>
-              <HomeButton navigation={navigation} />
+            <HomeButton navigation={navigation} />
           </View>
         </ScrollView>
       </SafeAreaView>

@@ -1,7 +1,23 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import data from "../data";
 
-const defaultList = "My First List";
+const getNamesOfLists = async () => {
+  try {
+    return await AsyncStorage.getAllKeys();
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+const defaultList = "My first list";
+const getDefaultList = async () => {
+  try {
+    const lists = await getNamesOfLists();
+    return lists.includes(defaultList) ? defaultList : lists[0];
+  } catch (e) {
+    console.error(e);
+  }
+};
 
 const wordMasteryFactory = (word) => {
   return { word: word, mastery: 0 };
@@ -33,14 +49,6 @@ const removeList = async (name) => {
 const updateList = async (name, data) => {
   try {
     await AsyncStorage.setItem(name, JSON.stringify(data));
-  } catch (e) {
-    console.error(e);
-  }
-};
-
-const getNamesOfLists = async () => {
-  try {
-    return await AsyncStorage.getAllKeys();
   } catch (e) {
     console.error(e);
   }
@@ -120,7 +128,7 @@ const listContainsWord = async (name, word) => {
 
 const initLists = async (isDev) => {
   const lists = await getNamesOfLists();
-  if (!lists.includes(defaultList)) {
+  if (!lists.includes(defaultList) && lists.length === 0) {
     await makeNewList(defaultList);
   }
 
@@ -150,4 +158,5 @@ export {
   getNLeastMastered,
   removeOneWordFromList,
   initLists,
+  getDefaultList,
 };
