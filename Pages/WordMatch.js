@@ -52,6 +52,7 @@ export default function WordMatch({ navigation }) {
       navigation={navigation}
       setGameRestart={setGameRestart}
       gameRestart={gameRestart}
+      selectedList={selectedList}
     />
   ) : (
     <LinearGradient

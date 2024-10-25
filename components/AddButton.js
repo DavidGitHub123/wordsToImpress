@@ -9,8 +9,17 @@ export default function AddButton(props) {
   const [showModal, setShowModal] = useState(false);
   const wordRef = useRef(null);
   const [lists, setLists] = useState(null);
+  const defaultListRef = useRef(null);
 
-  const getAndSetLists = async () => setLists(await getNamesOfLists());
+  const getAndSetLists = async () => {
+    const allLists = await getNamesOfLists();
+
+    defaultListRef.current = allLists.includes(defaultList)
+      ? defaultList
+      : allLists[0];
+
+    setLists(allLists);
+  };
 
   useEffect(() => {
     getAndSetLists();
@@ -20,12 +29,13 @@ export default function AddButton(props) {
     if (lists === null) {
       return;
     }
-    if (lists.length > 1) {
+    // Open the modal if word isnt loaded
+    if (lists.length > 1 || !defaultListRef.current) {
       setShowModal(true);
       wordRef.current = word;
       return;
     }
-    addOneWordToList(defaultList, word);
+    addOneWordToList(defaultListRef.current, word);
   };
 
   const handleCloseModal = async (list) => {

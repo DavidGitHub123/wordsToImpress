@@ -62,6 +62,7 @@ export default function QuickQuiz({ navigation }) {
       navigation={navigation}
       setGameRestart={setGameRestart}
       gameRestart={gameRestart}
+      selectedList={selectedList}
     />
   ) : (
     <LinearGradient
