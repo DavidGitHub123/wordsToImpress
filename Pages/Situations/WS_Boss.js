@@ -45,6 +45,7 @@ export default function WS_Boss({ navigation }) {
               Diverging from an expected course
             </Text>
           </Text>
+          
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>

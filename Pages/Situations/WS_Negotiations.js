@@ -324,7 +324,7 @@ export default function WS_Negotiations({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Def: </Text>
-            <Text style={mainStyles.text}>One&#39s last set of demands.</Text>
+            <Text style={mainStyles.text}>One's last set of demands.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
