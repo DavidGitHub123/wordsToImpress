@@ -5,7 +5,7 @@ import AppButton from "./AppButton";
 import { NavButton } from "./NavButton";
 import HomeButton from "./HomeButton";
 import data from "../data";
-import { incrementMastery, defaultList } from "./listHelpers";
+import { incrementMastery } from "./listHelpers";
 import { mainStyles } from "./mainStyles";
 import ChatBubble from "react-native-chat-bubble";
 
@@ -23,6 +23,7 @@ export default function MultipleChoiceGame(Props) {
     gameRestart,
     questionType,
     answerType,
+    selectedList,
   } = Props;
   const MAX_INCORRECT_ANSWERS = 3;
 
@@ -88,7 +89,7 @@ export default function MultipleChoiceGame(Props) {
       return;
     }
     if (anwsers[index].correct) {
-      incrementMastery(defaultList, anwsers[index].Word);
+      incrementMastery(selectedList, anwsers[index].Word);
       setScore(score + 1);
     }
 
