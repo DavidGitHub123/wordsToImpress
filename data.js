@@ -295,7 +295,7 @@ export default [
      Word: 'Abscond',
      Pronunciation: 'ab-SKOND',
      PartofSpeech: 'v',
-     Shortdef: "To depart quickly, especially to avoid criminal charges.",
+     Shortdef: "To depart quickly to avoid criminal charges.",
      Longdef: "The bank robbers immediately absconded with the money to Mexico.",
      syn: ["flee", "escape", "run away", "bolt", "take flight", "make off", "skip town", "go AWOL", "absquatulate", "depart secretly"],
      Audio: require('./Audio/Abscond.mp3')
@@ -933,7 +933,7 @@ export default [
      Word: 'Allay',
      Pronunciation: 'uh-LAY',
      PartofSpeech: 'v',
-     Shortdef: "To put something (doubt or concern) to rest.",
+     Shortdef: "To put something (concern) to rest.",
      Longdef: "There are rumorsthe project will be expensive, but you will agree these figures allay that fear.",
      syn: ["ease", "soothe", "mitigate", "relieve", "quell", "appease", "pacify", "assuage", "calm", "tranquilize"],
      Audio: require('./Audio/Allay.mp3')
@@ -996,7 +996,7 @@ export default [
      Word: 'Ambience',
      Pronunciation: 'AWM-bee-awnce',
      PartofSpeech: 'n',
-     Shortdef: "A feeling or atmosphere of a place.",
+     Shortdef: "Atmosphere of a place.",
      Longdef: "The old mansion had the ambience of an elegant, refined gentleman.",
      syn: ["atmosphere", "mood", "feeling", "vibe", "aura", "environment", "surroundings", "setting", "surrounds", "climate"],
      Audio: require('./Audio/Ambience.mp3')
@@ -1009,7 +1009,7 @@ export default [
      Word: 'Ambiguous',
      Pronunciation: 'am-BIG-yoo-us',
      PartofSpeech: 'a',
-     Shortdef: "Unclear; capable of differing interpretations.",
+     Shortdef: "Unclear; differing interpretations.",
      Longdef: "It was clear from his note that he had left the country, but his final destination was ambiguous.",
      syn: ["unclear", "vague", "equivocal", "obscure", "dubious", "uncertain", "inconclusive", "indistinct", "debatable", "open to question", "hazy", "nebulous", "imprecise", "indeterminate", "muddled", "puzzling", "problematic"],
      Audio: require('./Audio/Ambiguous.mp3')
@@ -1022,7 +1022,7 @@ export default [
      Word: 'Ambivalent',
      Pronunciation: 'am-BIV-uh-lent',
      PartofSpeech: 'a',
-     Shortdef: "Of two minds; uncertain of course of action.",
+     Shortdef: "Of two minds; uncertain course of action.",
      Longdef: "Frank had been ambivalent about marriage; older now he was eager to settle down.",
      syn: [
          "uncertain", 
@@ -1047,7 +1047,7 @@ export default [
      Word: 'Amble',
      Pronunciation: 'AM-bul',
      PartofSpeech: 'v',
-     Shortdef: "To walk in a leisurely manner; stroll.",
+     Shortdef: "To walk in a leisurely manner.",
      Longdef: "You sure are taking your time, ambling through the store. You know we closed right?",
      syn: [
          "saunter",
@@ -1084,7 +1084,7 @@ export default [
      Word: 'Amenable',
      Pronunciation: 'uh-MEH-nuh-bul',
      PartofSpeech: 'a',
-     Shortdef: "Agreeable to an idea; open to a suggestion.",
+     Shortdef: "Agreeable to an idea or suggestion.",
      Longdef: "We expected stiff opposition to the new program, but the employees were quite amenable to our terms.",
      syn: ["agreeable", "compliant", "cooperative", "obedient", "manageable", "docile", "tractable", "submissive", "responsive", "pliant"],
      Audio: require('./Audio/Amenable.mp3')
@@ -1134,7 +1134,7 @@ export default [
      Word: 'Amiable',
      Pronunciation: 'AY-me-uh-bul',
      PartofSpeech: 'a',
-     Shortdef: "Possessing a pleasant, cordial nature.",
+     Shortdef: "Possessing pleasant, cordial nature.",
      Longdef: "Jack made it a point to speak to everyone at the party; she came across as quite an amiable hostess.",
      syn: ["friendly", "affable", "cordial", "pleasant", "genial", "likeable", "agreeable", "kind", "good-natured", "benevolent"],
      Audio: require('./Audio/Amiable.mp3')
@@ -1236,7 +1236,7 @@ export default [
      Word: 'Analogous',
      Pronunciation: 'uh-NAL-uh-gus',
      PartofSpeech: 'a',
-     Shortdef: "Similar that an analogy may be drawn.",
+     Shortdef: "Similar; an analogy may be drawn.",
      Longdef: "Historically, the American expansion westward to the Pacific is analogous to the Russian expansion eastward across Siberia.",
      syn: ["similar", "comparable", "corresponding", "related", "akin", "parallel", "like", "alike", "equivalent"],
      Audio: require('./Audio/Analogous.mp3')
@@ -1249,7 +1249,7 @@ export default [
      Word: 'Anarchy',
      Pronunciation: 'AN-ar-key',
      PartofSpeech: 'n',
-     Shortdef: "Absence of government; disordered situation.",
+     Shortdef: "Absence of government; disorder.",
      Longdef: "Since Shelby moved out, you're apartment is in total anarchy.",
      syn: ["chaos", "disorder", "lawlessness", "turmoil", "mayhem", "pandemonium", "riot", "rebellion"],
      Audio: require('./Audio/Anarchy.mp3')
@@ -1299,7 +1299,7 @@ export default [
      Word: 'Androgynous',
      Pronunciation: 'an-DROJ-uh-ness',
      PartofSpeech: 'a',
-     Shortdef: "Showing biological characteristics of male and female.",
+     Shortdef: "Biological characteristics of male and female.",
      Longdef: "The androgynous appearance of some boys explains how Shakespeare could write a woman's part for a man.",
      syn: ["ambisexual", "epicene", "intersexual", "unisex", "neuter", "genderless", "hermaphroditic", "non-binary", "genderqueer", "pansexual"],
      Audio: require('./Audio/Androgynous.mp3')
@@ -1312,7 +1312,7 @@ export default [
      Word: 'Anecdote',
      Pronunciation: 'AN-ik-dote',
      PartofSpeech: 'n',
-     Shortdef: "Short account of an interesting event.",
+     Shortdef: "Short account of interesting event.",
      Longdef: "The chairman's anecdotes are amusing, but they are hardly the stuff of leadership.",
      syn: [
          "story",
@@ -1426,7 +1426,7 @@ export default [
      Word: 'Antiquity',
      Pronunciation: 'an-TIK-wi-tee',
      PartofSpeech: 'n',
-     Shortdef: "Pertaining to long ago; dating to ancient times.",
+     Shortdef: "Pertaining to long ago; ancient times.",
      Longdef: "The goblet's origin, we must now admit, is lost in the mists of antiquity.",
      syn: [
          "Ancient Times",
@@ -1448,7 +1448,7 @@ export default [
      Word: 'Antithesis',
      Pronunciation: 'an-TITH-i-sis',
      PartofSpeech: 'n',
-     Shortdef: "The opposite or highest possible contrast.",
+     Shortdef: "Opposite or highest possible contrast.",
      Longdef: "Mr. Brown, haggard and exhausted, looked the very antithesis of the charismatic achiever we'd heard about.",
      syn: [
          "opposite",
@@ -1472,7 +1472,7 @@ export default [
      Word: 'Aphorism',
      Pronunciation: 'AYF-ur-iz-um',
      PartofSpeech: 'n',
-     Shortdef: "A short saying that illustrates a principle.",
+     Shortdef: "Short saying illustrating a principle.",
      Longdef: "Early American readers found Franklin's Poor Richard's Almanac to be a rich repository of wit, forecasts, and aphorisms.",
      syn: ["maxim", "proverb", "saying", "adage", "motto", "axiom", "rule", "dictum", "precept", "truism"],
      Audio: require('./Audio/Aphorism.mp3')
@@ -1511,7 +1511,7 @@ export default [
      Word: 'Apocryphal',
      Pronunciation: 'uh-POK-ri-fuhl',
      PartofSpeech: 'a',
-     Shortdef: "Of dubious authenticity; fabricated story.",
+     Shortdef: "Dubious authenticity; fabricated story.",
      Longdef: "The story of Shakespeare's having shared a mistress with Richard Burbage is almos certainly apocryphal.",
      syn: ["fictitious", "untrue", "fabricated", "doubtful", "questionable", "ambiguous", "uncertain", "debatable", "unverified", "unsupported"],
      Audio: require('./Audio/Apocryphal.mp3')
@@ -1574,7 +1574,7 @@ export default [
      Word: 'Apropos',
      Pronunciation: 'ap-ruh-POE',
      PartofSpeech: 'adv',
-     Shortdef: 'An apt point; with regard to something',
+     Shortdef: 'Apt point; with regard to something',
      Longdef: "Apropos of our vacation, it occurs to me that we haven't yet selected a hotel in Honolulu.",
      syn: ["relevant", "pertinent", "applicable", "appropriate", "related", "connected", "suitable", "fitting", "material", "germane"],
      Audio: require('./Audio/Apropos.mp3')
@@ -1668,44 +1668,6 @@ export default [
      syn: ["austere", "self-denying", "sober", "temperate", "abstemious", "spartan", "monastic", "reclusive", "hermitic", "monkish"],
      Audio: require('./Audio/Ascetic.mp3')
  },
-
-//  {   id: '098',
-//      alpha: 'a',
-//      Prebuilt: '',
-//      SocialSituation: '',
-//      Word: 'Ascribe',
-//      Pronunciation: 'uh-SKRYBE',
-//      PartofSpeech: 'v',
-//      Shortdef:"To assign casual responsibility to a person or thing.",
-//      Longdef: "You better believe I'm ascribing complete fault in the accident to you.",
-//      syn: [
-//          "attribute",
-//          "assign",
-//          "impute",
-//          "credit",
-//          "accord",
-//          "give",
-//          "allocate",
-//          "allot",
-//          "apply",
-//          "attach",
-//          "connect",
-//          "link",
-//          "associate",
-//          "identify",
-//          "refer",
-//          "blame",
-//          "charge",
-//          "lay",
-//          "place",
-//          "pin",
-//          "point",
-//          "relegate",
-//          "impose",
-//          "fasten"
-//          ],
-//          Audio: require('./Audio/Ascribe.mp3')
-//  },
 
  {   id: '099',
      alpha: 'a',
@@ -1813,7 +1775,7 @@ export default [
      Word: 'Augment',
      Pronunciation: 'agw-MENT',
      PartofSpeech: 'v',
-     Shortdef: "To increase in extent, size, or scope.",
+     Shortdef: "To increase in extent or size.",
      Longdef: "He had hoped to bring in enough money with a second job, but even this augmentation was not enough to pay off the car.",
      syn: [
          "Increase",
@@ -1850,7 +1812,7 @@ export default [
      Word: 'Auspicious',
      Pronunciation:'aws-PISH-us',
      PartofSpeech: 'a',
-     Shortdef: 'Promising; favorable by good fortune.',
+     Shortdef: 'Promising; good fortune.',
      Longdef: "The trip did not begin auspiciously; our car broke down within an hour.",
      syn: [
          "promising",
@@ -1980,7 +1942,7 @@ export default [
      Word: 'Babbitt',
      Pronunciation: 'BAB-it',
      PartofSpeech: 'n',
-     Shortdef: "Person who clings to narrow-minded ideals of working class.",
+     Shortdef: "One who clings to working class ideals.",
      Longdef: "Jerome may not be the most open-minded businessman, but he's no Babbitt.",
      syn: ["Conformist", "Middle-class", "Mainstream", "Traditionalist", "Conservative", "Insider", "Establishmentarian", "Square", "Trivialist", "Comformist"],
      Audio: require('./Audio/Babbitt.mp3')
@@ -1993,7 +1955,7 @@ export default [
      Word: 'Baccalaureate',
      Pronunciation:'bak-uh-LOR-ee-it',
      PartofSpeech: 'n',
-     Shortdef: "Degree awarded upon completion of an undergraduate.",
+     Shortdef: "Degree of an undergraduate.",
      Longdef: "I received my baccalaureate in 2020 from Brandeis University.",
      syn: ["conformist", "follower", "sheep", "traditionalist", "conservative", "mainstreamer", "pleaser", "cog", "drone", "organizer", "yes-man", "team player", "loyalist", "company man"],
      Audio: require('./Audio/Baccalaureate.mp3')
@@ -2160,7 +2122,7 @@ export default [
      Word: 'Beleaguered',
      Pronunciation: 'bee-LEEG-erd',
      PartofSpeech: 'a',
-     Shortdef: 'Embattled; constantly confronted with obstacles.',
+     Shortdef: 'Embattled; confronted with obstacles.',
      Longdef: "The beleaguered marketing team even considered direct mail, but vowed to fight on.",
      syn: ["troubled", "plagued", "harassed", "besieged", "tormented", "under siege", "oppressed", "burdened", "overwhelmed", "aggrieved"],
      Audio: require('./Audio/Beleaguered.mp3')
@@ -2173,7 +2135,7 @@ export default [
      Word: 'Belie',
      Pronunciation: 'bee-LYE',
      PartofSpeech: 'v',
-     Shortdef: 'To disprove or demonstrate to be false.',
+     Shortdef: 'To disprove; demonstrate false.',
      Longdef: "His unsteady walk and slurred speech belied his insistence of having consumed no alcohol at the party.",
      syn: ["Contradict", "Disprove", "Falsify", "Refute", "Deny", "Misrepresent", "Negate", "Undermine", "Pretend"],
      Audio: require('./Audio/Belie.mp3')
@@ -2224,7 +2186,7 @@ export default [
      Word: 'Benevolent',
      Pronunciation: 'be-NEV-i-lent',
      PartofSpeech: 'a',
-     Shortdef: 'Marked by a tendency to do well toward others.',
+     Shortdef: 'Tendency to do well toward others.',
      Longdef: "You are a benevolent and generous person to have given me so many opportunities to excel in this company.",
      syn: ["generous", "charitable", "kind", "compassionate", "philanthropic", "altruistic", "magnanimous", "gracious", "favorable", "beneficent"],
      Audio: require('./Audio/Benevolent.mp3')
@@ -2347,7 +2309,7 @@ export default [
      Word: 'Bete Noire',
      Pronunciation: 'bett NWAHR',
      PartofSpeech: 'n',
-     Shortdef: "Something one does not like or finds fearful.",
+     Shortdef: "Something not liked; finds fearful.",
      Longdef: "Jean got A's in all subjects except geometry, her longtime bete noire.",
      syn: ["personal enemy", "nemesis", "archenemy", "adversary", "opponent", "antagonist", "foe", "rival", "competitor", "challenger"],
      Audio: require('./Audio/Betenoire.mp3')
@@ -2530,7 +2492,7 @@ export default [
      Word: 'Boorish',
      Pronunciation: 'BORE-ish',
      PartofSpeech: 'a',
-     Shortdef: "Offensive; lacking in manners or civility.",
+     Shortdef: "Offensive; lacking manners or civility.",
      Longdef: "Everett's boorish behavior at the party was completely out of character for him.",
      syn: [
          "uncultured", 
@@ -2838,7 +2800,7 @@ export default [
      Word: 'Cartel',
      Pronunciation: 'kar-TELL',
      PartofSpeech: 'n',
-     Shortdef: "Group that establishes mutual control of prices and production.",
+     Shortdef: "Group establishing control of prices and production.",
      Longdef: 'The oil cartel had succeeded in driving world energy prices up significantly.',
      syn: [
          "syndicate",
@@ -3049,19 +3011,6 @@ export default [
      Audio: require('./Audio/Cessation.mp3')
  },
 
- {   id: '183',
-     alpha: 'c',
-     Prebuilt: '',
-     SocialSituation: '',
-     Word: 'Chagrin',
-     Pronunciation: 'shuh-GRIN',
-     PartofSpeech: 'n',
-     Shortdef: 'The act of drawing to a close.',
-     Longdef: "Much to my chagrin, my application was rejected instantly.",
-     syn: ["disappointment", "frustration", "annoyance", "embarrassment", "humiliation", "irritation", "regret", "shame"],
-     Audio: require('./Audio/Chagrin.mp3')
- },
-
  {   id: '184',
      alpha: 'c',
      Prebuilt: '',
@@ -3108,7 +3057,7 @@ export default [
      Word: 'Chivalrous',
      Pronunciation: 'SHIV-uhl-russ',
      PartofSpeech: 'a',
-     Shortdef: "Honorable; in keeping with a code like medieval knights.",
+     Shortdef: "Honorable; keeping code like medieval knights.",
      Longdef: "Those who expected a barbarian were surprised to find me gentlemanly, even-tempered and quite chivalrous.",
      syn: ["Gallant", "Noble", "Courteous", "Gentlemanly", "Honorable", "Polite", "Respectful", "Valiant", "Gallantly", "Marked by chivalry", "Chivalric"],
      Audio: require('./Audio/Chivalrous.mp3')
@@ -3134,7 +3083,7 @@ export default [
      Word: 'Citadel',
      Pronunciation: 'SIT-uh-del',
      PartofSpeech: 'n',
-     Shortdef: "A stronghold; strategically positioned fortress in control of a city.",
+     Shortdef: "A stronghold; strategically positioned fortress.",
      Longdef: "Gentlemen, this business is our citadel, and we must be prepared to defend it as such.",
      syn: ["fortress", "stronghold", "castle", "keep", "bastion", "turret", "redoubt", "bulwark", "rampart", "burg"],
      Audio: require('./Audio/Citadel.mp3')
@@ -3448,7 +3397,7 @@ export default [
      Word: 'Conjecture',
      Pronunciation: 'kun-JEK-shur',
      PartofSpeech: 'n',
-     Shortdef: "Speculation based on evidence that is not complete.",
+     Shortdef: "Speculation based on uncomplete evidence.",
      Longdef: "The item that appeared in your column of December 16th is based totally on conjecture, and is extremely misleading.",
      syn: ["guess", "estimation", "assumption", "surmise", "hypothesis", "speculation", "theory", "supposition", "inference", "presumption", "postulation", "reckoning"],
      Audio: require('./Audio/Conjecture.mp3')
@@ -3789,7 +3738,7 @@ export default [
      Word: 'Culinary',
      Pronunciation: 'KYOO-luh-neh-ree',
      PartofSpeech: 'a',
-     Shortdef: 'Pertaining to cookery or the preparation of food.',
+     Shortdef: 'Pertaining to cookery or preparation of food.',
      Longdef: "His expertise in culinary arts eventually led to a position at the city's finest restaurant.",
      syn: ["Cooking", "Cuisine", "Gastronomy", "Food preparation", "Cookery", "Cheffing"],
      Audio: require('./Audio/Culinary.mp3')
@@ -3891,7 +3840,7 @@ export default [
      Word: 'Dalliance',
      Pronunciation: 'DAL-ee-unce',
      PartofSpeech: 'n',
-     Shortdef: 'A lighthearted undertaking; carefree spending of time.',
+     Shortdef: 'Lighthearted undertaking; carefree spending of time.',
      Longdef: "Jean made a show of being jealous, but the truth was she understood Brian's past dalliances.",
      syn: [
          "flirtation",
@@ -4205,7 +4154,7 @@ export default [
      Pronunciation: 'DEM-uh-gog',
      PartofSpeech: 'n',
      Shortdef: 'A politician who gains power by appealing to emotions.',
-     Longdef: "The senator's aides believed they work for a statesman, but saw now they were furthering the ambitions of a demagogue.",
+     Longdef: "The senator's aides believed they worked for a statesman, but were furthering the ambitions of a demagogue.",
      syn: [
          "Charlatan",
          "Fraud",
@@ -4257,7 +4206,7 @@ export default [
      Word: 'Denote',
      Pronunciation: 'de-NOTE',
      PartofSpeech: 'v',
-     Shortdef: 'To serve as sign or symbol for something else.',
+     Shortdef: 'To serve as symbol for something else.',
      Longdef: "Her chills and discoloration, Dr. Smith observed, denoted severe hypothermia.",
      syn: ["Indicate", "Signify", "Represent", "Express", "Imply", "Convey", "Mean", "Designate", "Characterize", "Label"],
      Audio: require('./Audio/Denote.mp3')
@@ -4490,7 +4439,7 @@ export default [
      Word: 'Diagnostic',
      Pronunciation: 'die-ug-NOSS-tik',
      PartofSpeech: 'a',
-     Shortdef: "Pertaining to diagnosis. Tool used to evaulate.",
+     Shortdef: "A diagnosis. Tool used to evaulate.",
      Longdef: "The tech team ran a diagnostic on the systems and everything checked out.",
      syn: ["Analysis", "Examination", "Checkup", "Assessment", "Evaluation"],
      Audio: require('./Audio/Diagnostic.mp3')
@@ -4553,7 +4502,7 @@ export default [
      Word: 'Didactic',
      Pronunciation: 'die-DAK-tik',
      PartofSpeech: 'n',
-     Shortdef: 'Made for the purpose of moral or ethical betterment.',
+     Shortdef: 'Made for moral or ethical betterment.',
      Longdef: "Simpson's early writings let the reader draw his own conclusion, but his later work is extremely didactic.",
      syn: ["Instructive", "Pedagogical", "Educational", "Teaching", "Informative", "Enlightening", "Explanatory", "Preachy", "Morally instructive", "Moralistic"],
      Audio: require('./Audio/Didactic.mp3')
@@ -4605,7 +4554,7 @@ export default [
      Word: 'Dilettante',
      Pronunciation: 'DIL-uh-tint',
      PartofSpeech: 'n',
-     Shortdef: 'Someone with an amateurish interest in a subject.',
+     Shortdef: 'Someone with amateurish interest in a subject.',
      Longdef: "The cafe was once a meeting-place for true artists, but recently it is just full of dilettantes wanting to be artists.",
      syn: ["amateur", "novice", "hobbyist", "nonprofessional", "layman", "dabbler", "tyro", "inexperienced person", "greenhorn", "rookie"],
      Audio: require('./Audio/Dilettante.mp3')
@@ -4945,7 +4894,7 @@ export default [
      Word: 'Ebullience',
      Pronunciation: 'ih-BOLL-yunce',
      PartofSpeech: 'n',
-     Shortdef: 'The quality of being optimistic in speech or writing.',
+     Shortdef: 'Overly ptimistic in speech or writing.',
      Longdef: "Sharon's ebullience as she delivered the presentation really set her apart from the others on the team.",
      syn: [ "enthusiasm", "exuberance", "vivacity", "animation", "eagerness", "joyfulness", "buoyancy", "cheerfulness", "liveliness", "zeal" ],
      Audio: require('./Audio/Ebullience.mp3')
@@ -5140,7 +5089,7 @@ export default [
      Word: 'Egocentric',
      Pronunciation: 'ee-go-SEN-trik',
      PartofSpeech: 'a',
-     Shortdef: "Selfish; belief that one's existence is all-important.",
+     Shortdef: "Selfish; belief one's existence is all-important.",
      Longdef: "The main character was strong and egocentric in his relationships to his family; I felt sorry for how he put himself above them.",
      syn: ["self-centered", "egotistical", "self-absorbed", "self-important", "self-focused", "narcissistic", "egotistic", "self-serving", "self-obsessed"],
      Audio: require('./Audio/Egocentric.mp3')
@@ -5498,7 +5447,7 @@ export default [
      Word: 'Enshrine',
      Pronunciation: 'en-SHRINE',
      PartofSpeech: 'v',
-     Shortdef: 'To preserve a right or idea so it will be protected.',
+     Shortdef: 'To preserve an idea so it will be protected.',
      Longdef: "There is a movement to enshrine Shoeless Joe Jackson in the Baseball Hall of Fame, but I do not think him a suitable candidate.",
      syn: ["preserve", "consecrate", "immortalize", "cherish", "honor", "memorialize", "venerate", "crystallize", "embalm", "incorporate"],
      Audio: require('./Audio/Enshrine.mp3')
@@ -5742,7 +5691,7 @@ export default [
      Word: 'Etymology',
      Pronunciation: 'et-ih-MOLL-uh-gee',
      PartofSpeech: 'n',
-     Shortdef: 'The study of the development and history of words.',
+     Shortdef: 'Study of the history of words.',
      Longdef: "I took a little Greek in school, so I think I can make an educated guess at this word's etymology.",
      syn: [
          "origin",
@@ -5823,7 +5772,7 @@ export default [
      Word: 'Eviscerate',
      Pronunciation: 'ee-VIS-uh-rate',
      PartofSpeech: 'v',
-     Shortdef: "To remove entrails; destroy one's argument or plan.",
+     Shortdef: "To remove entrails; destroy one's argument.",
      Longdef: "Having eviscerated the novel's key chapter, the censor was content to let the earlier exposition stand.",
      syn: [
          "Gut",
@@ -5964,7 +5913,7 @@ export default [
      Word: 'Fabulist',
      Pronunciation: 'FAB-yuh-list',
      PartofSpeech: 'n',
-     Shortdef: 'A liar; someone who tells outrageously untrue stories.',
+     Shortdef: 'A liar; someone who tells untrue stories.',
      Longdef: "Your honor, the defendant is a notorious fabulist and should not be believed.",
      syn: ["storyteller", "fictionist", "mythmaker", "narrator", "teller of tales", "fantasist", "liar"],
      Audio: require('./Audio/Fabulist.mp3')
@@ -6211,7 +6160,7 @@ export default [
      Word: 'Fledgling',
      Pronunciation: 'FLEJ-ling',
      PartofSpeech: 'a',
-     Shortdef: 'Young or inexperienced. Young bird who just learned to fly.',
+     Shortdef: 'Inexperienced. Young bird who just learned to fly.',
      Longdef: "In the movie, the fledgling reporter had little respect around the newsroom.",
      syn: ["Hatchling", "Nestling", "Juvenile", "Youngster", "Novice", "Neophyte", "Beginner", "Rookie", "Inexperienced"],
      Audio: require('./Audio/Fledging.mp3')
@@ -6224,7 +6173,7 @@ export default [
      Word: 'Flippant',
      Pronunciation: 'FLIP-punt',
      PartofSpeech: 'a',
-     Shortdef: 'Disrespectful; Showing inappropriate disregard for decorum.',
+     Shortdef: 'Disrespectful; inappropriate disregard for decorum.',
      Longdef: "Her flippant attitude toward the company culture won her no points on the job.",
      syn:[
          "frivolous",
@@ -6306,19 +6255,6 @@ export default [
      Longdef: "Elizabeth's foray into the world of publishing was not without disheartening moments ' after making several beginner mistakes.",
      syn: ["raid", "incursion", "invasion", "assault", "attack", "expedition", "infiltration", "intrusion", "penetration", "inroad"],
      Audio: require('./Audio/Foray.mp3')
- },
-
- {   id: '408',
-     alpha: 'f',
-     Prebuilt: '',
-     SocialSituation: '',
-     Word: 'Formidable',
-     Pronunciation: 'FOR-mih-duh-bull',
-     PartofSpeech: 'a',
-     Shortdef: 'Accidental; lucky or fortunate.',
-     Longdef: "Alfred faced a formidable opponent; he knew he had to plan carefully if he were to win.",
-     syn: ["Daunting", "Intimidating", "Overwhelming", "Impressive", "Majestic", "Powerful", "Fearsome", "Awe-inspiring", "Imposing", "Terrifying"],
-     Audio: require('./Audio/Formidable.mp3')
  },
 
  {   id: '409',
@@ -6508,7 +6444,7 @@ export default [
      Word: 'Gargantuan',
      Pronunciation: 'gar-GAN-choo-un',
      PartofSpeech: 'a',
-     Shortdef: 'Enormous. From fictional king (Gargantua).',
+     Shortdef: 'Enormous. Fictional king (Gargantua).',
      Longdef: "The gargantuan scale of the budget deficit caught the board of directors by surprise.",
      syn: ["huge", "monstrous", "massive", "colossal", "enormous", "titanic", "humongous", "giant", "mighty", "prodigious"],
      Audio: require('./Audio/Gargantuan.mp3')
@@ -6573,7 +6509,7 @@ export default [
      Word: 'Gauntlet',
      Pronunciation: 'GONT-let',
      PartofSpeech: 'n',
-     Shortdef: 'A challenge; in medieval times to challenge to a duel.',
+     Shortdef: 'A challenge; in medieval times a duel.',
      Longdef: "The negotiation deadline is not simply a goal; it is a gauntlet that has been thrown down before us.",
      syn: ["challenge", "trial", "ordeal", "test", "ransom", "hurdle", "hardship", "obstacle", "difficulty", "contest", "adversity", "crucible", "enmity", "opposition", "vexation"],
      Audio: require('./Audio/Gauntlet.mp3')
@@ -6907,7 +6843,7 @@ export default [
      Word: 'Harangue',
      Pronunciation: 'huh-RANG',
      PartofSpeech: 'n',
-     Shortdef: "A scolding, especially one delivered in a public setting.",
+     Shortdef: "A scolding, one delivered in a public setting.",
      Longdef: "Mike's harangue of his team left everyone feeling uncomfortable.",
      syn: ["lecture", "sermon", "address", "diatribe", "tirade", "rant", "discourse", "pitch", "spiel", "oration", "speech", "monologue", "homily", "jeremiad", "philippic"],
      Audio: require('./Audio/Harangue.mp3')
@@ -6959,7 +6895,7 @@ export default [
      Word: 'Hegemony',
      Pronunciation: 'he-JEM-uh-nee',
      PartofSpeech: 'n',
-     Shortdef: "Predominant influence, especially in affairs of nations.",
+     Shortdef: "Predominant influence in affairs of nations.",
      Longdef: "Our foe's hegemony will not stop with his control of smaller nations; his aim is world domination.",
      syn: ["dominance", "supremacy", "ascendancy", "control", "authority", "power", "influence", "leadership", "preeminence", "domination"],
      Audio: require('./Audio/Hegemony.mp3')
@@ -6998,7 +6934,7 @@ export default [
      Word: 'Heretic',
      Pronunciation: 'HARE-uh-tic',
      PartofSpeech: 'n',
-     Shortdef: 'Professing belief, but differing with parts of the belief system.',
+     Shortdef: 'Professing belief differing with belief system.',
      Longdef: "His stand against the church's political stances led some to brand Clint as a heretic.",
      syn: ["dissenter", "nonconformist", "apostate", "schismatic", "renegade", "rebel", "outcast", "pariah", "infidel", "iconoclast"],
      Audio: require('./Audio/Heretic.mp3')
@@ -7257,7 +7193,7 @@ export default [
      Word: 'Impasse',
      Pronunciation: 'IM-pass',
      PartofSpeech: 'n',
-     Shortdef: 'A situation that seems to offer no solution or escape.',
+     Shortdef: 'A situation that seems to offer no solution.',
      Longdef:  "Mark realized that the negotiations had reached an impasse, to move forward both sides needed to make more compromises.",
      syn: ["deadlock", "stalemate", "gridlock", "standoff", "dilemma", "difficulty", "obstruction", "blockage", "halt", "standstill"],
      Audio: require('./Audio/Impasse.mp3')
@@ -7374,7 +7310,7 @@ export default [
      Word: 'Implicit',
      Pronunciation: 'im-PLISS-it',
      PartofSpeech: 'a',
-     Shortdef: "Implied or understood, though not expressed directly.",
+     Shortdef: "Understood, though not expressed directly.",
      Longdef: "There was an implicit agreement not to bring up the subject of Michael's first wife.",
      syn: ['implied'],
      Audio: require('./Audio/Implicit.mp3')
@@ -7783,7 +7719,7 @@ export default [
      Word: 'Inertia',
      Pronunciation: 'in-EUR-shuh',
      PartofSpeech: 'n',
-     Shortdef: 'Sluggishness; Physics: tendency of object at rest to stay at rest.',
+     Shortdef: 'Sluggishness; tendency of object to stay at rest.',
      Longdef: "It is not a lack of opportunity that has hampered you, Jackson, but simple inertia on your part.",
      syn: ["lethargy", "sluggishness", "torpor", "apathy", "idleness", "inactivity", "indolence", "dullness", "lifelessness", "stasis"],
      Audio: require('./Audio/Inertia.mp3')
@@ -8680,7 +8616,7 @@ export default [
      Word: 'Logistics',
      Pronunciation: 'loe-JIS-tiks',
      PartofSpeech: 'n',
-     Shortdef: 'The essential details of how something is to be accomplished.',
+     Shortdef: 'Th details of how something is to be accomplished.',
      Longdef: "Jane knew the trip with the CEO could not begin until the logistics were worked out to the finest detail.",
      syn: [
          "supply chain management",
@@ -8825,7 +8761,7 @@ export default [
      Word: 'Macrocosm',
      Pronunciation: 'MAK-ruh-koz-um',
      PartofSpeech: 'n',
-     Shortdef: 'A representation on a large scale; universe envisioned in its totality.',
+     Shortdef: 'Large scale representation; universe envisioned in its totality.',
      Longdef: "Some early astronomers believed the physical universe to be a macrocosm of existing social and religious structures.",
      syn: ["universe", "cosmos", "world", "creation", "realm", "galaxy", "solar system", "existence", "nature", "everything"],
      Audio: require('./Audio/Macrocosm.mp3')
@@ -8890,7 +8826,7 @@ export default [
      Word: 'Malice',
      Pronunciation: 'MAL-iss',
      PartofSpeech: 'n',
-     Shortdef: 'The desire to commit harmful or unfair acts.',
+     Shortdef: 'The desire to commit harmful acts.',
      Longdef: "The defendant clearly showed malice in stating that he intended to kill Mrs. Powers.",
      syn: ["spite", "ill will", "malevolence", "maleficence", "hatred", "hostility", "animosity", "venom"],
      Audio: require('./Audio/Malice.mp3')
@@ -8981,7 +8917,7 @@ export default [
      Word: 'Maverick',
      Pronunciation: 'MAV-er-ik',
      PartofSpeech: 'n',
-     Shortdef: 'Independent-minded person; not afraid to go it alone.',
+     Shortdef: 'Independent-minded person; unafraid to go it alone.',
      Longdef: "Although Ryan portrayed himself as a maverick politician, he owed favors to the same special interest groups as his opponent.",
      syn: ["Nonconformist", "Rebel", "InViewidualist", "Unconventionalist", "Iconoclast", "Free thinker", "Bohemian", "Radical", "Dissenter", "Heretic"],
      Audio: require('./Audio/Maverick.mp3')
@@ -9217,19 +9153,6 @@ export default [
      Longdef: "Carl knew his company was headed for bankruptcy; he spent morose nights alone staring at the accounting numbers.",
      syn: ["sullen", "gloomy", "dismal", "melancholy", "pessimistic", "dejected", "despondent", "sorrowful", "dour", "somber", "forlorn", "downcast", "misanthropic", "grouch", "moody"],
      Audio: require('./Audio/Morose.mp3')
- },
-
- {   id: '613',
-     alpha: 'm',
-     Prebuilt: '',
-     SocialSituation: '',
-     Word: 'Mortify',
-     Pronunciation: 'MORE-tih-fy',
-     PartofSpeech: 'v',
-     Shortdef: "To humiliate; discipline body and mind through self-denial.",
-     Longdef: "Harriet was mortified at the thought of her daughter attending the dance unescorted.",
-     syn: ["humiliate", "embarrass", "shame", "chagrin", "disgrace", "abash", "ridicule", "berate", "chasten", "fluster"],
-     Audio: require('./Audio/Mortify.mp3')
  },
 
  {   id: '614',
@@ -9599,7 +9522,7 @@ export default [
      Word: 'Nonchalance',
      Pronunciation: 'NON-shu-lance',
      PartofSpeech: 'n',
-     Shortdef: 'The quality of being unconcerned about worldly cares.',
+     Shortdef: 'Unconcerned about worldly cares.',
      Longdef: "Astaire's nonchalance was appealing to the audience of the time, which was weight down with the Great Depression.",
      syn: ["indifference", "casualness", "unconcern", "apathy", "detachment", "coolness", "calmness", "composure", "restraint"],
      Audio: require('./Audio/Nonchalance.mp3')
@@ -9742,7 +9665,7 @@ export default [
      Word: 'Oblique',
      Pronunciation: 'oh-BLEEK',
      PartofSpeech: 'a',
-     Shortdef: 'Angled; indirect. An oblique reference leaves the listener unclear',
+     Shortdef: 'An oblique reference leaves the listener unclear',
      Longdef: "The witness' description was too oblique to be of any use to the police.",
      syn: ["slanted", "angular", "diagonal", "askew", "tilted", "off-kilter", "sloping", "crooked", "inclined", "angled"],
      Audio: require('./Audio/Oblique.mp3')
@@ -9755,7 +9678,7 @@ export default [
      Word: 'Oblivion',
      Pronunciation: 'uh-BLIV-ee-un',
      PartofSpeech: 'n',
-     Shortdef: 'The state of being beyond memory and utterly forgotten.',
+     Shortdef: 'The state of beyond memory and utterly forgotten.',
      Longdef: "The fact that his book was being allowed to go out of print meant that he as an author had been consigned to oblivion.",
      syn: ["Forgetfulness", "Unconsciousness", "Amnesia", "Nonexistence", "Nothingness", "Perdition", "Annihilation", "Extinction", "Erasure", "Obscurity"],
      Audio: require('./Audio/Oblivion.mp3')
@@ -9807,7 +9730,7 @@ export default [
      Word: 'Obtuse',
      Pronunciation: 'ob-TOOS',
      PartofSpeech: 'a',
-     Shortdef: 'Not sharp; used to describe a person who is not intelligent',
+     Shortdef: 'Not sharp; a person who is not intelligent',
      Longdef: "Perhaps I'm being obtuse, but I'd like you to explain that last point again.",
      syn: ['dense', 'dumb', 'dull'],
      Audio: require('./Audio/Obtuse.mp3')
@@ -9883,7 +9806,7 @@ export default [
      Word: 'Officious',
      Pronunciation: 'uh-FISH-uss',
      PartofSpeech: 'a',
-     Shortdef: 'Prone to offering assistance when not wanted.',
+     Shortdef: 'Prone to offering assistance when unwanted.',
      Longdef: "Tom was certainly a generous host, but his officious nature became annoying.",
      syn: ["meddlesome", "intrusive", "interfering", "obtrusive", "prying", "bossy", "domineering", "overbearing", "overzealous", "meddling", "pushy", "nosy"],
      Audio: require('./Audio/Officious.mp3')
@@ -10197,19 +10120,6 @@ export default [
      Audio: require('./Audio/Paradigm.mp3')
  },
 
- {   id: '684',
-     alpha: 'p',
-     Prebuilt: 'Prebuilt',
-     SocialSituation: '',
-     Word: 'Paradox',
-     Pronunciation: 'PAIR-uh-doks',
-     PartofSpeech: 'n',
-     Shortdef: 'Self-contradictory statement that expresses a potentially true concept.',
-     Longdef: "Before announcing grades, Mrs. Miller reminded her students of the paradox of being cruel to be kind.",
-     syn: ["Contradiction", "Enigma", "Irony", "Inconsistency", "Puzzle", "Perplexity", "Riddle", "Oxymoron", "Antinomy", "Catch-22"],
-     Audio: require('./Audio/Paradox.mp3')
- },
-
  {   id: '685',
      alpha: 'p',
      Prebuilt: '',
@@ -10247,19 +10157,6 @@ export default [
      Longdef: "Within these broad parameters, you are free to act as you see fit.",
      syn: ['attribute', 'limit'],
      Audio: require('./Audio/Parameter.mp3')
- },
-
- {   id: '688',
-     alpha: 'p',
-     Prebuilt: '',
-     SocialSituation: '',
-     Word: 'Parenthetical',
-     Pronunciation: 'pare-un-THET-ih-kul',
-     PartofSpeech: 'a',
-     Shortdef: 'Contained with parentheses; Something that sets it off from the main idea.',
-     Longdef: "I should add, as a parenthetical note, that I am donating all monies raised to charity.",
-     syn: ['secondary'],
-     Audio: require('./Audio/Parenthetical.mp3')
  },
 
  {   id: '689',
@@ -10669,7 +10566,7 @@ export default [
      Word: 'Pique',
      Pronunciation: 'Peek',
      PartofSpeech: 'v',
-     Shortdef: "To injure a person's pride and engender harsh feelings.",
+     Shortdef: "To injure a person's pride; engender harsh feelings.",
      Longdef: "Marica was piqued at not having been invited to the party.",
      syn: ["irritation", "offense", "resentment", "displeasure", "annoyance", "exasperation", "indignation", "anger", "outrage", "disgruntlement"],
      Audio: require('./Audio/Pique.mp3')
@@ -10943,7 +10840,7 @@ export default [
      Word: 'Precedent',
      Pronunciation: 'PRESS-i-dent',
      PartofSpeech: 'n',
-     Shortdef: 'Example from the past that should be followed.',
+     Shortdef: 'Example from past that should be followed.',
      Longdef: "There is no precedent for the action the defense is requesting, your Honor.",
      syn: [
          "example",
@@ -10980,7 +10877,7 @@ export default [
      Word: 'Precocious',
      Pronunciation: 'pre-KO-shuss',
      PartofSpeech: 'a',
-     Shortdef: 'Prematurely advanced; gifted intellectually as a child.',
+     Shortdef: 'Prematurely advanced; intellectually gifted child.',
      Longdef: "Bill, a precocious nine-year-old, could already do algebra and geometry.",
      syn: ["Advanced", "Gifted", "Talented", "Bright", "Exceptional", "Prodigy", "Ahead of the curve", "Ahead of their age group"],
      Audio: require('./Audio/Precocious.mp3')
@@ -11045,7 +10942,7 @@ export default [
      Word: 'Prevaricate',
      Pronunciation: 'pri-VARE-uh-kate',
      PartofSpeech: 'v',
-     Shortdef: "To lie; avoid revealing true nature of one's actions or feelings.",
+     Shortdef: "To lie; avoid revealing true nature of one's actions.",
      Longdef: "My opponent has chosen to prevaricate rather than address his role in the scandal.",
      syn: ["equivocate", "evade", "be evasive", "dodge", "beat around the bush", "quibble", "equivocate", "fudge", "shuffle", "weasel out", "fib", "misrepresent", "dissemble", "fabricate", "lie"],
      Audio: require('./Audio/Prevaricate.mp3')
@@ -11830,7 +11727,7 @@ export default [
      Word: 'Redundant',
      Pronunciation: 'rih-DUN-dunt',
      PartofSpeech: 'n',
-     Shortdef: 'Superfluous; filling the role of something already complete.',
+     Shortdef: 'Superfluous; filling role of something already complete.',
      Longdef: "Many of the functions of the shuttle vehicle are deliberately designed to be redundant in order to provide backup systems.",
      syn: ["repetitive", "superfluous", "unnecessary", "extraneous", "duplicated", "excessive", "repeated", "pleonastic", "redundant", "wordy"],
      Audio: require('./Audio/Redundant.mp3')
@@ -12933,19 +12830,6 @@ export default [
      Audio: require('./Audio/Surreptitious.mp3')
  },
 
- {   id: '873',
-     alpha: 's',
-     Prebuilt: '',
-     SocialSituation: '',
-     Word: 'Symbiotic',
-     Pronunciation: 'sim-bee-OH-tic',
-     PartofSpeech: 'a',
-     Shortdef: 'When two dissimilar organisms live in a mutually beneficial relationship.',
-     Longdef: "The two businesses found by recommending customers they established a beneficial symbiotic relationship.",
-     syn: ["mutually beneficial", "interdependent", "cooperative", "collaborative", "synchronized", "complementary", "reciprocal", "dependent on each other", "shared relationship", "synergistic"],
-     Audio: require('./Audio/Symbiotic.mp3')
- },
-
  {   id: '874',
      alpha: 't',
      Prebuilt: '',
@@ -13486,7 +13370,7 @@ export default [
      Word: 'Vanguard',
      Pronunciation: 'VAN-gard',
      PartofSpeech: 'n',
-     Shortdef: 'The most advanced groups (of a military force of social movement).',
+     Shortdef: 'The most advanced groups (of military force).',
      Longdef: "Dali admitted that he took full financial advantages of his position at the vanguard of the Surrealist movement.",
      syn: ["frontline", "pioneer", "leader", "trailblazer", "forefront", "pacesetter", "head", "precursor", "torchbearer", "radical"],
      Audio: require('./Audio/Vanguard.mp3')

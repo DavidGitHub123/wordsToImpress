@@ -78,8 +78,9 @@ export default function Word({ navigation }) {
             <Text style={mainStyles.text}>{wordData.Shortdef}</Text>
           </Text>
           <Text style={style.space}>
+            <View style={style.flexSentence}>
             <Text style={style.subHead}>Sentence: </Text>
-            <View style={style.flexSentence}>{sentence}</View>
+              {sentence}</View>
           </Text>
         </View>
 

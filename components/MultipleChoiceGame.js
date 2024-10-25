@@ -287,12 +287,14 @@ const style = StyleSheet.create({
     color: "#f0f8ff",
     fontWeight: "600",
     textAlign: "center",
+    paddingVertical: 20,
   },
 
   centerContainer: {
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 40,
+    paddingBottom: 40,
   },
   endContainer: {
     display: "flex",
@@ -339,10 +341,10 @@ const style = StyleSheet.create({
     marginTop: 22,
   },
   modalView: {
-    margin: 20,
-    backgroundColor: "black",
+    margin: 10,
+    backgroundColor: "#2350a8",
     borderRadius: 20,
-    padding: 35,
+    paddingVertical: 10,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {

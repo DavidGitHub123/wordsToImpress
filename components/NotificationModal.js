@@ -104,6 +104,7 @@ export default function NotificationModal(Props) {
       <View style={[mainStyles.centerChildren, style.marginAuto, style.mb60]}>
         {renderList()}
       </View>
+      <Text style={mainStyles.subheader}>Click to Schedule</Text>
       <View style={style.marginAuto}>
         <AppButton
           icon="user-clock"

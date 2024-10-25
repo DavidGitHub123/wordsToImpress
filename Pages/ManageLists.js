@@ -60,6 +60,13 @@ export default function ManageLists({ navigation }) {
           />
           <View style={mainStyles.screen}>
             <Text style={mainStyles.header}>My Vocab Lists</Text>
+            <Text style={mainStyles.subText}>
+            Most successful people have mastered 50 to 100 “big” words. 
+            This App helps you build the right list for you. 
+            Use the Pre-Built List. Analyze your writing with Build My List. Or, create your own list. 
+            Build small lists to master a few words at a time. Or one master list. 
+            How do you eat an elephant? One bite at a time.
+            </Text>
           </View>
 
           <View style={mainStyles.centerContainer}>

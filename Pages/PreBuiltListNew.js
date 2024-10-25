@@ -220,7 +220,7 @@ export default function PreBuiltListNew({ navigation }) {
             />
             <NavButtonWord
               navigation={navigation}
-              title="Paradox"
+              title="Paradigm"
               destination="Word"
             />
             <NavButtonWord

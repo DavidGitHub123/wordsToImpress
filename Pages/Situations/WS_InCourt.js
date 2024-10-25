@@ -137,7 +137,7 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
-              False, baseless attacks on person&#39s reputation.
+              False, baseless attacks on person's reputation.
             </Text>
           </Text>
           <Text style={style.space}>
@@ -168,7 +168,7 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
-              False, baseless attacks on person&#39s reputation.
+              False, baseless attacks on person's reputation.
             </Text>
           </Text>
           <Text style={style.space}>
@@ -218,31 +218,31 @@ export default function WS_InCourt({ navigation }) {
     );
   };
 
-  const Grandiloquence = () => {
+  const Grandiose = () => {
     return (
       <View style={style.component}>
         <View style={mainStyles.screen}>
-          <Text style={mainStyles.header}>Grandiloquence</Text>
+          <Text style={mainStyles.header}>Grandiose</Text>
           <Text style={style.space}>
             <Text style={style.bold}>Pron: </Text>
-            <Text style={mainStyles.text}>gran-DIL-uh-kwence</Text>
+            <Text style={mainStyles.text}>GRAN-dee-oce</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Def: </Text>
-            <Text style={mainStyles.text}>Pompous speech or expression.</Text>
+            <Text style={mainStyles.text}>Pompous in speech or expression.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>I don't have the </Text>
-            <Text style={style.bold}>grandiloquence</Text>
+            <Text style={mainStyles.text}>His </Text>
+            <Text style={style.bold}>grandiose</Text>
             <Text style={mainStyles.text}>
               {" "}
-              the prosecutor does with her smooth words.
+              scheme for career advancement of appeasing upper management simply will not pan out.
             </Text>
           </Text>
         </View>
-        <ListenButton word="Grandiloquence" />
-        <AddButton word="Grandiloquence" />
+        <ListenButton word="Grandiose" />
+        <AddButton word="Grandiose" />
         {hideButton}
       </View>
     );
@@ -418,8 +418,8 @@ export default function WS_InCourt({ navigation }) {
                 <Pressable>
                   <AppButton
                     icon="sign-in"
-                    title="Grandiloquence"
-                    onPress={() => setSelectedWord(<Grandiloquence />)}
+                    title="Grandiose"
+                    onPress={() => setSelectedWord(<Grandiose />)}
                   />
                 </Pressable>
               </View>
