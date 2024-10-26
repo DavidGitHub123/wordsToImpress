@@ -7,14 +7,14 @@ import { mainStyles } from "../components/mainStyles";
 import HomeButton from "../components/HomeButton";
 import AppButton from "../components/AppButton";
 import CreateListModal from "../components/CreateListModal";
-import { NavButtonWord } from "../components/NavButtonWord";
+
+export const MASTERED_WORD_LIST =
+  "(o:&A2S5Fsux > DNq ^:/$;I<vKBK_<'9>h*|qqC@k8fKD+WNg7Vxkj!+R7~70F0V;'kDWV&;{2m,91V{aOBO3)0dJB`%(c3fkSH2T,d03<3@d[rOw4n#c.$B+?E3'v.${";
 
 export default function ManageLists({ navigation }) {
   const [lists, setLists] = useState(null);
   const [error, setError] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [showMasteredWords, setShowMasteredWords] = useState(false);
-  
 
   const getAndSetLists = async () =>
     setLists((await getNamesOfLists()).sort((a, b) => a.localeCompare(b)));
@@ -46,36 +46,6 @@ export default function ManageLists({ navigation }) {
     ));
   };
 
-  const renderList = () => {
-    const selectedList = showMasteredWords ? masteredWords : listOrLoading;
-
-    if (selectedList === null) {
-      return [
-        <Text key={0} style={mainStyles.text}>
-          Loading...
-        </Text>,
-      ];
-    }
-
-    return selectedList.map((el, i) => (
-      <View key={i} style={style.wordDeleteContainer}>
-        <NavButtonWord
-          navigation={navigation}
-          title={el.word}
-          destination="Word"
-          backgroundColor={el.mastery >= 10 ? "#5ba653" : null}
-        />
-        {!showMasteredWords && (
-          <IconButton
-            name="trash"
-            onPress={() => handleDelete(el.word)}
-            style={style.deleteButton}
-          />
-        )}
-      </View>
-    ));
-  };
-  
   return (
     <LinearGradient
       colors={["#6699FF", "#335C81"]}
@@ -95,17 +65,14 @@ export default function ManageLists({ navigation }) {
           <View style={mainStyles.screen}>
             <Text style={mainStyles.header}>My Vocab Lists</Text>
             <Text style={mainStyles.subText}>
-            Most successful people have mastered 50 to 100 “big” words. 
-            Build the right list for you with the Pre-Built List. 
-            You can analyze your writing with Build My List and let the app suggest words.
-            Or create your own list based on your particular interests. 
-            {/* Build small lists to master a few words at a time. Or one master list. 
-            How do you eat an elephant? One bite at a time. */}
+              Most successful people have mastered 50 to 100 “big” words. Build
+              the right list for you with the Pre-Built List. You can analyze
+              your writing with Build My List and let the app suggest words. Or
+              create your own list based on your particular interests.
             </Text>
           </View>
 
           <View style={mainStyles.centerContainer}>
-
             {error && (
               <View style={mainStyles.error}>
                 <IconButton name="times" onPress={() => setError(null)} />
@@ -123,13 +90,13 @@ export default function ManageLists({ navigation }) {
               <AppButton
                 title="Mastered Words"
                 icon="book"
-                onPress={() => setShowMasteredWords(true)}
+                onPress={() =>
+                  navigation.navigate("MyList", {
+                    listParam: MASTERED_WORD_LIST,
+                  })
+                }
                 backgroundColor="#5ba653"
               />
-              {/* <AppButton
-                title="Back"
-                onPress={() => navigation.goBack()}
-              ></AppButton> */}
               <HomeButton navigation={navigation} />
             </View>
           </View>

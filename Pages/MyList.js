@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import HomeButton from "../components/HomeButton";
 import { NavButtonWord } from "../components/NavButtonWord";
@@ -12,8 +12,8 @@ import {
 import PieChart from "react-native-pie-chart";
 import IconButton from "../components/IconButton";
 import { mainStyles } from "../components/mainStyles";
-import AppButton from "../components/AppButton";
 import data from "../data";
+import { MASTERED_WORD_LIST } from "./ManageLists";
 
 export default function MyList({ route, navigation }) {
   const [masteredWordCount, setMasteredWordCount] = useState(0);
@@ -21,16 +21,21 @@ export default function MyList({ route, navigation }) {
   const [listLength, setListLength] = useState(0);
   const [listOrLoading, setListOrLoading] = useState(null);
   const [masteredWords, setMasteredWords] = useState(null);
-  const [showMasteredWords, setShowMasteredWords] = useState(false);
+  const showMasteredWords = useRef(false);
+  const MASTERED_WORD_TITLE = "Mastered words";
 
   let selectedList = defaultList;
   if (route.params && route.params.listParam) {
     selectedList = route.params.listParam;
+    if (selectedList === MASTERED_WORD_LIST) {
+      showMasteredWords.current = true;
+      selectedList = MASTERED_WORD_TITLE;
+    }
   }
 
   const handleDelete = async (word) => {
     await removeOneWordFromList(selectedList, word);
-    await getAndParseList();
+    await getAndParseList(selectedList);
   };
   async function getAndParseMasterList() {
     const lists = await getNamesOfLists();
@@ -43,9 +48,14 @@ export default function MyList({ route, navigation }) {
     setMasteredWords([...new Set(masteredFilteredArray)]);
   }
 
-  async function getAndParseList(name = defaultList) {
-    const list = await getList(name);
-    if (list === null) {
+  async function getAndParseList(name) {
+    let list;
+    if (name === MASTERED_WORD_TITLE) {
+      list = await getAndParseMasterList();
+    } else {
+      list = await getList(name);
+    }
+    if (!list) {
       return;
     }
     const sortedList = list.sort((a, b) => {
@@ -72,7 +82,6 @@ export default function MyList({ route, navigation }) {
         await getAndParseMasterList();
         return;
       }
-      await getAndParseList();
     };
     asyncWrapper();
   }, []);
@@ -90,7 +99,7 @@ export default function MyList({ route, navigation }) {
       : unMasteredWordCount,
   ];
 
-  const donutSeries = showMasteredWords
+  const donutSeries = showMasteredWords.current
     ? masteredDonutSeries
     : unMasteredDonutSeries;
   const GREEN_PERCENT = 0.7;
@@ -99,19 +108,17 @@ export default function MyList({ route, navigation }) {
       ? { highlight: "#4cf03a", base: "#5ba653" }
       : { highlight: "#ffbb00", base: "#cc9600" };
 
-  const percentText = showMasteredWords
+  const percentText = showMasteredWords.current
     ? masteredWordLengthOrZero / data.length
     : masteredWordCount / listLength;
   const formattedPercentText = isNaN(percentText)
     ? "0"
     : (percentText * 100).toFixed(0);
 
-  const fractionText = showMasteredWords
-    ? `${masteredWordLengthOrZero}/${data.length}`
-    : `${masteredWordCount}/${listLength}`;
-
   const renderList = () => {
-    const selectedList = showMasteredWords ? masteredWords : listOrLoading;
+    const selectedList = showMasteredWords.current
+      ? masteredWords
+      : listOrLoading;
 
     if (selectedList === null) {
       return [
@@ -129,7 +136,7 @@ export default function MyList({ route, navigation }) {
           destination="Word"
           backgroundColor={el.mastery >= 10 ? "#5ba653" : null}
         />
-        {!showMasteredWords && (
+        {!showMasteredWords.current && (
           <IconButton
             name="trash"
             onPress={() => handleDelete(el.word)}
@@ -154,42 +161,28 @@ export default function MyList({ route, navigation }) {
             <View>
               <Text style={mainStyles.header}>My Mastery</Text>
               <Text style={mainStyles.subText}>
-                In games and quizzes, once correctly identified 10 times, a word moves into your Mastered List. 
-                Only words you have not mastered appear in games and quizzes for more efficient learning.
+                In games and quizzes, once correctly identified 10 times, a word
+                moves into your Mastered List. Only words you have not mastered
+                appear in games and quizzes for more efficient learning.
               </Text>
             </View>
           </View>
-          {/* <Text style={mainStyles.subheader}>Words to Master {fractionText}</Text> */}
           <View style={style.donutContainer}>
-              <Text style={style.percentText}>{formattedPercentText}%</Text>
-              {
-                <PieChart
-                  style={style.donut}
-                  widthAndHeight={180}
-                  series={donutSeries}
-                  sliceColor={[donutColor.highlight, donutColor.base]}
-                  coverRadius={0.8}
-                />
-              }
-            </View>
-          
-          {/* <View style={mainStyles.centerContainer}>
-            {showMasteredWords ? (
-              <AppButton
-                title="Go back"
-                icon="undo"
-                onPress={() => setShowMasteredWords(false)}
+            <Text style={style.percentText}>{formattedPercentText}%</Text>
+            {
+              <PieChart
+                style={style.donut}
+                widthAndHeight={180}
+                series={donutSeries}
+                sliceColor={[donutColor.highlight, donutColor.base]}
+                coverRadius={0.8}
               />
-            ) : (
-              <AppButton
-                title="Mastered words"
-                icon="book"
-                onPress={() => setShowMasteredWords(true)}
-                backgroundColor="#5ba653"
-              />
-            )}
-          </View> */}
+            }
+          </View>
 
+          <Text style={[mainStyles.text, { marginHorizontal: "auto" }]}>
+            {selectedList}
+          </Text>
           <View style={mainStyles.section}>{renderList()}</View>
 
           <View style={style.buttons}>
@@ -208,13 +201,6 @@ const style = StyleSheet.create({
     position: "absolute",
     top: 10,
     left: 10,
-  },
-  donutText: {
-    verticalAlign: "middle",
-    color: "#fff",
-    textAlign: "center",
-    fontSize: 40,
-    fontWeight: 900,
   },
   donutContainer: {
     width: 200,
