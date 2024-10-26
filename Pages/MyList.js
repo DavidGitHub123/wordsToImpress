@@ -153,8 +153,14 @@ export default function MyList({ route, navigation }) {
           <View style={mainStyles.screen}>
             <View>
               <Text style={mainStyles.header}>My Mastery</Text>
+              <Text style={mainStyles.subText}>
+                In games and quizzes, once correctly identified 10 times, a word moves into your Mastered List. 
+                Only words you have not mastered appear in games and quizzes for more efficient learning.
+              </Text>
             </View>
-            <View style={style.donutContainer}>
+          </View>
+          {/* <Text style={mainStyles.subheader}>Words to Master {fractionText}</Text> */}
+          <View style={style.donutContainer}>
               <Text style={style.percentText}>{formattedPercentText}%</Text>
               {
                 <PieChart
@@ -166,14 +172,6 @@ export default function MyList({ route, navigation }) {
                 />
               }
             </View>
-
-  
-
-            {/* <Text style={style.donutText}>{fractionText}</Text> */}
-          </View>
-
-          <Text style={mainStyles.subheader}>Mastered Words</Text>
-          <Text style={style.donutText}>{fractionText}</Text>
           
           {/* <View style={mainStyles.centerContainer}>
             {showMasteredWords ? (

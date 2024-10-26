@@ -24,10 +24,8 @@ export default function VocabMastery({ navigation }) {
           <Text style={mainStyles.header}>Vocab Mastery</Text>
 
           <Text style={mainStyles.subText}>
-            Here you can learn words to make them part of your everyday writing
-            and understanding. Once correctly identied 5 times, a word moves
-            into your Mastered List. Only words you have not mastered appear for
-            more efficient learning.
+            Here you can learn to make words part of your everyday Vocabulary. Once correctly identified 10 times, a word moves
+            into your Mastered List. Only words you have not mastered appear in games and quizzes for more efficient learning.
           </Text>
         </View>
 
