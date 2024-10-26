@@ -8,6 +8,7 @@ import data from "../data";
 import { incrementMastery } from "./listHelpers";
 import { mainStyles } from "./mainStyles";
 import ChatBubble from "react-native-chat-bubble";
+import { isWordConjugate } from "../Pages/Word";
 
 export default function MultipleChoiceGame(Props) {
   const [anwsers, setAnwsers] = useState([]);
@@ -24,6 +25,7 @@ export default function MultipleChoiceGame(Props) {
     questionType,
     answerType,
     selectedList,
+    blank,
   } = Props;
   const MAX_INCORRECT_ANSWERS = 3;
 
@@ -33,18 +35,18 @@ export default function MultipleChoiceGame(Props) {
     question = data[wordIndex][questionType];
 
     question = question.split(" ").map((el, i) => {
-      const isHighlighted = (w) =>
-        w.toLowerCase().includes(data[wordIndex].Word.toLowerCase());
+      let isHighlighted = isWordConjugate(el, data[wordIndex].Word);
+
       return (
         <Text
           key={i}
           style={
-            isHighlighted(el)
+            isHighlighted && !blank
               ? mainStyles.greenText2
               : { ...mainStyles.subheader, paddingVertical: 2 }
           }
         >
-          {el}
+          {blank && isHighlighted ? "_".repeat(el.length) : el}
         </Text>
       );
     });

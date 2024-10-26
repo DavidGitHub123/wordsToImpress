@@ -18,6 +18,27 @@ import backgrounds from "../backgrounds.js";
 import AppButton from "../components/AppButton.js";
 import { mainStyles } from "../components/mainStyles.js";
 
+export const isWordConjugate = (wordCanidate, dataWord) => {
+  const trucatedWord = dataWord
+    .substring(0, dataWord.length - 1)
+    .toLowerCase()
+    .replace(/\W$/, "");
+
+  if (dataWord.split(" ").length >= 2) {
+    return dataWord.split(" ").some((w) => {
+      return (
+        wordCanidate.length - w.length <= 3 &&
+        wordCanidate
+          .toLowerCase()
+          .replace(/\W$/, "")
+          .includes(w.toLowerCase().replace(/\W$/, ""))
+      );
+    });
+  } else {
+    return wordCanidate.replace(/\W$/, "").toLowerCase().includes(trucatedWord);
+  }
+};
+
 export default function Word({ navigation }) {
   const route = useRoute();
   const { selectedWord } = route.params;
@@ -79,8 +100,9 @@ export default function Word({ navigation }) {
           </Text>
           <Text style={style.space}>
             <View style={style.flexSentence}>
-            <Text style={style.subHead}>Sentence: </Text>
-              {sentence}</View>
+              <Text style={style.subHead}>Sentence: </Text>
+              {sentence}
+            </View>
           </Text>
         </View>
 
