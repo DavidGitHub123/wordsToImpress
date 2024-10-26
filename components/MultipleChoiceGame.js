@@ -228,7 +228,7 @@ export default function MultipleChoiceGame(Props) {
           {renderAnwsers()}
           <Modal
             animationType="slide"
-            transparent={true}
+            transparent
             visible={displayNext}
             onRequestClose={() => setDisplayNext(false)}
           >
