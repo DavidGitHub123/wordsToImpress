@@ -8,7 +8,7 @@ import data from "../data.js";
 import { mainStyles } from "../components/mainStyles.js";
 import ListDropdown from "../components/ListDropdown.js";
 
-export default function QuickQuiz({ navigation }) {
+export default function BlankGame({ navigation }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [list, setList] = useState([]);
   const [gameRestart, setGameRestart] = useState(false);
@@ -56,11 +56,12 @@ export default function QuickQuiz({ navigation }) {
     <MultipleChoiceGame
       list={list}
       questionType="Longdef"
-      answerType="Shortdef"
+      answerType="Word"
       navigation={navigation}
       setGameRestart={setGameRestart}
       gameRestart={gameRestart}
       selectedList={selectedList}
+      blank={true}
     />
   ) : (
     <LinearGradient
