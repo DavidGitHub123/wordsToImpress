@@ -155,7 +155,7 @@ export default function MyList({ route, navigation }) {
               <Text style={mainStyles.header}>My Mastery</Text>
               <Text style={mainStyles.subText}>
                 In games and quizzes, once correctly identified 10 times, a word moves into your Mastered List. 
-                Only words you have not mastered appear in games and quizzes for more efficient learning.
+                Keep learning to build a great vocabulary.
               </Text>
             </View>
           </View>
