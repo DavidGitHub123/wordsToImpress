@@ -45,7 +45,7 @@ export default function WS_GettingRaise({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>I don't want to appear to </Text>
+            <Text style={mainStyles.text}>I don&apos;t want to appear to </Text>
             <Text style={style.bold}>aggrandize </Text>
             <Text style={mainStyles.text}>
               myself, but I did lead my sales team to triple sales.
@@ -198,7 +198,7 @@ export default function WS_GettingRaise({ navigation }) {
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>Serious, I was just being </Text>
             <Text style={style.bold}>facetious </Text>
-            <Text style={mainStyles.text}>about your wife's dress.</Text>
+            <Text style={mainStyles.text}>about your wife&apos;s dress.</Text>
           </Text>
         </View>
         <ListenButton word="Facetious" />
@@ -223,7 +223,7 @@ export default function WS_GettingRaise({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>Michael's </Text>
+            <Text style={mainStyles.text}>Michael&apos;s </Text>
             <Text style={style.bold}>garrulity </Text>
             <Text style={mainStyles.text}>
               of non-stop talking gave him the reputation of a motor-mouth.
@@ -252,7 +252,7 @@ export default function WS_GettingRaise({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>The company's </Text>
+            <Text style={mainStyles.text}>The company&apos;s </Text>
             <Text style={style.bold}>halcyon </Text>
             <Text style={mainStyles.text}>
               years as the leader were over; new competitors had moved into
@@ -319,7 +319,7 @@ export default function WS_GettingRaise({ navigation }) {
             <Text style={mainStyles.text}>Boss, you are the </Text>
             <Text style={style.bold}>ne plus ultra </Text>
             <Text style={mainStyles.text}>
-              of bosses; I can't imagine working for someone more capable.
+              of bosses; I can&apos;t imagine working for someone more capable.
             </Text>
           </Text>
         </View>

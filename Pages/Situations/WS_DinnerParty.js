@@ -107,10 +107,10 @@ export default function WS_DinnerParty({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>Myron's attempt to </Text>
+            <Text style={mainStyles.text}>Myron&apos;s attempt to </Text>
             <Text style={style.bold}>educe </Text>
             <Text style={mainStyles.text}>
-              his sister's talents as a painter were futile.
+              his sister&apos;s talents as a painter were futile.
             </Text>
           </Text>
         </View>
@@ -168,7 +168,7 @@ export default function WS_DinnerParty({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              David's constant praise of his first wife was considered
+              David&apos;s constant praise of his first wife was considered
             </Text>
             <Text style={style.bold}> gauche </Text>
             <Text style={mainStyles.text}>by his new mother-in-law.</Text>
@@ -196,7 +196,7 @@ export default function WS_DinnerParty({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>Mike's </Text>
+            <Text style={mainStyles.text}>Mike&apos;s </Text>
             <Text style={style.bold}>harangue </Text>
             <Text style={mainStyles.text}>
               of his team left everyone feeling uncomfortable.
@@ -284,7 +284,7 @@ export default function WS_DinnerParty({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>Her father's </Text>
+            <Text style={mainStyles.text}>Her father&apos;s </Text>
             <Text style={style.bold}>largess </Text>
             <Text style={mainStyles.text}>
               was the only thing standing between Barbara and bankruptcy.
@@ -318,7 +318,7 @@ export default function WS_DinnerParty({ navigation }) {
             <Text style={mainStyles.text}>The </Text>
             <Text style={style.bold}>melodious </Text>
             <Text style={mainStyles.text}>
-              tones of his mother's voice reminded Wayne of his childhood.
+              tones of his mother&apos;s voice reminded Wayne of his childhood.
             </Text>
           </Text>
         </View>

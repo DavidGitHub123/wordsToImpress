@@ -42,7 +42,7 @@ export default function WS_SpeedingTicket({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
-              Skillful use of one's hands or body.
+              Skillful use of one&apos;s hands or body.
             </Text>
           </Text>
           <Text style={style.space}>
@@ -78,11 +78,11 @@ export default function WS_SpeedingTicket({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              I'm sorry officer that I appear{" "}
+              I&apos;m sorry officer that I appear{" "}
             </Text>
             <Text style={style.bold}>befuddled, </Text>
             <Text style={mainStyles.text}>
-              you won't believe what happened.
+              you won&apos;t believe what happened.
             </Text>
           </Text>
         </View>
@@ -204,7 +204,7 @@ export default function WS_SpeedingTicket({ navigation }) {
               Officer, last time you pulled me over I spoke loudly, even{" "}
             </Text>
             <Text style={style.bold}>fulminating</Text>
-            <Text style={mainStyles.text}> in anger. I'm sorry.</Text>
+            <Text style={mainStyles.text}> in anger. I&apos;m sorry.</Text>
           </Text>
         </View>
         <ListenButton word="Fulminate" />
@@ -231,7 +231,7 @@ export default function WS_SpeedingTicket({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>Officer, it's </Text>
+            <Text style={mainStyles.text}>Officer, it&apos;s </Text>
             <Text style={style.bold}>imperative</Text>
             <Text style={mainStyles.text}>
               {" "}
@@ -301,7 +301,7 @@ export default function WS_SpeedingTicket({ navigation }) {
             <Text style={style.bold}>misconstrue</Text>
             <Text style={mainStyles.text}>
               {" "}
-              the situation; I'll defer to your judgment.
+              the situation; I&apos;ll defer to your judgment.
             </Text>
           </Text>
         </View>
@@ -327,7 +327,7 @@ export default function WS_SpeedingTicket({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>Officer, please don't </Text>
+            <Text style={mainStyles.text}>Officer, please don&apos;t </Text>
             <Text style={style.bold}>upbraid</Text>
             <Text style={mainStyles.text}> me; I am a good driver.</Text>
           </Text>

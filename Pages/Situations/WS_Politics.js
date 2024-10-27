@@ -138,7 +138,7 @@ export default function WS_Politics({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>Our foe's </Text>
+            <Text style={mainStyles.text}>Our foe&apos;s </Text>
             <Text style={style.bold}>hegemony</Text>
             <Text style={mainStyles.text}>
               {" "}
@@ -175,7 +175,7 @@ export default function WS_Politics({ navigation }) {
             <Text style={mainStyles.text}>
               {" "}
               over the conflict-of-interest violations has not improved the
-              Mayor's standing.
+              Mayor&apos;s standing.
             </Text>
           </Text>
         </View>

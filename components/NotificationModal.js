@@ -50,7 +50,7 @@ export default function NotificationModal(Props) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const notifTextRef = useRef(null);
 
-  const { notificationType, time, setTime, handleClose, options } = Props;
+  const { time, setTime, handleClose, options } = Props;
 
   const handleDateChange = (_, time) => {
     setShowTimePicker(false);
