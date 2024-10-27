@@ -28,4 +28,9 @@ module.exports = {
     "react/prop-types": "off",
     "react-native/no-unused-styles": 2,
   },
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
 };

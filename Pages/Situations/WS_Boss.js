@@ -45,11 +45,11 @@ export default function WS_Boss({ navigation }) {
               Diverging from an expected course
             </Text>
           </Text>
-          
+
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              Sally's poor work was hardly grounds for dismissal; it was an{" "}
+              Sally&apos;s poor work was hardly grounds for dismissal; it was an{" "}
             </Text>
             <Text style={style.bold}>aberration </Text>
             <Text style={mainStyles.text}>caused by problems at home.</Text>
@@ -109,7 +109,8 @@ export default function WS_Boss({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              The initiative seemed promising, but turned out to be George's{" "}
+              The initiative seemed promising, but turned out to be
+              George&apos;s{" "}
             </Text>
             <Text style={style.bold}>debacle.</Text>
           </Text>
@@ -137,7 +138,8 @@ export default function WS_Boss({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              Tom's proposal eventually won the approval of the company's upper{" "}
+              Tom&apos;s proposal eventually won the approval of the
+              company&apos;s upper{" "}
             </Text>
             <Text style={style.bold}>echelon </Text>
             <Text style={mainStyles.text}>of leaders.</Text>
@@ -194,7 +196,7 @@ export default function WS_Boss({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>Peter's </Text>
+            <Text style={mainStyles.text}>Peter&apos;s </Text>
             <Text style={style.bold}>ignoble </Text>
             <Text style={mainStyles.text}>
               aims were well known to the human resources department, which led

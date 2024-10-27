@@ -110,7 +110,7 @@ export default function WS_Negotiations({ navigation }) {
             <Text style={style.bold}>dialectic</Text>
             <Text style={mainStyles.text}>
               {" "}
-              thoroughness destroy his opponent's argument.
+              thoroughness destroy his opponent&apos;s argument.
             </Text>
           </Text>
         </View>
@@ -170,8 +170,8 @@ export default function WS_Negotiations({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>.{" "}
             <Text style={mainStyles.text}>
-              Negotiations were difficult because the organization's plans were
-              in a state of continual{" "}
+              Negotiations were difficult because the organization&apos;s plans
+              were in a state of continual{" "}
             </Text>
             <Text style={style.bold}>flux.</Text>
           </Text>
@@ -324,7 +324,7 @@ export default function WS_Negotiations({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Def: </Text>
-            <Text style={mainStyles.text}>One's last set of demands.</Text>
+            <Text style={mainStyles.text}>One&apos;s last set of demands.</Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
