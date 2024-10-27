@@ -75,7 +75,7 @@
     "metro-resolver": "^0.73.7"
   },
   "engines": {
-    "node": "18.17.1"
+    "node": "18.18.2"
   },
   "private": true
 }
