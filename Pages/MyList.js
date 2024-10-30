@@ -14,6 +14,7 @@ import IconButton from "../components/IconButton";
 import { mainStyles } from "../components/mainStyles";
 import data from "../data";
 import { MASTERED_WORD_LIST } from "./ManageLists";
+import AppButton from "../components/AppButton";
 
 export default function MyList({ route, navigation }) {
   const [masteredWordCount, setMasteredWordCount] = useState(0);
@@ -186,6 +187,11 @@ export default function MyList({ route, navigation }) {
           <View style={mainStyles.section}>{renderList()}</View>
 
           <View style={style.buttons}>
+            <AppButton
+              viewStyle={{ margin: "auto" }}
+              title="Back"
+              onPress={() => navigation.goBack()}
+            />
             <HomeButton navigation={navigation} />
           </View>
         </ScrollView>

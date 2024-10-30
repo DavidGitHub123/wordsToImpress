@@ -285,7 +285,7 @@ export default function WS_Business({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>Dirk's heated and </Text>
+            <Text style={mainStyles.text}>Dirk&apos;s heated and </Text>
             <Text style={style.bold}>impetuous </Text>
             <Text style={mainStyles.text}>
               remark may well cost him his job.

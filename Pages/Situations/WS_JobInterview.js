@@ -145,7 +145,7 @@ export default function WS_JobInterview({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>Sharon's </Text>
+            <Text style={mainStyles.text}>Sharon&apos;s </Text>
             <Text style={style.bold}>ebullience</Text>
             <Text style={mainStyles.text}>
               {" "}
@@ -178,7 +178,7 @@ export default function WS_JobInterview({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              I did sign the contract without the CEO's consent as it was a{" "}
+              I did sign the contract without the CEO&apos;s consent as it was a{" "}
             </Text>
             <Text style={style.bold}>fait accompli</Text>
             <Text style={mainStyles.text}>

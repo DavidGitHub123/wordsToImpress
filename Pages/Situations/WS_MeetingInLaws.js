@@ -76,8 +76,8 @@ export default function WS_MeetingInLaws({ navigation }) {
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
               Jane sent a<Text style={style.bold}> belated </Text>
-              <Text style={mainStyles.text}></Text>birthdaycard but still felt guilty
-              about forgetting your birthday.
+              <Text style={mainStyles.text}></Text>birthdaycard but still felt
+              guilty about forgetting your birthday.
             </Text>
           </Text>
         </View>
@@ -135,7 +135,7 @@ export default function WS_MeetingInLaws({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>Lionel's </Text>
+            <Text style={mainStyles.text}>Lionel&apos;s </Text>
             <Text style={style.bold}>eccentric</Text>
             <Text style={mainStyles.text}>
               {" "}
@@ -168,7 +168,7 @@ export default function WS_MeetingInLaws({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              McCarthy's accusations against the Army were totally{" "}
+              McCarthy&apos;s accusations against the Army were totally{" "}
             </Text>
             <Text style={style.bold}>fallacious</Text>.
           </Text>
@@ -198,8 +198,8 @@ export default function WS_MeetingInLaws({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              His stand against the church's political stances branded Clint
-              as a{" "}
+              His stand against the church&apos;s political stances branded
+              Clint as a{" "}
             </Text>
             <Text style={style.bold}>heretic</Text>.
           </Text>
@@ -258,7 +258,7 @@ export default function WS_MeetingInLaws({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>Jason's </Text>
+            <Text style={mainStyles.text}>Jason&apos;s </Text>
             <Text style={style.bold}>malady</Text>
             <Text style={mainStyles.text}>
               , if undiagnosed, could have taken his life.

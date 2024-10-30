@@ -110,11 +110,12 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              Judge Brown's memo issued a playful{" "}
+              Judge Brown&apos;s memo issued a playful{" "}
             </Text>
             <Text style={style.bold}>catch-22</Text>
             <Text style={mainStyles.text}>
-              : he was only to be scheduled during the days he'd be out of town.
+              : he was only to be scheduled during the days he&apos;d be out of
+              town.
             </Text>
           </Text>
         </View>
@@ -137,7 +138,7 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
-              False, baseless attacks on person's reputation.
+              False, baseless attacks on person&apos;s reputation.
             </Text>
           </Text>
           <Text style={style.space}>
@@ -168,13 +169,13 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Def: </Text>
             <Text style={mainStyles.text}>
-              False, baseless attacks on person's reputation.
+              False, baseless attacks on person&apos;s reputation.
             </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              Your honor, what is behind my client's bizarre work habits is
+              Your honor, what is behind my client&apos;s bizarre work habits is
               something only he can{" "}
             </Text>
             <Text style={style.bold}>elucidate.</Text>
@@ -229,7 +230,9 @@ export default function WS_InCourt({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Def: </Text>
-            <Text style={mainStyles.text}>Pompous in speech or expression.</Text>
+            <Text style={mainStyles.text}>
+              Pompous in speech or expression.
+            </Text>
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
@@ -237,7 +240,8 @@ export default function WS_InCourt({ navigation }) {
             <Text style={style.bold}>grandiose</Text>
             <Text style={mainStyles.text}>
               {" "}
-              scheme for career advancement of appeasing upper management simply will not pan out.
+              scheme for career advancement of appeasing upper management simply
+              will not pan out.
             </Text>
           </Text>
         </View>
@@ -293,7 +297,7 @@ export default function WS_InCourt({ navigation }) {
           </Text>
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
-            <Text style={mainStyles.text}>Tyrone's </Text>
+            <Text style={mainStyles.text}>Tyrone&apos;s </Text>
             <Text style={style.bold}>ignominious</Text>
             <Text style={mainStyles.text}>
               {" "}
@@ -326,7 +330,7 @@ export default function WS_InCourt({ navigation }) {
             <Text style={mainStyles.text}>This case is within my </Text>
             <Text style={style.bold}>judicature</Text>
             <Text style={mainStyles.text}>
-              , despite counsel's arguments to the contrary.
+              , despite counsel&apos;s arguments to the contrary.
             </Text>
           </Text>
         </View>
