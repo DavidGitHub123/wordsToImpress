@@ -4,14 +4,7 @@
     "web": {
       "bundler": "metro"
     },
-    "plugins": [
-      "expo-router",
-      "react-native-google-mobile-ads",
-      {
-        "androidAppId": "ca-app-pub-1040382127397444~5465177802",
-        "iosAppId": "ca-app-pub-1040382127397444~5066556709"
-      }
-    ],
+    "plugins": ["expo-router"],
     "name": "RN_WordsToImpress",
     "slug": "RN_WordsToImpress",
     "android": {
