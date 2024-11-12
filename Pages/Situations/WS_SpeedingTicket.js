@@ -16,6 +16,7 @@ import { navStyle } from "../../components/NavButton.js";
 import speedingticket from "../../assets/Backgrounds/speedingticket.jpg";
 import AppButton from "../../components/AppButton";
 import { mainStyles } from "../../components/mainStyles";
+import AdBanner from "../../components/AdBanner.js";
 
 export default function WS_SpeedingTicket({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -468,6 +469,7 @@ export default function WS_SpeedingTicket({ navigation }) {
             </View>
           )}
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </ImageBackground>
   );

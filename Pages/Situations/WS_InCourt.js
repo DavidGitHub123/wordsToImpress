@@ -16,6 +16,7 @@ import { navStyle } from "../../components/NavButton.js";
 import courthouse from "../../assets/Backgrounds/courthouse.jpg";
 import AppButton from "../../components/AppButton";
 import { mainStyles } from "../../components/mainStyles";
+import AdBanner from "../../components/AdBanner.js";
 
 export default function WS_InCourt({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -470,6 +471,7 @@ export default function WS_InCourt({ navigation }) {
             </View>
           )}
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </ImageBackground>
   );

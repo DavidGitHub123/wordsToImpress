@@ -6,6 +6,18 @@ import AppButton from "../components/AppButton.js";
 import MultipleChoiceGame from "../components/MultipleChoiceGame.js";
 import { mainStyles } from "../components/mainStyles.js";
 import ListDropdown from "../components/ListDropdown";
+import AdBanner from "../components/AdBanner.js";
+import {
+  InterstitialAd,
+  AdEventType,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = TestIds.INTERSTITIAL;
+
+const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+  keywords: ["fashion", "clothing"],
+});
 
 export default function WordMatch({ navigation }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
@@ -13,6 +25,22 @@ export default function WordMatch({ navigation }) {
   const [gameRestart, setGameRestart] = useState(false);
   const [selectedList, setSelectedList] = useState(null);
   const [error, setError] = useState(null);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = interstitial.addAdEventListener(
+      AdEventType.LOADED,
+      () => {
+        setLoaded(true);
+      },
+    );
+
+    // Start loading the interstitial straight away
+    interstitial.load();
+
+    // Unsubscribe from events on unmount
+    return unsubscribe;
+  }, []);
 
   async function getAndSetList() {
     if (!selectedList) {
@@ -36,7 +64,8 @@ export default function WordMatch({ navigation }) {
     setList(userList);
   }
   const handleSubmit = () => {
-    if (!error && selectedList) {
+    if (!error && selectedList && loaded) {
+      interstitial.show();
       setIsGameStarted(true);
     }
   };
@@ -78,6 +107,7 @@ export default function WordMatch({ navigation }) {
         />
         <AppButton onPress={handleSubmit} title="Play Game" icon="sign-in" />
       </View>
+      <AdBanner />
     </LinearGradient>
   );
 }

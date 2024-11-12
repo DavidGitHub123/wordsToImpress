@@ -15,6 +15,7 @@ import { mainStyles } from "../components/mainStyles";
 import data from "../data";
 import { MASTERED_WORD_LIST } from "./ManageLists";
 import AppButton from "../components/AppButton";
+import AdBanner from "../components/AdBanner";
 
 export default function MyList({ route, navigation }) {
   const [masteredWordCount, setMasteredWordCount] = useState(0);
@@ -195,6 +196,7 @@ export default function MyList({ route, navigation }) {
             <HomeButton navigation={navigation} />
           </View>
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </LinearGradient>
   );

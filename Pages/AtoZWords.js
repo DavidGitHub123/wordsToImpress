@@ -14,6 +14,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { navStyle } from "../components/NavButton.js";
 import HomeButton from "../components/HomeButton";
 import { mainStyles } from "../components/mainStyles.js";
+import AdBanner from "../components/AdBanner.js";
 
 export default function AtoZWords({ route, navigation }) {
   const { selectedWord } = route.params;
@@ -60,6 +61,7 @@ export default function AtoZWords({ route, navigation }) {
             <View>{renderWords()}</View>
           </View>
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </LinearGradient>
   );

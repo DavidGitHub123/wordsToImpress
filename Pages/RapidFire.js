@@ -15,6 +15,18 @@ import AppButton from "../components/AppButton";
 import { mainStyles } from "../components/mainStyles";
 import ListDropdown from "../components/ListDropdown";
 import data from "../data";
+import AdBanner from "../components/AdBanner";
+import {
+  InterstitialAd,
+  AdEventType,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = TestIds.INTERSTITIAL;
+
+const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+  keywords: ["fashion", "clothing"],
+});
 
 export default function RapidFire({ navigation }) {
   const [timing, setTiming] = useState(10);
@@ -74,6 +86,7 @@ export default function RapidFire({ navigation }) {
             )}
           </View>
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </LinearGradient>
   );
@@ -86,6 +99,22 @@ function Game(Props) {
   const [front, setFront] = useState(true);
   const [cardIndex, setCardIndex] = useState(0);
   const timerID = useRef(-1);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = interstitial.addAdEventListener(
+      AdEventType.LOADED,
+      () => {
+        setLoaded(true);
+      },
+    );
+
+    // Start loading the interstitial straight away
+    interstitial.load();
+
+    // Unsubscribe from events on unmount
+    return unsubscribe;
+  }, []);
 
   if (words.length === 0) {
     exitGame();
@@ -93,6 +122,9 @@ function Game(Props) {
 
   const exitGame = () => {
     setCardIndex(0);
+    if (loaded) {
+      interstitial.show();
+    }
     navigation.navigate("VocabMastery");
   };
 

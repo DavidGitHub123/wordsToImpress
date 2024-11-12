@@ -12,6 +12,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from "../components/HomeButton";
 import AppButton from "../components/AppButton";
 import { mainStyles } from "../components/mainStyles";
+import AdBanner from "../components/AdBanner";
 
 export default function System({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -175,6 +176,7 @@ export default function System({ navigation }) {
             </View>
           )}
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </LinearGradient>
   );
@@ -189,10 +191,9 @@ const style = StyleSheet.create({
   },
 
   headerSmall: {
-      fontSize: 32,
-      color: "#fff",
-      fontWeight: "600",
-      paddingTop: 20,
-    },
-
+    fontSize: 32,
+    color: "#fff",
+    fontWeight: "600",
+    paddingTop: 20,
+  },
 });

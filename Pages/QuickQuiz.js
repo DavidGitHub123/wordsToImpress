@@ -7,15 +7,42 @@ import MultipleChoiceGame from "../components/MultipleChoiceGame.js";
 import data from "../data.js";
 import { mainStyles } from "../components/mainStyles.js";
 import ListDropdown from "../components/ListDropdown.js";
+import AdBanner from "../components/AdBanner.js";
+import {
+  InterstitialAd,
+  AdEventType,
+  TestIds,
+} from "react-native-google-mobile-ads";
 
+const adUnitId = TestIds.INTERSTITIAL;
+
+const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+  keywords: ["fashion", "clothing"],
+});
 export default function QuickQuiz({ navigation }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [list, setList] = useState([]);
   const [gameRestart, setGameRestart] = useState(false);
   const [selectedList, setSelectedList] = useState(null);
   const [error, setError] = useState(null);
+  const [loaded, setLoaded] = useState(false);
 
   const getShortDef = (word) => data.find((el) => el.Word === word).Shortdef;
+
+  useEffect(() => {
+    const unsubscribe = interstitial.addAdEventListener(
+      AdEventType.LOADED,
+      () => {
+        setLoaded(true);
+      },
+    );
+
+    // Start loading the interstitial straight away
+    interstitial.load();
+
+    // Unsubscribe from events on unmount
+    return unsubscribe;
+  }, []);
 
   useEffect(() => {
     async function getAndSetList() {
@@ -47,7 +74,8 @@ export default function QuickQuiz({ navigation }) {
   }, [gameRestart, selectedList]);
 
   const handleSubmit = () => {
-    if (!error && selectedList) {
+    if (!error && selectedList && loaded) {
+      interstitial.show();
       setIsGameStarted(true);
     }
   };
@@ -91,6 +119,7 @@ export default function QuickQuiz({ navigation }) {
             />
           </View>
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </LinearGradient>
   );

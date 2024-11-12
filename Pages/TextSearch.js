@@ -13,6 +13,7 @@ import AppButton from "../components/AppButton";
 import data from "../data";
 import { addOneWordToList, defaultList } from "../components/listHelpers";
 import { mainStyles } from "../components/mainStyles";
+import AdBanner from "../components/AdBanner";
 
 export default function TextSearch({ navigation }) {
   const defaultText = "Input text here!";
@@ -98,6 +99,7 @@ export default function TextSearch({ navigation }) {
             <HomeButton navigation={navigation} />
           </View>
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </LinearGradient>
   );

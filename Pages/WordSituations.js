@@ -22,13 +22,13 @@ export default function WordSituations({ navigation }) {
     >
       <SafeAreaView style={style.container}>
         <ScrollView alwaysBounceHorizontal={true}>
-        <View style={mainStyles.screen}>
+          <View style={mainStyles.screen}>
             <Text style={mainStyles.header}>Word Situations</Text>
             <Text style={mainStyles.subText}>
-            Imagine yourself in an important situation. What do you say? Word
-            Situations identifies words unique to politics, business, job
-            interviews, etc. from 10 different categories. Look up words quickly
-            for particular situations and be ready to impress.
+              Imagine yourself in an important situation. What do you say? Word
+              Situations identifies words unique to politics, business, job
+              interviews, etc. from 10 different categories. Look up words
+              quickly for particular situations and be ready to impress.
             </Text>
           </View>
 
@@ -50,7 +50,7 @@ export default function WordSituations({ navigation }) {
             />
             <NavButton
               navigation={navigation}
-              title="GettingRaise"
+              title="Getting A Raise"
               destination="WS_GettingRaise"
             />
             <NavButton

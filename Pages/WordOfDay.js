@@ -14,6 +14,7 @@ import ListenButton from "../components/ListenButton";
 import AddButton from "../components/AddButton";
 import backgrounds from "../backgrounds.js";
 import { mainStyles } from "../components/mainStyles.js";
+import AdBanner from "../components/AdBanner.js";
 
 export function GetWordOfTheDay() {
   // Multiple to make more random
@@ -89,6 +90,7 @@ export default function WordOfDay({ navigation }) {
           <ListenButton audio={wordData.Audio} />
           <AddButton />
           <HomeButton navigation={navigation} />
+          <AdBanner />
         </View>
       </View>
     );

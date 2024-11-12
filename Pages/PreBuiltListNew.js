@@ -4,6 +4,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import HomeButton from "../components/HomeButton";
 import { NavButtonWord } from "../components/NavButtonWord";
 import { mainStyles } from "../components/mainStyles";
+import AdBanner from "../components/AdBanner";
 
 export default function PreBuiltListNew({ navigation }) {
   return (
@@ -285,10 +286,10 @@ export default function PreBuiltListNew({ navigation }) {
             />
           </View>
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </LinearGradient>
   );
 }
 
-const style = StyleSheet.create({
-});
+const style = StyleSheet.create({});

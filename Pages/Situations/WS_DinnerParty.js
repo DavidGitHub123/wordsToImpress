@@ -16,6 +16,7 @@ import { navStyle } from "../../components/NavButton.js";
 import dinnerparty from "../../assets/Backgrounds/dinnerparty.jpg";
 import AppButton from "../../components/AppButton";
 import { mainStyles } from "../../components/mainStyles";
+import AdBanner from "../../components/AdBanner.js";
 
 export default function WS_DinnerParty({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -458,6 +459,7 @@ export default function WS_DinnerParty({ navigation }) {
             </View>
           )}
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </ImageBackground>
   );

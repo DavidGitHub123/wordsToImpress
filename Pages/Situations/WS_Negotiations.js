@@ -16,6 +16,7 @@ import { navStyle } from "../../components/NavButton.js";
 import negotiation from "../../assets/Backgrounds/negotiation.jpg";
 import AppButton from "../../components/AppButton";
 import { mainStyles } from "../../components/mainStyles";
+import AdBanner from "../../components/AdBanner.js";
 
 export default function WS_Negotiations({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -472,6 +473,7 @@ export default function WS_Negotiations({ navigation }) {
             </View>
           )}
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </ImageBackground>
   );

@@ -7,6 +7,7 @@ import { mainStyles } from "../components/mainStyles";
 import HomeButton from "../components/HomeButton";
 import AppButton from "../components/AppButton";
 import CreateListModal from "../components/CreateListModal";
+import AdBanner from "../components/AdBanner";
 
 export const MASTERED_WORD_LIST =
   "(o:&A2S5Fsux > DNq ^:/$;I<vKBK_<'9>h*|qqC@k8fKD+WNg7Vxkj!+R7~70F0V;'kDWV&;{2m,91V{aOBO3)0dJB`%(c3fkSH2T,d03<3@d[rOw4n#c.$B+?E3'v.${";
@@ -100,6 +101,7 @@ export default function ManageLists({ navigation }) {
               <HomeButton navigation={navigation} />
             </View>
           </View>
+          <AdBanner />
         </ScrollView>
       </SafeAreaView>
     </LinearGradient>

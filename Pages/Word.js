@@ -17,6 +17,7 @@ import { navStyle } from "../components/NavButton.js";
 import backgrounds from "../backgrounds.js";
 import AppButton from "../components/AppButton.js";
 import { mainStyles } from "../components/mainStyles.js";
+import AdBanner from "../components/AdBanner.js";
 
 export const isWordConjugate = (wordCanidate, dataWord) => {
   const trucatedWord = dataWord
@@ -116,6 +117,7 @@ export default function Word({ navigation }) {
             ></AppButton>
           </Pressable>
           <HomeButton navigation={navigation} />
+          <AdBanner />
         </View>
       </View>
     );

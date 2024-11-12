@@ -10,6 +10,7 @@ import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import img122 from "../assets/img/img122.jpg";
 import { mainStyles } from "../components/mainStyles";
+import AdBanner from "../components/AdBanner";
 
 export default function VocabMastery({ navigation }) {
   return (
@@ -62,6 +63,7 @@ export default function VocabMastery({ navigation }) {
         <View style={mainStyles.section}>
           <HomeButton navigation={navigation} />
         </View>
+        <AdBanner />
       </SafeAreaView>
     </ImageBackground>
   );

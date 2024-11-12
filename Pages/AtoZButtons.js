@@ -4,6 +4,7 @@ import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import { LinearGradient } from "expo-linear-gradient";
 import { mainStyles } from "../components/mainStyles";
+import AdBanner from "../components/AdBanner";
 
 export default function AtoZButtons({ navigation }) {
   const renderButtons = () =>
@@ -61,6 +62,7 @@ export default function AtoZButtons({ navigation }) {
 
           <View style={mainStyles.section}>{renderButtons()}</View>
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </LinearGradient>
   );

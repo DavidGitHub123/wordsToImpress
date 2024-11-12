@@ -16,6 +16,7 @@ import { navStyle } from "../../components/NavButton.js";
 import boss3 from "../../assets/Backgrounds/boss3.jpg";
 import AppButton from "../../components/AppButton";
 import { mainStyles } from "../../components/mainStyles";
+import AdBanner from "../../components/AdBanner.js";
 
 export default function WS_Boss({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -463,6 +464,7 @@ export default function WS_Boss({ navigation }) {
             </View>
           )}
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </ImageBackground>
   );

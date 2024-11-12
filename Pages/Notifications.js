@@ -21,6 +21,7 @@ import NotificationModal, {
   getMinuteFormat,
   getAMPM,
 } from "../components/NotificationModal";
+import AdBanner from "../components/AdBanner";
 
 Notifs.setNotificationHandler({
   handleNotification: async () => ({
@@ -325,6 +326,7 @@ export default function Notifications({ navigation }) {
             <HomeButton navigation={navigation} />
           </View>
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </LinearGradient>
   );

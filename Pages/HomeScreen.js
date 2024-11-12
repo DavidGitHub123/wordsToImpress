@@ -12,6 +12,7 @@ import phone from "../assets/phone.jpg";
 import AppButton from "../components/AppButton";
 import { mainStyles } from "../components/mainStyles";
 import { defaultList, getDefaultList } from "../components/listHelpers";
+import AdBanner from "../components/AdBanner";
 
 export default function HomeScreen({ navigation }) {
   const listNameRef = useRef(defaultList);
@@ -124,6 +125,7 @@ export default function HomeScreen({ navigation }) {
             />
           </View>
         </View>
+        <AdBanner />
       </SafeAreaView>
     </ImageBackground>
   );

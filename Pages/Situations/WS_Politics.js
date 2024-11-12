@@ -16,6 +16,7 @@ import { navStyle } from "../../components/NavButton.js";
 import politics from "../../assets/Backgrounds/politics.jpg";
 import AppButton from "../../components/AppButton";
 import { mainStyles } from "../../components/mainStyles";
+import AdBanner from "../../components/AdBanner.js";
 
 export default function WS_Politics({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -474,6 +475,7 @@ export default function WS_Politics({ navigation }) {
             </View>
           )}
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </ImageBackground>
   );

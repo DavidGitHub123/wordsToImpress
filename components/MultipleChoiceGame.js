@@ -9,6 +9,7 @@ import { incrementMastery } from "./listHelpers";
 import { mainStyles } from "./mainStyles";
 import ChatBubble from "react-native-chat-bubble";
 import { isWordConjugate } from "../Pages/Word";
+import AdBanner from "./AdBanner";
 
 export default function MultipleChoiceGame(Props) {
   const [anwsers, setAnwsers] = useState([]);
@@ -26,6 +27,8 @@ export default function MultipleChoiceGame(Props) {
     answerType,
     selectedList,
     blank,
+    adLoaded,
+    showAd,
   } = Props;
   const MAX_INCORRECT_ANSWERS = 3;
 
@@ -103,7 +106,7 @@ export default function MultipleChoiceGame(Props) {
     });
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     setDisplayNext(false);
     setIsCorrect(null);
     if (listIndex < list.length - 1) {
@@ -114,6 +117,9 @@ export default function MultipleChoiceGame(Props) {
   };
 
   const handleStartOver = () => {
+    if (adLoaded) {
+      showAd();
+    }
     setScore(0);
     setDisplayNext(false);
     setGameOver(false);
@@ -221,6 +227,7 @@ export default function MultipleChoiceGame(Props) {
             destination="VocabMastery"
           />
           <HomeButton navigation={navigation} />
+          <AdBanner />
         </View>
       ) : (
         <View style={{ ...style.centerContainer, ...style.width90 }}>

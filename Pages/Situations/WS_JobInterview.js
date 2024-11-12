@@ -16,6 +16,7 @@ import ListenButton from "../../components/ListenButton";
 import { navStyle } from "../../components/NavButton.js";
 import jobinterview from "../../assets/Backgrounds/jobinterview.jpg";
 import { mainStyles } from "../../components/mainStyles";
+import AdBanner from "../../components/AdBanner.js";
 
 export default function WS_JobInterview({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -475,6 +476,7 @@ export default function WS_JobInterview({ navigation }) {
             </View>
           )}
         </ScrollView>
+        <AdBanner />
       </SafeAreaView>
     </ImageBackground>
   );
