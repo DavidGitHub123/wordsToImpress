@@ -14,9 +14,6 @@
     "preview": {
       "ios": {
         "simulator": true
-      },
-      "android": {
-        "simulator": true
       }
     },
     "production": {
