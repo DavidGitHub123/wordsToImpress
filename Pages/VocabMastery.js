@@ -54,6 +54,11 @@ export default function VocabMastery({ navigation }) {
           />
           <NavButton
             navigation={navigation}
+            title="Swipe It"
+            destination="SwipeIt"
+          />
+          <NavButton
+            navigation={navigation}
             title="Schedule Challenges"
             destination="Notifications"
           />

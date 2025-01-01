@@ -70,7 +70,7 @@ export default function QuickQuiz({ navigation }) {
       opacity={1.0}
       style={mainStyles.page}
     >
-      <SafeAreaView style={style.container}>
+      <SafeAreaView>
         <ScrollView alwaysBounceHorizontal={true}>
           <View style={[mainStyles.startGameContainer, mainStyles.screen]}>
             <Text style={mainStyles.header}>Quick Quiz</Text>
