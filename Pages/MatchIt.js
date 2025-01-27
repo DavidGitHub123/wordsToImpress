@@ -1,5 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, SafeAreaView, StyleSheet, ScrollView } from "react-native";
+import React, { useState, useEffect, useRef } from "react";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  TouchableHighlight,
+} from "react-native";
 import { mainStyles } from "../components/mainStyles";
 import { LinearGradient } from "expo-linear-gradient";
 import ListDropdown from "../components/ListDropdown.js";
@@ -91,30 +98,46 @@ function SwipeItGame(Props) {
   const setInitialBoxes = () =>
     list
       .slice()
-      .map((el, i) => {
-        if (i % 2 === 0) {
-          return { content: el.Word, selected: false };
-        } else {
-          return { content: el.Shortdef, selected: false };
-        }
-      })
+      .map((el) => [
+        { content: el.Word, answer: el.Shortdef },
+        { content: el.Shortdef, answer: el.Word },
+      ])
+      .flat()
       .map((el) => ({ data: el, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)
       .map(({ data }) => {
-        console.log(data);
-        return { content: data.content, selected: data.selected };
+        return { content: data.content, answer: data.answer };
       });
 
   const [boxes, setBoxes] = useState(() => setInitialBoxes());
+  const [selectedBox, setSelectedBox] = useState(-1);
 
   console.log(boxes);
   console.log(boxes.length);
 
+  const handleSelected = (index) => {
+    if (selectedBox === -1) {
+      setSelectedBox(index);
+      return;
+    }
+
+    if (boxes[index].answer === boxes[selectedBox].content) {
+      const filters = [boxes[index].content, boxes[selectedBox].content];
+      setBoxes((prev) => {
+        return prev.filter((el) => !filters.includes(el.content));
+      });
+    }
+
+    setSelectedBox(-1);
+  };
+
   const renderBoxes = () =>
     boxes.slice(0, 8).map((el, i) => (
-      <View key={i} style={style.box}>
-        <Text style={style.smallText}>{el.content}</Text>
-      </View>
+      <TouchableHighlight key={i} onPress={() => handleSelected(i)}>
+        <View style={selectedBox === i ? style.selectedBox : style.box}>
+          <Text style={style.smallText}>{el.content}</Text>
+        </View>
+      </TouchableHighlight>
     ));
 
   return <View style={style.boxContainer}>{renderBoxes()}</View>;
@@ -129,6 +152,17 @@ const style = StyleSheet.create({
     alignItems: "center",
     gap: 2,
     flexWrap: "wrap",
+  },
+  selectedBox: {
+    backgroundColor: "#c76f04",
+    width: 150,
+    height: 150,
+    borderColor: "black",
+    borderWidth: 2,
+    borderRadius: 5,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   box: {
     backgroundColor: "#FF8C00",
