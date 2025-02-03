@@ -8,7 +8,7 @@ import data from "../data.js";
 import { mainStyles } from "../components/mainStyles.js";
 import ListDropdown from "../components/ListDropdown.js";
 
-export default function BlankGame({ navigation }) {
+export default function FastMatch({ navigation }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [list, setList] = useState([]);
   const [gameRestart, setGameRestart] = useState(false);
@@ -74,9 +74,9 @@ export default function BlankGame({ navigation }) {
       <SafeAreaView style={style.container}>
         <ScrollView alwaysBounceHorizontal={true}>
           <View style={[mainStyles.startGameContainer, mainStyles.screen]}>
-            <Text style={mainStyles.header}>Fill in the Blank</Text>
+            <Text style={mainStyles.header}>Fast Match</Text>
             <Text style={mainStyles.subheader}>
-              Identify the correct definition that matches the highlighted word.
+              Match the correct word that matches each definition./Add Time as in code for Rapid Fire.
             </Text>
             {error && (
               <View style={[mainStyles.error, { marginVertical: 20 }]}>

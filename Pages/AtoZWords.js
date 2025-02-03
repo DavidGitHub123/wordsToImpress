@@ -46,12 +46,6 @@ export default function AtoZWords({ route, navigation }) {
             </View>
 
             <View style={style.bottomButtons}>
-              <Pressable style={navStyle.appButton}>
-                <AppButton
-                  title="Back"
-                  onPress={() => navigation.goBack()}
-                ></AppButton>
-              </Pressable>
               <View>
                 <HomeButton navigation={navigation} />
               </View>

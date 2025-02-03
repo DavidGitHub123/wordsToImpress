@@ -20,9 +20,9 @@ const mainStyles = StyleSheet.create({
     textAlign: "center",
   },
   subText: {
-    fontSize: 20,
+    fontSize: 18,
     color: "#fff",
-    fontWeight: "600",
+    fontWeight: "500",
     paddingVertical: 10,
   },
   copyText: {
@@ -52,7 +52,7 @@ const mainStyles = StyleSheet.create({
   screen: {
     backgroundColor: "rgba(0, 0, 0, .5)",
     marginBottom: 30,
-    borderRadius: 20,
+    // borderRadius: 20,
     paddingHorizontal: 30,
     paddingVertical: 30,
   },
@@ -118,10 +118,11 @@ const mainStyles = StyleSheet.create({
     textAlign: "center",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ff5555",
+    backgroundColor: "#FF8C00",
     borderRadius: 20,
     height: 80,
     width: 300,
+    padding: 20
   },
 });
 

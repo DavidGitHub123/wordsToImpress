@@ -8,7 +8,7 @@ import data from "../data.js";
 import { mainStyles } from "../components/mainStyles.js";
 import ListDropdown from "../components/ListDropdown.js";
 
-export default function BlankGame({ navigation }) {
+export default function VocabTest({ navigation }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [list, setList] = useState([]);
   const [gameRestart, setGameRestart] = useState(false);
@@ -56,12 +56,11 @@ export default function BlankGame({ navigation }) {
     <MultipleChoiceGame
       list={list}
       questionType="Longdef"
-      answerType="Word"
+      answerType="Shortdef"
       navigation={navigation}
       setGameRestart={setGameRestart}
       gameRestart={gameRestart}
       selectedList={selectedList}
-      blank={true}
     />
   ) : (
     <LinearGradient
@@ -74,20 +73,20 @@ export default function BlankGame({ navigation }) {
       <SafeAreaView style={style.container}>
         <ScrollView alwaysBounceHorizontal={true}>
           <View style={[mainStyles.startGameContainer, mainStyles.screen]}>
-            <Text style={mainStyles.header}>Fill in the Blank</Text>
+            <Text style={mainStyles.header}>Vocab Test</Text>
             <Text style={mainStyles.subheader}>
-              Identify the correct definition that matches the highlighted word.
+              Take this test of 25 random vocabulary words to test your word knowledge.
             </Text>
             {error && (
               <View style={[mainStyles.error, { marginVertical: 20 }]}>
                 <Text>{error}</Text>
               </View>
             )}
-            {!selectedList && <Text style={mainStyles.text}>Loading</Text>}
-            <ListDropdown setParent={setSelectedList} />
+            {/* {!selectedList && <Text style={mainStyles.text}>Loading</Text>} */}
+            {/* <ListDropdown setParent={setSelectedList} /> */}
             <AppButton
               onPress={handleSubmit}
-              title="Play Game"
+              title="Start Test"
               icon="sign-in"
             />
           </View>

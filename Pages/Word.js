@@ -109,12 +109,6 @@ export default function Word({ navigation }) {
         <View style={style.buttons}>
           <ListenButton audio={wordData.Audio} />
           <AddButton word={wordData.Word} />
-          <Pressable style={navStyle.appButton}>
-            <AppButton
-              title="Back"
-              onPress={() => navigation.goBack()}
-            ></AppButton>
-          </Pressable>
           <HomeButton navigation={navigation} />
         </View>
       </View>

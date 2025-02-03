@@ -27,6 +27,9 @@ import ManageLists from "./ManageLists";
 import WordMatch from "./WordMatch";
 import QuickQuiz from "./QuickQuiz";
 import BlankGame from "./BlankGame";
+import FastMatch from "./FastMatch";
+import AnagramFun from "./AnagramFun";
+import VocabTest from "./VocabTest";
 
 const Stack = createNativeStackNavigator();
 
@@ -63,6 +66,9 @@ export default function NavigationLinks() {
       <Stack.Screen name="WS_SpeedingTicket" component={WS_SpeedingTicket} />
       <Stack.Screen name="ManageLists" component={ManageLists} />
       <Stack.Screen name="BlankGame" component={BlankGame} />
+      <Stack.Screen name="FastMatch" component={FastMatch} />
+      <Stack.Screen name="AnagramFun" component={AnagramFun} />
+      <Stack.Screen name="VocabTest" component={VocabTest} />
     </Stack.Navigator>
   );
 }

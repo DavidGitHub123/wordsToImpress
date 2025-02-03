@@ -116,7 +116,7 @@ export default function Notifications({ navigation }) {
   const [currNotifs, setCurrNotifs] = useState(null);
   const notificationListener = useRef();
   const responseListener = useRef();
-  const vocabMasteryArry = ["Quick Quiz", "Word Match", "Rapid Fire"];
+  const vocabMasteryArry = ["Rapid Fire", "Word Match", "Quick Quiz", "Fill in the Blank", 'Fast Match', 'Anagram Fun'];
   const wordOfTheDay = GetWordOfTheDay();
   useEffect(() => {
     registerForPushNotificationsAsync();
@@ -271,9 +271,8 @@ export default function Notifications({ navigation }) {
               <View style={mainStyles.screen}>
                 <Text style={mainStyles.header}>Challenges</Text>
                 <Text style={mainStyles.subText}>
-                  It is important to challenge yourself to master your
-                  vocabulary lists. Set times to receive notifications to play
-                  the games and quizes, as well as receive the word of the day.
+                  Challenge yourself. Set notifications to play
+                  games and quizes, or receive the word of the day.
                 </Text>
               </View>
 
@@ -286,7 +285,7 @@ export default function Notifications({ navigation }) {
                 />
                 {renderNotifs(NOTIF_TYPES.wordOfDay)}
                 <AppButton
-                  title="Challenges"
+                  title="Games and Quizzes"
                   onPress={() => openModal(NOTIF_TYPES.mastery)}
                   icon="sign-in"
                 />
@@ -294,13 +293,9 @@ export default function Notifications({ navigation }) {
                 <View style={style.bottomButtons}>
                   <AppButton
                     icon="trash"
-                    title="Clear all notifications"
+                    title="Clear Notifications"
                     onPress={() => handleCancelAll()}
                   />
-                  <AppButton
-                    title="Back"
-                    onPress={() => navigation.goBack()}
-                  ></AppButton>
                 </View>
               </View>
             </View>
@@ -313,11 +308,6 @@ export default function Notifications({ navigation }) {
                 handleClose={handleClose}
                 options={options}
               />
-              <AppButton
-                viewStyle={{ margin: "auto" }}
-                title="Back"
-                onPress={() => setShowModal(false)}
-              ></AppButton>
             </View>
           )}
 

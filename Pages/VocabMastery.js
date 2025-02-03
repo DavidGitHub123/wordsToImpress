@@ -25,9 +25,8 @@ export default function VocabMastery({ navigation }) {
 
           <Text style={mainStyles.subText}>
             Here you can learn to make words part of your everyday Vocabulary.
-            Once correctly identified 10 times, a word moves into your Mastered
-            List. Only words you have not mastered appear in games and quizzes
-            for more efficient learning.
+            Once correctly identified 10 times, a word appears in your Mastered
+            Lists.
           </Text>
         </View>
 
@@ -49,9 +48,21 @@ export default function VocabMastery({ navigation }) {
           />
           <NavButton
             navigation={navigation}
-            title="Blank Game"
+            title="Fill in the Blank"
             destination="BlankGame"
           />
+
+          <NavButton
+            navigation={navigation}
+            title="Fast Match"
+            destination="FastMatch"
+          />
+          <NavButton
+            navigation={navigation}
+            title="Anagram Fun"
+            destination="AnagramFun"
+          />
+
           <NavButton
             navigation={navigation}
             title="Schedule Challenges"
