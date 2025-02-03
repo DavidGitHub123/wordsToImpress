@@ -27,7 +27,7 @@ export default function WordSituations({ navigation }) {
             <Text style={mainStyles.subText}>
             Imagine yourself in an important situation. What do you say? Word
             Situations identifies words unique to politics, business, job
-            interviews, etc. from 10 different categories. Look up words quickly
+            interviews, etc. Look up words quickly
             for particular situations and be ready to impress.
             </Text>
           </View>
@@ -51,7 +51,7 @@ export default function WordSituations({ navigation }) {
             <NavButton
               navigation={navigation}
               title="GettingRaise"
-              destination="WS_GettingRaise"
+              destination="WS_Getting a Raise"
             />
             <NavButton
               navigation={navigation}

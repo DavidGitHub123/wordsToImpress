@@ -209,6 +209,11 @@ function GameSetUp(Props) {
         icon="play-circle"
         onPress={handleSubmit}
       />
+
+      {/* <AppButton
+        title="Back"
+        onPress={() => navigation.goBack()}
+      ></AppButton> */}
     </View>
   );
 }

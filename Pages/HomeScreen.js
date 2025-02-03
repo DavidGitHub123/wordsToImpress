@@ -12,6 +12,15 @@ import phone from "../assets/phone.jpg";
 import AppButton from "../components/AppButton";
 import { mainStyles } from "../components/mainStyles";
 import { defaultList, getDefaultList } from "../components/listHelpers";
+import OutlinedText from '@kdn0325/react-native-outlined-text';
+
+<OutlinedText
+text="Outlined Text"
+fontColor="white"
+fontSize={40}
+outlineColor="black"
+outlineWidth={2}
+/>
 
 export default function HomeScreen({ navigation }) {
   const listNameRef = useRef(defaultList);
@@ -54,11 +63,69 @@ export default function HomeScreen({ navigation }) {
           <Image style={style.imageHeader} source={logo} />
         </View>
 
-        <View style={style.screen}>
-          <Text style={style.buildyour}>Build Your</Text>
-          <Text style={style.vocabulary}>Vocabulary</Text>
-          <Text style={style.prowess}>PROWESS</Text>
+          <View style={style.test}>
+            <Text style={{
+              fontSize: 40,
+              letterSpacing: 4,
+              fontWeight:900,
+              color: '#fff',
+              textShadowOffset: { width: 3, height: 3 },
+              textShadowRadius: 1,
+              textShadowColor: 'black',
+              marginTop: -40,
+            }}>
+              Build Your
+            </Text>
+            <Text style={{
+              fontSize: 0,
+              color: 'white',
+            }}>
+            </Text>
+            <Text style={{
+              fontSize: 50,
+              fontWeight:900,
+              color: '#fff',
+              textShadowOffset: { width: 3, height: 3 },
+              textShadowRadius: 1,
+              textShadowColor: 'black',
+              marginTop: -20,
+            }}>
+              Vocabulary
+            </Text>
+            <Text style={{
+              fontSize: 40,
+              color: 'white',
+            }}>
+            </Text>
+            <Text style={{
+              fontSize: 40,
+              color: '#fff',
+              letterSpacing: 4,
+              fontWeight:900,
+              textShadowOffset: { width: 3, height: 3 },
+              textShadowRadius: 1,
+              textShadowColor: 'black',
+              marginTop: -50,
+            }}>
+              PROWESS
+            </Text>
+            <Text style={{
+              fontSize: 40,
+              color: 'white',
+            }}>
+            </Text>
+          </View>
+
+
+        <View style={style.test}>
+          <AppButton
+            size="large"
+            icon="book"
+            title="Test Your Skills"
+            onPress={() => navigation.navigate("VocabTest")}
+          />
         </View>
+        
         <View>
           <View style={style.buttons}>
             <AppButton
@@ -134,6 +201,10 @@ const style = StyleSheet.create({
     alignItems: "center",
   },
 
+  test: {
+    alignItems: "center",
+  },
+
   buttons: {
     alignItems: "center",
     flexDirection: "row",
@@ -145,39 +216,34 @@ const style = StyleSheet.create({
     width: 250,
     height: 250,
     resizeMode: "contain",
+
   },
 
-  buildyour: {
-    letterSpacing: 4,
-    fontSize: 44,
-    color: "#f0f8ff",
-    fontWeight: "900",
-    textShadowColor: "black",
-    textShadowRadius: 5,
-    textAlign: "center",
-    marginTop: -40,
-  },
+  // buildyour: {
+  //   letterSpacing: 3,
+  //   fontSize: 50,
+  //   font: 'algerian',
+  //   color: "#f0f8ff",
+  //   fontWeight: "900",
+  //   textAlign: "center",
+  //   marginTop: -40,
+  // },
 
-  vocabulary: {
-    letterSpacing: 4,
-    fontSize: 38,
-    color: "#f0f8ff",
-    fontWeight: "900",
-    textShadowColor: "black",
-    textShadowRadius: 5,
-    marginTop: -5,
-    textAlign: "center",
-  },
+  // vocabulary: {
+  //   letterSpacing: 4,
+  //   fontSize: 54,
+  //   color: "#f0f8ff",
+  //   fontWeight: "900",
+  //   marginTop: -5,
+  //   textAlign: "center",
+  // },
 
-  prowess: {
-    fontSize: 50,
-    color: "#f0f8ff",
-    fontWeight: "900",
-    textShadowColor: "black",
-    textShadowRadius: 5,
-    paddingBottom: 30,
-    textAlign: "center",
-  },
+  // prowess: {
+  //   fontSize: 50,
+  //   color: "#f0f8ff",
+  //   fontWeight: "900",
+  //   textAlign: "center",
+  // },
   seperator: {
     height: 1,
     width: "100%",

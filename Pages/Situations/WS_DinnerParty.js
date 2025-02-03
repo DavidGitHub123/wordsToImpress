@@ -447,12 +447,6 @@ export default function WS_DinnerParty({ navigation }) {
               </View>
 
               <View style={style.bottomButtons}>
-                <Pressable style={navStyle.appButton}>
-                  <AppButton
-                    title="Back"
-                    onPress={() => navigation.goBack()}
-                  ></AppButton>
-                </Pressable>
                 <HomeButton navigation={navigation} />
               </View>
             </View>

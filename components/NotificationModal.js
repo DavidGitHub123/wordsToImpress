@@ -11,7 +11,7 @@ export const RenderTime = (time) => {
 
   return (
     <Text style={style.timeText}>
-      Click Remind Me to Set this Reminder at {formattedHours}:
+      Click to Set Reminder at {formattedHours}:
       {formattedMinutes} {ampm}
     </Text>
   );
@@ -115,7 +115,7 @@ export default function NotificationModal(Props) {
       {showTimePicker && (
         <View style={mainStyles.centerChildren}>
           {Platform.OS === "ios" && (
-            <Text style={[mainStyles.text, style.marginAuto]}>Click me</Text>
+            <Text style={[mainStyles.text, style.marginAuto]}></Text>
           )}
           <DateTimePicker
             value={time}
@@ -133,7 +133,7 @@ export default function NotificationModal(Props) {
             <AppButton
               viewStyle={style.marginAuto}
               icon="sign-out-alt"
-              title="Remind me"
+              title="Set Reminder Time"
               onPress={handleSubmit}
             />
           )}

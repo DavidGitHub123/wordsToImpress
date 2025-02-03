@@ -8,7 +8,7 @@ import data from "../data.js";
 import { mainStyles } from "../components/mainStyles.js";
 import ListDropdown from "../components/ListDropdown.js";
 
-export default function BlankGame({ navigation }) {
+export default function AnagramFun({ navigation }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [list, setList] = useState([]);
   const [gameRestart, setGameRestart] = useState(false);
@@ -74,9 +74,10 @@ export default function BlankGame({ navigation }) {
       <SafeAreaView style={style.container}>
         <ScrollView alwaysBounceHorizontal={true}>
           <View style={[mainStyles.startGameContainer, mainStyles.screen]}>
-            <Text style={mainStyles.header}>Fill in the Blank</Text>
+            <Text style={mainStyles.header}>AnagramFun</Text>
             <Text style={mainStyles.subheader}>
-              Identify the correct definition that matches the highlighted word.
+              Read the definition, then rearrange the letters to identify the word.
+              Add timer?
             </Text>
             {error && (
               <View style={[mainStyles.error, { marginVertical: 20 }]}>

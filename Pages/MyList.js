@@ -14,7 +14,6 @@ import IconButton from "../components/IconButton";
 import { mainStyles } from "../components/mainStyles";
 import data from "../data";
 import { MASTERED_WORD_LIST } from "./ManageLists";
-import AppButton from "../components/AppButton";
 
 export default function MyList({ route, navigation }) {
   const [masteredWordCount, setMasteredWordCount] = useState(0);
@@ -160,11 +159,9 @@ export default function MyList({ route, navigation }) {
         <ScrollView alwaysBounceHorizontal={true}>
           <View style={mainStyles.screen}>
             <View>
-              <Text style={mainStyles.header}>My Mastery</Text>
+              <Text style={mainStyles.header}>Mastered Words</Text>
               <Text style={mainStyles.subText}>
-                In games and quizzes, once correctly identified 10 times, a word
-                moves into your Mastered List. Only words you have not mastered
-                appear in games and quizzes for more efficient learning.
+              A word appears in your Mastered List once you've correctly identified that word 10 times in games and quizzes.
               </Text>
             </View>
           </View>
@@ -186,12 +183,7 @@ export default function MyList({ route, navigation }) {
           </Text>
           <View style={mainStyles.section}>{renderList()}</View>
 
-          <View style={style.buttons}>
-            <AppButton
-              viewStyle={{ margin: "auto" }}
-              title="Back"
-              onPress={() => navigation.goBack()}
-            />
+          <View>
             <HomeButton navigation={navigation} />
           </View>
         </ScrollView>
