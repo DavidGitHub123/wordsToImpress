@@ -67,26 +67,35 @@ export default function SwipeIt() {
       style={mainStyles.page}
     >
       <SafeAreaView>
-        <ScrollView alwaysBounceHorizontal={true}>
-          {isGameStarted ? (
-            <SwipeItGame list={list} />
-          ) : (
+        {isGameStarted ? (
+          <SwipeItGame list={list} />
+        ) : (
+          <View style={[mainStyles.startGameContainer, mainStyles.screen]}>
+            <Text style={mainStyles.header}>Match It</Text>
+            <Text style={mainStyles.subheader}>
+              Find pairs and try to clear the screen as fast as possible.
+            </Text>
+            {error && (
+              <View style={[mainStyles.error, { marginVertical: 20 }]}>
+                <Text>{error}</Text>
+              </View>
+            )}
+            {!selectedList && <Text style={mainStyles.text}>Loading</Text>}
+            <ListDropdown setParent={setSelectedList} />
+            <AppButton
+              onPress={handleSubmit}
+              title="Play Game"
+              icon="sign-in"
+            />
             <View>
               {error && (
                 <View style={[mainStyles.error, { marginVertical: 20 }]}>
                   <Text>{error}</Text>
                 </View>
               )}
-              <Text style={mainStyles.text}>Select list to study</Text>
-              <ListDropdown setParent={setSelectedList} />
-              <AppButton
-                onPress={handleSubmit}
-                title="Play Game"
-                icon="sign-in"
-              />
             </View>
-          )}
-        </ScrollView>
+          </View>
+        )}
       </SafeAreaView>
     </LinearGradient>
   );

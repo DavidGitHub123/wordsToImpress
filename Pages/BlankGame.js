@@ -74,7 +74,7 @@ export default function BlankGame({ navigation }) {
       <SafeAreaView style={style.container}>
         <ScrollView alwaysBounceHorizontal={true}>
           <View style={[mainStyles.startGameContainer, mainStyles.screen]}>
-            <Text style={mainStyles.header}>Quick Quiz</Text>
+            <Text style={mainStyles.header}>Blank Game</Text>
             <Text style={mainStyles.subheader}>
               Identify the correct definition that matches the highlighted word.
             </Text>
