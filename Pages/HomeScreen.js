@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {
   View,
   Image,
@@ -6,28 +6,47 @@ import {
   StyleSheet,
   SafeAreaView,
   ImageBackground,
+  Modal,
 } from "react-native";
 import logo from "../assets/logoborderradius.jpg";
 import phone from "../assets/phone.jpg";
 import AppButton from "../components/AppButton";
 import { mainStyles } from "../components/mainStyles";
-import { defaultList, getDefaultList } from "../components/listHelpers";
-import OutlinedText from '@kdn0325/react-native-outlined-text';
+import {
+  defaultList,
+  getDefaultList,
+  isFirstTime,
+} from "../components/listHelpers";
+import OutlinedText from "@kdn0325/react-native-outlined-text";
+import IconButton from "../components/IconButton";
 
 <OutlinedText
-text="Outlined Text"
-fontColor="white"
-fontSize={40}
-outlineColor="black"
-outlineWidth={2}
-/>
+  text="Outlined Text"
+  fontColor="white"
+  fontSize={40}
+  outlineColor="black"
+  outlineWidth={2}
+/>;
 
 export default function HomeScreen({ navigation }) {
   const listNameRef = useRef(defaultList);
 
+  const handleCloseModal = () => setShowModal(false);
+
+  const handleNavToVocabTest = () => {
+    setShowModal(false);
+    navigation.navigate("VocabTest");
+  };
+
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     (async () => {
       listNameRef.current = await getDefaultList();
+
+      if (await isFirstTime()) {
+        setShowModal(true);
+      }
     })();
   }, []);
   return (
@@ -63,59 +82,67 @@ export default function HomeScreen({ navigation }) {
           <Image style={style.imageHeader} source={logo} />
         </View>
 
-          <View style={style.test}>
-            <Text style={{
+        <View style={style.test}>
+          <Text
+            style={{
               fontSize: 40,
               letterSpacing: 4,
-              fontWeight:900,
-              color: '#fff',
+              fontWeight: 900,
+              color: "#fff",
               textShadowOffset: { width: 3, height: 3 },
               textShadowRadius: 1,
-              textShadowColor: 'black',
+              textShadowColor: "black",
               marginTop: -40,
-            }}>
-              Build Your
-            </Text>
-            <Text style={{
+            }}
+          >
+            Build Your
+          </Text>
+          <Text
+            style={{
               fontSize: 0,
-              color: 'white',
-            }}>
-            </Text>
-            <Text style={{
+              color: "white",
+            }}
+          ></Text>
+          <Text
+            style={{
               fontSize: 50,
-              fontWeight:900,
-              color: '#fff',
+              fontWeight: 900,
+              color: "#fff",
               textShadowOffset: { width: 3, height: 3 },
               textShadowRadius: 1,
-              textShadowColor: 'black',
+              textShadowColor: "black",
               marginTop: -20,
-            }}>
-              Vocabulary
-            </Text>
-            <Text style={{
+            }}
+          >
+            Vocabulary
+          </Text>
+          <Text
+            style={{
               fontSize: 40,
-              color: 'white',
-            }}>
-            </Text>
-            <Text style={{
+              color: "white",
+            }}
+          ></Text>
+          <Text
+            style={{
               fontSize: 40,
-              color: '#fff',
+              color: "#fff",
               letterSpacing: 4,
-              fontWeight:900,
+              fontWeight: 900,
               textShadowOffset: { width: 3, height: 3 },
               textShadowRadius: 1,
-              textShadowColor: 'black',
+              textShadowColor: "black",
               marginTop: -50,
-            }}>
-              PROWESS
-            </Text>
-            <Text style={{
+            }}
+          >
+            PROWESS
+          </Text>
+          <Text
+            style={{
               fontSize: 40,
-              color: 'white',
-            }}>
-            </Text>
-          </View>
-
+              color: "white",
+            }}
+          ></Text>
+        </View>
 
         <View style={style.test}>
           <AppButton
@@ -125,7 +152,24 @@ export default function HomeScreen({ navigation }) {
             onPress={() => navigation.navigate("VocabTest")}
           />
         </View>
-        
+
+        <Modal visible={showModal} transparent={true}>
+          <View style={style.centeredView}>
+            <View style={style.modalView}>
+              <View style={style.xButton}>
+                <IconButton name="times" onPress={() => handleCloseModal()} />
+              </View>
+              <Text style={mainStyles.text}>Test your knowledge</Text>
+              <Text style={mainStyles.text}>Take our placement quiz</Text>
+              <AppButton
+                size="large"
+                icon="list"
+                title="My Lists"
+                onPress={() => handleNavToVocabTest()}
+              />
+            </View>
+          </View>
+        </Modal>
         <View>
           <View style={style.buttons}>
             <AppButton
@@ -216,7 +260,6 @@ const style = StyleSheet.create({
     width: 250,
     height: 250,
     resizeMode: "contain",
-
   },
 
   // buildyour: {
@@ -256,5 +299,30 @@ const style = StyleSheet.create({
     height: "10%",
     width: "100%",
     backgroundColor: "#FF8C00",
+  },
+
+  xButton: {
+    alignSelf: "flex-end",
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "#282a36",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
   },
 });

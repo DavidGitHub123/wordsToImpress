@@ -30,6 +30,7 @@ import BlankGame from "./BlankGame";
 import FastMatch from "./FastMatch";
 import AnagramFun from "./AnagramFun";
 import VocabTest from "./VocabTest";
+import InitialQuiz from "../components/InitialQuiz";
 
 const Stack = createNativeStackNavigator();
 
@@ -69,6 +70,7 @@ export default function NavigationLinks() {
       <Stack.Screen name="FastMatch" component={FastMatch} />
       <Stack.Screen name="AnagramFun" component={AnagramFun} />
       <Stack.Screen name="VocabTest" component={VocabTest} />
+      <Stack.Screen name="InitialQuiz" component={InitialQuiz} />
     </Stack.Navigator>
   );
 }

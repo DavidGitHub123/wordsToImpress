@@ -9,6 +9,7 @@ import { incrementMastery } from "./listHelpers";
 import { mainStyles } from "./mainStyles";
 import ChatBubble from "react-native-chat-bubble";
 import { isWordConjugate } from "../Pages/Word";
+import IconButton from "./IconButton";
 
 export default function MultipleChoiceGame(Props) {
   const [anwsers, setAnwsers] = useState([]);
@@ -26,6 +27,8 @@ export default function MultipleChoiceGame(Props) {
     answerType,
     selectedList,
     blank,
+    noMastery,
+    showScoreModal,
   } = Props;
   const MAX_INCORRECT_ANSWERS = 3;
 
@@ -91,7 +94,9 @@ export default function MultipleChoiceGame(Props) {
       return;
     }
     if (anwsers[index].correct) {
-      incrementMastery(selectedList, anwsers[index].Word);
+      if (!noMastery) {
+        incrementMastery(selectedList, anwsers[index].Word);
+      }
       setScore(score + 1);
     }
 
@@ -191,6 +196,20 @@ export default function MultipleChoiceGame(Props) {
       </ChatBubble>
     );
 
+  const getSkillLevel = (score) => {
+    if (score <= 5) {
+      return "Novice";
+    } else if (score <= 10) {
+      return "Basic";
+    } else if (score <= 15) {
+      return "Intermediate";
+    } else if (score <= 20) {
+      return "Advanced";
+    } else if (score <= 25) {
+      return "Expert";
+    }
+  };
+
   return (
     <LinearGradient
       colors={["#6699FF", "#335C81"]}
@@ -207,20 +226,37 @@ export default function MultipleChoiceGame(Props) {
       </View>
       {gameOver ? (
         <View style={style.endContainer}>
-          <Text style={style.header}>
-            You scored {score}/{list.length}
-          </Text>
-          <AppButton
-            icon="sign-in"
-            title="Play Again"
-            onPress={handleStartOver}
-          />
-          <NavButton
-            navigation={navigation}
-            title="Word Mastery"
-            destination="VocabMastery"
-          />
-          <HomeButton navigation={navigation} />
+          <Modal visible={showScoreModal} transparent={true}>
+            <View style={style.centeredView}>
+              <View style={style.modalView}>
+                <Text style={[style.header, { paddingHorizontal: 15 }]}>
+                  You scored {score}/{list.length}
+                </Text>
+                <Text style={mainStyles.text}>
+                  {getSkillLevel(score)} vocab
+                </Text>
+                <HomeButton navigation={navigation} />
+              </View>
+            </View>
+          </Modal>
+          {!showScoreModal && (
+            <View>
+              <Text style={style.header}>
+                You scored {score}/{list.length}
+              </Text>
+              <AppButton
+                icon="sign-in"
+                title="Play Again"
+                onPress={handleStartOver}
+              />
+              <NavButton
+                navigation={navigation}
+                title="Word Mastery"
+                destination="VocabMastery"
+              />
+              <HomeButton navigation={navigation} />
+            </View>
+          )}
         </View>
       ) : (
         <View style={{ ...style.centerContainer, ...style.width90 }}>
