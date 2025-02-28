@@ -1,66 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { getNLeastMastered } from "../components/listHelpers.js";
 import AppButton from "../components/AppButton.js";
 import MultipleChoiceGame from "../components/MultipleChoiceGame.js";
 import data from "../data.js";
 import { mainStyles } from "../components/mainStyles.js";
-import ListDropdown from "../components/ListDropdown.js";
 
 export default function VocabTest({ navigation }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [list, setList] = useState([]);
   const [gameRestart, setGameRestart] = useState(false);
-  const [selectedList, setSelectedList] = useState(null);
-  const [error, setError] = useState(null);
-
-  const getShortDef = (word) => data.find((el) => el.Word === word).Shortdef;
 
   useEffect(() => {
     async function getAndSetList() {
-      if (!selectedList) {
-        return;
-      }
-      let userList = await getNLeastMastered(selectedList, 10);
+      let randomList = [];
 
-      if (userList.length === 0) {
-        setError(
-          `${selectedList} is empty, add some words or use another list`,
-        );
-        return;
-      } else {
-        setError(null);
+      for (let i = 0; i < 25; i++) {
+        randomList.push(data[Math.floor(Math.random() * data.length)]);
       }
-      userList = userList.map((el) => {
+
+      randomList = randomList.map((el) => {
         return {
-          Word: el.word,
-          mastery: el.mastery,
-          Shortdef: getShortDef(el.word),
+          Word: el.Word,
+          Shortdef: el.Shortdef,
         };
       });
 
-      setList(userList);
+      setList(randomList);
     }
 
     getAndSetList();
-  }, [gameRestart, selectedList]);
+  }, [gameRestart]);
 
-  const handleSubmit = () => {
-    if (!error && selectedList) {
-      setIsGameStarted(true);
-    }
-  };
+  const handleSubmit = () => setIsGameStarted(true);
 
   return isGameStarted ? (
     <MultipleChoiceGame
       list={list}
-      questionType="Longdef"
-      answerType="Shortdef"
+      questionType="Shortdef"
+      answerType="Word"
       navigation={navigation}
       setGameRestart={setGameRestart}
       gameRestart={gameRestart}
-      selectedList={selectedList}
+      noMastery={true}
+      showScoreModal={true}
     />
   ) : (
     <LinearGradient
@@ -75,15 +58,9 @@ export default function VocabTest({ navigation }) {
           <View style={[mainStyles.startGameContainer, mainStyles.screen]}>
             <Text style={mainStyles.header}>Vocab Test</Text>
             <Text style={mainStyles.subheader}>
-              Take this test of 25 random vocabulary words to test your word knowledge.
+              Take this test of 25 random vocabulary words to test your word
+              knowledge.
             </Text>
-            {error && (
-              <View style={[mainStyles.error, { marginVertical: 20 }]}>
-                <Text>{error}</Text>
-              </View>
-            )}
-            {/* {!selectedList && <Text style={mainStyles.text}>Loading</Text>} */}
-            {/* <ListDropdown setParent={setSelectedList} /> */}
             <AppButton
               onPress={handleSubmit}
               title="Start Test"

@@ -145,6 +145,15 @@ const initLists = async (isDev) => {
     await updateList(defaultList, testList);
   }
 };
+
+const isFirstTime = async () => {
+  const firstTime = "firstTimeKey3";
+  const result = await AsyncStorage.getItem(firstTime);
+  if (!result) {
+    await AsyncStorage.setItem(firstTime, "true");
+  }
+  return !result;
+};
 export {
   makeNewList,
   removeList,
@@ -159,4 +168,5 @@ export {
   removeOneWordFromList,
   initLists,
   getDefaultList,
+  isFirstTime,
 };
