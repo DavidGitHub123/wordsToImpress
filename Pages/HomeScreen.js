@@ -159,7 +159,7 @@ export default function HomeScreen({ navigation }) {
               <View style={style.xButton}>
                 <IconButton name="times" onPress={() => handleCloseModal()} />
               </View>
-              <Text style={mainStyles.text}>Test your knowledge</Text>
+              <Text style={mainStyles.text}>Test your Vocabulary Prowess</Text>
               <Text style={mainStyles.text}>Take our placement quiz</Text>
               <AppButton
                 size="large"

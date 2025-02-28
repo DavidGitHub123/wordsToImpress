@@ -232,9 +232,20 @@ export default function MultipleChoiceGame(Props) {
                 <Text style={[style.header, { paddingHorizontal: 15 }]}>
                   You scored {score}/{list.length}
                 </Text>
-                <Text style={mainStyles.text}>
-                  {getSkillLevel(score)} vocab
+                <Text style={style.modalText}>
+                  Congratulations! you attained a {getSkillLevel(score)} level
                 </Text>
+                <Text style={style.modalText}>
+                  Expert 21-25 correct answers
+                </Text>
+                <Text style={style.modalText}>
+                  Advanced 16-20 correct answers
+                </Text>
+                <Text style={style.modalText}>
+                  Intermediate 11-15 correct answers
+                </Text>
+                <Text style={style.modalText}>Basic 6-10 correct answers</Text>
+                <Text style={style.modalText}>Novice 0-5 correct answers</Text>
                 <HomeButton navigation={navigation} />
               </View>
             </View>
@@ -381,9 +392,9 @@ const style = StyleSheet.create({
   },
   modalView: {
     margin: 10,
-    backgroundColor: "#2350a8",
+    backgroundColor: "#295094",
     borderRadius: 20,
-    paddingVertical: 10,
+    paddingVertical: 20,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -393,5 +404,11 @@ const style = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+  },
+  modalText: {
+    fontSize: 20,
+    color: "#f0f8ff",
+    fontWeight: "700",
+    textAlign: "center",
   },
 });
