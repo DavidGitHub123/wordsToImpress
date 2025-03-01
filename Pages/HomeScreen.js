@@ -159,8 +159,8 @@ export default function HomeScreen({ navigation }) {
               <View style={style.xButton}>
                 <IconButton name="times" onPress={() => handleCloseModal()} />
               </View>
-              <Text style={mainStyles.text}>Test your Vocabulary Prowess</Text>
-              <Text style={mainStyles.text}>Take our placement quiz</Text>
+              <Text style={style.modalText}>Test your Vocabulary Prowess</Text>
+              <Text style={style.modalText}>Take our placement quiz</Text>
               <AppButton
                 size="large"
                 icon="list"
@@ -324,5 +324,12 @@ const style = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+  },
+  modalText: {
+    paddingVertical: 4,
+    fontSize: 20,
+    color: "#f0f8ff",
+    fontWeight: "700",
+    textAlign: "center",
   },
 });

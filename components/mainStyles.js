@@ -122,7 +122,7 @@ const mainStyles = StyleSheet.create({
     borderRadius: 20,
     height: 80,
     width: 300,
-    padding: 20
+    padding: 20,
   },
 });
 
