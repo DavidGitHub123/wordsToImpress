@@ -144,15 +144,6 @@ export default function HomeScreen({ navigation }) {
           ></Text>
         </View>
 
-        <View style={style.test}>
-          <AppButton
-            size="large"
-            icon="book"
-            title="Test Your Skills"
-            onPress={() => navigation.navigate("VocabTest")}
-          />
-        </View>
-
         <Modal visible={showModal} transparent={true}>
           <View style={style.centeredView}>
             <View style={style.modalView}>

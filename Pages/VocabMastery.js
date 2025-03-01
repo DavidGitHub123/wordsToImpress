@@ -54,17 +54,6 @@ export default function VocabMastery({ navigation }) {
 
           <NavButton
             navigation={navigation}
-            title="Fast Match"
-            destination="FastMatch"
-          />
-          <NavButton
-            navigation={navigation}
-            title="Anagram Fun"
-            destination="AnagramFun"
-          />
-
-          <NavButton
-            navigation={navigation}
             title="Schedule Challenges"
             destination="Notifications"
           />
