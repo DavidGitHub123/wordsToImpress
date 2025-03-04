@@ -10,10 +10,12 @@ export default function ListDropdown(Props) {
 
   const loadAndSetLists = async () => {
     const allLists = await getNamesOfLists();
-    const userLists = allLists.map((el) => ({
-      label: el,
-      value: el,
-    }));
+    const userLists = allLists
+      .filter((el) => !el.includes("^_^>_<^_^"))
+      .map((el) => ({
+        label: el,
+        value: el,
+      }));
     if (allLists.includes(defaultList)) {
       setParent(defaultList);
       setSelectedList(defaultList);
