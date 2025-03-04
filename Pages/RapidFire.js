@@ -26,7 +26,6 @@ export default function RapidFire({ navigation }) {
   useEffect(() => {
     async function getWords() {
       if (!selectedList) {
-        console.log("early return");
         return;
       }
       const list = await getNLeastMastered(selectedList, 10);
@@ -109,6 +108,7 @@ function Game(Props) {
   };
 
   useEffect(() => {
+    console.log(timing);
     if (timing === "Unlimited") {
       return;
     }
@@ -116,7 +116,10 @@ function Game(Props) {
     if (timeLeft === 0) {
       resetRound();
     } else {
-      clearTimeout(timerID.current);
+      console.log(timerID.current);
+      if (timerID.current !== -1) {
+        clearTimeout(timerID.current);
+      }
       timerID.current = setTimeout(() => {
         setTimeLeft(timeLeft - 1);
       }, 1000);

@@ -98,6 +98,10 @@ const _resetDefaultList = async () => {
 const getNLeastMastered = async (name, n) => {
   try {
     const list = await getList(name);
+
+    if (!(list instanceof Array)) {
+      return;
+    }
     const sortedList = list.sort((a, b) => a.mastery - b.mastery);
     return sortedList.slice(0, n);
   } catch (e) {
@@ -147,7 +151,7 @@ const initLists = async (isDev) => {
 };
 
 const isFirstTime = async () => {
-  const firstTime = "firstTimeKey3";
+  const firstTime = "__firstTimeKey";
   const result = await AsyncStorage.getItem(firstTime);
   if (!result) {
     await AsyncStorage.setItem(firstTime, "true");
