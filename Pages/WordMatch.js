@@ -16,7 +16,6 @@ export default function WordMatch({ navigation }) {
 
   async function getAndSetList() {
     if (!selectedList) {
-      console.log("early return");
       return;
     }
     let userList = await getNLeastMastered(selectedList, 10);
