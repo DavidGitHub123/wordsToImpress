@@ -108,7 +108,6 @@ function Game(Props) {
   };
 
   useEffect(() => {
-    console.log(timing);
     if (timing === "Unlimited") {
       return;
     }
@@ -116,7 +115,6 @@ function Game(Props) {
     if (timeLeft === 0) {
       resetRound();
     } else {
-      console.log(timerID.current);
       if (timerID.current !== -1) {
         clearTimeout(timerID.current);
       }
