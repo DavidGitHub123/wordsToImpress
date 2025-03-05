@@ -66,8 +66,8 @@ export default function ManageLists({ navigation }) {
             <Text style={mainStyles.header}>My Vocab Lists</Text>
             <Text style={mainStyles.subText}>
               Most successful people have mastered 50 to 100 “big” words. Build
-              the right list for you with the Pre-Built List. You can analyze
-              your writing with Build My List and let the app suggest words. Or
+              the right list for you. The Pre-Built List is a fast way to build a list. Or you can analyze
+              your writing with Build My List and let the app suggest words. You can also
               create your own list based on your particular interests.
             </Text>
           </View>
