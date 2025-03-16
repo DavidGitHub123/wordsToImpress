@@ -255,6 +255,7 @@ export default function MultipleChoiceGame(Props) {
                 You scored {score}/{list.length}
               </Text>
               <AppButton
+                viewStyle={style.center}
                 icon="sign-in"
                 title="Play Again"
                 onPress={handleStartOver}
@@ -409,5 +410,8 @@ const style = StyleSheet.create({
     color: "#f0f8ff",
     fontWeight: "700",
     textAlign: "center",
+  },
+  center: {
+    margin: "auto",
   },
 });
