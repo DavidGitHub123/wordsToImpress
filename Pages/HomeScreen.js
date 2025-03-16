@@ -144,23 +144,6 @@ export default function HomeScreen({ navigation }) {
           ></Text>
         </View>
 
-        <Modal visible={showModal} transparent={true}>
-          <View style={style.centeredView}>
-            <View style={style.modalView}>
-              <View style={style.xButton}>
-                <IconButton name="times" onPress={() => handleCloseModal()} />
-              </View>
-              <Text style={mainStyles.text}>Test your Vocabulary Prowess</Text>
-              <Text style={mainStyles.text}>Take our placement quiz</Text>
-              <AppButton
-                size="large"
-                icon="list"
-                title="My Lists"
-                onPress={() => handleNavToVocabTest()}
-              />
-            </View>
-          </View>
-        </Modal>
         <View>
           <View style={style.buttons}>
             <AppButton
