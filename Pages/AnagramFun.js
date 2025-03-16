@@ -14,7 +14,7 @@ import data from "../data.js";
 import { mainStyles } from "../components/mainStyles.js";
 import ListDropdown from "../components/ListDropdown.js";
 
-export default function AnagramFun() {
+export default function AnagramFun({ navigation }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [list, setList] = useState([]);
   const [gameRestart, setGameRestart] = useState(false);
