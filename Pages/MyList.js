@@ -12,7 +12,6 @@ import {
 import PieChart from "react-native-pie-chart";
 import IconButton from "../components/IconButton";
 import { mainStyles } from "../components/mainStyles";
-import data from "../data";
 import { MASTERED_WORD_LIST } from "./ManageLists";
 
 export default function MyList({ route, navigation }) {
@@ -35,6 +34,9 @@ export default function MyList({ route, navigation }) {
   }
 
   const handleDelete = async (word) => {
+    if (selectedList === MASTERED_WORD_TITLE) {
+      return;
+    }
     await removeOneWordFromList(selectedList, word);
     await getAndParseList(selectedList);
   };
@@ -82,18 +84,19 @@ export default function MyList({ route, navigation }) {
     const asyncWrapper = async () => {
       if (selectedList) {
         await getAndParseList(selectedList);
-        await getAndParseMasterList();
-        return;
       }
+      await getAndParseMasterList();
     };
     asyncWrapper();
   }, []);
 
   const masteredWordLengthOrZero = masteredWords ? masteredWords.length : 0;
-  const masteredDonutSeries = [
-    masteredWordLengthOrZero,
-    wordsInAllLists.current - masteredWordLengthOrZero,
-  ];
+
+  const wordsInAllListsOrOne = wordsInAllLists.current
+    ? wordsInAllLists.current - masteredWordLengthOrZero
+    : 1;
+
+  const masteredDonutSeries = [masteredWordLengthOrZero, wordsInAllListsOrOne];
 
   const unMasteredDonutSeries = [
     masteredWordCount,
@@ -164,8 +167,8 @@ export default function MyList({ route, navigation }) {
             <View>
               <Text style={mainStyles.header}>Mastered Words</Text>
               <Text style={mainStyles.subText}>
-                A word appears in green once you've correctly identified that
-                word 10 times in games and quizzes.
+                A word appears in green once you&apos;ve correctly identified
+                that word 10 times in games and quizzes.
               </Text>
             </View>
           </View>
