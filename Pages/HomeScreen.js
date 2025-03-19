@@ -19,6 +19,7 @@ import {
 } from "../components/listHelpers";
 import OutlinedText from "@kdn0325/react-native-outlined-text";
 import IconButton from "../components/IconButton";
+import { MASTERED_WORD_LIST } from "./ManageLists";
 
 <OutlinedText
   text="Outlined Text"
@@ -158,7 +159,7 @@ export default function HomeScreen({ navigation }) {
               title="My Mastery"
               onPress={() =>
                 navigation.navigate("MyList", {
-                  listParam: listNameRef.current,
+                  listParam: MASTERED_WORD_LIST,
                 })
               }
             />
