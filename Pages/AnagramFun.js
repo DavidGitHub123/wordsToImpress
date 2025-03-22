@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
   Pressable,
+  Modal,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -59,7 +60,11 @@ export default function AnagramFun({ navigation }) {
   };
 
   return isGameStarted ? (
-    <AnagramGame list={list} />
+    <AnagramGame
+      list={list}
+      setGameRestart={setGameRestart}
+      gameRestart={gameRestart}
+    />
   ) : (
     <LinearGradient
       colors={["#2a5298", "#121216"]}
@@ -95,7 +100,7 @@ export default function AnagramFun({ navigation }) {
 }
 
 function AnagramGame(Props) {
-  const { list } = Props;
+  const { list, gameRestart, setGameRestart } = Props;
 
   const generateLetterKey = () => {
     const alphabet = [
@@ -155,28 +160,50 @@ function AnagramGame(Props) {
       "",
     );
     randomWord.uniqueLetters = new Set([
-      ...randomWord.FormattedShortdef.replace(/\s/, ""),
+      ...randomWord.FormattedShortdef.replace(/\s/gm, ""),
     ]).size;
     return randomWord;
   };
 
-  const [shownLetters, setShownLetters] = useState([]);
-  const [selectedLetterAndIndex, setSelectedLetterAndIndex] = useState({
-    letter: null,
-    index: -1,
-  });
-
   const letterKeyRef = useRef(generateLetterKey());
   const chosenWordRef = useRef(formatChoseWordRef());
+
+  const [showModal, setShowModal] = useState(false);
+  const [shownLetters, setShownLetters] = useState([]);
+  const [selectedLetterAndIndex, setSelectedLetterAndIndex] = useState({
+    letter:
+      letterKeyRef.current[
+        chosenWordRef.current.FormattedShortdef.split("")[0]
+      ],
+    index: 0,
+  });
 
   const handleBlankPress = (letter, index) =>
     setSelectedLetterAndIndex({ letter, index });
 
+  const incrementSelection = () =>
+    setSelectedLetterAndIndex((prev) => {
+      return {
+        letter:
+          letterKeyRef.current[
+            chosenWordRef.current.FormattedShortdef.split("")[prev.index + 1]
+          ],
+        index: prev.index + 1,
+      };
+    });
+
   const handleLetterButtonPress = (letter) => {
+    console.log("selectedLetterAndIndex:");
+    console.log(selectedLetterAndIndex.letter);
+    console.log("letterKeyRef");
+    console.log(letterKeyRef.current[letter]);
+    console.log("+-----+");
     if (letterKeyRef.current[letter] === selectedLetterAndIndex.letter) {
-      if (shownLetters.length === chosenWordRef.current.uniqueLetters) {
-        console.log("you win!!");
+      // Current letter hasnt been added to length yet so add one
+      if (shownLetters.length + 1 === chosenWordRef.current.uniqueLetters) {
+        setShowModal(true);
       }
+      incrementSelection();
       setShownLetters((prev) => {
         if (prev.includes(letter)) {
           return prev;
@@ -185,6 +212,18 @@ function AnagramGame(Props) {
         return [...prev];
       });
     }
+  };
+
+  const handlePlayAgain = () => {
+    setShownLetters([]);
+    setSelectedLetterAndIndex({
+      letter: null,
+      index: 0,
+    });
+    letterKeyRef.current = generateLetterKey();
+    chosenWordRef.current = formatChoseWordRef();
+    setGameRestart(!gameRestart);
+    setShowModal(false);
   };
 
   const renderBlanksAndLetter = () =>
@@ -262,6 +301,16 @@ function AnagramGame(Props) {
       opacity={1.0}
       style={style.flexOne}
     >
+      <Modal animationType="slide" transparent={true} visible={showModal}>
+        <View style={style.centeredView}>
+          <View style={style.modalView}>
+            <Text style={mainStyles.text}>
+              The word was {chosenWordRef.current.Word}
+            </Text>
+            <AppButton title={"Play again"} onPress={() => handlePlayAgain()} />
+          </View>
+        </View>
+      </Modal>
       <View style={style.underlineLetterContainer}>
         {renderBlanksAndLetter()}
       </View>
@@ -321,5 +370,30 @@ const style = StyleSheet.create({
 
   verticalPadding: {
     paddingVertical: 20,
+  },
+
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  modalView: {
+    height: 200,
+    width: 350,
+    margin: 10,
+    backgroundColor: "#295094",
+    borderRadius: 20,
+    paddingVertical: 20,
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
   },
 });
