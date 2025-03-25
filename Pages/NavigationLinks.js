@@ -29,6 +29,7 @@ import QuickQuiz from "./QuickQuiz";
 import BlankGame from "./BlankGame";
 import InitialQuiz from "../components/InitialQuiz";
 
+
 const Stack = createNativeStackNavigator();
 
 export default function NavigationLinks() {
