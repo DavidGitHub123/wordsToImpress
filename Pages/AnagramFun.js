@@ -284,13 +284,13 @@ function AnagramGame(Props) {
     ]
       .filter((el) => !shownLetters.includes(el))
       .map((el, i) => (
-        <AppButton
+        <Pressable
           key={i}
-          viewStyle={style.appButtonView}
-          style={style.appButtonStyle}
-          title={el}
+          style={style.letterButton}
           onPress={() => handleLetterButtonPress(el)}
-        />
+        >
+          <Text style={style.buttonLetterText}>{el}</Text>
+        </Pressable>
       ));
 
   return (
@@ -311,6 +311,12 @@ function AnagramGame(Props) {
           </View>
         </View>
       </Modal>
+
+      <Text
+        style={[mainStyles.text, { marginHorizontal: "auto", paddingTop: 100 }]}
+      >
+        {chosenWordRef.current.Word}
+      </Text>
       <View style={style.underlineLetterContainer}>
         {renderBlanksAndLetter()}
       </View>
@@ -327,7 +333,7 @@ const style = StyleSheet.create({
     flexWrap: "wrap",
     gap: 5,
     justifyContent: "space-evenly",
-    paddingTop: 100,
+    paddingTop: 20,
   },
   flexOne: {
     flex: 1,
@@ -337,11 +343,12 @@ const style = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     gap: 5,
-    paddingTop: 100,
+    paddingBottom: 20,
     marginHorizontal: 20,
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
+    paddingVertical: 100,
   },
 
   underline: {
@@ -355,17 +362,22 @@ const style = StyleSheet.create({
     width: 20,
   },
 
-  appButtonView: {
-    height: 50,
-    width: 50,
-  },
-
-  appButtonStyle: {
+  letterButton: {
+    backgroundColor: "#ff8c00",
+    borderRadius: 10,
+    borderWidth: 3,
+    borderColor: "#bbc2cc",
     height: 50,
     width: 50,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+  },
+
+  buttonLetterText: {
+    fontSize: 20,
+    color: "#f0f8ff",
+    fontWeight: "700",
   },
 
   verticalPadding: {
