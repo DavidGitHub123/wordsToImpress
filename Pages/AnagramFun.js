@@ -165,15 +165,33 @@ function AnagramGame(Props) {
     return randomWord;
   };
 
+  const shuffleString = (str) =>
+    [...str].sort(() => Math.random() - 0.5).join("");
+
+  const initShownLetters = () => {
+    const letters = chosenWordRef.current.FormattedShortdef.replace(
+      /[^a-z]/gm,
+      "",
+    );
+
+    const uniqueLetters = String.prototype.concat.call(...new Set(letters));
+    const uniqueVowels = uniqueLetters.replace(/[^aeiouy]/gm, "");
+    const uniqueConst = uniqueLetters.replace(/[aeiouy]/gm, "");
+    const randomizedVowels = shuffleString(uniqueVowels);
+    const randomizedConst = shuffleString(uniqueConst);
+
+    return [randomizedVowels[0], ...randomizedConst.slice(0, 4)];
+  };
+
   const letterKeyRef = useRef(generateLetterKey());
   const chosenWordRef = useRef(formatChoseWordRef());
 
   const [showModal, setShowModal] = useState(false);
-  const [shownLetters, setShownLetters] = useState([]);
+  const [shownLetters, setShownLetters] = useState(initShownLetters());
   const [selectedLetterAndIndex, setSelectedLetterAndIndex] = useState({
     letter:
       letterKeyRef.current[
-        chosenWordRef.current.FormattedShortdef.split("")[0]
+      chosenWordRef.current.FormattedShortdef.split("")[0]
       ],
     index: 0,
   });
@@ -186,18 +204,13 @@ function AnagramGame(Props) {
       return {
         letter:
           letterKeyRef.current[
-            chosenWordRef.current.FormattedShortdef.split("")[prev.index + 1]
+          chosenWordRef.current.FormattedShortdef.split("")[prev.index + 1]
           ],
         index: prev.index + 1,
       };
     });
 
   const handleLetterButtonPress = (letter) => {
-    console.log("selectedLetterAndIndex:");
-    console.log(selectedLetterAndIndex.letter);
-    console.log("letterKeyRef");
-    console.log(letterKeyRef.current[letter]);
-    console.log("+-----+");
     if (letterKeyRef.current[letter] === selectedLetterAndIndex.letter) {
       // Current letter hasnt been added to length yet so add one
       if (shownLetters.length + 1 === chosenWordRef.current.uniqueLetters) {
