@@ -175,7 +175,6 @@ function GameSetUp(Props) {
       style={style.timingButtonContainer}
       key={i}
       onPress={() => setTiming(el)}
-      m
     >
       <RadioButton selected={timing === el} />
       <Text style={mainStyles.text}>

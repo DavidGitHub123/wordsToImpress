@@ -14,13 +14,15 @@ import AppButton from "../components/AppButton.js";
 import data from "../data.js";
 import { mainStyles } from "../components/mainStyles.js";
 import ListDropdown from "../components/ListDropdown.js";
+import RadioButton from "../components/RadioButton.js";
 
-export default function AnagramFun({ navigation }) {
+export default function AnagramFun() {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [list, setList] = useState([]);
   const [gameRestart, setGameRestart] = useState(false);
   const [selectedList, setSelectedList] = useState(null);
   const [error, setError] = useState(null);
+  const [isEasyMode, setIsEasyMode] = useState(true);
 
   const getShortDef = (word) => data.find((el) => el.Word === word).Shortdef;
 
@@ -64,6 +66,7 @@ export default function AnagramFun({ navigation }) {
       list={list}
       setGameRestart={setGameRestart}
       gameRestart={gameRestart}
+      isEasyMode={isEasyMode}
     />
   ) : (
     <LinearGradient
@@ -80,6 +83,22 @@ export default function AnagramFun({ navigation }) {
             <Text style={mainStyles.subheader}>
               Fix the jumbled word to increase your mastery
             </Text>
+            <View>
+              <Pressable
+                style={style.timingButtonContainer}
+                onPress={() => setIsEasyMode(true)}
+              >
+                <Text style={mainStyles.text}>Easy</Text>
+                <RadioButton selected={isEasyMode} />
+              </Pressable>
+              <Pressable
+                style={style.timingButtonContainer}
+                onPress={() => setIsEasyMode(false)}
+              >
+                <Text style={mainStyles.text}>Hard</Text>
+                <RadioButton selected={!isEasyMode} />
+              </Pressable>
+            </View>
             {error && (
               <View style={[mainStyles.error, { marginVertical: 20 }]}>
                 <Text>{error}</Text>
@@ -100,7 +119,7 @@ export default function AnagramFun({ navigation }) {
 }
 
 function AnagramGame(Props) {
-  const { list, gameRestart, setGameRestart } = Props;
+  const { list, gameRestart, setGameRestart, isEasyMode } = Props;
 
   const generateLetterKey = () => {
     const alphabet = [
@@ -155,12 +174,20 @@ function AnagramGame(Props) {
 
   const formatChoseWordRef = () => {
     const randomWord = list[Math.floor(Math.random() * list.length)];
-    randomWord.FormattedShortdef = randomWord.Shortdef.toLowerCase().replace(
-      /[^a-z ]/g,
-      "",
-    );
+    if (isEasyMode) {
+      randomWord.anagram = randomWord.Word.toLowerCase().replace(
+        /[^a-z ]/g,
+        "",
+      );
+    } else {
+      randomWord.anagram = randomWord.Shortdef.toLowerCase().replace(
+        /[^a-z ]/g,
+        "",
+      );
+    }
+
     randomWord.uniqueLetters = new Set([
-      ...randomWord.FormattedShortdef.replace(/\s/gm, ""),
+      ...randomWord.anagram.replace(/\s/gm, ""),
     ]).size;
     return randomWord;
   };
@@ -169,10 +196,11 @@ function AnagramGame(Props) {
     [...str].sort(() => Math.random() - 0.5).join("");
 
   const initShownLetters = () => {
-    const letters = chosenWordRef.current.FormattedShortdef.replace(
-      /[^a-z]/gm,
-      "",
-    );
+    if (isEasyMode) {
+      return [];
+    }
+
+    const letters = chosenWordRef.current.anagram.replace(/[^a-z]/gm, "");
 
     const uniqueLetters = String.prototype.concat.call(...new Set(letters));
     const uniqueVowels = uniqueLetters.replace(/[^aeiouy]/gm, "");
@@ -189,10 +217,7 @@ function AnagramGame(Props) {
   const [showModal, setShowModal] = useState(false);
   const [shownLetters, setShownLetters] = useState(initShownLetters());
   const [selectedLetterAndIndex, setSelectedLetterAndIndex] = useState({
-    letter:
-      letterKeyRef.current[
-      chosenWordRef.current.FormattedShortdef.split("")[0]
-      ],
+    letter: letterKeyRef.current[chosenWordRef.current.anagram.split("")[0]],
     index: 0,
   });
 
@@ -204,7 +229,7 @@ function AnagramGame(Props) {
       return {
         letter:
           letterKeyRef.current[
-          chosenWordRef.current.FormattedShortdef.split("")[prev.index + 1]
+          chosenWordRef.current.anagram.split("")[prev.index + 1]
           ],
         index: prev.index + 1,
       };
@@ -240,7 +265,7 @@ function AnagramGame(Props) {
   };
 
   const renderBlanksAndLetter = () =>
-    chosenWordRef.current.FormattedShortdef.split("").map((el, i) => (
+    chosenWordRef.current.anagram.split("").map((el, i) => (
       <Pressable
         key={i}
         onPress={() => handleBlankPress(letterKeyRef.current[el], i)}
@@ -317,9 +342,6 @@ function AnagramGame(Props) {
       <Modal animationType="slide" transparent={true} visible={showModal}>
         <View style={style.centeredView}>
           <View style={style.modalView}>
-            <Text style={mainStyles.text}>
-              The word was {chosenWordRef.current.Word}
-            </Text>
             <AppButton title={"Play again"} onPress={() => handlePlayAgain()} />
           </View>
         </View>
@@ -328,7 +350,9 @@ function AnagramGame(Props) {
       <Text
         style={[mainStyles.text, { marginHorizontal: "auto", paddingTop: 100 }]}
       >
-        {chosenWordRef.current.Word}
+        {isEasyMode
+          ? chosenWordRef.current.Shortdef
+          : chosenWordRef.current.Word}
       </Text>
       <View style={style.underlineLetterContainer}>
         {renderBlanksAndLetter()}
@@ -420,5 +444,15 @@ const style = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+  },
+  timingButtonContainer: {
+    display: "flex",
+    flexWrap: "nowrap",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    padding: 10,
+    gap: 20,
+    width: "90%",
   },
 });
