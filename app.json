@@ -7,7 +7,15 @@
     },
     "plugins": [
       "expo-router",
-      "expo-font"
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#89CFF0",
+          "image": "./assets/splash-icon.png",
+          "width": 200
+        }
+      ]
     ],
     "name": "RN_WordsToImpress",
     "slug": "RN_WordsToImpress",

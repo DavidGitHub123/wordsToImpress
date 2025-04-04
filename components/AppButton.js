@@ -31,10 +31,9 @@ export default function AppButton(Props) {
     containerStyleSize = defaultStyle.largeContainer;
   } else if (size === "medium") {
     styleSize = defaultStyle.medium;
-  } else if (size === " small") {
+  } else if (size === "small") {
     styleSize = defaultStyle.small;
   }
-
   const iconButtonStyle = {
     ...defaultStyle.appButton,
     ...styleSize,
