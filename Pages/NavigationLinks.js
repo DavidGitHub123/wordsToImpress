@@ -63,11 +63,6 @@ export default function NavigationLinks() {
       <Stack.Screen name="WS_SpeedingTicket" component={WS_SpeedingTicket} />
       <Stack.Screen name="ManageLists" component={ManageLists} />
       <Stack.Screen name="BlankGame" component={BlankGame} />
-<<<<<<< HEAD
-  <Stack.Screen name="InitialQuiz" component={InitialQuiz} />
-=======
-      <Stack.Screen name="AnagramFun" component={AnagramFun} />
->>>>>>> 2b91af0 (first implementation)
-    </Stack.Navigator >
+    </Stack.Navigator>
   );
 }
