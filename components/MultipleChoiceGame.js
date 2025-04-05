@@ -9,7 +9,6 @@ import { incrementMastery } from "./listHelpers";
 import { mainStyles } from "./mainStyles";
 import ChatBubble from "react-native-chat-bubble";
 import { isWordConjugate } from "../Pages/Word";
-import IconButton from "./IconButton";
 
 export default function MultipleChoiceGame(Props) {
   const [anwsers, setAnwsers] = useState([]);
@@ -226,7 +225,7 @@ export default function MultipleChoiceGame(Props) {
       </View>
       {gameOver ? (
         <View style={style.endContainer}>
-          <Modal visible={showScoreModal} transparent={true}>
+          <Modal visible={!!showScoreModal} transparent={true}>
             <View style={style.centeredView}>
               <View style={style.modalView}>
                 <Text style={[style.header, { paddingHorizontal: 15 }]}>
@@ -256,6 +255,7 @@ export default function MultipleChoiceGame(Props) {
                 You scored {score}/{list.length}
               </Text>
               <AppButton
+                viewStyle={style.center}
                 icon="sign-in"
                 title="Play Again"
                 onPress={handleStartOver}
@@ -410,5 +410,8 @@ const style = StyleSheet.create({
     color: "#f0f8ff",
     fontWeight: "700",
     textAlign: "center",
+  },
+  center: {
+    margin: "auto",
   },
 });
