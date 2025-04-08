@@ -12,7 +12,6 @@ import {
 import PieChart from "react-native-pie-chart";
 import IconButton from "../components/IconButton";
 import { mainStyles } from "../components/mainStyles";
-import data from "../data";
 import { MASTERED_WORD_LIST } from "./ManageLists";
 
 export default function MyList({ route, navigation }) {
@@ -21,6 +20,7 @@ export default function MyList({ route, navigation }) {
   const [listLength, setListLength] = useState(0);
   const [listOrLoading, setListOrLoading] = useState(null);
   const [masteredWords, setMasteredWords] = useState(null);
+  const wordsInAllLists = useRef(null);
   const showMasteredWords = useRef(false);
   const MASTERED_WORD_TITLE = "Mastered words";
 
@@ -34,6 +34,9 @@ export default function MyList({ route, navigation }) {
   }
 
   const handleDelete = async (word) => {
+    if (selectedList === MASTERED_WORD_TITLE) {
+      return;
+    }
     await removeOneWordFromList(selectedList, word);
     await getAndParseList(selectedList);
   };
@@ -41,6 +44,8 @@ export default function MyList({ route, navigation }) {
     const lists = await getNamesOfLists();
     const allListsPromises = lists.map((l) => getList(l));
     const allLists = await Promise.all(allListsPromises);
+
+    wordsInAllLists.current = allLists.flat().length;
 
     const masteredFilteredArray = allLists
       .flat()
@@ -79,18 +84,19 @@ export default function MyList({ route, navigation }) {
     const asyncWrapper = async () => {
       if (selectedList) {
         await getAndParseList(selectedList);
-        await getAndParseMasterList();
-        return;
       }
+      await getAndParseMasterList();
     };
     asyncWrapper();
   }, []);
 
   const masteredWordLengthOrZero = masteredWords ? masteredWords.length : 0;
-  const masteredDonutSeries = [
-    masteredWordLengthOrZero,
-    data.length - masteredWordLengthOrZero,
-  ];
+
+  const wordsInAllListsOrOne = wordsInAllLists.current
+    ? wordsInAllLists.current - masteredWordLengthOrZero
+    : 1;
+
+  const masteredDonutSeries = [masteredWordLengthOrZero, wordsInAllListsOrOne];
 
   const unMasteredDonutSeries = [
     masteredWordCount,
@@ -109,7 +115,7 @@ export default function MyList({ route, navigation }) {
       : { highlight: "#ffbb00", base: "#cc9600" };
 
   const percentText = showMasteredWords.current
-    ? masteredWordLengthOrZero / data.length
+    ? masteredWordLengthOrZero / wordsInAllLists.current
     : masteredWordCount / listLength;
   const formattedPercentText = isNaN(percentText)
     ? "0"
@@ -161,7 +167,8 @@ export default function MyList({ route, navigation }) {
             <View>
               <Text style={mainStyles.header}>Mastered Words</Text>
               <Text style={mainStyles.subText}>
-              A word appears in green once you've correctly identified that word 10 times in games and quizzes.
+                A word appears in green once you&apos;ve correctly identified
+                that word 10 times in games and quizzes.
               </Text>
             </View>
           </View>
@@ -210,8 +217,7 @@ const style = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
-    width: 270,
-    marginLeft: 70,
+    margin: "auto",
   },
   percentText: {
     color: "#4cf03a",
