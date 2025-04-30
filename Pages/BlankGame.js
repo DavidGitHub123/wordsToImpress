@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { getNLeastMastered } from "../components/listHelpers.js";
 import AppButton from "../components/AppButton.js";
 import MultipleChoiceGame from "../components/MultipleChoiceGame.js";
 import data from "../data.js";
-import { mainStyles } from "../components/mainStyles.js";
 import ListDropdown from "../components/ListDropdown.js";
 
 export default function BlankGame({ navigation }) {
@@ -19,9 +25,8 @@ export default function BlankGame({ navigation }) {
 
   useEffect(() => {
     async function getAndSetList() {
-      if (!selectedList) {
-        return;
-      }
+      if (!selectedList) return;
+
       let userList = await getNLeastMastered(selectedList, 10);
 
       if (userList.length === 0) {
@@ -29,16 +34,15 @@ export default function BlankGame({ navigation }) {
           `${selectedList} is empty, add some words or use another list`,
         );
         return;
-      } else {
-        setError(null);
       }
-      userList = userList.map((el) => {
-        return {
-          Word: el.word,
-          mastery: el.mastery,
-          Shortdef: getShortDef(el.word),
-        };
-      });
+
+      setError(null);
+
+      userList = userList.map((el) => ({
+        Word: el.word,
+        mastery: el.mastery,
+        Shortdef: getShortDef(el.word),
+      }));
 
       setList(userList);
     }
@@ -65,30 +69,36 @@ export default function BlankGame({ navigation }) {
     />
   ) : (
     <LinearGradient
-      colors={["#6699FF", "#335C81"]}
-      start={{ x: 0.5, y: 0.5 }}
-      end={{ x: 0.5, y: 0.5 }}
-      opacity={1.0}
-      style={mainStyles.page}
+      colors={["#1e1e2f", "#121216"]}
+      style={styles.container}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
     >
-      <SafeAreaView style={style.container}>
-        <ScrollView alwaysBounceHorizontal={true}>
-          <View style={[mainStyles.startGameContainer, mainStyles.screen]}>
-            <Text style={mainStyles.header}>Fill in the Blank</Text>
-            <Text style={mainStyles.subheader}>
+      <StatusBar barStyle="light-content" />
+      <SafeAreaView style={styles.safeArea}>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+          <View style={styles.header}>
+            <Text style={[styles.title, styles.neonGlow]}>
+              Fill in the Blank
+            </Text>
+            <Text style={[styles.subtitle, styles.neonGlow]}>
               Identify the correct definition that matches the highlighted word.
             </Text>
             {error && (
-              <View style={[mainStyles.error, { marginVertical: 20 }]}>
-                <Text>{error}</Text>
+              <View style={styles.errorWrapper}>
+                <Text style={styles.errorText}>{error}</Text>
               </View>
             )}
-            {!selectedList && <Text style={mainStyles.text}>Loading</Text>}
+            {!selectedList && (
+              <Text style={styles.loadingText}>Loading...</Text>
+            )}
             <ListDropdown setParent={setSelectedList} />
             <AppButton
               onPress={handleSubmit}
               title="Play Game"
               icon="sign-in"
+              buttonStyle={styles.appButton}
+              textStyle={styles.appButtonText}
             />
           </View>
         </ScrollView>
@@ -97,65 +107,67 @@ export default function BlankGame({ navigation }) {
   );
 }
 
-const style = StyleSheet.create({
-  page: {
+const styles = StyleSheet.create({
+  container: {
     flex: 1,
-    paddingBottom: 700,
   },
-  center: {
+  safeArea: {
+    flex: 1,
+    paddingTop: 40,
+  },
+  scrollContainer: {
+    justifyContent: "center",
     alignItems: "center",
+    paddingBottom: 30,
   },
-
-  lastscreen: {
-    paddingTop: 200,
+  header: {
+    alignItems: "center",
+    marginBottom: 24,
+    paddingTop: 10,
   },
-
-  mocktext: {
+  title: {
+    fontSize: 28,
+    fontWeight: "800",
+    color: "#fff",
+    letterSpacing: 1,
+  },
+  subtitle: {
     fontSize: 18,
-    color: "#f0f8ff",
-    paddingBottom: 30,
-    paddingHorizontal: 40,
+    color: "#fff",
+    marginBottom: 20,
   },
-
-  textScale: {
-    marginTop: -10,
-    fontSize: 24,
-    color: "#f0f8ff",
-    paddingBottom: 30,
-    paddingHorizontal: 40,
-    fontWeight: 700,
+  neonGlow: {
+    textShadowColor: "#FFAF40",
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 8,
+    color: "#fff",
   },
-
-  buttons: {
-    paddingTop: 20,
+  errorWrapper: {
+    marginVertical: 20,
+    padding: 10,
+    backgroundColor: "#f44336",
+    borderRadius: 8,
   },
-
+  errorText: {
+    color: "#fff",
+    fontSize: 16,
+    textAlign: "center",
+  },
+  loadingText: {
+    color: "#fff",
+    fontSize: 16,
+  },
   appButton: {
+    marginTop: 20,
+    backgroundColor: "#FFAF40",
+    borderRadius: 18,
+    paddingVertical: 12,
+    paddingHorizontal: 40,
     alignItems: "center",
-    justifyContent: "center",
   },
-
   appButtonText: {
+    color: "#fff",
     fontSize: 18,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    paddingVertical: 5,
-    width: 250,
-  },
-
-  appButtonHead: {
-    padding: 20,
-  },
-
-  appButtonHeadText: {
-    fontSize: 26,
-    color: "#fff",
-  },
-  centerContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    fontWeight: "600",
   },
 });

@@ -36,22 +36,26 @@ export default function ManageLists({ navigation }) {
       return <Text style={mainStyles.text}>Getting lists</Text>;
     }
     return lists.map((el, i) => (
-      <View key={i} style={style.flex}>
+      <View key={i} style={style.listContainer}>
         <AppButton
           title={el}
           onPress={() => navigation.navigate("MyList", { listParam: el })}
+          style={style.listButton}
         />
-        <IconButton name="trash" onPress={() => handleDelete(el)} />
+        <IconButton
+          name="trash"
+          onPress={() => handleDelete(el)}
+          style={style.deleteButton}
+        />
       </View>
     ));
   };
 
   return (
     <LinearGradient
-      colors={["#6699FF", "#335C81"]}
-      start={{ x: 0.5, y: 0.5 }}
-      end={{ x: 0.5, y: 0.5 }}
-      opacity={1.0}
+      colors={["#0f2027", "#203a43", "#2c5364"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
       style={mainStyles.page}
     >
       <SafeAreaView>
@@ -66,9 +70,10 @@ export default function ManageLists({ navigation }) {
             <Text style={mainStyles.header}>My Vocab Lists</Text>
             <Text style={mainStyles.subText}>
               Most successful people have mastered 50 to 100 “big” words. Build
-              the right list for you. The Pre-Built List is a fast way to build a list. Or you can analyze
-              your writing with Build My List and let the app suggest words. You can also
-              create your own list based on your particular interests.
+              the right list for you. The Pre-Built List is a fast way to build
+              a list. Or you can analyze your writing with Build My List and let
+              the app suggest words. You can also create your own list based on
+              your particular interests.
             </Text>
           </View>
 
@@ -76,7 +81,7 @@ export default function ManageLists({ navigation }) {
             {error && (
               <View style={mainStyles.error}>
                 <IconButton name="times" onPress={() => setError(null)} />
-                <Text>{error}</Text>
+                <Text style={mainStyles.errorText}>{error}</Text>
               </View>
             )}
             {renderLists()}
@@ -86,6 +91,7 @@ export default function ManageLists({ navigation }) {
                 title="Make a new list"
                 icon="plus"
                 onPress={() => setShowModal(true)}
+                style={style.createButton}
               />
               <AppButton
                 title="Mastered Words"
@@ -96,6 +102,7 @@ export default function ManageLists({ navigation }) {
                   })
                 }
                 backgroundColor="#5ba653"
+                style={style.masteredButton}
               />
               <HomeButton navigation={navigation} />
             </View>
@@ -107,10 +114,24 @@ export default function ManageLists({ navigation }) {
 }
 
 const style = StyleSheet.create({
-  flex: {
+  listContainer: {
     display: "flex",
     flexDirection: "row",
-    flexWrap: "nowrap",
     alignItems: "center",
+    marginBottom: 20,
+  },
+  listButton: {
+    flex: 1,
+    marginRight: 10,
+  },
+  deleteButton: {
+    marginLeft: 10,
+  },
+  createButton: {
+    marginTop: 20,
+  },
+  masteredButton: {
+    backgroundColor: "#5ba653",
+    marginTop: 10,
   },
 });

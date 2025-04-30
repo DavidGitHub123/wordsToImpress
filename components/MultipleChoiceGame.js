@@ -88,7 +88,6 @@ export default function MultipleChoiceGame(Props) {
   }, [list, listIndex]);
 
   const handleAnwser = (index) => {
-    // if displayNext is true return early, as this function has already highlighted something
     if (displayNext) {
       return;
     }
@@ -211,9 +210,9 @@ export default function MultipleChoiceGame(Props) {
 
   return (
     <LinearGradient
-      colors={["#6699FF", "#335C81"]}
-      start={{ x: 0.5, y: 0.5 }}
-      end={{ x: 0.5, y: 0.5 }}
+      colors={["#1e1e2f", "#121216"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
       opacity={1.0}
       style={style.flexOne}
     >
@@ -370,7 +369,7 @@ const style = StyleSheet.create({
     flexWrap: "wrap",
     rowGap: 2,
     columnGap: 4,
-    borderRadius: "20%",
+    borderRadius: 20,
     textAlign: "center",
     justifyContent: "center",
   },

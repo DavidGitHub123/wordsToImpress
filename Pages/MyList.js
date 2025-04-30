@@ -40,6 +40,7 @@ export default function MyList({ route, navigation }) {
     await removeOneWordFromList(selectedList, word);
     await getAndParseList(selectedList);
   };
+
   async function getAndParseMasterList() {
     const lists = await getNamesOfLists();
     const allListsPromises = lists.map((l) => getList(l));
@@ -155,10 +156,9 @@ export default function MyList({ route, navigation }) {
 
   return (
     <LinearGradient
-      colors={["#6699FF", "#335C81"]}
-      start={{ x: 0.5, y: 0.5 }}
-      end={{ x: 0.5, y: 0.5 }}
-      opacity={1.0}
+      colors={["#0f2027", "#203a43", "#2c5364"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
       style={mainStyles.page}
     >
       <SafeAreaView>
