@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import AppButton from "./AppButton";
 import IconButton from "./IconButton";
-import { StyleSheet, Pressable, Modal, View, Text } from "react-native";
+import { StyleSheet, Modal, View, Text } from "react-native";
 import { mainStyles } from "./mainStyles";
 import { addOneWordToList, defaultList, getNamesOfLists } from "./listHelpers";
 
@@ -26,15 +26,14 @@ export default function AddButton(props) {
   }, []);
 
   const handleAddToList = async (word) => {
-    if (lists === null) {
-      return;
-    }
-    // Open the modal if word isnt loaded
+    if (lists === null) return;
+
     if (lists.length > 1 || !defaultListRef.current) {
       setShowModal(true);
       wordRef.current = word;
       return;
     }
+
     addOneWordToList(defaultListRef.current, word);
   };
 
@@ -48,47 +47,51 @@ export default function AddButton(props) {
 
   const renderLists = () => {
     if (lists === null) {
-      return <Text className={mainStyles.text}>Loading lists</Text>;
+      return <Text style={mainStyles.text}>Loading lists...</Text>;
     }
     return lists.map((el, i) => (
-      <AppButton title={el} key={i} onPress={() => handleCloseModal(el)} />
+      <AppButton
+        key={i}
+        title={el}
+        onPress={() => handleCloseModal(el)}
+        backgroundColor="rgba(255,255,255,0.05)"
+        borderColor="rgba(255,255,255,0.12)"
+        fontWeight="600"
+        size="medium"
+      />
     ));
   };
 
   return (
-    <View>
-      <Modal
-        visible={showModal}
-        onRequestClose={handleCloseModal}
-        transparent={true}
-      >
+    <View style={style.container}>
+      <Modal visible={showModal} onRequestClose={handleCloseModal} transparent>
         <View style={style.centeredView}>
           <View style={style.modalView}>
-            <View style={style.xButton}>
-              <View className={mainStyles.centerContainer}>
-                {renderLists()}
-              </View>
-              <IconButton name="times" onPress={() => handleCloseModal()} />
-            </View>
+            <View style={mainStyles.centerContainer}>{renderLists()}</View>
+            <IconButton name="times" onPress={() => handleCloseModal()} />
           </View>
         </View>
       </Modal>
-      <Pressable style={style.appButton}>
-        <AppButton
-          icon="plus"
-          title="Add to My List"
-          onPress={() => handleAddToList(props.word)}
-        />
-      </Pressable>
+
+      <AppButton
+        icon="plus"
+        title="Add to My List"
+        onPress={() => handleAddToList(props.word)}
+        size="medium"
+        backgroundColor="rgba(255,255,255,0.05)"
+        borderColor="rgba(255,255,255,0.12)"
+        fontWeight="700"
+        style={{ width: 240 }}
+      />
     </View>
   );
 }
 
 const style = StyleSheet.create({
-  appButton: {
-    paddingHorizontal: 70,
+  container: {
     alignItems: "center",
     justifyContent: "center",
+    paddingVertical: 10,
   },
   centeredView: {
     flex: 1,
@@ -103,12 +106,10 @@ const style = StyleSheet.create({
     padding: 35,
     alignItems: "center",
     shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+    gap: 15,
   },
 });

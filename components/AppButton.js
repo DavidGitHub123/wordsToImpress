@@ -1,112 +1,72 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View, Pressable, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
-export default function AppButton(Props) {
-  const {
-    onPress,
-    icon,
-    title,
-    backgroundColor,
-    borderColor,
-    style,
-    size,
-    viewStyle,
-    textColor,
-    textSize,
-    fontWeight,
-  } = Props;
-
-  let height;
-  let width;
-  let styleSize = {};
-  let containerStyleSize = {};
-  if (size === "full-screen") {
-    height = defaultStyle.fullScreen.height;
-    width = defaultStyle.fullScreen.width;
-    styleSize = defaultStyle.fullScreen;
-    containerStyleSize = defaultStyle.fullScreen;
-  } else if (size === "large") {
-    styleSize = defaultStyle.large;
-    containerStyleSize = defaultStyle.largeContainer;
-  } else if (size === "medium") {
-    styleSize = defaultStyle.medium;
-  } else if (size === "small") {
-    styleSize = defaultStyle.small;
-  }
-  const iconButtonStyle = {
-    ...defaultStyle.appButton,
-    ...styleSize,
-    ...style,
-  };
-
-  const containerStyle = {
-    ...defaultStyle.appButtonContainer,
-    ...containerStyleSize,
-    ...viewStyle,
-  };
-
-  const fontSize = { fontSize: textSize ? textSize : 16 };
-
+export default function AppButton({
+  onPress,
+  icon,
+  title,
+  width = 225,
+  height = 50,
+  iconColor = "#fff",
+  textColor = "#fff",
+  backgroundColor = "rgba(255, 255, 255, 0.05)",
+  borderColor = "rgba(255, 255, 255, 0.15)",
+  fontWeight = "600",
+  textSize = 15,
+}) {
   return (
-    <View style={containerStyle}>
-      <Icon.Button
-        name={icon === "sign-in" ? "sign-in-alt" : icon}
-        backgroundColor={backgroundColor ? backgroundColor : "#FF8C00"}
-        borderRadius={10}
-        borderWidth={3}
-        borderColor={borderColor ? borderColor : "#BBC2CC"}
-        onPress={onPress}
-        height={height}
-        width={width}
-        style={iconButtonStyle}
+    <Pressable onPress={onPress} style={[styles.wrapper, { width }]}>
+      <View
+        style={[
+          styles.button,
+          {
+            width,
+            height,
+            backgroundColor,
+            borderColor,
+          },
+        ]}
       >
+        {icon && (
+          <Icon
+            name={icon === "sign-in" ? "sign-in-alt" : icon}
+            size={18}
+            color={iconColor}
+            style={{ marginRight: 8 }}
+          />
+        )}
         <Text
-          style={{
-            ...defaultStyle.appButtonText,
-            ...textColor,
-            ...fontSize,
-            fontWeight,
-          }}
+          style={[
+            styles.text,
+            {
+              color: textColor,
+              fontSize: textSize,
+              fontWeight,
+            },
+          ]}
         >
           {title}
         </Text>
-      </Icon.Button>
-    </View>
+      </View>
+    </Pressable>
   );
 }
 
-const defaultStyle = StyleSheet.create({
-  appButton: {
+const styles = StyleSheet.create({
+  wrapper: {
     alignItems: "center",
+    marginVertical: 6,
+  },
+  button: {
+    flexDirection: "row",
     justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 18,
+    borderWidth: 1,
+    paddingHorizontal: 20,
+  },
+  text: {
     textAlign: "center",
-  },
-
-  appButtonText: {
-    fontSize: 16,
-    color: "#fff",
-    textAlign: "center",
-  },
-
-  appButtonContainer: {
-    marginVertical: 5,
-    width: 225,
-  },
-  large: {
-    height: 50,
-  },
-  medium: {
-    height: 60,
-  },
-  small: {
-    height: 40,
-  },
-  fullScreen: {
-    height: 75,
-    width: 300,
-  },
-  largeContainer: {
-    width: "45%",
   },
 });

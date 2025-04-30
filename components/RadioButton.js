@@ -15,14 +15,15 @@ const style = StyleSheet.create({
     width: 24,
     borderRadius: 12,
     borderWidth: 2,
-    borderColor: "#FFF",
+    borderColor: "#BBC2CC", // Lighter border color to match design consistency
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "transparent", // Transparent background
   },
   innerCircle: {
     height: 12,
     width: 12,
     borderRadius: 6,
-    backgroundColor: "#FFF",
+    backgroundColor: "#fff", // White color for selected inner circle
   },
 });

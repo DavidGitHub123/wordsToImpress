@@ -25,9 +25,7 @@ export default function RapidFire({ navigation }) {
 
   useEffect(() => {
     async function getWords() {
-      if (!selectedList) {
-        return;
-      }
+      if (!selectedList) return;
       const list = await getNLeastMastered(selectedList, 10);
       if (!list || list.length === 0) {
         setError(
@@ -36,23 +34,22 @@ export default function RapidFire({ navigation }) {
         setIsStarted(false);
       } else {
         setError(null);
+        setWords(list);
       }
-      setWords(list);
     }
     getWords();
   }, [selectedList]);
 
   return (
     <LinearGradient
-      colors={["#6699FF", "#335C81"]}
-      start={{ x: 0.5, y: 0.5 }}
-      end={{ x: 0.5, y: 0.5 }}
-      opacity={1.0}
-      style={mainStyles.backgroundImage}
+      colors={["#0f2027", "#203a43", "#2c5364"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={mainStyles.page}
     >
-      <SafeAreaView style={mainStyles.centerContainer}>
-        <ScrollView alwaysBounceHorizontal={true}>
-          <View>
+      <SafeAreaView style={mainStyles.page}>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+          <View style={mainStyles.centerContainer}>
             {isStarted ? (
               <Game
                 navigation={navigation}
@@ -68,7 +65,6 @@ export default function RapidFire({ navigation }) {
                 setIsStarted={setIsStarted}
                 setSelectedList={setSelectedList}
                 selectedList={selectedList}
-                setError={setError}
               />
             )}
           </View>
@@ -78,17 +74,21 @@ export default function RapidFire({ navigation }) {
   );
 }
 
-function Game(Props) {
-  const { timing, words, navigation, selectedList } = Props;
-
+function Game({ timing, words, navigation, selectedList }) {
   const [timeLeft, setTimeLeft] = useState(timing);
   const [front, setFront] = useState(true);
   const [cardIndex, setCardIndex] = useState(0);
   const timerID = useRef(-1);
 
-  if (words.length === 0) {
-    exitGame();
-  }
+  useEffect(() => {
+    if (timing === "Unlimited") return;
+    if (timeLeft === 0) {
+      resetRound();
+    } else {
+      if (timerID.current !== -1) clearTimeout(timerID.current);
+      timerID.current = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+    }
+  }, [timeLeft]);
 
   const exitGame = () => {
     setCardIndex(0);
@@ -102,27 +102,8 @@ function Game(Props) {
     }
     setFront(true);
     setCardIndex(cardIndex + 1);
-    if (timing !== "Unlimited") {
-      setTimeLeft(timing);
-    }
+    if (timing !== "Unlimited") setTimeLeft(timing);
   };
-
-  useEffect(() => {
-    if (timing === "Unlimited") {
-      return;
-    }
-
-    if (timeLeft === 0) {
-      resetRound();
-    } else {
-      if (timerID.current !== -1) {
-        clearTimeout(timerID.current);
-      }
-      timerID.current = setTimeout(() => {
-        setTimeLeft(timeLeft - 1);
-      }, 1000);
-    }
-  }, [timeLeft]);
 
   const handleNextCard = () => {
     if (words.length <= cardIndex + 1) {
@@ -151,23 +132,23 @@ function Game(Props) {
 
   return (
     <View style={style.gameContainer}>
-      <Text style={style.timeleft}>Time left: {timeLeft}</Text>
+      <Text style={style.timeleft}>
+        Time left: {timing === "Unlimited" ? "∞" : timeLeft}
+      </Text>
       <RapidFireCards words={words} front={front} cardIndex={cardIndex} />
       {flipOrNextButton}
     </View>
   );
 }
 
-function GameSetUp(Props) {
-  const {
-    timing,
-    setTiming,
-    setIsStarted,
-    setSelectedList,
-    selectedList,
-    error,
-  } = Props;
-
+function GameSetUp({
+  timing,
+  setTiming,
+  setIsStarted,
+  setSelectedList,
+  selectedList,
+  error,
+}) {
   const timingOptions = [1, 3, 5, "Unlimited"];
 
   const timingButtons = timingOptions.map((el, i) => (
@@ -175,7 +156,6 @@ function GameSetUp(Props) {
       style={style.timingButtonContainer}
       key={i}
       onPress={() => setTiming(el)}
-      m
     >
       <RadioButton selected={timing === el} />
       <Text style={mainStyles.text}>
@@ -198,7 +178,7 @@ function GameSetUp(Props) {
         </View>
       )}
       <Text style={{ ...mainStyles.header, marginBottom: 20 }}>Rapid Fire</Text>
-      <ListDropdown setParent={(n) => setSelectedList(n)} />
+      <ListDropdown setParent={setSelectedList} />
       <Text style={{ ...mainStyles.text, marginTop: 30, marginBottom: 5 }}>
         Select your speed:
       </Text>
@@ -210,34 +190,25 @@ function GameSetUp(Props) {
         icon="play-circle"
         onPress={handleSubmit}
       />
-
-      {/* <AppButton
-        title="Back"
-        onPress={() => navigation.goBack()}
-      ></AppButton> */}
     </View>
   );
 }
-function RapidFireCards(Props) {
-  const { words, front, cardIndex } = Props;
 
-  const getDef = (w) => data.find((el) => el.Word === w).Shortdef;
+function RapidFireCards({ words, front, cardIndex }) {
+  const getDef = (w) =>
+    data.find((el) => el.Word === w)?.Shortdef || "No definition found";
 
   const Cards = words.map((el, i) => {
     return {
       front: (
-        <View key={i} style={[mainStyles.screen, style.wordContainer]}>
-          <Text style={[mainStyles.header, style.innerWordContainer]}>
-            {el.word}
-          </Text>
+        <View key={i} style={[mainStyles.screen, style.card]}>
+          <Text style={[mainStyles.header, style.wordText]}>{el.word}</Text>
         </View>
       ),
       back: (
-        <View key={i} style={[mainStyles.screen, style.wordContainer]}>
-          <View style={style.innerWordContainer}>
-            <Text style={mainStyles.header}>{el.word}</Text>
-            <Text style={mainStyles.subheader}>{getDef(el.word)}</Text>
-          </View>
+        <View key={i} style={[mainStyles.screen, style.card]}>
+          <Text style={[mainStyles.header, style.wordText]}>{el.word}</Text>
+          <Text style={mainStyles.subheader}>{getDef(el.word)}</Text>
         </View>
       ),
     };
@@ -245,45 +216,51 @@ function RapidFireCards(Props) {
 
   return front ? Cards[cardIndex].front : Cards[cardIndex].back;
 }
+
 const dimensions = Dimensions.get("screen");
+
 const style = StyleSheet.create({
-  wordContainer: {
+  card: {
     width: dimensions.width * 0.9,
-    height: dimensions.height * 0.5,
+    minHeight: dimensions.height * 0.4,
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+    marginBottom: 30,
   },
-  innerWordContainer: {
-    margin: "auto",
+  wordText: {
+    textAlign: "center",
+    color: "#fff",
   },
   startButton: {
     height: 50,
   },
-
-  marginAuto: { margin: "auto" },
-
+  marginAuto: {
+    marginTop: 20,
+  },
+  gameContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+  },
   timeleft: {
     paddingBottom: 20,
     fontSize: 20,
     color: "#fff",
   },
-
   timingButtonContainer: {
-    display: "flex",
-    flexWrap: "nowrap",
     flexDirection: "row",
-    justifyContent: "flex-start",
     alignItems: "center",
     padding: 10,
     gap: 20,
     width: "90%",
   },
-
   timingOptionsContainer: {
-    margin: "auto",
-    display: "flex",
     width: Dimensions.get("screen").width * 0.9,
-    justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, .5)",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
     borderRadius: 20,
     paddingVertical: 50,
   },
