@@ -370,7 +370,7 @@ const style = StyleSheet.create({
     flexWrap: "wrap",
     rowGap: 2,
     columnGap: 4,
-    borderRadius: "20%",
+    borderRadius: 20,
     textAlign: "center",
     justifyContent: "center",
   },
