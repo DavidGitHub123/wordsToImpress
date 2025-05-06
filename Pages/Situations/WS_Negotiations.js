@@ -6,16 +6,14 @@ import {
   Text,
   View,
   Pressable,
-  ImageBackground,
 } from "react-native";
 import { useState } from "react";
 import HomeButton from "../../components/HomeButton";
 import AddButton from "../../components/AddButton";
 import ListenButton from "../../components/ListenButton";
-import { navStyle } from "../../components/NavButton.js";
-import negotiation from "../../assets/Backgrounds/negotiation.jpg";
 import AppButton from "../../components/AppButton";
 import { mainStyles } from "../../components/mainStyles";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function WS_Negotiations({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -344,12 +342,7 @@ export default function WS_Negotiations({ navigation }) {
   };
 
   return (
-    <ImageBackground
-      source={negotiation}
-      imageStyle={style.image}
-      resizeMode="cover"
-      style={mainStyles.page}
-    >
+    <LinearGradient colors={["#2c3e50", "#34495e"]} style={mainStyles.page}>
       <SafeAreaView style={style.container}>
         <ScrollView alwaysBounceHorizontal={true}>
           <View>
@@ -467,15 +460,11 @@ export default function WS_Negotiations({ navigation }) {
           )}
         </ScrollView>
       </SafeAreaView>
-    </ImageBackground>
+    </LinearGradient>
   );
 }
 
 const style = StyleSheet.create({
-  image: {
-    opacity: 0.9,
-  },
-
   component: {
     flex: 1,
     justifyContent: "center",

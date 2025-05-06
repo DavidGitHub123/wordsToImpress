@@ -1,24 +1,18 @@
 import React from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  ImageBackground,
-} from "react-native";
-import HomeButton from "../components/HomeButton";
+import { SafeAreaView, StyleSheet, Text, View, StatusBar } from "react-native";
 import { NavButton } from "../components/NavButton";
-import img122 from "../assets/img/img122.jpg";
 import { mainStyles } from "../components/mainStyles";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function VocabMastery({ navigation }) {
   return (
-    <ImageBackground
-      source={img122}
-      imageStyle={style.image}
-      resizeMode="cover"
-      style={mainStyles.page}
+    <LinearGradient
+      colors={["#1e1e2f", "#121216"]}
+      style={mainStyles.flexOne}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
     >
+      <StatusBar barStyle="light-content" />
       <SafeAreaView style={style.container}>
         <View style={mainStyles.screen}>
           <Text style={mainStyles.header}>Vocab Mastery</Text>
@@ -51,26 +45,29 @@ export default function VocabMastery({ navigation }) {
             title="Fill in the Blank"
             destination="BlankGame"
           />
-
           <NavButton
             navigation={navigation}
             title="Anagram Fun"
             destination="AnagramFun"
           />
-
           <NavButton
             navigation={navigation}
             title="Schedule Challenges"
             destination="Notifications"
           />
         </View>
-
-        <View style={mainStyles.section}>
-          <HomeButton navigation={navigation} />
-        </View>
       </SafeAreaView>
-    </ImageBackground>
+    </LinearGradient>
   );
 }
 
-const style = StyleSheet.create({});
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  section: {
+    paddingHorizontal: 16,
+    paddingVertical: 20,
+    gap: 12,
+  },
+});

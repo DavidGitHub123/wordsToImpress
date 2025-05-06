@@ -11,6 +11,8 @@ function NavButtonHome({ navigation, title, destination, icon = "sign-in" }) {
         onPress={() =>
           navigation.navigate(destination, { selectedWord: title })
         }
+        backgroundColor="transparent" // Transparent background
+        borderColor="#BBC2CC" // Light border color
       />
     </Pressable>
   );
@@ -20,7 +22,7 @@ const navStyle = StyleSheet.create({
   appButton: {
     alignItems: "center",
     justifyContent: "center",
-    height: 80,
+    height: 80, // Adjust height if needed
   },
 });
 
