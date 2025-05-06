@@ -9,7 +9,6 @@ import { incrementMastery } from "./listHelpers";
 import { mainStyles } from "./mainStyles";
 import ChatBubble from "react-native-chat-bubble";
 import { isWordConjugate } from "../Pages/Word";
-import IconButton from "./IconButton";
 
 export default function MultipleChoiceGame(Props) {
   const [anwsers, setAnwsers] = useState([]);
@@ -89,7 +88,6 @@ export default function MultipleChoiceGame(Props) {
   }, [list, listIndex]);
 
   const handleAnwser = (index) => {
-    // if displayNext is true return early, as this function has already highlighted something
     if (displayNext) {
       return;
     }
@@ -212,9 +210,9 @@ export default function MultipleChoiceGame(Props) {
 
   return (
     <LinearGradient
-      colors={["#6699FF", "#335C81"]}
-      start={{ x: 0.5, y: 0.5 }}
-      end={{ x: 0.5, y: 0.5 }}
+      colors={["#1e1e2f", "#121216"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
       opacity={1.0}
       style={style.flexOne}
     >
@@ -226,7 +224,7 @@ export default function MultipleChoiceGame(Props) {
       </View>
       {gameOver ? (
         <View style={style.endContainer}>
-          <Modal visible={showScoreModal} transparent={true}>
+          <Modal visible={!!showScoreModal} transparent={true}>
             <View style={style.centeredView}>
               <View style={style.modalView}>
                 <Text style={[style.header, { paddingHorizontal: 15 }]}>
@@ -256,6 +254,7 @@ export default function MultipleChoiceGame(Props) {
                 You scored {score}/{list.length}
               </Text>
               <AppButton
+                viewStyle={style.center}
                 icon="sign-in"
                 title="Play Again"
                 onPress={handleStartOver}
@@ -370,7 +369,7 @@ const style = StyleSheet.create({
     flexWrap: "wrap",
     rowGap: 2,
     columnGap: 4,
-    borderRadius: "20%",
+    borderRadius: 20,
     textAlign: "center",
     justifyContent: "center",
   },
@@ -410,5 +409,8 @@ const style = StyleSheet.create({
     color: "#f0f8ff",
     fontWeight: "700",
     textAlign: "center",
+  },
+  center: {
+    margin: "auto",
   },
 });

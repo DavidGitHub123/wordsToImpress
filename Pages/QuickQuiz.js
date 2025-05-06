@@ -15,30 +15,27 @@ export default function QuickQuiz({ navigation }) {
   const [selectedList, setSelectedList] = useState(null);
   const [error, setError] = useState(null);
 
-  const getShortDef = (word) => data.find((el) => el.Word === word).Shortdef;
+  const getShortDef = (word) =>
+    data.find((el) => el.Word === word)?.Shortdef || "No definition found";
 
   useEffect(() => {
     async function getAndSetList() {
-      if (!selectedList) {
-        return;
-      }
-      let userList = await getNLeastMastered(selectedList, 10);
+      if (!selectedList) return;
 
+      let userList = await getNLeastMastered(selectedList, 10);
       if (userList.length === 0) {
         setError(
           `${selectedList} is empty, add some words or use another list`,
         );
         return;
-      } else {
-        setError(null);
       }
-      userList = userList.map((el) => {
-        return {
-          Word: el.word,
-          mastery: el.mastery,
-          Shortdef: getShortDef(el.word),
-        };
-      });
+
+      setError(null);
+      userList = userList.map((el) => ({
+        Word: el.word,
+        mastery: el.mastery,
+        Shortdef: getShortDef(el.word),
+      }));
 
       setList(userList);
     }
@@ -52,42 +49,47 @@ export default function QuickQuiz({ navigation }) {
     }
   };
 
-  return isGameStarted ? (
-    <MultipleChoiceGame
-      list={list}
-      questionType="Longdef"
-      answerType="Shortdef"
-      navigation={navigation}
-      setGameRestart={setGameRestart}
-      gameRestart={gameRestart}
-      selectedList={selectedList}
-    />
-  ) : (
+  if (isGameStarted) {
+    return (
+      <MultipleChoiceGame
+        list={list}
+        questionType="Longdef"
+        answerType="Shortdef"
+        navigation={navigation}
+        setGameRestart={setGameRestart}
+        gameRestart={gameRestart}
+        selectedList={selectedList}
+      />
+    );
+  }
+
+  return (
     <LinearGradient
-      colors={["#6699FF", "#335C81"]}
-      start={{ x: 0.5, y: 0.5 }}
-      end={{ x: 0.5, y: 0.5 }}
-      opacity={1.0}
+      colors={["#0f2027", "#203a43", "#2c5364"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
       style={mainStyles.page}
     >
-      <SafeAreaView style={style.container}>
-        <ScrollView alwaysBounceHorizontal={true}>
-          <View style={[mainStyles.startGameContainer, mainStyles.screen]}>
+      <SafeAreaView style={mainStyles.page}>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+          <View style={[mainStyles.centerContainer, style.contentContainer]}>
             <Text style={mainStyles.header}>Quick Quiz</Text>
-            <Text style={mainStyles.subheader}>
+            <Text style={[mainStyles.subheader, { marginBottom: 20 }]}>
               Identify the correct definition that matches the highlighted word.
             </Text>
+
             {error && (
-              <View style={[mainStyles.error, { marginVertical: 20 }]}>
+              <View style={[mainStyles.error, { marginBottom: 20 }]}>
                 <Text>{error}</Text>
               </View>
             )}
-            {!selectedList && <Text style={mainStyles.text}>Loading</Text>}
+
             <ListDropdown setParent={setSelectedList} />
             <AppButton
               onPress={handleSubmit}
               title="Play Game"
               icon="sign-in"
+              viewStyle={{ marginTop: 50 }}
             />
           </View>
         </ScrollView>
@@ -97,64 +99,11 @@ export default function QuickQuiz({ navigation }) {
 }
 
 const style = StyleSheet.create({
-  page: {
-    flex: 1,
-    paddingBottom: 700,
-  },
-  center: {
-    alignItems: "center",
-  },
-
-  lastscreen: {
-    paddingTop: 200,
-  },
-
-  mocktext: {
-    fontSize: 18,
-    color: "#f0f8ff",
-    paddingBottom: 30,
-    paddingHorizontal: 40,
-  },
-
-  textScale: {
-    marginTop: -10,
-    fontSize: 24,
-    color: "#f0f8ff",
-    paddingBottom: 30,
-    paddingHorizontal: 40,
-    fontWeight: 700,
-  },
-
-  buttons: {
-    paddingTop: 20,
-  },
-
-  appButton: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  appButtonText: {
-    fontSize: 18,
-    color: "#fff",
-  },
-
-  appButtonContainer: {
-    paddingVertical: 5,
-    width: 250,
-  },
-
-  appButtonHead: {
-    padding: 20,
-  },
-
-  appButtonHeadText: {
-    fontSize: 26,
-    color: "#fff",
-  },
-  centerContainer: {
-    display: "flex",
-    justifyContent: "center",
+  contentContainer: {
+    paddingVertical: 40,
+    width: "90%",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    borderRadius: 20,
     alignItems: "center",
   },
 });
