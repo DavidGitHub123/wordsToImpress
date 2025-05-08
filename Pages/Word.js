@@ -160,6 +160,7 @@ const style = StyleSheet.create({
     borderColor: "rgba(255,255,255,0.1)",
   },
   space: {
+    marginHorizontal: "auto",
     marginTop: 18,
   },
   subHead: {
@@ -183,6 +184,7 @@ const style = StyleSheet.create({
     alignItems: "baseline",
     gap: 4,
     marginTop: 10,
+    justifyContent: "center"
   },
   buttons: {
     marginTop: 30,

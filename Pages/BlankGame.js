@@ -5,8 +5,9 @@ import {
   StyleSheet,
   Text,
   View,
-  StatusBar,
 } from "react-native";
+import { Dimensions } from "react-native";
+import { mainStyles } from "../components/mainStyles";
 import { LinearGradient } from "expo-linear-gradient";
 import { getNLeastMastered } from "../components/listHelpers.js";
 import AppButton from "../components/AppButton.js";
@@ -68,42 +69,47 @@ export default function BlankGame({ navigation }) {
       blank={true}
     />
   ) : (
-    <LinearGradient
-      colors={["#1e1e2f", "#121216"]}
-      style={styles.container}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-    >
-      <StatusBar barStyle="light-content" />
-      <SafeAreaView style={styles.safeArea}>
-        <ScrollView contentContainerStyle={styles.scrollContainer}>
-          <View style={styles.header}>
-            <Text style={[styles.title, styles.neonGlow]}>
+
+   <LinearGradient
+    colors={["#0f2027", "#203a43", "#2c5364"]}
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 1 }}
+    style={mainStyles.page}
+  >
+    <SafeAreaView style={mainStyles.page}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={mainStyles.centerContainer}>
+          <View style={styles.setupContainer}>
+            <Text style={{ ...mainStyles.header, marginBottom: 20 }}>
               Fill in the Blank
             </Text>
-            <Text style={[styles.subtitle, styles.neonGlow]}>
+            <Text style={{ ...mainStyles.text, textAlign: "center", marginBottom: 20 }}>
               Identify the correct definition that matches the highlighted word.
             </Text>
+
             {error && (
-              <View style={styles.errorWrapper}>
-                <Text style={styles.errorText}>{error}</Text>
+              <View style={mainStyles.error}>
+                <Text>{error}</Text>
               </View>
             )}
+
             {!selectedList && (
-              <Text style={styles.loadingText}>Loading...</Text>
+              <Text style={{ ...mainStyles.text, marginBottom: 10 }}>Loading...</Text>
             )}
+
             <ListDropdown setParent={setSelectedList} />
+
             <AppButton
               onPress={handleSubmit}
               title="Play Game"
               icon="sign-in"
-              buttonStyle={styles.appButton}
-              textStyle={styles.appButtonText}
+              viewStyle={styles.buttonSpacing}
             />
           </View>
-        </ScrollView>
-      </SafeAreaView>
-    </LinearGradient>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  </LinearGradient>
   );
 }
 
@@ -170,4 +176,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
   },
+  setupContainer: {
+    width: Dimensions.get("screen").width * 0.9,
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    borderRadius: 20,
+    paddingVertical: 50,
+    paddingHorizontal: 20,
+  },
+  buttonSpacing: {
+    marginTop: 30,
+  },
 });
+

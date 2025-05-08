@@ -17,7 +17,7 @@
         }
       ]
     ],
-    "name": "RN_WordsToImpress",
+    "name": "Words To Impress",
     "slug": "RN_WordsToImpress",
     "android": {
       "package": "com.RN_WordsToImpress"

@@ -17,11 +17,11 @@ export default function PreBuiltListNew({ navigation }) {
         <ScrollView contentContainerStyle={style.scrollContainer}>
           <View style={[mainStyles.centerContainer, style.contentContainer]}>
             <Text style={mainStyles.header}>Pre-Built List</Text>
-            <Text style={mainStyles.subheader}>
-              Here's a pre-built list of 50 words. Add these words to create a
+            <Text style={style.subheader}>
+              Here&apos;s a pre-built list of 50 words. Add these words to create a
               quick starter list and begin learning.
             </Text>
-            <Text style={[mainStyles.subheader, { marginBottom: 20 }]}>
+            <Text style={[style.subheader, { marginBottom: 20 }]}>
               Or use the Build My List feature to analyze your communication
               patterns and generate a vocabulary list unique to you.
             </Text>
@@ -308,4 +308,9 @@ const style = StyleSheet.create({
     width: "100%",
     marginTop: 10,
   },
+  subheader: {
+    fontSize: 20,
+    color: "white",
+    textAlign: "center",
+  }
 });

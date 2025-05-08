@@ -253,7 +253,7 @@ export default function Notifications({ navigation }) {
       style={mainStyles.page}
     >
       <SafeAreaView style={mainStyles.page}>
-        <ScrollView contentContainerStyle={style.scrollContainer}>
+        <ScrollView contentContainerStyle={style.scrollView}>
           {!showModal ? (
             <View style={mainStyles.centerChildren}>
               <View style={mainStyles.screen}>
@@ -296,8 +296,9 @@ export default function Notifications({ navigation }) {
               options={options}
             />
           )}
-
-          <HomeButton navigation={navigation} />
+<View style={style.center}>
+          <HomeButton  navigation={navigation} />
+          </View>
         </ScrollView>
       </SafeAreaView>
     </LinearGradient>
@@ -305,11 +306,11 @@ export default function Notifications({ navigation }) {
 }
 
 const style = StyleSheet.create({
-  scrollContainer: {
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    paddingVertical: 40,
+  scrollView: {
+    paddingBottom: 40,
+  },
+  center: {
+    marginHorizontal: "auto",
   },
   buttons: {
     display: "flex",

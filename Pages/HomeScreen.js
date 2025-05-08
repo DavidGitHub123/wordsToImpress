@@ -34,6 +34,9 @@ const BUTTONS = [
   { title: "Word Mastery", icon: "trophy", screen: "VocabMastery" },
   { title: "Word of Day", icon: "calendar-day", screen: "WordOfDay" },
   { title: "A-Z Words", icon: "sort-alpha-down", screen: "AtoZButtons" },
+  { title: "Schedule", icon: "bell", screen: "Notifications"},
+  { title: "Schedule", icon: "table", screen: "System"}
+
 ];
 
 export default function HomeScreen({ navigation }) {
@@ -55,7 +58,7 @@ export default function HomeScreen({ navigation }) {
           name={item.icon}
           size={22}
           color="#fff"
-          style={{ marginBottom: 6 }}
+          style={{ marginBottom: 3 }}
         />
         <Text style={styles.cardText}>{item.title}</Text>
       </LinearGradient>
@@ -73,20 +76,16 @@ export default function HomeScreen({ navigation }) {
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.header}>
           <Image source={logo} style={styles.logo} />
-          <Text style={[styles.title, styles.neonGlow]}>Build Your</Text>
-          <Text style={[styles.title, styles.neonGlow]}>Vocabulary</Text>
-          <Text style={[styles.title, styles.neonGlow, { color: "#FFAF40" }]}>
-            Prowess
-          </Text>
+          <Text style={[styles.title, styles.neonGlow]}>Build Your Vocavulary Prowess</Text>
         </View>
         <FlatList
-          data={BUTTONS}
-          renderItem={renderButton}
-          keyExtractor={(item) => item.title}
-          numColumns={2}
-          columnWrapperStyle={styles.row}
-          contentContainerStyle={styles.grid}
-        />
+  data={BUTTONS}
+  renderItem={renderButton}
+  keyExtractor={(item) => item.title}
+  numColumns={2}
+  columnWrapperStyle={styles.row}
+  contentContainerStyle={styles.grid}
+/>
       </SafeAreaView>
     </LinearGradient>
   );
@@ -104,8 +103,8 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 150,
     resizeMode: "contain",
     borderRadius: 16,
     marginBottom: 10,
@@ -117,6 +116,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: "800",
+    textAlign: "center",
     color: "white",
     letterSpacing: 1,
   },
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "rgba(255,255,255,0.15)",
     backdropFilter: "blur(10px)",
-    marginBottom: 10,
+    marginBottom: 5,
     transform: [{ scale: 1 }],
     transition: "transform 0.3s ease",
   },
@@ -157,4 +157,5 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     textAlign: "center",
   },
+
 });

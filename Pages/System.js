@@ -144,7 +144,7 @@ export default function System({ navigation }) {
                 />
               </View>
 
-              <View style={mainStyles.homeButton}>
+              <View style={[mainStyles.homeButton, {marginHorizontal: "auto"}]}>
                 <HomeButton navigation={navigation} />
               </View>
             </View>

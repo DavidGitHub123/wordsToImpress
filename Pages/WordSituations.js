@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
     color: "#aaa",
     marginTop: 10,
     textAlign: "center",
+    paddingHorizontal: 10,
   },
   neonGlow: {
     textShadowColor: "#FFAF40",

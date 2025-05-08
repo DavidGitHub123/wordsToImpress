@@ -190,7 +190,7 @@ export default function MyList({ route, navigation }) {
           </Text>
           <View style={mainStyles.section}>{renderList()}</View>
 
-          <View>
+          <View style={{margin: "auto"}}>
             <HomeButton navigation={navigation} />
           </View>
         </ScrollView>
@@ -216,8 +216,8 @@ const style = StyleSheet.create({
   wordDeleteContainer: {
     display: "flex",
     flexDirection: "row",
-    flexWrap: "nowrap",
-    margin: "auto",
+    alignItems: "center",
+    margin: "auto"
   },
   percentText: {
     color: "#4cf03a",
@@ -225,5 +225,8 @@ const style = StyleSheet.create({
     fontWeight: "600",
     marginHorizontal: "auto",
     marginTop: 70,
+  },
+  deleteButton: {
+    marginLeft: 10,
   },
 });

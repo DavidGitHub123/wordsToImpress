@@ -13,6 +13,7 @@ import MultipleChoiceGame from "../components/MultipleChoiceGame.js";
 import ListDropdown from "../components/ListDropdown";
 import { StatusBar } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import { mainStyles } from "../components/mainStyles.js";
 
 const CARD_WIDTH = (Dimensions.get("window").width - 48) / 2;
 
@@ -65,46 +66,49 @@ export default function WordMatch({ navigation }) {
       selectedList={selectedList}
     />
   ) : (
-    <LinearGradient
-      colors={["#1e1e2f", "#121216"]}
-      style={styles.container}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-    >
-      <StatusBar barStyle="light-content" />
-      <SafeAreaView style={styles.safeArea}>
-        <View style={styles.header}>
-          <Text style={[styles.title, styles.neonGlow]}>Word Match</Text>
-          <Text style={[styles.subheader, styles.neonGlow]}>
-            Identify the correct word that matches each definition.
-          </Text>
-        </View>
+  <LinearGradient
+  colors={["#0f2027", "#203a43", "#2c5364"]}
+  start={{ x: 0, y: 0 }}
+  end={{ x: 1, y: 1 }}
+  style={mainStyles.page}
+>
+  <StatusBar barStyle="light-content" />
+  <SafeAreaView style={mainStyles.page}>
+    <View style={mainStyles.centerContainer}>
+      <View style={styles.setupContainer}>
+        <Text style={mainStyles.header}>Word Match</Text>
+        <Text style={{ ...mainStyles.text, textAlign: "center", marginBottom: 20 }}>
+          Identify the correct word that matches each definition.
+        </Text>
+
         {error && (
-          <View style={styles.errorWrapper}>
-            <Text style={styles.errorText}>{error}</Text>
+          <View style={mainStyles.error}>
+            <Text>{error}</Text>
           </View>
         )}
-        <View style={styles.listContainer}>
-          <ListDropdown
-            setParent={(n) => setSelectedList(n)}
-            initialList={defaultList}
-          />
-          <TouchableOpacity
-            activeOpacity={0.85}
-            style={styles.cardWrapper}
-            onPress={handleSubmit}
+
+        <ListDropdown
+          setParent={(n) => setSelectedList(n)}
+          initialList={defaultList}
+        />
+
+        <TouchableOpacity
+          activeOpacity={0.85}
+          style={styles.buttonSpacing}
+          onPress={handleSubmit}
+        >
+          <LinearGradient
+            colors={["rgba(255,255,255,0.08)", "rgba(255,255,255,0.03)"]}
+            style={styles.cardButton}
           >
-            <LinearGradient
-              colors={["rgba(255,255,255,0.08)", "rgba(255,255,255,0.03)"]}
-              style={styles.cardButton}
-            >
-              <Icon name="play" size={22} color="#fff" style={styles.icon} />
-              <Text style={styles.cardText}>Play Game</Text>
-            </LinearGradient>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
-    </LinearGradient>
+            <Icon name="play" size={22} color="#fff" style={styles.icon} />
+            <Text style={styles.cardText}>Play Game</Text>
+          </LinearGradient>
+        </TouchableOpacity>
+      </View>
+    </View>
+  </SafeAreaView>
+</LinearGradient>
   );
 }
 
@@ -163,6 +167,15 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     marginTop: 50,
   },
+
+    setupContainer: {
+    width: Dimensions.get("screen").width * 0.9,
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    borderRadius: 20,
+    paddingVertical: 50,
+    paddingHorizontal: 20,
+  },
   cardButton: {
     paddingVertical: 18,
     justifyContent: "center",
@@ -170,8 +183,6 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     borderWidth: 1,
     borderColor: "rgba(255,255,255,0.15)",
-    marginBottom: 20,
-    backdropFilter: "blur(10px)",
   },
   cardText: {
     color: "white",
@@ -182,4 +193,7 @@ const styles = StyleSheet.create({
   icon: {
     marginBottom: 6,
   },
+  buttonSpacing: {
+    width: CARD_WIDTH,
+    marginTop: 30,},
 });
