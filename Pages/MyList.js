@@ -156,7 +156,7 @@ export default function MyList({ route, navigation }) {
 
   return (
     <LinearGradient
-      colors={["#0f2027", "#203a43", "#2c5364"]}
+      colors={["#2a5298", "#121216"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={mainStyles.page}
@@ -190,7 +190,7 @@ export default function MyList({ route, navigation }) {
           </Text>
           <View style={mainStyles.section}>{renderList()}</View>
 
-          <View style={{margin: "auto"}}>
+          <View style={{ margin: "auto" }}>
             <HomeButton navigation={navigation} />
           </View>
         </ScrollView>
@@ -217,7 +217,7 @@ const style = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    margin: "auto"
+    margin: "auto",
   },
   percentText: {
     color: "#4cf03a",

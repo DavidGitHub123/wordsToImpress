@@ -66,49 +66,55 @@ export default function WordMatch({ navigation }) {
       selectedList={selectedList}
     />
   ) : (
-  <LinearGradient
-  colors={["#0f2027", "#203a43", "#2c5364"]}
-  start={{ x: 0, y: 0 }}
-  end={{ x: 1, y: 1 }}
-  style={mainStyles.page}
->
-  <StatusBar barStyle="light-content" />
-  <SafeAreaView style={mainStyles.page}>
-    <View style={mainStyles.centerContainer}>
-      <View style={styles.setupContainer}>
-        <Text style={mainStyles.header}>Word Match</Text>
-        <Text style={{ ...mainStyles.text, textAlign: "center", marginBottom: 20 }}>
-          Identify the correct word that matches each definition.
-        </Text>
+    <LinearGradient
+      colors={["#2a5298", "#121216"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={mainStyles.page}
+    >
+      <StatusBar barStyle="light-content" />
+      <SafeAreaView style={mainStyles.page}>
+        <View style={mainStyles.centerContainer}>
+          <View style={styles.setupContainer}>
+            <Text style={mainStyles.header}>Word Match</Text>
+            <Text
+              style={{
+                ...mainStyles.text,
+                textAlign: "center",
+                marginBottom: 20,
+              }}
+            >
+              Identify the correct word that matches each definition.
+            </Text>
 
-        {error && (
-          <View style={mainStyles.error}>
-            <Text>{error}</Text>
+            {error && (
+              <View style={mainStyles.error}>
+                <Text>{error}</Text>
+              </View>
+            )}
+
+            <ListDropdown
+              setParent={(n) => setSelectedList(n)}
+              initialList={defaultList}
+            />
+
+            <TouchableOpacity
+              activeOpacity={0.85}
+              style={styles.buttonSpacing}
+              onPress={handleSubmit}
+            >
+              <LinearGradient
+                colors={["rgba(255,255,255,0.08)", "rgba(255,255,255,0.03)"]}
+                style={styles.cardButton}
+              >
+                <Icon name="play" size={22} color="#fff" style={styles.icon} />
+                <Text style={styles.cardText}>Play Game</Text>
+              </LinearGradient>
+            </TouchableOpacity>
           </View>
-        )}
-
-        <ListDropdown
-          setParent={(n) => setSelectedList(n)}
-          initialList={defaultList}
-        />
-
-        <TouchableOpacity
-          activeOpacity={0.85}
-          style={styles.buttonSpacing}
-          onPress={handleSubmit}
-        >
-          <LinearGradient
-            colors={["rgba(255,255,255,0.08)", "rgba(255,255,255,0.03)"]}
-            style={styles.cardButton}
-          >
-            <Icon name="play" size={22} color="#fff" style={styles.icon} />
-            <Text style={styles.cardText}>Play Game</Text>
-          </LinearGradient>
-        </TouchableOpacity>
-      </View>
-    </View>
-  </SafeAreaView>
-</LinearGradient>
+        </View>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
 
@@ -168,7 +174,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
 
-    setupContainer: {
+  setupContainer: {
     width: Dimensions.get("screen").width * 0.9,
     alignItems: "center",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -195,5 +201,6 @@ const styles = StyleSheet.create({
   },
   buttonSpacing: {
     width: CARD_WIDTH,
-    marginTop: 30,},
+    marginTop: 30,
+  },
 });

@@ -93,7 +93,7 @@ export default function System({ navigation }) {
 
   return (
     <LinearGradient
-      colors={["#1e1e2f", "#121216"]}
+      colors={["#2a5298", "#121216"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={mainStyles.flexOne}
@@ -144,7 +144,9 @@ export default function System({ navigation }) {
                 />
               </View>
 
-              <View style={[mainStyles.homeButton, {marginHorizontal: "auto"}]}>
+              <View
+                style={[mainStyles.homeButton, { marginHorizontal: "auto" }]}
+              >
                 <HomeButton navigation={navigation} />
               </View>
             </View>

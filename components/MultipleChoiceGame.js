@@ -210,7 +210,7 @@ export default function MultipleChoiceGame(Props) {
 
   return (
     <LinearGradient
-      colors={["#1e1e2f", "#121216"]}
+      colors={["#2a5298", "#121216"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       opacity={1.0}

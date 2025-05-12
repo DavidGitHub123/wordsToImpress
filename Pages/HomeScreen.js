@@ -25,7 +25,6 @@ const BUTTONS = [
   },
   { title: "Build My List", icon: "hammer", screen: "TextSearch" },
   {
-
     title: "Pre-Built List",
     icon: "clipboard-list",
     screen: "PreBuiltListNew",
@@ -34,9 +33,8 @@ const BUTTONS = [
   { title: "Word Mastery", icon: "trophy", screen: "VocabMastery" },
   { title: "Word of Day", icon: "calendar-day", screen: "WordOfDay" },
   { title: "A-Z Words", icon: "sort-alpha-down", screen: "AtoZButtons" },
-  { title: "Schedule", icon: "bell", screen: "Notifications"},
-  { title: "Schedule", icon: "table", screen: "System"}
-
+  { title: "Schedule", icon: "bell", screen: "Notifications" },
+  { title: "About", icon: "table", screen: "System" },
 ];
 
 export default function HomeScreen({ navigation }) {
@@ -67,7 +65,7 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <LinearGradient
-      colors={["#1e1e2f", "#121216"]}
+      colors={["#2a5298", "#121216"]}
       style={styles.container}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
@@ -76,16 +74,19 @@ export default function HomeScreen({ navigation }) {
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.header}>
           <Image source={logo} style={styles.logo} />
-          <Text style={[styles.title, styles.neonGlow]}>Build Your Vocavulary Prowess</Text>
+          <Text style={[styles.title, styles.neonGlow]}>
+            Build Your Vocabulary
+          </Text>
+          <Text style={[styles.title, styles.neonGlow]}>Prowess</Text>
         </View>
         <FlatList
-  data={BUTTONS}
-  renderItem={renderButton}
-  keyExtractor={(item) => item.title}
-  numColumns={2}
-  columnWrapperStyle={styles.row}
-  contentContainerStyle={styles.grid}
-/>
+          data={BUTTONS}
+          renderItem={renderButton}
+          keyExtractor={(item) => item.title}
+          numColumns={2}
+          columnWrapperStyle={styles.row}
+          contentContainerStyle={styles.grid}
+        />
       </SafeAreaView>
     </LinearGradient>
   );
@@ -103,11 +104,10 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   logo: {
-    width: 150,
-    height: 150,
+    width: 200,
+    height: 200,
     resizeMode: "contain",
     borderRadius: 16,
-    marginBottom: 10,
     shadowColor: "#fff",
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.5,
@@ -157,5 +157,4 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     textAlign: "center",
   },
-
 });

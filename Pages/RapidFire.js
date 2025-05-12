@@ -42,7 +42,7 @@ export default function RapidFire({ navigation }) {
 
   return (
     <LinearGradient
-      colors={["#0f2027", "#203a43", "#2c5364"]}
+      colors={["#2a5298", "#121216"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={mainStyles.page}

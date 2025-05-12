@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import { Dimensions } from "react-native";
 import { mainStyles } from "../components/mainStyles";
 import { LinearGradient } from "expo-linear-gradient";
@@ -69,47 +63,55 @@ export default function BlankGame({ navigation }) {
       blank={true}
     />
   ) : (
+    <LinearGradient
+      colors={["#2a5298", "#121216"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={mainStyles.page}
+    >
+      <SafeAreaView style={mainStyles.page}>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+          <View style={mainStyles.centerContainer}>
+            <View style={styles.setupContainer}>
+              <Text style={{ ...mainStyles.header, marginBottom: 20 }}>
+                Fill in the Blank
+              </Text>
+              <Text
+                style={{
+                  ...mainStyles.text,
+                  textAlign: "center",
+                  marginBottom: 20,
+                }}
+              >
+                Identify the correct definition that matches the highlighted
+                word.
+              </Text>
 
-   <LinearGradient
-    colors={["#0f2027", "#203a43", "#2c5364"]}
-    start={{ x: 0, y: 0 }}
-    end={{ x: 1, y: 1 }}
-    style={mainStyles.page}
-  >
-    <SafeAreaView style={mainStyles.page}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <View style={mainStyles.centerContainer}>
-          <View style={styles.setupContainer}>
-            <Text style={{ ...mainStyles.header, marginBottom: 20 }}>
-              Fill in the Blank
-            </Text>
-            <Text style={{ ...mainStyles.text, textAlign: "center", marginBottom: 20 }}>
-              Identify the correct definition that matches the highlighted word.
-            </Text>
+              {error && (
+                <View style={mainStyles.error}>
+                  <Text>{error}</Text>
+                </View>
+              )}
 
-            {error && (
-              <View style={mainStyles.error}>
-                <Text>{error}</Text>
-              </View>
-            )}
+              {!selectedList && (
+                <Text style={{ ...mainStyles.text, marginBottom: 10 }}>
+                  Loading...
+                </Text>
+              )}
 
-            {!selectedList && (
-              <Text style={{ ...mainStyles.text, marginBottom: 10 }}>Loading...</Text>
-            )}
+              <ListDropdown setParent={setSelectedList} />
 
-            <ListDropdown setParent={setSelectedList} />
-
-            <AppButton
-              onPress={handleSubmit}
-              title="Play Game"
-              icon="sign-in"
-              viewStyle={styles.buttonSpacing}
-            />
+              <AppButton
+                onPress={handleSubmit}
+                title="Play Game"
+                icon="sign-in"
+                viewStyle={styles.buttonSpacing}
+              />
+            </View>
           </View>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  </LinearGradient>
+        </ScrollView>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
 
@@ -188,4 +190,3 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
 });
-

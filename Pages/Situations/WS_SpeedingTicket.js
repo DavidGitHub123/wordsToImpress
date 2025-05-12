@@ -121,7 +121,7 @@ export default function WS_SpeedingTicket({ navigation }) {
   ];
 
   return (
-    <LinearGradient colors={["#2c3e50", "#34495e"]} style={mainStyles.page}>
+    <LinearGradient colors={["#2a5298", "#121216"]} style={mainStyles.page}>
       <SafeAreaView style={style.container}>
         <ScrollView alwaysBounceHorizontal={true}>
           <View>
