@@ -8,31 +8,30 @@ import { mainStyles } from "../components/mainStyles";
 export default function PreBuiltListNew({ navigation }) {
   return (
     <LinearGradient
-      colors={["#6699FF", "#335C81"]}
-      start={{ x: 0.5, y: 0.5 }}
-      end={{ x: 0.5, y: 0.5 }}
-      opacity={1.0}
-      style={style.page}
+      colors={["#2a5298", "#121216"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={mainStyles.page}
     >
-      <SafeAreaView>
-        <ScrollView alwaysBounceHorizontal={true}>
-          <View style={mainStyles.screen}>
+      <SafeAreaView style={mainStyles.page}>
+        <ScrollView contentContainerStyle={style.scrollContainer}>
+          <View style={[mainStyles.centerContainer, style.contentContainer]}>
             <Text style={mainStyles.header}>Pre-Built List</Text>
-            <Text style={mainStyles.subText}>
+            <Text style={style.subheader}>
               Here&apos;s a pre-built list of 50 words. Add these words to
               create a quick starter list and begin learning.
             </Text>
-            <Text style={mainStyles.subText}>
-              Or use the Build My List feature to analyze your communications
-              patterns to generate a list of vocabulary words unique to you.
+            <Text style={[style.subheader, { marginBottom: 20 }]}>
+              Or use the Build My List feature to analyze your communication
+              patterns and generate a vocabulary list unique to you.
             </Text>
           </View>
 
-          <View style={mainStyles.homeButton}>
+          <View style={{ marginVertical: 20 }}>
             <HomeButton navigation={navigation} />
           </View>
 
-          <View>
+          <View style={style.wordList}>
             <NavButtonWord
               navigation={navigation}
               title="Abstemious"
@@ -291,4 +290,27 @@ export default function PreBuiltListNew({ navigation }) {
 }
 
 const style = StyleSheet.create({
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 40,
+  },
+  contentContainer: {
+    width: "90%",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    borderRadius: 20,
+    paddingVertical: 30,
+    paddingHorizontal: 20,
+    alignItems: "center",
+  },
+  wordList: {
+    width: "100%",
+    marginTop: 10,
+  },
+  subheader: {
+    fontSize: 20,
+    color: "white",
+    textAlign: "center",
+  },
 });
