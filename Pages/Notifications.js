@@ -38,17 +38,10 @@ async function schedulePushNotification(
   notificationName,
   url,
 ) {
-  if (Platform.OS === "android") {
-    await Notifs.scheduleNotificationAsync({
-      content: { title, body, data: { notificationName, url } },
-      trigger: { hour, minute, type: "daily", repeats: true },
-    });
-  } else {
-    await Notifs.scheduleNotificationAsync({
-      content: { title, body, data: { notificationName, url } },
-      trigger: { hour, minute, repeats: true },
-    });
-  }
+  await Notifs.scheduleNotificationAsync({
+    content: { title, body, data: { notificationName, url } },
+    trigger: { hour, minute, type: "daily", repeats: true },
+  });
 }
 
 async function registerForPushNotificationsAsync() {
