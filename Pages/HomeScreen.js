@@ -9,10 +9,12 @@ import {
   TouchableOpacity,
   Dimensions,
   StatusBar,
+  ImageBackground
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import logo from "../assets/logoborderradius.jpg";
+import circles from "../assets/circles.jpg";
 import { MASTERED_WORD_LIST } from "./ManageLists";
 
 const BUTTONS = [
@@ -65,19 +67,22 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <LinearGradient
+      // colors={["#2a5298", "#2cdfff"]}
       colors={["#2a5298", "#121216"]}
       style={styles.container}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
+      // start={{ x: 1, y: .5}}
+      // end={{ x: .5, y: 1 }}
     >
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.header}>
           <Image source={logo} style={styles.logo} />
           <Text style={[styles.title, styles.neonGlow]}>
-            Build Your Vocabulary
+            Build Your 
           </Text>
-          <Text style={[styles.title, styles.neonGlow]}>Prowess</Text>
+          <Text style={[styles.title, styles.neonGlow]}>
+            Vocabulary Prowess
+            </Text>
         </View>
         <FlatList
           data={BUTTONS}
@@ -88,7 +93,7 @@ export default function HomeScreen({ navigation }) {
           contentContainerStyle={styles.grid}
         />
       </SafeAreaView>
-    </LinearGradient>
+      </LinearGradient>
   );
 }
 
@@ -98,14 +103,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+    image: {
+    flex: 1,
+    justifyContent: 'center',
+  },
   header: {
     alignItems: "center",
     marginBottom: 24,
-    paddingTop: 10,
+    // paddingTop: 10,
   },
   logo: {
-    width: 200,
-    height: 200,
+    width: 250,
+    height: 250,
     resizeMode: "contain",
     borderRadius: 16,
     shadowColor: "#fff",
@@ -123,7 +132,7 @@ const styles = StyleSheet.create({
   neonGlow: {
     textShadowColor: "#FFAF40",
     textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 8,
+    // textShadowRadius: 8,
     color: "#fff",
   },
   grid: {
@@ -140,12 +149,14 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   cardButton: {
-    paddingVertical: 18,
+    paddingVertical: 10,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 18,
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.15)",
+    borderColor: "#fff",
+    // backgroundColor: '#2a5298',
+        // backgroundColor: '#cc9600',
     backdropFilter: "blur(10px)",
     marginBottom: 5,
     transform: [{ scale: 1 }],

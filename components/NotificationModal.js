@@ -139,7 +139,7 @@ export default function NotificationModal(Props) {
               icon="sign-out-alt"
               title="Set Reminder Time"
               onPress={handleSubmit}
-              backgroundColor="transparent"
+              backgroundColor="#cc9600"
               borderColor="#BBC2CC"
               textColor={{ color: "#fff" }}
             />

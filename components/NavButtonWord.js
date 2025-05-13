@@ -11,7 +11,8 @@ function NavButtonWord({ navigation, title, destination, icon = "sign-in" }) {
         onPress={() =>
           navigation.navigate(destination, { selectedWord: title })
         }
-        backgroundColor="transparent" // Transparent background
+                // backgroundColor="transparent" // Transparent background
+        backgroundColor="#cc9600" // Transparent background
         borderColor="#BBC2CC" // Light border color
       />
     </Pressable>

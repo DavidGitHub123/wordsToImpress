@@ -105,8 +105,6 @@ export default function Notifications({ navigation }) {
     "Word Match",
     "Quick Quiz",
     "Fill in the Blank",
-    "Fast Match",
-    "Anagram Fun",
   ];
   const wordOfTheDay = GetWordOfTheDay();
 
@@ -248,8 +246,8 @@ export default function Notifications({ navigation }) {
   return (
     <LinearGradient
       colors={["#2a5298", "#121216"]}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
+      // start={{ x: 1, y: 1 }}
+      // end={{ x: 1, y: 1 }}
       style={mainStyles.page}
     >
       <SafeAreaView style={mainStyles.page}>

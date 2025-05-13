@@ -264,7 +264,7 @@ export default function MultipleChoiceGame(Props) {
                 title="Word Mastery"
                 destination="VocabMastery"
               />
-              <HomeButton navigation={navigation} />
+              {/* <HomeButton navigation={navigation} /> */}
             </View>
           )}
         </View>

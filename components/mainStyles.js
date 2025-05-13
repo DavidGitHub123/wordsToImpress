@@ -52,7 +52,8 @@ const mainStyles = StyleSheet.create({
   screen: {
     backgroundColor: "rgba(0, 0, 0, .5)",
     marginBottom: 30,
-    // borderRadius: 20,
+    marginHorizontal: 10,
+    borderRadius: 20,
     paddingHorizontal: 30,
     paddingVertical: 30,
   },

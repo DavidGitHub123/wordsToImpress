@@ -9,8 +9,8 @@ export default function VocabMastery({ navigation }) {
     <LinearGradient
       colors={["#2a5298", "#121216"]}
       style={mainStyles.flexOne}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
+      // start={{ x: 1, y: 1 }}
+      // end={{ x: 1, y: 1 }}
     >
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={style.container}>
