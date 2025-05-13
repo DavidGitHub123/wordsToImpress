@@ -25,7 +25,6 @@ const BUTTONS = [
   },
   { title: "Build My List", icon: "hammer", screen: "TextSearch" },
   {
-
     title: "Pre-Built List",
     icon: "clipboard-list",
     screen: "PreBuiltListNew",
@@ -34,6 +33,8 @@ const BUTTONS = [
   { title: "Word Mastery", icon: "trophy", screen: "VocabMastery" },
   { title: "Word of Day", icon: "calendar-day", screen: "WordOfDay" },
   { title: "A-Z Words", icon: "sort-alpha-down", screen: "AtoZButtons" },
+  { title: "Schedule", icon: "bell", screen: "Notifications" },
+  { title: "About", icon: "table", screen: "System" },
 ];
 
 export default function HomeScreen({ navigation }) {
@@ -55,7 +56,7 @@ export default function HomeScreen({ navigation }) {
           name={item.icon}
           size={22}
           color="#fff"
-          style={{ marginBottom: 6 }}
+          style={{ marginBottom: 3 }}
         />
         <Text style={styles.cardText}>{item.title}</Text>
       </LinearGradient>
@@ -64,7 +65,7 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <LinearGradient
-      colors={["#1e1e2f", "#121216"]}
+      colors={["#2a5298", "#121216"]}
       style={styles.container}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
@@ -73,11 +74,10 @@ export default function HomeScreen({ navigation }) {
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.header}>
           <Image source={logo} style={styles.logo} />
-          <Text style={[styles.title, styles.neonGlow]}>Build Your</Text>
-          <Text style={[styles.title, styles.neonGlow]}>Vocabulary</Text>
-          <Text style={[styles.title, styles.neonGlow, { color: "#FFAF40" }]}>
-            Prowess
+          <Text style={[styles.title, styles.neonGlow]}>
+            Build Your Vocabulary
           </Text>
+          <Text style={[styles.title, styles.neonGlow]}>Prowess</Text>
         </View>
         <FlatList
           data={BUTTONS}
@@ -104,11 +104,10 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: 200,
+    height: 200,
     resizeMode: "contain",
     borderRadius: 16,
-    marginBottom: 10,
     shadowColor: "#fff",
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.5,
@@ -117,6 +116,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: "800",
+    textAlign: "center",
     color: "white",
     letterSpacing: 1,
   },
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "rgba(255,255,255,0.15)",
     backdropFilter: "blur(10px)",
-    marginBottom: 10,
+    marginBottom: 5,
     transform: [{ scale: 1 }],
     transition: "transform 0.3s ease",
   },

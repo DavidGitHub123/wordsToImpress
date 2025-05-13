@@ -7,7 +7,7 @@ import { LinearGradient } from "expo-linear-gradient";
 export default function VocabMastery({ navigation }) {
   return (
     <LinearGradient
-      colors={["#1e1e2f", "#121216"]}
+      colors={["#2a5298", "#121216"]}
       style={mainStyles.flexOne}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
@@ -44,11 +44,6 @@ export default function VocabMastery({ navigation }) {
             navigation={navigation}
             title="Fill in the Blank"
             destination="BlankGame"
-          />
-          <NavButton
-            navigation={navigation}
-            title="Anagram Fun"
-            destination="AnagramFun"
           />
           <NavButton
             navigation={navigation}

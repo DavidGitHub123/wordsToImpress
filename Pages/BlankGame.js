@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  StatusBar,
-} from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Dimensions } from "react-native";
+import { mainStyles } from "../components/mainStyles";
 import { LinearGradient } from "expo-linear-gradient";
 import { getNLeastMastered } from "../components/listHelpers.js";
 import AppButton from "../components/AppButton.js";
@@ -69,37 +64,50 @@ export default function BlankGame({ navigation }) {
     />
   ) : (
     <LinearGradient
-      colors={["#1e1e2f", "#121216"]}
-      style={styles.container}
+      colors={["#2a5298", "#121216"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
+      style={mainStyles.page}
     >
-      <StatusBar barStyle="light-content" />
-      <SafeAreaView style={styles.safeArea}>
-        <ScrollView contentContainerStyle={styles.scrollContainer}>
-          <View style={styles.header}>
-            <Text style={[styles.title, styles.neonGlow]}>
-              Fill in the Blank
-            </Text>
-            <Text style={[styles.subtitle, styles.neonGlow]}>
-              Identify the correct definition that matches the highlighted word.
-            </Text>
-            {error && (
-              <View style={styles.errorWrapper}>
-                <Text style={styles.errorText}>{error}</Text>
-              </View>
-            )}
-            {!selectedList && (
-              <Text style={styles.loadingText}>Loading...</Text>
-            )}
-            <ListDropdown setParent={setSelectedList} />
-            <AppButton
-              onPress={handleSubmit}
-              title="Play Game"
-              icon="sign-in"
-              buttonStyle={styles.appButton}
-              textStyle={styles.appButtonText}
-            />
+      <SafeAreaView style={mainStyles.page}>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+          <View style={mainStyles.centerContainer}>
+            <View style={styles.setupContainer}>
+              <Text style={{ ...mainStyles.header, marginBottom: 20 }}>
+                Fill in the Blank
+              </Text>
+              <Text
+                style={{
+                  ...mainStyles.text,
+                  textAlign: "center",
+                  marginBottom: 20,
+                }}
+              >
+                Identify the correct definition that matches the highlighted
+                word.
+              </Text>
+
+              {error && (
+                <View style={mainStyles.error}>
+                  <Text>{error}</Text>
+                </View>
+              )}
+
+              {!selectedList && (
+                <Text style={{ ...mainStyles.text, marginBottom: 10 }}>
+                  Loading...
+                </Text>
+              )}
+
+              <ListDropdown setParent={setSelectedList} />
+
+              <AppButton
+                onPress={handleSubmit}
+                title="Play Game"
+                icon="sign-in"
+                viewStyle={styles.buttonSpacing}
+              />
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -169,5 +177,16 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 18,
     fontWeight: "600",
+  },
+  setupContainer: {
+    width: Dimensions.get("screen").width * 0.9,
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    borderRadius: 20,
+    paddingVertical: 50,
+    paddingHorizontal: 20,
+  },
+  buttonSpacing: {
+    marginTop: 30,
   },
 });

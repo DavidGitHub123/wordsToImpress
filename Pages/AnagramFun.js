@@ -14,7 +14,7 @@ import data from "../data.js";
 import { mainStyles } from "../components/mainStyles.js";
 import ListDropdown from "../components/ListDropdown.js";
 
-export default function AnagramFun({ navigation }) {
+export default function AnagramFun() {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [list, setList] = useState([]);
   const [gameRestart, setGameRestart] = useState(false);
@@ -62,7 +62,7 @@ export default function AnagramFun({ navigation }) {
     <AnagramGame list={list} />
   ) : (
     <LinearGradient
-      colors={["#6699FF", "#335C81"]}
+      colors={["#2a5298", "#121216"]}
       start={{ x: 0.5, y: 0.5 }}
       end={{ x: 0.5, y: 0.5 }}
       opacity={1.0}

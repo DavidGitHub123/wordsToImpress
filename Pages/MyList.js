@@ -156,7 +156,7 @@ export default function MyList({ route, navigation }) {
 
   return (
     <LinearGradient
-      colors={["#0f2027", "#203a43", "#2c5364"]}
+      colors={["#2a5298", "#121216"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={mainStyles.page}
@@ -190,7 +190,7 @@ export default function MyList({ route, navigation }) {
           </Text>
           <View style={mainStyles.section}>{renderList()}</View>
 
-          <View>
+          <View style={{ margin: "auto" }}>
             <HomeButton navigation={navigation} />
           </View>
         </ScrollView>
@@ -216,7 +216,7 @@ const style = StyleSheet.create({
   wordDeleteContainer: {
     display: "flex",
     flexDirection: "row",
-    flexWrap: "nowrap",
+    alignItems: "center",
     margin: "auto",
   },
   percentText: {
@@ -225,5 +225,8 @@ const style = StyleSheet.create({
     fontWeight: "600",
     marginHorizontal: "auto",
     marginTop: 70,
+  },
+  deleteButton: {
+    marginLeft: 10,
   },
 });

@@ -44,7 +44,7 @@ export default function AtoZButtons({ navigation }) {
 
   return (
     <LinearGradient
-      colors={["#1e3c72", "#2a5298"]}
+      colors={["#2a5298", "#121216"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={mainStyles.page}

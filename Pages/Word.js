@@ -118,7 +118,7 @@ export default function Word({ navigation }) {
 
   return (
     <LinearGradient
-      colors={["#1e1e2f", "#121216"]}
+      colors={["#2a5298", "#121216"]}
       style={mainStyles.flexOne}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
@@ -160,6 +160,7 @@ const style = StyleSheet.create({
     borderColor: "rgba(255,255,255,0.1)",
   },
   space: {
+    marginHorizontal: "auto",
     marginTop: 18,
   },
   subHead: {
@@ -183,6 +184,7 @@ const style = StyleSheet.create({
     alignItems: "baseline",
     gap: 4,
     marginTop: 10,
+    justifyContent: "center",
   },
   buttons: {
     marginTop: 30,

@@ -38,17 +38,10 @@ async function schedulePushNotification(
   notificationName,
   url,
 ) {
-  if (Platform.OS === "android") {
-    await Notifs.scheduleNotificationAsync({
-      content: { title, body, data: { notificationName, url } },
-      trigger: { hour, minute, type: "daily", repeats: true },
-    });
-  } else {
-    await Notifs.scheduleNotificationAsync({
-      content: { title, body, data: { notificationName, url } },
-      trigger: { hour, minute, repeats: true },
-    });
-  }
+  await Notifs.scheduleNotificationAsync({
+    content: { title, body, data: { notificationName, url } },
+    trigger: { hour, minute, type: "daily", repeats: true },
+  });
 }
 
 async function registerForPushNotificationsAsync() {
@@ -247,13 +240,13 @@ export default function Notifications({ navigation }) {
 
   return (
     <LinearGradient
-      colors={["#0f2027", "#203a43", "#2c5364"]}
+      colors={["#2a5298", "#121216"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={mainStyles.page}
     >
       <SafeAreaView style={mainStyles.page}>
-        <ScrollView contentContainerStyle={style.scrollContainer}>
+        <ScrollView contentContainerStyle={style.scrollView}>
           {!showModal ? (
             <View style={mainStyles.centerChildren}>
               <View style={mainStyles.screen}>
@@ -296,8 +289,9 @@ export default function Notifications({ navigation }) {
               options={options}
             />
           )}
-
-          <HomeButton navigation={navigation} />
+          <View style={style.center}>
+            <HomeButton navigation={navigation} />
+          </View>
         </ScrollView>
       </SafeAreaView>
     </LinearGradient>
@@ -305,11 +299,11 @@ export default function Notifications({ navigation }) {
 }
 
 const style = StyleSheet.create({
-  scrollContainer: {
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    paddingVertical: 40,
+  scrollView: {
+    paddingBottom: 40,
+  },
+  center: {
+    marginHorizontal: "auto",
   },
   buttons: {
     display: "flex",
