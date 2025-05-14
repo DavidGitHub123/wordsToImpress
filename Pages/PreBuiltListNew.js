@@ -9,8 +9,8 @@ export default function PreBuiltListNew({ navigation }) {
   return (
     <LinearGradient
       colors={["#2a5298", "#121216"]}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
+      // start={{ x: 1, y: 1 }}
+      // end={{ x: 1, y: 1 }}
       style={mainStyles.page}
     >
       <SafeAreaView style={mainStyles.page}>
@@ -26,10 +26,10 @@ export default function PreBuiltListNew({ navigation }) {
               patterns and generate a vocabulary list unique to you.
             </Text>
           </View>
-
+{/* 
           <View style={{ marginVertical: 20 }}>
             <HomeButton navigation={navigation} />
-          </View>
+          </View> */}
 
           <View style={style.wordList}>
             <NavButtonWord
@@ -311,6 +311,6 @@ const style = StyleSheet.create({
   subheader: {
     fontSize: 20,
     color: "white",
-    textAlign: "center",
+    textAlign: "left",
   },
 });

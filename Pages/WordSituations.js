@@ -48,7 +48,7 @@ export default function WordSituations({ navigation }) {
           name={item.icon}
           size={22}
           color="#fff"
-          style={{ marginBottom: 6 }}
+          style={{ marginBottom: 3 }}
         />
         <Text style={styles.cardText}>{item.title}</Text>
       </LinearGradient>
@@ -59,12 +59,16 @@ export default function WordSituations({ navigation }) {
     <LinearGradient
       colors={["#2a5298", "#121216"]}
       style={styles.container}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
+      start={{ x: 1, y: .5}}
+      end={{ x: .5, y: 1 }}
     >
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.header}>
+
+
+
+
           <Text style={[styles.title, styles.neonGlow]}>Word Situations</Text>
           <Text style={[styles.subText, styles.neonGlow]}>
             Prepare for important situations. Learn the right words to impress.
@@ -92,16 +96,17 @@ const styles = StyleSheet.create({
   header: {
     alignItems: "center",
     marginBottom: 24,
-    paddingTop: 10,
+    // paddingTop: 10,
   },
   title: {
-    fontSize: 28,
+    fontSize: 36,
     fontWeight: "800",
     color: "white",
     letterSpacing: 1,
+    marginTop: 40,
   },
   subText: {
-    fontSize: 16,
+    fontSize: 24,
     color: "#aaa",
     marginTop: 10,
     textAlign: "center",
@@ -125,7 +130,7 @@ const styles = StyleSheet.create({
     width: CARD_WIDTH,
     borderRadius: 18,
     overflow: "hidden",
-    marginBottom: 18,
+    // marginBottom: 18,
   },
   cardButton: {
     paddingVertical: 18,
@@ -133,7 +138,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 18,
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.15)",
+    borderColor: "#fff",
     backdropFilter: "blur(10px)",
     marginBottom: 10,
     transform: [{ scale: 1 }],
@@ -141,7 +146,7 @@ const styles = StyleSheet.create({
   },
   cardText: {
     color: "white",
-    fontSize: 14,
+    fontSize: 20,
     fontWeight: "600",
     textAlign: "center",
   },

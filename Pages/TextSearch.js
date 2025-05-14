@@ -65,15 +65,15 @@ export default function TextSearch({ navigation }) {
   return (
     <LinearGradient
       colors={["#2a5298", "#121216"]}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
+      // start={{ x: 1, y: 1 }}
+      // end={{ x: 1, y: 1 }}
       style={mainStyles.flexOne}
     >
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={style.container}>
         <ScrollView contentContainerStyle={style.scrollView}>
           <View style={mainStyles.screen}>
-            <Text style={mainStyles.header}>Text Search</Text>
+            <Text style={mainStyles.header}>Build My List</Text>
             <Text style={mainStyles.subText}>
               Copy emails, proposals, fiction, etc. into this box. Our tools
               will analyze your communication patterns to suggest new vocabulary

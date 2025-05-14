@@ -157,8 +157,8 @@ export default function MyList({ route, navigation }) {
   return (
     <LinearGradient
       colors={["#2a5298", "#121216"]}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
+      // start={{ x: 1, y: 1 }}
+      // end={{ x: 1, y: 1 }}
       style={mainStyles.page}
     >
       <SafeAreaView>
@@ -167,7 +167,7 @@ export default function MyList({ route, navigation }) {
             <View>
               <Text style={mainStyles.header}>Mastered Words</Text>
               <Text style={mainStyles.subText}>
-                A word appears in green once you&apos;ve correctly identified
+                A word appears here once you&apos;ve correctly identified
                 that word 10 times in games and quizzes.
               </Text>
             </View>

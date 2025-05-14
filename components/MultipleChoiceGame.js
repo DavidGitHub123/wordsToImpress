@@ -241,6 +241,7 @@ export default function MultipleChoiceGame(Props) {
               <Text style={style.header}>
                 You scored {score}/{list.length}
               </Text>
+
               <View style={{ margin: "auto" }}>
                 <AppButton
                   viewStyle={style.center}

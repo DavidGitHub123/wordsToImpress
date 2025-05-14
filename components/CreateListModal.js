@@ -48,13 +48,14 @@ export default function CreateListModal(Props) {
             onChangeText={setInputText}
             value={inputText}
             placeholder="My New List"
-            placeholderTextColor="#aaa"
+            placeholderTextColor="#fff"
           />
           <AppButton
             title="Make list"
             onPress={() => handleCloseModal(inputText)}
             size="medium"
-            backgroundColor="rgba(255,255,255,0.05)"
+            backgroundColor="#5ba653"
+            // backgroundColor="rgba(255,255,255,0.05)"
             borderColor="rgba(255,255,255,0.12)"
             textColor={{
               color: "#fff",
@@ -79,7 +80,8 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    backgroundColor: "rgba(40, 42, 54, 0.95)",
+    // backgroundColor: "rgba(40, 42, 54, 0.95)",
+        backgroundColor: "#2a5298",
     borderRadius: 20,
     padding: 35,
     alignItems: "center",

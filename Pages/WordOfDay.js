@@ -5,6 +5,7 @@ import HomeButton from "../components/HomeButton";
 import ListenButton from "../components/ListenButton";
 import AddButton from "../components/AddButton";
 import { LinearGradient } from "expo-linear-gradient";
+import { mainStyles } from "../components/mainStyles";
 
 export function GetWordOfTheDay() {
   // Multiple to make more random
@@ -52,14 +53,17 @@ export default function WordOfDay({ navigation }) {
   });
 
   return (
+
     <LinearGradient
       colors={["#2a5298", "#121216"]}
       style={styles.container}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
+      // start={{ x: 1, y: 1}}
+      // end={{ x: 1, y: 1 }}
     >
+
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.safeArea}>
+        <View style={mainStyles.screen}>
         <View style={styles.header}>
           <Text style={[styles.title, styles.neonGlow]}>Word of the Day</Text>
           <Text style={styles.word}>{selectedWord}</Text>
@@ -75,6 +79,7 @@ export default function WordOfDay({ navigation }) {
             <Text style={styles.subHead}>Sentence: </Text>
             {sentence}
           </View>
+        </View>
         </View>
 
         <View style={styles.buttons}>
@@ -98,10 +103,10 @@ const styles = StyleSheet.create({
   header: {
     alignItems: "center",
     marginBottom: 24,
-    marginTop: 50,
+    marginTop: 20,
   },
   title: {
-    fontSize: 32,
+    fontSize: 30,
     fontWeight: "800",
     color: "#fff",
     letterSpacing: 1,
@@ -119,13 +124,13 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   subText: {
-    fontSize: 18,
+    fontSize: 22,
     color: "#aaa",
     marginTop: 5,
     textAlign: "center",
   },
   subHead: {
-    fontSize: 22,
+    fontSize: 26,
     color: "#FF8C00",
     fontWeight: "600",
   },
@@ -133,10 +138,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "center",
+    justifyContent: "left",
   },
   highlightedText: {
-    fontSize: 22,
+    fontSize: 26,
     color: "#FF8C00",
     fontWeight: "800",
   },
@@ -145,7 +150,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    fontSize: 18,
+    fontSize: 26,
     color: "#fff",
   },
 });

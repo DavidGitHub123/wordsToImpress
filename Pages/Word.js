@@ -13,7 +13,7 @@ import ListenButton from "../components/ListenButton";
 import AddButton from "../components/AddButton";
 import { useRoute } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-import { mainStyles } from "../components/mainStyles.js";
+import { mainStyles } from "../components/mainStyles";
 
 export const isWordConjugate = (wordCandidate, dataWord) => {
   const truncatedWord = dataWord
@@ -86,6 +86,7 @@ export default function Word({ navigation }) {
 
     return (
       <View style={mainStyles.page}>
+        <View style={mainStyles.screen}>
         <View style={style.wordCard}>
           <Text style={style.title}>{wordData.Word}</Text>
 
@@ -106,6 +107,7 @@ export default function Word({ navigation }) {
             </View>
           </Text>
         </View>
+        </View>
 
         <View style={style.buttons}>
           <ListenButton audio={wordData.Audio} />
@@ -120,8 +122,8 @@ export default function Word({ navigation }) {
     <LinearGradient
       colors={["#2a5298", "#121216"]}
       style={mainStyles.flexOne}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
+      // start={{ x: 1, y: 1}}
+      // end={{ x: 1, y: 1 }}
     >
       <View style={style.overlay}>
         <StatusBar barStyle="light-content" />
@@ -140,7 +142,7 @@ const style = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: "rgba(18,18,22,0.75)", // dark transparent overlay
+    // backgroundColor: "rgba(18,18,22,0.75)", // dark transparent overlay
   },
   title: {
     fontSize: 34,
@@ -152,29 +154,29 @@ const style = StyleSheet.create({
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 8,
   },
-  wordCard: {
-    backgroundColor: "rgba(255,255,255,0.05)",
-    borderRadius: 18,
-    padding: 20,
-    borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.1)",
-  },
+  // wordCard: {
+  //   backgroundColor: "rgba(255,255,255,0.05)",
+  //   borderRadius: 18,
+  //   padding: 20,
+  //   borderWidth: 1,
+  //   borderColor: "rgba(255,255,255,0.1)",
+  // },
   space: {
     marginHorizontal: "auto",
     marginTop: 18,
   },
   subHead: {
-    fontSize: 20,
+    fontSize: 26,
     color: "#FFAF40",
     fontWeight: "700",
   },
   bodyText: {
-    fontSize: 20,
+    fontSize: 26,
     color: "#fff",
     fontWeight: "400",
   },
   highlightedText: {
-    fontSize: 20,
+    fontSize: 26,
     color: "#FFAF40",
     fontWeight: "700",
   },
@@ -184,7 +186,7 @@ const style = StyleSheet.create({
     alignItems: "baseline",
     gap: 4,
     marginTop: 10,
-    justifyContent: "center",
+    justifyContent: "left",
   },
   buttons: {
     marginTop: 30,

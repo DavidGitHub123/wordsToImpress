@@ -13,7 +13,7 @@ import MultipleChoiceGame from "../components/MultipleChoiceGame.js";
 import ListDropdown from "../components/ListDropdown";
 import { StatusBar } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
-import { mainStyles } from "../components/mainStyles.js";
+import { mainStyles } from "../components/mainStyles";
 
 const CARD_WIDTH = (Dimensions.get("window").width - 48) / 2;
 
@@ -68,7 +68,7 @@ export default function WordMatch({ navigation }) {
   ) : (
     <LinearGradient
       colors={["#2a5298", "#121216"]}
-      start={{ x: 0, y: 0 }}
+      start={{ x: 1, y: 1 }}
       end={{ x: 1, y: 1 }}
       style={mainStyles.page}
     >
@@ -104,7 +104,7 @@ export default function WordMatch({ navigation }) {
               onPress={handleSubmit}
             >
               <LinearGradient
-                colors={["rgba(255,255,255,0.08)", "rgba(255,255,255,0.03)"]}
+                colors={["#cc9600", "#cc9600"]}
                 style={styles.cardButton}
               >
                 <Icon name="play" size={22} color="#fff" style={styles.icon} />
