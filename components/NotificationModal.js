@@ -90,13 +90,12 @@ export default function NotificationModal(Props) {
         style={
           selectedWord === el
             ? {
-                backgroundColor: "#2350a8",
-                borderColor: "#fff",
-                borderWidth: 1,
-              }
+              backgroundColor: "#2350a8",
+              borderColor: "#fff",
+              borderWidth: 1,
+            }
             : { borderColor: "#fff", borderWidth: 1 }
         }
-        textColor={{ color: "#fff" }}
       />
     ));
   };
@@ -127,7 +126,6 @@ export default function NotificationModal(Props) {
             is24Hour={false}
             onChange={handleDateChange}
             style={style.marginAuto}
-
           />
         </View>
       )}
@@ -135,15 +133,16 @@ export default function NotificationModal(Props) {
         <View style={mainStyles.centerChildren}>
           {RenderTime(time)}
           {displayRemindMeButton && (
-            <AppButton
-              viewStyle={style.marginAuto}
-              icon="sign-out-alt"
-              title="Set Reminder Time"
-              onPress={handleSubmit}
-              backgroundColor="#E89020"
-              borderColor="#fff"
-              textColor={{ color: "#fff" }}
-            />
+            <View style={{ margin: "auto" }}>
+              <AppButton
+                viewStyle={style.marginAuto}
+                icon="sign-out-alt"
+                title="Set Reminder Time"
+                onPress={handleSubmit}
+                backgroundColor="#E89020"
+                borderColor="#fff"
+              />
+            </View>
           )}
         </View>
       )}
