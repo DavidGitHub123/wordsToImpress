@@ -139,6 +139,8 @@ export default function MultipleChoiceGame(Props) {
           <AppButton
             size="full-screen"
             textSize={textSize}
+            height={70}
+            width={250}
             key={i}
             title={el.answer}
             style={style}
