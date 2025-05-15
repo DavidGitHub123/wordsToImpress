@@ -86,7 +86,7 @@ export default function Word({ navigation }) {
 
     return (
       <View style={mainStyles.page}>
-        <View style={style.wordCard}>
+        <View style={mainStyles.screen}>
           <Text style={style.title}>{wordData.Word}</Text>
 
           <Text style={style.space}>
@@ -140,10 +140,10 @@ const style = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: "rgba(18,18,22,0.75)", // dark transparent overlay
+
   },
   title: {
-    fontSize: 34,
+    fontSize: 36,
     fontWeight: "800",
     color: "#fff",
     textAlign: "center",
@@ -169,12 +169,12 @@ const style = StyleSheet.create({
     fontWeight: "700",
   },
   bodyText: {
-    fontSize: 20,
+    fontSize: 22,
     color: "#fff",
     fontWeight: "400",
   },
   highlightedText: {
-    fontSize: 20,
+    fontSize: 22,
     color: "#FFAF40",
     fontWeight: "700",
   },
@@ -184,7 +184,7 @@ const style = StyleSheet.create({
     alignItems: "baseline",
     gap: 4,
     marginTop: 10,
-    justifyContent: "center",
+    justifyContent: "left",
   },
   buttons: {
     marginTop: 30,

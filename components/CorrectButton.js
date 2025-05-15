@@ -12,8 +12,8 @@ function CorrectButton({ navigation, title, destination, icon = "sign-in" }) {
           navigation.navigate(destination, { selectedWord: title })
         }
         size="medium"
-        backgroundColor="rgba(255,255,255,0.05)"
-        borderColor="rgba(255,255,255,0.12)"
+        backgroundColor="#E89020"
+        borderColor="#fff"
         textColor={{
           color: "#fff",
           textShadowColor: "#00FFAA",

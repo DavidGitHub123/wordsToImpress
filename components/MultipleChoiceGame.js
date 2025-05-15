@@ -294,7 +294,7 @@ const style = StyleSheet.create({
     fontSize: 28,
   },
   outerProgressBar: {
-    width: "90%",
+    width: "70%",
     height: 20,
     margin: "auto",
     borderWidth: 5,

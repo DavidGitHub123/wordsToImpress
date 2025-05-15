@@ -49,7 +49,7 @@ export default function HomeScreen({ navigation }) {
       }
     >
       <LinearGradient
-        colors={["rgba(255,255,255,0.08)", "rgba(255,255,255,0.03)"]}
+        colors={["#E89020", "#E89020"]}
         style={styles.cardButton}
       >
         <Icon
@@ -75,9 +75,9 @@ export default function HomeScreen({ navigation }) {
         <View style={styles.header}>
           <Image source={logo} style={styles.logo} />
           <Text style={[styles.title, styles.neonGlow]}>
-            Build Your Vocabulary
+            Build Your 
           </Text>
-          <Text style={[styles.title, styles.neonGlow]}>Prowess</Text>
+          <Text style={[styles.title, styles.neonGlow]}>Vocabulary Prowess</Text>
         </View>
         <FlatList
           data={BUTTONS}
@@ -100,12 +100,11 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: "center",
-    marginBottom: 24,
-    paddingTop: 10,
+    marginBottom: 20,
   },
   logo: {
-    width: 200,
-    height: 200,
+    width: 250,
+    height: 250,
     resizeMode: "contain",
     borderRadius: 16,
     shadowColor: "#fff",
@@ -132,7 +131,7 @@ const styles = StyleSheet.create({
   },
   row: {
     justifyContent: "space-between",
-    marginBottom: 18,
+    marginBottom: 6,
   },
   cardWrapper: {
     width: CARD_WIDTH,
@@ -140,14 +139,14 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   cardButton: {
-    paddingVertical: 18,
+    paddingVertical: 12,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 18,
-    borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.15)",
+    borderWidth: 2,
+    borderColor: "#fff",
     backdropFilter: "blur(10px)",
-    marginBottom: 5,
+    marginBottom: 3,
     transform: [{ scale: 1 }],
     transition: "transform 0.3s ease",
   },

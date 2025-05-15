@@ -98,8 +98,6 @@ export default function Notifications({ navigation }) {
     "Word Match",
     "Quick Quiz",
     "Fill in the Blank",
-    "Fast Match",
-    "Anagram Fun",
   ];
   const wordOfTheDay = GetWordOfTheDay();
 

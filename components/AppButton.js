@@ -10,8 +10,8 @@ export default function AppButton({
   height = 50,
   iconColor = "#fff",
   textColor = "#fff",
-  backgroundColor = "rgba(255, 255, 255, 0.05)",
-  borderColor = "rgba(255, 255, 255, 0.15)",
+  backgroundColor = "#E89020",
+  borderColor = "#fff",
   fontWeight = "600",
   textSize = 15,
 }) {

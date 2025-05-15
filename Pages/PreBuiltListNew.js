@@ -15,21 +15,20 @@ export default function PreBuiltListNew({ navigation }) {
     >
       <SafeAreaView style={mainStyles.page}>
         <ScrollView contentContainerStyle={style.scrollContainer}>
-          <View style={[mainStyles.centerContainer, style.contentContainer]}>
+         <View style={mainStyles.screen}>
             <Text style={mainStyles.header}>Pre-Built List</Text>
             <Text style={style.subheader}>
               Here&apos;s a pre-built list of 50 words. Add these words to
-              create a quick starter list and begin learning.
-            </Text>
-            <Text style={[style.subheader, { marginBottom: 20 }]}>
-              Or use the Build My List feature to analyze your communication
+              create a quick starter list.
+                Or use the Build My List feature to analyze your writing
               patterns and generate a vocabulary list unique to you.
             </Text>
           </View>
+    
 
-          <View style={{ marginVertical: 20 }}>
+          {/* <View style={{ marginVertical: 20 }}>
             <HomeButton navigation={navigation} />
-          </View>
+          </View> */}
 
           <View style={style.wordList}>
             <NavButtonWord
@@ -311,6 +310,7 @@ const style = StyleSheet.create({
   subheader: {
     fontSize: 20,
     color: "white",
-    textAlign: "center",
+    textAlign: "left",
+    paddingTop: 10,
   },
 });

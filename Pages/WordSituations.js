@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import { mainStyles } from "../components/mainStyles";
 
 const BUTTONS = [
   { title: "Boss", icon: "user-tie", screen: "WS_Boss" },
@@ -41,7 +42,7 @@ export default function WordSituations({ navigation }) {
       onPress={() => navigation.navigate(item.screen)}
     >
       <LinearGradient
-        colors={["rgba(255,255,255,0.08)", "rgba(255,255,255,0.03)"]}
+        colors={["#E89020", "#E89020"]}
         style={styles.cardButton}
       >
         <Icon
@@ -64,11 +65,13 @@ export default function WordSituations({ navigation }) {
     >
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={{ flex: 1 }}>
+      <View style={mainStyles.screen}>
         <View style={styles.header}>
           <Text style={[styles.title, styles.neonGlow]}>Word Situations</Text>
           <Text style={[styles.subText, styles.neonGlow]}>
-            Prepare for important situations. Learn the right words to impress.
+            In a situation and looking for the right word to impress. Click a situation and get the precise word.
           </Text>
+        </View>
         </View>
         <FlatList
           data={BUTTONS}
@@ -91,20 +94,20 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: "center",
-    marginBottom: 24,
-    paddingTop: 10,
+    marginBottom: 30,
+    paddingTop: 30,
   },
   title: {
-    fontSize: 28,
+    fontSize: 36,
     fontWeight: "800",
     color: "white",
     letterSpacing: 1,
   },
   subText: {
-    fontSize: 16,
+    fontSize: 20,
     color: "#aaa",
     marginTop: 10,
-    textAlign: "center",
+    textAlign: "left",
     paddingHorizontal: 10,
   },
   neonGlow: {
@@ -125,17 +128,17 @@ const styles = StyleSheet.create({
     width: CARD_WIDTH,
     borderRadius: 18,
     overflow: "hidden",
-    marginBottom: 18,
+    marginBottom: 6,
   },
   cardButton: {
-    paddingVertical: 18,
+    paddingVertical: 12,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 18,
-    borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.15)",
+    borderWidth: 2,
+    borderColor: "#fff",
     backdropFilter: "blur(10px)",
-    marginBottom: 10,
+    marginBottom: 3,
     transform: [{ scale: 1 }],
     transition: "transform 0.3s ease",
   },

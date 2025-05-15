@@ -54,8 +54,8 @@ export default function AddButton(props) {
         key={i}
         title={el}
         onPress={() => handleCloseModal(el)}
-        backgroundColor="rgba(255,255,255,0.05)"
-        borderColor="rgba(255,255,255,0.12)"
+        backgroundColor="#E89020"
+        borderColor="#fff"
         fontWeight="600"
         size="medium"
       />
@@ -78,8 +78,8 @@ export default function AddButton(props) {
         title="Add to My List"
         onPress={() => handleAddToList(props.word)}
         size="medium"
-        backgroundColor="rgba(255,255,255,0.05)"
-        borderColor="rgba(255,255,255,0.12)"
+        backgroundColor="#E89020"
+        borderColor="#fff"
         fontWeight="700"
         style={{ width: 240 }}
       />
@@ -101,7 +101,7 @@ const style = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    backgroundColor: "#282a36",
+    backgroundColor: "#E89020",
     borderRadius: 20,
     padding: 35,
     alignItems: "center",

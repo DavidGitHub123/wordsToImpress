@@ -79,7 +79,7 @@ export default function WordMatch({ navigation }) {
             <Text style={mainStyles.header}>Word Match</Text>
             <Text
               style={{
-                ...mainStyles.text,
+                ...mainStyles.subheader,
                 textAlign: "center",
                 marginBottom: 20,
               }}
@@ -188,6 +188,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 18,
     borderWidth: 1,
+    backgroundColor: "#E89020",
     borderColor: "rgba(255,255,255,0.15)",
   },
   cardText: {

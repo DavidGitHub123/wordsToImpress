@@ -91,10 +91,10 @@ export default function NotificationModal(Props) {
           selectedWord === el
             ? {
                 backgroundColor: "#2350a8",
-                borderColor: "#BBC2CC",
+                borderColor: "#fff",
                 borderWidth: 1,
               }
-            : { borderColor: "#BBC2CC", borderWidth: 1 }
+            : { borderColor: "#fff", borderWidth: 1 }
         }
         textColor={{ color: "#fff" }}
       />
@@ -127,6 +127,7 @@ export default function NotificationModal(Props) {
             is24Hour={false}
             onChange={handleDateChange}
             style={style.marginAuto}
+
           />
         </View>
       )}
@@ -139,8 +140,8 @@ export default function NotificationModal(Props) {
               icon="sign-out-alt"
               title="Set Reminder Time"
               onPress={handleSubmit}
-              backgroundColor="transparent"
-              borderColor="#BBC2CC"
+              backgroundColor="#E89020"
+              borderColor="#fff"
               textColor={{ color: "#fff" }}
             />
           )}

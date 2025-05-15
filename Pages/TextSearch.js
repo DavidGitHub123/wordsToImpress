@@ -73,7 +73,7 @@ export default function TextSearch({ navigation }) {
       <SafeAreaView style={style.container}>
         <ScrollView contentContainerStyle={style.scrollView}>
           <View style={mainStyles.screen}>
-            <Text style={mainStyles.header}>Text Search</Text>
+            <Text style={mainStyles.header}>Build My List</Text>
             <Text style={mainStyles.subText}>
               Copy emails, proposals, fiction, etc. into this box. Our tools
               will analyze your communication patterns to suggest new vocabulary
@@ -99,7 +99,7 @@ export default function TextSearch({ navigation }) {
           <View style={style.buttons}>
             <AppButton title="Clear" onPress={handleClear} />
             <AppButton title="Analyze" onPress={handleSubmit} />
-            <HomeButton navigation={navigation} />
+            {/* <HomeButton navigation={navigation} /> */}
           </View>
         </ScrollView>
       </SafeAreaView>

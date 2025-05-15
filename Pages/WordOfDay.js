@@ -5,6 +5,7 @@ import HomeButton from "../components/HomeButton";
 import ListenButton from "../components/ListenButton";
 import AddButton from "../components/AddButton";
 import { LinearGradient } from "expo-linear-gradient";
+import { mainStyles } from "../components/mainStyles";
 
 export function GetWordOfTheDay() {
   // Multiple to make more random
@@ -60,6 +61,7 @@ export default function WordOfDay({ navigation }) {
     >
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.safeArea}>
+       <View style={mainStyles.screen}>
         <View style={styles.header}>
           <Text style={[styles.title, styles.neonGlow]}>Word of the Day</Text>
           <Text style={styles.word}>{selectedWord}</Text>
@@ -75,6 +77,7 @@ export default function WordOfDay({ navigation }) {
             <Text style={styles.subHead}>Sentence: </Text>
             {sentence}
           </View>
+        </View>
         </View>
 
         <View style={styles.buttons}>
@@ -98,7 +101,7 @@ const styles = StyleSheet.create({
   header: {
     alignItems: "center",
     marginBottom: 24,
-    marginTop: 50,
+    marginTop: 20,
   },
   title: {
     fontSize: 32,
@@ -120,7 +123,7 @@ const styles = StyleSheet.create({
   },
   subText: {
     fontSize: 18,
-    color: "#aaa",
+    color: "#fff",
     marginTop: 5,
     textAlign: "center",
   },
@@ -133,7 +136,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "center",
+    justifyContent: "left",
   },
   highlightedText: {
     fontSize: 22,
@@ -145,7 +148,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    fontSize: 18,
+    fontSize: 22,
     color: "#fff",
   },
 });

@@ -45,8 +45,8 @@ export default function ListenButton({ audio, word }) {
         icon="volume-up"
         title="Listen"
         onPress={playSound}
-        backgroundColor="rgba(255,255,255,0.05)"
-        borderColor="rgba(255,255,255,0.12)"
+        backgroundColor="#E89020"
+        borderColor="#fff"
         fontWeight="600"
         size="medium"
       />
