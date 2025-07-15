@@ -70,9 +70,15 @@ export default function AnagramFun() {
     />
   ) : (
     <LinearGradient
+<<<<<<< HEAD
       colors={["#2a5298", "#121216"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
+=======
+      colors={["#6699FF", "#335C81"]}
+      start={{ x: 0.5, y: 0.5 }}
+      end={{ x: 0.5, y: 0.5 }}
+>>>>>>> 414b80b46849cd5f5652b2019cb2ad219aeb0a3e
       opacity={1.0}
       style={mainStyles.page}
     >

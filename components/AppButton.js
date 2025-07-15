@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, Pressable, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
+<<<<<<< HEAD
 export default function AppButton({
   onPress,
   icon,
@@ -15,6 +16,54 @@ export default function AppButton({
   fontWeight = "600",
   textSize = 15,
 }) {
+=======
+export default function AppButton(Props) {
+  const {
+    onPress,
+    icon,
+    title,
+    backgroundColor,
+    borderColor,
+    style,
+    size,
+    viewStyle,
+    textColor,
+    textSize,
+    fontWeight,
+  } = Props;
+
+  let height;
+  let width;
+  let styleSize = {};
+  let containerStyleSize = {};
+  if (size === "full-screen") {
+    height = defaultStyle.fullScreen.height;
+    width = defaultStyle.fullScreen.width;
+    styleSize = defaultStyle.fullScreen;
+    containerStyleSize = defaultStyle.fullScreen;
+  } else if (size === "large") {
+    styleSize = defaultStyle.large;
+    containerStyleSize = defaultStyle.largeContainer;
+  } else if (size === "medium") {
+    styleSize = defaultStyle.medium;
+  } else if (size === "small") {
+    styleSize = defaultStyle.small;
+  }
+  const iconButtonStyle = {
+    ...defaultStyle.appButton,
+    ...styleSize,
+    ...style,
+  };
+
+  const containerStyle = {
+    ...defaultStyle.appButtonContainer,
+    ...containerStyleSize,
+    ...viewStyle,
+  };
+
+  const fontSize = { fontSize: textSize ? textSize : 16 };
+
+>>>>>>> 414b80b46849cd5f5652b2019cb2ad219aeb0a3e
   return (
     <Pressable onPress={onPress} style={[styles.wrapper, { width }]}>
       <View
