@@ -15,8 +15,9 @@ import data from "../data.js";
 import { mainStyles } from "../components/mainStyles.js";
 import ListDropdown from "../components/ListDropdown.js";
 import RadioButton from "../components/RadioButton.js";
+import { NavButton } from "../components/NavButton.js";
 
-export default function AnagramFun() {
+export default function AnagramFun({ navigation }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [list, setList] = useState([]);
   const [gameRestart, setGameRestart] = useState(false);
@@ -24,16 +25,14 @@ export default function AnagramFun() {
   const [error, setError] = useState(null);
   const [isEasyMode, setIsEasyMode] = useState(true);
 
-  const getShortDef = (word) => data.find((el) => el.Word === word).Shortdef;
+  const getShortDef = (word) => data.find((el) => el.Word === word)?.Shortdef;
 
   useEffect(() => {
     async function getAndSetList() {
-      if (!selectedList) {
-        return;
-      }
+      if (!selectedList) return;
       let userList = await getNLeastMastered(selectedList, 10);
 
-      if (userList.length === 0) {
+      if (!userList.length) {
         setError(
           `${selectedList} is empty, add some words or use another list`,
         );
@@ -41,13 +40,12 @@ export default function AnagramFun() {
       } else {
         setError(null);
       }
-      userList = userList.map((el) => {
-        return {
-          Word: el.word,
-          mastery: el.mastery,
-          Shortdef: getShortDef(el.word),
-        };
-      });
+
+      userList = userList.map((el) => ({
+        Word: el.word,
+        mastery: el.mastery,
+        Shortdef: getShortDef(el.word),
+      }));
 
       setList(userList);
     }
@@ -67,56 +65,46 @@ export default function AnagramFun() {
       setGameRestart={setGameRestart}
       gameRestart={gameRestart}
       isEasyMode={isEasyMode}
+      navigation={navigation}
     />
   ) : (
     <LinearGradient
-<<<<<<< HEAD
       colors={["#2a5298", "#121216"]}
+      style={mainStyles.page}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
-=======
-      colors={["#6699FF", "#335C81"]}
-      start={{ x: 0.5, y: 0.5 }}
-      end={{ x: 0.5, y: 0.5 }}
->>>>>>> 414b80b46849cd5f5652b2019cb2ad219aeb0a3e
-      opacity={1.0}
-      style={mainStyles.page}
     >
-      <SafeAreaView style={style.container}>
-        <ScrollView alwaysBounceHorizontal={true}>
-          <View style={[mainStyles.startGameContainer, mainStyles.screen]}>
-            <Text style={mainStyles.header}>Anagram Fun</Text>
-            <Text style={mainStyles.subheader}>
-              Fix the jumbled word to increase your mastery
-            </Text>
-            <View>
-              <Pressable
-                style={style.timingButtonContainer}
-                onPress={() => setIsEasyMode(true)}
-              >
-                <Text style={mainStyles.text}>Easy</Text>
-                <RadioButton selected={isEasyMode} />
-              </Pressable>
-              <Pressable
-                style={style.timingButtonContainer}
-                onPress={() => setIsEasyMode(false)}
-              >
-                <Text style={mainStyles.text}>Hard</Text>
-                <RadioButton selected={!isEasyMode} />
-              </Pressable>
-            </View>
-            {error && (
-              <View style={[mainStyles.error, { marginVertical: 20 }]}>
-                <Text>{error}</Text>
-              </View>
-            )}
-            {!selectedList && <Text style={mainStyles.text}>Loading</Text>}
+      <SafeAreaView style={mainStyles.page}>
+        <ScrollView contentContainerStyle={mainStyles.screen}>
+          <Text style={mainStyles.header}>Anagram Fun</Text>
+          <Text style={mainStyles.subheader}>
+            Fix the jumbled word to increase your mastery.
+          </Text>
+
+          <View style={style.timingMode}>
+            <Pressable
+              style={style.timingButton}
+              onPress={() => setIsEasyMode(true)}
+            >
+              <Text style={mainStyles.text}>Easy</Text>
+              <RadioButton selected={isEasyMode} />
+            </Pressable>
+            <Pressable
+              style={style.timingButton}
+              onPress={() => setIsEasyMode(false)}
+            >
+              <Text style={mainStyles.text}>Hard</Text>
+              <RadioButton selected={!isEasyMode} />
+            </Pressable>
+          </View>
+
+          {error && <Text style={mainStyles.error}>{error}</Text>}
+
+          <View style={{ margin: "auto" }}>
             <ListDropdown setParent={setSelectedList} />
-            <AppButton
-              onPress={handleSubmit}
-              title="Play Game"
-              icon="sign-in"
-            />
+          </View>
+          <View style={{ margin: "auto" }}>
+            <AppButton title="Play Game" onPress={handleSubmit} icon="play" />
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -124,341 +112,249 @@ export default function AnagramFun() {
   );
 }
 
-function AnagramGame(Props) {
-  const { list, gameRestart, setGameRestart, isEasyMode } = Props;
-
+function AnagramGame({
+  list,
+  gameRestart,
+  setGameRestart,
+  isEasyMode,
+  navigation,
+}) {
   const generateLetterKey = () => {
-    const alphabet = [
-      "a",
-      "b",
-      "c",
-      "d",
-      "e",
-      "f",
-      "g",
-      "h",
-      "i",
-      "j",
-      "k",
-      "l",
-      "m",
-      "n",
-      "o",
-      "p",
-      "q",
-      "r",
-      "s",
-      "t",
-      "u",
-      "v",
-      "w",
-      "x",
-      "y",
-      "z",
-    ];
-
-    const alphabetTwo = alphabet.slice().sort(() => 0.5 - Math.random());
-
-    const letterKey = {};
+    const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+    const shuffled = [...alphabet].sort(() => 0.5 - Math.random());
+    const key = {};
     while (alphabet.length) {
-      const letterOne = alphabet.pop();
-      const letterTwo =
-        alphabetTwo[0] == letterOne ? alphabetTwo.pop() : alphabetTwo.shift();
-
-      letterKey[letterOne] = letterTwo;
+      const letter = alphabet.pop();
+      const pair = shuffled[0] === letter ? shuffled.pop() : shuffled.shift();
+      key[letter] = pair;
     }
-
-    //Check to make sure there are no matches in key value pairs
-    for (const letter in letterKey) {
-      if (letter === letterKey[letter]) {
-        generateLetterKey();
-      }
-    }
-
-    return letterKey;
+    return key;
   };
 
-  const formatChoseWordRef = () => {
-    const randomWord = list[Math.floor(Math.random() * list.length)];
-    if (isEasyMode) {
-      randomWord.anagram = randomWord.Word.toLowerCase().replace(
-        /[^a-z ]/g,
-        "",
-      );
-    } else {
-      randomWord.anagram = randomWord.Shortdef.toLowerCase().replace(
-        /[^a-z ]/g,
-        "",
-      );
-    }
-
-    randomWord.uniqueLetters = new Set([
-      ...randomWord.anagram.replace(/\s/gm, ""),
-    ]).size;
-    return randomWord;
+  const formatChosenWord = () => {
+    const wordObj = list[Math.floor(Math.random() * list.length)];
+    wordObj.anagram = isEasyMode
+      ? wordObj.Word.toLowerCase().replace(/[^a-z]/g, "")
+      : wordObj.Shortdef.toLowerCase().replace(/[^a-z]/g, "");
+    wordObj.uniqueLetters = new Set(wordObj.anagram.replace(/\s/g, "")).size;
+    return wordObj;
   };
 
   const shuffleString = (str) =>
-    [...str].sort(() => Math.random() - 0.5).join("");
+    [...str].sort(() => 0.5 - Math.random()).join("");
 
   const initShownLetters = () => {
-    if (isEasyMode) {
-      return [];
-    }
-
-    const letters = chosenWordRef.current.anagram.replace(/[^a-z]/gm, "");
-
-    const uniqueLetters = String.prototype.concat.call(...new Set(letters));
-    const uniqueVowels = uniqueLetters.replace(/[^aeiouy]/gm, "");
-    const uniqueConst = uniqueLetters.replace(/[aeiouy]/gm, "");
-    const randomizedVowels = shuffleString(uniqueVowels);
-    const randomizedConst = shuffleString(uniqueConst);
-
-    return [randomizedVowels[0], ...randomizedConst.slice(0, 4)];
+    if (isEasyMode) return [];
+    const letters = chosenWordRef.current.anagram.replace(/[^a-z]/g, "");
+    const unique = [...new Set(letters)];
+    const vowels = unique.filter((c) => "aeiou".includes(c));
+    const consonants = unique.filter((c) => !"aeiou".includes(c));
+    return [shuffleString(vowels)[0], ...shuffleString(consonants).slice(0, 4)];
   };
 
   const letterKeyRef = useRef(generateLetterKey());
-  const chosenWordRef = useRef(formatChoseWordRef());
-
+  const chosenWordRef = useRef(formatChosenWord());
   const [showModal, setShowModal] = useState(false);
   const [shownLetters, setShownLetters] = useState(initShownLetters());
-  const [selectedLetterAndIndex, setSelectedLetterAndIndex] = useState({
-    letter: letterKeyRef.current[chosenWordRef.current.anagram.split("")[0]],
+  const [selectedLetter, setSelectedLetter] = useState({
+    letter: letterKeyRef.current[chosenWordRef.current.anagram[0]],
     index: 0,
   });
 
-  const handleBlankPress = (letter, index) =>
-    setSelectedLetterAndIndex({ letter, index });
+  const findNextFreeIndex = () => {
+    const length = chosenWordRef.current.anagram.length;
+    let index = (selectedLetter.index + 1) % length;
+    let start = index;
 
-  const incrementSelection = () =>
-    setSelectedLetterAndIndex((prev) => {
-      return {
-        letter:
-          letterKeyRef.current[
-          chosenWordRef.current.anagram.split("")[prev.index + 1]
-          ],
-        index: prev.index + 1,
-      };
-    });
+    while (shownLetters.includes(chosenWordRef.current.anagram[index])) {
+      index = (index + 1) % length;
+      if (index === start) {
+        return null;
+      }
+    }
+    return index;
+  };
 
-  const handleLetterButtonPress = (letter) => {
-    if (letterKeyRef.current[letter] === selectedLetterAndIndex.letter) {
-      // Current letter hasnt been added to length yet so add one
+  const handleLetterPress = (letter) => {
+    if (letterKeyRef.current[letter] === selectedLetter.letter) {
       if (shownLetters.length + 1 === chosenWordRef.current.uniqueLetters) {
         setShowModal(true);
       }
-      incrementSelection();
-      setShownLetters((prev) => {
-        if (prev.includes(letter)) {
-          return prev;
-        }
-        prev.push(letter);
-        return [...prev];
-      });
+      setShownLetters((prev) => [...new Set([...prev, letter])]);
+      const index = findNextFreeIndex();
+      setSelectedLetter(() => ({
+        letter: letterKeyRef.current[chosenWordRef.current.anagram[index]],
+        index,
+      }));
     }
   };
 
-  const handlePlayAgain = () => {
-    setShownLetters([]);
-    setSelectedLetterAndIndex({
-      letter: null,
-      index: 0,
-    });
-    letterKeyRef.current = generateLetterKey();
-    chosenWordRef.current = formatChoseWordRef();
-    setGameRestart(!gameRestart);
-    setShowModal(false);
-  };
-
-  const renderBlanksAndLetter = () =>
-    chosenWordRef.current.anagram.split("").map((el, i) => (
+  const renderBlanks = () =>
+    chosenWordRef.current.anagram.split("").map((char, i) => (
       <Pressable
         key={i}
-        onPress={() => handleBlankPress(letterKeyRef.current[el], i)}
+        onPress={() =>
+          setSelectedLetter({ letter: letterKeyRef.current[char], index: i })
+        }
       >
-        <View style={style.verticalPadding}>
-          <Text style={[mainStyles.text, { textAlign: "center" }]}>
-            {shownLetters.includes(el) ? el : ""}
+        <View style={style.letterSlot}>
+          <Text style={mainStyles.text}>
+            {shownLetters.includes(char) ? char : ""}
           </Text>
-
-          {el !== " " && (
+          {char !== " " && (
             <View
               style={
-                selectedLetterAndIndex.index === i
+                selectedLetter.index === i
                   ? style.selectedUnderline
                   : style.underline
               }
             />
           )}
-          <Text style={[mainStyles.text, { textAlign: "center" }]}>
-            {letterKeyRef.current[el]}
-          </Text>
+          <Text style={mainStyles.subText}>{letterKeyRef.current[char]}</Text>
         </View>
       </Pressable>
     ));
 
   const renderLetterButtons = () =>
-    [
-      "a",
-      "b",
-      "c",
-      "d",
-      "e",
-      "f",
-      "g",
-      "h",
-      "i",
-      "j",
-      "k",
-      "l",
-      "m",
-      "n",
-      "o",
-      "p",
-      "q",
-      "r",
-      "s",
-      "t",
-      "u",
-      "v",
-      "w",
-      "x",
-      "y",
-      "z",
-    ]
-      .filter((el) => !shownLetters.includes(el))
-      .map((el, i) => (
+    "abcdefghijklmnopqrstuvwxyz"
+      .split("")
+      .filter((l) => !shownLetters.includes(l))
+      .map((l) => (
         <Pressable
-          key={i}
+          key={l}
           style={style.letterButton}
-          onPress={() => handleLetterButtonPress(el)}
+          onPress={() => handleLetterPress(l)}
         >
-          <Text style={style.buttonLetterText}>{el}</Text>
+          <Text style={style.letterButtonText}>{l}</Text>
         </Pressable>
       ));
 
+  const handlePlayAgain = () => {
+    letterKeyRef.current = generateLetterKey();
+    chosenWordRef.current = formatChosenWord();
+    setShownLetters([]);
+    setGameRestart(!gameRestart);
+    setShowModal(false);
+
+    setSelectedLetter({
+      letter: letterKeyRef.current[chosenWordRef.current.anagram[0]],
+      index: 0,
+    });
+  };
+
+  const handleNav = () => {
+    handlePlayAgain();
+    navigation.navigate("VocabMastery");
+  };
+
   return (
-    <LinearGradient
-      colors={["#6699FF", "#335C81"]}
-      start={{ x: 0.5, y: 0.5 }}
-      end={{ x: 0.5, y: 0.5 }}
-      opacity={1.0}
-      style={style.flexOne}
-    >
-      <Modal animationType="slide" transparent={true} visible={showModal}>
-        <View style={style.centeredView}>
-          <View style={style.modalView}>
-            <AppButton title={"Play again"} onPress={() => handlePlayAgain()} />
+    <LinearGradient colors={["#1e3c72", "#2a5298"]} style={mainStyles.page}>
+      <SafeAreaView style={mainStyles.page}>
+        <Modal visible={showModal} transparent animationType="slide">
+          <View style={style.centeredView}>
+            <View style={style.modalView}>
+              <Text style={mainStyles.header}>Nice Work!</Text>
+              <AppButton title="Play Again" onPress={handlePlayAgain} />
+              <AppButton
+                title="Word Mastery"
+                icon="sign-in"
+                onPress={handleNav}
+              />
+            </View>
           </View>
-        </View>
-      </Modal>
+        </Modal>
 
-      <Text
-        style={[mainStyles.text, { marginHorizontal: "auto", paddingTop: 100 }]}
-      >
-        {isEasyMode
-          ? chosenWordRef.current.Shortdef
-          : chosenWordRef.current.Word}
-      </Text>
-      <View style={style.underlineLetterContainer}>
-        {renderBlanksAndLetter()}
-      </View>
+        <ScrollView contentContainerStyle={mainStyles.screen}>
+          <Text style={[mainStyles.text, { marginVertical: 20 }]}>
+            {isEasyMode
+              ? chosenWordRef.current.Shortdef
+              : chosenWordRef.current.Word}
+          </Text>
 
-      <View style={style.letterButtonContainer}>{renderLetterButtons()}</View>
+          <View style={style.wordRow}>{renderBlanks()}</View>
+          <View style={style.lettersGrid}>{renderLetterButtons()}</View>
+        </ScrollView>
+      </SafeAreaView>
     </LinearGradient>
   );
 }
 
 const style = StyleSheet.create({
-  letterButtonContainer: {
-    display: "flex",
+  timingMode: {
     flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 5,
-    justifyContent: "space-evenly",
-    paddingTop: 20,
-  },
-  flexOne: {
-    flex: 1,
-  },
-  underlineLetterContainer: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 5,
-    paddingBottom: 20,
-    marginHorizontal: 20,
     justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
-    paddingVertical: 100,
+    marginVertical: 20,
+    gap: 20,
   },
-
+  timingButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    paddingHorizontal: 10,
+  },
+  wordRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: 12,
+    marginVertical: 40,
+  },
+  letterSlot: {
+    alignItems: "center",
+    padding: 10,
+  },
   underline: {
-    borderBottomColor: "black",
-    borderBottomWidth: 5,
-    width: 20,
+    borderBottomColor: "#888",
+    borderBottomWidth: 2,
+    width: 15,
+    marginVertical: 4,
   },
   selectedUnderline: {
-    borderBottomColor: "white",
-    borderBottomWidth: 5,
-    width: 20,
+    borderBottomColor: "#fff",
+    borderBottomWidth: 3,
+    width: 15,
+    marginVertical: 4,
   },
-
+  lettersGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: 10,
+    paddingBottom: 50,
+  },
   letterButton: {
-    backgroundColor: "#ff8c00",
-    borderRadius: 10,
-    borderWidth: 3,
-    borderColor: "#bbc2cc",
-    height: 50,
+    backgroundColor: "#FF8C00",
+    borderRadius: 12,
+    padding: 12,
     width: 50,
-    display: "flex",
+    height: 50,
     justifyContent: "center",
     alignItems: "center",
   },
-
-  buttonLetterText: {
-    fontSize: 20,
-    color: "#f0f8ff",
-    fontWeight: "700",
+  letterButtonText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
   },
-
-  verticalPadding: {
-    paddingVertical: 20,
+  modalView: {
+    width: "85%",
+    padding: 25,
+    borderRadius: 20,
+    backgroundColor: "rgba(66, 66, 200, 0.95)",
+    borderColor: "rgba(255, 255, 255, 0.2)",
+    borderWidth: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 8,
   },
-
   centeredView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22,
-  },
-  modalView: {
-    height: 200,
-    width: 350,
-    margin: 10,
-    backgroundColor: "#295094",
-    borderRadius: 20,
-    paddingVertical: 20,
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  timingButtonContainer: {
-    display: "flex",
-    flexWrap: "nowrap",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    padding: 10,
-    gap: 20,
-    width: "90%",
+    backgroundColor: "rgba(0, 0, 0, 0.6)", // Optional dim overlay
   },
 });
