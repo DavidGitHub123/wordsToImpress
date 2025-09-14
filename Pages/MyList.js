@@ -167,8 +167,8 @@ export default function MyList({ route, navigation }) {
             <View>
               <Text style={mainStyles.header}>Mastered Words</Text>
               <Text style={mainStyles.subText}>
-                A word appears her once you&apos;ve correctly identified
-                that word 10 times in games and quizzes.
+                A word appears her once you&apos;ve correctly identified that
+                word 10 times in games and quizzes.
               </Text>
             </View>
           </View>

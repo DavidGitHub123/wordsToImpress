@@ -47,7 +47,8 @@ export default function WS_Boss({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              Sally&apos;s poor work was hardly grounds for dismissal; it was an{" "}
+              Sally&apos;s poor work was hardly grounds for dismissal; it was
+              an{" "}
             </Text>
             <Text style={style.bold}>aberration </Text>
             <Text style={mainStyles.text}>caused by problems at home.</Text>

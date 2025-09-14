@@ -46,7 +46,8 @@ export default function WS_Business({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              The president hung on his office wall many plaques, citations, and{" "}
+              The president hung on his office wall many plaques, citations,
+              and{" "}
             </Text>
             <Text style={style.bold}>accolades.</Text>
           </Text>
@@ -195,7 +196,8 @@ export default function WS_Business({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              We had hoped for a well-trained consulting firm; we got a pack of{" "}
+              We had hoped for a well-trained consulting firm; we got a pack
+              of{" "}
             </Text>
             <Text style={style.bold}>feckless</Text>
             <Text style={mainStyles.text}> hangers-on.</Text>

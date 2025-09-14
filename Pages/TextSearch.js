@@ -8,14 +8,13 @@ import {
   TextInput,
   StatusBar,
 } from "react-native";
-import HomeButton from "../components/HomeButton";
 import { LinearGradient } from "expo-linear-gradient";
 import AppButton from "../components/AppButton";
 import data from "../data";
 import { addOneWordToList, defaultList } from "../components/listHelpers";
 import { mainStyles } from "../components/mainStyles";
 
-export default function TextSearch({ navigation }) {
+export default function TextSearch() {
   const defaultText = "Input text here!";
   const [text, setText] = useState(defaultText);
   const [suggestions, setSuggestions] = useState(null);

@@ -9,6 +9,21 @@
       "expo-router",
       "expo-font",
       [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-1040382127397444~5465177802",
+          "iosAppId": "ca-app-pub-1040382127397444~5066556709"
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ],
+      [
         "expo-splash-screen",
         {
           "backgroundColor": "#89CFF0",
@@ -17,6 +32,10 @@
         }
       ]
     ],
+    "react-native-google-mobile-ads": {
+      "android_app_id": "ca-app-pub-1040382127397444~5465177802",
+      "ios_app_id": "ca-app-pub-1040382127397444~5066556709"
+    },
     "name": "Words To Impress",
     "slug": "RN_WordsToImpress",
     "android": {

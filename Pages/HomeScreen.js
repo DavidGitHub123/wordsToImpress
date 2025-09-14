@@ -48,10 +48,7 @@ export default function HomeScreen({ navigation }) {
           : navigation.navigate(item.screen)
       }
     >
-      <LinearGradient
-        colors={["#E89020", "#E89020"]}
-        style={styles.cardButton}
-      >
+      <LinearGradient colors={["#E89020", "#E89020"]} style={styles.cardButton}>
         <Icon
           name={item.icon}
           size={22}
@@ -74,10 +71,10 @@ export default function HomeScreen({ navigation }) {
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.header}>
           <Image source={logo} style={styles.logo} />
+          <Text style={[styles.title, styles.neonGlow]}>Build Your</Text>
           <Text style={[styles.title, styles.neonGlow]}>
-            Build Your 
+            Vocabulary Prowess
           </Text>
-          <Text style={[styles.title, styles.neonGlow]}>Vocabulary Prowess</Text>
         </View>
         <FlatList
           data={BUTTONS}

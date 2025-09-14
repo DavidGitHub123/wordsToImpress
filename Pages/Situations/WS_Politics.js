@@ -44,7 +44,8 @@ export default function WS_Politics({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              The ambassador had been instructed to show flexibility, but not to{" "}
+              The ambassador had been instructed to show flexibility, but not
+              to{" "}
             </Text>
             <Text style={style.bold}>capitulate </Text>
             <Text style={mainStyles.text}>on trade issues.</Text>
