@@ -45,7 +45,8 @@ export default function WS_InCourt({ navigation }) {
         <Text style={style.space}>
           <Text style={style.bold}>Sentence: </Text>
           <Text style={mainStyles.text}>
-            The young lawyers were excited to be in the court house to finally{" "}
+            The young lawyers were excited to be in the court house to
+            finally{" "}
           </Text>
           <Text style={style.bold}>adjudicate </Text>
           <Text style={mainStyles.text}>their first cases.</Text>
@@ -142,7 +143,8 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              After the article your honor, Ms. Smith decided she had enough{" "}
+              After the article your honor, Ms. Smith decided she had
+              enough{" "}
             </Text>
             <Text style={style.bold}>defamation </Text>
             <Text style={mainStyles.text}>of her character.</Text>

@@ -140,7 +140,6 @@ const style = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-
   },
   title: {
     fontSize: 36,
@@ -151,13 +150,6 @@ const style = StyleSheet.create({
     textShadowColor: "#FFAF40",
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 8,
-  },
-  wordCard: {
-    backgroundColor: "rgba(255,255,255,0.05)",
-    borderRadius: 18,
-    padding: 20,
-    borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.1)",
   },
   space: {
     marginHorizontal: "auto",

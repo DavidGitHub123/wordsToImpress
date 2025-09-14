@@ -61,23 +61,23 @@ export default function WordOfDay({ navigation }) {
     >
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.safeArea}>
-       <View style={mainStyles.screen}>
-        <View style={styles.header}>
-          <Text style={[styles.title, styles.neonGlow]}>Word of the Day</Text>
-          <Text style={styles.word}>{selectedWord}</Text>
-          <Text style={styles.subText}>
-            <Text style={styles.subHead}>Pron: </Text>
-            {wordData.Pronunciation}
-          </Text>
-          <Text style={styles.subText}>
-            <Text style={styles.subHead}>Def: </Text>
-            {wordData.Shortdef}
-          </Text>
-          <View style={styles.sentenceContainer}>
-            <Text style={styles.subHead}>Sentence: </Text>
-            {sentence}
+        <View style={mainStyles.screen}>
+          <View style={styles.header}>
+            <Text style={[styles.title, styles.neonGlow]}>Word of the Day</Text>
+            <Text style={styles.word}>{selectedWord}</Text>
+            <Text style={styles.subText}>
+              <Text style={styles.subHead}>Pron: </Text>
+              {wordData.Pronunciation}
+            </Text>
+            <Text style={styles.subText}>
+              <Text style={styles.subHead}>Def: </Text>
+              {wordData.Shortdef}
+            </Text>
+            <View style={styles.sentenceContainer}>
+              <Text style={styles.subHead}>Sentence: </Text>
+              {sentence}
+            </View>
           </View>
-        </View>
         </View>
 
         <View style={styles.buttons}>

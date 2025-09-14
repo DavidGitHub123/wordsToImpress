@@ -1,7 +1,6 @@
 import React from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import HomeButton from "../components/HomeButton";
 import { NavButtonWord } from "../components/NavButtonWord";
 import { mainStyles } from "../components/mainStyles";
 
@@ -15,16 +14,15 @@ export default function PreBuiltListNew({ navigation }) {
     >
       <SafeAreaView style={mainStyles.page}>
         <ScrollView contentContainerStyle={style.scrollContainer}>
-         <View style={mainStyles.screen}>
+          <View style={mainStyles.screen}>
             <Text style={mainStyles.header}>Pre-Built List</Text>
             <Text style={style.subheader}>
               Here&apos;s a pre-built list of 50 words. Add these words to
-              create a quick starter list.
-                Or use the Build My List feature to analyze your writing
-              patterns and generate a vocabulary list unique to you.
+              create a quick starter list. Or use the Build My List feature to
+              analyze your writing patterns and generate a vocabulary list
+              unique to you.
             </Text>
           </View>
-    
 
           {/* <View style={{ marginVertical: 20 }}>
             <HomeButton navigation={navigation} />
@@ -294,14 +292,6 @@ const style = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingVertical: 40,
-  },
-  contentContainer: {
-    width: "90%",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    borderRadius: 20,
-    paddingVertical: 30,
-    paddingHorizontal: 20,
-    alignItems: "center",
   },
   wordList: {
     width: "100%",

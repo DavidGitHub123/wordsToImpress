@@ -41,10 +41,7 @@ export default function WordSituations({ navigation }) {
       style={styles.cardWrapper}
       onPress={() => navigation.navigate(item.screen)}
     >
-      <LinearGradient
-        colors={["#E89020", "#E89020"]}
-        style={styles.cardButton}
-      >
+      <LinearGradient colors={["#E89020", "#E89020"]} style={styles.cardButton}>
         <Icon
           name={item.icon}
           size={22}
@@ -65,13 +62,14 @@ export default function WordSituations({ navigation }) {
     >
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={{ flex: 1 }}>
-      <View style={mainStyles.screen}>
-        <View style={styles.header}>
-          <Text style={[styles.title, styles.neonGlow]}>Word Situations</Text>
-          <Text style={[styles.subText, styles.neonGlow]}>
-            In a situation and looking for the right word to impress. Click a situation and get the precise word.
-          </Text>
-        </View>
+        <View style={mainStyles.screen}>
+          <View style={styles.header}>
+            <Text style={[styles.title, styles.neonGlow]}>Word Situations</Text>
+            <Text style={[styles.subText, styles.neonGlow]}>
+              In a situation and looking for the right word to impress. Click a
+              situation and get the precise word.
+            </Text>
+          </View>
         </View>
         <FlatList
           data={BUTTONS}
