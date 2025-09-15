@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Dimensions, Modal } from "react-native";
+import { View, Text, StyleSheet, Modal } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppButton from "./AppButton";
 import { NavButton } from "./NavButton";
@@ -7,9 +7,7 @@ import HomeButton from "./HomeButton";
 import data from "../data";
 import { incrementMastery } from "./listHelpers";
 import { mainStyles } from "./mainStyles";
-import ChatBubble from "react-native-chat-bubble";
 import { isWordConjugate } from "../Pages/Word";
-import IconButton from "./IconButton";
 
 export default function MultipleChoiceGame(Props) {
   const [anwsers, setAnwsers] = useState([]);
@@ -89,7 +87,6 @@ export default function MultipleChoiceGame(Props) {
   }, [list, listIndex]);
 
   const handleAnwser = (index) => {
-    // if displayNext is true return early, as this function has already highlighted something
     if (displayNext) {
       return;
     }
@@ -142,6 +139,8 @@ export default function MultipleChoiceGame(Props) {
           <AppButton
             size="full-screen"
             textSize={textSize}
+            height={70}
+            width={250}
             key={i}
             title={el.answer}
             style={style}
@@ -178,24 +177,13 @@ export default function MultipleChoiceGame(Props) {
     </View>
   );
 
-  const questionContainer =
-    questionType === "Shortdef" ? (
-      <View
-        style={{ ...mainStyles.screen, ...style.flexQuestion, width: "100%" }}
-      >
-        {question}
-      </View>
-    ) : (
-      <ChatBubble
-        style={style.chatBubble}
-        withTail={true}
-        bubbleColor="rgba(0, 0, 0, .5)"
-        tailColor="rgba(0, 0, 0, .5)"
-      >
-        {question}
-      </ChatBubble>
-    );
-
+  const questionContainer = (
+    <View
+      style={{ ...mainStyles.screen, ...style.flexQuestion, width: "100%" }}
+    >
+      {question}
+    </View>
+  );
   const getSkillLevel = (score) => {
     if (score <= 5) {
       return "Novice";
@@ -212,9 +200,9 @@ export default function MultipleChoiceGame(Props) {
 
   return (
     <LinearGradient
-      colors={["#6699FF", "#335C81"]}
-      start={{ x: 0.5, y: 0.5 }}
-      end={{ x: 0.5, y: 0.5 }}
+      colors={["#2a5298", "#121216"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
       opacity={1.0}
       style={style.flexOne}
     >
@@ -226,7 +214,7 @@ export default function MultipleChoiceGame(Props) {
       </View>
       {gameOver ? (
         <View style={style.endContainer}>
-          <Modal visible={showScoreModal} transparent={true}>
+          <Modal visible={!!showScoreModal} transparent={true}>
             <View style={style.centeredView}>
               <View style={style.modalView}>
                 <Text style={[style.header, { paddingHorizontal: 15 }]}>
@@ -255,17 +243,24 @@ export default function MultipleChoiceGame(Props) {
               <Text style={style.header}>
                 You scored {score}/{list.length}
               </Text>
-              <AppButton
-                icon="sign-in"
-                title="Play Again"
-                onPress={handleStartOver}
-              />
-              <NavButton
-                navigation={navigation}
-                title="Word Mastery"
-                destination="VocabMastery"
-              />
-              <HomeButton navigation={navigation} />
+              <View style={{ margin: "auto" }}>
+                <AppButton
+                  viewStyle={style.center}
+                  icon="sign-in"
+                  title="Play Again"
+                  onPress={handleStartOver}
+                />
+              </View>
+              <View style={{ margin: "auto" }}>
+                <NavButton
+                  navigation={navigation}
+                  title="Word Mastery"
+                  destination="VocabMastery"
+                />
+              </View>
+              <View style={{ margin: "auto" }}>
+                <HomeButton navigation={navigation} />
+              </View>
             </View>
           )}
         </View>
@@ -291,7 +286,6 @@ export default function MultipleChoiceGame(Props) {
   );
 }
 
-const dimensions = Dimensions.get("screen");
 const style = StyleSheet.create({
   progressView: {
     marginTop: 75,
@@ -302,7 +296,7 @@ const style = StyleSheet.create({
     fontSize: 28,
   },
   outerProgressBar: {
-    width: "90%",
+    width: "70%",
     height: 20,
     margin: "auto",
     borderWidth: 5,
@@ -370,19 +364,9 @@ const style = StyleSheet.create({
     flexWrap: "wrap",
     rowGap: 2,
     columnGap: 4,
-    borderRadius: "20%",
+    borderRadius: 20,
     textAlign: "center",
     justifyContent: "center",
-  },
-  chatBubble: {
-    width: dimensions.width * 0.95,
-    display: "flex",
-    flexDirection: "row",
-    flexFlow: "wrap",
-    alignItems: "center",
-    flexWrap: "wrap",
-    rowGap: 2,
-    columnGap: 4,
   },
   centeredView: {
     flex: 1,
@@ -410,5 +394,8 @@ const style = StyleSheet.create({
     color: "#f0f8ff",
     fontWeight: "700",
     textAlign: "center",
+  },
+  center: {
+    margin: "auto",
   },
 });

@@ -1,34 +1,40 @@
 import React from "react";
-import { Pressable, StyleSheet } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-export default function IconButton(Props) {
-  const { name, style, onPress } = Props;
-
-  const containerStyle = { ...defaultStyle.containerStyle, ...style };
-
+export default function IconButton({ name, style, onPress }) {
   return (
-    <Pressable style={containerStyle} onPress={onPress}>
-      <Icon style={defaultStyle.icon} size={20} name={name} onPress={onPress} />
+    <Pressable style={[styles.button, style]} onPress={onPress}>
+      <View style={styles.inner}>
+        <Icon name={name} size={18} style={styles.icon} />
+      </View>
     </Pressable>
   );
 }
 
-const defaultStyle = StyleSheet.create({
-  containerStyle: {
-    height: 40,
-    width: 40,
-    backgroundColor: 'transparent',
-    paddingVertical: 5,
-    borderRadius: 10,
-    alignItems: "center",
+const styles = StyleSheet.create({
+  button: {
+    width: 42,
+    height: 42,
+    borderRadius: 12,
+    backgroundColor: "#E89020",
+    borderColor: "#fff",
+    borderWidth: 1,
     justifyContent: "center",
-    display: "flex",
+    alignItems: "center",
+    shadowColor: "#fff",
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.08,
+    shadowRadius: 6,
   },
-
-  icon: {
+  inner: {
     alignItems: "center",
     justifyContent: "center",
+  },
+  icon: {
     color: "#fff",
+    textShadowColor: "#FFAF40",
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 6,
   },
 });

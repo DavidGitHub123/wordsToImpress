@@ -3,7 +3,6 @@ import {
   SafeAreaView,
   ScrollView,
   StyleSheet,
-  ImageBackground,
   Text,
   View,
   Pressable,
@@ -12,10 +11,9 @@ import { useState } from "react";
 import HomeButton from "../../components/HomeButton";
 import AddButton from "../../components/AddButton";
 import ListenButton from "../../components/ListenButton";
-import { navStyle } from "../../components/NavButton.js";
-import courthouse from "../../assets/Backgrounds/courthouse.jpg";
 import AppButton from "../../components/AppButton";
 import { mainStyles } from "../../components/mainStyles";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function WS_InCourt({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -47,7 +45,8 @@ export default function WS_InCourt({ navigation }) {
         <Text style={style.space}>
           <Text style={style.bold}>Sentence: </Text>
           <Text style={mainStyles.text}>
-            The young lawyers were excited to be in the court house to finally{" "}
+            The young lawyers were excited to be in the court house to
+            finally{" "}
           </Text>
           <Text style={style.bold}>adjudicate </Text>
           <Text style={mainStyles.text}>their first cases.</Text>
@@ -144,7 +143,8 @@ export default function WS_InCourt({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              After the article your honor, Ms. Smith decided she had enough{" "}
+              After the article your honor, Ms. Smith decided she had
+              enough{" "}
             </Text>
             <Text style={style.bold}>defamation </Text>
             <Text style={mainStyles.text}>of her character.</Text>
@@ -342,12 +342,7 @@ export default function WS_InCourt({ navigation }) {
   };
 
   return (
-    <ImageBackground
-      source={courthouse}
-      imageStyle={style.image}
-      resizeMode="cover"
-      style={mainStyles.page}
-    >
+    <LinearGradient colors={["#2a5298", "#121216"]} style={mainStyles.page}>
       <SafeAreaView style={style.container}>
         <ScrollView alwaysBounceHorizontal={true}>
           <View>
@@ -465,15 +460,11 @@ export default function WS_InCourt({ navigation }) {
           )}
         </ScrollView>
       </SafeAreaView>
-    </ImageBackground>
+    </LinearGradient>
   );
 }
 
 const style = StyleSheet.create({
-  image: {
-    opacity: 0.9,
-  },
-
   component: {
     flex: 1,
     justifyContent: "center",

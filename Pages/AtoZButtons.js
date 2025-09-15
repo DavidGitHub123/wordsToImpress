@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, ScrollView, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, Text, View, StyleSheet } from "react-native";
 import HomeButton from "../components/HomeButton";
 import { NavButton } from "../components/NavButton";
 import { LinearGradient } from "expo-linear-gradient";
@@ -38,30 +38,49 @@ export default function AtoZButtons({ navigation }) {
         navigation={navigation}
         title={el}
         destination={"AtoZWords"}
+        style={style.navButton}
       />
     ));
 
   return (
     <LinearGradient
-      colors={["#335C81", "#6699FF"]}
-      start={{ x: 0.5, y: 0.25 }}
-      end={{ x: 0.5, y: 0.25 }}
-      opacity={1.0}
+      colors={["#2a5298", "#121216"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
       style={mainStyles.page}
     >
       <SafeAreaView>
         <ScrollView alwaysBounceHorizontal={true}>
-          <View>
+          <View style={style.container}>
             <Text style={mainStyles.header}>Words A to Z</Text>
+            <View style={style.buttonsContainer}>{renderButtons()}</View>
+            <View style={mainStyles.homeButton}>
+              <HomeButton navigation={navigation} />
+            </View>
           </View>
-
-          <View style={mainStyles.homeButton}>
-            <HomeButton navigation={navigation} />
-          </View>
-
-          <View style={mainStyles.section}>{renderButtons()}</View>
         </ScrollView>
       </SafeAreaView>
     </LinearGradient>
   );
 }
+
+const style = StyleSheet.create({
+  container: {
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    alignItems: "center",
+  },
+  buttonsContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    marginVertical: 20,
+  },
+  navButton: {
+    margin: 5,
+    width: 40,
+    height: 40,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
