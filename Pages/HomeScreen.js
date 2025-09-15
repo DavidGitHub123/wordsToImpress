@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   Text,
+  Modal,
   StyleSheet,
   SafeAreaView,
   Image,
@@ -14,6 +15,14 @@ import { LinearGradient } from "expo-linear-gradient";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import logo from "../assets/logoborderradius.jpg";
 import { MASTERED_WORD_LIST } from "./ManageLists";
+import {
+  defaultList,
+  getDefaultList,
+  isFirstTime,
+} from "../components/listHelpers";
+import IconButton from "../components/IconButton";
+import { mainStyles } from "../components/mainStyles";
+import AppButton from "../components/AppButton";
 
 const BUTTONS = [
   { title: "My Lists", icon: "list", screen: "ManageLists" },
@@ -38,6 +47,26 @@ const BUTTONS = [
 ];
 
 export default function HomeScreen({ navigation }) {
+  const listNameRef = useRef(defaultList);
+
+  const handleCloseModal = () => setShowModal(false);
+
+  const handleNavToVocabTest = () => {
+    setShowModal(false);
+    navigation.navigate("VocabTest");
+  };
+
+  const [showModal, setShowModal] = useState(false);
+  useEffect(() => {
+    (async () => {
+      listNameRef.current = await getDefaultList();
+
+      if (await isFirstTime()) {
+        setShowModal(true);
+      }
+    })();
+  }, []);
+
   const renderButton = ({ item }) => (
     <TouchableOpacity
       activeOpacity={0.85}
@@ -84,6 +113,24 @@ export default function HomeScreen({ navigation }) {
           columnWrapperStyle={styles.row}
           contentContainerStyle={styles.grid}
         />
+
+        <Modal visible={showModal} transparent={true}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <View style={styles.xButton}>
+                <IconButton name="times" onPress={() => handleCloseModal()} />
+              </View>
+              <Text style={mainStyles.text}>Test your Vocabulary Prowess</Text>
+              <Text style={mainStyles.text}>Take our placement quiz</Text>
+              <AppButton
+                size="large"
+                icon="list"
+                title="Vocab Test"
+                onPress={() => handleNavToVocabTest()}
+              />
+            </View>
+          </View>
+        </Modal>
       </SafeAreaView>
     </LinearGradient>
   );
@@ -142,9 +189,7 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     borderWidth: 2,
     borderColor: "#fff",
-    backdropFilter: "blur(10px)",
     marginBottom: 3,
-    transform: [{ scale: 1 }],
     transition: "transform 0.3s ease",
   },
   cardText: {
@@ -152,5 +197,29 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "600",
     textAlign: "center",
+  },
+  xButton: {
+    alignSelf: "flex-end",
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "#282a36",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
   },
 });

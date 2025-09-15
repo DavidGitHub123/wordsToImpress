@@ -247,6 +247,8 @@ function AnagramGame(Props) {
       .map((el, i) => (
         <AppButton
           key={i}
+          height={60}
+          width={60}
           viewStyle={style.appButtonView}
           style={style.appButtonStyle}
           title={el}
