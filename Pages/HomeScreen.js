@@ -105,6 +105,26 @@ export default function HomeScreen({ navigation }) {
             Vocabulary Prowess
           </Text>
         </View>
+        <View style={{ width: "100%", marginBottom: 6 }}>
+          <TouchableOpacity
+            activeOpacity={0.85}
+            style={[styles.cardWrapper, styles.firstCard]}
+            onPress={() => handleNavToVocabTest()}
+          >
+            <LinearGradient
+              colors={["#E89020", "#E89020"]}
+              style={styles.cardButton}
+            >
+              <Icon
+                name="trophy"
+                size={22}
+                color="#fff"
+                style={{ marginBottom: 3 }}
+              />
+              <Text style={styles.cardText}>Test Your Word Prowess</Text>
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>
         <FlatList
           data={BUTTONS}
           renderItem={renderButton}
@@ -221,5 +241,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+  },
+  firstCard: {
+    width: "92%",
+    margin: "auto",
   },
 });
