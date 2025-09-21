@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  useMemo,
+} from "react";
 import {
   Pressable,
   SafeAreaView,
@@ -14,266 +20,411 @@ import data from "../data.js";
 import { mainStyles } from "../components/mainStyles.js";
 import ListDropdown from "../components/ListDropdown.js";
 
-export default function AnagramFun() {
-  const [isGameStarted, setIsGameStarted] = useState(false);
-  const [list, setList] = useState([]);
-  const [gameRestart, setGameRestart] = useState(false);
-  const [selectedList, setSelectedList] = useState(null);
-  const [error, setError] = useState(null);
+const ALPHABET = "abcdefghijklmnopqrstuvwxyz".split("");
+const WORDS_TO_FETCH = 10;
 
-  const getShortDef = (word) => data.find((el) => el.Word === word).Shortdef;
+const getShortDef = (word) =>
+  data.find((el) => el.Word === word)?.Shortdef || "";
+
+const generateLetterKey = () => {
+  const alphabet = [...ALPHABET];
+  const shuffledAlphabet = [...ALPHABET].sort(() => 0.5 - Math.random());
+  const letterKey = {};
+
+  while (alphabet.length > 0) {
+    const letterOne = alphabet.pop();
+    const letterTwo =
+      shuffledAlphabet[0] === letterOne
+        ? shuffledAlphabet.pop()
+        : shuffledAlphabet.shift();
+
+    letterKey[letterOne] = letterTwo;
+  }
+
+  const hasIdentityMapping = Object.entries(letterKey).some(
+    ([key, value]) => key === value,
+  );
+  return hasIdentityMapping ? generateLetterKey() : letterKey;
+};
+
+const formatWordForGame = (word) => {
+  const formattedShortdef = word.Shortdef.toLowerCase().replace(/[^a-z ]/g, "");
+  const uniqueLetters = new Set(formattedShortdef.replace(/\s/g, "")).size;
+
+  return {
+    ...word,
+    FormattedShortdef: formattedShortdef,
+    uniqueLetters,
+  };
+};
+
+const useGameList = (selectedList, gameRestart) => {
+  const [list, setList] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    async function getAndSetList() {
-      if (!selectedList) {
-        return;
+    const fetchAndSetList = async () => {
+      if (!selectedList) return;
+
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const userList = await getNLeastMastered(selectedList, WORDS_TO_FETCH);
+
+        if (userList.length === 0) {
+          setError(
+            `${selectedList} is empty, add some words or use another list`,
+          );
+          setList([]);
+        } else {
+          const formattedList = userList.map((el) => ({
+            Word: el.word,
+            mastery: el.mastery,
+            Shortdef: getShortDef(el.word),
+          }));
+          setList(formattedList);
+        }
+      } catch (err) {
+        setError("Failed to load word list");
+        setList([]);
+      } finally {
+        setIsLoading(false);
       }
-      let userList = await getNLeastMastered(selectedList, 10);
+    };
 
-      if (userList.length === 0) {
-        setError(
-          `${selectedList} is empty, add some words or use another list`,
-        );
-        return;
-      } else {
-        setError(null);
-      }
-      userList = userList.map((el) => {
-        return {
-          Word: el.word,
-          mastery: el.mastery,
-          Shortdef: getShortDef(el.word),
-        };
-      });
-
-      setList(userList);
-    }
-
-    getAndSetList();
+    fetchAndSetList();
   }, [gameRestart, selectedList]);
 
-  const handleSubmit = () => {
-    if (!error && selectedList) {
-      setIsGameStarted(true);
-    }
-  };
+  return { list, error, isLoading };
+};
 
-  return isGameStarted ? (
-    <AnagramGame list={list} />
-  ) : (
-    <LinearGradient
-      colors={["#2a5298", "#121216"]}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      opacity={1.0}
-      style={mainStyles.page}
-    >
-      <SafeAreaView style={style.container}>
-        <ScrollView alwaysBounceHorizontal={true}>
-          <View style={[mainStyles.startGameContainer, mainStyles.screen]}>
-            <Text style={mainStyles.header}>Anagram Fun</Text>
-            <Text style={mainStyles.subheader}>
-              Fix the jumbled word to increase your mastery
-            </Text>
-            {error && (
-              <View style={[mainStyles.error, { marginVertical: 20 }]}>
-                <Text>{error}</Text>
-              </View>
-            )}
-            {!selectedList && <Text style={mainStyles.text}>Loading</Text>}
-            <ListDropdown setParent={setSelectedList} />
-            <AppButton
-              onPress={handleSubmit}
-              title="Play Game"
-              icon="sign-in"
-            />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </LinearGradient>
-  );
-}
-
-function AnagramGame(Props) {
-  const { list } = Props;
-
-  const generateLetterKey = () => {
-    const alphabet = [
-      "a",
-      "b",
-      "c",
-      "d",
-      "e",
-      "f",
-      "g",
-      "h",
-      "i",
-      "j",
-      "k",
-      "l",
-      "m",
-      "n",
-      "o",
-      "p",
-      "q",
-      "r",
-      "s",
-      "t",
-      "u",
-      "v",
-      "w",
-      "x",
-      "y",
-      "z",
-    ];
-
-    const alphabetTwo = alphabet.slice().sort(() => 0.5 - Math.random());
-
-    const letterKey = {};
-    while (alphabet.length) {
-      const letterOne = alphabet.pop();
-      const letterTwo =
-        alphabetTwo[0] == letterOne ? alphabetTwo.pop() : alphabetTwo.shift();
-
-      letterKey[letterOne] = letterTwo;
-    }
-
-    //Check to make sure there are no matches in key value pairs
-    for (const letter in letterKey) {
-      if (letter === letterKey[letter]) {
-        generateLetterKey();
-      }
-    }
-
-    return letterKey;
-  };
-
-  const formatChoseWordRef = () => {
-    const randomWord = list[Math.floor(Math.random() * list.length)];
-    randomWord.FormattedShortdef = randomWord.Shortdef.toLowerCase().replace(
-      /[^a-z ]/g,
-      "",
-    );
-    randomWord.uniqueLetters = new Set([
-      ...randomWord.FormattedShortdef.replace(/\s/, ""),
-    ]).size;
-    return randomWord;
-  };
-
+const useAnagramGame = (list) => {
   const [shownLetters, setShownLetters] = useState([]);
   const [selectedLetterAndIndex, setSelectedLetterAndIndex] = useState({
     letter: null,
     index: -1,
   });
+  const [gameWon, setGameWon] = useState(false);
 
   const letterKeyRef = useRef(generateLetterKey());
-  const chosenWordRef = useRef(formatChoseWordRef());
+  const chosenWordRef = useRef(null);
 
-  const handleBlankPress = (letter, index) =>
-    setSelectedLetterAndIndex({ letter, index });
+  useEffect(() => {
+    if (list.length > 0) {
+      const randomWord = list[Math.floor(Math.random() * list.length)];
+      chosenWordRef.current = formatWordForGame(randomWord);
 
-  const handleLetterButtonPress = (letter) => {
-    if (letterKeyRef.current[letter] === selectedLetterAndIndex.letter) {
-      if (shownLetters.length === chosenWordRef.current.uniqueLetters) {
-        console.log("you win!!");
+      const firstNonSpaceIndex = chosenWordRef.current.FormattedShortdef.split(
+        "",
+      ).findIndex((char) => char !== " ");
+
+      if (firstNonSpaceIndex !== -1) {
+        const firstLetter =
+          chosenWordRef.current.FormattedShortdef[firstNonSpaceIndex];
+        setSelectedLetterAndIndex({
+          letter: letterKeyRef.current[firstLetter],
+          index: firstNonSpaceIndex,
+        });
       }
-      setShownLetters((prev) => {
-        if (prev.includes(letter)) {
-          return prev;
-        }
-        prev.push(letter);
-        return [...prev];
-      });
     }
+  }, [list]);
+
+  const handleBlankPress = useCallback((letter, index) => {
+    setSelectedLetterAndIndex({ letter, index });
+  }, []);
+
+  const handleLetterButtonPress = useCallback(
+    (letter) => {
+      const { letter: selectedLetter } = selectedLetterAndIndex;
+      const chosenWord = chosenWordRef.current;
+
+      if (!chosenWord || letterKeyRef.current[letter] !== selectedLetter) {
+        return;
+      }
+
+      setShownLetters((prev) => {
+        if (prev.includes(letter)) return prev;
+
+        const newShownLetters = [...prev, letter];
+
+        if (newShownLetters.length === chosenWord.uniqueLetters) {
+          setGameWon(true);
+        }
+
+        return newShownLetters;
+      });
+
+      const wordLetters = chosenWord.FormattedShortdef.split("");
+      const currentNewShownLetters = [...shownLetters, letter];
+
+      const nextUnguessedIndex = wordLetters.findIndex(
+        (char, index) => char !== " " && !currentNewShownLetters.includes(char),
+      );
+
+      if (nextUnguessedIndex !== -1) {
+        const nextLetter = wordLetters[nextUnguessedIndex];
+        setSelectedLetterAndIndex({
+          letter: letterKeyRef.current[nextLetter],
+          index: nextUnguessedIndex,
+        });
+      } else {
+        setSelectedLetterAndIndex({ letter: null, index: -1 });
+      }
+    },
+    [selectedLetterAndIndex, shownLetters],
+  );
+
+  const resetGame = useCallback(() => {
+    setShownLetters([]);
+    setGameWon(false);
+    letterKeyRef.current = generateLetterKey();
+
+    if (list.length > 0) {
+      const randomWord = list[Math.floor(Math.random() * list.length)];
+      chosenWordRef.current = formatWordForGame(randomWord);
+
+      const firstNonSpaceIndex = chosenWordRef.current.FormattedShortdef.split(
+        "",
+      ).findIndex((char) => char !== " ");
+
+      if (firstNonSpaceIndex !== -1) {
+        const firstLetter =
+          chosenWordRef.current.FormattedShortdef[firstNonSpaceIndex];
+        setSelectedLetterAndIndex({
+          letter: letterKeyRef.current[firstLetter],
+          index: firstNonSpaceIndex,
+        });
+      } else {
+        setSelectedLetterAndIndex({ letter: null, index: -1 });
+      }
+    }
+  }, [list]);
+
+  return {
+    shownLetters,
+    selectedLetterAndIndex,
+    gameWon,
+    letterKey: letterKeyRef.current,
+    chosenWord: chosenWordRef.current,
+    handleBlankPress,
+    handleLetterButtonPress,
+    resetGame,
+  };
+};
+
+const GameSetup = ({
+  onStartGame,
+  selectedList,
+  setSelectedList,
+  error,
+  isLoading,
+}) => (
+  <LinearGradient
+    colors={["#2a5298", "#121216"]}
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 1 }}
+    style={mainStyles.page}
+  >
+    <SafeAreaView style={styles.container}>
+      <ScrollView alwaysBounceHorizontal={true}>
+        <View style={[mainStyles.startGameContainer, mainStyles.screen]}>
+          <Text style={mainStyles.header}>Anagram Fun</Text>
+          <Text style={mainStyles.subheader}>
+            Fix the jumbled word to increase your mastery
+          </Text>
+
+          {error && (
+            <View style={[mainStyles.error, { marginVertical: 20 }]}>
+              <Text>{error}</Text>
+            </View>
+          )}
+
+          {isLoading && <Text style={mainStyles.text}>Loading...</Text>}
+
+          <ListDropdown setParent={setSelectedList} />
+
+          <AppButton
+            onPress={onStartGame}
+            title="Play Game"
+            icon="sign-in"
+            disabled={!selectedList || !!error || isLoading}
+          />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  </LinearGradient>
+);
+
+const LetterDisplay = ({
+  letter,
+  index,
+  isShown,
+  isSelected,
+  encodedLetter,
+  onPress,
+}) => (
+  <Pressable key={index} onPress={() => onPress(encodedLetter, index)}>
+    <View style={styles.verticalPadding}>
+      <Text style={[mainStyles.text, styles.centerText]}>
+        {isShown ? letter : ""}
+      </Text>
+
+      {letter !== " " && (
+        <View
+          style={isSelected ? styles.selectedUnderline : styles.underline}
+        />
+      )}
+
+      <Text style={[mainStyles.text, styles.centerText]}>{encodedLetter}</Text>
+    </View>
+  </Pressable>
+);
+
+const LetterButton = ({ letter, onPress }) => (
+  <AppButton
+    height={60}
+    width={60}
+    viewStyle={styles.appButtonView}
+    style={styles.appButtonStyle}
+    title={letter}
+    onPress={() => onPress(letter)}
+  />
+);
+
+const WinMessage = ({ onReset, onBackToMenu }) => (
+  <View style={styles.winContainer}>
+    <Text style={[mainStyles.header, styles.winText]}>Congratulations!</Text>
+    <Text style={[mainStyles.text, styles.winText]}>
+      You solved the anagram!
+    </Text>
+
+    <View style={styles.winButtons}>
+      <AppButton onPress={onReset} title="Play Again" />
+      <AppButton onPress={onBackToMenu} title="Back to Menu" />
+    </View>
+  </View>
+);
+
+const AnagramGame = ({
+  list,
+  onBackToMenu,
+  shownLetters,
+  selectedLetterAndIndex,
+  gameWon,
+  letterKey,
+  chosenWord,
+  onBlankPress,
+  onLetterButtonPress,
+  onResetGame,
+}) => {
+  const availableLetters = useMemo(
+    () => ALPHABET.filter((letter) => !shownLetters.includes(letter)),
+    [shownLetters],
+  );
+
+  const renderWordDisplay = () => {
+    if (!chosenWord) return null;
+
+    return chosenWord.FormattedShortdef.split("").map((letter, index) => (
+      <LetterDisplay
+        key={index}
+        letter={letter}
+        index={index}
+        isShown={shownLetters.includes(letter)}
+        isSelected={selectedLetterAndIndex.index === index}
+        encodedLetter={letterKey[letter]}
+        onPress={onBlankPress}
+      />
+    ));
   };
 
-  const renderBlanksAndLetter = () =>
-    chosenWordRef.current.FormattedShortdef.split("").map((el, i) => (
-      <Pressable
-        key={i}
-        onPress={() => handleBlankPress(letterKeyRef.current[el], i)}
-      >
-        <View style={style.verticalPadding}>
-          <Text style={[mainStyles.text, { textAlign: "center" }]}>
-            {shownLetters.includes(el) ? el : ""}
-          </Text>
-
-          {el !== " " && (
-            <View
-              style={
-                selectedLetterAndIndex.index === i
-                  ? style.selectedUnderline
-                  : style.underline
-              }
-            />
-          )}
-          <Text style={[mainStyles.text, { textAlign: "center" }]}>
-            {letterKeyRef.current[el]}
-          </Text>
-        </View>
-      </Pressable>
+  const renderLetterButtons = () =>
+    availableLetters.map((letter, index) => (
+      <LetterButton
+        key={`${letter}-${index}`}
+        letter={letter}
+        onPress={onLetterButtonPress}
+      />
     ));
 
-  const renderLetterButtons = () =>
-    [
-      "a",
-      "b",
-      "c",
-      "d",
-      "e",
-      "f",
-      "g",
-      "h",
-      "i",
-      "j",
-      "k",
-      "l",
-      "m",
-      "n",
-      "o",
-      "p",
-      "q",
-      "r",
-      "s",
-      "t",
-      "u",
-      "v",
-      "w",
-      "x",
-      "y",
-      "z",
-    ]
-      .filter((el) => !shownLetters.includes(el))
-      .map((el, i) => (
-        <AppButton
-          key={i}
-          height={60}
-          width={60}
-          viewStyle={style.appButtonView}
-          style={style.appButtonStyle}
-          title={el}
-          onPress={() => handleLetterButtonPress(el)}
-        />
-      ));
+  if (gameWon) {
+    return (
+      <LinearGradient
+        colors={["#6699FF", "#335C81"]}
+        start={{ x: 0.5, y: 0.5 }}
+        end={{ x: 0.5, y: 0.5 }}
+        style={styles.flexOne}
+      >
+        <WinMessage onReset={onResetGame} onBackToMenu={onBackToMenu} />
+      </LinearGradient>
+    );
+  }
 
   return (
     <LinearGradient
       colors={["#6699FF", "#335C81"]}
       start={{ x: 0.5, y: 0.5 }}
       end={{ x: 0.5, y: 0.5 }}
-      opacity={1.0}
-      style={style.flexOne}
+      style={styles.flexOne}
     >
-      <View style={style.underlineLetterContainer}>
-        {renderBlanksAndLetter()}
-      </View>
+      <View style={styles.underlineLetterContainer}>{renderWordDisplay()}</View>
 
-      <View style={style.letterButtonContainer}>{renderLetterButtons()}</View>
+      <View style={styles.letterButtonContainer}>{renderLetterButtons()}</View>
     </LinearGradient>
+  );
+};
+
+export default function AnagramFun() {
+  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [gameRestart, setGameRestart] = useState(false);
+  const [selectedList, setSelectedList] = useState(null);
+
+  const { list, error, isLoading } = useGameList(selectedList, gameRestart);
+
+  const gameState = useAnagramGame(list);
+
+  const handleStartGame = useCallback(() => {
+    if (!error && selectedList && !isLoading) {
+      setIsGameStarted(true);
+    }
+  }, [error, selectedList, isLoading]);
+
+  const handleBackToMenu = useCallback(() => {
+    setIsGameStarted(false);
+    setGameRestart((prev) => !prev);
+    gameState.resetGame();
+  }, [gameState]);
+
+  if (isGameStarted) {
+    return (
+      <AnagramGame
+        list={list}
+        onBackToMenu={handleBackToMenu}
+        {...gameState}
+        onBlankPress={gameState.handleBlankPress}
+        onLetterButtonPress={gameState.handleLetterButtonPress}
+        onResetGame={gameState.resetGame}
+      />
+    );
+  }
+
+  return (
+    <GameSetup
+      onStartGame={handleStartGame}
+      selectedList={selectedList}
+      setSelectedList={setSelectedList}
+      error={error}
+      isLoading={isLoading}
+    />
   );
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   letterButtonContainer: {
     display: "flex",
     flexDirection: "row",
@@ -294,9 +445,7 @@ const style = StyleSheet.create({
     marginHorizontal: 20,
     justifyContent: "center",
     alignItems: "center",
-    textAlign: "center",
   },
-
   underline: {
     borderBottomColor: "black",
     borderBottomWidth: 5,
@@ -307,12 +456,10 @@ const style = StyleSheet.create({
     borderBottomWidth: 5,
     width: 20,
   },
-
   appButtonView: {
     height: 50,
     width: 50,
   },
-
   appButtonStyle: {
     height: 50,
     width: 50,
@@ -320,8 +467,24 @@ const style = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
   verticalPadding: {
     paddingVertical: 20,
+  },
+  centerText: {
+    textAlign: "center",
+  },
+  winContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 20,
+  },
+  winText: {
+    textAlign: "center",
+    marginBottom: 20,
+  },
+  winButtons: {
+    flexDirection: "collumn",
+    gap: 20,
   },
 });
