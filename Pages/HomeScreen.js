@@ -12,7 +12,7 @@ import {
   StatusBar,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import Icon from "react-native-vector-icons/FontAwesome5";
+import { FontAwesome5 } from "@expo/vector-icons"; // Changed this line
 import logo from "../assets/logoborderradius.jpg";
 import { MASTERED_WORD_LIST } from "./ManageLists";
 import {
@@ -78,7 +78,7 @@ export default function HomeScreen({ navigation }) {
       }
     >
       <LinearGradient colors={["#E89020", "#E89020"]} style={styles.cardButton}>
-        <Icon
+        <FontAwesome5
           name={item.icon}
           size={22}
           color="#fff"
@@ -115,7 +115,7 @@ export default function HomeScreen({ navigation }) {
               colors={["#E89020", "#E89020"]}
               style={styles.cardButton}
             >
-              <Icon
+              <FontAwesome5
                 name="trophy"
                 size={22}
                 color="#fff"
