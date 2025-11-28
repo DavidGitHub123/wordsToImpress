@@ -144,23 +144,21 @@ const useAnagramGame = (list) => {
         return;
       }
 
-      setShownLetters((prev) => {
-        if (prev.includes(letter)) return prev;
+      const newShownLetters = shownLetters.includes(letter)
+        ? shownLetters
+        : [...shownLetters, letter];
 
-        const newShownLetters = [...prev, letter];
+      setShownLetters(newShownLetters);
 
-        if (newShownLetters.length === chosenWord.uniqueLetters) {
-          setGameWon(true);
-        }
-
-        return newShownLetters;
-      });
+      if (newShownLetters.length === chosenWord.uniqueLetters) {
+        setGameWon(true);
+        return;
+      }
 
       const wordLetters = chosenWord.FormattedShortdef.split("");
-      const currentNewShownLetters = [...shownLetters, letter];
 
       const nextUnguessedIndex = wordLetters.findIndex(
-        (char, index) => char !== " " && !currentNewShownLetters.includes(char),
+        (char, index) => char !== " " && !newShownLetters.includes(char),
       );
 
       if (nextUnguessedIndex !== -1) {
@@ -352,26 +350,39 @@ const AnagramGame = ({
   if (gameWon) {
     return (
       <LinearGradient
-        colors={["#6699FF", "#335C81"]}
-        start={{ x: 0.5, y: 0.5 }}
-        end={{ x: 0.5, y: 0.5 }}
+        colors={["#2a5298", "#121216"]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
         style={styles.flexOne}
       >
-        <WinMessage onReset={onResetGame} onBackToMenu={onBackToMenu} />
+        <SafeAreaView style={styles.flexOne}>
+          <WinMessage onReset={onResetGame} onBackToMenu={onBackToMenu} />
+        </SafeAreaView>
       </LinearGradient>
     );
   }
 
   return (
     <LinearGradient
-      colors={["#6699FF", "#335C81"]}
-      start={{ x: 0.5, y: 0.5 }}
-      end={{ x: 0.5, y: 0.5 }}
+      colors={["#2a5298", "#121216"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
       style={styles.flexOne}
     >
-      <View style={styles.underlineLetterContainer}>{renderWordDisplay()}</View>
+      <SafeAreaView style={styles.flexOne}>
+        <ScrollView
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
+          <View style={styles.underlineLetterContainer}>
+            {renderWordDisplay()}
+          </View>
 
-      <View style={styles.letterButtonContainer}>{renderLetterButtons()}</View>
+          <View style={styles.letterButtonContainer}>
+            {renderLetterButtons()}
+          </View>
+        </ScrollView>
+      </SafeAreaView>
     </LinearGradient>
   );
 };
@@ -431,10 +442,15 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     gap: 5,
     justifyContent: "space-evenly",
-    paddingTop: 100,
+    paddingTop: 50,
+    paddingBottom: 30,
   },
   flexOne: {
     flex: 1,
+  },
+  scrollContent: {
+    flexGrow: 1,
+    paddingBottom: 20,
   },
   underlineLetterContainer: {
     display: "flex",
@@ -442,6 +458,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     gap: 5,
     paddingTop: 100,
+    paddingHorizontal: 20,
     marginHorizontal: 20,
     justifyContent: "center",
     alignItems: "center",
@@ -484,7 +501,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   winButtons: {
-    flexDirection: "collumn",
+    flexDirection: "column",
     gap: 20,
   },
 });
