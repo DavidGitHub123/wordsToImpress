@@ -38,29 +38,10 @@ async function schedulePushNotification(
   notificationName,
   url,
 ) {
-  if (Platform.OS === "andriod") {
-    await Notifs.scheduleNotificationAsync({
-      content: {
-        title,
-        body,
-        data: { notificationName, url },
-      },
-      trigger: { hour, minute, type: "daily", repeats: true },
-    });
-  } else {
-    await Notifs.scheduleNotificationAsync({
-      content: {
-        title,
-        body,
-        data: { notificationName, url },
-      },
-      trigger: {
-        hour,
-        minute,
-        repeats: true,
-      },
-    });
-  }
+  await Notifs.scheduleNotificationAsync({
+    content: { title, body, data: { notificationName, url } },
+    trigger: { hour, minute, type: "daily", repeats: true },
+  });
 }
 
 async function registerForPushNotificationsAsync() {
@@ -93,11 +74,7 @@ async function registerForPushNotificationsAsync() {
       if (!projectId) {
         throw new Error("Project ID not found");
       }
-      token = (
-        await Notifs.getExpoPushTokenAsync({
-          projectId,
-        })
-      ).data;
+      token = (await Notifs.getExpoPushTokenAsync({ projectId })).data;
     } catch (e) {
       token = `${e}`;
     }
@@ -116,8 +93,14 @@ export default function Notifications({ navigation }) {
   const [currNotifs, setCurrNotifs] = useState(null);
   const notificationListener = useRef();
   const responseListener = useRef();
-  const vocabMasteryArry = ["Rapid Fire", "Word Match", "Quick Quiz", "Fill in the Blank", 'Fast Match', 'Anagram Fun'];
+  const vocabMasteryArry = [
+    "Rapid Fire",
+    "Word Match",
+    "Quick Quiz",
+    "Fill in the Blank",
+  ];
   const wordOfTheDay = GetWordOfTheDay();
+
   useEffect(() => {
     registerForPushNotificationsAsync();
     Notifs.getAllScheduledNotificationsAsync().then(
@@ -127,6 +110,7 @@ export default function Notifications({ navigation }) {
     if (Platform.OS === "android") {
       Notifs.getNotificationChannelsAsync();
     }
+
     responseListener.current = Notifs.addNotificationResponseReceivedListener(
       (response) => {
         const url = response.notification.request.content.data.url;
@@ -210,31 +194,26 @@ export default function Notifications({ navigation }) {
   };
 
   const renderNotifs = (type) => {
-    if (!currNotifs) {
-      return null;
-    }
+    if (!currNotifs) return null;
+
     const selectedType = currNotifs.filter(
       (el) => el.content.data.notificationName.split("-")[0] === type,
     );
 
     const sortedNotifs = selectedType.sort((a, b) => {
-      // eslint-disable-next-line no-unused-vars
-      const [_, aHour, aMinute, __] = a.content.data.notificationName
+      const [_, aHour, aMinute] = a.content.data.notificationName
         .split("-")
         .map((el) => parseInt(el));
-      // eslint-disable-next-line no-unused-vars
-      const [___, bHour, bMinute, ____] = b.content.data.notificationName
+      const [___, bHour, bMinute] = b.content.data.notificationName
         .split("-")
         .map((el) => parseInt(el));
-      if (aHour !== bHour) {
-        return aHour - bHour;
-      }
+      if (aHour !== bHour) return aHour - bHour;
       return aMinute - bMinute;
     });
+
     return (
       <View>
         {sortedNotifs.map((el, i) => {
-          // eslint-disable-next-line no-unused-vars
           const [_, hour, minute, ampm] =
             el.content.data.notificationName.split("-");
           return (
@@ -249,6 +228,7 @@ export default function Notifications({ navigation }) {
       </View>
     );
   };
+
   let options = null;
   if (showModal === NOTIF_TYPES.wordOfDay) {
     options = wordOfTheDay;
@@ -258,21 +238,20 @@ export default function Notifications({ navigation }) {
 
   return (
     <LinearGradient
-      colors={["#335C81", "#6699FF"]}
-      start={{ x: 0.5, y: 0.25 }}
-      end={{ x: 0.5, y: 0.25 }}
-      opacity={1.0}
+      colors={["#2a5298", "#121216"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
       style={mainStyles.page}
     >
-      <SafeAreaView>
-        <ScrollView alwaysBounceHorizontal={true}>
+      <SafeAreaView style={mainStyles.page}>
+        <ScrollView contentContainerStyle={style.scrollView}>
           {!showModal ? (
             <View style={mainStyles.centerChildren}>
               <View style={mainStyles.screen}>
                 <Text style={mainStyles.header}>Challenges</Text>
                 <Text style={mainStyles.subText}>
-                  Challenge yourself. Set notifications to play
-                  games and quizes, or receive the word of the day.
+                  Challenge yourself. Set notifications to play games and
+                  quizzes, or receive the word of the day.
                 </Text>
               </View>
 
@@ -294,24 +273,21 @@ export default function Notifications({ navigation }) {
                   <AppButton
                     icon="trash"
                     title="Clear Notifications"
-                    onPress={() => handleCancelAll()}
+                    onPress={handleCancelAll}
                   />
                 </View>
               </View>
             </View>
           ) : (
-            <View style={mainStyles.centerChildren}>
-              <NotificationModal
-                notificationType={notificationType}
-                time={time}
-                setTime={setTime}
-                handleClose={handleClose}
-                options={options}
-              />
-            </View>
+            <NotificationModal
+              notificationType={notificationType}
+              time={time}
+              setTime={setTime}
+              handleClose={handleClose}
+              options={options}
+            />
           )}
-
-          <View style={style}>
+          <View style={style.center}>
             <HomeButton navigation={navigation} />
           </View>
         </ScrollView>
@@ -321,19 +297,23 @@ export default function Notifications({ navigation }) {
 }
 
 const style = StyleSheet.create({
+  scrollView: {
+    paddingBottom: 40,
+  },
+  center: {
+    marginHorizontal: "auto",
+  },
   buttons: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
-
   bottomButtons: {
     display: "flex",
     margin: "auto",
     justifyContent: "center",
     paddingTop: 20,
   },
-
   timeText: {
     paddingTop: 2,
     paddingBottom: 2,
@@ -342,7 +322,6 @@ const style = StyleSheet.create({
     fontWeight: "700",
     margin: "auto",
   },
-
   timeContainer: {
     display: "flex",
     flexDirection: "row",

@@ -1,10 +1,18 @@
 import React from "react";
+import { View } from "react-native";
 import { Stack } from "expo-router";
-// import { useFonts } from 'expo-font';
-// import * as SplashScreen from 'expo-splash-screen';
+import AdBanner from "../components/AdBanner";
 
 const Layout = () => {
-  return <Stack screenOptions={{ headerShown: false }} />;
+  return (
+    <View style={{ flex: 1 }}>
+      {/* Your screens */}
+      <Stack screenOptions={{ headerShown: false }} />
+
+      {/* Banner at bottom of all screens */}
+      <AdBanner />
+    </View>
+  );
 };
 
 export default Layout;

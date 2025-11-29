@@ -41,7 +41,15 @@ export default function ListenButton({ audio, word }) {
 
   return (
     <Pressable style={style.appButton}>
-      <AppButton icon="volume-up" title="Listen" onPress={playSound} />
+      <AppButton
+        icon="volume-up"
+        title="Listen"
+        onPress={playSound}
+        backgroundColor="#E89020"
+        borderColor="#fff"
+        fontWeight="600"
+        size="medium"
+      />
     </Pressable>
   );
 }

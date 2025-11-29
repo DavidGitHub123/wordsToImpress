@@ -6,16 +6,14 @@ import {
   Text,
   View,
   Pressable,
-  ImageBackground,
 } from "react-native";
 import { useState } from "react";
 import HomeButton from "../../components/HomeButton";
 import AddButton from "../../components/AddButton";
 import ListenButton from "../../components/ListenButton";
-import { navStyle } from "../../components/NavButton.js";
-import dinnerparty from "../../assets/Backgrounds/dinnerparty.jpg";
 import AppButton from "../../components/AppButton";
 import { mainStyles } from "../../components/mainStyles";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function WS_DinnerParty({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -330,12 +328,7 @@ export default function WS_DinnerParty({ navigation }) {
   };
 
   return (
-    <ImageBackground
-      source={dinnerparty}
-      imageStyle={style.image}
-      resizeMode="cover"
-      style={mainStyles.page}
-    >
+    <LinearGradient colors={["#2a5298", "#121216"]} style={mainStyles.page}>
       <SafeAreaView style={style.container}>
         <ScrollView alwaysBounceHorizontal={true}>
           <View>
@@ -453,15 +446,11 @@ export default function WS_DinnerParty({ navigation }) {
           )}
         </ScrollView>
       </SafeAreaView>
-    </ImageBackground>
+    </LinearGradient>
   );
 }
 
 const style = StyleSheet.create({
-  image: {
-    opacity: 0.9,
-  },
-
   component: {
     flex: 1,
     justifyContent: "center",

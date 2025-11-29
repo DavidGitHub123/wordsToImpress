@@ -1,38 +1,34 @@
 import React from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import HomeButton from "../components/HomeButton";
 import { NavButtonWord } from "../components/NavButtonWord";
 import { mainStyles } from "../components/mainStyles";
 
 export default function PreBuiltListNew({ navigation }) {
   return (
     <LinearGradient
-      colors={["#6699FF", "#335C81"]}
-      start={{ x: 0.5, y: 0.5 }}
-      end={{ x: 0.5, y: 0.5 }}
-      opacity={1.0}
-      style={style.page}
+      colors={["#2a5298", "#121216"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={mainStyles.page}
     >
-      <SafeAreaView>
-        <ScrollView alwaysBounceHorizontal={true}>
+      <SafeAreaView style={mainStyles.page}>
+        <ScrollView contentContainerStyle={style.scrollContainer}>
           <View style={mainStyles.screen}>
             <Text style={mainStyles.header}>Pre-Built List</Text>
-            <Text style={mainStyles.subText}>
+            <Text style={style.subheader}>
               Here&apos;s a pre-built list of 50 words. Add these words to
-              create a quick starter list and begin learning.
-            </Text>
-            <Text style={mainStyles.subText}>
-              Or use the Build My List feature to analyze your communications
-              patterns to generate a list of vocabulary words unique to you.
+              create a quick starter list. Or use the Build My List feature to
+              analyze your writing patterns and generate a vocabulary list
+              unique to you.
             </Text>
           </View>
 
-          <View style={mainStyles.homeButton}>
+          {/* <View style={{ marginVertical: 20 }}>
             <HomeButton navigation={navigation} />
-          </View>
+          </View> */}
 
-          <View>
+          <View style={style.wordList}>
             <NavButtonWord
               navigation={navigation}
               title="Abstemious"
@@ -291,4 +287,20 @@ export default function PreBuiltListNew({ navigation }) {
 }
 
 const style = StyleSheet.create({
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 40,
+  },
+  wordList: {
+    width: "100%",
+    marginTop: 10,
+  },
+  subheader: {
+    fontSize: 20,
+    color: "white",
+    textAlign: "left",
+    paddingTop: 10,
+  },
 });

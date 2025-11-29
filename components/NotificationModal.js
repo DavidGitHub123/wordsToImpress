@@ -11,11 +11,11 @@ export const RenderTime = (time) => {
 
   return (
     <Text style={style.timeText}>
-      Click to Set Reminder at {formattedHours}:
-      {formattedMinutes} {ampm}
+      Click to Set Reminder at {formattedHours}:{formattedMinutes} {ampm}
     </Text>
   );
 };
+
 export const get12HourFormat = (hour) => {
   if (hour === 0 || hour === 12) {
     return 12;
@@ -67,14 +67,13 @@ export default function NotificationModal(Props) {
     const body = "You've scheduled a quiz";
     handleClose(title, body);
   };
+
   const handleSelectedWord = (word) => {
     setSelectedWord(word);
     setShowTimePicker(true);
   };
 
   const renderList = () => {
-    // Checks if a Word object was passed down and render no options
-    // for word of the day.
     if (options.Word) {
       notifTextRef.current = {
         title: "Word of the Day",
@@ -89,9 +88,13 @@ export default function NotificationModal(Props) {
         key={i}
         onPress={() => handleSelectedWord(el)}
         style={
-          selectedWord === el && selectedWord
-            ? { backgroundColor: "#2350a8" }
-            : {}
+          selectedWord === el
+            ? {
+              backgroundColor: "#2350a8",
+              borderColor: "#fff",
+              borderWidth: 1,
+            }
+            : { borderColor: "#fff", borderWidth: 1 }
         }
       />
     ));
@@ -130,18 +133,23 @@ export default function NotificationModal(Props) {
         <View style={mainStyles.centerChildren}>
           {RenderTime(time)}
           {displayRemindMeButton && (
-            <AppButton
-              viewStyle={style.marginAuto}
-              icon="sign-out-alt"
-              title="Set Reminder Time"
-              onPress={handleSubmit}
-            />
+            <View style={{ margin: "auto" }}>
+              <AppButton
+                viewStyle={style.marginAuto}
+                icon="sign-out-alt"
+                title="Set Reminder Time"
+                onPress={handleSubmit}
+                backgroundColor="#E89020"
+                borderColor="#fff"
+              />
+            </View>
           )}
         </View>
       )}
     </View>
   );
 }
+
 const style = StyleSheet.create({
   timeText: {
     paddingTop: 40,
