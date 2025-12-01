@@ -1,11 +1,12 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View, StatusBar } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, StatusBar, ImageBackground } from "react-native";
 import data from "../data.js";
 import HomeButton from "../components/HomeButton";
 import ListenButton from "../components/ListenButton";
 import AddButton from "../components/AddButton";
 import { LinearGradient } from "expo-linear-gradient";
 import { mainStyles } from "../components/mainStyles";
+
 
 export function GetWordOfTheDay() {
   // Multiple to make more random

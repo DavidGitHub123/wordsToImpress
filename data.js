@@ -10,7 +10,7 @@ export default [
     Word: 'Abashing',
     Pronunciation: 'uh-BASH ing',
     PartofSpeech: 'v',
-    Shortdef: "To disconcert, humiliate or shame.",
+    Shortdef: "Disconcerting, humiliating or shaming.",
     Longdef: "The older boys had no qualms about abashing the new arrivals; it was an old tradition at the school.",
     syn: ['Embarrass', 'Humiliate', 'Shame', 'Disconcert', 'Fluster', 'Mortify', 'Chagrin', 'Confound',
       'Disturb', 'Rattle'],
@@ -26,7 +26,7 @@ export default [
     Word: 'Abated',
     Pronunciation: 'uh-BATE ed',
     PartofSpeech: 'v',
-    Shortdef: "To put to an end; reduce in intensity.",
+    Shortdef: "To put to an end; reduced in intensity.",
     Longdef: "The flood waters abated when the rain stopped.",
     syn: ["decrease", "diminish", "lessen", "reduce", "subside", "weaken", "extinguish", "quell", "moderate", "temper", "mitigate"],
     Audio: require('./Audio/Abate.mp3')
@@ -40,7 +40,7 @@ export default [
     Word: 'Abdicated',
     Pronunciation: 'AB-di-kate ed',
     PartofSpeech: 'v',
-    Shortdef: "Formally give up position or responsibility.",
+    Shortdef: "Formally giving up position or responsibility.",
     Longdef: "The King, as we all know, abdicated rather than give up the woman he loved.",
     syn: [
       "renounce",
@@ -220,7 +220,7 @@ export default [
     Word: 'Abnegating',
     Pronunciation: 'AB-ne-gate ing',
     PartofSpeech: 'v',
-    Shortdef: "To renounce or deny privilege to oneself.",
+    Shortdef: "Renouncing or denying privilege to oneself.",
     Longdef: "The activist's fast lasted for 47 days; such abnegating draws attention from elected officials.",
     syn: [
       "renounce",
@@ -273,7 +273,7 @@ export default [
     Word: 'Abraded',
     Pronunciation: 'uh-BRADE ed',
     PartofSpeech: 'v',
-    Shortdef: 'To wear away; wear down in spirit.',
+    Shortdef: 'Worn away; to wear down in spirit.',
     Longdef: "The campaign had hoped for an informative TV commercial, but the ad only abraded voter support.",
     syn: ["rub", "scrape", "wear down", "fray", "scratch", "erosion", "grind", "excoriate", "chafe", "corrode"],
     Audio: require('./Audio/Abrade.mp3')
@@ -287,7 +287,7 @@ export default [
     Word: 'Abrogated',
     Pronunciation: 'AB-ro-gate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To nullify or cancel.',
+    Shortdef: 'Nullified or cancelled',
     Longdef: "The country abrogated the treaty after other nations failed to honor the agreement.",
     syn: [
       "revoke",
@@ -406,7 +406,7 @@ export default [
     Word: 'Acceded',
     Pronunciation: 'ak-SEED ed',
     PartofSpeech: 'v',
-    Shortdef: "Agree to; to give one's consent.",
+    Shortdef: "Agreed to; to give one's consent.",
     Longdef: "The college president eventually acceded to the demands of the student demonstrators.",
     syn: [
       "agree",
@@ -484,7 +484,7 @@ export default [
     Word: 'Accrued',
     Pronunciation: 'uh-CRUED',
     PartofSpeech: 'v',
-    Shortdef: "To accumulate or grow.",
+    Shortdef: "Accumulated or to grow.",
     Longdef: "She disputed the bank's figures on the interest her account had accrued.",
     syn: ["accumulate", "build up", "amass", "gather", "collect", "enlarge", "grow", "increase", "multiply", "augment", "gain", "acquire", "hoard", "stockpile", "heap up", "pile up"],
     Audio: require('./Audio/Accrue.mp3')
@@ -714,7 +714,7 @@ export default [
     Word: 'Adjudicate',
     Pronunciation: 'ad-JOO-di-cate',
     PartofSpeech: 'v',
-    Shortdef: "Judicial procedure to settle a case.",
+    Shortdef: "To judge; settle a legal case.",
     Longdef: "Gentlemen, if this case is hard for you to argue, rest assured it is equally difficult for me to adjudicate.",
     syn: [
       "decide",
@@ -811,7 +811,7 @@ export default [
     Word: 'Adulterated',
     Pronunciation: 'a-DUL-ter-ated',
     PartofSpeech: 'v',
-    Shortdef: "To make impure or tainted.",
+    Shortdef: "Made impure or tainted.",
     Longdef: "The sale of adulterated dairy products in the U.S. caused a major scandal.",
     syn: ["contaminate", "taint", "pollute", "spoil", "corrupt", "debase", "defile", "dilute", "weaken", "water down"],
     Audio: require('./Audio/Adulterate.mp3')
@@ -1105,7 +1105,7 @@ export default [
     Word: 'Ambling',
     Pronunciation: 'AM-bul ing',
     PartofSpeech: 'v',
-    Shortdef: "To walk in a leisurely manner.",
+    Shortdef: "Walking in a leisurely manner.",
     Longdef: "You sure are taking your time, ambling through the store. You know we're closed right?",
     syn: [
       "saunter",
@@ -1130,7 +1130,7 @@ export default [
     Word: 'Ameliorating',
     Pronunciation: 'uh-MEEL-yuh-rate ig',
     PartofSpeech: 'v',
-    Shortdef: "To improve or upgrade.",
+    Shortdef: "Improving or upgrading.",
     Longdef: "The ambassador's visit was the first step to ameliorating the poor relations between the two countries.",
     syn: ["improve", "enhance", "better", "uplift", "upgrade", "advance", "revamp", "refine", "fine-tune", "perfect"],
     Audio: require('./Audio/Ameliorate.mp3')
@@ -1264,7 +1264,7 @@ export default [
     Word: 'Amortized',
     Pronunciation: 'AH-muhr-tized',
     PartofSpeech: 'v',
-    Shortdef: "Settle debt with installment payments.",
+    Shortdef: "Debt settled with installment payments.",
     Longdef: "The debt will be completely amortized in two years with regular payments.",
     syn: ["pay off", "decrease", "reduce", "deplete", "diminish", "eradicate"],
     Audio: require('./Audio/Amortize.mp3')
@@ -1638,7 +1638,7 @@ export default [
     Word: 'Apprise',
     Pronunciation: 'uh-PRISE',
     PartofSpeech: 'v',
-    Shortdef: 'To supply notice.',
+    Shortdef: 'To supply notice; make aware.',
     Longdef: "I'd like to apprise you of the rudeness of you using your cell phone in the elevator.",
     syn: [
       "inform",
@@ -1875,7 +1875,7 @@ export default [
     Word: 'Augmentation',
     Pronunciation: 'agw-MENT taSHEN',
     PartofSpeech: 'v',
-    Shortdef: "To increase in extent or size.",
+    Shortdef: "Increase in extent or size.",
     Longdef: "He had hoped to bring in enough money with a second job, but even this augmentation was not enough.",
     syn: [
       "Increase",
@@ -2107,7 +2107,7 @@ export default [
     Word: 'Bandied',
     Pronunciation: 'BAN-deed',
     PartofSpeech: 'v',
-    Shortdef: 'To exchange or pass back and forth.',
+    Shortdef: 'Exchanged or passed back and forth.',
     Longdef: "The two sides bandied threats and accusations, but it was clear that neither side want to end negotiations.",
     syn: ["toss", "exchange", "trade", "swap", "barter", "pass back and forth"],
     Audio: require('./Audio/Bandy.mp3')
@@ -2188,7 +2188,7 @@ export default [
     Word: 'Befuddled',
     Pronunciation: 'bee-FUD-il ed',
     PartofSpeech: 'v',
-    Shortdef: "To confuse or perplex.",
+    Shortdef: "Confused or perplexed.",
     Longdef: "I'm sorry officer that I appear befuddled, but you would not believe what happened to me.",
     syn: [
       "confuse",
@@ -2255,7 +2255,7 @@ export default [
     Word: 'Belied',
     Pronunciation: 'bee-LYE',
     PartofSpeech: 'v',
-    Shortdef: 'To disprove; demonstrate false.',
+    Shortdef: 'Disproved; demonstrated false.',
     Longdef: "His unsteady walk and slurred speech belied his insistence of having consumed no alcohol.",
     syn: ["Contradict", "Disprove", "Falsify", "Refute", "Deny", "Misrepresent", "Negate", "Undermine", "Pretend"],
     Audio: require('./Audio/Belie.mp3')
@@ -2425,7 +2425,7 @@ export default [
     Word: 'Bestowed',
     Pronunciation: 'bih-STOW ed',
     PartofSpeech: 'v',
-    Shortdef: 'To confer or give.',
+    Shortdef: 'Conferred or presented.',
     Longdef: "Though he lacked formal education, several universities had bestowed honorary degrees on the man.",
     syn: ["grant", "offer", "gift", "present", "confer", "endow", "give", "entrust", "allocate", "impart"],
     Audio: require('./Audio/Bestow.mp3')
@@ -2467,7 +2467,7 @@ export default [
     Word: 'Bilked',
     Pronunciation: 'bilk ed',
     PartofSpeech: 'v',
-    Shortdef: "To swindle or cheat.",
+    Shortdef: "Wwindled or cheated.",
     Longdef: "Harold bilked his company out of a quarter of a million dollars.",
     syn: ["cheat", "defraud", "swindle", "dupe", "con", "trick", "shaft", "rip off"],
     Audio: require('./Audio/Bilk.mp3')
@@ -2537,7 +2537,7 @@ export default [
     Word: 'Blathered',
     Pronunciation: 'BLATH-er ed',
     PartofSpeech: 'v',
-    Shortdef: 'To gabble or talk ridiculously.',
+    Shortdef: 'Gabbled or talked ridiculously.',
     Longdef: "We left the party as Mark blathered endlessly to the hostess about his new car.",
     syn: ["Babble", "Prattle", "Chatter", "Gibberish", "Jabber"],
     Audio: require('./Audio/Blather.mp3')
@@ -2565,7 +2565,7 @@ export default [
     Word: 'Bludgeoned',
     Pronunciation: 'BLUD-jun ed',
     PartofSpeech: 'v',
-    Shortdef: 'To beat or strike.',
+    Shortdef: 'Beat or struck.',
     Longdef: "The detectives concluded that the victim had been bludgeoned repeatedly with a metal pipe.",
     syn: ['Club', 'Cudgel', 'Hammer'],
     Audio: require('./Audio/Bludgeon.mp3')
@@ -2857,7 +2857,7 @@ export default [
     Word: 'Capitulate',
     Pronunciation: 'kuh-PIT-yoo-late',
     PartofSpeech: 'v',
-    Shortdef: 'Give up, surrender.',
+    Shortdef: 'To give up, surrender.',
     Longdef: "The ambassador was instructed to show flexibility, but not to capitulate on trade issues.",
     syn: ["Surrender", "Yield", "Concede", "Cave in", "Submit", "Give up", "Throw in the towel", "Throw in the sponge", "Fold", "Quit", "Admit defeat"],
     Audio: require('./Audio/Capitulate.mp3')
@@ -3121,7 +3121,7 @@ export default [
     Word: 'Caviled',
     Pronunciation: 'KAV-ihl ed',
     PartofSpeech: 'v',
-    Shortdef: "To find fault in trivial matters.",
+    Shortdef: "Made petty, finding fault in trivial matters.",
     Longdef: "Susan caviled about the late delivery, but in a matter of minutes she paid the bill.",
     syn: ["quibble", "nitpick", "fault-find", "hypercriticize", "criticize", "complain", "protest", "object", "scruple", "carp"],
     Audio: require('./Audio/Cavil.mp3')
@@ -3254,7 +3254,7 @@ export default [
     Word: 'Circumventing',
     Pronunciation: 'SIR-kum-vent ing',
     PartofSpeech: 'v',
-    Shortdef: "To evade by means of artful contrivance.",
+    Shortdef: "Evading by means of artful contrivance.",
     Longdef: "In circumventing the will of the board of directors, the CEO knew he was taking a risk.",
     syn: ["avoid", "bypass", "evade", "skirt", "sidestep", "elude", "escape", "dodge", "outsmart", "outmaneuver"],
     Audio: require('./Audio/Circumvent.mp3')
@@ -3438,7 +3438,7 @@ export default [
     Word: 'Commiserated',
     Pronunciation: 'kuh-MIZ-uh-rate ed',
     PartofSpeech: 'v',
-    Shortdef: "To share in another's sorrow.",
+    Shortdef: "Shared in another's sorrow.",
     Longdef: "Jane and Anita commiserated with Frank over the failure of his business.",
     syn: ["sympathize", "console", "pity", "empathize", "condole", "lament", "grieve", "feel for", "share sorrow"],
     Audio: require('./Audio/Commiserate.mp3')
@@ -3634,7 +3634,7 @@ export default [
     Word: 'Connotations',
     Pronunciation: 'kon-uh-TAY-shuns',
     PartofSpeech: 'n',
-    Shortdef: 'An implication beyond literal meaning.',
+    Shortdef: 'Implications beyond literal meaning.',
     Longdef: "His article on race relations uses several phrases that carry unfortunate connotations.",
     syn: ["meaning", "undertone", "implication", "significance", "essence", "nuance", "association", "suggestion", "con", "inferrence"],
     Audio: require('./Audio/Connotation.mp3')
@@ -3662,7 +3662,7 @@ export default [
     Word: 'Consecrate',
     Pronunciation: 'KON-si-krate',
     PartofSpeech: 'v',
-    Shortdef: 'Sacred; to make an offering.',
+    Shortdef: 'To make sacred; to make an offering.',
     Longdef: "Lincoln's words served to consecrate the battlefield at Gettysburg.",
     syn: [
       "sanctify",
@@ -3701,7 +3701,7 @@ export default [
     Word: 'Construed',
     Pronunciation: 'con-STROO ed',
     PartofSpeech: 'v',
-    Shortdef: 'To translate or analyze structurally.',
+    Shortdef: 'Translated or analyzed structurally.',
     Longdef: "The clause is not to be construed as granting any rights of partnership.",
     syn: ["interpret", "understand", "decipher", "read", "translate", "analyze", "comprehend", "decode", "conceive", "grasp"],
     Audio: require('./Audio/Construe.mp3')
@@ -3715,7 +3715,7 @@ export default [
     Word: 'Consummating',
     Pronunciation: 'KON-sum-mate ing',
     PartofSpeech: 'v',
-    Shortdef: 'To bring to a desired end.',
+    Shortdef: 'Bringing to a desired end.',
     Longdef: "The real estate agent consummating the deal realized a substantial commission.",
     syn: ["accomplished", "performed", "completed", "finished", "supreme", "expert", "skilled", "masterful", "flawless", "mastery", "excellent", "proficient", "polished", "perfect", "mastered"],
     Audio: require('./Audio/Consummate.mp3')
@@ -3984,7 +3984,7 @@ export default [
     Word: 'Culminated',
     Pronunciation: 'KUL-mih-nate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To reach a high point.',
+    Shortdef: 'Having reached a high point.',
     Longdef: "The seemingly endless series of Union victories culminated in Lee's surrender at Appomattox.",
     syn: ["peak", "climax", "reach a zenith", "culminate in", "conclude with", "end with", "finish with", "terminate with", "come to a head", "come to a climax", "cap", "finish", "end"],
     Audio: require('./Audio/Culminate.mp3')
@@ -4150,7 +4150,7 @@ export default [
     Word: 'Debilitating',
     Pronunciation: 'dih-BILL-ih-tate ing',
     PartofSpeech: 'v',
-    Shortdef: 'To enfeeble or weaken.',
+    Shortdef: 'Enfeebling or weakening something.',
     Longdef: "The other members have a debilitating impact on productivity; promote me and we'll make our numbers.",
     syn: ["weaken", "exhaust", "sap", "weary", "enfeeble", "drain", "disable", "impair", "weaken", "devitalize", "tire", "prostrate", "cripple", "unman", "incapacitate"],
     Audio: require('./Audio/Debilitate.mp3')
@@ -4220,7 +4220,7 @@ export default [
     Word: 'Deduced',
     Pronunciation: 'di-DOOSE ed',
     PartofSpeech: 'v',
-    Shortdef: 'To infer; to derive from evidence.',
+    Shortdef: 'Inferred; derived from evidence.',
     Longdef: "Holmes deduced the killer was middle age with thinning brown hair, approximately six feet tall.",
     syn: ["infer", "conclude", "derive", "gather", "reason", "draw a conclusion", "assume", "presume", "reckon"],
     Audio: require('./Audio/Deduce.mp3')
@@ -4276,7 +4276,7 @@ export default [
     Word: 'Degenerate',
     Pronunciation: 'Di-JEN-er-it',
     PartofSpeech: 'a/n',
-    Shortdef: 'Tegressed to a lower state.',
+    Shortdef: 'Degressed to a lower state.',
     Longdef: "What began as an intellectually rigorous debate, concluded as a degenerate shouting match.",
     syn: ["deteriorate", "worsen", "decline", "sink", "decay", "degenerate", "corrupt", "debase", "pervert", "deprave", "fall", "devalue", "atrophy", "rot", "putrefy"],
     Audio: require('./Audio/Degenerate.mp3')
@@ -4439,7 +4439,7 @@ export default [
     Word: 'Demarcated',
     Pronunciation: 'de-MAR-kate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To establish the limits.',
+    Shortdef: 'Established the limits of something.',
     Longdef: "The idea of a new house had been abstract, but once Joan demarcated the land, their dream seemed real.",
     syn: ["delineate", "mark off", "distinguish", "separate", "Viewide", "define", "set bounds", "circumscribe", "limit", "differentiate"],
     Audio: require('./Audio/Demarcate.mp3')
@@ -4467,7 +4467,7 @@ export default [
     Word: 'Denoted',
     Pronunciation: 'de-NOTE ed',
     PartofSpeech: 'v',
-    Shortdef: 'To serve as symbol.',
+    Shortdef: 'Made to serve as a symbol.',
     Longdef: "Her chills and discoloration, Dr. Smith observed, denoted severe hypothermia.",
     syn: ["Indicate", "Signify", "Represent", "Express", "Imply", "Convey", "Mean", "Designate", "Characterize", "Label"],
     Audio: require('./Audio/Denote.mp3')
@@ -4523,7 +4523,7 @@ export default [
     Word: 'Deprecating',
     Pronunciation: 'DEP-ri-cate ing',
     PartofSpeech: 'v',
-    Shortdef: 'To belittle;show disapproval.',
+    Shortdef: 'Belittleing;made to show disapproval.',
     Longdef: "Jean insisted that her report contained not a single deprecating word, but it was easy to read between the lines.",
     syn: ["disapprove", "condemn", "denounce", "criticize", "reprimand", "rebuke", "reproach", "blame", "censure", "disparage"],
     Audio: require('./Audio/Deprecate.mp3')
@@ -4810,7 +4810,7 @@ export default [
     Word: 'Dilapidated',
     Pronunciation: 'di-LAP-ih-dated',
     PartofSpeech: 'v',
-    Shortdef: 'To fall into disrepair.',
+    Shortdef: 'Falled into disrepair.',
     Longdef: "The dilapidated barn swayed, heaved, and finally collapsed before Caitlyn's eyes.",
     syn: ["run-down", "derelict", "shabby", "decrepit", "ramshackle", "old", "weather-beaten", "worn-out", "neglected", "broken-down"],
     Audio: require('./Audio/Dilapidated.mp3')
@@ -4880,7 +4880,7 @@ export default [
     Word: 'Discombobulated',
     Pronunciation: 'diss-kin-BOB-yoo-late ed',
     PartofSpeech: 'v',
-    Shortdef: 'To throw into confusion.',
+    Shortdef: 'Thrown into confusion or dissary.',
     Longdef: "The frenzied pace of eight hours on the trading floor had left me utterly discombobulated.",
     syn: ["confuse", "bewilder", "torment", "muddle", "fluster", "derange", "scatter", "jumble", "disarrange", "perplex"],
     Audio: require('./Audio/Discombobulate.mp3')
@@ -4894,7 +4894,7 @@ export default [
     Word: 'Discomfited',
     Pronunciation: 'diss-KUMM-fit ed',
     PartofSpeech: 'v',
-    Shortdef: 'To cause to come into disorder.',
+    Shortdef: 'Caused to come into disorder.',
     Longdef: "Fern's household was discomfited by the sudden, unannounced arrival of her relatives.",
     syn: [
       "disconcert",
@@ -4923,7 +4923,7 @@ export default [
     Word: 'Disconcerting',
     Pronunciation: 'diss-kun-SERT-ing',
     PartofSpeech: 'a',
-    Shortdef: 'Ruffled; upset.',
+    Shortdef: 'Made upsetting; reason for concern.',
     Longdef: "Officer, I too find it disconcerting that I was driving 20 miles over the speed limit.",
     syn: ["unsettling", "disturbing", "troubling", "perplexing", "bewildering", "flustering", "unnerving", "discomfiting", "perturbing"],
     Audio: require('./Audio/Disconcerting.mp3')
@@ -4951,7 +4951,7 @@ export default [
     Word: 'Disgruntled',
     Pronunciation: 'diss-GRUN-tull ed',
     PartofSpeech: 'v',
-    Shortdef: 'To become cross or discontented.',
+    Shortdef: 'Having become cross or discontented.',
     Longdef: "After years of mistreatment, the disgruntled employees finally decided to strike.",
     syn: ["displease", "dishearten", "dissatisfy", "irritate", "annoy", "offend", "put out", "vex", "exasperate", "nettle"],
     Audio: require('./Audio/Disgruntle.mp3')
@@ -4979,7 +4979,7 @@ export default [
     Word: 'Disparaging',
     Pronunciation: 'diss-PARE-udge ing',
     PartofSpeech: 'v',
-    Shortdef: 'To speak as having little worth.',
+    Shortdef: 'Speaking as having little worth.',
     Longdef: "His disparaging remarks damaged both her character around the department and her pride.",
     syn: ["belittle", "deprecate", "denigrate", "deride", "diminish", "downplay", "undervalue", "underestimate", "criticize", "oppose", "vilify"],
     Audio: require('./Audio/Disparage.mp3')
@@ -5021,7 +5021,7 @@ export default [
     Word: 'Disported',
     Pronunciation: 'dih-SPORT ed',
     PartofSpeech: 'v',
-    Shortdef: 'To play or frolic.',
+    Shortdef: 'Having played or frolicked.',
     Longdef: "Jean and Michael giddily disported themselves at the amusement park.",
     syn: ["amuse", "entertain", "Viewert", "occupy", "engage", "distract", "recreate", "regale", "gratify", "delight"],
     Audio: require('./Audio/Disport.mp3')
@@ -5035,7 +5035,7 @@ export default [
     Word: 'Disseminating',
     Pronunciation: 'diss-SEM-ih-nate ing',
     PartofSpeech: 'v',
-    Shortdef: 'To scatter across a broad spectrum.',
+    Shortdef: 'Scattering across a broad spectrum.',
     Longdef: "In disseminating this information, Mr. Powers placed innumerable foreign operatives at risk.",
     syn: ["spread", "circulate", "propagate", "disperse", "broadcast", "publish", "publicize", "promulgate"],
     Audio: require('./Audio/Disseminate.mp3')
@@ -5049,7 +5049,7 @@ export default [
     Word: 'Dissipated',
     Pronunciation: 'DISS-ih-pate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To dispel; to disappear.',
+    Shortdef: 'Dispelled; made to disappear.',
     Longdef: "Once the cloud moved to the horizon, the rain dissipated and the flood waters receded.",
     syn: ["disperse", "scatter", "vanish", "evaporate", "waste", "squander", "dissolve", "diffuse", "dispel", "break up"],
     Audio: require('./Audio/Dissipate.mp3')
@@ -5091,7 +5091,7 @@ export default [
     Word: 'Dissuaded',
     Pronunciation: 'diss-SWADE ed',
     PartofSpeech: 'n',
-    Shortdef: 'To convince to take alternate action.',
+    Shortdef: 'Convinced to take alternate action.',
     Longdef: "Marge dissuaded her brother from joining the army and convinced him to go to college.",
     syn: ["discourage", "deter", "Viewert", "sidetrack", "restrain", "prevent", "stop", "avert", "thwart", "interfere with"],
     Audio: require('./Audio/Dissuade.mp3')
@@ -5452,7 +5452,7 @@ export default [
     Word: 'Elicited',
     Pronunciation: 'ih-LESS-it ed',
     PartofSpeech: 'v',
-    Shortdef: 'To bring out a response.',
+    Shortdef: 'Brought out a certain response.',
     Longdef: "Of the many responses our documentary elicited, I like Mrs. Miller's the best.",
     syn: [
       "extract",
@@ -5548,7 +5548,7 @@ export default [
     Word: 'Emanating',
     Pronunciation: 'EM-uh-nate ing',
     PartofSpeech: 'v',
-    Shortdef: 'To issue forth as from a source.',
+    Shortdef: 'Issuing forth as from a source.',
     Longdef: "The sounds emanating from the room next door were not comforting.",
     syn: ["radiate", "emit", "exude", "give off", "flow", "issue forth", "spread", "proceed", "originate", "spring from"],
     Audio: require('./Audio/Emanate.mp3')
@@ -5576,7 +5576,7 @@ export default [
     Word: 'Embellished',
     Pronunciation: 'em-BELL-ish ed',
     PartofSpeech: 'v',
-    Shortdef: 'To ornament and beautify.',
+    Shortdef: 'Ornamented by style; beautified.',
     Longdef: "Marie's gown was embellished with tiny pearls.",
     syn: [
       "adorn",
@@ -5806,7 +5806,7 @@ export default [
     Word: 'Enthralling',
     Pronunciation: 'en-THRALL ing',
     PartofSpeech: 'v',
-    Shortdef: 'To hold spellbound; captivate.',
+    Shortdef: 'Holding spellbound; to captivate.',
     Longdef: "Garbo's performance was simply enthralling, and you could see in the faces of the crowd.",
     syn: [
       "captivate",
@@ -5852,7 +5852,7 @@ export default [
     Word: 'Enunciated',
     Pronunciation: 'ee-NUN-see-ate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To articulate or pronounce.',
+    Shortdef: 'Articulated or pronounced.',
     Longdef: "The ideas he enunciated were simple, implementable, and accepted by all.",
     syn: [
       "articulate",
@@ -5881,7 +5881,7 @@ export default [
     Word: 'Envisaged',
     Pronunciation: 'en-VIZ-uj ed',
     PartofSpeech: 'v',
-    Shortdef: 'To picture or conceive.',
+    Shortdef: 'Pictured or conceived.',
     Longdef: "The group of developers envisaged an apartment complex on the waterfront property.",
     syn: ["imagine", "visualize", "conceive", "contemplate", "foresee", "anticipate", "project", "envision"],
     Audio: require('./Audio/Envisage.mp3')
@@ -5924,7 +5924,7 @@ export default [
     Word: 'Eradicated',
     Pronunciation: 'ee-RAD-ih-cate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To utterly do away with.',
+    Shortdef: 'Utterly done away with.',
     Longdef: "Until we have eradicated poverty, our struggle will continue.",
     syn: ["eliminate", "exterminate", "annihilate", "obliterate", "annul", "extinguish", "destroy", "wipe out", "erase", "remove", "root out", "stamp out", "quash", "suppress", "abolish"],
     Audio: require('./Audio/Eradicate.mp3')
@@ -6022,7 +6022,7 @@ export default [
     Word: 'Espousing',
     Pronunciation: 'ih-SPOWZ ing',
     PartofSpeech: 'v',
-    Shortdef: 'To advocate for a belief.',
+    Shortdef: 'Advocating for a belief.',
     Longdef: "Do you have any idea how complicated it would be to implement the plans you are espousing?",
     syn: ["Embrace", "Adopt", "Support", "Endorse", "Champion", "Back", "Defend", "Advocate", "Promote", "Take up"],
     Audio: require('./Audio/Espouse.mp3')
@@ -6122,7 +6122,7 @@ export default [
     Word: 'Evinced',
     Pronunciation: 'ee-VINCE ed',
     PartofSpeech: 'v',
-    Shortdef: 'To prove conclusively.',
+    Shortdef: 'Proved conclusively.',
     Longdef: "You have not evinced a single one of the claims you put forward.",
     syn: ["demonstrate", "exhibit", "manifest", "show", "reveal", "attest", "display", "betray", "express", "indicate"],
     Audio: require('./Audio/Evince.mp3')
@@ -6136,7 +6136,7 @@ export default [
     Word: 'Eviscerated',
     Pronunciation: 'ee-VIS-uh-rate ed',
     PartofSpeech: 'v',
-    Shortdef: "To destroy one's argument.",
+    Shortdef: "Destroyed one's argument.",
     Longdef: "Having eviscerated the novel's key chapter, the censor was content to let the earlier exposition stand.",
     syn: [
       "Gut",
@@ -6161,7 +6161,7 @@ export default [
     Word: 'Evoked',
     Pronunciation: 'ee-VOKE ed',
     PartofSpeech: 'v',
-    Shortdef: 'To call forth or summon.',
+    Shortdef: 'Called forth or summonned.',
     Longdef: "The sight of the old mansion evoked many bittersweet memories for Charles.",
     syn: ["awaken", "elicit", "arouse", "conjure up", "provoke", "stimulate", "summon", "invoke", "call forth", "draw forth", "bring forth", "raise", "embolden"],
     Audio: require('./Audio/Evoke.mp3')
@@ -6175,7 +6175,7 @@ export default [
     Word: 'Exacerbated',
     Pronunciation: 'ig-ZASS-ur-bate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To worsen or aggravate.',
+    Shortdef: 'Worsened or aggravated.',
     Longdef: "You have only exacerbated the situation by lying about your activities that night.",
     syn: ["aggravate", "worsen", "intensify", "provoke", "inflame", "disrupt", "exaggerate", "heighten", "escalate", "increase"],
     Audio: require('./Audio/Exacerbate.mp3')
@@ -6189,7 +6189,7 @@ export default [
     Word: 'Excoriated',
     Pronunciation: 'ik-SORE-ee-ate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To denounce emphatically; put down.',
+    Shortdef: 'Denounced emphatically; put down.',
     Longdef: "To be excoriated in this way is bad enough; to endure such remarks in the Senate is just sad.",
     syn: ["criticize", "condemn", "rebuke", "reprimand", "censure", "denounce", "blame", "chastise", "castigate", "flay", "lash", "scold", "upbraid", "berate", "vituperate", "chide", "admonish"],
     Audio: require('./Audio/Excoriate.mp3')
@@ -6203,7 +6203,7 @@ export default [
     Word: 'Exculpated',
     Pronunciation: 'EK-skul-pate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To remove guilt.',
+    Shortdef: 'Removed guilt.',
     Longdef: "The fact that I was convicted is immaterial; I have been fully exculpated by the new evidence.",
     syn: ["Absolve", "Clear", "Vindicate", "Acquit", "Exonerate", "Justify", "Pardon", "Release", "Relieve", "Free"],
     Audio: require('./Audio/Exculpate.mp3')
@@ -6259,7 +6259,7 @@ export default [
     Word: 'Extenuating',
     Pronunciation: 'ik-STEN-yoo-ate ing',
     PartofSpeech: 'v',
-    Shortdef: "To reduce in seriousness or extent.",
+    Shortdef: "Reducing in seriousness or extent.",
     Longdef: "The trip was delayed, not because we dawdled, but because of extenuating circumstances beyond our control.",
     syn: ["mitigate", "lessen", "alleviate", "diminish", "reduce", "dampen", "moderate", "weaken", "depreciate", "excuse"],
     Audio: require('./Audio/Extenuate.mp3')
@@ -6594,7 +6594,7 @@ export default [
     Word: 'Flouts',
     Pronunciation: 'flowts',
     PartofSpeech: 'v',
-    Shortdef: "To break a law or tradition.",
+    Shortdef: "Breaks a law or tradition.",
     Longdef: "To begin the baseball game without the national anthem flouts a tradition of more than a century.",
     syn: ["disregard", "defy", "mock", "spurn", "scorn", "disobey", "ignore", "violate", "disrespect", "contravene"],
     Audio: require('./Audio/Flout.mp3')
@@ -6636,7 +6636,7 @@ export default [
     Word: 'Foisted',
     Pronunciation: 'Foist ed',
     PartofSpeech: 'v',
-    Shortdef: 'To pawn off something undesirable.',
+    Shortdef: 'Pawned off on to someone',
     Longdef: "This project was foisted on us because everyone believed it was impossible.",
     syn: ['impose', 'inflict', 'thrust', 'force', 'pawn off', 'palmed off'],
     Audio: require('./Audio/Foist.mp3')
@@ -6734,7 +6734,7 @@ export default [
     Word: 'Fulminating',
     Pronunciation: 'FUL-mih-nate ing',
     PartofSpeech: 'v',
-    Shortdef: 'To explode. Launch verbal attack.',
+    Shortdef: 'Exploding. Launching a verbal attack.',
     Longdef: "Officer, last time I was pulled over I spoke loudly to the officer, fulminating in anger. But you are so much nicer.",
     syn: [
       "denounce",
@@ -6801,7 +6801,7 @@ export default [
     Word: 'Gainsaying',
     Pronunciation: 'GANE-say ing',
     PartofSpeech: 'v',
-    Shortdef: 'To declare false.',
+    Shortdef: 'Declaring false.',
     Longdef: "The Bill of Rights will admit no gainsaying; they have proven to have created a superior form of government.",
     syn: ["contradict", "challenge", "dispute", "oppose", "deny", "disapprove", "object", "protest", "refute", "resist"],
     Audio: require('./Audio/Gainsay.mp3')
@@ -6829,7 +6829,7 @@ export default [
     Word: 'Galvanizing',
     Pronunciation: 'GAL-vuh-nize ing',
     PartofSpeech: 'v',
-    Shortdef: 'To arouse to action.',
+    Shortdef: 'Arousing to action.',
     Longdef: "The letter had a galvanizing effect on Madge, and she started working harder.",
     syn: ['energize', 'stimulate', 'activate', 'arouse', 'awaken', 'animate', 'excite', 'spur', 'revitalize'],
     Audio: require('./Audio/Galvanize.mp3')
@@ -6871,7 +6871,7 @@ export default [
     Word: 'Garnered',
     Pronunciation: 'GAR-ner ed',
     PartofSpeech: 'v',
-    Shortdef: "To amass or accumulate.",
+    Shortdef: "Amassed or accumulated.",
     Longdef: "William garnered much praise for his management skills, but could not produce results.",
     syn: ["collect", "accumulate", "gather", "harvest", "acquire", "amass", "gain", "earn", "attain", "procure"],
     Audio: require('./Audio/Garner.mp3')
@@ -7152,7 +7152,7 @@ export default [
     Word: 'Groped',
     Pronunciation: 'groap ed',
     PartofSpeech: 'v',
-    Shortdef: 'To reach about blindly.',
+    Shortdef: 'Reach about blindly.',
     Longdef: "He groped for the right words, but could not manage to come up with an acceptable explanation.",
     syn: ['Feel', 'Fumble', 'Grab', 'Explore', 'Search', 'Probe', 'Poke', 'Touch', 'Caress', 'Manhandle', 'Molest', 'Handle'],
     Audio: require('./Audio/Grope.mp3')
@@ -7166,7 +7166,7 @@ export default [
     Word: 'Groveling',
     Pronunciation: 'GROV-ul ing',
     PartofSpeech: 'v',
-    Shortdef: "To show humility, apologetic.",
+    Shortdef: "Showing humility, apologetic.",
     Longdef: "To see his sister reduced to groveling for approval was almost too much for Ryan to take.",
     syn: ["kowtow", "prostrate", "crawl", "fawn", "beg", "cringe", "flatter", "kiss-up", "suck up", "submit"],
     Audio: require('./Audio/Grovel.mp3')
@@ -7231,7 +7231,7 @@ export default [
     Word: 'Hallowed',
     Pronunciation: 'HAL-low ed',
     PartofSpeech: 'v',
-    Shortdef: 'To establish as holy.',
+    Shortdef: 'Established as holy.',
     Longdef: "The ancient burial ground, which is hallowed ground to many Native Americans, attracts many tourists.",
     syn: ["Bless", "Consecrate", "Sanctify", "Anoint", "Canonize", "Deify", "Enshrine", "Elevate", "Glorify", "Exalt"],
     Audio: require('./Audio/Hallow.mp3')
@@ -7561,7 +7561,7 @@ export default [
     Word: 'Imbibes',
     Pronunciation: 'im-BIBES',
     PartofSpeech: 'v',
-    Shortdef: 'To drink alcoholic beverages.',
+    Shortdef: 'Drinks alcoholic beverages.',
     Longdef: "Donald once had a drinking problem, but now he no longer imbibes.",
     syn: ["consume", "drink", "swallow", "ingest", "quaff", "absorb", "gulp", "sip", "partake", "take in", "ingurgitate", "sup", "indulge in"],
     Audio: require('./Audio/Imbibe.mp3')
@@ -7589,7 +7589,7 @@ export default [
     Word: 'Imbued',
     Pronunciation: 'im-BYOO ed',
     PartofSpeech: 'v',
-    Shortdef: 'To saturate by absorption.',
+    Shortdef: 'Saturated by absorption.',
     Longdef: "My philosophy on team management is imbued with ideas from Wharton Business School, my alma mater.",
     syn: ["infuse", "instill", "inject", "fill", "permeate", "pervade", "saturate", "inspire", "enliven", "animate", "induce", "introduce", "transfuse", "drench", "bathe", "suffuse", "impregnate"],
     Audio: require('./Audio/Imbue.mp3')
@@ -7798,7 +7798,7 @@ export default [
     Word: 'Implored',
     Pronunciation: 'im-PLORE ed',
     PartofSpeech: 'v',
-    Shortdef: "To beg fervently.",
+    Shortdef: "Begged for fervently.",
     Longdef: "She implored Harold not to attend the party due to what he would learn there.",
     syn: ["beg", "plead", "beseech", "entreat", "conjure", "supplicate", "solicit", "appeal to", "importune"],
     Audio: require('./Audio/Implore.mp3')
@@ -8084,7 +8084,7 @@ export default [
     Word: 'Inculpated',
     Pronunciation: 'in-KUL-pate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To incriminate.',
+    Shortdef: 'Incriminated in wrongdoing.',
     Longdef: "Myra's frequent visits to the scene of the crime, inculpated her as the guilty party.",
     syn: ["Accuse", "Charge", "Blame", "Implicate", "Denounce", "Impute", "Censure", "Reproach", "Finger", "Frame"],
     Audio: require('./Audio/Inculpate.mp3')
@@ -8126,7 +8126,7 @@ export default [
     Word: 'Indemnifies',
     Pronunciation: 'in-DEM-nith-fies',
     PartofSpeech: 'v',
-    Shortdef: 'To protect; compensate for damages.',
+    Shortdef: 'Protects; compensates for damages.',
     Longdef: "This insurance policy indemnifies my house against fire, flood, and burglary.",
     syn: ['compensate', 'reimburse', 'repay', 'make good', 'cover', 'remunerate', 'recompense'],
     Audio: require('./Audio/Indemnify.mp3')
@@ -8387,7 +8387,7 @@ export default [
     Word: 'Inoculated',
     Pronunciation: 'ih-NOK-yoo-lated',
     PartofSpeech: 'v',
-    Shortdef: 'To facilitate the resistance to a disease.',
+    Shortdef: 'Facilitated the resistance to a disease.',
     Longdef: "Marie, normally frightened of needles, summoned up her courage to get inoculated against smallpox.",
     syn: ["vaccinate", "immunize", "protect", "guard", "shield", "fortify", "inoculate against", "prevent", "injure", "infect"],
     Audio: require('./Audio/Innoculate.mp3')
@@ -8633,7 +8633,7 @@ export default [
     Word: 'Inundated',
     Pronunciation: 'IN-un-dated',
     PartofSpeech: 'v',
-    Shortdef: 'To flood.',
+    Shortdef: 'Flooded; overwhelmed.',
     Longdef: "The operator knew she would be inundated with calls that day.",
     syn: [
       "flood",
@@ -8677,7 +8677,7 @@ export default [
     Word: 'Inveighed',
     Pronunciation: 'in-VAY ed',
     PartofSpeech: 'v',
-    Shortdef: 'To protest strongly.',
+    Shortdef: 'Protested strongly against.',
     Longdef: "The crowd inveighed against the governor's decision to commute Davidson's sentence.",
     syn: ["attack", "condemn", "criticize", "denounce", "disparage", "disapprove", "rebuke", "reproach", "revile", "scold"],
     Audio: require('./Audio/Inveigh.mp3')
@@ -8733,7 +8733,7 @@ export default [
     Word: 'Jettisoned',
     Pronunciation: 'JET-ih-son ed',
     PartofSpeech: 'v',
-    Shortdef: 'To cast off or overboard.',
+    Shortdef: 'Cast off or overboard; discarded.',
     Longdef: "The project seemed promising initially, but after the research came back we jettisoned the project.",
     syn: [
       "Discard",
@@ -8812,7 +8812,7 @@ export default [
     Word: 'Jostled',
     Pronunciation: 'JOS-le ed',
     PartofSpeech: 'v',
-    Shortdef: 'To bump by incidental contact.',
+    Shortdef: 'Bumped by incidental contact.',
     Longdef: "Mark jostled through the crowd, but could not find Sharon.",
     syn: ["bump", "shove", "push", "nudge", "tussle", "jerk", "joggle", "shove", "scoop", "prod"],
     Audio: require('./Audio/Jostle.mp3')
@@ -8870,7 +8870,7 @@ export default [
     Word: 'Juxtaposed',
     Pronunciation: 'JUK-stuh-pose ed',
     PartofSpeech: 'v',
-    Shortdef: 'Place side by side for comparison.',
+    Shortdef: 'Placed side by side for comparison.',
     Longdef: "He juxtaposed the two paragraphs of each essay and found himself looking at the strongest evidence of plagiarism.",
     syn: ["Compare", "Contrast", "Associate", "Parallel", "Place side by side", "Feature together", "Set against", "Collate", "Align", "Put together"],
     Audio: require('./Audio/Juxtapose.mp3')
@@ -8954,7 +8954,7 @@ export default [
     Word: 'Lambasting',
     Pronunciation: 'LAM-baste ing',
     PartofSpeech: 'v',
-    Shortdef: 'To reprimand or attack verbally.',
+    Shortdef: 'Reprimanding or attacking verbally.',
     Longdef: "I received a lambasting from human resources, but it was a risk worth taking.",
     syn: ["Bash", "Berate", "Castigate", "Criticize", "Denounce", "Flay", "Rebuke", "Reprimand", "Scold", "Slam", "Upbraid", "Vilify"],
     Audio: require('./Audio/Lambaste.mp3')
@@ -9432,7 +9432,7 @@ export default [
     Word: 'Malingering',
     Pronunciation: 'muh-LING-ger ing',
     PartofSpeech: 'v',
-    Shortdef: 'To avoid work by making excuses.',
+    Shortdef: 'Avoiding work by making excuses.',
     Longdef: "There will be no malingering in this office, said the new supervisor sternly.",
     syn: ["pretend", "feign", "shirk", "faker", "fake illness", "exaggerate", "play hooky", "skive off", "avoid work", "goldbrick"],
     Audio: require('./Audio/Malinger.mp3')
@@ -9488,7 +9488,7 @@ export default [
     Word: 'Marauding',
     Pronunciation: 'muh-ROD ing',
     PartofSpeech: 'v',
-    Shortdef: 'To invade (as a pirate) for treasure.',
+    Shortdef: 'Invading (as a pirate) for treasure.',
     Longdef: "The ship was waylaid by marauding pirates.",
     syn: ["Pillage", "Plunder", "Raid", "Rob", "Sack", "Steal", "Despoil", "Invade", "Assault", "Attack"],
     Audio: require('./Audio/Maraud.mp3')
@@ -9530,7 +9530,7 @@ export default [
     Word: 'Meandered',
     Pronunciation: 'mee-AN-der ed',
     PartofSpeech: 'v',
-    Shortdef: 'To follow a winding path.',
+    Shortdef: 'Followed a winding path.',
     Longdef: "Jack, lost without his shopping list, meandered helplessly through the aisles of the supermarket.",
     syn: ["Wander", "Roam", "Ramble", "Peregrinate", "Circulate", "Cruise", "Stroll", "Saunter", "Mosey", "Amble"],
     Audio: require('./Audio/Meander.mp3')
@@ -9625,7 +9625,7 @@ export default [
     Word: 'Mesmerized',
     Pronunciation: 'MEZ-mur-ize ed',
     PartofSpeech: 'v',
-    Shortdef: 'To hypnotize; impress into a trance.',
+    Shortdef: 'Hypnotized; impress into a trance.',
     Longdef: "At the showing, the attendees were mesmerized by the colors in the oil paintings.",
     syn: ["enchant", "captivate", "enthrall", "fascinate", "charm", "bewitch", "entrance", "spellbind", "hypnotize", "grip", "absorb", "engross", "rivet", "bedazzle", "dazzle"],
     Audio: require('./Audio/Mesmerize.mp3')
@@ -9695,7 +9695,7 @@ export default [
     Word: 'Mitigating',
     Pronunciation: 'MIH-tih-gate ing',
     PartofSpeech: 'v',
-    Shortdef: 'To moderate or lessen the impact.',
+    Shortdef: 'Moderating or lessening the impact.',
     Longdef: "The international situation had seemed tense until a number of mitigating factors came into play.",
     syn: ["lessen", "reduce", "alleviate", "ease", "diminish", "moderate", "quell", "soften", "temper", "relieve"],
     Audio: require('./Audio/Mitigate.mp3')
@@ -10389,7 +10389,7 @@ export default [
     Word: 'Obviated',
     Pronunciation: 'OB-vee-ate ee',
     PartofSpeech: 'v',
-    Shortdef: 'To make unnecessary.',
+    Shortdef: 'Made unnecessary.',
     Longdef: "The research department provided sufficient data, but it was obviated due to the fact that we all knew the problem months ago.",
     syn: ["prevent", "preclude", "forestall", "avert", "bypass", "sidestep", "circumvent", "mitigate", "eliminate", "remove"],
     Audio: require('./Audio/Obviate.mp3')
@@ -10403,7 +10403,7 @@ export default [
     Word: 'Occluded',
     Pronunciation: 'oh-KLOOD ed',
     PartofSpeech: 'v',
-    Shortdef: 'To obstruct; block off.',
+    Shortdef: 'Obstructed; blocked off.',
     Longdef: "Ryan, who had a history of heart problems, died of an occluded coronary.",
     syn: ["block", "obstruct", "clog", "close", "seal", "shut", "stop", "choke", "plug", "cover"],
     Audio: require('./Audio/Occlude.mp3')
@@ -10598,7 +10598,7 @@ export default [
     Word: 'Oscillates',
     Pronunciation: 'OSS-uh-late es',
     PartofSpeech: 'v',
-    Shortdef: 'To waver between two (or more) points.',
+    Shortdef: 'Wavers between two (or more) points.',
     Longdef: "Hamlet oscillates between bravado and paralysis for much of the play.",
     syn: ["swing", "sway", "waver", "vacillate", "fluctuate", "vibrate", "dither", "rock", "jiggle", "totter"],
     Audio: require('./Audio/Oscillate.mp3')
@@ -10676,7 +10676,7 @@ export default [
     Word: 'Ostracized',
     Pronunciation: 'OSS-truh-size ed',
     PartofSpeech: 'v',
-    Shortdef: 'To exclude or banish.',
+    Shortdef: 'Excluded or banished.',
     Longdef: "Desmond was ostracized from the group after the negative publicity his mother received.",
     syn: ["exclude", "marginalize", "shun", "isolate", "banish", "repudiate", "expel", "cast out", "blackball", "ostracise"],
     Audio: require('./Audio/Ostracize.mp3')
@@ -10760,7 +10760,7 @@ export default [
     Word: 'Pandering',
     Pronunciation: 'PAN-der ing',
     PartofSpeech: 'v',
-    Shortdef: 'To appeal to the worst in someone.',
+    Shortdef: 'Appealing to the worst in someone.',
     Longdef: "Despite accusations of pandering to voters, the candidate insisted on using his opponent's extramarital affair.",
     syn: [
       "cater",
@@ -11051,7 +11051,7 @@ export default [
     Word: 'Perjuring',
     Pronunciation: 'PURR-jer ing',
     PartofSpeech: 'v',
-    Shortdef: 'False and misleading testimony in court.',
+    Shortdef: 'Offering False and misleading testimony in court.',
     Longdef: "Although Mr. Fritter was not convicted on the main charges, he served time in prison for perjuring himself.",
     syn: [
       "lie",
@@ -11075,7 +11075,7 @@ export default [
     Word: 'Permeated',
     Pronunciation: 'PURR-mee-ate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To penetrate; to spread through.',
+    Shortdef: 'Penetrated; spread through.',
     Longdef: "Joan's stories are permeated with a sense of spiritual mystery.",
     syn: ["Infiltrate", "Diffuse", "Penetrate", "Saturate", "Impregnate", "Pervade", "Imbue", "Interpenetrate", "Invade", "Suffuse", "Infuse"],
     Audio: require('./Audio/Permeate.mp3')
@@ -11103,7 +11103,7 @@ export default [
     Word: 'Perpetuated',
     Pronunciation: 'purr-PETCH-oo-ate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To make everlasting; prolong memory.',
+    Shortdef: 'Made everlasting; prolong memory.',
     Longdef: "The rumor that I am resigning has been perpetuated by a number of sources, all completely unreliable.",
     syn: ["continue", "maintain", "sustain", "preserve", "prolong", "keep alive", "keep going", "keep up"],
     Audio: require('./Audio/Perpetuate.mp3')
@@ -11145,7 +11145,7 @@ export default [
     Word: 'Perused',
     Pronunciation: 'Puh-ROOZ ed',
     PartofSpeech: 'v',
-    Shortdef: 'To read with an eye for details.',
+    Shortdef: 'Read with an eye for details.',
     Longdef: "The witness perused the document for some time, then declared that it was not the document he had signed.",
     syn: [
       "Read through",
@@ -11198,7 +11198,7 @@ export default [
     Word: 'Philandering',
     Pronunciation: 'fi-LAN-der ing',
     PartofSpeech: 'v',
-    Shortdef: 'To engage in romantic adventures.',
+    Shortdef: 'Engaging in romantic adventures.',
     Longdef: "These accusations of philandering, have little to do with the candidates ability to serve his state.",
     syn: ["flirt", "womanize", "playboy", "seducer", "casanova", "ladies' man", "roué", "lounge lizard"],
     Audio: require('./Audio/Philander.mp3')
@@ -11282,7 +11282,7 @@ export default [
     Word: 'Placated',
     Pronunciation: 'PLAY-kate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To appease.',
+    Shortdef: 'Appeased; make someone less angry',
     Longdef: "Although the company was unable to raise wages, it placated the union by extending afternoon coffee break.",
     syn: ["appease", "calm", "pacify", "soothe", "mollify", "conciliate", "mitigate", "assuage", "allay", "reconcile"],
     Audio: require('./Audio/Placate.mp3')
@@ -11444,7 +11444,7 @@ export default [
     Word: 'Polarized',
     Pronunciation: 'PO-luh-rize ed',
     PartofSpeech: 'v',
-    Shortdef: 'To occupy opposite ends of a spectrum.',
+    Shortdef: 'Occupying opposite ends of a spectrum.',
     Longdef: "The scandal left the two wings of the party completely polarized on either side of the issue.",
     syn: ["split", "Viewide", "separate", "fragment", "factionalize"],
     Audio: require('./Audio/Polarize.mp3')
@@ -11500,7 +11500,7 @@ export default [
     Word: 'Posited',
     Pronunciation: 'POZ-it ed',
     PartofSpeech: 'v',
-    Shortdef: 'To stipulate; to present an idea.',
+    Shortdef: 'Stipulated; to present an idea.',
     Longdef: "In his address, the mayor posited the conditions to resolve the fiscal crisis.",
     syn: ["Propose", "Suggest", "Postulate", "Advance", "Put forward", "Submit", "Hypothesize", "Presume", "Assume", "Premise"],
     Audio: require('./Audio/Posit.mp3')
@@ -11709,7 +11709,7 @@ export default [
     Word: 'Procured',
     Pronunciation: 'pro-KYOOR ed',
     PartofSpeech: 'v',
-    Shortdef: 'To obtain; gather or collect.',
+    Shortdef: 'Obtained; gathered or collected.',
     Longdef: "Susan soon procured sufficient financing to close the deal.",
     syn: ["obtain", "acquire", "secure", "get", "fetch", "attain", "gain", "derive", "source", "bring", "retrieve", "earn", "gather", "win", "collect"],
     Audio: require('./Audio/Procure.mp3')
@@ -11804,7 +11804,7 @@ export default [
     Word: 'Proliferated',
     Pronunciation: 'pro-LIF-uh-rate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To multiply; come into being rapidly.',
+    Shortdef: 'Multiplied; come into being rapidly.',
     Longdef: "After the film's success, a number of cheap imitations proliferated for a time.",
     syn: ["multiply", "spread", "proliferate", "flourish", "prolapse", "propagate", "reproduce", "burgeon", "mushroom", "germinate"],
     Audio: require('./Audio/Proliferate.mp3')
@@ -11818,7 +11818,7 @@ export default [
     Word: 'Promulgated',
     Pronunciation: 'PROM-ul-gate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To put forward publicly.',
+    Shortdef: 'Put forward publicly.',
     Longdef: "The news of the British attack was promulgated by town criers through the streets of London.",
     syn: [
       "propagate",
@@ -11876,7 +11876,7 @@ export default [
     Word: 'Propounded',
     Pronunciation: 'pruh-FOUND ed',
     PartofSpeech: 'v',
-    Shortdef: 'To set forth; offer something.',
+    Shortdef: 'Set forth; offer something.',
     Longdef: "Dr. Richards propounded his most complex theory yet at the conference.",
     syn: ["suggest", "pose", "offer up", "propose", "submit", "advance", "put forth", "move", "broach", "introduce", "bring up"],
     Audio: require('./Audio/Propound.mp3')
@@ -11924,7 +11924,7 @@ export default [
     Word: 'Proscribed',
     Pronunciation: 'pro-SKRIBE ed',
     PartofSpeech: 'v',
-    Shortdef: 'To prohibit; denounce as injurious.',
+    Shortdef: 'Prohibited; denounced as injurious.',
     Longdef: "Any discussion of the fleet's battle plan was proscribed under the threat of imprisonment.",
     syn: ["forbid", "ban", "outlaw", "interdict", "veto", "disallow", "prohibit", "exclude", "reject", "freeze out"],
     Audio: require('./Audio/Proscribe.mp3')
@@ -12134,7 +12134,7 @@ export default [
     Word: 'Purported',
     Pronunciation: 'purr-POR-tid',
     PartofSpeech: 'a',
-    Shortdef: 'Reputed; regarded by common assent.',
+    Shortdef: 'Appearing or stated to be true.',
     Longdef: "I saw firsthand the luxurious lifestyle Mr. Hall purported to enjoy.",
     syn: ["supposed", "alleged", "claimed", "professed", "ostensible", "apparent", "rumored"],
     Audio: require('./Audio/Purported.mp3')
@@ -12265,7 +12265,7 @@ export default [
     Word: 'Rankled',
     Pronunciation: 'RANG-kul ed',
     PartofSpeech: 'v',
-    Shortdef: 'To irritate or fester resentment.',
+    Shortdef: 'Irritated or festered resentment.',
     Longdef: "The criticism he received for his play rankled Paul for some time.",
     syn: ["irritate", "annoy", "provoke", "exasperate", "bother", "vex", "inflame", "fester", "aggravate", "nettle"],
     Audio: require('./Audio/Rankle.mp3')
@@ -12382,7 +12382,7 @@ export default [
     Word: 'Recanted',
     Pronunciation: 'rih-KANT ed',
     PartofSpeech: 'v',
-    Shortdef: 'To disavow (a formerly held view).',
+    Shortdef: 'Disavowed (such as a formerly held view).',
     Longdef: "It was not until June that the Congressmen recanted and withdrew his support for the constitutional amendment.",
     syn: ["renounce", "retract", "withdraw", "abjure", "disavow", "repudiate", "forfeit", "deny", "disclaim", "abdicate"],
     Audio: require('./Audio/Recant.mp3')
@@ -12396,7 +12396,7 @@ export default [
     Word: 'Recapitulated',
     Pronunciation: 're-kuh-PIT-yoo-late ed',
     PartofSpeech: 'v',
-    Shortdef: 'To summarize in concise form.',
+    Shortdef: 'Summarize in concise form.',
     Longdef: "Sgt. Dennis, an eyewitness, recapitulated the incident to his superiors at headquarters.",
     syn: ["summarize", "reiterate", "recap", "repeat", "restate", "rehash", "review", "go over", "enumerate", "reprise"],
     Audio: require('./Audio/Recapitulate.mp3')
@@ -12424,7 +12424,7 @@ export default [
     Word: 'Recompense',
     Pronunciation: 'REK-um-pense',
     PartofSpeech: 'v',
-    Shortdef: 'Compensate for suffering or injury.',
+    Shortdef: 'To compensate for suffering or injury.',
     Longdef: "There is no true recompense for the loss you have suffered, Mrs. Williams.",
     syn: ["compensation", "repayment", "restitution", "reward", "remuneration", "indemnification", "redress", "reparation", "satisfaction", "payment"],
     Audio: require('./Audio/Recompense.mp3')
@@ -12466,7 +12466,7 @@ export default [
     Word: 'Rectified',
     Pronunciation: 'REK-tih-fie ed',
     PartofSpeech: 'v',
-    Shortdef: 'To put right.',
+    Shortdef: 'Put right; made right.',
     Longdef: "Ellen rectified her previous mistakes and filed the report.",
     syn: [
       "Correct",
@@ -12519,7 +12519,7 @@ export default [
     Word: 'Refurbished',
     Pronunciation: 're-FUR-bish ed',
     PartofSpeech: 'v',
-    Shortdef: 'To renovate or repair.',
+    Shortdef: 'Renovated or repaired.',
     Longdef: "The housing project's volunteers refurbished the abandoned apartments in record time.",
     syn: ["Renovate", "Revamp", "Restore", "Remodel", "Renew", "Refresh", "Overhaul", "Recondition", "Rehabilitate", "Rejuvenate", "Upgrade", "Modernize", "Redesign"],
     Audio: require('./Audio/Refurbish.mp3')
@@ -12561,7 +12561,7 @@ export default [
     Word: 'Relinquished',
     Pronunciation: 'ri-LING-kwish ed',
     PartofSpeech: 'v',
-    Shortdef: 'To give up.',
+    Shortdef: 'Given up something; cease to claim',
     Longdef: "The King relinquished his throne to marry the woman he loved.",
     syn: ["surrender", "abandon", "give up", "yield", "relinquishment", "forfeit", "cede", "resign", "stop", "let go"],
     Audio: require('./Audio/Relinquish.mp3')
@@ -12575,7 +12575,7 @@ export default [
     Word: 'Remunerated',
     Pronunciation: 'ri-MYOO-ne-rate ed',
     PartofSpeech: 'v',
-    Shortdef: 'To pay; settle financial obligation.',
+    Shortdef: 'Paid; settled financial obligation.',
     Longdef: "The insurance company remunerated the accident victim only after months of delays.",
     syn: ["compensate", "pay", "reimburse", "reward", "refund", "repay", "indemnify", "satisfy", "redeem", "settle"],
     Audio: require('./Audio/Remunerate.mp3')
@@ -12589,7 +12589,7 @@ export default [
     Word: 'Reneged',
     Pronunciation: 'ri-NEG',
     PartofSpeech: 'v',
-    Shortdef: "To go back on one's word.",
+    Shortdef: "Went back on one's word.",
     Longdef: "Dalton was supposed to have been named vice president for his support, but Peterson reneged on the deal.",
     syn: ["default", "back out", "renounce", "retract", "withdraw", "renege on"],
     Audio: require('./Audio/Renege.mp3')
@@ -12603,7 +12603,7 @@ export default [
     Word: 'Renouncing',
     Pronunciation: 're-NOWNCE ing',
     PartofSpeech: 'v',
-    Shortdef: 'To abandon or deny connection.',
+    Shortdef: 'Abandoning or denying connection.',
     Longdef: "Only by renouncing desire for possessions, the monks believed, could one attain enlightenment.",
     syn: ["abdicate", "relinquish", "resign", "give up", "surrender", "abandon", "waive", "yield", "forfeit", "cede", "discard", "disavow", "disown", "retract"],
     Audio: require('./Audio/Renounce.mp3')
@@ -12701,7 +12701,7 @@ export default [
     Word: 'Reproving',
     Pronunciation: 're-PROOV ing',
     PartofSpeech: 'v',
-    Shortdef: 'To censure; correct behavior.',
+    Shortdef: 'Censureing; correcting behavior.',
     Longdef: "Reproving children can only go so far; you must set a good example for them as well.",
     syn: [
       "rebuke",
@@ -12726,7 +12726,7 @@ export default [
     Word: 'Repudiates',
     Pronunciation: 'rih-PYOO-dee-ates',
     PartofSpeech: 'v',
-    Shortdef: 'To disprove and render obsolete.',
+    Shortdef: 'Disproves and renders obsolete.',
     Longdef: "This survey totally repudiates the findings; his model can no longer stand.",
     syn: ["reject", "disavow", "deny", "disown", "abjure", "renounce", "refuse", "disclaim", "negate", "discard"],
     Audio: require('./Audio/Repudiate.mp3')
@@ -12784,7 +12784,7 @@ export default [
     Word: 'Resonated',
     Pronunciation: 'REZ-uh-nate ed',
     PartofSpeech: 'v',
-    Shortdef: 'Sound similar to something else.',
+    Shortdef: 'Sounding similar to something else.',
     Longdef: "The sound of clicking footsteps resonated through the cavernous hallway.",
     syn: ["vibrate", "echo", "ring", "reverberate", "resound", "thrum", "pulsate", "thrill", "throb"],
     Audio: require('./Audio/Resonate.mp3')
@@ -12946,7 +12946,7 @@ export default [
     Word: 'Reviled',
     Pronunciation: 'rih-VILE ed',
     PartofSpeech: 'v',
-    Shortdef: 'To curse; abuse with harsh language.',
+    Shortdef: 'To have cursed something; abuse with harsh language.',
     Longdef: "Realizing that he was reviled by those opposing his stand, the Senator decided to cancel his appearance.",
     syn: ["Denigrate", "Slander", "Defame", "Vilify", "Belittle", "Disparage", "Malign", "Calumniate", "Besmirch", "Smear"],
     Audio: require('./Audio/Revile.mp3')
@@ -13027,7 +13027,7 @@ export default [
     Word: 'Ruminating',
     Pronunciation: 'ROO-muh-nate ing',
     PartofSpeech: 'v',
-    Shortdef: 'To ponder; review mentally',
+    Shortdef: 'Pondering; reviewing mentally',
     Longdef: "Elaine was still ruminating over whether or not to attend college in the fall.",
     syn: ["Contemplate", "Ponder", "Mull over", "Reflect", "Brood", "Chew over", "Think deeply", "Speculate", "Deliberate", "Mediate"],
     Audio: require('./Audio/Ruminate.mp3')
@@ -13225,7 +13225,7 @@ export default [
     Word: 'Sequestered',
     Pronunciation: 'si-KWES-ter ed',
     PartofSpeech: 'v',
-    Shortdef: 'To set apart (from the outside influence).',
+    Shortdef: 'Set apart (from the outside influence).',
     Longdef: "The jury was sequestered in a nearby hotel due to the extraordinary amount of publicity the trial generated.",
     syn: ["isolate", "quarantine", "seclude", "withdraw", "remove", "keep apart", "set aside", "enclose", "partition"],
     Audio: require('./Audio/Sequester.mp3')
@@ -13472,7 +13472,7 @@ export default [
     Word: 'Stultifying',
     Pronunciation: 'STUL-tih-fy ing',
     PartofSpeech: 'v',
-    Shortdef: 'To render unable to act intelligently.',
+    Shortdef: 'Rendering unable to act intelligently.',
     Longdef: "The intense heat had a stultifying effect on Melanie; she had difficulty thinking clearly.",
     syn: ["hamper", "obstruct", "hinder", "impede", "frustrate", "paralyze", "impair", "weaken", "disable", "deprive"],
     Audio: require('./Audio/Stultify.mp3')
@@ -13486,7 +13486,7 @@ export default [
     Word: 'Stymied',
     Pronunciation: 'STY-mee',
     PartofSpeech: 'v',
-    Shortdef: 'To stand in the way; hinder.',
+    Shortdef: 'Hindered; standing in the way.',
     Longdef: "The other team's attempt to score was stymied when we turned a double play with the bases loaded.",
     syn: ["hinder", "obstruct", "impede", "thwart", "hamper", "frustrate", "block", "prevent", "inhibit", "check"],
     Audio: require('./Audio/Stymie.mp3')
@@ -13855,7 +13855,7 @@ export default [
     Word: 'Titillating',
     Pronunciation: 'TIT-ih-late ing',
     PartofSpeech: 'v',
-    Shortdef: 'To arouse; excite in a pleasing way.',
+    Shortdef: 'Arousing; exciting in a pleasing way.',
     Longdef: "These stories about the sex lives of past presidents may be titillating, but they wouldn't have passed for hard news in my day.",
     syn: ['arouse', 'tease', 'turn on', 'thrill'],
     Audio: require('./Audio/Titillate.mp3')
@@ -13925,7 +13925,7 @@ export default [
     Word: 'Transpired',
     Pronunciation: 'tran-SPIRE ed',
     PartofSpeech: 'v',
-    Shortdef: 'To take place; occur.',
+    Shortdef: 'Made to occur; having taken place; .',
     Longdef: "Mrs. Potter, please tell the court exactly what transpired that night as you remember it.",
     syn: ["occur", "happen", "take place", "unfold", "come to pass", "eventuate", "materialize", "manifest", "proceed", "ensue", "go down", "crop up", "arise", "develop"],
     Audio: require('./Audio/Transpire.mp3')
@@ -14133,7 +14133,7 @@ export default [
     Word: 'Undulating',
     Pronunciation: 'UN-dyoo-late ing',
     PartofSpeech: 'v',
-    Shortdef: 'Move in a wavelike motion.',
+    Shortdef: 'Moving in a wavelike motion.',
     Longdef: "After a hard day at work, Ellis would sit on the seashore staring ahead at the undulating ocean to ease his mind.",
     syn: ["ripple", "sway", "waver", "fluctuate", "oscillate", "vibrate", "quiver", "flutter", "tremble", "shimmer"],
     Audio: require('./Audio/Undulate.mp3')
@@ -14189,7 +14189,7 @@ export default [
     Word: 'Usurped',
     Pronunciation: 'yoo-SURP ed',
     PartofSpeech: 'v',
-    Shortdef: 'To take over.',
+    Shortdef: 'Having taken control over.',
     Longdef: "The authority of the board was indeed usurped by the CEO, but they took no action.",
     syn: ["take over", "seize", "appropriate", "commandeer", "confiscate", "hijack", "grab", "usuperate", "annex", "arrogate", "grab hold of"],
     Audio: require('./Audio/Usurp.mp3')
@@ -14217,7 +14217,7 @@ export default [
     Word: 'Vacillating',
     Pronunciation: 'VAS-uh-late ing',
     PartofSpeech: 'v',
-    Shortdef: 'To waver between two options.',
+    Shortdef: 'Wavering between two options.',
     Longdef: "Mr. Mear's weakness is that he is a vacillating leader, one who cannot choose one path and stick to it.",
     syn: ["waver", "hesitate", "oscillate", "swing", "fluctuate", "dither", "shuffle", "teeter", "hover", "shuffle", "alter", "alternate", "vary", "shift", "waffle", "dilly-dally"],
     Audio: require('./Audio/Vacillate.mp3')
@@ -14470,7 +14470,7 @@ export default [
     Word: 'Wallowed',
     Pronunciation: 'WALL-lo ed',
     PartofSpeech: 'v',
-    Shortdef: 'To immerse oneself into something.',
+    Shortdef: 'Immersing oneself deeply into something.',
     Longdef: "Joan's reviews were unflattering, she wallowed in self-pity after opening night and did the cast a disservice.",
     syn: ["delight", "revel", "indulge", "drown", "immerse", "bask", "lie", "loll", "lounge"],
     Audio: require('./Audio/Wallow.mp3')
@@ -14526,7 +14526,7 @@ export default [
     Word: 'Wending',
     Pronunciation: 'wend ing',
     PartofSpeech: 'v',
-    Shortdef: 'To proceed along a course.',
+    Shortdef: 'Proceeding along an indirect course.',
     Longdef: "The main character, wending his way through the forest innocently, had no idea what awaited him at journey's end.",
     syn: ["travel", "journey", "move", "proceed", "advance", "make way", "go", "walk", "voyage", "trek"],
     Audio: require('./Audio/Wend.mp3')
@@ -14540,7 +14540,7 @@ export default [
     Word: 'Writhed',
     Pronunciation: 'rythe ed',
     PartofSpeech: 'v',
-    Shortdef: "To twist (the body), in reaction to pain.",
+    Shortdef: "Twisting (the body), in reaction to pain.",
     Longdef: "The injured dog writhed in agony, but calmed when the vet administered a local anesthetic.",
     syn: ["Twist", "Squirm", "Contort", "Turn", "Struggle", "Wiggle", "Flail", "Toss and turn", "Fidget", "Thrash"],
     Audio: require('./Audio/Writhe.mp3')
