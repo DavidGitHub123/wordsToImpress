@@ -19,6 +19,7 @@ import AppButton from "../components/AppButton.js";
 import data from "../data.js";
 import { mainStyles } from "../components/mainStyles.js";
 import ListDropdown from "../components/ListDropdown.js";
+import { FontAwesome } from "@expo/vector-icons";
 
 const ALPHABET = "abcdefghijklmnopqrstuvwxyz".split("");
 const WORDS_TO_FETCH = 10;
@@ -293,6 +294,10 @@ const LetterButton = ({ letter, onPress }) => (
 
 const WinMessage = ({ onReset, onBackToMenu }) => (
   <View style={styles.winContainer}>
+    <Pressable onPress={onBackToMenu} style={styles.closeButton}>
+      <FontAwesome name="close" size={28} color="#fff" />
+    </Pressable>
+
     <Text style={[mainStyles.header, styles.winText]}>Congratulations!</Text>
     <Text style={[mainStyles.text, styles.winText]}>
       You solved the anagram!
@@ -511,5 +516,12 @@ const styles = StyleSheet.create({
   winButtons: {
     flexDirection: "column",
     gap: 20,
+  },
+  closeButton: {
+    position: "absolute",
+    top: 20,
+    right: 20,
+    padding: 10,
+    zIndex: 10,
   },
 });
