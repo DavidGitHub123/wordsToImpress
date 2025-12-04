@@ -158,7 +158,7 @@ const useAnagramGame = (list) => {
       const wordLetters = chosenWord.FormattedShortdef.split("");
 
       const nextUnguessedIndex = wordLetters.findIndex(
-        (char, index) => char !== " " && !newShownLetters.includes(char),
+        (char) => char !== " " && !newShownLetters.includes(char),
       );
 
       if (nextUnguessedIndex !== -1) {
@@ -361,6 +361,7 @@ const AnagramGame = ({
       </LinearGradient>
     );
   }
+  console.log(chosenWord);
 
   return (
     <LinearGradient
@@ -374,6 +375,13 @@ const AnagramGame = ({
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
+          <View style={{ margin: "auto" }}>
+            <Text
+              style={[mainStyles.text, { transform: [{ translateY: 20 }] }]}
+            >
+              {chosenWord.Word}
+            </Text>
+          </View>
           <View style={styles.underlineLetterContainer}>
             {renderWordDisplay()}
           </View>
