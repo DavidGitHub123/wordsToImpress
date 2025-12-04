@@ -1,12 +1,12 @@
 import React from "react";
 import { Pressable, StyleSheet, View } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function IconButton({ name, style, onPress }) {
   return (
     <Pressable style={[styles.button, style]} onPress={onPress}>
       <View style={styles.inner}>
-        <Icon name={name} size={18} style={styles.icon} />
+        <FontAwesome5 name={name} size={18} style={styles.icon} />
       </View>
     </Pressable>
   );
