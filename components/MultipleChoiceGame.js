@@ -198,6 +198,11 @@ export default function MultipleChoiceGame(Props) {
     }
   };
 
+  const closeModalAndNavHome = () => {
+    setGameOver(false);
+    navigation.navigate("HomeScreen");
+  };
+
   return (
     <LinearGradient
       colors={["#2a5298", "#121216"]}
@@ -234,7 +239,17 @@ export default function MultipleChoiceGame(Props) {
                 </Text>
                 <Text style={style.modalText}>Basic 6-10 correct answers</Text>
                 <Text style={style.modalText}>Novice 0-5 correct answers</Text>
-                <HomeButton navigation={navigation} />
+
+                <AppButton
+                  icon="home"
+                  title="Home"
+                  size="small"
+                  backgroundColor="#E89020"
+                  borderColor="#fff"
+                  fontWeight="700"
+                  style={style}
+                  onPress={closeModalAndNavHome}
+                />
               </View>
             </View>
           </Modal>
