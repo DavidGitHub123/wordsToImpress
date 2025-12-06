@@ -20,6 +20,11 @@
         {
           "ios": {
             "useFrameworks": "static"
+          },
+          "android": {
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,
+            "buildToolsVersion": "35.0.0"
           }
         }
       ],
@@ -33,13 +38,17 @@
       ]
     ],
     "react-native-google-mobile-ads": {
-      "android_app_id": "ca-app-pub-1040382127397444~5465177802",
-      "ios_app_id": "ca-app-pub-1040382127397444~5066556709"
+      "android_app_id": "ca-app-pub-xxxxxxxxxxxxxxxx",
+      "ios_app_id": "ca-app-pub-xxxxxxxxxxxxxxxxxx"
     },
     "name": "Words To Impress",
     "slug": "RN_WordsToImpress",
     "android": {
-      "package": "com.RN_WordsToImpress"
+      "package": "com.RN_WordsToImpress",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/appIcon.png",
+        "backgroundColor": "#89CFF0"
+      }
     },
     "ios": {
       "bundleIdentifier": "com.WTI"
