@@ -51,7 +51,10 @@
       }
     },
     "ios": {
-      "bundleIdentifier": "com.WTI"
+      "bundleIdentifier": "com.WTI",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "icon": "./assets/appIcon.png",
     "owner": "wordtoimpress",
