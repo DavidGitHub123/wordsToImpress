@@ -1,49 +1,24 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { View, StyleSheet, Platform } from "react-native";
-import mobileAds, {
+import {
   BannerAd,
   BannerAdSize,
   TestIds,
-  MaxAdContentRating,
 } from "react-native-google-mobile-ads";
 
+const productionAdUnitId = {
+  ios: "ca-app-pub-1040382127397444/9978763800",
+  android: "ca-app-pub-1040382127397444/3321856116",
+};
+
+const adUnitId = __DEV__ ? TestIds.BANNER : productionAdUnitId[Platform.OS];
+
 export default function AdBanner() {
-  const productionAdUnitId = {
-    ios: "ca-app-pub-1040382127397444/9978763800",
-    android: "ca-app-pub-1040382127397444/3321856116",
-  };
-  const adUnitId = __DEV__ ? TestIds.BANNER : productionAdUnitId[Platform.OS];
-
-  useEffect(() => {
-    const asyncCallback = async () => {
-      await mobileAds().setRequestConfiguration({
-        // Update all future requests suitable for parental guidance
-        maxAdContentRating: MaxAdContentRating.PG,
-
-        // Indicates that you want your content treated as child-directed for purposes of COPPA.
-        tagForChildDirectedTreatment: false,
-
-        // Indicates that you want the ad request to be handled in a
-        // manner suitable for users under the age of consent.
-        tagForUnderAgeOfConsent: false,
-
-        // An array of test device IDs to allow.
-        testDeviceIdentifiers: ["EMULATOR"],
-      });
-      await mobileAds().initialize();
-    };
-
-    asyncCallback();
-  }, []);
-
   return (
     <View style={styles.bottomContainer}>
       <BannerAd
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-        requestOptions={{
-          requestNonPersonalizedAdsOnly: true,
-        }}
       />
     </View>
   );
