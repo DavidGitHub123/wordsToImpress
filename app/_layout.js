@@ -4,8 +4,11 @@ import { Stack } from "expo-router";
 import { useEffect } from "react";
 import AdBanner from "../components/AdBanner";
 import mobileAds from "react-native-google-mobile-ads";
+import { useStartupAd } from "../components/startUpAd";
 
 const Layout = () => {
+  useStartupAd();
+
   useEffect(() => {
     async function initAds() {
       await mobileAds().initialize();
