@@ -1,10 +1,32 @@
 {
   "expo": {
-    "newArchEnabled": true,
+    "name": "Words To Impress",
+    "slug": "RN_WordsToImpress",
     "scheme": "acme",
+    "newArchEnabled": true,
+    "icon": "./assets/appIcon.png",
+    "owner": "wordtoimpress",
+
+    "android": {
+      "package": "com.RN_WordsToImpress",
+      "permissions": ["com.google.android.gms.permission.AD_ID"],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/appIcon.png",
+        "backgroundColor": "#89CFF0"
+      }
+    },
+
+    "ios": {
+      "bundleIdentifier": "com.WTI",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+
     "web": {
       "bundler": "metro"
     },
+
     "plugins": [
       "expo-router",
       "expo-font",
@@ -37,27 +59,7 @@
         }
       ]
     ],
-    "react-native-google-mobile-ads": {
-      "android_app_id": "ca-app-pub-xxxxxxxxxxxxxxxx",
-      "ios_app_id": "ca-app-pub-xxxxxxxxxxxxxxxxxx"
-    },
-    "name": "Words To Impress",
-    "slug": "RN_WordsToImpress",
-    "android": {
-      "package": "com.RN_WordsToImpress",
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/appIcon.png",
-        "backgroundColor": "#89CFF0"
-      }
-    },
-    "ios": {
-      "bundleIdentifier": "com.WTI",
-      "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
-      }
-    },
-    "icon": "./assets/appIcon.png",
-    "owner": "wordtoimpress",
+
     "extra": {
       "eas": {
         "projectId": "6991203e-6098-440a-836b-f7695adb2b79"
