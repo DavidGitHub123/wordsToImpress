@@ -3,12 +3,14 @@
     "name": "Words To Impress",
     "slug": "RN_WordsToImpress",
     "scheme": "acme",
-    "newArchEnabled": true,
-    "icon": "./assets/appIcon.png",
     "owner": "wordtoimpress",
+    "newArchEnabled": true,
+
+    "icon": "./assets/appIcon.png",
 
     "android": {
       "package": "com.RN_WordsToImpress",
+      "versionCode": 3,
       "permissions": ["com.google.android.gms.permission.AD_ID"],
       "adaptiveIcon": {
         "foregroundImage": "./assets/appIcon.png",
@@ -30,6 +32,7 @@
     "plugins": [
       "expo-router",
       "expo-font",
+
       [
         "react-native-google-mobile-ads",
         {
@@ -37,6 +40,7 @@
           "iosAppId": "ca-app-pub-1040382127397444~5066556709"
         }
       ],
+
       [
         "expo-build-properties",
         {
@@ -50,6 +54,7 @@
           }
         }
       ],
+
       [
         "expo-splash-screen",
         {
