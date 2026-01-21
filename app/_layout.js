@@ -2,12 +2,12 @@ import React from "react";
 import { View } from "react-native";
 import { Stack } from "expo-router";
 import { useEffect } from "react";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import AdBanner from "../components/AdBanner";
 import mobileAds from "react-native-google-mobile-ads";
-import { useStartupAd } from "../components/startUpAd";
 
 const Layout = () => {
-  useStartupAd();
+  const insets = useSafeAreaInsets();
 
   useEffect(() => {
     async function initAds() {
@@ -19,7 +19,9 @@ const Layout = () => {
   return (
     <View style={{ flex: 1 }}>
       <Stack screenOptions={{ headerShown: false }} />
-      <AdBanner />
+      <View style={{ paddingBottom: insets.bottom }}>
+        <AdBanner />
+      </View>
     </View>
   );
 };
