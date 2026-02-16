@@ -5,6 +5,7 @@ import {
   BannerAdSize,
   TestIds,
 } from "react-native-google-mobile-ads";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const productionAdUnitId = {
   ios: "ca-app-pub-1040382127397444/9978763800",
@@ -14,8 +15,10 @@ const productionAdUnitId = {
 const adUnitId = __DEV__ ? TestIds.BANNER : productionAdUnitId[Platform.OS];
 
 export default function AdBanner() {
+  const insets = useSafeAreaInsets();
+
   return (
-    <View style={styles.bottomContainer}>
+    <View style={[styles.bottomContainer, { paddingBottom: insets.bottom }]}>
       <BannerAd
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
