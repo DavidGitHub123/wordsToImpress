@@ -23,6 +23,7 @@ import {
 import IconButton from "../components/IconButton";
 import { mainStyles } from "../components/mainStyles";
 import AppButton from "../components/AppButton";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const BUTTONS = [
   { title: "My Lists", icon: "list", screen: "ManageLists" },
@@ -46,8 +47,11 @@ const BUTTONS = [
   { title: "About", icon: "table", screen: "System" },
 ];
 
+const AD_BANNER_HEIGHT = 60;
+
 export default function HomeScreen({ navigation }) {
   const listNameRef = useRef(defaultList);
+  const insets = useSafeAreaInsets();
 
   const handleCloseModal = () => setShowModal(false);
 
@@ -131,7 +135,7 @@ export default function HomeScreen({ navigation }) {
           keyExtractor={(item) => item.title}
           numColumns={2}
           columnWrapperStyle={styles.row}
-          contentContainerStyle={styles.grid}
+          contentContainerStyle={[styles.grid, { paddingBottom: AD_BANNER_HEIGHT + insets.bottom + 16 }]}
         />
 
         <Modal visible={showModal} transparent={true}>
@@ -191,7 +195,6 @@ const styles = StyleSheet.create({
   },
   grid: {
     paddingHorizontal: 16,
-    paddingBottom: 30,
   },
   row: {
     justifyContent: "space-between",
