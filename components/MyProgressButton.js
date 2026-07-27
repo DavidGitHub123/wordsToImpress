@@ -16,6 +16,9 @@ function MyProgressButton({
         onPress={() =>
           navigation.navigate(destination, { selectedWord: title })
         }
+        backgroundColor="transparent" // Transparent background
+        borderColor="#BBC2CC" // Light border color
+        textColor={{ color: "#fff" }} // White text
       />
     </Pressable>
   );
@@ -25,6 +28,7 @@ const navStyle = StyleSheet.create({
   appButton: {
     alignItems: "center",
     justifyContent: "center",
+    height: 80, // Adjust height if needed
   },
 });
 

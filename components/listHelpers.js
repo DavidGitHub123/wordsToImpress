@@ -1,9 +1,13 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import data from "../data";
 
+const internalListMarker = "a1aae500-ed82-4652-9d16-733d38819a89";
+
 const getNamesOfLists = async () => {
   try {
-    return await AsyncStorage.getAllKeys();
+    return (await AsyncStorage.getAllKeys()).filter(
+      (el) => !el.includes(internalListMarker),
+    );
   } catch (e) {
     console.error(e);
   }
@@ -98,6 +102,10 @@ const _resetDefaultList = async () => {
 const getNLeastMastered = async (name, n) => {
   try {
     const list = await getList(name);
+
+    if (!(list instanceof Array)) {
+      return;
+    }
     const sortedList = list.sort((a, b) => a.mastery - b.mastery);
     return sortedList.slice(0, n);
   } catch (e) {
@@ -147,7 +155,7 @@ const initLists = async (isDev) => {
 };
 
 const isFirstTime = async () => {
-  const firstTime = "firstTimeKey3";
+  const firstTime = internalListMarker + "firstTimeKey";
   const result = await AsyncStorage.getItem(firstTime);
   if (!result) {
     await AsyncStorage.setItem(firstTime, "true");

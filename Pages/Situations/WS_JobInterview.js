@@ -6,16 +6,14 @@ import {
   Text,
   View,
   Pressable,
-  ImageBackground,
 } from "react-native";
 import { useState } from "react";
 import AppButton from "../../components/AppButton";
 import HomeButton from "../../components/HomeButton";
 import AddButton from "../../components/AddButton";
 import ListenButton from "../../components/ListenButton";
-import { navStyle } from "../../components/NavButton.js";
-import jobinterview from "../../assets/Backgrounds/jobinterview.jpg";
 import { mainStyles } from "../../components/mainStyles";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function WS_JobInterview({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -178,7 +176,8 @@ export default function WS_JobInterview({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              I did sign the contract without the CEO&apos;s consent as it was a{" "}
+              I did sign the contract without the CEO&apos;s consent as it was
+              a{" "}
             </Text>
             <Text style={style.bold}>fait accompli</Text>
             <Text style={mainStyles.text}>
@@ -347,12 +346,7 @@ export default function WS_JobInterview({ navigation }) {
   };
 
   return (
-    <ImageBackground
-      source={jobinterview}
-      imageStyle={style.image}
-      resizeMode="cover"
-      style={mainStyles.page}
-    >
+    <LinearGradient colors={["#2a5298", "#121216"]} style={mainStyles.page}>
       <SafeAreaView style={style.container}>
         <ScrollView alwaysBounceHorizontal={true}>
           <View>
@@ -470,15 +464,11 @@ export default function WS_JobInterview({ navigation }) {
           )}
         </ScrollView>
       </SafeAreaView>
-    </ImageBackground>
+    </LinearGradient>
   );
 }
 
 const style = StyleSheet.create({
-  image: {
-    opacity: 0.9,
-  },
-
   component: {
     flex: 1,
     justifyContent: "center",

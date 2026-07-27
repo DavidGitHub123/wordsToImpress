@@ -2,24 +2,21 @@ import React from "react";
 import {
   SafeAreaView,
   ScrollView,
-  ImageBackground,
   StyleSheet,
   Text,
   View,
-  Pressable,
+  StatusBar,
 } from "react-native";
 import data from "../data.js";
 import HomeButton from "../components/HomeButton";
 import ListenButton from "../components/ListenButton";
 import AddButton from "../components/AddButton";
 import { useRoute } from "@react-navigation/native";
-import { navStyle } from "../components/NavButton.js";
-import backgrounds from "../backgrounds.js";
-import AppButton from "../components/AppButton.js";
+import { LinearGradient } from "expo-linear-gradient";
 import { mainStyles } from "../components/mainStyles.js";
 
-export const isWordConjugate = (wordCanidate, dataWord) => {
-  const trucatedWord = dataWord
+export const isWordConjugate = (wordCandidate, dataWord) => {
+  const truncatedWord = dataWord
     .substring(0, dataWord.length - 1)
     .toLowerCase()
     .replace(/\W$/, "");
@@ -27,24 +24,24 @@ export const isWordConjugate = (wordCanidate, dataWord) => {
   if (dataWord.split(" ").length >= 2) {
     return dataWord.split(" ").some((w) => {
       return (
-        wordCanidate.length - w.length <= 3 &&
-        wordCanidate
+        wordCandidate.length - w.length <= 3 &&
+        wordCandidate
           .toLowerCase()
           .replace(/\W$/, "")
           .includes(w.toLowerCase().replace(/\W$/, ""))
       );
     });
   } else {
-    return wordCanidate.replace(/\W$/, "").toLowerCase().includes(trucatedWord);
+    return wordCandidate
+      .replace(/\W$/, "")
+      .toLowerCase()
+      .includes(truncatedWord);
   }
 };
 
 export default function Word({ navigation }) {
   const route = useRoute();
   const { selectedWord } = route.params;
-
-  const randomBackgroundIndex = Math.floor(Math.random() * backgrounds.length);
-  const backgroundImage = backgrounds[randomBackgroundIndex];
 
   function populate(selectedWord) {
     const wordData = data.find((el) => el.Word === selectedWord);
@@ -54,7 +51,7 @@ export default function Word({ navigation }) {
     }
 
     const sentence = wordData.Longdef.split(" ").map((el, i) => {
-      const trucatedWord = selectedWord
+      const truncatedWord = selectedWord
         .substring(0, selectedWord.length - 1)
         .toLowerCase()
         .replace(/\W$/, "");
@@ -74,14 +71,15 @@ export default function Word({ navigation }) {
         isHighlighted = el
           .replace(/\W$/, "")
           .toLowerCase()
-          .includes(trucatedWord);
+          .includes(truncatedWord);
       }
+
       return (
         <Text
           key={i}
-          style={isHighlighted ? style.highlightedText : mainStyles.text}
+          style={isHighlighted ? style.highlightedText : style.bodyText}
         >
-          {el}
+          {el + " "}
         </Text>
       );
     });
@@ -89,15 +87,18 @@ export default function Word({ navigation }) {
     return (
       <View style={mainStyles.page}>
         <View style={mainStyles.screen}>
-          <Text style={mainStyles.header}>{wordData.Word}</Text>
+          <Text style={style.title}>{wordData.Word}</Text>
+
           <Text style={style.space}>
             <Text style={style.subHead}>Pron. </Text>
-            <Text style={mainStyles.text}>{wordData.Pronunciation}</Text>
+            <Text style={style.bodyText}>{wordData.Pronunciation}</Text>
           </Text>
+
           <Text style={style.space}>
             <Text style={style.subHead}>Def: </Text>
-            <Text style={mainStyles.text}>{wordData.Shortdef}</Text>
+            <Text style={style.bodyText}>{wordData.Shortdef}</Text>
           </Text>
+
           <Text style={style.space}>
             <View style={style.flexSentence}>
               <Text style={style.subHead}>Sentence: </Text>
@@ -116,49 +117,70 @@ export default function Word({ navigation }) {
   }
 
   return (
-    <ImageBackground
-      source={backgroundImage}
-      resizeMode="cover"
+    <LinearGradient
+      colors={["#2a5298", "#121216"]}
       style={mainStyles.flexOne}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
     >
-      <SafeAreaView style={style.container}>
-        <ScrollView alwaysBounceHorizontal={true}>
-          <View>{populate(selectedWord)}</View>
-        </ScrollView>
-      </SafeAreaView>
-    </ImageBackground>
+      <View style={style.overlay}>
+        <StatusBar barStyle="light-content" />
+        <SafeAreaView style={style.container}>
+          <ScrollView>{populate(selectedWord)}</ScrollView>
+        </SafeAreaView>
+      </View>
+    </LinearGradient>
   );
 }
 
 const style = StyleSheet.create({
-  space: {
-    paddingTop: 20,
+  container: {
+    flex: 1,
+    padding: 20,
   },
-
+  overlay: {
+    flex: 1,
+  },
+  title: {
+    fontSize: 36,
+    fontWeight: "800",
+    color: "#fff",
+    textAlign: "center",
+    marginBottom: 10,
+    textShadowColor: "#FFAF40",
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 8,
+  },
+  space: {
+    marginHorizontal: "auto",
+    marginTop: 18,
+  },
   subHead: {
-    fontSize: 24,
-    color: "#FF8C00",
+    fontSize: 20,
+    color: "#FFAF40",
     fontWeight: "700",
   },
-
-  flexSentence: {
-    display: "flex",
-    flexDirection: "row",
-    flexFlow: "wrap",
-    alignItems: "baseline",
-    flexWrap: "wrap",
-    rowGap: 2,
-    columnGap: 4,
-    paddingTop: 30,
+  bodyText: {
+    fontSize: 22,
+    color: "#fff",
+    fontWeight: "400",
   },
-
   highlightedText: {
-    fontSize: 24,
-    color: "#FF8C00",
-    fontWeight: "800",
+    fontSize: 22,
+    color: "#FFAF40",
+    fontWeight: "700",
   },
-
+  flexSentence: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "baseline",
+    gap: 4,
+    marginTop: 10,
+    justifyContent: "left",
+  },
   buttons: {
-    paddingTop: 20,
+    marginTop: 30,
+    alignItems: "center",
+    gap: 14,
   },
 });

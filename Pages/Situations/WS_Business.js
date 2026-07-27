@@ -6,16 +6,14 @@ import {
   Text,
   View,
   Pressable,
-  ImageBackground,
 } from "react-native";
 import { useState } from "react";
 import HomeButton from "../../components/HomeButton";
 import AddButton from "../../components/AddButton";
 import ListenButton from "../../components/ListenButton";
-import { navStyle } from "../../components/NavButton.js";
-import business from "../../assets/Backgrounds/business.jpg";
 import AppButton from "../../components/AppButton";
 import { mainStyles } from "../../components/mainStyles";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function WS_Business({ navigation }) {
   const [selectedWord, setSelectedWord] = useState(null);
@@ -48,7 +46,8 @@ export default function WS_Business({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              The president hung on his office wall many plaques, citations, and{" "}
+              The president hung on his office wall many plaques, citations,
+              and{" "}
             </Text>
             <Text style={style.bold}>accolades.</Text>
           </Text>
@@ -197,7 +196,8 @@ export default function WS_Business({ navigation }) {
           <Text style={style.space}>
             <Text style={style.bold}>Sentence: </Text>
             <Text style={mainStyles.text}>
-              We had hoped for a well-trained consulting firm; we got a pack of{" "}
+              We had hoped for a well-trained consulting firm; we got a pack
+              of{" "}
             </Text>
             <Text style={style.bold}>feckless</Text>
             <Text style={mainStyles.text}> hangers-on.</Text>
@@ -331,12 +331,7 @@ export default function WS_Business({ navigation }) {
   };
 
   return (
-    <ImageBackground
-      source={business}
-      imageStyle={style.image}
-      resizeMode="cover"
-      style={mainStyles.page}
-    >
+    <LinearGradient colors={["#2a5298", "#121216"]} style={mainStyles.page}>
       <SafeAreaView style={style.container}>
         <ScrollView alwaysBounceHorizontal={true}>
           <View>
@@ -454,15 +449,11 @@ export default function WS_Business({ navigation }) {
           )}
         </ScrollView>
       </SafeAreaView>
-    </ImageBackground>
+    </LinearGradient>
   );
 }
 
 const style = StyleSheet.create({
-  image: {
-    opacity: 0.9,
-  },
-
   component: {
     flex: 1,
     justifyContent: "center",

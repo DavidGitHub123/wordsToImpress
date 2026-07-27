@@ -1,10 +1,24 @@
 import React from "react";
+import { View } from "react-native";
 import { Stack } from "expo-router";
-// import { useFonts } from 'expo-font';
-// import * as SplashScreen from 'expo-splash-screen';
+import { useEffect } from "react";
+import AdBanner from "../components/AdBanner";
+import mobileAds from "react-native-google-mobile-ads";
 
 const Layout = () => {
-  return <Stack screenOptions={{ headerShown: false }} />;
+  useEffect(() => {
+    async function initAds() {
+      await mobileAds().initialize();
+    }
+    initAds();
+  }, []);
+
+  return (
+    <View style={{ flex: 1, backgroundColor: "#101014" }}>
+      <Stack screenOptions={{ headerShown: false }} />
+      <AdBanner />
+    </View>
+  );
 };
 
 export default Layout;

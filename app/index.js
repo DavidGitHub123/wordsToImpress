@@ -1,19 +1,23 @@
 import React, { useEffect } from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import {
+  NavigationContainer,
+  NavigationIndependentTree,
+} from "@react-navigation/native";
 import NavigationLinks from "../Pages/NavigationLinks";
 import init from "../components/init";
 import { StyleSheet } from "react-native";
 
 function App() {
   useEffect(() => {
-    const asyncWrapper = async () => await init();
-    asyncWrapper();
+    init();
   }, []);
 
   return (
-    <NavigationContainer independent={true} style={style.flex}>
-      <NavigationLinks style={style.flex} />
-    </NavigationContainer>
+    <NavigationIndependentTree>
+      <NavigationContainer independent={true} style={style.flex}>
+        <NavigationLinks style={style.flex} />
+      </NavigationContainer>
+    </NavigationIndependentTree>
   );
 }
 

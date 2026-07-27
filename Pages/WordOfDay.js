@@ -1,19 +1,11 @@
 import React from "react";
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  ImageBackground,
-  Dimensions,
-} from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, StatusBar } from "react-native";
 import data from "../data.js";
 import HomeButton from "../components/HomeButton";
 import ListenButton from "../components/ListenButton";
 import AddButton from "../components/AddButton";
-import backgrounds from "../backgrounds.js";
-import { mainStyles } from "../components/mainStyles.js";
+import { LinearGradient } from "expo-linear-gradient";
+import { mainStyles } from "../components/mainStyles";
 
 export function GetWordOfTheDay() {
   // Multiple to make more random
@@ -23,126 +15,140 @@ export function GetWordOfTheDay() {
   const randomIndex = (day + month + year) % data.length;
   return data[randomIndex];
 }
+
 export default function WordOfDay({ navigation }) {
-  const randomBackgroundIndex = Math.floor(Math.random() * backgrounds.length);
-  const backgroundImage = backgrounds[randomBackgroundIndex];
+  const wordData = GetWordOfTheDay();
+  const selectedWord = wordData.Word;
+  const sentence = wordData.Longdef.split(" ").map((el, i) => {
+    const truncatedWord = selectedWord
+      .substring(0, selectedWord.length - 1)
+      .toLowerCase()
+      .replace(/\W$/, "");
 
-  function formatWordOfTheDay() {
-    const wordData = GetWordOfTheDay();
-    const selectedWord = wordData.Word;
-
-    const sentence = wordData.Longdef.split(" ").map((el, i) => {
-      const trucatedWord = selectedWord
-        .substring(0, selectedWord.length - 1)
+    let isHighlighted = false;
+    if (selectedWord.split(" ").length >= 2) {
+      isHighlighted = selectedWord.split(" ").some((w) => {
+        return (
+          el.length - w.length <= 3 &&
+          el
+            .toLowerCase()
+            .replace(/\W$/, "")
+            .includes(w.toLowerCase().replace(/\W$/, ""))
+        );
+      });
+    } else {
+      isHighlighted = el
+        .replace(/\W$/, "")
         .toLowerCase()
-        .replace(/\W$/, "");
-
-      let isHighlighted = false;
-      if (selectedWord.split(" ").length >= 2) {
-        isHighlighted = selectedWord.split(" ").some((w) => {
-          return (
-            el.length - w.length <= 3 &&
-            el
-              .toLowerCase()
-              .replace(/\W$/, "")
-              .includes(w.toLowerCase().replace(/\W$/, ""))
-          );
-        });
-      } else {
-        isHighlighted = el
-          .replace(/\W$/, "")
-          .toLowerCase()
-          .includes(trucatedWord);
-      }
-      return (
-        <Text
-          key={i}
-          style={isHighlighted ? style.highlightedText : mainStyles.text}
-        >
-          {el}
-        </Text>
-      );
-    });
+        .includes(truncatedWord);
+    }
     return (
-      <View style={mainStyles.page}>
+      <Text
+        key={i}
+        style={isHighlighted ? styles.highlightedText : styles.text}
+      >
+        {el}{" "}
+      </Text>
+    );
+  });
+
+  return (
+    <LinearGradient
+      colors={["#2a5298", "#121216"]}
+      style={styles.container}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+    >
+      <StatusBar barStyle="light-content" />
+      <SafeAreaView style={styles.safeArea}>
         <View style={mainStyles.screen}>
-          <Text style={{ ...mainStyles.header, paddingBottom: 10 }}>
-            {wordData.Word}
-          </Text>
-          <Text style={style.space}>
-            <Text style={style.subHead}>Pron: </Text>
-            <Text style={mainStyles.text}>{wordData.Pronunciation}</Text>
-          </Text>
-          <Text style={style.space}>
-            <Text style={style.subHead}>Def: </Text>
-            <Text style={mainStyles.text}>{wordData.Shortdef}</Text>
-          </Text>
-          <Text style={style.space}>
-            <View style={style.flexSentence}>
-              <Text style={style.subHead}>Sentence: </Text>
+          <View style={styles.header}>
+            <Text style={[styles.title, styles.neonGlow]}>Word of the Day</Text>
+            <Text style={styles.word}>{selectedWord}</Text>
+            <Text style={styles.subText}>
+              <Text style={styles.subHead}>Pron: </Text>
+              {wordData.Pronunciation}
+            </Text>
+            <Text style={styles.subText}>
+              <Text style={styles.subHead}>Def: </Text>
+              {wordData.Shortdef}
+            </Text>
+            <View style={styles.sentenceContainer}>
+              <Text style={styles.subHead}>Sentence: </Text>
               {sentence}
             </View>
-          </Text>
+          </View>
         </View>
 
-        <View style={style.buttons}>
+        <View style={styles.buttons}>
           <ListenButton audio={wordData.Audio} />
           <AddButton />
           <HomeButton navigation={navigation} />
         </View>
-      </View>
-    );
-  }
-
-  return (
-    <ImageBackground
-      source={backgroundImage}
-      resizeMode="cover"
-      style={mainStyles.backgroundImage}
-    >
-      <SafeAreaView style={style.container}>
-        <ScrollView alwaysBounceHorizontal={true}>
-          <View>
-            <Text style={mainStyles.header}>Word of the Day</Text>
-            {formatWordOfTheDay()}
-          </View>
-        </ScrollView>
       </SafeAreaView>
-    </ImageBackground>
+    </LinearGradient>
   );
 }
 
-const sentenceWidth = Dimensions.get("screen").width * 0.9;
-
-const style = StyleSheet.create({
-  space: {
-    paddingBottom: 10,
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 16,
   },
-
+  safeArea: {
+    flex: 1,
+  },
+  header: {
+    alignItems: "center",
+    marginBottom: 24,
+    marginTop: 20,
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: "800",
+    color: "#fff",
+    letterSpacing: 1,
+  },
+  neonGlow: {
+    textShadowColor: "#FFAF40",
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 8,
+    color: "#fff",
+  },
+  word: {
+    fontSize: 36,
+    fontWeight: "800",
+    color: "#fff",
+    marginTop: 15,
+  },
+  subText: {
+    fontSize: 18,
+    color: "#fff",
+    marginTop: 5,
+    textAlign: "center",
+  },
   subHead: {
-    fontSize: 24,
+    fontSize: 22,
     color: "#FF8C00",
     fontWeight: "600",
   },
-
-  flexSentence: {
-    display: "flex",
+  sentenceContainer: {
+    marginTop: 20,
     flexDirection: "row",
-    flexFlow: "wrap",
-    alignItems: "baseline",
     flexWrap: "wrap",
-    rowGap: 2,
-    columnGap: 4,
-    width: sentenceWidth,
+    justifyContent: "left",
   },
-
   highlightedText: {
-    fontSize: 24,
+    fontSize: 22,
     color: "#FF8C00",
     fontWeight: "800",
   },
-
   buttons: {
     paddingTop: 50,
+    alignItems: "center",
+  },
+  text: {
+    fontSize: 22,
+    color: "#fff",
   },
 });

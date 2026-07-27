@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, Dimensions } from "react-native";
+import { StyleSheet, View, Dimensions, Text } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 import { defaultList, getNamesOfLists } from "./listHelpers";
 
@@ -23,16 +23,25 @@ export default function ListDropdown(Props) {
     }
     setLists(userLists);
   };
+
   useEffect(() => {
     loadAndSetLists();
   }, []);
 
   const handleDropdownChange = (list) => {
-    if (!list.value) {
-      return;
-    }
+    if (!list.value) return;
     setParent(list.value);
     setSelectedList(list.value);
+  };
+
+  const renderItem = (item) => {
+    const isSelected = item.value === selectedList;
+
+    return (
+      <View style={[styles.item, isSelected ? styles.selectedItem : null]}>
+        <Text style={styles.itemText}>{item.label}</Text>
+      </View>
+    );
   };
 
   return (
@@ -44,11 +53,15 @@ export default function ListDropdown(Props) {
         selectedTextStyle={styles.selectedTextStyle}
         placeholderStyle={styles.placeholderStyle}
         inputSearchStyle={styles.inputSearchStyle}
+        itemTextStyle={styles.itemTextStyle}
+        containerStyle={styles.dropdownContainer}
         onChange={handleDropdownChange}
         maxHeight={300}
         labelField="label"
         valueField="value"
         placeholder="Select a list"
+        renderItem={renderItem}
+        search
       />
     </View>
   );
@@ -58,25 +71,59 @@ const dimensions = Dimensions.get("screen");
 
 const styles = StyleSheet.create({
   dropdown: {
-    height: 40,
-    borderBottomColor: "gray",
-    borderBottomWidth: 0.5,
-    backgroundColor: "white",
-    width: dimensions.width * 0.6,
-    borderRadius: 10,
-    margin: "auto",
+    height: 48,
+    width: dimensions.width * 0.7,
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    backgroundColor: "rgba(255,255,255,0.05)",
+    borderColor: "rgba(255,255,255,0.15)",
+    borderWidth: 1,
+    shadowColor: "#000",
+    shadowOpacity: 0.3,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 6,
+    elevation: 5,
   },
-  placeholderStyle: {
-    fontSize: 24,
+  dropdownContainer: {
+    backgroundColor: "rgba(40, 42, 54, 0.95)",
+    borderRadius: 12,
+    padding: 8,
   },
   selectedTextStyle: {
-    fontSize: 18,
-    marginLeft: 20,
+    fontSize: 16,
     fontWeight: "600",
+    color: "#fff",
+    textShadowColor: "#00ffaa",
+    textShadowRadius: 4,
+  },
+  placeholderStyle: {
+    fontSize: 16,
+    color: "#aaa",
+  },
+  itemTextStyle: {
+    color: "#fff",
+    fontSize: 16,
+    paddingVertical: 6,
   },
   inputSearchStyle: {
-    height: 30,
-    fontSize: 20,
-    fontWeight: "600",
+    height: 40,
+    fontSize: 16,
+    borderRadius: 8,
+    backgroundColor: "#2e2e2e",
+    color: "#fff",
+    paddingHorizontal: 10,
+  },
+  item: {
+    padding: 12,
+    borderRadius: 8,
+  },
+
+  selectedItem: {
+    backgroundColor: "#44475a", // darker highlight background
+  },
+
+  itemText: {
+    color: "#fff",
+    fontSize: 16,
   },
 });
