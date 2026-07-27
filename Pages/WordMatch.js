@@ -12,7 +12,7 @@ import { getNLeastMastered, defaultList } from "../components/listHelpers.js";
 import MultipleChoiceGame from "../components/MultipleChoiceGame.js";
 import ListDropdown from "../components/ListDropdown";
 import { StatusBar } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome5";
+import { FontAwesome5 as Icon } from "@expo/vector-icons";
 import { mainStyles } from "../components/mainStyles.js";
 
 const CARD_WIDTH = (Dimensions.get("window").width - 48) / 2;

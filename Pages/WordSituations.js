@@ -10,7 +10,7 @@ import {
   Dimensions,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import Icon from "react-native-vector-icons/FontAwesome5";
+import { FontAwesome5 as Icon } from "@expo/vector-icons";
 import { mainStyles } from "../components/mainStyles";
 
 const BUTTONS = [

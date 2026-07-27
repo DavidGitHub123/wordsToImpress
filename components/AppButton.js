@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, Pressable, StyleSheet } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome5";
+import { FontAwesome5 as Icon } from "@expo/vector-icons";
 
 export default function AppButton({
   onPress,

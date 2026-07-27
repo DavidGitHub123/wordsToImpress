@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, Platform } from "react-native";
 import {
   BannerAd,
@@ -16,12 +16,22 @@ const adUnitId = __DEV__ ? TestIds.BANNER : productionAdUnitId[Platform.OS];
 
 export default function AdBanner() {
   const insets = useSafeAreaInsets();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <View style={[styles.bottomContainer, { paddingBottom: insets.bottom }]}>
+    <View
+      pointerEvents={isLoaded ? "auto" : "none"}
+      style={[
+        styles.bottomContainer,
+        !isLoaded && styles.hiddenContainer,
+        { paddingBottom: isLoaded ? insets.bottom : 0 },
+      ]}
+    >
       <BannerAd
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+        onAdLoaded={() => setIsLoaded(true)}
+        onAdFailedToLoad={() => setIsLoaded(false)}
       />
     </View>
   );
@@ -35,15 +45,21 @@ const styles = StyleSheet.create({
     right: 0,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#fff", // White background for better visibility
+    backgroundColor: "#fff",
     zIndex: 1000,
-    elevation: 10, // Android shadow
-    shadowColor: "#000", // iOS shadow
+    elevation: 10,
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: -2,
     },
     shadowOpacity: 0.1,
     shadowRadius: 4,
+  },
+  hiddenContainer: {
+    backgroundColor: "transparent",
+    elevation: 0,
+    opacity: 0,
+    shadowOpacity: 0,
   },
 });
